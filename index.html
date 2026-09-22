@@ -20,20 +20,24 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  /* El body tiene altura virtual: el scroll es la línea de tiempo */
+  /* Línea de tiempo del film */
   body {
-    height: 8000px; /* ~ ritmo total del film */
+    height: 9000px;
   }
 
-  /* Escenario fijo */
   #stage {
     position: fixed;
     inset: 0;
     overflow: hidden;
     isolation: isolate;
+    perspective: 1400px;
+    perspective-origin: 50% 60%;
   }
 
-  /* ---------- SKY ---------- */
+  /* =========================================================
+     SKY — el cielo ahora ocupa TODA la escena.
+     El horizonte y el suelo se construyen encima con transform.
+     ========================================================= */
   #sky {
     position: absolute;
     inset: 0;
@@ -49,60 +53,116 @@
 
   .sky-layer[data-phase="night"] {
     background:
-      radial-gradient(120% 80% at 50% 100%, #0d1326 0%, #05070f 60%, #020306 100%);
+      radial-gradient(140% 90% at 50% 20%, #101a33 0%, #0a1024 45%, #04060d 100%);
     opacity: 1;
   }
 
   .sky-layer[data-phase="dawn"] {
     background:
       linear-gradient(180deg,
-        #1a1f3a 0%,
-        #2e2a55 30%,
-        #6b4a6e 55%,
-        #b87060 78%,
-        #e8a87c 100%);
+        #141a36 0%,
+        #262a55 25%,
+        #584a72 50%,
+        #9a6d6c 72%,
+        #d99668 92%,
+        #f0b478 100%);
   }
 
   .sky-layer[data-phase="day"] {
     background:
       linear-gradient(180deg,
-        #5b8ec4 0%,
-        #7fb0d9 35%,
-        #bcd6ea 65%,
-        #f0e2b0 88%,
-        #f8e6a4 100%);
+        #4a7fb8 0%,
+        #6ea4d2 30%,
+        #a5c8e3 55%,
+        #d5e2e8 75%,
+        #f0e6b8 92%,
+        #f8e8a8 100%);
   }
 
-  /* Sol naciente (aparece con el amanecer, se mantiene en el día) */
+  /* Estrellas: solo visibles durante la noche, se desvanecen con el amanecer */
+  #stars {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 1;
+    will-change: opacity;
+  }
+  .star {
+    position: absolute;
+    width: 1.6px;
+    height: 1.6px;
+    border-radius: 50%;
+    background: #eaf0ff;
+    opacity: 0.75;
+  }
+  .star.far { width: 1px; height: 1px; opacity: 0.45; }
+
+  /* Sol bajo, aparece en el horizonte */
   #sun {
     position: absolute;
     left: 50%;
-    top: 72%;
-    width: 42vmin;
-    height: 42vmin;
-    margin-left: -21vmin;
-    margin-top: -21vmin;
+    top: 78%;
+    width: 46vmin;
+    height: 46vmin;
+    margin-left: -23vmin;
+    margin-top: -23vmin;
     border-radius: 50%;
-    background: radial-gradient(circle at 50% 50%,
-      rgba(255, 236, 170, 1.0) 0%,
-      rgba(255, 210, 120, 0.7) 25%,
-      rgba(255, 180, 90, 0.28) 50%,
+    background: radial-gradient(circle,
+      rgba(255, 240, 190, 1.0) 0%,
+      rgba(255, 215, 130, 0.75) 22%,
+      rgba(255, 180, 95, 0.30) 48%,
       rgba(255, 160, 70, 0.0) 75%);
-    filter: blur(4px);
+    filter: blur(6px);
     opacity: 0;
     will-change: opacity, transform;
     pointer-events: none;
-    z-index: 1;
+    z-index: 2;
   }
 
-  /* ---------- TERRENO ---------- */
+  /* =========================================================
+     WORLD — todo lo que no es cielo vive aquí.
+     Este contenedor rota para "bajar la mirada".
+     ========================================================= */
+  #world {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    transform-origin: 50% 100%;   /* pivote en el fondo del viewport */
+    will-change: transform;
+  }
+
+  /* =========================================================
+     HORIZONTE — una banda luminosa que separa cielo y suelo
+     ========================================================= */
+  #horizon {
+    position: absolute;
+    left: -20%;
+    right: -20%;
+    top: 50%;
+    height: 40vh;
+    z-index: 3;
+    pointer-events: none;
+    background: linear-gradient(180deg,
+      rgba(255, 200, 120, 0.0) 0%,
+      rgba(255, 200, 120, 0.0) 40%,
+      rgba(255, 190, 110, 0.22) 58%,
+      rgba(255, 180, 90, 0.45) 68%,
+      rgba(255, 170, 80, 0.0) 88%);
+    opacity: 0;
+    will-change: opacity;
+  }
+
+  /* =========================================================
+     TERRENO — se construye desde abajo, cubriendo el cielo
+     ========================================================= */
   #terrain {
     position: absolute;
-    left: -10%;
-    right: -10%;
-    bottom: 0;
-    height: 60%;
-    z-index: 2;
+    left: -20%;
+    right: -20%;
+    bottom: -20%;
+    height: 90%;
+    z-index: 4;
     transform-origin: 50% 100%;
     will-change: transform, filter;
   }
@@ -116,48 +176,53 @@
 
   .terrain-layer[data-phase="soil-dark"] {
     background: linear-gradient(180deg,
-      rgba(8, 10, 16, 0.0) 0%,
-      #0a0c12 22%,
-      #12141b 55%,
-      #1a1c22 100%);
+      rgba(6, 8, 14, 0.0) 0%,
+      rgba(6, 8, 14, 0.5) 20%,
+      #07090e 40%,
+      #0c0e14 70%,
+      #14161c 100%);
     opacity: 1;
   }
 
   .terrain-layer[data-phase="soil-wet"] {
     background: linear-gradient(180deg,
-      rgba(20, 24, 30, 0.0) 0%,
-      #1d2128 25%,
-      #2a2f38 60%,
+      rgba(20, 24, 32, 0.0) 0%,
+      rgba(24, 28, 36, 0.7) 22%,
+      #1d222a 50%,
+      #2a2f38 80%,
       #33383f 100%);
   }
 
   .terrain-layer[data-phase="grass"] {
     background: linear-gradient(180deg,
       rgba(34, 44, 32, 0.0) 0%,
-      #2a3b2a 22%,
-      #3b5038 55%,
+      rgba(36, 46, 34, 0.65) 22%,
+      #2a3b2a 50%,
+      #3b5038 78%,
       #4c6442 100%);
   }
 
   .terrain-layer[data-phase="field"] {
     background: linear-gradient(180deg,
-      rgba(90, 80, 30, 0.0) 0%,
-      #6b6a2e 20%,
-      #8a8038 50%,
-      #b39a45 80%,
+      rgba(140, 120, 50, 0.0) 0%,
+      rgba(160, 140, 60, 0.55) 20%,
+      #8a8038 45%,
+      #b39a45 75%,
       #c9aa4d 100%);
   }
 
-  /* ---------- CÁMARA ---------- */
+  /* =========================================================
+     CÁMARA — solo aplica scale + translate a las capas de flores.
+     La orientación (mirada) vive en #world.
+     ========================================================= */
   #camera {
     position: absolute;
     inset: 0;
-    z-index: 3;
-    transform-origin: 50% 72%;
+    z-index: 5;
+    transform-origin: 50% 85%;   /* pivote bajo, cerca del suelo */
     will-change: transform;
   }
 
-  /* ---------- CAPAS DE PROFUNDIDAD ---------- */
   .layer {
     position: absolute;
     inset: 0;
@@ -169,8 +234,6 @@
   .layer[data-depth="mid"]  { z-index: 2; }
   .layer[data-depth="near"] { z-index: 3; }
 
-  /* Cada flor es un <svg><use/></svg> posicionado absolutamente.
-     Se crea una sola vez, no se recrea. */
   .flower {
     position: absolute;
     transform-origin: 50% 100%;
@@ -178,17 +241,21 @@
     backface-visibility: hidden;
   }
 
-  /* ---------- PLANTA PROTAGONISTA ---------- */
+  /* =========================================================
+     PLANTA PROTAGONISTA — vive dentro de #world para que se
+     oculte con la orientación (al inicio no debe verse).
+     ========================================================= */
   #protagonist {
     position: absolute;
     left: 50%;
-    bottom: 14%;
+    bottom: 12%;
     width: 220px;
     height: 420px;
     transform: translate(-50%, 0);
-    z-index: 4;
+    z-index: 6;
     overflow: visible;
     filter: drop-shadow(0 6px 12px rgba(0,0,0,0.45));
+    opacity: 0;   /* el JS la revela cuando el horizonte ya está visible */
   }
 
   #protagonist path,
@@ -198,30 +265,32 @@
     will-change: transform, stroke-dashoffset, opacity;
   }
 
-  /* ---------- LLUVIA ---------- */
+  /* =========================================================
+     LLUVIA
+     ========================================================= */
   #rain {
     position: absolute;
     inset: 0;
-    z-index: 5;
+    z-index: 7;
     pointer-events: none;
     will-change: opacity;
   }
 
-  /* ---------- VIÑETA ATMOSFÉRICA ---------- */
+  /* Viñeta atmosférica — más marcada al inicio (noche) */
   #vignette {
     position: absolute;
     inset: 0;
-    z-index: 6;
+    z-index: 8;
     pointer-events: none;
     background:
-      radial-gradient(120% 80% at 50% 60%,
-        rgba(0,0,0,0) 40%,
-        rgba(0,0,0,0.30) 78%,
-        rgba(0,0,0,0.55) 100%);
-    opacity: 0.9;
+      radial-gradient(130% 90% at 50% 50%,
+        rgba(0,0,0,0) 38%,
+        rgba(0,0,0,0.35) 76%,
+        rgba(0,0,0,0.65) 100%);
+    opacity: 1;
+    will-change: opacity;
   }
 
-  /* Reduced motion: la escena sigue funcionando, solo más calmada */
   @media (prefers-reduced-motion: reduce) {
     .flower { transition: none; }
   }
@@ -231,47 +300,48 @@
 
 <div id="stage">
 
-  <!-- CIELO -->
+  <!-- CIELO (fondo real de la escena) -->
   <div id="sky">
     <div class="sky-layer" data-phase="night"></div>
     <div class="sky-layer" data-phase="dawn"></div>
     <div class="sky-layer" data-phase="day"></div>
   </div>
 
+  <!-- ESTRELLAS (solo noche) -->
+  <div id="stars"></div>
+
   <!-- SOL -->
   <div id="sun"></div>
 
-  <!-- TERRENO -->
-  <div id="terrain">
-    <div class="terrain-layer" data-phase="soil-dark"></div>
-    <div class="terrain-layer" data-phase="soil-wet"></div>
-    <div class="terrain-layer" data-phase="grass"></div>
-    <div class="terrain-layer" data-phase="field"></div>
-  </div>
+  <!-- MUNDO — rota para "bajar la mirada" -->
+  <div id="world">
 
-  <!-- CÁMARA (mundo) -->
-  <div id="camera">
+    <!-- HORIZONTE -->
+    <div id="horizon"></div>
 
-    <!-- Capas de profundidad: se rellenan desde JS una vez -->
-    <div class="layer" data-depth="far"></div>
-    <div class="layer" data-depth="mid"></div>
-    <div class="layer" data-depth="near"></div>
+    <!-- TERRENO -->
+    <div id="terrain">
+      <div class="terrain-layer" data-phase="soil-dark"></div>
+      <div class="terrain-layer" data-phase="soil-wet"></div>
+      <div class="terrain-layer" data-phase="grass"></div>
+      <div class="terrain-layer" data-phase="field"></div>
+    </div>
+
+    <!-- CÁMARA (flores + profundidad) -->
+    <div id="camera">
+      <div class="layer" data-depth="far"></div>
+      <div class="layer" data-depth="mid"></div>
+      <div class="layer" data-depth="near"></div>
+    </div>
 
     <!-- PLANTA PROTAGONISTA -->
     <svg id="protagonist" viewBox="0 0 100 200" preserveAspectRatio="xMidYMax meet">
-      <!-- SEMILLA (visible al inicio) -->
       <ellipse id="seed" cx="50" cy="196" rx="3.4" ry="2.2" fill="#2a1c0e"/>
-
-      <!-- TALLO -->
       <path id="stem" d="M50 200 Q48.5 150 50 92"
             stroke="#3a6a2c" stroke-width="2.4"
             fill="none" stroke-linecap="round"/>
-
-      <!-- HOJAS -->
       <path id="leafL" d="M50 152 Q28 142 24 128 Q40 128 50 142 Z" fill="#4a8438"/>
       <path id="leafR" d="M50 132 Q72 122 76 108 Q58 110 50 124 Z" fill="#548e3e"/>
-
-      <!-- FLOR (grupo completo) -->
       <g id="bloom" transform="translate(50 88)">
         <g id="petals">
           <ellipse class="petal" cx="0" cy="-10" rx="5.6" ry="12" fill="#f4c400"/>
@@ -297,7 +367,7 @@
 
 </div>
 
-<!-- Definición reutilizable de flor para el campo -->
+<!-- Símbolos reutilizables del campo -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
     <symbol id="flower-sym" viewBox="0 0 100 200" preserveAspectRatio="xMidYMax meet">
@@ -336,61 +406,70 @@
    CONFIG
    ========================================================= */
 const CONFIG = {
-  /* Altura virtual del scroll (más alto = scroll más lento) */
-  scrollHeight: 8000,
-
-  /* Suavizado del progreso (0 = rígido, 1 = instantáneo) */
+  scrollHeight: 9000,
   smoothing: 0.09,
-
-  /* Semilla determinista del mundo */
   seed: 12345,
 
-  /* Número de flores por capa de profundidad */
-  flowersFar:  140,
-  flowersMid:  70,
-  flowersNear: 28,
+  flowersFar:  130,
+  flowersMid:  65,
+  flowersNear: 24,
 
-  /* Paleta de la flor */
-  petalColor: '#f4c400',
-  stemColor:  '#3a6a2c',
-
-  /* Ventanas narrativas (progress) — todo el ritmo vive aquí */
+  /* Ventanas narrativas — todo el ritmo vive aquí.
+     La narrativa ahora es:
+       0.00 - 0.18   noche, mirada arriba (SOLO cielo + lluvia)
+       0.18 - 0.34   la mirada empieza a bajar (estrellas se desvanecen, horizonte insinúa)
+       0.34 - 0.48   aparece el horizonte; aún nada de suelo claro
+       0.48 - 0.62   baja la mirada y aparece el suelo + primera flor
+       0.62 - 0.80   el campo se revela
+       0.80 - 1.00   elevación final, campo amarillo */
   phases: {
-    rainFadeStart:  0.10,
-    rainFadeEnd:    0.40,
+    /* mirada: 0 = mirando arriba, 1 = mirando al frente/horizonte */
+    gazeDownStart: 0.14,
+    gazeDownEnd:   0.60,
 
-    birthStart:     0.16,
-    birthEnd:       0.52,
+    /* horizonte visible */
+    horizonStart:  0.26,
+    horizonEnd:    0.48,
 
-    dawnStart:      0.18,
-    dawnEnd:        0.42,
+    /* lluvia */
+    rainFadeStart: 0.16,
+    rainFadeEnd:   0.42,
 
-    dayStart:       0.42,
-    dayEnd:         0.62,
+    /* planta protagonista: empieza cuando el suelo ya es visible */
+    birthStart:    0.46,
+    birthEnd:      0.78,
 
-    fieldStart:     0.42,
-    fieldEnd:       0.72,
+    /* amanecer */
+    dawnStart:     0.30,
+    dawnEnd:       0.58,
 
-    cameraSettle:   0.86
+    /* día */
+    dayStart:      0.58,
+    dayEnd:        0.76,
+
+    /* revelación del campo por capas */
+    fieldStart:    0.60,
+    fieldEnd:      0.90,
+
+    /* estabilización final de cámara */
+    cameraSettle:  0.88
   }
 };
 
 /* =========================================================
-   HELPERS MATEMÁTICOS
+   HELPERS
    ========================================================= */
 const clamp01 = v => v < 0 ? 0 : v > 1 ? 1 : v;
 const range = (p, a, b) => clamp01((p - a) / (b - a));
 const lerp  = (a, b, t) => a + (b - a) * t;
 
-/* Easings */
-const smooth   = t => t * t * (3 - 2 * t);
-const easeOut  = t => 1 - Math.pow(1 - t, 3);
-const easeIn   = t => t * t * t;
+const smooth    = t => t * t * (3 - 2 * t);
+const easeOut   = t => 1 - Math.pow(1 - t, 3);
+const easeIn    = t => t * t * t;
 const easeInOut = t => t < 0.5
   ? 4 * t * t * t
   : 1 - Math.pow(-2 * t + 2, 3) / 2;
 
-/* PRNG determinista (mulberry32) */
 function makeRandom(seed) {
   let s = seed >>> 0;
   return function () {
@@ -404,10 +483,7 @@ function makeRandom(seed) {
 /* =========================================================
    PROGRESS
    ========================================================= */
-const scrollState = {
-  raw: 0,
-  smooth: 0
-};
+const scrollState = { raw: 0, smooth: 0 };
 
 function readScroll() {
   const max = document.documentElement.scrollHeight - window.innerHeight;
@@ -420,14 +496,19 @@ window.addEventListener('resize', readScroll, { passive: true });
 readScroll();
 
 /* =========================================================
-   REFERENCIAS DOM
+   REFERENCIAS
    ========================================================= */
 const stage      = document.getElementById('stage');
+const worldEl    = document.getElementById('world');
 const cameraEl   = document.getElementById('camera');
+const horizonEl  = document.getElementById('horizon');
 const skyEls     = Array.from(document.querySelectorAll('.sky-layer'));
 const terrainEls = Array.from(document.querySelectorAll('.terrain-layer'));
 const sunEl      = document.getElementById('sun');
-const layers     = {
+const starsEl    = document.getElementById('stars');
+const vignetteEl = document.getElementById('vignette');
+
+const layers = {
   far:  document.querySelector('.layer[data-depth="far"]'),
   mid:  document.querySelector('.layer[data-depth="mid"]'),
   near: document.querySelector('.layer[data-depth="near"]')
@@ -441,6 +522,27 @@ const leafREl     = document.getElementById('leafR');
 const bloomEl     = document.getElementById('bloom');
 const petalsEls   = Array.from(document.querySelectorAll('#petals .petal'));
 const coreEl      = document.getElementById('core');
+
+/* =========================================================
+   ESTRELLAS — generadas una vez, distribuidas en la mitad
+   superior del cielo (donde mira la cámara al inicio)
+   ========================================================= */
+function buildStars() {
+  const rnd = makeRandom(CONFIG.seed ^ 0x9E3779B9);
+  const frag = document.createDocumentFragment();
+  const count = 140;
+  for (let i = 0; i < count; i++) {
+    const s = document.createElement('div');
+    const isFar = rnd() < 0.55;
+    s.className = 'star' + (isFar ? ' far' : '');
+    s.style.left = (rnd() * 100).toFixed(2) + '%';
+    /* Concentradas en la mitad superior para reforzar "mirar arriba" */
+    s.style.top  = (rnd() * 55).toFixed(2) + '%';
+    frag.appendChild(s);
+  }
+  starsEl.appendChild(frag);
+}
+buildStars();
 
 /* =========================================================
    CIELO
@@ -457,83 +559,193 @@ function updateSky(p) {
   skyEls[1].style.opacity = dawn;
   skyEls[2].style.opacity = day;
 
-  /* Sol: nace con el amanecer, se asienta en el día */
-  const sunIn  = smooth(range(p, cfg.dawnStart + 0.06, cfg.dawnEnd + 0.05));
-  const sunUp  = smooth(range(p, cfg.dawnStart, cfg.dayEnd));
+  /* Estrellas: solo en la noche y comienzo del amanecer */
+  const starFade = 1 - smooth(range(p, cfg.dawnStart, cfg.dawnStart + 0.14));
+  starsEl.style.opacity = starFade;
+
+  /* Sol: nace con el amanecer */
+  const sunIn  = smooth(range(p, cfg.dawnStart + 0.08, cfg.dawnEnd + 0.05));
   sunEl.style.opacity = sunIn * 0.95;
-  /* El sol sube ligeramente en pantalla */
-  const sunTop = lerp(80, 58, sunUp);
-  sunEl.style.top = sunTop + '%';
+
+  /* Viñeta: se atenúa con el día */
+  const vig = 1 - smooth(range(p, cfg.dawnStart, cfg.dayEnd)) * 0.7;
+  vignetteEl.style.opacity = vig;
 }
 
 /* =========================================================
-   TERRENO
+   MIRADA (orientación)
+   Al inicio miramos arriba; al final miramos al frente.
+   Rotación del #world alrededor de su base inferior:
+   - rotación positiva en X (con perspectiva) = "bajar la mirada".
+   ========================================================= */
+function gazeDown(p) {
+  const cfg = CONFIG.phases;
+  /* Curva en dos tiempos: primero casi nada, luego cae decidida */
+  const t = range(p, cfg.gazeDownStart, cfg.gazeDownEnd);
+  const firstHalf  = smooth(Math.min(1, t / 0.55)) * 0.35;
+  const secondHalf = easeInOut(Math.max(0, (t - 0.55) / 0.45)) * 0.65;
+  return firstHalf + secondHalf;
+}
+
+function updateWorldOrientation(p) {
+  const g = gazeDown(p);   /* 0 = mirando arriba, 1 = al frente */
+  /* rotateX: 0deg = horizonte normal, -40deg = mirada hacia arriba */
+  const rotX = lerp(-42, 0, g);
+  /* translateY: al mirar arriba empujamos el mundo hacia abajo para
+     que el cielo domine el encuadre */
+  const ty   = lerp(28, 0, g);   /* vh */
+  worldEl.style.transform =
+    `translate3d(0, ${ty}vh, 0) rotateX(${rotX}deg)`;
+}
+
+/* =========================================================
+   HORIZONTE — se insinúa tras el primer tramo de mirada
+   ========================================================= */
+function updateHorizon(p) {
+  const cfg = CONFIG.phases;
+  const t = smooth(range(p, cfg.horizonStart, cfg.horizonEnd));
+  horizonEl.style.opacity = t * 0.85;
+  /* El horizonte sube un poco al final, al elevarse la cámara */
+  const lift = smooth(range(p, cfg.fieldStart, cfg.cameraSettle)) * -6;
+  horizonEl.style.transform = `translateY(${lift}vh)`;
+}
+
+/* =========================================================
+   TERRENO — aparece después del horizonte
    ========================================================= */
 function updateTerrain(p) {
   const cfg = CONFIG.phases;
 
-  const soilWet = smooth(range(p, 0.08, 0.24));
-  const grass   = smooth(range(p, 0.26, 0.52));
+  /* Visibilidad del terreno en sí: empieza cuando ya bajamos la mirada */
+  const visible = smooth(range(p, cfg.horizonEnd - 0.05, cfg.horizonEnd + 0.10));
+
+  const soilWet = smooth(range(p, 0.42, 0.58));
+  const grass   = smooth(range(p, 0.52, 0.70));
   const field   = smooth(range(p, cfg.fieldStart, cfg.fieldEnd));
 
-  terrainEls[0].style.opacity = 1 - soilWet * 0.85;
-  terrainEls[1].style.opacity = soilWet * (1 - grass);
-  terrainEls[2].style.opacity = grass * (1 - field);
-  terrainEls[3].style.opacity = field;
+  terrainEls[0].style.opacity = (1 - soilWet * 0.85) * visible;
+  terrainEls[1].style.opacity = soilWet * (1 - grass) * visible;
+  terrainEls[2].style.opacity = grass * (1 - field) * visible;
+  terrainEls[3].style.opacity = field * visible;
 
-  /* La franja de terreno sube un poco cuando el campo se revela */
-  const lift = smooth(range(p, cfg.fieldStart, CONFIG.phases.cameraSettle));
+  /* El terreno sube ligeramente cuando la cámara se eleva */
+  const lift = smooth(range(p, cfg.fieldStart, cfg.cameraSettle));
   document.getElementById('terrain').style.transform =
-    `translateY(${lerp(0, -2, lift)}%)`;
+    `translateY(${lerp(0, -3, lift)}%)`;
 }
 
 /* =========================================================
-   CÁMARA
+   CÁMARA (zoom + Y + X sutiles)
+   Ahora empieza MÁS lejos que antes porque la noche la pasamos
+   mirando el cielo, y el zoom real ocurre cuando ya miramos
+   al campo.
    ========================================================= */
 function cameraScale(p) {
-  /* Curva por tramos: pausa inicial → retirada lenta → apertura → estabilización */
-  const a = 2.55;   // extremadamente cerca del suelo
-  const b = 2.28;   // casi igual (brote)
-  const c = 1.62;   // se empieza a abrir (amanecer)
-  const d = 0.72;   // expansión clara (día)
-  const e = 0.40;   // gran apertura (campo)
-  const f = 0.38;   // estabilización final
+  /* La escala ahora es casi plana al inicio (no importa: solo vemos cielo),
+     empieza a moverse de verdad cuando aparece el horizonte. */
+  const a = 2.10;   // noche (no visible, pero consistente)
+  const b = 2.05;   // fin de noche
+  const c = 1.85;   // horizonte asomando
+  const d = 1.10;   // baja la mirada, aparece la primera flor
+  const e = 0.55;   // revelación del campo
+  const f = 0.36;   // estabilización final elevada
 
-  if (p < 0.18) return lerp(a, b, smooth(range(p, 0.00, 0.18)));
-  if (p < 0.36) return lerp(b, c, easeInOut(range(p, 0.18, 0.36)));
-  if (p < 0.55) return lerp(c, d, easeInOut(range(p, 0.36, 0.55)));
-  if (p < 0.76) return lerp(d, e, easeOut(range(p, 0.55, 0.76)));
-  if (p < 0.92) return lerp(e, f, smooth(range(p, 0.76, 0.92)));
+  if (p < 0.26) return lerp(a, b, smooth(range(p, 0.00, 0.26)));
+  if (p < 0.42) return lerp(b, c, easeInOut(range(p, 0.26, 0.42)));
+  if (p < 0.60) return lerp(c, d, easeInOut(range(p, 0.42, 0.60)));
+  if (p < 0.80) return lerp(d, e, easeOut(range(p, 0.60, 0.80)));
+  if (p < 0.92) return lerp(e, f, smooth(range(p, 0.80, 0.92)));
   return f;
 }
 
 function cameraY(p) {
-  /* Muy sutil: al inicio mirando al suelo, al final al horizonte.
-     En vh, aplicado sobre el contenedor. */
-  const start =  18;
-  const end   = -10;
-  return lerp(start, end, easeInOut(p));
+  /* Al inicio la cámara está muy abajo y mira arriba.
+     Al final está elevada y mira al frente. */
+  const start =  36;
+  const end   = -14;
+  return lerp(start, end, easeInOut(clamp01(p)));
 }
 
 function cameraTranslateX(p) {
-  /* Desplazamiento lateral mínimo para romper la simetría del zoom */
-  return Math.sin(p * Math.PI * 0.9) * -1.2; /* vw */
+  return Math.sin(p * Math.PI * 0.9) * -1.0;
 }
 
 /* =========================================================
-   CAMPO DE FLORES (determinista, creado una sola vez)
+   PLANTA PROTAGONISTA
+   ========================================================= */
+const stemLen = stemEl.getTotalLength();
+stemEl.style.strokeDasharray  = stemLen;
+stemEl.style.strokeDashoffset = stemLen;
+
+leafLEl.style.transformOrigin = '50px 152px';
+leafREl.style.transformOrigin = '50px 132px';
+bloomEl.style.transformOrigin = '0 0';
+petalsEls.forEach(p => { p.style.transformOrigin = '0 -10px'; });
+
+function updatePlant(p) {
+  const cfg = CONFIG.phases;
+
+  /* La planta entera solo es visible cuando ya bajamos la mirada
+     y el suelo está presente. Antes, la opacidad global es 0. */
+  const appear = smooth(range(p, cfg.horizonEnd - 0.02, cfg.horizonEnd + 0.10));
+  protagonist.style.opacity = appear;
+
+  const birth = range(p, cfg.birthStart, cfg.birthEnd);
+
+  const seedFade  = 1 - smooth(range(birth, 0.00, 0.10));
+  const stemGrow  = smooth(range(birth, 0.05, 0.38));
+  const leafLGrow = smooth(range(birth, 0.28, 0.55));
+  const leafRGrow = smooth(range(birth, 0.36, 0.62));
+  const budGrow   = smooth(range(birth, 0.55, 0.80));
+  const bloomOpen = smooth(range(birth, 0.78, 1.00));
+
+  seedEl.style.opacity  = seedFade;
+  stemEl.style.strokeDashoffset = stemLen * (1 - stemGrow);
+  leafLEl.style.transform = `scale(${leafLGrow})`;
+  leafREl.style.transform = `scale(${leafRGrow})`;
+
+  const budScale  = 0.35 + 0.65 * budGrow;
+  const openScale = 0.6 + 0.4 * bloomOpen;
+  bloomEl.style.transform = `translate(50px 88px) scale(${budScale})`;
+
+  petalsEls.forEach((pet, i) => {
+    const target = i * 45;
+    pet.style.transform = `rotate(${target * bloomOpen}deg) scale(${openScale})`;
+  });
+
+  coreEl.style.opacity = 0.3 + 0.7 * bloomOpen;
+}
+
+function windPlant(t, p) {
+  const strength = smooth(range(p, 0.55, 0.78));
+  if (strength <= 0.001) {
+    protagonist.style.transform = 'translate(-50%, 0)';
+    return;
+  }
+  const sway = Math.sin(t * 0.00085) * 1.1 +
+               Math.sin(t * 0.00141 + 1.7) * 0.6;
+  const rot = sway * strength;
+  const tx  = Math.sin(t * 0.00062 + 0.4) * 1.5 * strength;
+  protagonist.style.transform =
+    `translate(calc(-50% + ${tx}px), 0) rotate(${rot}deg)`;
+  protagonist.style.transformOrigin = '50% 100%';
+}
+
+/* =========================================================
+   CAMPO DE FLORES (determinista)
+   Las flores viven en el "mundo del suelo", es decir, en su
+   propia franja vertical dentro de #camera. Al inicio están
+   fuera del encuadre inferior: la mirada hacia arriba no las
+   muestra. Aparecen cuando la mirada baja.
    ========================================================= */
 const rnd = makeRandom(CONFIG.seed);
 
-/* Profundidades: cada capa tiene su propio rango de tamaño, altura, blur y alpha */
 const DEPTHS = {
-  far:  { scaleMin: 0.06, scaleMax: 0.14, yMin: 0.55, yMax: 0.72, blurMax: 2.2, alphaMin: 0.35, alphaMax: 0.65, count: CONFIG.flowersFar  },
-  mid:  { scaleMin: 0.20, scaleMax: 0.38, yMin: 0.60, yMax: 0.82, blurMax: 0.8, alphaMin: 0.60, alphaMax: 0.90, count: CONFIG.flowersMid  },
-  near: { scaleMin: 0.55, scaleMax: 1.10, yMin: 0.72, yMax: 1.02, blurMax: 0.0, alphaMin: 0.90, alphaMax: 1.00, count: CONFIG.flowersNear }
+  far:  { scaleMin: 0.06, scaleMax: 0.14, yMin: 0.60, yMax: 0.74, blurMax: 2.2, alphaMin: 0.40, alphaMax: 0.70, count: CONFIG.flowersFar  },
+  mid:  { scaleMin: 0.20, scaleMax: 0.40, yMin: 0.68, yMax: 0.88, blurMax: 0.7, alphaMin: 0.65, alphaMax: 0.92, count: CONFIG.flowersMid  },
+  near: { scaleMin: 0.55, scaleMax: 1.10, yMin: 0.82, yMax: 1.08, blurMax: 0.0, alphaMin: 0.92, alphaMax: 1.00, count: CONFIG.flowersNear }
 };
 
-/* Cada flor es un objeto con posición normalizada (x: 0..1 del ancho del mundo,
-   y: 0..1 de la altura del mundo), escala, inclinación y fase de viento. */
 const flowers = [];
 
 function buildField() {
@@ -542,17 +754,16 @@ function buildField() {
     const container = layers[key];
 
     for (let i = 0; i < cfg.count; i++) {
-      const x = rnd();                    // 0..1
+      const x = rnd();
       const y = cfg.yMin + rnd() * (cfg.yMax - cfg.yMin);
       const scale = cfg.scaleMin + rnd() * (cfg.scaleMax - cfg.scaleMin);
-      const tilt = (rnd() - 0.5) * 22;    // grados
+      const tilt = (rnd() - 0.5) * 22;
       const phase = rnd() * Math.PI * 2;
       const speed = 0.35 + rnd() * 0.55;
       const amp = 0.6 + rnd() * 1.6;
       const alpha = cfg.alphaMin + rnd() * (cfg.alphaMax - cfg.alphaMin);
-      const useBud = rnd() < 0.14;        // algunas son solo capullos
+      const useBud = rnd() < 0.14;
 
-      /* Crear SVG una sola vez */
       const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
       svg.setAttribute('class', 'flower');
       svg.setAttribute('viewBox', '0 0 100 200');
@@ -563,7 +774,7 @@ function buildField() {
       svg.style.width  = (140 * scale) + 'px';
       svg.style.height = (280 * scale) + 'px';
       svg.style.transform = `translate(-50%, -100%) rotate(${tilt}deg)`;
-      svg.style.opacity = alpha;
+      svg.style.opacity = 0;
       if (cfg.blurMax > 0) {
         svg.style.filter = `blur(${(rnd() * cfg.blurMax).toFixed(2)}px)`;
       }
@@ -594,83 +805,21 @@ function buildField() {
 
 buildField();
 
-/* Visibilidad progresiva del campo:
-   las flores lejanas se revelan antes que las cercanas. */
+/* La revelación ahora es más tardía y en cascada:
+   primero se ve la flor protagonista, luego far, luego mid, luego near. */
 function fieldVisibility(p, layerKey) {
   const cfg = CONFIG.phases;
-  const start = layerKey === 'far'  ? cfg.fieldStart - 0.05
-              : layerKey === 'mid'  ? cfg.fieldStart + 0.04
-              :                       cfg.fieldStart + 0.14;
-  const end   = start + 0.26;
+  const offset =
+    layerKey === 'far'  ? -0.04 :
+    layerKey === 'mid'  ? +0.06 :
+                          +0.16;
+  const start = cfg.fieldStart + offset;
+  const end   = start + 0.22;
   return smooth(range(p, start, end));
 }
 
 /* =========================================================
-   PLANTA PROTAGONISTA
-   ========================================================= */
-const stemLen = stemEl.getTotalLength();
-stemEl.style.strokeDasharray  = stemLen;
-stemEl.style.strokeDashoffset = stemLen;
-
-leafLEl.style.transformOrigin = '50px 152px';
-leafREl.style.transformOrigin = '50px 132px';
-bloomEl.style.transformOrigin = '0 0';
-petalsEls.forEach(p => { p.style.transformOrigin = '0 -10px'; });
-
-function updatePlant(p) {
-  const cfg = CONFIG.phases;
-  const birth = range(p, cfg.birthStart, cfg.birthEnd);
-
-  const seedFade  = 1 - smooth(range(birth, 0.00, 0.10));
-  const stemGrow  = smooth(range(birth, 0.05, 0.38));
-  const leafLGrow = smooth(range(birth, 0.28, 0.55));
-  const leafRGrow = smooth(range(birth, 0.36, 0.62));
-  const budGrow   = smooth(range(birth, 0.55, 0.80));
-  const bloomOpen = smooth(range(birth, 0.78, 1.00));
-
-  /* Semilla: se desvanece al brotar */
-  seedEl.style.opacity = seedFade;
-
-  /* Tallo: crece por stroke-dashoffset */
-  stemEl.style.strokeDashoffset = stemLen * (1 - stemGrow);
-
-  /* Hojas: escalan desde su punto de unión */
-  leafLEl.style.transform = `scale(${leafLGrow})`;
-  leafREl.style.transform = `scale(${leafRGrow})`;
-
-  /* Flor: primero el capullo, luego los pétalos abren */
-  const budScale = 0.35 + 0.65 * budGrow;
-  const openScale = 0.6 + 0.4 * bloomOpen;
-  bloomEl.style.transform = `translate(50px 88px) scale(${budScale})`;
-
-  petalsEls.forEach((pet, i) => {
-    const target = i * 45;
-    pet.style.transform = `rotate(${target * bloomOpen}deg) scale(${openScale})`;
-  });
-
-  /* Núcleo apenas visible antes de abrir */
-  coreEl.style.opacity = 0.3 + 0.7 * bloomOpen;
-}
-
-/* Viento sutil sobre la planta protagonista (fase propia) */
-function windPlant(t, p) {
-  /* Solo empieza a moverse cuando ya hay tallo visible */
-  const strength = smooth(range(p, 0.20, 0.45));
-  if (strength <= 0.001) {
-    protagonist.style.transform = 'translate(-50%, 0)';
-    return;
-  }
-  const sway = Math.sin(t * 0.00085) * 1.1 +
-               Math.sin(t * 0.00141 + 1.7) * 0.6;
-  const rot = sway * strength;
-  const tx  = Math.sin(t * 0.00062 + 0.4) * 1.5 * strength;
-  protagonist.style.transform =
-    `translate(calc(-50% + ${tx}px), 0) rotate(${rot}deg)`;
-  protagonist.style.transformOrigin = '50% 100%';
-}
-
-/* =========================================================
-   LLUVIA (canvas, pool fijo)
+   LLUVIA
    ========================================================= */
 const rainCanvas = document.getElementById('rain');
 const rctx = rainCanvas.getContext('2d');
@@ -692,10 +841,10 @@ function buildRain() {
   const MAX = 520;
   rainDrops = new Array(MAX);
   for (let i = 0; i < MAX; i++) {
-    const depth = rnd();                     // 0 lejos, 1 cerca
+    const depth = rnd();
     rainDrops[i] = {
-      x: rnd(),                              // 0..1
-      y: rnd(),                              // 0..1
+      x: rnd(),
+      y: rnd(),
       depth,
       len: 8 + depth * 26,
       speed: 0.55 + depth * 1.7,
@@ -709,14 +858,11 @@ function rainIntensity(p) {
   if (p <= cfg.rainFadeStart) return 1.0;
   if (p >= cfg.rainFadeEnd)   return 0.0;
   const t = range(p, cfg.rainFadeStart, cfg.rainFadeEnd);
-  /* Curva con caída inicial suave y desaparición progresiva */
   return (1 - smooth(t)) * (1 - easeIn(t) * 0.4);
 }
 
 function updateRain(dt, p) {
   const intensity = rainIntensity(p);
-
-  /* Fade global del canvas */
   rainCanvas.style.opacity = intensity;
 
   if (intensity <= 0.01) {
@@ -726,7 +872,6 @@ function updateRain(dt, p) {
 
   rctx.clearRect(0, 0, rainW, rainH);
 
-  /* Ajuste del color según la hora del día */
   const dawn = smooth(range(p, CONFIG.phases.dawnStart, CONFIG.phases.dawnEnd));
   const r = Math.round(lerp(180, 220, dawn));
   const g = Math.round(lerp(200, 225, dawn));
@@ -735,14 +880,9 @@ function updateRain(dt, p) {
   for (let i = 0; i < rainDrops.length; i++) {
     const d = rainDrops[i];
 
-    /* Movimiento */
     d.y += d.speed * (dt / 1000) * (0.8 + intensity * 1.4);
-    if (d.y > 1.15) {
-      d.y = -0.15;
-      d.x = rnd();
-    }
+    if (d.y > 1.15) { d.y = -0.15; d.x = rnd(); }
 
-    /* Deriva horizontal sutil (viento) */
     d.x += (dt / 1000) * 0.012 * (0.3 + d.depth);
 
     const px = d.x * rainW;
@@ -768,22 +908,19 @@ function updateField(p, t) {
     const f = flowers[i];
     const vis = fieldVisibility(p, f.layer);
 
-    /* Solo la capa near tiene viento apreciable */
     let sway = 0;
     if (f.depthFactor > 0.1) {
       sway = Math.sin(t * 0.0007 * f.speed + f.phase) * f.amp * f.depthFactor;
     }
 
-    /* Parallax: cada capa reacciona distinto al zoom de cámara */
-    const parallax = (1 - camScale) * 12 * f.depthFactor;
+    /* Parallax vertical según alejamiento de cámara */
+    const parallax = (1 - camScale) * 14 * f.depthFactor;
     const yOffset  = parallax;
 
-    /* Composición del transform: posición base + inclinación + viento + parallax */
     f.el.style.transform =
       `translate(-50%, calc(-100% + ${yOffset}px)) ` +
       `rotate(${f.tilt + sway}deg)`;
 
-    /* Opacidad: se revela por capa + refuerzo en primer plano */
     f.el.style.opacity = f.alpha * vis;
   }
 }
@@ -795,26 +932,29 @@ let lastT = performance.now();
 let time = 0;
 
 function frame(now) {
-  const dt = Math.min(now - lastT, 50); // evitar saltos grandes
+  const dt = Math.min(now - lastT, 50);
   lastT = now;
   time = now;
 
-  /* Suavizar progreso (reversible) */
   scrollState.smooth += (scrollState.raw - scrollState.smooth) * CONFIG.smoothing;
   if (Math.abs(scrollState.raw - scrollState.smooth) < 0.0002) {
     scrollState.smooth = scrollState.raw;
   }
   const p = scrollState.smooth;
 
-  /* Cámara */
+  /* 1. Orientación del mundo (mirar arriba → mirar al frente) */
+  updateWorldOrientation(p);
+
+  /* 2. Cámara (zoom + altura) */
   const s = cameraScale(p);
   const y = cameraY(p);
   const x = cameraTranslateX(p);
   cameraEl.style.transform =
     `translate3d(${x}vw, ${y}vh, 0) scale(${s})`;
 
-  /* Sistemas del mundo */
+  /* 3. Sistemas visuales */
   updateSky(p);
+  updateHorizon(p);
   updateTerrain(p);
   updatePlant(p);
   updateField(p, time);
@@ -831,8 +971,9 @@ function init() {
   resizeRain();
   buildRain();
   readScroll();
-  /* Forzar al menos un frame de estado coherente */
   scrollState.smooth = scrollState.raw;
+  /* Primer frame coherente antes de arrancar el loop */
+  updateWorldOrientation(scrollState.smooth);
   requestAnimationFrame(frame);
 }
 
