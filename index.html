@@ -131,7 +131,13 @@
   .layer[data-depth="mid"]  { z-index: 2; }
   .layer[data-depth="near"] { z-index: 3; }
 
-  .flower { position: absolute; transform-origin: 50% 100%; will-change: transform; backface-visibility: hidden; }
+  .flower {
+    position: absolute;
+    transform-origin: 50% 100%;
+    will-change: transform;
+    backface-visibility: hidden;
+    overflow: visible;
+  }
 
   /* PROTAGONISTA */
   #protagonist {
@@ -159,19 +165,21 @@
 
   /* FINAL TEXT */
   #final-text {
-    position: absolute; left: 50%; top: 46%;
+    position: absolute; left: 50%; top: 42%;
     transform: translate(-50%, -50%);
     z-index: 10;
-    max-width: 28ch;
+    max-width: 30ch;
     text-align: center;
     font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
     font-style: italic;
     font-weight: 400;
-    font-size: clamp(1.05rem, 2.4vw, 1.7rem);
-    line-height: 1.5;
+    font-size: clamp(1.1rem, 2.4vw, 1.75rem);
+    line-height: 1.55;
     letter-spacing: 0.012em;
     color: #fff6dd;
-    text-shadow: 0 2px 18px rgba(120, 60, 20, 0.55), 0 0 40px rgba(255, 200, 120, 0.35);
+    text-shadow:
+      0 2px 18px rgba(120, 60, 20, 0.6),
+      0 0 44px rgba(255, 200, 120, 0.4);
     opacity: 0;
     pointer-events: none;
     will-change: opacity, transform;
@@ -209,7 +217,7 @@
       <div class="layer" data-depth="near"></div>
     </div>
 
-    <!-- PROTAGONISTA: construida con la MISMA anatomía que el campo -->
+    <!-- PROTAGONISTA — misma especie que el campo -->
     <svg id="protagonist" viewBox="0 0 100 200" preserveAspectRatio="xMidYMax meet">
       <ellipse id="seed" cx="50" cy="196" rx="3.2" ry="2" fill="#241609"/>
 
@@ -244,55 +252,73 @@
 <!-- SÍMBOLOS SVG — anatomía única y reutilizable -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
-    <!-- Pétalo orgánico: curva suave, ancho proporcional, sin ángulos duros -->
-    <symbol id="petal-sym" viewBox="-10 -24 20 24" preserveAspectRatio="xMidYMid meet">
-      <path d="M0 -23
-               C 5.5 -19, 9 -12, 9 -6
-               C 9 -1, 5.5 0, 0 0
-               C -5.5 0, -9 -1, -9 -6
-               C -9 -12, -5.5 -19, 0 -23 Z"
+    <!--
+      PÉTALO — geometría robusta.
+      El pétalo nace EXACTAMENTE en (0,0) y crece hacia ARRIBA (eje -Y).
+      La silueta es orgánica, ancha en el centro, redondeada en la punta
+      y ligeramente estrechada en la base para conectar con el núcleo.
+      El viewBox está centrado en el origen con margen suficiente.
+    -->
+    <symbol id="petal-sym" viewBox="-11 -25 22 26" preserveAspectRatio="xMidYMid meet">
+      <path d="M0 0
+               C -4.5 -1.5, -8.5 -6.5, -8.5 -13
+               C -8.5 -19, -4.5 -24, 0 -24
+               C 4.5 -24, 8.5 -19, 8.5 -13
+               C 8.5 -6.5, 4.5 -1.5, 0 0 Z"
             fill="currentColor"/>
-      <path d="M0 -21 C 0 -14, 0 -8, 0 -1"
-            stroke="rgba(255,255,255,0.28)" stroke-width="0.55" fill="none" stroke-linecap="round"/>
+      <path d="M0 -3 L0 -21"
+            stroke="rgba(255,255,255,0.32)"
+            stroke-width="0.5"
+            fill="none"
+            stroke-linecap="round"/>
     </symbol>
 
-    <!-- FLOR COMPLETA (misma anatomía que la protagonista) -->
+    <!--
+      FLOR COMPLETA
+      Los 8 pétalos se rotan 45° cada uno alrededor del punto (0,0).
+      Como el pétalo nace en (0,0), todos los pétalos convergen
+      EXACTAMENTE en el mismo centro. El núcleo se dibuja ENCIMA.
+    -->
     <symbol id="flower-sym" viewBox="0 0 100 200" preserveAspectRatio="xMidYMax meet">
       <path d="M50 200 C50 178 49.4 150 50 106"
             stroke="#3f7a2f" stroke-width="2.8"
             fill="none" stroke-linecap="round"/>
       <path d="M50 160 C36 158 24 148 22 136 C36 136 48 146 50 156 Z" fill="#4a8438"/>
       <path d="M50 138 C64 136 76 126 78 114 C64 114 52 124 50 134 Z" fill="#548e3e"/>
-      <g transform="translate(50 100)" fill="#f4c400">
-        <use href="#petal-sym" transform="rotate(0)"/>
-        <use href="#petal-sym" transform="rotate(45)"/>
-        <use href="#petal-sym" transform="rotate(90)"/>
-        <use href="#petal-sym" transform="rotate(135)"/>
-        <use href="#petal-sym" transform="rotate(180)"/>
-        <use href="#petal-sym" transform="rotate(225)"/>
-        <use href="#petal-sym" transform="rotate(270)"/>
-        <use href="#petal-sym" transform="rotate(315)"/>
-        <circle r="5.8" fill="#7a4d00"/>
-        <circle r="3.6" fill="#9a6410"/>
+      <g transform="translate(50 100)">
+        <g fill="#f4c400">
+          <use href="#petal-sym" transform="rotate(0)"/>
+          <use href="#petal-sym" transform="rotate(45)"/>
+          <use href="#petal-sym" transform="rotate(90)"/>
+          <use href="#petal-sym" transform="rotate(135)"/>
+          <use href="#petal-sym" transform="rotate(180)"/>
+          <use href="#petal-sym" transform="rotate(225)"/>
+          <use href="#petal-sym" transform="rotate(270)"/>
+          <use href="#petal-sym" transform="rotate(315)"/>
+        </g>
+        <circle r="5.6" fill="#7a4d00"/>
+        <circle r="3.4" fill="#9a6410"/>
       </g>
     </symbol>
 
-    <!-- CAPULLO: misma anatomía, pétalos más cerrados y núcleo visible -->
+    <!-- CAPULLO — misma anatomía, pétalos cerrados y escala reducida -->
     <symbol id="bud-sym" viewBox="0 0 100 200" preserveAspectRatio="xMidYMax meet">
       <path d="M50 200 C50 178 49.4 150 50 106"
             stroke="#3f7a2f" stroke-width="2.8"
             fill="none" stroke-linecap="round"/>
       <path d="M50 160 C36 158 24 148 22 136 C36 136 48 146 50 156 Z" fill="#4a8438"/>
       <path d="M50 138 C64 136 76 126 78 114 C64 114 52 124 50 134 Z" fill="#548e3e"/>
-      <g transform="translate(50 100)" fill="#d4a628">
-        <use href="#petal-sym" transform="rotate(0) scale(0.65,0.9)"/>
-        <use href="#petal-sym" transform="rotate(45) scale(0.65,0.9)"/>
-        <use href="#petal-sym" transform="rotate(90) scale(0.65,0.9)"/>
-        <use href="#petal-sym" transform="rotate(135) scale(0.65,0.9)"/>
-        <use href="#petal-sym" transform="rotate(180) scale(0.65,0.9)"/>
-        <use href="#petal-sym" transform="rotate(225) scale(0.65,0.9)"/>
-        <use href="#petal-sym" transform="rotate(270) scale(0.65,0.9)"/>
-        <use href="#petal-sym" transform="rotate(315) scale(0.65,0.9)"/>
+      <g transform="translate(50 100)">
+        <g fill="#d4a628">
+          <use href="#petal-sym" transform="rotate(0) scale(0.7,0.85)"/>
+          <use href="#petal-sym" transform="rotate(45) scale(0.7,0.85)"/>
+          <use href="#petal-sym" transform="rotate(90) scale(0.7,0.85)"/>
+          <use href="#petal-sym" transform="rotate(135) scale(0.7,0.85)"/>
+          <use href="#petal-sym" transform="rotate(180) scale(0.7,0.85)"/>
+          <use href="#petal-sym" transform="rotate(225) scale(0.7,0.85)"/>
+          <use href="#petal-sym" transform="rotate(270) scale(0.7,0.85)"/>
+          <use href="#petal-sym" transform="rotate(315) scale(0.7,0.85)"/>
+        </g>
         <circle r="4.6" fill="#7a4d00"/>
       </g>
     </symbol>
@@ -322,8 +348,13 @@ const CONFIG = {
 
   rainCount:   isMobile ? 260 : 460,
 
+  /* Paleta de pétalos flotantes — familia amarilla cálida */
   petalPalette: [
-    '#f6c519', '#f0b31c', '#e8a233', '#f5cf55', '#e69a3e'
+    '#f6c519', // amarillo solar
+    '#f0b31c', // amarillo dorado
+    '#e8a233', // amarillo cálido ligeramente anaranjado
+    '#f5cf55', // amarillo mantequilla
+    '#e69a3e'  // ámbar suave
   ],
 
   phases: {
@@ -440,11 +471,12 @@ const coreHiEl    = document.getElementById('core-hi');
 
 /* =========================================================
    PROTAGONIST PETALS — 8 pétalos con la MISMA forma
+   (todos anclados exactamente en (0,0) del grupo)
    ========================================================= */
-const protagonistPetals = [];
 const SVG_NS = 'http://www.w3.org/2000/svg';
 const XLINK_NS = 'http://www.w3.org/1999/xlink';
 
+const protagonistPetals = [];
 for (let i = 0; i < 8; i++) {
   const use = document.createElementNS(SVG_NS, 'use');
   use.setAttributeNS(XLINK_NS, 'xlink:href', '#petal-sym');
@@ -487,7 +519,7 @@ function updateSky(p) {
   const ft = smooth(range(p, cfg.finalTextStart, cfg.finalTextEnd));
   finalTextEl.style.opacity = ft * 0.95;
   finalTextEl.style.transform =
-    'translate(-50%, calc(-50% + ' + lerp(6, 0, ft) + 'px))';
+    'translate(-50%, calc(-50% + ' + lerp(8, 0, ft) + 'px))';
 }
 
 /* =========================================================
@@ -542,10 +574,16 @@ function updateTerrain(p) {
 }
 
 /* =========================================================
-   CAMERA
+   CAMERA — ahora termina en 0.75 en lugar de 0.36
    ========================================================= */
 function cameraScale(p) {
-  const a = 2.10, b = 2.05, c = 1.85, d = 1.10, e = 0.55, f = 0.36;
+  const a = 2.10;   // noche muy cerca del suelo
+  const b = 2.05;   // comienzo de la retirada
+  const c = 1.85;   // se insinúa el horizonte
+  const d = 1.15;   // ya se ve el suelo, aparece la protagonista
+  const e = 0.85;   // el campo se revela, todavía con presencia
+  const f = 0.75;   // estado final: amplio pero con flores visibles
+
   if (p < 0.26) return lerp(a, b, smooth(range(p, 0.00, 0.26)));
   if (p < 0.42) return lerp(b, c, easeInOut(range(p, 0.26, 0.42)));
   if (p < 0.60) return lerp(c, d, easeInOut(range(p, 0.42, 0.60)));
@@ -554,8 +592,16 @@ function cameraScale(p) {
   return f;
 }
 
-function cameraY(p) { return lerp(36, -14, easeInOut(clamp01(p))); }
-function cameraTranslateX(p) { return Math.sin(p * Math.PI * 0.9) * -1.0; }
+function cameraY(p) {
+  /* Sube menos al final para que el campo no se vaya hacia arriba */
+  const start = 36;
+  const end   = -8;
+  return lerp(start, end, easeInOut(clamp01(p)));
+}
+
+function cameraTranslateX(p) {
+  return Math.sin(p * Math.PI * 0.9) * -1.0;
+}
 
 /* =========================================================
    PROTAGONISTA — crecimiento
@@ -588,23 +634,22 @@ function updatePlant(p, t) {
   leafLEl.style.transform = 'scale(' + leafLGrow + ')';
   leafREl.style.transform = 'scale(' + leafRGrow + ')';
 
-  /* Capullo: emerge, crece y se desvanece al abrir */
+  /* Capullo: emerge, crece y se desvanece al abrir la flor */
   budEl.style.opacity = budGrow * (1 - bloomOpen);
   budEl.style.transform = 'translate(50px 100px) scale(' + (0.55 + 0.45 * budGrow) + ')';
 
-  /* Flor: pétalos emergen desde el centro, despliegan y ganan curvatura */
+  /* Flor: los pétalos emergen desde el centro y se despliegan radialmente */
   const openEase = easeOut(bloomOpen);
   bloomEl.style.opacity = bloomOpen;
   bloomEl.style.transform = 'translate(50px 100px) scale(' + (0.88 + 0.12 * bloomOpen) + ')';
 
   for (let i = 0; i < protagonistPetals.length; i++) {
-    const p_ = protagonistPetals[i];
-    /* Apertura radial con ligero "rebote" orgánico */
-    const angle = p_.angle * openEase;
-    /* Curvatura inicial: los pétalos salen más cortos y al abrir ganan longitud */
-    const sx = 0.7 + 0.3 * openEase;
-    const sy = 0.55 + 0.45 * openEase;
-    p_.el.style.transform = 'rotate(' + angle + 'deg) scale(' + sx + ',' + sy + ')';
+    const pt = protagonistPetals[i];
+    const angle = pt.angle * openEase;
+    /* Emergen desde el centro: escala pequeña al inicio → completa al final */
+    const sx = 0.55 + 0.45 * openEase;
+    const sy = 0.35 + 0.65 * openEase;
+    pt.el.style.transform = 'rotate(' + angle + 'deg) scale(' + sx + ',' + sy + ')';
   }
 
   coreEl.style.opacity   = 0.4 + 0.6 * bloomOpen;
@@ -622,7 +667,7 @@ function updatePlant(p, t) {
 }
 
 /* =========================================================
-   CAMPO — determinista y con composición
+   CAMPO — determinista, con composición en clusters
    ========================================================= */
 const rnd = makeRandom(CONFIG.seed);
 
@@ -639,7 +684,7 @@ function buildField() {
     const cfg = DEPTHS[key];
     const container = layers[key];
 
-    /* Focos de agrupamiento: la composición no es uniforme */
+    /* Focos de agrupamiento */
     const focusCount = key === 'far' ? 7 : key === 'mid' ? 5 : 4;
     const focuses = [];
     for (let i = 0; i < focusCount; i++) {
@@ -669,11 +714,11 @@ function buildField() {
       const tilt  = (rnd() - 0.5) * 18;
       const phase = rnd() * Math.PI * 2;
       const speed = 0.35 + rnd() * 0.55;
-      const amp   = 0.5 + rnd() * 1.4;
+      const amp   = 0.4 + rnd() * 1.1;
       const alpha = cfg.alphaMin + rnd() * (cfg.alphaMax - cfg.alphaMin);
       const useBud = rnd() < 0.12;
 
-      /* Tinte dentro de la MISMA familia amarilla */
+      /* Tinte dentro de la misma familia amarilla */
       const hue = rnd();
       let tint = '#f4c400';
       if (hue < 0.15) tint = '#eeb61c';
@@ -694,11 +739,14 @@ function buildField() {
       if (cfg.blurMax > 0) {
         svg.style.filter = 'blur(' + (rnd() * cfg.blurMax).toFixed(2) + 'px)';
       }
+      /* El tinte viaja por currentColor hasta el pétalo */
       svg.style.color = tint;
 
       const use = document.createElementNS(SVG_NS, 'use');
       use.setAttributeNS(XLINK_NS, 'xlink:href', useBud ? '#bud-sym' : '#flower-sym');
       use.setAttribute('href', useBud ? '#bud-sym' : '#flower-sym');
+      /* Forzamos el fill por si acaso: el símbolo usa currentColor */
+      use.setAttribute('fill', tint);
       svg.appendChild(use);
 
       container.appendChild(svg);
@@ -810,6 +858,8 @@ function updateRain(dt, p) {
 
 /* =========================================================
    PÉTALOS FLOTANTES — sprites pre-renderizados
+   Movimiento tipo anime: viento irregular, curvas, ascensos,
+   desfases individuales, sin trayectorias lineales.
    ========================================================= */
 const petalsCanvas = document.getElementById('petals');
 const pctx = petalsCanvas.getContext('2d');
@@ -833,28 +883,29 @@ function makePetalSprite(color) {
   c.width = s;
   c.height = s;
   const g = c.getContext('2d');
-  const cx = s / 2, cy = s / 2;
-  /* Forma idéntica a #petal-sym, escalada */
-  const sx = s / 24;
-  const sy = s / 24;
+  const cx = s / 2;
+  const cy = s / 2;
+  /* Misma silueta que #petal-sym, escalada */
+  const sx = s / 26;
+  const sy = s / 26;
   g.save();
-  g.translate(cx, cy + s * 0.28);
+  g.translate(cx, cy + s * 0.30);
   g.scale(sx, sy);
   g.fillStyle = color;
   g.beginPath();
-  g.moveTo(0, -23);
-  g.bezierCurveTo(5.5, -19, 9, -12, 9, -6);
-  g.bezierCurveTo(9, -1, 5.5, 0, 0, 0);
-  g.bezierCurveTo(-5.5, 0, -9, -1, -9, -6);
-  g.bezierCurveTo(-9, -12, -5.5, -19, 0, -23);
+  g.moveTo(0, 0);
+  g.bezierCurveTo(-4.5, -1.5, -8.5, -6.5, -8.5, -13);
+  g.bezierCurveTo(-8.5, -19, -4.5, -24, 0, -24);
+  g.bezierCurveTo(4.5, -24, 8.5, -19, 8.5, -13);
+  g.bezierCurveTo(8.5, -6.5, 4.5, -1.5, 0, 0);
   g.closePath();
   g.fill();
-  /* Vena */
+  /* Vena suave */
   g.strokeStyle = 'rgba(255,255,255,0.30)';
   g.lineWidth = 0.5;
   g.beginPath();
-  g.moveTo(0, -21);
-  g.lineTo(0, -1);
+  g.moveTo(0, -3);
+  g.lineTo(0, -21);
   g.stroke();
   g.restore();
   return c;
@@ -878,14 +929,21 @@ function buildPetals() {
       depth,
       x: rnd(),
       y: rnd(),
-      size: lerp(10, 42, depth) * (0.7 + rnd() * 0.6),
-      vx: lerp(0.006, 0.020, depth) * (0.6 + rnd() * 0.8),
-      vy: lerp(0.004, 0.010, depth) * (0.5 + rnd() * 0.9),
+      /* Tamaño base por profundidad */
+      size: lerp(14, 52, depth) * (0.75 + rnd() * 0.55),
+      /* Velocidad base + deriva; el viento modulará encima */
+      vx: lerp(0.006, 0.018, depth),
+      vy: lerp(0.004, 0.009, depth),
+      /* Rotación y velocidad de rotación propias */
       rot: rnd() * Math.PI * 2,
-      rotSpd: (rnd() - 0.5) * 0.0006,
-      fx: 0.25 + rnd() * 0.5,
-      fy: 0.2  + rnd() * 0.6,
+      rotSpd: (rnd() - 0.5) * 0.0008,
+      /* Frecuencias propias para las oscilaciones */
+      fx: 0.25 + rnd() * 0.55,
+      fy: 0.20 + rnd() * 0.65,
       phase: rnd() * Math.PI * 2,
+      /* Ascensos periódicos (pétalos que suben y bajan como en anime) */
+      liftAmp: 0.5 + rnd() * 1.2,
+      liftFreq: 0.15 + rnd() * 0.35,
       sprite,
       alpha: lerp(0.35, 0.95, depth)
     };
@@ -894,7 +952,8 @@ function buildPetals() {
 
 function petalDensity(p) {
   const appear = smooth(range(p, CONFIG.phases.petalsStart, CONFIG.phases.petalsStart + 0.20));
-  const calm   = 1 - smooth(range(p, 0.94, 1.00)) * 0.55;
+  /* Al final se calman ligeramente, pero sin desaparecer */
+  const calm   = 1 - smooth(range(p, 0.94, 1.00)) * 0.45;
   return appear * calm;
 }
 
@@ -924,23 +983,31 @@ function updatePetals(dt, t, p) {
   for (let i = 0; i < floatPetals.length; i++) {
     const pt = floatPetals[i];
 
-    const oscX = Math.sin(time * pt.fx + pt.phase) * 0.0018;
-    const oscY = Math.cos(time * pt.fy + pt.phase) * 0.0012;
+    /* Oscilaciones propias — cada pétalo tiene su fase y frecuencia */
+    const oscX = Math.sin(time * pt.fx + pt.phase) * 0.0022;
+    const oscY = Math.cos(time * pt.fy + pt.phase) * 0.0015;
+    /* Ascenso suave: pétalos que suben ligeramente al ser levantados por el viento */
+    const lift = Math.sin(time * pt.liftFreq + pt.phase * 1.7) * pt.liftAmp * 0.0009;
 
-    pt.x += (pt.vx + w * 0.0009 * pt.depth + oscX) * dtSec;
-    pt.y += (pt.vy + oscY) * dtSec;
+    /* Deriva lateral: base + viento global + oscilación personal */
+    pt.x += (pt.vx + w * 0.0011 * pt.depth + oscX) * dtSec;
+    /* Deriva vertical: caída base + oscilación - lift ocasional */
+    pt.y += (pt.vy + oscY - lift) * dtSec;
+    /* Rotación continua y lenta */
     pt.rot += pt.rotSpd * dtSec * 60;
 
+    /* Wrap */
     if (pt.x > 1.15) { pt.x = -0.15; pt.y = rnd(); }
     if (pt.x < -0.15) { pt.x = 1.15; pt.y = rnd(); }
     if (pt.y > 1.15) { pt.y = -0.15; pt.x = rnd(); }
 
     const px = pt.x * petalW;
     const py = pt.y * petalH;
-    const layerPush = pt.depth * (1 - camS) * 18;
+    /* Parallax según profundidad y zoom de cámara */
+    const layerPush = pt.depth * (1 - camS) * 22;
     const finalY = py + layerPush;
 
-    const size = pt.size * (0.8 + 0.4 * pt.depth);
+    const size = pt.size * (0.85 + 0.35 * pt.depth);
 
     pctx.save();
     pctx.globalAlpha = pt.alpha * density;
