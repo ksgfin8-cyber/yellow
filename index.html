@@ -5,10 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Flores Amarillas</title>
 <style>
-  :root {
-    --bg-night: #05070f;
-  }
-
+  :root { --bg-night: #05070f; }
   * { box-sizing: border-box; }
 
   html, body {
@@ -20,9 +17,7 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  body {
-    height: 10000px;
-  }
+  body { height: 10000px; }
 
   #stage {
     position: fixed;
@@ -33,87 +28,32 @@
     perspective-origin: 50% 60%;
   }
 
-  /* =========================================================
-     SKY
-     ========================================================= */
-  #sky {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-  }
-
-  .sky-layer {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    will-change: opacity;
-  }
+  /* SKY */
+  #sky { position: absolute; inset: 0; z-index: 0; }
+  .sky-layer { position: absolute; inset: 0; opacity: 0; will-change: opacity; }
 
   .sky-layer[data-phase="night"] {
-    background:
-      radial-gradient(140% 90% at 50% 20%, #101a33 0%, #0a1024 45%, #04060d 100%);
+    background: radial-gradient(140% 90% at 50% 20%, #101a33 0%, #0a1024 45%, #04060d 100%);
     opacity: 1;
   }
-
   .sky-layer[data-phase="dawn"] {
-    background:
-      linear-gradient(180deg,
-        #141a36 0%,
-        #262a55 25%,
-        #584a72 50%,
-        #9a6d6c 72%,
-        #d99668 92%,
-        #f0b478 100%);
+    background: linear-gradient(180deg, #141a36 0%, #262a55 25%, #584a72 50%, #9a6d6c 72%, #d99668 92%, #f0b478 100%);
   }
-
   .sky-layer[data-phase="day"] {
-    background:
-      linear-gradient(180deg,
-        #4a7fb8 0%,
-        #6ea4d2 30%,
-        #a5c8e3 55%,
-        #d5e2e8 75%,
-        #f0e6b8 92%,
-        #f8e8a8 100%);
+    background: linear-gradient(180deg, #4a7fb8 0%, #6ea4d2 30%, #a5c8e3 55%, #d5e2e8 75%, #f0e6b8 92%, #f8e8a8 100%);
   }
-
   .sky-layer[data-phase="sunset"] {
-    background:
-      linear-gradient(180deg,
-        #2a3566 0%,
-        #5a4a82 22%,
-        #a45a72 46%,
-        #e0846a 68%,
-        #f2a25c 84%,
-        #fbc97a 100%);
+    background: linear-gradient(180deg, #2a3566 0%, #5a4a82 22%, #a45a72 46%, #e0846a 68%, #f2a25c 84%, #fbc97a 100%);
   }
 
-  #stars {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    pointer-events: none;
-    opacity: 1;
-    will-change: opacity;
-  }
-  .star {
-    position: absolute;
-    width: 1.6px;
-    height: 1.6px;
-    border-radius: 50%;
-    background: #eaf0ff;
-    opacity: 0.75;
-  }
+  #stars { position: absolute; inset: 0; z-index: 1; pointer-events: none; opacity: 1; }
+  .star { position: absolute; width: 1.6px; height: 1.6px; border-radius: 50%; background: #eaf0ff; opacity: 0.75; }
   .star.far { width: 1px; height: 1px; opacity: 0.45; }
 
   #sun {
-    position: absolute;
-    left: 50%;
-    top: 78%;
-    width: 46vmin;
-    height: 46vmin;
-    margin-left: -23vmin;
-    margin-top: -23vmin;
+    position: absolute; left: 50%; top: 78%;
+    width: 46vmin; height: 46vmin;
+    margin-left: -23vmin; margin-top: -23vmin;
     border-radius: 50%;
     background: radial-gradient(circle,
       rgba(255, 240, 190, 1.0) 0%,
@@ -122,30 +62,20 @@
       rgba(255, 160, 70, 0.0) 75%);
     filter: blur(6px);
     opacity: 0;
-    will-change: opacity, transform;
     pointer-events: none;
     z-index: 2;
   }
 
-  /* =========================================================
-     WORLD
-     ========================================================= */
+  /* WORLD */
   #world {
-    position: absolute;
-    inset: 0;
-    z-index: 3;
+    position: absolute; inset: 0; z-index: 3;
     transform-origin: 50% 100%;
     will-change: transform;
   }
 
   #horizon {
-    position: absolute;
-    left: -20%;
-    right: -20%;
-    top: 50%;
-    height: 40vh;
-    z-index: 3;
-    pointer-events: none;
+    position: absolute; left: -20%; right: -20%; top: 50%; height: 40vh;
+    z-index: 3; pointer-events: none;
     background: linear-gradient(180deg,
       rgba(255, 200, 120, 0.0) 0%,
       rgba(255, 200, 120, 0.0) 40%,
@@ -153,146 +83,83 @@
       rgba(255, 180, 90, 0.45) 68%,
       rgba(255, 170, 80, 0.0) 88%);
     opacity: 0;
-    will-change: opacity;
+    will-change: opacity, transform;
   }
 
   #terrain {
-    position: absolute;
-    left: -20%;
-    right: -20%;
-    bottom: -20%;
-    height: 90%;
-    z-index: 4;
-    transform-origin: 50% 100%;
-    will-change: transform, filter;
+    position: absolute; left: -20%; right: -20%; bottom: -20%; height: 90%;
+    z-index: 4; transform-origin: 50% 100%;
+    will-change: transform;
   }
-
-  .terrain-layer {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    will-change: opacity;
-  }
+  .terrain-layer { position: absolute; inset: 0; opacity: 0; will-change: opacity; }
 
   .terrain-layer[data-phase="soil-dark"] {
     background: linear-gradient(180deg,
-      rgba(6, 8, 14, 0.0) 0%,
-      rgba(6, 8, 14, 0.5) 20%,
-      #07090e 40%,
-      #0c0e14 70%,
-      #14161c 100%);
+      rgba(6, 8, 14, 0.0) 0%, rgba(6, 8, 14, 0.5) 20%,
+      #07090e 40%, #0c0e14 70%, #14161c 100%);
     opacity: 1;
   }
   .terrain-layer[data-phase="soil-wet"] {
     background: linear-gradient(180deg,
-      rgba(20, 24, 32, 0.0) 0%,
-      rgba(24, 28, 36, 0.7) 22%,
-      #1d222a 50%,
-      #2a2f38 80%,
-      #33383f 100%);
+      rgba(20, 24, 32, 0.0) 0%, rgba(24, 28, 36, 0.7) 22%,
+      #1d222a 50%, #2a2f38 80%, #33383f 100%);
   }
   .terrain-layer[data-phase="grass"] {
     background: linear-gradient(180deg,
-      rgba(34, 44, 32, 0.0) 0%,
-      rgba(36, 46, 34, 0.65) 22%,
-      #2a3b2a 50%,
-      #3b5038 78%,
-      #4c6442 100%);
+      rgba(34, 44, 32, 0.0) 0%, rgba(36, 46, 34, 0.65) 22%,
+      #2a3b2a 50%, #3b5038 78%, #4c6442 100%);
   }
   .terrain-layer[data-phase="field"] {
     background: linear-gradient(180deg,
-      rgba(140, 120, 50, 0.0) 0%,
-      rgba(160, 140, 60, 0.55) 20%,
-      #8a8038 45%,
-      #b39a45 75%,
-      #c9aa4d 100%);
+      rgba(140, 120, 50, 0.0) 0%, rgba(160, 140, 60, 0.55) 20%,
+      #8a8038 45%, #b39a45 75%, #c9aa4d 100%);
   }
   .terrain-layer[data-phase="warm"] {
     background: linear-gradient(180deg,
-      rgba(200, 140, 60, 0.0) 0%,
-      rgba(220, 160, 70, 0.35) 22%,
-      #c89638 50%,
-      #e0a548 78%,
-      #f0b958 100%);
+      rgba(200, 140, 60, 0.0) 0%, rgba(220, 160, 70, 0.35) 22%,
+      #c89638 50%, #e0a548 78%, #f0b958 100%);
   }
 
-  /* =========================================================
-     CÁMARA
-     ========================================================= */
+  /* CAMERA */
   #camera {
-    position: absolute;
-    inset: 0;
-    z-index: 5;
+    position: absolute; inset: 0; z-index: 5;
     transform-origin: 50% 85%;
     will-change: transform;
   }
-
-  .layer {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    will-change: transform, opacity, filter;
-  }
-
+  .layer { position: absolute; inset: 0; pointer-events: none; will-change: transform, opacity, filter; }
   .layer[data-depth="far"]  { z-index: 1; }
   .layer[data-depth="mid"]  { z-index: 2; }
   .layer[data-depth="near"] { z-index: 3; }
 
-  .flower {
-    position: absolute;
-    transform-origin: 50% 100%;
-    will-change: transform;
-    backface-visibility: hidden;
-  }
+  .flower { position: absolute; transform-origin: 50% 100%; will-change: transform; backface-visibility: hidden; }
 
-  /* =========================================================
-     PROTAGONISTA
-     ========================================================= */
+  /* PROTAGONISTA */
   #protagonist {
-    position: absolute;
-    left: 50%;
-    bottom: 12%;
-    width: 240px;
-    height: 480px;
+    position: absolute; left: 50%; bottom: 12%;
+    width: 260px; height: 520px;
     transform: translate(-50%, 0);
     z-index: 6;
     overflow: visible;
     filter: drop-shadow(0 6px 14px rgba(0,0,0,0.5));
     opacity: 0;
   }
-  #protagonist path,
-  #protagonist ellipse,
-  #protagonist circle,
-  #protagonist g {
-    will-change: transform, stroke-dashoffset, opacity;
-  }
 
-  /* =========================================================
-     CANVAS — lluvia y pétalos
-     ========================================================= */
-  #rain {
-    position: absolute;
-    inset: 0;
-    z-index: 7;
-    pointer-events: none;
+  /* CANVAS */
+  #rain { position: absolute; inset: 0; z-index: 7; pointer-events: none; will-change: opacity; }
+  #petals { position: absolute; inset: 0; z-index: 9; pointer-events: none; will-change: opacity; }
+
+  /* VIGNETTE */
+  #vignette {
+    position: absolute; inset: 0; z-index: 8; pointer-events: none;
+    background: radial-gradient(130% 90% at 50% 50%,
+      rgba(0,0,0,0) 38%, rgba(0,0,0,0.32) 76%, rgba(0,0,0,0.62) 100%);
+    opacity: 1;
     will-change: opacity;
   }
 
-  #petals {
-    position: absolute;
-    inset: 0;
-    z-index: 9;
-    pointer-events: none;
-    will-change: opacity;
-  }
-
-  /* =========================================================
-     FRASE FINAL
-     ========================================================= */
+  /* FINAL TEXT */
   #final-text {
-    position: absolute;
-    left: 50%;
-    top: 46%;
+    position: absolute; left: 50%; top: 46%;
     transform: translate(-50%, -50%);
     z-index: 10;
     max-width: 28ch;
@@ -304,30 +171,10 @@
     line-height: 1.5;
     letter-spacing: 0.012em;
     color: #fff6dd;
-    text-shadow:
-      0 2px 18px rgba(120, 60, 20, 0.55),
-      0 0 40px rgba(255, 200, 120, 0.35);
+    text-shadow: 0 2px 18px rgba(120, 60, 20, 0.55), 0 0 40px rgba(255, 200, 120, 0.35);
     opacity: 0;
     pointer-events: none;
-    will-change: opacity;
-  }
-
-  #vignette {
-    position: absolute;
-    inset: 0;
-    z-index: 8;
-    pointer-events: none;
-    background:
-      radial-gradient(130% 90% at 50% 50%,
-        rgba(0,0,0,0) 38%,
-        rgba(0,0,0,0.32) 76%,
-        rgba(0,0,0,0.62) 100%);
-    opacity: 1;
-    will-change: opacity;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .flower { transition: none; }
+    will-change: opacity, transform;
   }
 </style>
 </head>
@@ -347,6 +194,7 @@
 
   <div id="world">
     <div id="horizon"></div>
+
     <div id="terrain">
       <div class="terrain-layer" data-phase="soil-dark"></div>
       <div class="terrain-layer" data-phase="soil-wet"></div>
@@ -361,31 +209,28 @@
       <div class="layer" data-depth="near"></div>
     </div>
 
-    <!-- PROTAGONISTA — misma especie que el campo -->
+    <!-- PROTAGONISTA: construida con la MISMA anatomía que el campo -->
     <svg id="protagonist" viewBox="0 0 100 200" preserveAspectRatio="xMidYMax meet">
       <ellipse id="seed" cx="50" cy="196" rx="3.2" ry="2" fill="#241609"/>
 
-      <path id="stem" d="M50 200 C50 178 49.4 150 50 108"
-            stroke="#3a6a2c" stroke-width="2.6"
+      <path id="stem" d="M50 200 C50 178 49.4 150 50 106"
+            stroke="#3f7a2f" stroke-width="2.8"
             fill="none" stroke-linecap="round"/>
 
-      <path id="leafL" d="M50 158 C38 156 28 148 26 138 C36 138 46 146 50 154 Z" fill="#4a8438"/>
-      <path id="leafR" d="M50 138 C62 136 72 128 74 118 C64 118 54 126 50 134 Z" fill="#548e3e"/>
+      <path id="leafL" d="M50 160 C36 158 24 148 22 136 C36 136 48 146 50 156 Z" fill="#4a8438"/>
+      <path id="leafR" d="M50 138 C64 136 76 126 78 114 C64 114 52 124 50 134 Z" fill="#548e3e"/>
 
-      <!-- Capullo (visible antes de abrir) -->
       <g id="bud" transform="translate(50 100)" opacity="0">
-        <ellipse cx="0" cy="0" rx="5.2" ry="12" fill="#c9a423"/>
-        <ellipse cx="0" cy="-2" rx="3.2" ry="8.5" fill="#e8bc2b"/>
+        <ellipse cx="0" cy="0" rx="5.6" ry="12.5" fill="#c9a423"/>
+        <ellipse cx="0" cy="-2" rx="3.4" ry="8.8" fill="#e8bc2b"/>
       </g>
 
-      <!-- Flor (grupo completo: pétalos + núcleo) -->
       <g id="bloom" transform="translate(50 100)" opacity="0">
-        <g id="petals"></g>
-        <circle id="core" r="5.4" fill="#7a4d00"/>
-        <circle id="coreHi" r="3.4" fill="#9a6410"/>
+        <g id="protagonist-petals"></g>
+        <circle id="core" r="5.8" fill="#7a4d00"/>
+        <circle id="core-hi" r="3.6" fill="#9a6410"/>
       </g>
     </svg>
-
   </div>
 
   <canvas id="rain"></canvas>
@@ -396,31 +241,28 @@
 
 </div>
 
-<!-- =========================================================
-     SÍMBOLOS SVG — la MISMA flor para todo el mundo.
-     Anatomía coherente:
-       - tallo de 92px de alto (vive hasta y=92)
-       - flor centrada en (50, 88)
-       - 8 pétalos radiales, simétricos, unidos al centro
-       - hojas unidas al tallo en sus puntos naturales
-     ========================================================= -->
+<!-- SÍMBOLOS SVG — anatomía única y reutilizable -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
-    <!-- Pétalo base: elipse alargada vertical, anclada en (0,0), centro visual arriba -->
-    <symbol id="petal-sym" viewBox="-8 -22 16 22" preserveAspectRatio="xMidYMid meet">
-      <path d="M0 -22
-               C 6 -16, 7 -8, 0 0
-               C -7 -8, -6 -16, 0 -22 Z"
+    <!-- Pétalo orgánico: curva suave, ancho proporcional, sin ángulos duros -->
+    <symbol id="petal-sym" viewBox="-10 -24 20 24" preserveAspectRatio="xMidYMid meet">
+      <path d="M0 -23
+               C 5.5 -19, 9 -12, 9 -6
+               C 9 -1, 5.5 0, 0 0
+               C -5.5 0, -9 -1, -9 -6
+               C -9 -12, -5.5 -19, 0 -23 Z"
             fill="currentColor"/>
+      <path d="M0 -21 C 0 -14, 0 -8, 0 -1"
+            stroke="rgba(255,255,255,0.28)" stroke-width="0.55" fill="none" stroke-linecap="round"/>
     </symbol>
 
-    <!-- FLOR COMPLETA (apertura máxima) -->
+    <!-- FLOR COMPLETA (misma anatomía que la protagonista) -->
     <symbol id="flower-sym" viewBox="0 0 100 200" preserveAspectRatio="xMidYMax meet">
-      <path d="M50 200 C50 178 49.4 150 50 108"
-            stroke="#3a6a2c" stroke-width="2.6"
+      <path d="M50 200 C50 178 49.4 150 50 106"
+            stroke="#3f7a2f" stroke-width="2.8"
             fill="none" stroke-linecap="round"/>
-      <path d="M50 158 C38 156 28 148 26 138 C36 138 46 146 50 154 Z" fill="#4a8438"/>
-      <path d="M50 138 C62 136 72 128 74 118 C64 118 54 126 50 134 Z" fill="#548e3e"/>
+      <path d="M50 160 C36 158 24 148 22 136 C36 136 48 146 50 156 Z" fill="#4a8438"/>
+      <path d="M50 138 C64 136 76 126 78 114 C64 114 52 124 50 134 Z" fill="#548e3e"/>
       <g transform="translate(50 100)" fill="#f4c400">
         <use href="#petal-sym" transform="rotate(0)"/>
         <use href="#petal-sym" transform="rotate(45)"/>
@@ -430,28 +272,28 @@
         <use href="#petal-sym" transform="rotate(225)"/>
         <use href="#petal-sym" transform="rotate(270)"/>
         <use href="#petal-sym" transform="rotate(315)"/>
-        <circle r="5.4" fill="#7a4d00"/>
-        <circle r="3.4" fill="#9a6410"/>
+        <circle r="5.8" fill="#7a4d00"/>
+        <circle r="3.6" fill="#9a6410"/>
       </g>
     </symbol>
 
-    <!-- CAPULLO (apertura parcial) -->
+    <!-- CAPULLO: misma anatomía, pétalos más cerrados y núcleo visible -->
     <symbol id="bud-sym" viewBox="0 0 100 200" preserveAspectRatio="xMidYMax meet">
-      <path d="M50 200 C50 178 49.4 150 50 108"
-            stroke="#3a6a2c" stroke-width="2.6"
+      <path d="M50 200 C50 178 49.4 150 50 106"
+            stroke="#3f7a2f" stroke-width="2.8"
             fill="none" stroke-linecap="round"/>
-      <path d="M50 158 C38 156 28 148 26 138 C36 138 46 146 50 154 Z" fill="#4a8438"/>
-      <path d="M50 138 C62 136 72 128 74 118 C64 118 54 126 50 134 Z" fill="#548e3e"/>
+      <path d="M50 160 C36 158 24 148 22 136 C36 136 48 146 50 156 Z" fill="#4a8438"/>
+      <path d="M50 138 C64 136 76 126 78 114 C64 114 52 124 50 134 Z" fill="#548e3e"/>
       <g transform="translate(50 100)" fill="#d4a628">
-        <use href="#petal-sym" transform="rotate(0) scale(0.6,0.85)"/>
-        <use href="#petal-sym" transform="rotate(45) scale(0.6,0.85)"/>
-        <use href="#petal-sym" transform="rotate(90) scale(0.6,0.85)"/>
-        <use href="#petal-sym" transform="rotate(135) scale(0.6,0.85)"/>
-        <use href="#petal-sym" transform="rotate(180) scale(0.6,0.85)"/>
-        <use href="#petal-sym" transform="rotate(225) scale(0.6,0.85)"/>
-        <use href="#petal-sym" transform="rotate(270) scale(0.6,0.85)"/>
-        <use href="#petal-sym" transform="rotate(315) scale(0.6,0.85)"/>
-        <circle r="4.4" fill="#7a4d00"/>
+        <use href="#petal-sym" transform="rotate(0) scale(0.65,0.9)"/>
+        <use href="#petal-sym" transform="rotate(45) scale(0.65,0.9)"/>
+        <use href="#petal-sym" transform="rotate(90) scale(0.65,0.9)"/>
+        <use href="#petal-sym" transform="rotate(135) scale(0.65,0.9)"/>
+        <use href="#petal-sym" transform="rotate(180) scale(0.65,0.9)"/>
+        <use href="#petal-sym" transform="rotate(225) scale(0.65,0.9)"/>
+        <use href="#petal-sym" transform="rotate(270) scale(0.65,0.9)"/>
+        <use href="#petal-sym" transform="rotate(315) scale(0.65,0.9)"/>
+        <circle r="4.6" fill="#7a4d00"/>
       </g>
     </symbol>
   </defs>
@@ -464,31 +306,24 @@
    CONFIG
    ========================================================= */
 const isMobile = matchMedia('(max-width: 720px)').matches;
-const prefersReduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 const CONFIG = {
   scrollHeight: 10000,
   smoothing: 0.09,
   seed: 12345,
 
-  /* Calidad > cantidad */
   flowersFar:  isMobile ?  70 : 120,
   flowersMid:  isMobile ?  40 :  70,
   flowersNear: isMobile ?  14 :  24,
 
-  petalsFar:   isMobile ?  18 :  32,
+  petalsFar:   isMobile ?  18 :  34,
   petalsMid:   isMobile ?  10 :  18,
   petalsNear:  isMobile ?   5 :  10,
 
   rainCount:   isMobile ? 260 : 460,
 
-  /* Paleta cálida de pétalos flotantes */
   petalPalette: [
-    '#f6c519', // amarillo puro
-    '#f0b31c', // amarillo dorado
-    '#e8a233', // amarillo cálido
-    '#f5cf55', // amarillo claro iluminado
-    '#e69a3e'  // naranja suave
+    '#f6c519', '#f0b31c', '#e8a233', '#f5cf55', '#e69a3e'
   ],
 
   phases: {
@@ -510,8 +345,7 @@ const CONFIG = {
     fieldEnd:      0.90,
     finalTextStart: 0.90,
     finalTextEnd:   0.99,
-    petalsStart:   0.50,
-    petalsPeak:    0.86
+    petalsStart:   0.50
   }
 };
 
@@ -555,12 +389,13 @@ window.addEventListener('resize', readScroll, { passive: true });
 readScroll();
 
 /* =========================================================
-   DOM
+   DOM REFS
    ========================================================= */
 const stage      = document.getElementById('stage');
 const worldEl    = document.getElementById('world');
 const cameraEl   = document.getElementById('camera');
 const horizonEl  = document.getElementById('horizon');
+const terrainEl  = document.getElementById('terrain');
 const skyEls     = Array.from(document.querySelectorAll('.sky-layer'));
 const terrainEls = Array.from(document.querySelectorAll('.terrain-layer'));
 const sunEl      = document.getElementById('sun');
@@ -581,12 +416,12 @@ const leafLEl     = document.getElementById('leafL');
 const leafREl     = document.getElementById('leafR');
 const budEl       = document.getElementById('bud');
 const bloomEl     = document.getElementById('bloom');
-const petalsGroup = document.getElementById('petals');
+const petalsGroup = document.getElementById('protagonist-petals');
 const coreEl      = document.getElementById('core');
-const coreHiEl    = document.getElementById('coreHi');
+const coreHiEl    = document.getElementById('core-hi');
 
 /* =========================================================
-   ESTRELLAS
+   STARS
    ========================================================= */
 (function buildStars() {
   const rnd = makeRandom(CONFIG.seed ^ 0x9E3779B9);
@@ -604,13 +439,16 @@ const coreHiEl    = document.getElementById('coreHi');
 })();
 
 /* =========================================================
-   PROTAGONISTA — construir 8 pétalos radiales una sola vez
+   PROTAGONIST PETALS — 8 pétalos con la MISMA forma
    ========================================================= */
 const protagonistPetals = [];
+const SVG_NS = 'http://www.w3.org/2000/svg';
+const XLINK_NS = 'http://www.w3.org/1999/xlink';
+
 for (let i = 0; i < 8; i++) {
-  const use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
+  const use = document.createElementNS(SVG_NS, 'use');
+  use.setAttributeNS(XLINK_NS, 'xlink:href', '#petal-sym');
   use.setAttribute('href', '#petal-sym');
-  use.setAttributeNS('http://www.w3.org/1999/xlink', 'href', '#petal-sym');
   use.setAttribute('fill', '#f4c400');
   use.style.transformOrigin = '0 0';
   petalsGroup.appendChild(use);
@@ -618,16 +456,16 @@ for (let i = 0; i < 8; i++) {
 }
 
 /* =========================================================
-   CIELO
+   SKY
    ========================================================= */
 function updateSky(p) {
   const cfg = CONFIG.phases;
 
-  const night = 1 - smooth(range(p, cfg.dawnStart, cfg.dawnEnd));
-  const dawn  = smooth(range(p, cfg.dawnStart, cfg.dawnEnd)) *
-                (1 - smooth(range(p, cfg.dayStart, cfg.dayEnd)));
-  const day   = smooth(range(p, cfg.dayStart, cfg.dayEnd)) *
-                (1 - smooth(range(p, cfg.sunsetStart, cfg.sunsetEnd)));
+  const night  = 1 - smooth(range(p, cfg.dawnStart, cfg.dawnEnd));
+  const dawn   = smooth(range(p, cfg.dawnStart, cfg.dawnEnd)) *
+                 (1 - smooth(range(p, cfg.dayStart, cfg.dayEnd)));
+  const day    = smooth(range(p, cfg.dayStart, cfg.dayEnd)) *
+                 (1 - smooth(range(p, cfg.sunsetStart, cfg.sunsetEnd)));
   const sunset = smooth(range(p, cfg.sunsetStart, cfg.sunsetEnd));
 
   skyEls[0].style.opacity = night;
@@ -638,23 +476,18 @@ function updateSky(p) {
   const starFade = 1 - smooth(range(p, cfg.dawnStart, cfg.dawnStart + 0.14));
   starsEl.style.opacity = starFade;
 
-  /* Sol: nace con el amanecer, se pone hacia el final */
   const sunIn  = smooth(range(p, cfg.dawnStart + 0.08, cfg.dawnEnd + 0.05));
   const sunOut = smooth(range(p, cfg.sunsetStart + 0.04, cfg.sunsetEnd));
   sunEl.style.opacity = sunIn * (1 - sunOut * 0.4) * 0.95;
-  const sunTop = lerp(78, 62, smooth(range(p, cfg.dawnStart, cfg.sunsetEnd)));
-  sunEl.style.top = sunTop + '%';
+  sunEl.style.top = lerp(78, 62, smooth(range(p, cfg.dawnStart, cfg.sunsetEnd))) + '%';
 
-  /* Viñeta: se atenúa con el día */
   const vig = 1 - smooth(range(p, cfg.dawnStart, cfg.dayEnd)) * 0.7;
   vignetteEl.style.opacity = vig;
 
-  /* Frase final integrada en el paisaje */
   const ft = smooth(range(p, cfg.finalTextStart, cfg.finalTextEnd));
   finalTextEl.style.opacity = ft * 0.95;
-  /* Un pelín de desplazamiento vertical, casi imperceptible */
   finalTextEl.style.transform =
-    `translate(-50%, calc(-50% + ${lerp(6, 0, ft)}px))`;
+    'translate(-50%, calc(-50% + ' + lerp(6, 0, ft) + 'px))';
 }
 
 /* =========================================================
@@ -672,23 +505,22 @@ function updateWorldOrientation(p) {
   const g = gazeDown(p);
   const rotX = lerp(-42, 0, g);
   const ty   = lerp(28, 0, g);
-  worldEl.style.transform =
-    `translate3d(0, ${ty}vh, 0) rotateX(${rotX}deg)`;
+  worldEl.style.transform = 'translate3d(0, ' + ty + 'vh, 0) rotateX(' + rotX + 'deg)';
 }
 
 /* =========================================================
-   HORIZONTE
+   HORIZON
    ========================================================= */
 function updateHorizon(p) {
   const cfg = CONFIG.phases;
   const t = smooth(range(p, cfg.horizonStart, cfg.horizonEnd));
   horizonEl.style.opacity = t * 0.85;
   const lift = smooth(range(p, cfg.fieldStart, 0.88)) * -6;
-  horizonEl.style.transform = `translateY(${lift}vh)`;
+  horizonEl.style.transform = 'translateY(' + lift + 'vh)';
 }
 
 /* =========================================================
-   TERRENO
+   TERRAIN
    ========================================================= */
 function updateTerrain(p) {
   const cfg = CONFIG.phases;
@@ -706,21 +538,14 @@ function updateTerrain(p) {
   terrainEls[4].style.opacity = field * warm * visible;
 
   const lift = smooth(range(p, cfg.fieldStart, 0.88));
-  document.getElementById('terrain').style.transform =
-    `translateY(${lerp(0, -3, lift)}%)`;
+  terrainEl.style.transform = 'translateY(' + lerp(0, -3, lift) + '%)';
 }
 
 /* =========================================================
-   CÁMARA
+   CAMERA
    ========================================================= */
 function cameraScale(p) {
-  const a = 2.10;
-  const b = 2.05;
-  const c = 1.85;
-  const d = 1.10;
-  const e = 0.55;
-  const f = 0.36;
-
+  const a = 2.10, b = 2.05, c = 1.85, d = 1.10, e = 0.55, f = 0.36;
   if (p < 0.26) return lerp(a, b, smooth(range(p, 0.00, 0.26)));
   if (p < 0.42) return lerp(b, c, easeInOut(range(p, 0.26, 0.42)));
   if (p < 0.60) return lerp(c, d, easeInOut(range(p, 0.42, 0.60)));
@@ -729,31 +554,23 @@ function cameraScale(p) {
   return f;
 }
 
-function cameraY(p) {
-  const start =  36;
-  const end   = -14;
-  return lerp(start, end, easeInOut(clamp01(p)));
-}
-
-function cameraTranslateX(p) {
-  return Math.sin(p * Math.PI * 0.9) * -1.0;
-}
+function cameraY(p) { return lerp(36, -14, easeInOut(clamp01(p))); }
+function cameraTranslateX(p) { return Math.sin(p * Math.PI * 0.9) * -1.0; }
 
 /* =========================================================
-   PLANTA PROTAGONISTA — crecimiento
+   PROTAGONISTA — crecimiento
    ========================================================= */
 const stemLen = stemEl.getTotalLength();
 stemEl.style.strokeDasharray  = stemLen;
 stemEl.style.strokeDashoffset = stemLen;
 
-leafLEl.style.transformOrigin = '50px 158px';
-leafREl.style.transformOrigin = '50px 138px';
-budEl.style.transformOrigin  = '50px 100px';
-bloomEl.style.transformOrigin = '50px 100px';
+leafLEl.style.transformOrigin  = '50px 160px';
+leafREl.style.transformOrigin  = '50px 138px';
+budEl.style.transformOrigin    = '50px 100px';
+bloomEl.style.transformOrigin  = '50px 100px';
 
 function updatePlant(p, t) {
   const cfg = CONFIG.phases;
-
   const appear = smooth(range(p, cfg.horizonEnd - 0.02, cfg.horizonEnd + 0.10));
   protagonist.style.opacity = appear;
 
@@ -764,46 +581,48 @@ function updatePlant(p, t) {
   const leafLGrow = smooth(range(birth, 0.28, 0.55));
   const leafRGrow = smooth(range(birth, 0.36, 0.62));
   const budGrow   = smooth(range(birth, 0.52, 0.75));
-  const budOpen   = smooth(range(birth, 0.72, 0.92));
-  const bloomOpen = smooth(range(birth, 0.80, 1.00));
+  const bloomOpen = smooth(range(birth, 0.72, 1.00));
 
   seedEl.style.opacity = seedFade;
   stemEl.style.strokeDashoffset = stemLen * (1 - stemGrow);
-  leafLEl.style.transform = `scale(${leafLGrow})`;
-  leafREl.style.transform = `scale(${leafRGrow})`;
+  leafLEl.style.transform = 'scale(' + leafLGrow + ')';
+  leafREl.style.transform = 'scale(' + leafRGrow + ')';
 
-  /* Capullo: aparece y crece; luego se desvanece al abrir la flor */
+  /* Capullo: emerge, crece y se desvanece al abrir */
   budEl.style.opacity = budGrow * (1 - bloomOpen);
-  budEl.style.transform =
-    `translate(50px 100px) scale(${0.55 + 0.45 * budGrow})`;
+  budEl.style.transform = 'translate(50px 100px) scale(' + (0.55 + 0.45 * budGrow) + ')';
 
-  /* Flor: pétalos rotan desde 0 → 45·i y escalan un poco al abrir */
-  const bloomScale = 0.85 + 0.15 * bloomOpen;
-  bloomEl.style.opacity = bloomOpen;
-  bloomEl.style.transform =
-    `translate(50px 100px) scale(${bloomScale})`;
-
+  /* Flor: pétalos emergen desde el centro, despliegan y ganan curvatura */
   const openEase = easeOut(bloomOpen);
-  protagonistPetals.forEach(({ el, angle }) => {
-    el.style.transform = `rotate(${angle * openEase}deg) scale(1, ${0.55 + 0.45 * openEase})`;
-  });
+  bloomEl.style.opacity = bloomOpen;
+  bloomEl.style.transform = 'translate(50px 100px) scale(' + (0.88 + 0.12 * bloomOpen) + ')';
+
+  for (let i = 0; i < protagonistPetals.length; i++) {
+    const p_ = protagonistPetals[i];
+    /* Apertura radial con ligero "rebote" orgánico */
+    const angle = p_.angle * openEase;
+    /* Curvatura inicial: los pétalos salen más cortos y al abrir ganan longitud */
+    const sx = 0.7 + 0.3 * openEase;
+    const sy = 0.55 + 0.45 * openEase;
+    p_.el.style.transform = 'rotate(' + angle + 'deg) scale(' + sx + ',' + sy + ')';
+  }
 
   coreEl.style.opacity   = 0.4 + 0.6 * bloomOpen;
   coreHiEl.style.opacity = 0.3 + 0.7 * bloomOpen;
 
-  /* Viento: siempre activo, más perceptible cuando hay flor */
-  const strength = smooth(range(p, 0.55, 0.78)) * (1 - bloomOpen * 0.4);
+  /* Viento sutil sobre la protagonista */
+  const strength = smooth(range(p, 0.55, 0.78)) * (1 - bloomOpen * 0.35);
   const sway = Math.sin(t * 0.00085) * 1.0 +
                Math.sin(t * 0.00141 + 1.7) * 0.55;
   const rot = sway * strength;
   const tx  = Math.sin(t * 0.00062 + 0.4) * 1.4 * strength;
   protagonist.style.transform =
-    `translate(calc(-50% + ${tx}px), 0) rotate(${rot}deg)`;
+    'translate(calc(-50% + ' + tx + 'px), 0) rotate(' + rot + 'deg)';
   protagonist.style.transformOrigin = '50% 100%';
 }
 
 /* =========================================================
-   CAMPO — determinista, con composición
+   CAMPO — determinista y con composición
    ========================================================= */
 const rnd = makeRandom(CONFIG.seed);
 
@@ -815,13 +634,12 @@ const DEPTHS = {
 
 const flowers = [];
 
-/* Composiciones por capa: usamos clusters para evitar uniformidad */
 function buildField() {
   for (const key of ['far', 'mid', 'near']) {
     const cfg = DEPTHS[key];
     const container = layers[key];
 
-    /* Para dar agrupamiento, generamos unos "focos" y distribuimos alrededor */
+    /* Focos de agrupamiento: la composición no es uniforme */
     const focusCount = key === 'far' ? 7 : key === 'mid' ? 5 : 4;
     const focuses = [];
     for (let i = 0; i < focusCount; i++) {
@@ -834,8 +652,6 @@ function buildField() {
 
     for (let i = 0; i < cfg.count; i++) {
       let x, y;
-
-      /* 70% de las flores van a un foco; 30% libres */
       if (rnd() < 0.7) {
         const f = focuses[(rnd() * focuses.length) | 0];
         const a = rnd() * Math.PI * 2;
@@ -846,26 +662,25 @@ function buildField() {
         x = rnd();
         y = cfg.yMin + rnd() * (cfg.yMax - cfg.yMin);
       }
-
       x = clamp01(x);
       y = clamp01(y);
 
       const scale = cfg.scaleMin + rnd() * (cfg.scaleMax - cfg.scaleMin);
-      const tilt = (rnd() - 0.5) * 18;
+      const tilt  = (rnd() - 0.5) * 18;
       const phase = rnd() * Math.PI * 2;
       const speed = 0.35 + rnd() * 0.55;
-      const amp = 0.5 + rnd() * 1.4;
+      const amp   = 0.5 + rnd() * 1.4;
       const alpha = cfg.alphaMin + rnd() * (cfg.alphaMax - cfg.alphaMin);
       const useBud = rnd() < 0.12;
-      const hue = rnd();
 
-      /* Tinte sutil: variación amarilla dentro de la misma familia */
+      /* Tinte dentro de la MISMA familia amarilla */
+      const hue = rnd();
       let tint = '#f4c400';
       if (hue < 0.15) tint = '#eeb61c';
       else if (hue < 0.30) tint = '#f6cf3a';
       else if (hue < 0.45) tint = '#f0b81e';
 
-      const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      const svg = document.createElementNS(SVG_NS, 'svg');
       svg.setAttribute('class', 'flower');
       svg.setAttribute('viewBox', '0 0 100 200');
       svg.setAttribute('preserveAspectRatio', 'xMidYMax meet');
@@ -874,15 +689,15 @@ function buildField() {
       svg.style.top  = (y * 100) + '%';
       svg.style.width  = (140 * scale) + 'px';
       svg.style.height = (280 * scale) + 'px';
-      svg.style.transform = `translate(-50%, -100%) rotate(${tilt}deg)`;
+      svg.style.transform = 'translate(-50%, -100%) rotate(' + tilt + 'deg)';
       svg.style.opacity = 0;
       if (cfg.blurMax > 0) {
-        svg.style.filter = `blur(${(rnd() * cfg.blurMax).toFixed(2)}px)`;
+        svg.style.filter = 'blur(' + (rnd() * cfg.blurMax).toFixed(2) + 'px)';
       }
       svg.style.color = tint;
 
-      const use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
-      use.setAttributeNS('http://www.w3.org/1999/xlink', 'href', useBud ? '#bud-sym' : '#flower-sym');
+      const use = document.createElementNS(SVG_NS, 'use');
+      use.setAttributeNS(XLINK_NS, 'xlink:href', useBud ? '#bud-sym' : '#flower-sym');
       use.setAttribute('href', useBud ? '#bud-sym' : '#flower-sym');
       svg.appendChild(use);
 
@@ -891,10 +706,7 @@ function buildField() {
       flowers.push({
         el: svg,
         layer: key,
-        baseX: x,
-        baseY: y,
         tilt,
-        scale,
         phase,
         speed,
         amp,
@@ -914,8 +726,7 @@ function fieldVisibility(p, layerKey) {
     layerKey === 'mid'  ? +0.06 :
                           +0.16;
   const start = cfg.fieldStart + offset;
-  const end   = start + 0.22;
-  return smooth(range(p, start, end));
+  return smooth(range(p, start, start + 0.22));
 }
 
 /* =========================================================
@@ -942,12 +753,9 @@ function buildRain() {
   rainDrops = new Array(MAX);
   for (let i = 0; i < MAX; i++) {
     const depth = rnd();
-    const dir   = (rnd() - 0.5) * 0.06; // ligerísima variación de dirección
+    const dir = (rnd() - 0.5) * 0.06;
     rainDrops[i] = {
-      x: rnd(),
-      y: rnd(),
-      depth,
-      dir,
+      x: rnd(), y: rnd(), depth, dir,
       len: 6 + depth * 26,
       speed: 0.55 + depth * 1.7,
       alpha: 0.10 + depth * 0.60,
@@ -972,7 +780,6 @@ function updateRain(dt, p) {
     rctx.clearRect(0, 0, rainW, rainH);
     return;
   }
-
   rctx.clearRect(0, 0, rainW, rainH);
 
   const dawn = smooth(range(p, CONFIG.phases.dawnStart, CONFIG.phases.dawnEnd));
@@ -980,20 +787,19 @@ function updateRain(dt, p) {
   const g = Math.round(lerp(200, 225, dawn));
   const b = Math.round(lerp(235, 240, dawn));
 
+  const dtSec = dt / 1000;
   for (let i = 0; i < rainDrops.length; i++) {
     const d = rainDrops[i];
-
-    d.y += d.speed * (dt / 1000) * (0.8 + intensity * 1.4);
+    d.y += d.speed * dtSec * (0.8 + intensity * 1.4);
     if (d.y > 1.15) { d.y = -0.15; d.x = rnd(); }
-
-    d.x += d.dir * (dt / 1000) * (0.5 + d.depth);
+    d.x += d.dir * dtSec * (0.5 + d.depth);
 
     const px = d.x * rainW;
     const py = d.y * rainH;
     const len = d.len * (0.55 + intensity * 0.75);
+    const alpha = Math.min(d.alpha * intensity * (d.bright ? 1.4 : 1.0), 0.85);
 
-    const alpha = d.alpha * intensity * (d.bright ? 1.4 : 1.0);
-    rctx.strokeStyle = `rgba(${r},${g},${b},${Math.min(alpha, 0.85)})`;
+    rctx.strokeStyle = 'rgba(' + r + ',' + g + ',' + b + ',' + alpha + ')';
     rctx.lineWidth = 0.4 + d.depth * 1.3;
     rctx.beginPath();
     rctx.moveTo(px, py);
@@ -1003,9 +809,7 @@ function updateRain(dt, p) {
 }
 
 /* =========================================================
-   PÉTALOS FLOTANTES
-   Cada pétalo pertenece a una de tres capas (far/mid/near) que
-   le dan profundidad, escala, blur y velocidad.
+   PÉTALOS FLOTANTES — sprites pre-renderizados
    ========================================================= */
 const petalsCanvas = document.getElementById('petals');
 const pctx = petalsCanvas.getContext('2d');
@@ -1023,59 +827,62 @@ function resizePetals() {
   pctx.setTransform(petalDPR, 0, 0, petalDPR, 0, 0);
 }
 
-/* Un pétalo individual: guardamos su forma en un offscreen canvas
-   pequeño, para no re-renderizar el path en cada frame. */
-function makePetalSprite(color, size) {
+function makePetalSprite(color) {
   const c = document.createElement('canvas');
-  const s = size * petalDPR;
+  const s = 128;
   c.width = s;
   c.height = s;
   const g = c.getContext('2d');
-  g.scale(s / 100, s / 100);
+  const cx = s / 2, cy = s / 2;
+  /* Forma idéntica a #petal-sym, escalada */
+  const sx = s / 24;
+  const sy = s / 24;
+  g.save();
+  g.translate(cx, cy + s * 0.28);
+  g.scale(sx, sy);
   g.fillStyle = color;
   g.beginPath();
-  /* Misma silueta que #petal-sym pero simplificada a un solo trazo */
-  g.moveTo(50, 4);
-  g.bezierCurveTo(80, 30, 80, 70, 50, 96);
-  g.bezierCurveTo(20, 70, 20, 30, 50, 4);
+  g.moveTo(0, -23);
+  g.bezierCurveTo(5.5, -19, 9, -12, 9, -6);
+  g.bezierCurveTo(9, -1, 5.5, 0, 0, 0);
+  g.bezierCurveTo(-5.5, 0, -9, -1, -9, -6);
+  g.bezierCurveTo(-9, -12, -5.5, -19, 0, -23);
   g.closePath();
   g.fill();
-  /* Vena suave */
-  g.strokeStyle = 'rgba(255,255,255,0.22)';
-  g.lineWidth = 1.4;
+  /* Vena */
+  g.strokeStyle = 'rgba(255,255,255,0.30)';
+  g.lineWidth = 0.5;
   g.beginPath();
-  g.moveTo(50, 12);
-  g.lineTo(50, 88);
+  g.moveTo(0, -21);
+  g.lineTo(0, -1);
   g.stroke();
+  g.restore();
   return c;
 }
 
-const PETAL_SPRITES = CONFIG.petalPalette.map(c => makePetalSprite(c, 64));
+const PETAL_SPRITES = CONFIG.petalPalette.map(c => makePetalSprite(c));
 
 function buildPetals() {
   const total = CONFIG.petalsFar + CONFIG.petalsMid + CONFIG.petalsNear;
   floatPetals = new Array(total);
 
   for (let i = 0; i < total; i++) {
-    let layer, depth;
-    if (i < CONFIG.petalsFar)       { layer = 'far';  depth = 0.15 + rnd() * 0.15; }
-    else if (i < CONFIG.petalsFar + CONFIG.petalsMid) { layer = 'mid';  depth = 0.45 + rnd() * 0.20; }
-    else                            { layer = 'near'; depth = 0.75 + rnd() * 0.25; }
+    let depth;
+    if (i < CONFIG.petalsFar)       depth = 0.15 + rnd() * 0.15;
+    else if (i < CONFIG.petalsFar + CONFIG.petalsMid) depth = 0.45 + rnd() * 0.20;
+    else                            depth = 0.75 + rnd() * 0.25;
 
     const sprite = PETAL_SPRITES[(rnd() * PETAL_SPRITES.length) | 0];
 
     floatPetals[i] = {
-      layer,
       depth,
       x: rnd(),
       y: rnd(),
-      /* baseSize en px para que el sprite se vea distinto según profundidad */
       size: lerp(10, 42, depth) * (0.7 + rnd() * 0.6),
       vx: lerp(0.006, 0.020, depth) * (0.6 + rnd() * 0.8),
       vy: lerp(0.004, 0.010, depth) * (0.5 + rnd() * 0.9),
       rot: rnd() * Math.PI * 2,
       rotSpd: (rnd() - 0.5) * 0.0006,
-      /* Cada pétalo tiene su propia frecuencia y fase: contra el movimiento mecánico */
       fx: 0.25 + rnd() * 0.5,
       fy: 0.2  + rnd() * 0.6,
       phase: rnd() * Math.PI * 2,
@@ -1086,16 +893,11 @@ function buildPetals() {
 }
 
 function petalDensity(p) {
-  const cfg = CONFIG.phases;
-  /* Los pétalos existen desde el amanecer, pero su presencia
-     se intensifica durante el día y el sunset, y se calma al final */
-  const appear = smooth(range(p, cfg.petalsStart, cfg.petalsStart + 0.20));
+  const appear = smooth(range(p, CONFIG.phases.petalsStart, CONFIG.phases.petalsStart + 0.20));
   const calm   = 1 - smooth(range(p, 0.94, 1.00)) * 0.55;
   return appear * calm;
 }
 
-/* Viento global — suma de dos senos de periodo no conmensurable,
-   más una modulación lenta para que no sea mecánico */
 function wind(t) {
   return (
     0.55 * Math.sin(t * 0.00037) +
@@ -1108,17 +910,20 @@ function updatePetals(dt, t, p) {
   const density = petalDensity(p);
   petalsCanvas.style.opacity = density;
 
+  if (density <= 0.01) {
+    pctx.clearRect(0, 0, petalW, petalH);
+    return;
+  }
   pctx.clearRect(0, 0, petalW, petalH);
-  if (density <= 0.01) return;
 
   const dtSec = dt / 1000;
   const w = wind(t);
   const time = t * 0.001;
+  const camS = cameraScale(p);
 
   for (let i = 0; i < floatPetals.length; i++) {
     const pt = floatPetals[i];
 
-    /* Deriva: base + oscilación personal (nada lineal) */
     const oscX = Math.sin(time * pt.fx + pt.phase) * 0.0018;
     const oscY = Math.cos(time * pt.fy + pt.phase) * 0.0012;
 
@@ -1126,16 +931,13 @@ function updatePetals(dt, t, p) {
     pt.y += (pt.vy + oscY) * dtSec;
     pt.rot += pt.rotSpd * dtSec * 60;
 
-    /* Wrap suave */
     if (pt.x > 1.15) { pt.x = -0.15; pt.y = rnd(); }
     if (pt.x < -0.15) { pt.x = 1.15; pt.y = rnd(); }
     if (pt.y > 1.15) { pt.y = -0.15; pt.x = rnd(); }
 
     const px = pt.x * petalW;
     const py = pt.y * petalH;
-
-    /* Parallax: la capa near se desplaza más que la far al hacer scroll */
-    const layerPush = pt.depth * (1 - cameraScale(p)) * 18;
+    const layerPush = pt.depth * (1 - camS) * 18;
     const finalY = py + layerPush;
 
     const size = pt.size * (0.8 + 0.4 * pt.depth);
@@ -1144,17 +946,16 @@ function updatePetals(dt, t, p) {
     pctx.globalAlpha = pt.alpha * density;
     pctx.translate(px, finalY);
     pctx.rotate(pt.rot);
-    pctx.drawImage(pt.sprite, -size/2, -size/2, size, size);
+    pctx.drawImage(pt.sprite, -size / 2, -size / 2, size, size);
     pctx.restore();
   }
 }
 
 /* =========================================================
-   CAMPO — update por frame
+   FIELD UPDATE
    ========================================================= */
 function updateField(p, t) {
-  const camScale = cameraScale(p);
-  /* El viento se hace más perceptible durante el día y el sunset */
+  const camS = cameraScale(p);
   const windStrength = 0.6 + 0.4 * smooth(range(p, 0.55, 0.90));
 
   for (let i = 0; i < flowers.length; i++) {
@@ -1167,13 +968,11 @@ function updateField(p, t) {
              f.amp * f.depthFactor * windStrength;
     }
 
-    const parallax = (1 - camScale) * 14 * f.depthFactor;
-    const yOffset  = parallax;
+    const parallax = (1 - camS) * 14 * f.depthFactor;
 
     f.el.style.transform =
-      `translate(-50%, calc(-100% + ${yOffset}px)) ` +
-      `rotate(${f.tilt + sway}deg)`;
-
+      'translate(-50%, calc(-100% + ' + parallax + 'px)) ' +
+      'rotate(' + (f.tilt + sway) + 'deg)';
     f.el.style.opacity = f.alpha * vis;
   }
 }
@@ -1201,7 +1000,7 @@ function frame(now) {
   const y = cameraY(p);
   const x = cameraTranslateX(p);
   cameraEl.style.transform =
-    `translate3d(${x}vw, ${y}vh, 0) scale(${s})`;
+    'translate3d(' + x + 'vw, ' + y + 'vh, 0) scale(' + s + ')';
 
   updateSky(p);
   updateHorizon(p);
