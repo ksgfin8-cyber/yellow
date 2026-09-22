@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🌻 Flores Amarillas 🌻</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: linear-gradient(180deg, #fff8dc 0%, #ffe66d 50%, #ffd700 100%);
+    font-family: 'Georgia', serif;
+  }
+
+  /* Mensaje central */
+  .mensaje {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 10;
+    pointer-events: none;
+    user-select: none;
+    animation: aparecer 2s ease-out;
+  }
+
+  .mensaje h1 {
+    font-size: clamp(2rem, 6vw, 4rem);
+    color: #b8860b;
+    text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.8),
+                 0 0 20px rgba(255, 215, 0, 0.6);
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+  }
+
+  .mensaje p {
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    color: #8b6914;
+    font-style: italic;
+    text-shadow: 1px 1px 4px rgba(255, 255, 255, 0.9);
+  }
+
+  @keyframes aparecer {
+    from { opacity: 0; transform: translate(-50%, -30%); }
+    to   { opacity: 1; transform: translate(-50%, -50%); }
+  }
+
+  /* Contenedor de flores */
+  .jardin {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+
+  .flor {
+    position: absolute;
+    top: -100px;
+    font-size: 40px;
+    animation: caer linear forwards;
+    will-change: transform;
+    filter: drop-shadow(0 4px 6px rgba(184, 134, 11, 0.4));
+  }
+
+  @keyframes caer {
+    0% {
+      transform: translateY(-100px) rotate(0deg) scale(1);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    50% {
+      transform: translateY(50vh) rotate(180deg) scale(1.1);
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(110vh) rotate(360deg) scale(1);
+      opacity: 0;
+    }
+  }
+
+  /* Pétalos flotantes */
+  .petalo {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: radial-gradient(circle, #fff176, #ffd700);
+    border-radius: 50% 0 50% 50%;
+    box-shadow: 0 0 8px rgba(255, 215, 0, 0.8);
+    animation: flotar linear infinite;
+    will-change: transform;
+  }
+
+  @keyframes flotar {
+    0% {
+      transform: translate(0, 0) rotate(0deg);
+      opacity: 0;
+    }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% {
+      transform: translate(var(--x-drift, 100px), -110vh) rotate(720deg);
+      opacity: 0;
+    }
+  }
+
+  /* Sol resplandeciente */
+  .sol {
+    position: absolute;
+    top: -120px;
+    right: -120px;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #fff9c4 0%, #ffe082 30%, rgba(255, 215, 0, 0) 70%);
+    animation: brillar 4s ease-in-out infinite alternate;
+    pointer-events: none;
+  }
+
+  @keyframes brillar {
+    from { transform: scale(1); opacity: 0.8; }
+    to   { transform: scale(1.15); opacity: 1; }
+  }
+</style>
+</head>
+<body>
+
+<div class="sol"></div>
+
+<div class="mensaje">
+  <h1>🌻 Feliz Día de las Flores Amarillas 🌻</h1>
+  <p>Un detalle hecho con cariño para ti</p>
+</div>
+
+<div class="jardin" id="jardin"></div>
+
+<script>
+  const jardin = document.getElementById('jardin');
+
+  // Emojis de flores amarillas (varias opciones para variedad)
+  const flores = ['🌻', '🌼', '💛', '🌻', '🌼', '✨', '🌻'];
+
+  // Crear flores que caen
+  function crearFlor() {
+    const flor = document.createElement('div');
+    flor.className = 'flor';
+    flor.textContent = flores[Math.floor(Math.random() * flores.length)];
+
+    // Posición horizontal aleatoria
+    flor.style.left = Math.random() * 100 + '%';
+
+    // Tamaño aleatorio
+    const tamaño = 20 + Math.random() * 40;
+    flor.style.fontSize = tamaño + 'px';
+
+    // Duración y retraso aleatorios
+    const duracion = 6 + Math.random() * 8;
+    flor.style.animationDuration = duracion + 's';
+    flor.style.animationDelay = Math.random() * 3 + 's';
+
+    jardin.appendChild(flor);
+
+    // Eliminar después de la animación
+    setTimeout(() => flor.remove(), (duracion + 3) * 1000);
+  }
+
+  // Crear pétalos flotantes
+  function crearPetalo() {
+    const petalo = document.createElement('div');
+    petalo.className = 'petalo';
+
+    petalo.style.left = Math.random() * 100 + '%';
+    petalo.style.bottom = '-20px';
+
+    const size = 6 + Math.random() * 12;
+    petalo.style.width = size + 'px';
+    petalo.style.height = size + 'px';
+
+    const duracion = 8 + Math.random() * 6;
+    petalo.style.animationDuration = duracion + 's';
+    petalo.style.animationDelay = Math.random() * 2 + 's';
+
+    // Deriva horizontal aleatoria
+    const drift = (Math.random() - 0.5) * 300;
+    petalo.style.setProperty('--x-drift', drift + 'px');
+
+    jardin.appendChild(petalo);
+
+    setTimeout(() => petalo.remove(), (duracion + 3) * 1000);
+  }
+
+  // Generar flores constantemente
+  setInterval(crearFlor, 300);
+
+  // Generar pétalos constantemente
+  setInterval(crearPetalo, 150);
+
+  // Ráfaga inicial
+  for (let i = 0; i < 15; i++) {
+    setTimeout(crearFlor, i * 150);
+  }
+  for (let i = 0; i < 20; i++) {
+    setTimeout(crearPetalo, i * 100);
+  }
+
+  // Interactividad: al hacer clic, crea más flores en ese punto
+  document.addEventListener('click', (e) => {
+    for (let i = 0; i < 8; i++) {
+      const flor = document.createElement('div');
+      flor.className = 'flor';
+      flor.textContent = flores[Math.floor(Math.random() * flores.length)];
+      flor.style.left = (e.clientX + (Math.random() - 0.5) * 200) + 'px';
+      flor.style.top = e.clientY + 'px';
+      flor.style.fontSize = (25 + Math.random() * 35) + 'px';
+      const dur = 4 + Math.random() * 4;
+      flor.style.animationDuration = dur + 's';
+      jardin.appendChild(flor);
+      setTimeout(() => flor.remove(), (dur + 1) * 1000);
+    }
+  });
+</script>
+
+</body>
+</html>
