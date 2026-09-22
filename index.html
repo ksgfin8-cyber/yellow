@@ -1,234 +1,847 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🌻 Flores Amarillas 🌻</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Flores Amarillas</title>
 <style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  :root {
+    --bg-night: #05070f;
   }
+
+  * { box-sizing: border-box; }
 
   html, body {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    background: linear-gradient(180deg, #fff8dc 0%, #ffe66d 50%, #ffd700 100%);
-    font-family: 'Georgia', serif;
+    margin: 0;
+    padding: 0;
+    background: var(--bg-night);
+    color: #fff;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
   }
 
-  /* Mensaje central */
-  .mensaje {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    z-index: 10;
-    pointer-events: none;
-    user-select: none;
-    animation: aparecer 2s ease-out;
+  /* El body tiene altura virtual: el scroll es la línea de tiempo */
+  body {
+    height: 8000px; /* ~ ritmo total del film */
   }
 
-  .mensaje h1 {
-    font-size: clamp(2rem, 6vw, 4rem);
-    color: #b8860b;
-    text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.8),
-                 0 0 20px rgba(255, 215, 0, 0.6);
-    margin-bottom: 15px;
-    letter-spacing: 2px;
-  }
-
-  .mensaje p {
-    font-size: clamp(1rem, 2.5vw, 1.5rem);
-    color: #8b6914;
-    font-style: italic;
-    text-shadow: 1px 1px 4px rgba(255, 255, 255, 0.9);
-  }
-
-  @keyframes aparecer {
-    from { opacity: 0; transform: translate(-50%, -30%); }
-    to   { opacity: 1; transform: translate(-50%, -50%); }
-  }
-
-  /* Contenedor de flores */
-  .jardin {
-    position: absolute;
+  /* Escenario fijo */
+  #stage {
+    position: fixed;
     inset: 0;
     overflow: hidden;
+    isolation: isolate;
   }
 
-  .flor {
+  /* ---------- SKY ---------- */
+  #sky {
     position: absolute;
-    top: -100px;
-    font-size: 40px;
-    animation: caer linear forwards;
-    will-change: transform;
-    filter: drop-shadow(0 4px 6px rgba(184, 134, 11, 0.4));
+    inset: 0;
+    z-index: 0;
   }
 
-  @keyframes caer {
-    0% {
-      transform: translateY(-100px) rotate(0deg) scale(1);
-      opacity: 0;
-    }
-    10% {
-      opacity: 1;
-    }
-    50% {
-      transform: translateY(50vh) rotate(180deg) scale(1.1);
-    }
-    90% {
-      opacity: 1;
-    }
-    100% {
-      transform: translateY(110vh) rotate(360deg) scale(1);
-      opacity: 0;
-    }
-  }
-
-  /* Pétalos flotantes */
-  .petalo {
+  .sky-layer {
     position: absolute;
-    width: 12px;
-    height: 12px;
-    background: radial-gradient(circle, #fff176, #ffd700);
-    border-radius: 50% 0 50% 50%;
-    box-shadow: 0 0 8px rgba(255, 215, 0, 0.8);
-    animation: flotar linear infinite;
-    will-change: transform;
+    inset: 0;
+    opacity: 0;
+    will-change: opacity;
   }
 
-  @keyframes flotar {
-    0% {
-      transform: translate(0, 0) rotate(0deg);
-      opacity: 0;
-    }
-    20% { opacity: 1; }
-    80% { opacity: 1; }
-    100% {
-      transform: translate(var(--x-drift, 100px), -110vh) rotate(720deg);
-      opacity: 0;
-    }
+  .sky-layer[data-phase="night"] {
+    background:
+      radial-gradient(120% 80% at 50% 100%, #0d1326 0%, #05070f 60%, #020306 100%);
+    opacity: 1;
   }
 
-  /* Sol resplandeciente */
-  .sol {
+  .sky-layer[data-phase="dawn"] {
+    background:
+      linear-gradient(180deg,
+        #1a1f3a 0%,
+        #2e2a55 30%,
+        #6b4a6e 55%,
+        #b87060 78%,
+        #e8a87c 100%);
+  }
+
+  .sky-layer[data-phase="day"] {
+    background:
+      linear-gradient(180deg,
+        #5b8ec4 0%,
+        #7fb0d9 35%,
+        #bcd6ea 65%,
+        #f0e2b0 88%,
+        #f8e6a4 100%);
+  }
+
+  /* Sol naciente (aparece con el amanecer, se mantiene en el día) */
+  #sun {
     position: absolute;
-    top: -120px;
-    right: -120px;
-    width: 350px;
-    height: 350px;
+    left: 50%;
+    top: 72%;
+    width: 42vmin;
+    height: 42vmin;
+    margin-left: -21vmin;
+    margin-top: -21vmin;
     border-radius: 50%;
-    background: radial-gradient(circle, #fff9c4 0%, #ffe082 30%, rgba(255, 215, 0, 0) 70%);
-    animation: brillar 4s ease-in-out infinite alternate;
+    background: radial-gradient(circle at 50% 50%,
+      rgba(255, 236, 170, 1.0) 0%,
+      rgba(255, 210, 120, 0.7) 25%,
+      rgba(255, 180, 90, 0.28) 50%,
+      rgba(255, 160, 70, 0.0) 75%);
+    filter: blur(4px);
+    opacity: 0;
+    will-change: opacity, transform;
     pointer-events: none;
+    z-index: 1;
   }
 
-  @keyframes brillar {
-    from { transform: scale(1); opacity: 0.8; }
-    to   { transform: scale(1.15); opacity: 1; }
+  /* ---------- TERRENO ---------- */
+  #terrain {
+    position: absolute;
+    left: -10%;
+    right: -10%;
+    bottom: 0;
+    height: 60%;
+    z-index: 2;
+    transform-origin: 50% 100%;
+    will-change: transform, filter;
+  }
+
+  .terrain-layer {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    will-change: opacity;
+  }
+
+  .terrain-layer[data-phase="soil-dark"] {
+    background: linear-gradient(180deg,
+      rgba(8, 10, 16, 0.0) 0%,
+      #0a0c12 22%,
+      #12141b 55%,
+      #1a1c22 100%);
+    opacity: 1;
+  }
+
+  .terrain-layer[data-phase="soil-wet"] {
+    background: linear-gradient(180deg,
+      rgba(20, 24, 30, 0.0) 0%,
+      #1d2128 25%,
+      #2a2f38 60%,
+      #33383f 100%);
+  }
+
+  .terrain-layer[data-phase="grass"] {
+    background: linear-gradient(180deg,
+      rgba(34, 44, 32, 0.0) 0%,
+      #2a3b2a 22%,
+      #3b5038 55%,
+      #4c6442 100%);
+  }
+
+  .terrain-layer[data-phase="field"] {
+    background: linear-gradient(180deg,
+      rgba(90, 80, 30, 0.0) 0%,
+      #6b6a2e 20%,
+      #8a8038 50%,
+      #b39a45 80%,
+      #c9aa4d 100%);
+  }
+
+  /* ---------- CÁMARA ---------- */
+  #camera {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    transform-origin: 50% 72%;
+    will-change: transform;
+  }
+
+  /* ---------- CAPAS DE PROFUNDIDAD ---------- */
+  .layer {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    will-change: transform, opacity, filter;
+  }
+
+  .layer[data-depth="far"]  { z-index: 1; }
+  .layer[data-depth="mid"]  { z-index: 2; }
+  .layer[data-depth="near"] { z-index: 3; }
+
+  /* Cada flor es un <svg><use/></svg> posicionado absolutamente.
+     Se crea una sola vez, no se recrea. */
+  .flower {
+    position: absolute;
+    transform-origin: 50% 100%;
+    will-change: transform;
+    backface-visibility: hidden;
+  }
+
+  /* ---------- PLANTA PROTAGONISTA ---------- */
+  #protagonist {
+    position: absolute;
+    left: 50%;
+    bottom: 14%;
+    width: 220px;
+    height: 420px;
+    transform: translate(-50%, 0);
+    z-index: 4;
+    overflow: visible;
+    filter: drop-shadow(0 6px 12px rgba(0,0,0,0.45));
+  }
+
+  #protagonist path,
+  #protagonist ellipse,
+  #protagonist circle,
+  #protagonist g {
+    will-change: transform, stroke-dashoffset, opacity;
+  }
+
+  /* ---------- LLUVIA ---------- */
+  #rain {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    pointer-events: none;
+    will-change: opacity;
+  }
+
+  /* ---------- VIÑETA ATMOSFÉRICA ---------- */
+  #vignette {
+    position: absolute;
+    inset: 0;
+    z-index: 6;
+    pointer-events: none;
+    background:
+      radial-gradient(120% 80% at 50% 60%,
+        rgba(0,0,0,0) 40%,
+        rgba(0,0,0,0.30) 78%,
+        rgba(0,0,0,0.55) 100%);
+    opacity: 0.9;
+  }
+
+  /* Reduced motion: la escena sigue funcionando, solo más calmada */
+  @media (prefers-reduced-motion: reduce) {
+    .flower { transition: none; }
   }
 </style>
 </head>
 <body>
 
-<div class="sol"></div>
+<div id="stage">
 
-<div class="mensaje">
-  <h1>🌻 Feliz Día de las Flores Amarillas 🌻</h1>
-  <p>Un detalle hecho con cariño para ti</p>
+  <!-- CIELO -->
+  <div id="sky">
+    <div class="sky-layer" data-phase="night"></div>
+    <div class="sky-layer" data-phase="dawn"></div>
+    <div class="sky-layer" data-phase="day"></div>
+  </div>
+
+  <!-- SOL -->
+  <div id="sun"></div>
+
+  <!-- TERRENO -->
+  <div id="terrain">
+    <div class="terrain-layer" data-phase="soil-dark"></div>
+    <div class="terrain-layer" data-phase="soil-wet"></div>
+    <div class="terrain-layer" data-phase="grass"></div>
+    <div class="terrain-layer" data-phase="field"></div>
+  </div>
+
+  <!-- CÁMARA (mundo) -->
+  <div id="camera">
+
+    <!-- Capas de profundidad: se rellenan desde JS una vez -->
+    <div class="layer" data-depth="far"></div>
+    <div class="layer" data-depth="mid"></div>
+    <div class="layer" data-depth="near"></div>
+
+    <!-- PLANTA PROTAGONISTA -->
+    <svg id="protagonist" viewBox="0 0 100 200" preserveAspectRatio="xMidYMax meet">
+      <!-- SEMILLA (visible al inicio) -->
+      <ellipse id="seed" cx="50" cy="196" rx="3.4" ry="2.2" fill="#2a1c0e"/>
+
+      <!-- TALLO -->
+      <path id="stem" d="M50 200 Q48.5 150 50 92"
+            stroke="#3a6a2c" stroke-width="2.4"
+            fill="none" stroke-linecap="round"/>
+
+      <!-- HOJAS -->
+      <path id="leafL" d="M50 152 Q28 142 24 128 Q40 128 50 142 Z" fill="#4a8438"/>
+      <path id="leafR" d="M50 132 Q72 122 76 108 Q58 110 50 124 Z" fill="#548e3e"/>
+
+      <!-- FLOR (grupo completo) -->
+      <g id="bloom" transform="translate(50 88)">
+        <g id="petals">
+          <ellipse class="petal" cx="0" cy="-10" rx="5.6" ry="12" fill="#f4c400"/>
+          <ellipse class="petal" cx="0" cy="-10" rx="5.6" ry="12" fill="#f4c400" transform="rotate(45)"/>
+          <ellipse class="petal" cx="0" cy="-10" rx="5.6" ry="12" fill="#f4c400" transform="rotate(90)"/>
+          <ellipse class="petal" cx="0" cy="-10" rx="5.6" ry="12" fill="#f4c400" transform="rotate(135)"/>
+          <ellipse class="petal" cx="0" cy="-10" rx="5.6" ry="12" fill="#f4c400" transform="rotate(180)"/>
+          <ellipse class="petal" cx="0" cy="-10" rx="5.6" ry="12" fill="#f4c400" transform="rotate(225)"/>
+          <ellipse class="petal" cx="0" cy="-10" rx="5.6" ry="12" fill="#f4c400" transform="rotate(270)"/>
+          <ellipse class="petal" cx="0" cy="-10" rx="5.6" ry="12" fill="#f4c400" transform="rotate(315)"/>
+        </g>
+        <circle id="core" r="5.4" fill="#7a4d00"/>
+      </g>
+    </svg>
+
+  </div>
+
+  <!-- LLUVIA -->
+  <canvas id="rain"></canvas>
+
+  <!-- VIÑETA -->
+  <div id="vignette"></div>
+
 </div>
 
-<div class="jardin" id="jardin"></div>
+<!-- Definición reutilizable de flor para el campo -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="flower-sym" viewBox="0 0 100 200" preserveAspectRatio="xMidYMax meet">
+      <path d="M50 200 Q48.5 150 50 92" stroke="#3a6a2c" stroke-width="2.4"
+            fill="none" stroke-linecap="round"/>
+      <path d="M50 152 Q32 144 28 132 Q42 132 50 144 Z" fill="#4a8438"/>
+      <path d="M50 132 Q70 124 74 112 Q58 114 50 126 Z" fill="#548e3e"/>
+      <g transform="translate(50 88)">
+        <ellipse cx="0" cy="-9" rx="5" ry="10.5" fill="#f4c400"/>
+        <ellipse cx="0" cy="-9" rx="5" ry="10.5" fill="#f4c400" transform="rotate(45)"/>
+        <ellipse cx="0" cy="-9" rx="5" ry="10.5" fill="#f4c400" transform="rotate(90)"/>
+        <ellipse cx="0" cy="-9" rx="5" ry="10.5" fill="#f4c400" transform="rotate(135)"/>
+        <ellipse cx="0" cy="-9" rx="5" ry="10.5" fill="#f4c400" transform="rotate(180)"/>
+        <ellipse cx="0" cy="-9" rx="5" ry="10.5" fill="#f4c400" transform="rotate(225)"/>
+        <ellipse cx="0" cy="-9" rx="5" ry="10.5" fill="#f4c400" transform="rotate(270)"/>
+        <ellipse cx="0" cy="-9" rx="5" ry="10.5" fill="#f4c400" transform="rotate(315)"/>
+        <circle r="5" fill="#7a4d00"/>
+      </g>
+    </symbol>
+
+    <symbol id="bud-sym" viewBox="0 0 100 200" preserveAspectRatio="xMidYMax meet">
+      <path d="M50 200 Q48.5 150 50 92" stroke="#3a6a2c" stroke-width="2.4"
+            fill="none" stroke-linecap="round"/>
+      <path d="M50 152 Q32 144 28 132 Q42 132 50 144 Z" fill="#4a8438"/>
+      <path d="M50 132 Q70 124 74 112 Q58 114 50 126 Z" fill="#548e3e"/>
+      <ellipse cx="50" cy="86" rx="6.5" ry="11" fill="#c9a423"/>
+      <ellipse cx="50" cy="86" rx="4" ry="8" fill="#e8bc2b"/>
+    </symbol>
+  </defs>
+</svg>
 
 <script>
-  const jardin = document.getElementById('jardin');
+"use strict";
 
-  // Emojis de flores amarillas (varias opciones para variedad)
-  const flores = ['🌻', '🌼', '💛', '🌻', '🌼', '✨', '🌻'];
+/* =========================================================
+   CONFIG
+   ========================================================= */
+const CONFIG = {
+  /* Altura virtual del scroll (más alto = scroll más lento) */
+  scrollHeight: 8000,
 
-  // Crear flores que caen
-  function crearFlor() {
-    const flor = document.createElement('div');
-    flor.className = 'flor';
-    flor.textContent = flores[Math.floor(Math.random() * flores.length)];
+  /* Suavizado del progreso (0 = rígido, 1 = instantáneo) */
+  smoothing: 0.09,
 
-    // Posición horizontal aleatoria
-    flor.style.left = Math.random() * 100 + '%';
+  /* Semilla determinista del mundo */
+  seed: 12345,
 
-    // Tamaño aleatorio
-    const tamaño = 20 + Math.random() * 40;
-    flor.style.fontSize = tamaño + 'px';
+  /* Número de flores por capa de profundidad */
+  flowersFar:  140,
+  flowersMid:  70,
+  flowersNear: 28,
 
-    // Duración y retraso aleatorios
-    const duracion = 6 + Math.random() * 8;
-    flor.style.animationDuration = duracion + 's';
-    flor.style.animationDelay = Math.random() * 3 + 's';
+  /* Paleta de la flor */
+  petalColor: '#f4c400',
+  stemColor:  '#3a6a2c',
 
-    jardin.appendChild(flor);
+  /* Ventanas narrativas (progress) — todo el ritmo vive aquí */
+  phases: {
+    rainFadeStart:  0.10,
+    rainFadeEnd:    0.40,
 
-    // Eliminar después de la animación
-    setTimeout(() => flor.remove(), (duracion + 3) * 1000);
+    birthStart:     0.16,
+    birthEnd:       0.52,
+
+    dawnStart:      0.18,
+    dawnEnd:        0.42,
+
+    dayStart:       0.42,
+    dayEnd:         0.62,
+
+    fieldStart:     0.42,
+    fieldEnd:       0.72,
+
+    cameraSettle:   0.86
   }
+};
 
-  // Crear pétalos flotantes
-  function crearPetalo() {
-    const petalo = document.createElement('div');
-    petalo.className = 'petalo';
+/* =========================================================
+   HELPERS MATEMÁTICOS
+   ========================================================= */
+const clamp01 = v => v < 0 ? 0 : v > 1 ? 1 : v;
+const range = (p, a, b) => clamp01((p - a) / (b - a));
+const lerp  = (a, b, t) => a + (b - a) * t;
 
-    petalo.style.left = Math.random() * 100 + '%';
-    petalo.style.bottom = '-20px';
+/* Easings */
+const smooth   = t => t * t * (3 - 2 * t);
+const easeOut  = t => 1 - Math.pow(1 - t, 3);
+const easeIn   = t => t * t * t;
+const easeInOut = t => t < 0.5
+  ? 4 * t * t * t
+  : 1 - Math.pow(-2 * t + 2, 3) / 2;
 
-    const size = 6 + Math.random() * 12;
-    petalo.style.width = size + 'px';
-    petalo.style.height = size + 'px';
+/* PRNG determinista (mulberry32) */
+function makeRandom(seed) {
+  let s = seed >>> 0;
+  return function () {
+    s |= 0; s = (s + 0x6D2B79F5) | 0;
+    let t = Math.imul(s ^ (s >>> 15), 1 | s);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
 
-    const duracion = 8 + Math.random() * 6;
-    petalo.style.animationDuration = duracion + 's';
-    petalo.style.animationDelay = Math.random() * 2 + 's';
+/* =========================================================
+   PROGRESS
+   ========================================================= */
+const scrollState = {
+  raw: 0,
+  smooth: 0
+};
 
-    // Deriva horizontal aleatoria
-    const drift = (Math.random() - 0.5) * 300;
-    petalo.style.setProperty('--x-drift', drift + 'px');
+function readScroll() {
+  const max = document.documentElement.scrollHeight - window.innerHeight;
+  const y = window.scrollY || window.pageYOffset || 0;
+  scrollState.raw = max > 0 ? clamp01(y / max) : 0;
+}
 
-    jardin.appendChild(petalo);
+window.addEventListener('scroll', readScroll, { passive: true });
+window.addEventListener('resize', readScroll, { passive: true });
+readScroll();
 
-    setTimeout(() => petalo.remove(), (duracion + 3) * 1000);
-  }
+/* =========================================================
+   REFERENCIAS DOM
+   ========================================================= */
+const stage      = document.getElementById('stage');
+const cameraEl   = document.getElementById('camera');
+const skyEls     = Array.from(document.querySelectorAll('.sky-layer'));
+const terrainEls = Array.from(document.querySelectorAll('.terrain-layer'));
+const sunEl      = document.getElementById('sun');
+const layers     = {
+  far:  document.querySelector('.layer[data-depth="far"]'),
+  mid:  document.querySelector('.layer[data-depth="mid"]'),
+  near: document.querySelector('.layer[data-depth="near"]')
+};
 
-  // Generar flores constantemente
-  setInterval(crearFlor, 300);
+const protagonist = document.getElementById('protagonist');
+const seedEl      = document.getElementById('seed');
+const stemEl      = document.getElementById('stem');
+const leafLEl     = document.getElementById('leafL');
+const leafREl     = document.getElementById('leafR');
+const bloomEl     = document.getElementById('bloom');
+const petalsEls   = Array.from(document.querySelectorAll('#petals .petal'));
+const coreEl      = document.getElementById('core');
 
-  // Generar pétalos constantemente
-  setInterval(crearPetalo, 150);
+/* =========================================================
+   CIELO
+   ========================================================= */
+function updateSky(p) {
+  const cfg = CONFIG.phases;
 
-  // Ráfaga inicial
-  for (let i = 0; i < 15; i++) {
-    setTimeout(crearFlor, i * 150);
-  }
-  for (let i = 0; i < 20; i++) {
-    setTimeout(crearPetalo, i * 100);
-  }
+  const night = 1 - smooth(range(p, cfg.dawnStart, cfg.dawnEnd));
+  const dawn  = smooth(range(p, cfg.dawnStart, cfg.dawnEnd)) *
+                (1 - smooth(range(p, cfg.dayStart, cfg.dayEnd)));
+  const day   = smooth(range(p, cfg.dayStart, cfg.dayEnd));
 
-  // Interactividad: al hacer clic, crea más flores en ese punto
-  document.addEventListener('click', (e) => {
-    for (let i = 0; i < 8; i++) {
-      const flor = document.createElement('div');
-      flor.className = 'flor';
-      flor.textContent = flores[Math.floor(Math.random() * flores.length)];
-      flor.style.left = (e.clientX + (Math.random() - 0.5) * 200) + 'px';
-      flor.style.top = e.clientY + 'px';
-      flor.style.fontSize = (25 + Math.random() * 35) + 'px';
-      const dur = 4 + Math.random() * 4;
-      flor.style.animationDuration = dur + 's';
-      jardin.appendChild(flor);
-      setTimeout(() => flor.remove(), (dur + 1) * 1000);
+  skyEls[0].style.opacity = night;
+  skyEls[1].style.opacity = dawn;
+  skyEls[2].style.opacity = day;
+
+  /* Sol: nace con el amanecer, se asienta en el día */
+  const sunIn  = smooth(range(p, cfg.dawnStart + 0.06, cfg.dawnEnd + 0.05));
+  const sunUp  = smooth(range(p, cfg.dawnStart, cfg.dayEnd));
+  sunEl.style.opacity = sunIn * 0.95;
+  /* El sol sube ligeramente en pantalla */
+  const sunTop = lerp(80, 58, sunUp);
+  sunEl.style.top = sunTop + '%';
+}
+
+/* =========================================================
+   TERRENO
+   ========================================================= */
+function updateTerrain(p) {
+  const cfg = CONFIG.phases;
+
+  const soilWet = smooth(range(p, 0.08, 0.24));
+  const grass   = smooth(range(p, 0.26, 0.52));
+  const field   = smooth(range(p, cfg.fieldStart, cfg.fieldEnd));
+
+  terrainEls[0].style.opacity = 1 - soilWet * 0.85;
+  terrainEls[1].style.opacity = soilWet * (1 - grass);
+  terrainEls[2].style.opacity = grass * (1 - field);
+  terrainEls[3].style.opacity = field;
+
+  /* La franja de terreno sube un poco cuando el campo se revela */
+  const lift = smooth(range(p, cfg.fieldStart, CONFIG.phases.cameraSettle));
+  document.getElementById('terrain').style.transform =
+    `translateY(${lerp(0, -2, lift)}%)`;
+}
+
+/* =========================================================
+   CÁMARA
+   ========================================================= */
+function cameraScale(p) {
+  /* Curva por tramos: pausa inicial → retirada lenta → apertura → estabilización */
+  const a = 2.55;   // extremadamente cerca del suelo
+  const b = 2.28;   // casi igual (brote)
+  const c = 1.62;   // se empieza a abrir (amanecer)
+  const d = 0.72;   // expansión clara (día)
+  const e = 0.40;   // gran apertura (campo)
+  const f = 0.38;   // estabilización final
+
+  if (p < 0.18) return lerp(a, b, smooth(range(p, 0.00, 0.18)));
+  if (p < 0.36) return lerp(b, c, easeInOut(range(p, 0.18, 0.36)));
+  if (p < 0.55) return lerp(c, d, easeInOut(range(p, 0.36, 0.55)));
+  if (p < 0.76) return lerp(d, e, easeOut(range(p, 0.55, 0.76)));
+  if (p < 0.92) return lerp(e, f, smooth(range(p, 0.76, 0.92)));
+  return f;
+}
+
+function cameraY(p) {
+  /* Muy sutil: al inicio mirando al suelo, al final al horizonte.
+     En vh, aplicado sobre el contenedor. */
+  const start =  18;
+  const end   = -10;
+  return lerp(start, end, easeInOut(p));
+}
+
+function cameraTranslateX(p) {
+  /* Desplazamiento lateral mínimo para romper la simetría del zoom */
+  return Math.sin(p * Math.PI * 0.9) * -1.2; /* vw */
+}
+
+/* =========================================================
+   CAMPO DE FLORES (determinista, creado una sola vez)
+   ========================================================= */
+const rnd = makeRandom(CONFIG.seed);
+
+/* Profundidades: cada capa tiene su propio rango de tamaño, altura, blur y alpha */
+const DEPTHS = {
+  far:  { scaleMin: 0.06, scaleMax: 0.14, yMin: 0.55, yMax: 0.72, blurMax: 2.2, alphaMin: 0.35, alphaMax: 0.65, count: CONFIG.flowersFar  },
+  mid:  { scaleMin: 0.20, scaleMax: 0.38, yMin: 0.60, yMax: 0.82, blurMax: 0.8, alphaMin: 0.60, alphaMax: 0.90, count: CONFIG.flowersMid  },
+  near: { scaleMin: 0.55, scaleMax: 1.10, yMin: 0.72, yMax: 1.02, blurMax: 0.0, alphaMin: 0.90, alphaMax: 1.00, count: CONFIG.flowersNear }
+};
+
+/* Cada flor es un objeto con posición normalizada (x: 0..1 del ancho del mundo,
+   y: 0..1 de la altura del mundo), escala, inclinación y fase de viento. */
+const flowers = [];
+
+function buildField() {
+  for (const key of ['far', 'mid', 'near']) {
+    const cfg = DEPTHS[key];
+    const container = layers[key];
+
+    for (let i = 0; i < cfg.count; i++) {
+      const x = rnd();                    // 0..1
+      const y = cfg.yMin + rnd() * (cfg.yMax - cfg.yMin);
+      const scale = cfg.scaleMin + rnd() * (cfg.scaleMax - cfg.scaleMin);
+      const tilt = (rnd() - 0.5) * 22;    // grados
+      const phase = rnd() * Math.PI * 2;
+      const speed = 0.35 + rnd() * 0.55;
+      const amp = 0.6 + rnd() * 1.6;
+      const alpha = cfg.alphaMin + rnd() * (cfg.alphaMax - cfg.alphaMin);
+      const useBud = rnd() < 0.14;        // algunas son solo capullos
+
+      /* Crear SVG una sola vez */
+      const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      svg.setAttribute('class', 'flower');
+      svg.setAttribute('viewBox', '0 0 100 200');
+      svg.setAttribute('preserveAspectRatio', 'xMidYMax meet');
+      svg.style.position = 'absolute';
+      svg.style.left = (x * 100) + '%';
+      svg.style.top  = (y * 100) + '%';
+      svg.style.width  = (140 * scale) + 'px';
+      svg.style.height = (280 * scale) + 'px';
+      svg.style.transform = `translate(-50%, -100%) rotate(${tilt}deg)`;
+      svg.style.opacity = alpha;
+      if (cfg.blurMax > 0) {
+        svg.style.filter = `blur(${(rnd() * cfg.blurMax).toFixed(2)}px)`;
+      }
+
+      const use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
+      use.setAttributeNS('http://www.w3.org/1999/xlink', 'href', useBud ? '#bud-sym' : '#flower-sym');
+      use.setAttribute('href', useBud ? '#bud-sym' : '#flower-sym');
+      svg.appendChild(use);
+
+      container.appendChild(svg);
+
+      flowers.push({
+        el: svg,
+        layer: key,
+        baseX: x,
+        baseY: y,
+        tilt,
+        scale,
+        phase,
+        speed,
+        amp,
+        alpha,
+        depthFactor: key === 'near' ? 1 : key === 'mid' ? 0.55 : 0.22
+      });
     }
-  });
-</script>
+  }
+}
 
+buildField();
+
+/* Visibilidad progresiva del campo:
+   las flores lejanas se revelan antes que las cercanas. */
+function fieldVisibility(p, layerKey) {
+  const cfg = CONFIG.phases;
+  const start = layerKey === 'far'  ? cfg.fieldStart - 0.05
+              : layerKey === 'mid'  ? cfg.fieldStart + 0.04
+              :                       cfg.fieldStart + 0.14;
+  const end   = start + 0.26;
+  return smooth(range(p, start, end));
+}
+
+/* =========================================================
+   PLANTA PROTAGONISTA
+   ========================================================= */
+const stemLen = stemEl.getTotalLength();
+stemEl.style.strokeDasharray  = stemLen;
+stemEl.style.strokeDashoffset = stemLen;
+
+leafLEl.style.transformOrigin = '50px 152px';
+leafREl.style.transformOrigin = '50px 132px';
+bloomEl.style.transformOrigin = '0 0';
+petalsEls.forEach(p => { p.style.transformOrigin = '0 -10px'; });
+
+function updatePlant(p) {
+  const cfg = CONFIG.phases;
+  const birth = range(p, cfg.birthStart, cfg.birthEnd);
+
+  const seedFade  = 1 - smooth(range(birth, 0.00, 0.10));
+  const stemGrow  = smooth(range(birth, 0.05, 0.38));
+  const leafLGrow = smooth(range(birth, 0.28, 0.55));
+  const leafRGrow = smooth(range(birth, 0.36, 0.62));
+  const budGrow   = smooth(range(birth, 0.55, 0.80));
+  const bloomOpen = smooth(range(birth, 0.78, 1.00));
+
+  /* Semilla: se desvanece al brotar */
+  seedEl.style.opacity = seedFade;
+
+  /* Tallo: crece por stroke-dashoffset */
+  stemEl.style.strokeDashoffset = stemLen * (1 - stemGrow);
+
+  /* Hojas: escalan desde su punto de unión */
+  leafLEl.style.transform = `scale(${leafLGrow})`;
+  leafREl.style.transform = `scale(${leafRGrow})`;
+
+  /* Flor: primero el capullo, luego los pétalos abren */
+  const budScale = 0.35 + 0.65 * budGrow;
+  const openScale = 0.6 + 0.4 * bloomOpen;
+  bloomEl.style.transform = `translate(50px 88px) scale(${budScale})`;
+
+  petalsEls.forEach((pet, i) => {
+    const target = i * 45;
+    pet.style.transform = `rotate(${target * bloomOpen}deg) scale(${openScale})`;
+  });
+
+  /* Núcleo apenas visible antes de abrir */
+  coreEl.style.opacity = 0.3 + 0.7 * bloomOpen;
+}
+
+/* Viento sutil sobre la planta protagonista (fase propia) */
+function windPlant(t, p) {
+  /* Solo empieza a moverse cuando ya hay tallo visible */
+  const strength = smooth(range(p, 0.20, 0.45));
+  if (strength <= 0.001) {
+    protagonist.style.transform = 'translate(-50%, 0)';
+    return;
+  }
+  const sway = Math.sin(t * 0.00085) * 1.1 +
+               Math.sin(t * 0.00141 + 1.7) * 0.6;
+  const rot = sway * strength;
+  const tx  = Math.sin(t * 0.00062 + 0.4) * 1.5 * strength;
+  protagonist.style.transform =
+    `translate(calc(-50% + ${tx}px), 0) rotate(${rot}deg)`;
+  protagonist.style.transformOrigin = '50% 100%';
+}
+
+/* =========================================================
+   LLUVIA (canvas, pool fijo)
+   ========================================================= */
+const rainCanvas = document.getElementById('rain');
+const rctx = rainCanvas.getContext('2d');
+let rainDrops = [];
+let rainW = 0, rainH = 0, rainDPR = 1;
+
+function resizeRain() {
+  rainDPR = Math.min(window.devicePixelRatio || 1, 2);
+  rainW = stage.clientWidth;
+  rainH = stage.clientHeight;
+  rainCanvas.width  = Math.floor(rainW * rainDPR);
+  rainCanvas.height = Math.floor(rainH * rainDPR);
+  rainCanvas.style.width  = rainW + 'px';
+  rainCanvas.style.height = rainH + 'px';
+  rctx.setTransform(rainDPR, 0, 0, rainDPR, 0, 0);
+}
+
+function buildRain() {
+  const MAX = 520;
+  rainDrops = new Array(MAX);
+  for (let i = 0; i < MAX; i++) {
+    const depth = rnd();                     // 0 lejos, 1 cerca
+    rainDrops[i] = {
+      x: rnd(),                              // 0..1
+      y: rnd(),                              // 0..1
+      depth,
+      len: 8 + depth * 26,
+      speed: 0.55 + depth * 1.7,
+      alpha: 0.12 + depth * 0.55
+    };
+  }
+}
+
+function rainIntensity(p) {
+  const cfg = CONFIG.phases;
+  if (p <= cfg.rainFadeStart) return 1.0;
+  if (p >= cfg.rainFadeEnd)   return 0.0;
+  const t = range(p, cfg.rainFadeStart, cfg.rainFadeEnd);
+  /* Curva con caída inicial suave y desaparición progresiva */
+  return (1 - smooth(t)) * (1 - easeIn(t) * 0.4);
+}
+
+function updateRain(dt, p) {
+  const intensity = rainIntensity(p);
+
+  /* Fade global del canvas */
+  rainCanvas.style.opacity = intensity;
+
+  if (intensity <= 0.01) {
+    rctx.clearRect(0, 0, rainW, rainH);
+    return;
+  }
+
+  rctx.clearRect(0, 0, rainW, rainH);
+
+  /* Ajuste del color según la hora del día */
+  const dawn = smooth(range(p, CONFIG.phases.dawnStart, CONFIG.phases.dawnEnd));
+  const r = Math.round(lerp(180, 220, dawn));
+  const g = Math.round(lerp(200, 225, dawn));
+  const b = Math.round(lerp(235, 240, dawn));
+
+  for (let i = 0; i < rainDrops.length; i++) {
+    const d = rainDrops[i];
+
+    /* Movimiento */
+    d.y += d.speed * (dt / 1000) * (0.8 + intensity * 1.4);
+    if (d.y > 1.15) {
+      d.y = -0.15;
+      d.x = rnd();
+    }
+
+    /* Deriva horizontal sutil (viento) */
+    d.x += (dt / 1000) * 0.012 * (0.3 + d.depth);
+
+    const px = d.x * rainW;
+    const py = d.y * rainH;
+    const len = d.len * (0.55 + intensity * 0.75);
+
+    rctx.strokeStyle = `rgba(${r},${g},${b},${d.alpha * intensity})`;
+    rctx.lineWidth = 0.5 + d.depth * 1.3;
+    rctx.beginPath();
+    rctx.moveTo(px, py);
+    rctx.lineTo(px, py + len);
+    rctx.stroke();
+  }
+}
+
+/* =========================================================
+   CAMPO — update por frame
+   ========================================================= */
+function updateField(p, t) {
+  const camScale = cameraScale(p);
+
+  for (let i = 0; i < flowers.length; i++) {
+    const f = flowers[i];
+    const vis = fieldVisibility(p, f.layer);
+
+    /* Solo la capa near tiene viento apreciable */
+    let sway = 0;
+    if (f.depthFactor > 0.1) {
+      sway = Math.sin(t * 0.0007 * f.speed + f.phase) * f.amp * f.depthFactor;
+    }
+
+    /* Parallax: cada capa reacciona distinto al zoom de cámara */
+    const parallax = (1 - camScale) * 12 * f.depthFactor;
+    const yOffset  = parallax;
+
+    /* Composición del transform: posición base + inclinación + viento + parallax */
+    f.el.style.transform =
+      `translate(-50%, calc(-100% + ${yOffset}px)) ` +
+      `rotate(${f.tilt + sway}deg)`;
+
+    /* Opacidad: se revela por capa + refuerzo en primer plano */
+    f.el.style.opacity = f.alpha * vis;
+  }
+}
+
+/* =========================================================
+   LOOP
+   ========================================================= */
+let lastT = performance.now();
+let time = 0;
+
+function frame(now) {
+  const dt = Math.min(now - lastT, 50); // evitar saltos grandes
+  lastT = now;
+  time = now;
+
+  /* Suavizar progreso (reversible) */
+  scrollState.smooth += (scrollState.raw - scrollState.smooth) * CONFIG.smoothing;
+  if (Math.abs(scrollState.raw - scrollState.smooth) < 0.0002) {
+    scrollState.smooth = scrollState.raw;
+  }
+  const p = scrollState.smooth;
+
+  /* Cámara */
+  const s = cameraScale(p);
+  const y = cameraY(p);
+  const x = cameraTranslateX(p);
+  cameraEl.style.transform =
+    `translate3d(${x}vw, ${y}vh, 0) scale(${s})`;
+
+  /* Sistemas del mundo */
+  updateSky(p);
+  updateTerrain(p);
+  updatePlant(p);
+  updateField(p, time);
+  windPlant(time, p);
+  updateRain(dt, p);
+
+  requestAnimationFrame(frame);
+}
+
+/* =========================================================
+   INICIALIZACIÓN
+   ========================================================= */
+function init() {
+  resizeRain();
+  buildRain();
+  readScroll();
+  /* Forzar al menos un frame de estado coherente */
+  scrollState.smooth = scrollState.raw;
+  requestAnimationFrame(frame);
+}
+
+window.addEventListener('resize', () => {
+  resizeRain();
+  readScroll();
+}, { passive: true });
+
+init();
+</script>
 </body>
 </html>
