@@ -2,44 +2,45 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GEI — Mundo de Supervivencia v0.1</title>
-    <link rel="stylesheet" href="style.css">
+    <title>WORLD-LAB v0.1</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header>
-        <h1>GEI — Mundo de Supervivencia v0.1</h1>
-        <div id="clock-panel" class="panel">
-            <span id="clock-day">Día 1</span>
-            <span id="clock-hour">00:00</span>
-            <span id="clock-tick">tick 0</span>
-            <button id="btn-toggle">Pausar</button>
-            <button id="btn-step">Paso</button>
-        </div>
-    </header>
+    <h1>WORLD-LAB v0.1</h1>
+    <canvas id="canvas"></canvas>
 
-    <main>
-        <section id="map-panel">
-            <h2>Mapa</h2>
-            <div id="map" class="map"></div>
-        </section>
+    <!-- Orden de carga: core → world → interface → agents → experiment → tests → visualization → main -->
+    <script src="js/core/prng.js"></script>
+    <script src="js/core/hash.js"></script>
+    <script src="js/core/seed.js"></script>
 
-        <section id="zone-panel" class="panel">
-            <h2>Zona seleccionada</h2>
-            <div id="zone-info">Ninguna zona seleccionada.</div>
-        </section>
+    <script src="js/world/world_config.js"></script>
+    <script src="js/world/cell.js"></script>
+    <script src="js/world/effect.js"></script>
+    <script src="js/world/entity.js"></script>
+    <script src="js/world/world_state.js"></script>
+    <script src="js/world/world.js"></script>
 
-        <section id="world-panel" class="panel">
-            <h2>Estado del mundo</h2>
-            <div id="world-info"></div>
-        </section>
+    <script src="js/interface/action.js"></script>
+    <script src="js/interface/action_result.js"></script>
+    <script src="js/interface/observation.js"></script>
+    <script src="js/interface/feedback.js"></script>
 
-        <section id="events-panel" class="panel">
-            <h2>Eventos recientes</h2>
-            <ul id="events-list"></ul>
-        </section>
-    </main>
+    <script src="js/agents/agent.js"></script>
+    <script src="js/agents/wait_agent.js"></script>
+    <script src="js/agents/random_agent.js"></script>
+    <script src="js/agents/rule_agent.js"></script>
+    <script src="js/agents/registry.js"></script>
 
-    <script src="script.js"></script>
+    <script src="js/experiment/experiment_config.js"></script>
+    <script src="js/experiment/trajectory.js"></script>
+    <script src="js/experiment/hash_state.js"></script>
+    <script src="js/experiment/recorder.js"></script>
+    <script src="js/experiment/experiment.js"></script>
+
+    <script src="js/tests/tests.js"></script>
+
+    <script src="js/visualization/renderer.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
