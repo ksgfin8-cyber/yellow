@@ -1,5 +1,5 @@
 // FNV-1a de 32 bits sobre bytes UTF-8.
-// Contrato: js/core/hash.js según especificación §5.
+// Contrato: js/core/hash.js según WORLD-LAB v0.2.5 §24.1 y §11.6.
 
 const FNV_OFFSET_BASIS = 0x811c9dc5;
 const FNV_PRIME = 0x01000193;
@@ -25,6 +25,7 @@ function fnv1a(text) {
 // Codificador UTF-8 mínimo y determinista.
 // No depende de TextEncoder, aunque podría usarse en navegadores modernos.
 function utf8_encode(str) {
+    if (typeof str !== "string") throw new ContractError("invalid Unicode string");
     const bytes = [];
     for (let i = 0; i < str.length; i++) {
         let code = str.charCodeAt(i);
@@ -36,6 +37,10 @@ function utf8_encode(str) {
                 code = 0x10000 + ((code - 0xD800) << 10) + (next - 0xDC00);
                 i++;
             }
+        }
+
+        if (code >= 0xD800 && code <= 0xDFFF) {
+            throw new ContractError("invalid Unicode string");
         }
 
         if (code < 0x80) {
