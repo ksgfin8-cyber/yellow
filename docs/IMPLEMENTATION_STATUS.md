@@ -1,10 +1,13 @@
 # Estado de implementación de WORLD-LAB
 
-Documento **informativo y operacional**, no normativo. Corte operativo F2-D:
-2026-11-05, base `main` = `4729c999ebf97c4d643bf688abf7e2ec1acc8509`.
+Documento **informativo y operacional**, no normativo. Corte operativo F2-E:
+2026-11-05 (America/Guayaquil), base `main` posterior al PR #8 =
+`f8aaca31951e425333416cfce85a031572890cfe`. Rama: `dev/f2-e-world-dynamics`.
+
+Referencia del corte anterior F2-D: base `4729c999ebf97c4d643bf688abf7e2ec1acc8509`.
 La entrega parcial `1d2bc5c` fue incorporada por el usuario en PR #7;
 HEAD remoto observado al entregar la continuación: `e76754e0a95483818633e5121a5f6c205ec92de0`.
-Cambios F2-D en `dev/f2-d-world-actions`; evidencia DOC-01 conservada donde sigue
+Entrega F2-D en `dev/f2-d-world-actions`; evidencia DOC-01 conservada donde sigue
 vigente. Actualizar solo lo afectado por cada incremento.
 
 ## Autoridad, procedencia y lectura inicial
@@ -42,14 +45,14 @@ no solo los tres módulos core como describe el informe F1-A.
 REPORTED: resultados y particularidades del runtime de las ejecuciones originales;
 las ejecuciones F2-D siguientes son evidencia nueva, no certificación retroactiva.
 
-## Estado por componente (actualizado F2-D)
+## Estado por componente (actualizado F2-E)
 
-| Incremento / componente | Estado y alcance de evidencia (DOC-01, actualizado F2-D) |
+| Incremento / componente | Estado y alcance de evidencia (DOC-01, actualizado F2-E) |
 |---|---|
 | F1-A: PRNG, UTF-8, FNV, semillas | Implementado; VERIFIED por ejecución de 18 casos locales. `next_int` admite extremos Number seguros y cardinalidad ≤2^32; esa decisión interna está documentada, sin ampliar §10.3. No es la suite canónica completa. |
 | F1-B: contratos | Parcialmente implementado; VERIFIED por ejecución de B01–B12: WorldConfig, binary64, predicados Cell/Entity/WorldState y Action. No incorpora por sí solo esos contratos al motor. |
 | FeedbackConfig / ExperimentConfig | Pendientes de cierre documental/integración. VERIFIED por lectura: clases legacy y un inspector parcial `complete:false`; TR-006/007. |
-| WORLD | F2-A implementa tipos validados, copias profundas, WorldState.full_snapshot y delegación World.full_snapshot (§7–§9); VERIFIED por F2A-01–14. F2-B verifica generación y selección inicial (§11.2 recuperado/§11.3) con F2B-01–13. F2-C parcial añade preparación, lifecycle <=, eventos crudos y sync posterior (21 pruebas). Sin initialize_world/InitialWorldResult completos: INIT-004 bloquea la validación de metadatos de §11.7. F2-D implementa apply_action con validación, MOVE BOUNDED, precedencia completa, costes y efectos con los campos canónicos, WAIT y resultados bajo decisiones de ingeniería explícitas (28 pruebas). Conformidad histórica de ActionResult/eventos no verificada. Dinámica e initialize siguen legacy. TR-001/003/004/008 persisten. F2 completo no implementado. |
+| WORLD | F2-A implementa tipos validados, copias profundas, WorldState.full_snapshot y delegación World.full_snapshot (§7–§9); VERIFIED por F2A-01–14. F2-B verifica generación y selección inicial (§11.2 recuperado/§11.3) con F2B-01–13. F2-C parcial añade preparación, lifecycle <=, eventos crudos y sync posterior (21 pruebas). Sin initialize_world/InitialWorldResult completos: INIT-004 bloquea la validación de metadatos de §11.7. F2-D implementa apply_action con validación, MOVE BOUNDED, precedencia completa, costes y efectos con los campos canónicos, WAIT y resultados bajo decisiones de ingeniería explícitas (28 pruebas). Conformidad histórica de ActionResult/eventos no verificada. F2-E implementa advance_dynamics y regeneración binaria determinista con validación y preparación/confirmación (16 pruebas); fórmula conservada como decisión de ingeniería DYN-P01. initialize sigue legacy. TR-001/003/004/008 persisten. F2 completo no implementado. |
 | EXPERIMENT | Ciclo legacy presente; pendientes secuencia canónica, transacción con rollback, determine_termination y ExperimentResult (§5, §20, §26.5, §32). TR-005. |
 | Observaciones / agentes | Código legacy presente. VERIFIED por lectura: observación devuelve `time`, envuelve bordes y distingue stock; §16 exige `tick`/OUT_OF_BOUNDS y §35.6 S-2 no distinguir stocks. Agentes wait/random/rule existen; integración canónica no verificada. |
 | Recorder / hashes | Código legacy presente. VERIFIED por lectura de `recorder.js`/`hash_state.js`: sin source/sequence ni listas action_events/lifecycle_events del StepRecord; record_step asigna rng_state del argumento WORLD. Hashes sobre texto, no WLS1. Migración pendiente (§4, §18, §21–§24, §34). |
@@ -121,7 +124,7 @@ revisión focalizada; ello no certifica su ausencia fuera de lo examinado.
 | Contrato / operación afectada | Qué falta o requiere resolución | Trabajo independiente posible | Evidencia para cerrar |
 |---|---|---|---|
 | §11.2: generación del mapa | Algoritmo recuperado desde el texto histórico v0.2.4 proporcionado en la orden F2-B; falta fuente independiente en repo | Generación y selección ya verificadas; pueden usarse sin inicialización completa | Conservar procedencia y recuperar documento original para trazabilidad duradera; no reconstruir otras cláusulas |
-| §13–§15/§18: acciones, lifecycle, eventos | Condición <= y WorldEvent/RecordedEvent recuperados en F2-C; persiste INIT-004 y faltan contratos operacionales de acción/dinámica | Preparación/lifecycle y acciones F2-D verificadas localmente bajo políticas explícitas; no enriquecer en WORLD | Resolver §11.7 y contrastar políticas de acciones con fuente histórica cuando exista; dinámica pendiente |
+| §13–§15/§18: acciones, lifecycle, eventos | Condición <= y WorldEvent/RecordedEvent recuperados en F2-C; persiste INIT-004 y faltan contratos operacionales de acción/dinámica | Preparación/lifecycle, acciones F2-D y dinámica F2-E verificadas localmente; políticas de ingeniería identificadas | Resolver §11.7 y contrastar políticas de acciones/regeneración con fuente histórica si aparece; integración experimental pendiente |
 | §11.1/§11.7/§26: inicialización y errores | §11.7 demanda metadatos incompatibles con WorldEvent crudo; captura de errores delimitada por orden F2-C §6.6 | Preparación/lifecycle/sync, con error de posición preservando semilla y otros errores sin envolver | Decisión autorizada sobre §11.7 antes de cerrar la API; no alterar v0.2.5 unilateralmente |
 | §17/§19: feedback y aceptación del experimento | Nombres de cuatro flags, dominios/validación heredados | WORLD sin agente/feedback dentro de contratos disponibles | Esquemas normativos completos; pruebas de configuración pertinentes |
 | §21/§25/§26.5/§34: registro, replay, atomicidad y bytes | Algoritmos heredados; WLS1 V1 de 59 bytes no reproducido; V2–V10 declarados pendientes | No bloquea todo trabajo estructural F2; sí cierre de equivalencia afectada | Corpus anterior, vectores y pruebas respectivas antes de F3/F4 dependiente |
@@ -407,3 +410,99 @@ movimiento localmente pero mantiene observación pendiente; TR-004 resuelve el
 campo de daño en apply_action sin certificar integración. TR-001 sigue parcial;
 TR-008 conserva exactamente su estado anterior e INIT-004 sigue abierto.
 No se implementa F2-E/F3 ni se declara aceptación de T01–T280 o conformidad global.
+
+
+## F2-E — dinámica autónoma y regeneración determinista
+
+Implementados `World.advance_dynamics()` y `World.regenerate_resources()` en la
+rama F2-E basada en main posterior al PR #8. Las secciones F2-B/C/D anteriores
+conservan la evidencia y los límites de sus respectivos incrementos; esta sección
+registra el avance actual sin reescribir informes históricos.
+
+### Obligaciones y decisiones
+
+VERIFIED por lectura selectiva: §§4–9, §15 e invariantes aplicables de §31,
+WorldConfig, Cell, WorldState, validadores y fixtures F2-D. §15 exige delegación
+advance_dynamics → regenerate_resources y ausencia de eventos. §5 reserva el
+reloj a EXPERIMENT; §6 limita resource_regeneration a uint32, §8 establece orden
+(y,x) y tipos de celdas. El dominio binario stock0/1 procede de los contratos
+estructurales F1-B/F2-A y de la orden F2-E. No se recuperó una fuente histórica
+adicional de la fórmula; no se le atribuye autoridad por su presencia en legacy.
+
+| ID / clasificación | Indeterminación y obligaciones conocidas | Alternativas / decisión y justificación | Pruebas / riesgo |
+|---|---|---|---|
+| DYN-P01 — decisión de ingeniería | Fórmula de regeneración no reproducida íntegramente en §15; tasa uint32 y stock binario obligatorios | Conservar min(1,stock+resource_regeneration), equivalente a reponer stock0→1 para cualquier tasa positiva; tasa0 conserva todo, stock1 no cambia. Alternativa: ignorar la tasa positiva o añadir probabilidades; se elige la fórmula simple compatible, sin nuevo estado ni RNG. stock+tasa ≤2^32, exacto en Number | F2E-02–05/08/11. Conformidad histórica de la fórmula no verificada; no es contradicción demostrada ni alternativa declarada única |
+| DYN-P02 — decisión interna compatible | Validación previa y prevención de cambios parciales detectables exigidas por la orden; tipos/errores existentes | WorldConfig._validate y assert_WorldState antes de retornar incluso con tasa0. Preparar lista en (y,x), verificar stock propio escribible de todos los candidatos y luego confirmar en ese orden. Frente a mutación durante recorrido, evita cambios anteriores si una celda tardía es inválida/no escribible. Sin transacción global | F2E-07/12–15. Atomicidad local para registros ordinarios; no promete rollback ante Proxy hostil ni fallos externos durante commit |
+| DYN-P03 — decisión de interfaz compatible | §15 prohíbe eventos, no especifica un resultado adicional | Ambos métodos retornan undefined, sin crear un resultado, lista de eventos o metadatos. advance_dynamics llama regenerate_resources una vez, sin pasar por acciones/lifecycle/Recorder | F2E-01/10/16. No se afirma haber recuperado una firma histórica de retorno más detallada |
+
+Evaluación de riesgos: la transición es determinista, no lee RNG y solo escribe
+stock de recursos agotados existentes. Conserva referencias de grid/filas/celdas/
+efectos y entidad; no crea recursos ni altera traversals o peligros. No realiza
+operaciones energéticas: conserva incluso el signo de cero y la representación
+exacta de energy. No cambia time, lifecycle o rng_state, no ejecuta acciones ni
+lifecycle, no sincroniza RNG ni toca Recorder. La lista de confirmación usa
+memoria proporcional a los recursos agotados; el mapa ya está limitado por
+MAX_CELLS. La fórmula queda aislada y puede contrastarse con una fuente auténtica
+futura sin tratar los tests locales como norma. No hay nueva fuente aleatoria.
+
+Errores: configuración inválida → ContractError("invalid world_config"); estado
+inválido → ContractError("invalid initial_state"); stock candidato no escribible
+→ ContractError("world transition failed"). Todos pertenecen al catálogo §26.6.
+La tasa0 y los recursos completos no requieren escritura, por lo que sus registros
+pueden estar congelados. La validación estructural completa se mantiene aun si
+no hay cambios. No se debilita ningún validador ni se reparan estados inválidos.
+
+### Correspondencia de requisitos y pruebas
+
+| Obligación / comportamiento | Pruebas locales ejecutadas |
+|---|---|
+| Delegación exacta y ausencia de eventos/resultado/metadatos | F2E-01/10/16 |
+| Stock0/1; tasa0, positiva y uint32 máxima | F2E-02–04 |
+| Sin recursos; BLOCKED, HAZARD y NONE sin alteración | F2E-05/06 |
+| Orden canónico y conservación de estructura/referencias | F2E-06/07; Proxy transparente solo como instrumento de orden de escrituras |
+| Determinismo e idempotencia | F2E-04/08/11/16 |
+| No consumo de PRNG real, Math.random ni acceso a RNG/sync | F2E-08/10; Math.random lanza error en el harness |
+| Reloj Number/BigInt uint64 y entidad ACTIVE/DEAD sin mutación | F2E-06/09; incluye límite uint64 y energía -0 exacta |
+| Validación de estado después de cada transición válida | F2E-01–11/16 |
+| Errores tardíos de celda/estado/config y stock no escribible sin mutación parcial | F2E-12–15; comparación completa antes/después |
+
+### Ejecución F2-E
+
+En /workspace/yellow, Node.js v24.22.1. Suites anteriores intactas; ninguna prueba
+omitida. Los IDs F2E son locales, no T01–T280.
+
+| Comando | Resultado observado | Exit |
+|---|---|---|
+| `node tests/f1-a.test.cjs` | 18 PASS, 0 FAIL | 0 |
+| `node tests/f1-b.test.cjs` | 12 PASS, 0 FAIL | 0 |
+| `node tests/f2-a.test.cjs` | 14 PASS, 0 FAIL | 0 |
+| `node tests/f2-b.test.cjs` | 13 PASS, 0 FAIL | 0 |
+| `node tests/f2-c.test.cjs` | 21 PASS, 0 FAIL | 0 |
+| `node tests/f2-d.test.cjs` | 28 PASS, 0 FAIL | 0 |
+| `node tests/f2-e.test.cjs` | 16 PASS, 0 FAIL | 0 |
+| `node tests/f1-a-legacy.cjs` | 4 PASS/18 FAIL: invalid initial_state desde World.initialize | 1 |
+| `git diff --check` | Sin errores | 0 |
+
+Total: **122 pruebas locales aprobadas**, de ellas 16 nuevas F2-E. El diagnóstico
+legacy conserva los mismos cuatro PASS (T01/T02/T03/T18) y 18 fallos previos;
+no alcanza dinámica por el bloqueo de inicialización, por lo que no demuestra
+integración de la nueva operación. No se reejecutó baseline ni se atribuye su
+resultado histórico a una verificación nueva.
+
+### Divergencias resueltas y dependencias pendientes
+
+Resuelto en este alcance: faltaba advance_dynamics; regenerate_resources dependía
+de EffectKind ausente y mutaba durante recorrido sin validación/preparación.
+Ahora la operación es invocable independientemente, válida y reproducible bajo
+DYN-P01. No se cambia la arquitectura ni las fórmulas/contratos de acciones,
+lifecycle o inicialización. Archivos: js/world/world.js (solo dinámica),
+tests/f2-e.test.cjs y este estado operacional.
+
+TR-001 sigue parcial; autenticidad histórica de la fórmula continúa no verificada.
+INIT-004 y TR-008 mantienen exactamente su estado: falta cerrar initialize_world.
+TR-005 sigue abierta: EXPERIMENT debe integrar posteriormente la secuencia
+acción → lifecycle → dinámica → reloj → sync → registro y su transacción global,
+sin realizarse aquí. Observaciones, feedback, Recorder, hashes, WLS1/replay y
+agentes permanecen fuera de alcance y sin cambios. Las políticas ACT-P01–06 no
+se modifican. No se declara conformidad global ni interoperabilidad; no se inicia
+F2-F ni F3, no se realiza merge ni despliegue.
