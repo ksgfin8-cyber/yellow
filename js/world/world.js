@@ -178,6 +178,12 @@ class World {
 
     // --- Persistencia -------------------------------------------------
 
+    // §7.2: structural snapshot only; no initialization, clock or RNG access.
+    full_snapshot() {
+        if (!(this.state instanceof WorldState)) throw new ContractError("invalid initial_state");
+        return this.state.full_snapshot();
+    }
+
     sync_rng_state() {
         this.state.rng_state = this.rng.get_state();
     }

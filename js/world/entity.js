@@ -1,14 +1,22 @@
-// Entidad. Tipo puro, sin lógica.
-// Contrato: js/world/entity.js según especificación §8.2.
-
+// WORLD-LAB v0.2.5 §9. Explicit lifecycle; no lifecycle transitions here.
 class EntityState {
-    constructor(id, position, energy) {
+    #config;
+
+    constructor(id, position, energy, lifecycle, config) {
+        if (!validate_EntityState({id, position, energy, lifecycle}, config)) {
+            throw new ContractError("invalid initial_state");
+        }
+        this.#config = new WorldConfig(config);
         this.id = id;
-        this.position = { x: position.x, y: position.y };
+        this.position = {x: position.x, y: position.y};
         this.energy = energy;
+        this.lifecycle = lifecycle;
     }
 
     copy() {
-        return new EntityState(this.id, this.position, this.energy);
+        if (!validate_EntityState(this, this.#config)) {
+            throw new ContractError("invalid initial_state");
+        }
+        return new EntityState(this.id, this.position, this.energy, this.lifecycle, this.#config);
     }
 }
