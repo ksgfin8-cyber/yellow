@@ -1,11 +1,4 @@
 // WORLD-LAB v0.2.5 §10. Classic script: no module loader required.
-class ContractError extends Error {
-    constructor(message) {
-        super(message);
-        this.name = "ContractError";
-    }
-}
-
 class PRNG {
     constructor(seed) {
         this.state = PRNG._validate_state(seed);

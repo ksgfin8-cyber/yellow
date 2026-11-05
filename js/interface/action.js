@@ -15,3 +15,12 @@ function makeAction(type) {
     }
     return { type: type };
 }
+
+// §12: structural validation deliberately does not check the enum.
+function validate_Action_structural(action) {
+    return has_exact_fields(action, ["type"]) && typeof action.type === "string";
+}
+function assert_Action_structural(action) {
+    if (!validate_Action_structural(action)) throw new ContractError("invalid action structure");
+    return action;
+}
