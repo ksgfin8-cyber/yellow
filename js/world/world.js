@@ -141,7 +141,7 @@ class World {
 
     // --- Transición ---------------------------------------------------
 
-    // F2-D independent helpers. These are NOT ActionResult-producing transitions.
+    // F2-D input/geometry helpers; no mutations or ActionResult construction here.
     _action_type(action) {
         assert_WorldState(this.state, this.config);
         if (!this.get_experimental_entity()) throw new ContractError("invalid initial_state");
@@ -169,7 +169,7 @@ class World {
         if (target.x < 0 || target.x >= this.config.width ||
             target.y < 0 || target.y >= this.config.height) return "OUT_OF_BOUNDS";
         if (this.state.grid[target.y][target.x].traversal === "BLOCKED") return "BLOCKED_CELL";
-        // Energy gating still needs the incorporated action contract.
+        // Energy gating follows in apply_action under the documented engineering policy.
         return null; // only the checks above passed; not a successful ActionResult
     }
 
@@ -180,65 +180,51 @@ class World {
         return canonicalize_binary64(energy + delta);
     }
 
+    // F2-D: normative boundaries plus explicit engineering policies recorded in STATUS.
     apply_action(action) {
-        const entity = this.state.entities.get(this.experimental_entity_id);
-        if (!entity) {
-            throw new Error("World.apply_action: experimental entity not found");
+        const type = this._action_type(action);
+        const entity = this.get_experimental_entity();
+        const unchanged = (validity, reason) => ({validity, reason, energy_delta: 0, events: []});
+        if (entity.lifecycle !== "ACTIVE") return unchanged("INVALID", "ENTITY_NOT_ACTIVE");
+
+        let target = null;
+        if (type !== "WAIT") {
+            const reason = this._move_failure_before_energy(action);
+            if (reason !== null) return unchanged("INVALID", reason);
+            target = this._bounded_move_target(action);
         }
 
-        const result = {
-            entity_id: entity.id,
-            action: { ...action },
-            validity: "VALID",
-            reason: "NONE",
-            events: []
-        };
+        const cost = canonicalize_binary64(type === "WAIT" ? this.config.wait_cost : this.config.move_cost);
+        if (canonicalize_binary64(entity.energy) < cost) return unchanged("FAILED", "INSUFFICIENT_ENERGY");
 
-        if (action.type === "WAIT") {
-            entity.energy -= this.config.wait_cost;
-            return result;
-        }
-
-        if (action.type !== "MOVE_N" && action.type !== "MOVE_S" && action.type !== "MOVE_E" && action.type !== "MOVE_W") {
-            throw new Error("World.apply_action: unknown action type '" + action.type + "'");
-        }
-
-        const offset = World._offset(action.type);
-        const target = {
-            x: (entity.position.x + offset.dx + this.config.width) % this.config.width,
-            y: (entity.position.y + offset.dy + this.config.height) % this.config.height
-        };
-
-        const cell = this.state.grid[target.y][target.x];
-
-        if (cell.traversal === "BLOCKED") {
-            result.validity = "INVALID";
-            result.reason = "BLOCKED_CELL";
-            result.events.push({ type: "ENTITY_BLOCKED", entity_id: entity.id, position: { ...target } });
-            return result;
-        }
-
-        if (entity.energy < this.config.move_cost) {
-            result.validity = "FAILED";
-            result.reason = "INSUFFICIENT_ENERGY";
-            return result;
-        }
-
-        entity.energy -= this.config.move_cost;
-        entity.position = target;
-        result.events.push({ type: "ENTITY_MOVED", entity_id: entity.id, position: { ...target } });
-
-        if (cell.effect) {
-            if (cell.effect.kind === EffectKind.RESOURCE && cell.effect.stock > 0) {
-                entity.energy += this.config.resource_effect;
-                cell.effect.stock -= 1;
-                result.events.push({ type: "RESOURCE_CONSUMED", entity_id: entity.id, position: { ...target } });
-            } else if (cell.effect.kind === EffectKind.HAZARD) {
-                entity.energy -= this.config.hazard_effect;
-                result.events.push({ type: "HAZARD_ENTERED", entity_id: entity.id, position: { ...target } });
+        // Stage all arithmetic and effects before committing any mutation.
+        const before = entity.energy;
+        let energy = World._finite_energy_sum(before, -cost);
+        let resource = null;
+        if (target !== null) {
+            const effect = this.state.grid[target.y][target.x].effect;
+            if (effect !== null && effect.kind === "RESOURCE" && effect.stock === 1) {
+                energy = World._finite_energy_sum(energy, this.config.resource_effect);
+                resource = effect;
+            } else if (effect !== null && effect.kind === "HAZARD") {
+                energy = World._finite_energy_sum(energy, -this.config.hazard_damage);
             }
         }
+        energy = canonicalize_binary64(energy);
+        const energy_delta = canonicalize_binary64(energy - before);
+        const result = {validity: "VALID", reason: "NONE", energy_delta, events: []};
 
+        // Ordinary F2-A records may have been frozen by a caller. Reject before writes.
+        const changes = [];
+        if (!Object.is(entity.energy, energy)) changes.push([entity, "energy", energy]);
+        if (target !== null) changes.push([entity, "position", target]);
+        if (resource !== null) changes.push([resource, "stock", 0]);
+        for (const [record, key] of changes) {
+            if (Object.getOwnPropertyDescriptor(record, key)?.writable !== true) {
+                throw new ContractError("world transition failed");
+            }
+        }
+        for (const [record, key, value] of changes) record[key] = value;
         return result;
     }
 
