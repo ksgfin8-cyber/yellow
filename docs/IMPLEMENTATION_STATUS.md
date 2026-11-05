@@ -1,8 +1,11 @@
 # Estado de implementación de WORLD-LAB
 
-Documento **informativo y operacional**, no normativo. Corte operativo F2-E:
-2026-11-05 (America/Guayaquil), base `main` posterior al PR #8 =
-`f8aaca31951e425333416cfce85a031572890cfe`. Rama: `dev/f2-e-world-dynamics`.
+Documento **informativo y operacional**, no normativo. Corte operativo F2-F:
+2026-11-05 (America/Guayaquil), base `main` posterior al PR #9 =
+`b37abd3f46d4aa8032556e0dbc92b5a41c6c0448`. Rama: `dev/f2-f-world-observation`.
+
+Corte anterior F2-E: base `f8aaca31951e425333416cfce85a031572890cfe`,
+rama `dev/f2-e-world-dynamics`.
 
 Referencia del corte anterior F2-D: base `4729c999ebf97c4d643bf688abf7e2ec1acc8509`.
 La entrega parcial `1d2bc5c` fue incorporada por el usuario en PR #7;
@@ -45,16 +48,16 @@ no solo los tres módulos core como describe el informe F1-A.
 REPORTED: resultados y particularidades del runtime de las ejecuciones originales;
 las ejecuciones F2-D siguientes son evidencia nueva, no certificación retroactiva.
 
-## Estado por componente (actualizado F2-E)
+## Estado por componente (actualizado F2-F)
 
-| Incremento / componente | Estado y alcance de evidencia (DOC-01, actualizado F2-E) |
+| Incremento / componente | Estado y alcance de evidencia (DOC-01, actualizado F2-F) |
 |---|---|
 | F1-A: PRNG, UTF-8, FNV, semillas | Implementado; VERIFIED por ejecución de 18 casos locales. `next_int` admite extremos Number seguros y cardinalidad ≤2^32; esa decisión interna está documentada, sin ampliar §10.3. No es la suite canónica completa. |
 | F1-B: contratos | Parcialmente implementado; VERIFIED por ejecución de B01–B12: WorldConfig, binary64, predicados Cell/Entity/WorldState y Action. No incorpora por sí solo esos contratos al motor. |
 | FeedbackConfig / ExperimentConfig | Pendientes de cierre documental/integración. VERIFIED por lectura: clases legacy y un inspector parcial `complete:false`; TR-006/007. |
-| WORLD | F2-A implementa tipos validados, copias profundas, WorldState.full_snapshot y delegación World.full_snapshot (§7–§9); VERIFIED por F2A-01–14. F2-B verifica generación y selección inicial (§11.2 recuperado/§11.3) con F2B-01–13. F2-C parcial añade preparación, lifecycle <=, eventos crudos y sync posterior (21 pruebas). Sin initialize_world/InitialWorldResult completos: INIT-004 bloquea la validación de metadatos de §11.7. F2-D implementa apply_action con validación, MOVE BOUNDED, precedencia completa, costes y efectos con los campos canónicos, WAIT y resultados bajo decisiones de ingeniería explícitas (28 pruebas). Conformidad histórica de ActionResult/eventos no verificada. F2-E implementa advance_dynamics y regeneración binaria determinista con validación y preparación/confirmación (16 pruebas); fórmula conservada como decisión de ingeniería DYN-P01. initialize sigue legacy. TR-001/003/004/008 persisten. F2 completo no implementado. |
+| WORLD | F2-A implementa tipos validados, copias profundas, WorldState.full_snapshot y delegación World.full_snapshot (§7–§9); VERIFIED por F2A-01–14. F2-B verifica generación y selección inicial (§11.2 recuperado/§11.3) con F2B-01–13. F2-C parcial añade preparación, lifecycle <=, eventos crudos y sync posterior (21 pruebas). Sin initialize_world/InitialWorldResult completos: INIT-004 bloquea la validación de metadatos de §11.7. F2-D implementa apply_action con validación, MOVE BOUNDED, precedencia completa, costes y efectos con los campos canónicos, WAIT y resultados bajo decisiones de ingeniería explícitas (28 pruebas). Conformidad histórica de ActionResult/eventos no verificada. F2-E implementa advance_dynamics y regeneración binaria determinista con validación y preparación/confirmación (16 pruebas); fórmula conservada como decisión de ingeniería DYN-P01. F2-F migra observación pura BOUNDED, tick exacto, privacidad de stock y validación (18 pruebas). initialize sigue legacy. TR-003 queda resuelta en alcance espacial local; TR-001/004/008 persisten. F2 completo no implementado. |
 | EXPERIMENT | Ciclo legacy presente; pendientes secuencia canónica, transacción con rollback, determine_termination y ExperimentResult (§5, §20, §26.5, §32). TR-005. |
-| Observaciones / agentes | Código legacy presente. VERIFIED por lectura: observación devuelve `time`, envuelve bordes y distingue stock; §16 exige `tick`/OUT_OF_BOUNDS y §35.6 S-2 no distinguir stocks. Agentes wait/random/rule existen; integración canónica no verificada. |
+| Observaciones / agentes | F2-F implementa observación pura tick/self/local_view, BOUNDED, OUT_OF_BOUNDS, occupied=false y RESOURCE sin distinción de stock (18 pruebas locales). Subesquemas y capacidad documentados como OBS-P01–03, no conformidad histórica demostrada. Agentes sin cambios ni nueva auditoría; integración no verificada. |
 | Recorder / hashes | Código legacy presente. VERIFIED por lectura de `recorder.js`/`hash_state.js`: sin source/sequence ni listas action_events/lifecycle_events del StepRecord; record_step asigna rng_state del argumento WORLD. Hashes sobre texto, no WLS1. Migración pendiente (§4, §18, §21–§24, §34). |
 | Replay / WLS1 / Metrics | Pendientes: no se encontraron implementaciones en el árbol JS inspeccionado. T20 legacy vuelve a ejecutar Experiment; no implementa replay. Ausencia no clasificada como defecto de F1-A/B. |
 | Renderer / entrada web | Legacy presente, sin validación integrada. VERIFIED por lectura: render recibe World y `main.js` reconstruye su estado. TR-008 impide interpretar las pruebas actuales como validación de la aplicación. |
@@ -107,7 +110,7 @@ con defecto nuevo ni se consideran estas dependencias bloqueantes globales.
 |---|---|---|---|---|---|
 | TR-001 | Corpus normativo | Recuperación transmitida de v0.2.4 §§6.1/14/18/21.2 en F2-C; INIT-004 persiste. Sin fuente histórica independiente adicional para acciones | ActionResult, WAIT, costes/efectos y eventos mantienen riesgo de conformidad histórica; no contradicción demostrada | Directiva complementaria F2-D autoriza políticas compatibles ACT-P01–06; conservar riesgo histórico y resolver §11.7 con autoridad | Parcialmente resuelta; VERIFIED implementación/pruebas locales, conformidad histórica restante UNKNOWN |
 | TR-002 | EntityState y creación | F2-A resolvió tipo/copia; F2-C prepare_world_before_lifecycle usa lifecycle/config explícitos y F2C-03/04/08/13–21 los verifican | Preparación/lifecycle inicial válidos; World.initialize y consumidores EXPERIMENT aún usan la firma antigua | Evidencia: commits F2-A/F2-C en historial y pruebas citadas. Integrar únicamente cuando se cierre el contrato canónico de eventos/lifecycle | VERIFIED ejecución; estructura y preparación resueltas, incompatibilidad legacy no resuelta globalmente |
-| TR-003 | Movimiento / observación | apply_action usa destinos BOUNDED y precedencia completa; F2D-05/14/17 verifican bordes y movimiento efectivo. build_observation sigue envolviendo bordes | Movimiento corregido en alcance F2-D; observación todavía no migrada | Conservar pruebas focalizadas y migrar observación en alcance autorizado; no adaptar norma a T16 | VERIFIED ejecución F2-D; divergencia de movimiento resuelta localmente, observación abierta |
+| TR-003 | Movimiento / observación | F2-D verifica MOVE BOUNDED; F2-F elimina módulo de build_observation y verifica centro/bordes/esquinas/mapas estrechos con F2F-02–07 | Movimiento y proyección espacial corregidos localmente; orquestación experimental no verificada | Conservar evidencia local y comprobar consumidores cuando se integren; subesquemas/capacidad OBS-P01–03 explícitos | VERIFIED ejecución F2-D/F2-F; divergencia espacial resuelta en alcance local, sin cerrar TR-008 ni certificar aplicación completa |
 | TR-004 | Configuración / daño | apply_action usa move_cost, wait_cost, resource_effect y hazard_damage; F2D-14/15/19/21/27 verifican contabilidad | Consumidor de daño migrado sin alias hazard_effect; integración legacy no alcanzada por inicialización inválida | Conservar evidencia local y verificar consumidores al integrarlos; políticas de orden/eventos ACT-P03/04 pendientes de contraste histórico | VERIFIED lectura/ejecución F2-D; divergencia de campo resuelta en apply_action, conformidad integrada no verificada |
 | TR-005 | EXPERIMENT / reloj | `experiment.js:run` incrementa time y regenera antes de observación/acción; `run_without_agent` no aplica WAIT y registra null; §5/§20/§32 | Orden/nulabilidad contrarios a norma; sin rollback transaccional | Migración en alcance F3 y pruebas de orden, terminación y fallos; dependencias TR-001 | VERIFIED por lectura; incompatibilidad heredada abierta |
 | TR-006 | FeedbackConfig / Feedback | §17 dice cuatro flags exactos sin nombres; `feedback.js` tiene tres con coerción `!!` y esquema de salida diferente | Clase legacy no es contrato canónico; no puede inventarse cuarto flag | Obtener nombres/dominos de fuente normativa y migrar configuración/proyección | VERIFIED por lectura; incompatibilidad heredada y dependencia documental abiertas |
@@ -506,3 +509,104 @@ sin realizarse aquí. Observaciones, feedback, Recorder, hashes, WLS1/replay y
 agentes permanecen fuera de alcance y sin cambios. Las políticas ACT-P01–06 no
 se modifican. No se declara conformidad global ni interoperabilidad; no se inicia
 F2-F ni F3, no se realiza merge ni despliegue.
+
+
+## F2-F — observación determinista, BOUNDED y privacidad
+
+Implementado build_observation(world, entity, radius) en la rama F2-F, desde main
+posterior al PR #9. Solo cambian js/interface/observation.js,
+tests/f2-f.test.cjs y este documento. Las secciones F2-C/D/E anteriores conservan
+sus límites y resultados históricos; la actualización actual es esta sección y
+las filas de componentes/TR-003 afectadas.
+
+### Contratos explícitos implementados
+
+VERIFIED por lectura selectiva: §§4–9, §16, §35.6 y los invariantes aplicables;
+tipos/validadores WORLD existentes y fixtures F2-E. No se auditan otros subsistemas.
+§16 define el esquema cerrado superior tick/self/local_view, Chebyshev,
+OUT_OF_BOUNDS, occupied=false y pureza; §35.6 S-2 impide distinguir stock0/1.
+No se recuperó un esquema histórico independiente más detallado de self o de las
+celdas observadas. Las decisiones siguientes no se presentan como fuente histórica.
+
+| Obligación | Implementación / evidencia local |
+|---|---|
+| Esquema superior cerrado y reloj actual | Exactamente tick/self/local_view; tick copia state.time sin conversión Number/BigInt ni incremento. F2F-01/10 |
+| Chebyshev / orden canónico | Ventana cuadrada de lado 2r+1, dy de -r a r y después dx; diagonales incluidas. F2F-02/03/06 |
+| BOUNDED / exterior inequívoco | x+dx/y+dy, sin módulo; representación OUT_OF_BOUNDS sin proyección de otra celda. F2F-04–07 |
+| Distinciones autorizadas / privacidad | FREE, BLOCKED, RESOURCE y HAZARD; RESOURCE representa stocks0/1 del mismo modo, sin stock ni referencias a efectos. occupied=false siempre, incluso self/exterior. F2F-02/08/09 |
+| Pureza y ausencia de RNG | Sin escritura de WORLD, entidad, mapa, stock, lifecycle, reloj o rng_state; sin RNG, Math.random, sync, acciones, dinámica, lifecycle o Recorder. F2F-10–14 |
+| Precondiciones | WorldConfig y WorldState válidos; entidad estructural válida y perteneciente al mapa; radio uint32 explícito, sin coerción. F2F-15/16 |
+
+La validación previa lee el mapa para verificar WorldState; la regla de no
+consultar una celda por coordenadas externas se aplica a la **proyección**.
+F2F-07 instrumenta un mapa1x1: además de las lecturas de validación, solo hay una
+lectura de celda para toda la ventana, correspondiente al centro válido.
+
+### Decisiones observables y riesgos
+
+| ID | Indeterminación / alternativas | Decisión y justificación | Evidencia / riesgo |
+|---|---|---|---|
+| OBS-P01 | Subesquemas de self y local_view no reproducidos íntegramente. Añadir lifecycle, coordenadas de celda u otros campos, o elegir proyección mínima | self cerrado {id,position:{x,y},energy}; cada celda cerrada {representation,occupied}. Posición absoluta propia, ventana relativa ordenada; no lifecycle, stock, efectos, RNG o config. Strings FREE/BLOCKED/RESOURCE/HAZARD/OUT_OF_BOUNDS, sin UNKNOWN. Objetos y filas nuevos, sin referencias mutables del WORLD | F2F-01/02/08/09/12. Esquemas mínimos compatibles, no conformidad histórica de subregistros ni interoperabilidad demostrada |
+| OBS-P02 | Firma/precondiciones históricas detalladas no recuperadas; aceptar entidades copiadas/sintéticas o exigir entidad actual | Se conserva parámetro requerido radius uint32; no se añade igualdad obligatoria con config.observation_radius ni valor por defecto implícito. El llamador proporciona el radio solicitado, normalmente el configurado. entity debe ser la referencia vigente de world.state.entities para su id; ACTIVE o DEAD válidos pueden observar. No se inspecciona agente/experimento. Copiar energy conserva incluso -0: no hay aritmética ni serialización en esta función | F2F-03/06/10/11/15/16. Restricción de identidad y subfirma son decisiones locales; consumidores futuros deben contrastarlas con fuente auténtica |
+| OBS-P03 | Radio uint32 puede exigir una ventana impracticable; materializar sin límite arriesga fallo fatal del proceso, recortar alteraría geometría | Presupuesto local de construcción de 64 MiB, estimación conservadora 64 bytes por registro de celda y 8 por fila. Plan exacto BigInt: side=2r+1; bytes=side²×64+side×8. Si supera presupuesto, RangeError("observation window exceeds implementation capacity") antes de crear salida. No se trunca radio/ventana, no se modifica WorldConfig ni MAX_CELLS, no se declara inválido normativamente el radio | F2F-17/18. Es una limitación de implementación explícita, no medición de heap disponible ni límite normativo: esta versión construye hasta r511 y rechaza r512 o mayor por capacidad reservada. No garantiza ausencia de OOM con menos recursos reales |
+
+El presupuesto OBS-P03 limita la construcción densa y evita intentar asignaciones
+del orden de 2^66 celdas para el radio uint32 máximo. Se aplica igual en navegador
+y Node, sin introducir dependencia de plataforma o una nueva fuente aleatoria.
+WorldConfig con esos radios **continúa siendo válida**. El RangeError de capacidad
+se distingue del ContractError de entrada y no amplía el catálogo de errores
+normativos: es un fallo operacional de implementación, no InitializationFailure.
+No se devuelven observaciones parciales, ventanas recortadas ni UNKNOWN para
+ocultar la limitación. r511 se construyó realmente en la prueba, con 1023² celdas;
+la fórmula de estimación no pretende medir consumo exacto de objetos JS.
+
+Errores contractuales: WORLD/entidad inválidos → ContractError("invalid initial_state");
+config inválida → ContractError("invalid world_config"); radio fuera de uint32
+→ ContractError("world transition failed"). Son mensajes del catálogo existente;
+no se afirma que el texto disponible determine esos mensajes para cada parámetro.
+Toda validación/planificación precede a la devolución de un resultado.
+
+### Pruebas ejecutadas F2-F
+
+Node.js v24.22.1, /workspace/yellow; suites anteriores intactas, sin omitidas.
+Los IDs F2F son pruebas locales, no T01–T280. Oráculos de geometría incluyen
+matrices y máscaras fijadas independientemente; no se usa build_observation como
+su propio oráculo. La prueba S-2 compara la observación completa antes/después de
+cambiar solo stock. Se prueban referencias independientes, WORLD congelado,
+RNG real y accesos prohibidos instrumentados, DEAD en BLOCKED válido, energías
+negativas/subnormales/-0, y ticks hasta uint64 máximo BigInt.
+
+| Comando | Resultado observado | Exit |
+|---|---|---|
+| `node tests/f1-a.test.cjs` | 18 PASS, 0 FAIL | 0 |
+| `node tests/f1-b.test.cjs` | 12 PASS, 0 FAIL | 0 |
+| `node tests/f2-a.test.cjs` | 14 PASS, 0 FAIL | 0 |
+| `node tests/f2-b.test.cjs` | 13 PASS, 0 FAIL | 0 |
+| `node tests/f2-c.test.cjs` | 21 PASS, 0 FAIL | 0 |
+| `node tests/f2-d.test.cjs` | 28 PASS, 0 FAIL | 0 |
+| `node tests/f2-e.test.cjs` | 16 PASS, 0 FAIL | 0 |
+| `node tests/f2-f.test.cjs` | 18 PASS, 0 FAIL | 0 |
+| `node tests/f1-a-legacy.cjs` | 4 PASS/18 FAIL por invalid initial_state desde World.initialize | 1 |
+| `git diff --check` | Sin errores | 0 |
+
+Total: **140 pruebas locales aprobadas**, 18 nuevas F2-F. El diagnóstico legacy
+mantiene sus fallos de inicialización anteriores y no llega a verificar el nuevo
+contrato de observación; no es evidencia de integración completa. No se cambiaron
+pruebas anteriores para aceptar tick, nuevas representaciones o límites locales.
+
+### Divergencias y continuidad
+
+TR-003 queda resuelta en el alcance espacial local: MOVE BOUNDED ya verificado
+en F2-D y observación BOUNDED/OUT_OF_BOUNDS ahora verificada. También se corrigen
+la salida time legacy (ahora tick), distinción indebida de stock y dependencia
+EffectKind. No se evalúa ni modifica compatibilidad de agentes, Feedback,
+EXPERIMENT, RECORDER o renderer. La orquestación futura debe invocar observación
+antes de transición para conservar observation.tick=T; esta función no ejecuta
+el tick ni incrementa el reloj.
+
+INIT-004 y TR-008 conservan exactamente su estado previo, sin nueva evidencia
+para cerrarlos. TR-001 sigue parcial; subesquemas históricos y OBS-P03 son riesgos
+explícitos de conformidad/capacidad. Acciones, dinámica, lifecycle, inicialización,
+contratos/tipos congelados, especificación y suites previas no cambian.
+Sin conformidad global ni interoperabilidad demostrada; no se realiza merge,
+despliegue ni se inicia F2-G/F3.
