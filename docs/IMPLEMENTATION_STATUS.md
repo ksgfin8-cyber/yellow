@@ -1,8 +1,8 @@
 # Estado de implementación de WORLD-LAB
 
-Documento **informativo y operacional**, no normativo. Corte operativo F2-C (parcial):
-2026-11-05, base `main` = `c740f23883bffa455ceb5aecdca30f0d9dfd71a7`.
-Cambios F2-C en `dev/f2-c-world-initialization`; evidencia DOC-01 conservada donde sigue
+Documento **informativo y operacional**, no normativo. Corte operativo F2-D (parcial):
+2026-11-05, base `main` = `4729c999ebf97c4d643bf688abf7e2ec1acc8509`.
+Cambios F2-D en `dev/f2-d-world-actions`; evidencia DOC-01 conservada donde sigue
 vigente. Actualizar solo lo afectado por cada incremento.
 
 ## Autoridad, procedencia y lectura inicial
@@ -38,16 +38,16 @@ VERIFIED (diff/código), F1-B trasladó `ContractError` de `prng.js` a
 El runner `--baseline` actual lee HTML y scripts antiguos completos desde Git,
 no solo los tres módulos core como describe el informe F1-A.
 REPORTED: resultados y particularidades del runtime de las ejecuciones originales;
-las ejecuciones F2-C siguientes son evidencia nueva, no certificación retroactiva.
+las ejecuciones F2-D siguientes son evidencia nueva, no certificación retroactiva.
 
-## Estado por componente (actualizado F2-C)
+## Estado por componente (actualizado F2-D)
 
-| Incremento / componente | Estado y alcance de evidencia (DOC-01, actualizado F2-C) |
+| Incremento / componente | Estado y alcance de evidencia (DOC-01, actualizado F2-D) |
 |---|---|
 | F1-A: PRNG, UTF-8, FNV, semillas | Implementado; VERIFIED por ejecución de 18 casos locales. `next_int` admite extremos Number seguros y cardinalidad ≤2^32; esa decisión interna está documentada, sin ampliar §10.3. No es la suite canónica completa. |
 | F1-B: contratos | Parcialmente implementado; VERIFIED por ejecución de B01–B12: WorldConfig, binary64, predicados Cell/Entity/WorldState y Action. No incorpora por sí solo esos contratos al motor. |
 | FeedbackConfig / ExperimentConfig | Pendientes de cierre documental/integración. VERIFIED por lectura: clases legacy y un inspector parcial `complete:false`; TR-006/007. |
-| WORLD | F2-A implementa tipos validados, copias profundas, WorldState.full_snapshot y delegación World.full_snapshot (§7–§9); VERIFIED por F2A-01–14. F2-B verifica generación y selección inicial (§11.2 recuperado/§11.3) con F2B-01–13. F2-C parcial añade preparación, lifecycle <=, eventos crudos y sync posterior (21 pruebas). Sin initialize_world/InitialWorldResult completos: INIT-004 bloquea la validación de metadatos de §11.7. Acciones, dinámica e initialize siguen legacy. TR-001/003/004/008 persisten. F2 completo no implementado. |
+| WORLD | F2-A implementa tipos validados, copias profundas, WorldState.full_snapshot y delegación World.full_snapshot (§7–§9); VERIFIED por F2A-01–14. F2-B verifica generación y selección inicial (§11.2 recuperado/§11.3) con F2B-01–13. F2-C parcial añade preparación, lifecycle <=, eventos crudos y sync posterior (21 pruebas). Sin initialize_world/InitialWorldResult completos: INIT-004 bloquea la validación de metadatos de §11.7. F2-D añade helpers de validación, destino BOUNDED, precedencia anterior a energía y suma finita (12 pruebas), sin ActionResult ni transición canónica. apply_action, dinámica e initialize siguen legacy. TR-001/003/004/008 persisten. F2 completo no implementado. |
 | EXPERIMENT | Ciclo legacy presente; pendientes secuencia canónica, transacción con rollback, determine_termination y ExperimentResult (§5, §20, §26.5, §32). TR-005. |
 | Observaciones / agentes | Código legacy presente. VERIFIED por lectura: observación devuelve `time`, envuelve bordes y distingue stock; §16 exige `tick`/OUT_OF_BOUNDS y §35.6 S-2 no distinguir stocks. Agentes wait/random/rule existen; integración canónica no verificada. |
 | Recorder / hashes | Código legacy presente. VERIFIED por lectura de `recorder.js`/`hash_state.js`: sin source/sequence ni listas action_events/lifecycle_events del StepRecord; record_step asigna rng_state del argumento WORLD. Hashes sobre texto, no WLS1. Migración pendiente (§4, §18, §21–§24, §34). |
@@ -55,7 +55,7 @@ las ejecuciones F2-C siguientes son evidencia nueva, no certificación retroacti
 | Renderer / entrada web | Legacy presente, sin validación integrada. VERIFIED por lectura: render recibe World y `main.js` reconstruye su estado. TR-008 impide interpretar las pruebas actuales como validación de la aplicación. |
 | Integración y conformidad global | No verificadas. UNKNOWN respecto al cumplimiento global; no existe evidencia ejecutada de T01–T280 ni interoperabilidad. §37 no se satisface con las pruebas locales. |
 
-## Evidencia ejecutada en F2-C
+## Evidencia ejecutada en F2-D
 
 En `/workspace/yellow`, Node.js v24.22.1, sin editar pruebas existentes:
 
@@ -66,11 +66,12 @@ En `/workspace/yellow`, Node.js v24.22.1, sin editar pruebas existentes:
 | `node tests/f2-a.test.cjs` | 14 PASS, 0 FAIL, 0 omitidas | 0 |
 | `node tests/f2-b.test.cjs` | 13 PASS, 0 FAIL, 0 omitidas | 0 |
 | `node tests/f2-c.test.cjs` | 21 PASS, 0 FAIL, 0 omitidas; preparación/lifecycle crudo, no API canónica completa | 0 |
+| `node tests/f2-d.test.cjs` | 12 PASS, 0 FAIL, 0 omitidas; helpers independientes, no apply_action canónico | 0 |
 | `node tests/f1-a-legacy.cjs --baseline` | REPORTED: F2-B registró 4 PASS/18 FAIL; no reejecutado en F2-C | 1 histórico |
 | `node tests/f1-a-legacy.cjs` | 22 casos: 4 PASS, 18 FAIL | 1 |
 | `git diff --check` | sin errores | 0 |
 
-VERIFIED (ejecución F2-C): el runner legacy actual pasa T01/T02/T03/T18; las otras 18 fallan con
+VERIFIED (ejecución F2-D): el runner legacy actual pasa T01/T02/T03/T18; las otras 18 fallan con
 `invalid initial_state` al construir EntityState desde World.initialize, que
 sigue sin pasar lifecycle/config. Los fallos F2-A makeResource/makeHazard ya no
 impiden las operaciones de generación autorizadas. No se alteraron las
@@ -99,10 +100,10 @@ con defecto nuevo ni se consideran estas dependencias bloqueantes globales.
 
 | ID | Componente | Evidencia | Impacto | Resolución prevista | Estado |
 |---|---|---|---|---|---|
-| TR-001 | Corpus normativo | Recuperación transmitida de v0.2.4 §§6.1/14/18/21.2 en F2-C: muerte <= y WorldEvent crudo definidos; §11.7 exige metadatos del RecordedEvent, INIT-004. Archivo histórico independiente no presente | Permite lifecycle/eventos crudos; persiste posible contradicción normativa inicial y faltan otros contratos heredados | Resolver §11.7 con autoridad, recuperar corpus restante; no declarar resuelta toda TR-001 | VERIFIED texto recibido/ejecución F2C-13–21; origen histórico REPORTED; parcialmente resuelta |
+| TR-001 | Corpus normativo | Recuperación transmitida de v0.2.4 §§6.1/14/18/21.2 en F2-C: muerte <= y WorldEvent crudo definidos; §11.7 exige metadatos del RecordedEvent, INIT-004. Archivo histórico independiente no presente | Permite lifecycle/eventos crudos; persiste posible contradicción normativa inicial y faltan ActionResult, semántica WAIT/costes/efectos y eventos de acción (ACT-001) | Resolver §11.7 con autoridad, recuperar corpus restante; no declarar resuelta toda TR-001 | VERIFIED texto recibido/ejecución F2C-13–21; origen histórico REPORTED; parcialmente resuelta; búsqueda focalizada F2-D sin recuperación adicional |
 | TR-002 | EntityState y creación | F2-A resolvió tipo/copia; F2-C prepare_world_before_lifecycle usa lifecycle/config explícitos y F2C-03/04/08/13–21 los verifican | Preparación/lifecycle inicial válidos; World.initialize y consumidores EXPERIMENT aún usan la firma antigua | Evidencia: commits F2-A/F2-C en historial y pruebas citadas. Integrar únicamente cuando se cierre el contrato canónico de eventos/lifecycle | VERIFIED ejecución; estructura y preparación resueltas, incompatibilidad legacy no resuelta globalmente |
-| TR-003 | Movimiento / observación | `World.apply_action` calcula target con módulo; `build_observation` también; WorldConfig exige BOUNDED (§6), §13/§16 definen bordes | Semántica legacy de bordes incompatible; T16 legacy exige wrap | Migrar bordes y comprobar OUT_OF_BOUNDS/orden de validación; no adaptar la norma a T16 | VERIFIED por lectura; incompatibilidad heredada abierta |
-| TR-004 | Configuración / daño | WorldConfig tiene hazard_damage; `world.js:apply_action` y T14 legacy leen hazard_effect; §6.1 | Productor y consumidor no coinciden; INFERRED: restar undefined podría producir NaN al alcanzar el peligro | Migrar consumo y probar energía finita y efectos; sin alias normativo inventado | VERIFIED (nombres); incompatibilidad de migración abierta; efecto integrado no ejecutado |
+| TR-003 | Movimiento / observación | apply_action conserva módulo y build_observation también. F2-D añade _bounded_move_target y _move_failure_before_energy sin mutación, verificados en F2D-04–07 | Destino BOUNDED calculable, pero ni movimiento efectivo ni observación migrados | Integrar helpers al cerrar contratos ACT-001/002; probar transición y bordes reales sin adaptar norma a T16 | VERIFIED lectura/ejecución F2-D; helpers espaciales verificados, divergencia operacional abierta |
+| TR-004 | Configuración / daño | WorldConfig declara hazard_damage; apply_action legacy sigue leyendo hazard_effect; ningún consumidor de efectos migrado en F2-D por falta de contrato exacto | Diferencia productor/consumidor persiste; suma finita aislada no prueba aplicación de daño | Recuperar costes/efectos/ActionResult/eventos y migrar hazard_damage sin alias; comprobar energía finita | VERIFIED lectura F2-D; incompatibilidad operacional abierta, no resuelta por helpers |
 | TR-005 | EXPERIMENT / reloj | `experiment.js:run` incrementa time y regenera antes de observación/acción; `run_without_agent` no aplica WAIT y registra null; §5/§20/§32 | Orden/nulabilidad contrarios a norma; sin rollback transaccional | Migración en alcance F3 y pruebas de orden, terminación y fallos; dependencias TR-001 | VERIFIED por lectura; incompatibilidad heredada abierta |
 | TR-006 | FeedbackConfig / Feedback | §17 dice cuatro flags exactos sin nombres; `feedback.js` tiene tres con coerción `!!` y esquema de salida diferente | Clase legacy no es contrato canónico; no puede inventarse cuarto flag | Obtener nombres/dominos de fuente normativa y migrar configuración/proyección | VERIFIED por lectura; incompatibilidad heredada y dependencia documental abiertas |
 | TR-007 | ExperimentConfig | `inspect_ExperimentConfig_defined_fields` siempre complete:false; constructor legacy exige max_ticks>0 y registro de agente; §19.1 contempla cero | Inspección sin issues no acredita aceptación; cero rechazado por constructor legacy | Recuperar contrato completo y unificar aceptación sin añadir restricciones inferidas | VERIFIED por lectura y B12; implementación parcial e incompatibilidad legacy abiertas |
@@ -310,4 +311,97 @@ omitidas que se cuenten como aprobadas. F2-C sigue parcial por INIT-004.
 Para continuar: decisión autorizada que resuelva §11.7 frente a eventos crudos y
 responsabilidad exclusiva del Recorder, integrar los pasos finales de validación/
 resultado y después migrar World.initialize y consumidores. TR-001 permanece
-parcialmente resuelta; no se altera v0.2.5 ni se inicia F2-D/F3.
+parcialmente resuelta; no se altera v0.2.5. La orden F2-C no autorizaba
+F2-D/F3; el trabajo posterior requiere su propia orden.
+
+## F2-D — preparación de acciones, alcance parcial
+
+**F2-D parcialmente implementado.** `World.apply_action` y sus enums/resultados
+legacy permanecen sin cambios y **no son canónicos**. No se añadió un resultado
+provisional con apariencia de ActionResult ni se conectaron automáticamente los
+helpers nuevos a una transición cuyos costes/eventos siguen sin contrato completo.
+INIT-004 permanece abierto y no interviene en las pruebas de estos helpers.
+
+### Recuperación focalizada y contratos pendientes
+
+VERIFIED por lectura/Git F2-D: §§0/4/5.1–5.2/6–9/12–14/18/26/31/33 aplicables,
+estado operacional pertinente, EL-001–005, módulos/fixtures F1-B/F2-A/F2-C e
+historial documental accesible tras fetch. La transcripción §13 solo nombra
+ActionResult y energy_delta; no reproduce su esquema ni define el catálogo de
+eventos de acción. Los archivos históricos docs/specifications
+(909a43f/baa785e) y docs (764910f) siguen conteniendo solo LF en el historial no
+superficial. No se encontró una fuente histórica independiente adicional.
+
+La recuperación transmitida en F2-C sí define WorldEvent genérico de tres campos
+(type/entity_id/position) y Recorder como responsable exclusivo de metadatos.
+No establece por sí sola qué tipos de eventos de acción son normativos ni sus
+payloads/orden específicos. Se solicitó recuperación auténtica de esos contratos;
+no se derivaron del código ni de las expectativas de los tests legacy.
+
+| ID | Contrato ausente / certeza | Operación dependiente | Trabajo independiente verificado | Evidencia necesaria |
+|---|---|---|---|---|
+| ACT-001 | UNKNOWN: esquema cerrado ActionResult, dominios de validity/reason/energy_delta y eventos de acción | API apply_action, resultados operacionales, delta e interoperabilidad | Forma Action, reconocimiento de cinco tipos, geometría y suma numérica aislada | Cláusulas auténticas conservadas de §13/§18; no basta el objeto legacy entity_id/action/validity/reason/events |
+| ACT-002 | UNKNOWN: WAIT con DEAD o coste insuficiente; semántica de MOVE fallido, costes/efectos y orden, recursos 0/1, peligros y atomicidad específica | Confirmación de movimiento/energía/stock, WAIT, clasificación energética y emisión de eventos | Predicados ENTITY_NOT_ACTIVE → OUT_OF_BOUNDS → BLOCKED_CELL y ausencia de mutación | Contrato histórico explícito de acciones/costes/efectos, contrastado con v0.2.5 |
+
+El orden completo de §13 incluye INSUFFICIENT_ENERGY al final y está definido
+por lectura; su tratamiento operacional exacto no se reconstruye a partir del
+nombre del campo move_cost. Los helpers solo evalúan las tres condiciones
+anteriores. `null` significa que ninguna de esas tres falló, **no** que el
+movimiento sea válido, exitoso o energéticamente ejecutable. Tampoco se inventa
+una regla para WAIT/DEAD o para la ejecución con costes cero.
+
+### Contratos implementados y decisiones internas
+
+Archivos: `js/world/world.js` (solo helpers), `tests/f2-d.test.cjs`, este documento.
+
+| Norma | Helper / alcance | Evidencia local |
+|---|---|---|
+| §7/§12/§13 | _action_type valida WorldState y entidad seleccionada, después esquema cerrado Action y enum de cinco acciones; desconocidos producen ContractError | F2D-01–03 |
+| §6 BOUNDED y desplazamientos dados en orden F2-D §5.2 | _bounded_move_target calcula x+dx/y+dy sin módulo, devuelve coordenadas independientes; no ejecuta movimiento | F2D-04/05 |
+| §13 precedencia | _move_failure_before_energy devuelve exclusivamente el primer motivo anterior a energía (o null); no calcula destino si la entidad no está ACTIVE | F2D-06/07 |
+| Frontera WAIT/MOVE | WAIT se reconoce como acción, pero los helpers específicos de MOVE no aceptan usarla como desplazamiento; no es resultado operacional de WAIT | F2D-08 |
+| §6.3/6.4 | World._finite_energy_sum calcula una suma Number de operandos finitos y canonicaliza el resultado; rechaza no finitos sin saturar/convertir | F2D-09/10 |
+| §4/§5/§13 | Helpers sin mutación, consumo RNG, sync, lifecycle o dinámica; planificación determinista | F2D-11/12 |
+
+Decisiones internas compatibles: se reutilizan assert_WorldState,
+assert_Action_structural y ActionType sin cambiar contratos. Las coordenadas y
+motivos internos no son ActionResult. El diagnóstico contractual de tipo desconocido
+o uso de WAIT en un helper exclusivo MOVE usa ContractError con el mensaje del
+catálogo "world transition failed"; no se añade un reason/validity ni se atribuye
+ese mensaje exacto a una cláusula que solo exige la clase ContractError.
+La suma numérica admite un operando aritmético finito; **no define el dominio de
+ActionResult.energy_delta** ni ordena costes/efectos. Mantiene el comportamiento
+binary64 de §6.3 y usa canonicalize_binary64 sin redondeos adicionales.
+
+### Resultados y límites de evidencia
+
+VERIFIED por ejecución: F2D-01–12 pasan. Desplazamientos se contrastan con
+coordenadas esperadas fijadas por la orden; redondeo con valores binary64
+explícitos (0.1+0.2, empate a par, subnormales y ceros). No se usa el mismo
+helper como oráculo de conformidad. Se comprueba rechazo de overflow de la suma
+pura, sin atribuir ese caso a una ruta de acción aún no implementada.
+
+Un primer fallo de la prueba nueva de no mutación fue una diferencia de prototipos
+entre objetos del host y la VM, no cambio de datos. Se corrigió únicamente el
+harness nuevo usando structuredClone para comparar los registros, preservando
+BigInt, Map y valores numéricos; el caso y todas sus aserciones relevantes se
+volvieron a ejecutar. No se tocaron pruebas heredadas ni se ocultaron fallos.
+
+No verificados/implementados como contrato canónico: transición efectiva de las
+cinco acciones, validities/resultados completos, insuficiencia/costes, WAIT,
+recursos/peligros/hazard_damage, energy_delta, eventos de acción ni atomicidad de
+apply_action. No hay eventos de acción nuevos que validar ni cambios en clases
+F2-A. Todas las suites previas conservan sus conteos aprobados; legacy sigue
+bloqueado por World.initialize con 4 PASS/18 FAIL. No se infiere ausencia de
+regresiones en rutas que esa suite no alcanza.
+
+TR-003 y TR-004 siguen abiertas operacionalmente. TR-001 permanece parcial;
+TR-008 conserva exactamente su estado anterior porque no hubo integración real
+nueva del consumidor. No se modifica INIT-004, inicialización, lifecycle,
+EXPERIMENT, Recorder, observaciones o dinámica para facilitar esta fase.
+
+Para continuar F2-D: aportar ACT-001/002 auténticos y contrastar sus reglas con
+v0.2.5; después sustituir apply_action, integrar comprobación energética completa,
+costes/efectos y eventos crudos con pruebas pertinentes. La implementación plausible
+del legacy no es una fuente normativa. No hay conformidad global ni autorización
+para F2-E/F3.

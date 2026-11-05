@@ -141,6 +141,45 @@ class World {
 
     // --- Transición ---------------------------------------------------
 
+    // F2-D independent helpers. These are NOT ActionResult-producing transitions.
+    _action_type(action) {
+        assert_WorldState(this.state, this.config);
+        if (!this.get_experimental_entity()) throw new ContractError("invalid initial_state");
+        assert_Action_structural(action);
+        if (!Object.hasOwn(ActionType, action.type)) {
+            throw new ContractError("world transition failed");
+        }
+        return action.type;
+    }
+
+    _bounded_move_target(action) {
+        const type = this._action_type(action);
+        if (type === "WAIT") throw new ContractError("world transition failed");
+        const {dx, dy} = World._offset(type);
+        const position = this.get_experimental_entity().position;
+        return {x: position.x + dx, y: position.y + dy};
+    }
+
+    _move_failure_before_energy(action) {
+        const type = this._action_type(action);
+        if (type === "WAIT") throw new ContractError("world transition failed");
+        const entity = this.get_experimental_entity();
+        if (entity.lifecycle !== "ACTIVE") return "ENTITY_NOT_ACTIVE";
+        const target = this._bounded_move_target(action);
+        if (target.x < 0 || target.x >= this.config.width ||
+            target.y < 0 || target.y >= this.config.height) return "OUT_OF_BOUNDS";
+        if (this.state.grid[target.y][target.x].traversal === "BLOCKED") return "BLOCKED_CELL";
+        // Energy gating still needs the incorporated action contract.
+        return null; // only the checks above passed; not a successful ActionResult
+    }
+
+    static _finite_energy_sum(energy, delta) {
+        if (!Number.isFinite(energy) || !Number.isFinite(delta)) {
+            throw new ContractError("world transition failed");
+        }
+        return canonicalize_binary64(energy + delta);
+    }
+
     apply_action(action) {
         const entity = this.state.entities.get(this.experimental_entity_id);
         if (!entity) {
