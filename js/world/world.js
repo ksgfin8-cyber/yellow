@@ -124,19 +124,34 @@ class World {
 
     // --- Dinámica autónoma --------------------------------------------
 
+    // §15: no events, actions, lifecycle, clock changes or RNG access.
+    advance_dynamics() {
+        this.regenerate_resources();
+    }
+
     regenerate_resources() {
+        WorldConfig._validate(this.config);
+        assert_WorldState(this.state, this.config);
         const { width, height, resource_regeneration } = this.config;
         if (resource_regeneration === 0) return;
 
+        const changes = [];
         for (let y = 0; y < height; y++) {
             for (let x = 0; x < width; x++) {
                 const cell = this.state.grid[y][x];
-                if (cell.traversal !== "FREE") continue;
-                if (!cell.effect || cell.effect.kind !== EffectKind.RESOURCE) continue;
-                if (cell.effect.stock >= 1) continue;
-                cell.effect.stock = Math.min(1, cell.effect.stock + resource_regeneration);
+                const effect = cell.effect;
+                if (effect === null || effect.kind !== "RESOURCE" || effect.stock === 1) continue;
+                // Engineering policy DYN-P01: binary stock and uint32 rate make
+                // this exact integer expression 1 for every positive rate.
+                const stock = Math.min(1, effect.stock + resource_regeneration);
+                if (Object.getOwnPropertyDescriptor(effect, "stock")?.writable !== true) {
+                    throw new ContractError("world transition failed");
+                }
+                changes.push([effect, stock]);
             }
         }
+        // All structural checks and ordinary-record write checks precede mutation.
+        for (const [effect, stock] of changes) effect.stock = stock;
     }
 
     // --- Transición ---------------------------------------------------
