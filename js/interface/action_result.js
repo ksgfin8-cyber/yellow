@@ -1,5 +1,6 @@
 // Resultado operacional de una acción. Producido por World.
-// Contrato: js/interface/action_result.js según especificación §13.1.
+// F2-D engineering policy under §13; historical closed schema remains unverified.
+// Closed result: {validity, reason, energy_delta, events}. See IMPLEMENTATION_STATUS.
 
 const ActionResultValidity = Object.freeze({
     VALID: "VALID",
@@ -9,9 +10,12 @@ const ActionResultValidity = Object.freeze({
 
 const ActionResultReason = Object.freeze({
     NONE: "NONE",
+    ENTITY_NOT_ACTIVE: "ENTITY_NOT_ACTIVE",
+    OUT_OF_BOUNDS: "OUT_OF_BOUNDS",
     BLOCKED_CELL: "BLOCKED_CELL",
     INSUFFICIENT_ENERGY: "INSUFFICIENT_ENERGY"
 });
 
-// World.apply_action() devuelve directamente el objeto.
-// No hay clase separada para evitar duplicación innecesaria.
+// World.apply_action() constructs fresh records. VALID/NONE, INVALID/spatial or
+// inactive reason, FAILED/INSUFFICIENT_ENERGY; finite canonical net energy delta.
+// Action events are an empty raw list by policy, never Recorder metadata.
