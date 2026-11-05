@@ -1,13 +1,11 @@
-// Celda del grid. Tipo puro, sin lógica.
-// Contrato: js/world/cell.js según especificación §8.1.
-//
-// traversal: "FREE" | "BLOCKED"
-// effect:    null | { kind: "RESOURCE", stock: 0|1 } | { kind: "HAZARD" }
-
+// WORLD-LAB v0.2.5 §8. Pure structural value, no effect execution.
 class Cell {
     constructor(traversal, effect) {
+        if (!validate_Cell({traversal, effect})) {
+            throw new ContractError("invalid initial_state");
+        }
         this.traversal = traversal;
-        this.effect = effect || null;
+        this.effect = effect === null ? null : {...effect};
     }
 
     static free() {
@@ -16,5 +14,10 @@ class Cell {
 
     static blocked() {
         return new Cell("BLOCKED", null);
+    }
+
+    copy() {
+        if (!validate_Cell(this)) throw new ContractError("invalid initial_state");
+        return new Cell(this.traversal, this.effect);
     }
 }
