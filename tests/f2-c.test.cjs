@@ -11,7 +11,7 @@ function load() {
         if(src==='js/world/world.js') break;
     }
     vm.runInContext('Math.random=()=>{throw new Error("Math.random forbidden");}',ctx);
-    return {ctx,...vm.runInContext('({World,WorldConfig,PRNG,Cell,ContractError,InitializationError,prepare_world_before_lifecycle,verify_generated_initial_resources,validate_WorldState})',ctx)};
+    return {ctx,...vm.runInContext('({World,WorldConfig,PRNG,Cell,ContractError,InitializationError,prepare_world_before_lifecycle,prepare_world_through_lifecycle,verify_generated_initial_resources,validate_WorldState})',ctx)};
 }
 const api=load();
 const cfg=patch=>({...api.WorldConfig.defaults(),width:4,height:3,...patch});
@@ -127,4 +127,87 @@ test('F2C-12: config captured immutably; resources/state construction has no dup
     const w=isolated.prepare_world_before_lifecycle(input,1),blocked=w.state.grid.flat().filter(c=>c.traversal==='BLOCKED').length;
     assert.equal(floats,2*input.width*input.height-blocked);assert.equal(ints,1);
     input.initial_energy=999;assert.notEqual(w.get_experimental_entity().energy,999);assert.ok(Object.isFrozen(w.config));
+});
+
+test('F2C-13 recovered §6.1/§14: exact death comparison including equality and negative thresholds',()=>{
+    for(const [energy,threshold,lifecycle] of [[1,0,'ACTIVE'],[0,0,'DEAD'],[-1,0,'DEAD'],[-2,-3,'ACTIVE'],[-3,-3,'DEAD'],[-4,-3,'DEAD'],[-0,0,'DEAD'],[Number.MIN_VALUE,0,'ACTIVE'],[-Number.MIN_VALUE,0,'DEAD']]) {
+        const {world,initial_events,snapshot}=api.prepare_world_through_lifecycle(cfg({initial_energy:energy,death_threshold:threshold}),1);
+        assert.equal(world.get_experimental_entity().lifecycle,lifecycle);
+        assert.ok(Object.is(world.get_experimental_entity().energy,energy));
+        assert.equal(initial_events.length,lifecycle==='DEAD'?1:0);
+        assert.equal(snapshot.entities.get('0987898').lifecycle,lifecycle);
+        assert.equal(world.state.time,0);assert.ok(api.validate_WorldState(snapshot,world.config));
+    }
+});
+test('F2C-14 recovered §18 and §11.7 payload correspondence: raw event has exactly three fields',()=>{
+    const {world,initial_events}=api.prepare_world_through_lifecycle(cfg({initial_energy:0}),42);
+    const event=initial_events[0],e=world.get_experimental_entity();
+    assert.deepEqual(Array.from(Reflect.ownKeys(event)).sort(),['entity_id','position','type']);
+    assert.equal(event.type,'ENTITY_DIED');assert.equal(event.entity_id,e.id);
+    assert.equal(event.position.x,e.position.x);assert.equal(event.position.y,e.position.y);
+    assert.notEqual(event.position,e.position);
+    e.position.x=(e.position.x+1)%4;assert.notEqual(event.position.x,e.position.x);
+    event.position.y=999;assert.notEqual(e.position.y,999);
+    for(const field of ['tick','source','sequence']) assert.equal(Object.hasOwn(event,field),false);
+});
+test('F2C-15 recovered §14: repeated resolution does not resurrect or duplicate death events',()=>{
+    const {world}=api.prepare_world_through_lifecycle(cfg({initial_energy:0}),1);
+    assert.equal(world.resolve_lifecycle().length,0);
+    world.get_experimental_entity().energy=100;
+    assert.equal(world.resolve_lifecycle().length,0);
+    assert.equal(world.get_experimental_entity().lifecycle,'DEAD');
+});
+test('F2C-16 §5/§11.1: ACTIVE before resolving; resolve once, then sync once, then snapshot',()=>{
+    const isolated=load(),trace=[];
+    const resolve=isolated.World.prototype.resolve_lifecycle,sync=isolated.World.prototype.sync_rng_state,snapshot=isolated.World.prototype.full_snapshot;
+    isolated.World.prototype.resolve_lifecycle=function(){
+        trace.push('resolve');assert.equal(this.get_experimental_entity().lifecycle,'ACTIVE');
+        assert.equal(this.state.time,0);return resolve.call(this);
+    };
+    isolated.World.prototype.sync_rng_state=function(){trace.push('sync');assert.equal(this.get_experimental_entity().lifecycle,'DEAD');return sync.call(this);};
+    isolated.World.prototype.full_snapshot=function(){trace.push('snapshot');return snapshot.call(this);};
+    const result=isolated.prepare_world_through_lifecycle(cfg({initial_energy:0}),1);
+    assert.deepEqual(trace,['resolve','sync','snapshot']);assert.equal(result.initial_events.length,1);
+});
+test('F2C-17 §11.1: lifecycle, sync and diagnostic snapshot consume no RNG',()=>{
+    const before=api.prepare_world_before_lifecycle(cfg({initial_energy:-1}),42);
+    const expected=values(before),state=before.rng.get_state();
+    const {world,initial_events,snapshot}=api.prepare_world_through_lifecycle(cfg({initial_energy:-1}),42);
+    assert.deepEqual(JSON.parse(JSON.stringify(world.state.grid)),expected.grid);
+    assert.equal(world.rng.get_state(),state);assert.equal(world.state.rng_state,state);assert.equal(snapshot.rng_state,state);
+    assert.equal(initial_events.length,1);
+    world.rng={get_state(){assert.fail('lifecycle must not read RNG');},next(){assert.fail('lifecycle RNG');}};
+    assert.equal(world.resolve_lifecycle().length,0);assert.equal(world.state.time,0);
+});
+test('F2C-18 §7.2: post-lifecycle diagnostic snapshot is deeply independent',()=>{
+    const {world,snapshot}=api.prepare_world_through_lifecycle(cfg({initial_energy:0}),42);
+    assert.equal(snapshot.entities.get('0987898').lifecycle,'DEAD');
+    const energy=world.get_experimental_entity().energy;snapshot.entities.get('0987898').energy=100;
+    assert.equal(world.get_experimental_entity().energy,energy);
+    world.get_experimental_entity().position.x=(world.get_experimental_entity().position.x+1)%4;
+    assert.notEqual(snapshot.entities.get('0987898').position.x,world.get_experimental_entity().position.x);
+    assert.equal(snapshot.time,0);
+});
+test('F2C-19 §11.1: no-candidate error preserves seed and never runs lifecycle or sync',()=>{
+    const isolated=load();isolated.World.prototype.resolve_lifecycle=()=>assert.fail('unexpected lifecycle');
+    isolated.World.prototype.sync_rng_state=()=>assert.fail('unexpected sync');
+    assert.throws(()=>isolated.prepare_world_through_lifecycle(cfg({obstacle_density:1}),123),e=>e instanceof isolated.InitializationError && e.seed===123 && e.reason==='invalid initial_position');
+});
+test('F2C-20 §14: lifecycle changes no clock, energy, RNG or grid and emits at most once',()=>{
+    const world=api.prepare_world_before_lifecycle(cfg({initial_energy:-3,death_threshold:-3}),42);
+    const grid=JSON.stringify(world.state.grid),energy=world.get_experimental_entity().energy,rng=world.rng.get_state();
+    const events=world.resolve_lifecycle();
+    assert.equal(events.length,1);assert.equal(world.state.time,0);
+    assert.ok(Object.is(world.get_experimental_entity().energy,energy));assert.equal(world.rng.get_state(),rng);
+    assert.equal(JSON.stringify(world.state.grid),grid);assert.equal(world.resolve_lifecycle().length,0);
+});
+test('F2C-21: deterministic post-lifecycle state, raw events and snapshot',()=>{
+    for(const energy of [10,0,-1]) for(const seed of [1,42,0xFFFFFFFF]) {
+        const a=api.prepare_world_through_lifecycle(cfg({initial_energy:energy}),seed);
+        const b=api.prepare_world_through_lifecycle(cfg({initial_energy:energy}),seed);
+        assert.deepEqual(values(a.world),values(b.world));
+        assert.deepEqual(JSON.parse(JSON.stringify(a.initial_events)),JSON.parse(JSON.stringify(b.initial_events)));
+        assert.equal(a.snapshot.rng_state,b.snapshot.rng_state);
+        assert.ok(api.validate_WorldState(a.snapshot,a.world.config));
+    }
 });

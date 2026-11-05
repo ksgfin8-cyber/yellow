@@ -105,6 +105,23 @@ class World {
         return candidates[idx];
     }
 
+    // v0.2.4 §6.1/§14 recovered in the F2-C reply; no per-tick orchestration.
+    resolve_lifecycle() {
+        assert_WorldState(this.state, this.config);
+        const entity = this.get_experimental_entity();
+        if (!entity) throw new ContractError("invalid initial_state");
+        if (entity.lifecycle === "DEAD" || entity.energy > this.config.death_threshold) {
+            return [];
+        }
+        const event = {
+            type: "ENTITY_DIED",
+            entity_id: entity.id,
+            position: {x: entity.position.x, y: entity.position.y}
+        };
+        entity.lifecycle = "DEAD";
+        return [event]; // raw WorldEvent; Recorder alone adds tick/source/sequence
+    }
+
     // --- Dinámica autónoma --------------------------------------------
 
     regenerate_resources() {
@@ -247,7 +264,7 @@ function prepare_world_before_lifecycle(config, seed) {
     world.state = new WorldState(0, grid, entities, rng.get_state(), checkedConfig);
     world.experimental_entity_id = entity.id;
     assert_WorldState(world.state, checkedConfig);
-    // No final sync_rng_state: its normative point is AFTER lifecycle, still pending.
+    // No final sync here: its normative point is AFTER lifecycle in the next helper.
     return world;
 }
 
@@ -270,4 +287,15 @@ function verify_generated_initial_resources(grid, config) {
             }
         }
     }
+}
+
+// F2-C partial pipeline through §11.1 step 10, plus a diagnostic snapshot.
+// Step 11 remains unresolved: raw WorldEvent vs tick/source/sequence requirements.
+// This is NOT initialize_world and does NOT return a canonical InitialWorldResult.
+function prepare_world_through_lifecycle(config, seed) {
+    const world = prepare_world_before_lifecycle(config, seed);
+    const initial_events = world.resolve_lifecycle();
+    world.sync_rng_state();
+    assert_WorldState(world.state, world.config);
+    return {world, initial_events, snapshot: world.full_snapshot()};
 }
