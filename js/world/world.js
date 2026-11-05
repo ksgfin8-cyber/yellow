@@ -4,6 +4,15 @@
 // NOTA: World NO conoce a Agent, Experiment, Feedback ni Recorder.
 // World NO tiene tick(). El ciclo vive en Experiment.
 
+// §11.3 only: no-candidate failure. Full initialization wrapping/recording is deferred.
+class InitializationError extends Error {
+    constructor() {
+        super("invalid initial_position");
+        this.name = "InitializationError";
+        this.reason = "invalid initial_position";
+    }
+}
+
 class World {
     constructor(config) {
         this.config = config;
@@ -38,7 +47,9 @@ class World {
         this.experimental_entity_id = entity.id;
     }
 
-    _generate_grid() {
+    // §11.2, algorithm recovered in the F2-B order. Returns a grid, not a WorldState.
+    _generate_grid(rng = this.rng) {
+        WorldConfig._validate(this.config);
         const { width, height, obstacle_density, resource_density, hazard_density } = this.config;
         const grid = [];
 
@@ -46,18 +57,18 @@ class World {
         for (let y = 0; y < height; y++) {
             const row = [];
             for (let x = 0; x < width; x++) {
-                const r_obstacle = this.rng.next_float();
+                const r_obstacle = rng.next_float();
                 if (r_obstacle < obstacle_density) {
                     row.push(Cell.blocked());
                     continue;
                 }
 
-                const r_effect = this.rng.next_float();
+                const r_effect = rng.next_float();
                 let effect = null;
                 if (r_effect < resource_density) {
-                    effect = makeResource(1);
+                    effect = {kind: "RESOURCE", stock: 1};
                 } else if (r_effect < resource_density + hazard_density) {
-                    effect = makeHazard();
+                    effect = {kind: "HAZARD"};
                 }
                 row.push(new Cell("FREE", effect));
             }
@@ -66,11 +77,20 @@ class World {
         return grid;
     }
 
-    _choose_initial_position(grid) {
+    // §11.3: canonical candidate list, one next_int call, no clock/state writes.
+    _choose_initial_position(grid, rng = this.rng) {
+        WorldConfig._validate(this.config);
+        if (!Array.isArray(grid) || grid.length !== this.config.height) {
+            throw new ContractError("invalid initial_state");
+        }
         const candidates = [];
         for (let y = 0; y < this.config.height; y++) {
+            if (!Array.isArray(grid[y]) || grid[y].length !== this.config.width) {
+                throw new ContractError("invalid initial_state");
+            }
             for (let x = 0; x < this.config.width; x++) {
                 const cell = grid[y][x];
+                if (!validate_Cell(cell)) throw new ContractError("invalid initial_state");
                 if (cell.traversal === "FREE" && cell.effect === null) {
                     candidates.push({ x, y });
                 }
@@ -78,10 +98,10 @@ class World {
         }
 
         if (candidates.length === 0) {
-            throw new Error("World.initialize: no valid initial position (no FREE cell without effects)");
+            throw new InitializationError();
         }
 
-        const idx = this.rng.next_int(0, candidates.length - 1);
+        const idx = rng.next_int(0, candidates.length - 1);
         return candidates[idx];
     }
 
