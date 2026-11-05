@@ -1,72 +1,38 @@
-// Configuración inmutable del mundo.
-// Contrato: js/world/world_config.js según especificación §7.
-
+// WORLD-LAB v0.2.5 §6. Values are validated, never coerced.
+const MAX_CELLS = 2 ** 20;
+const WORLD_CONFIG_FIELDS = Object.freeze([
+    "width", "height", "topology", "obstacle_density", "resource_density",
+    "hazard_density", "initial_energy", "move_cost", "wait_cost",
+    "resource_effect", "hazard_damage", "resource_regeneration",
+    "death_threshold", "observation_radius"
+]);
+function validate_WorldConfig(p) {
+    if (!has_exact_fields(p, WORLD_CONFIG_FIELDS)) return false;
+    if (!is_uint32(p.width) || p.width === 0 || !is_uint32(p.height) || p.height === 0) return false;
+    if (BigInt(p.width) * BigInt(p.height) > BigInt(MAX_CELLS)) return false;
+    if (p.topology !== "BOUNDED") return false;
+    for (const k of ["obstacle_density", "resource_density", "hazard_density"]) {
+        if (!Number.isFinite(p[k]) || p[k] < 0 || p[k] > 1) return false;
+    }
+    if (p.resource_density + p.hazard_density > 1 || !Number.isFinite(p.initial_energy)) return false;
+    for (const k of ["move_cost", "wait_cost", "resource_effect", "hazard_damage",
+        "resource_regeneration", "observation_radius"]) {
+        if (!is_uint32(p[k])) return false;
+    }
+    return Number.isSafeInteger(p.death_threshold);
+}
 class WorldConfig {
     constructor(params) {
         WorldConfig._validate(params);
-
-        this.width = params.width;
-        this.height = params.height;
-        this.obstacle_density = params.obstacle_density;
-        this.resource_density = params.resource_density;
-        this.hazard_density = params.hazard_density;
-        this.initial_energy = params.initial_energy;
-        this.move_cost = params.move_cost;
-        this.wait_cost = params.wait_cost;
-        this.resource_effect = params.resource_effect;
-        this.hazard_effect = params.hazard_effect;
-        this.resource_regeneration = params.resource_regeneration;
-        this.death_threshold = params.death_threshold;
-        this.observation_radius = params.observation_radius;
-
+        for (const k of WORLD_CONFIG_FIELDS) this[k] = params[k];
         Object.freeze(this);
     }
-
-    static _validate(p) {
-        const fail = (msg) => { throw new Error("WorldConfig: " + msg); };
-
-        if (!Number.isInteger(p.width) || p.width <= 0) fail("width must be a positive integer");
-        if (!Number.isInteger(p.height) || p.height <= 0) fail("height must be a positive integer");
-
-        for (const k of ["obstacle_density", "resource_density", "hazard_density"]) {
-            if (typeof p[k] !== "number" || !Number.isFinite(p[k])) fail(k + " must be finite");
-            if (p[k] < 0 || p[k] > 1) fail(k + " must be in [0, 1]");
-        }
-
-        if (p.resource_density + p.hazard_density > 1) {
-            fail("resource_density + hazard_density must be <= 1");
-        }
-
-        if (typeof p.initial_energy !== "number" || !Number.isFinite(p.initial_energy)) {
-            fail("initial_energy must be finite");
-        }
-
-        for (const k of ["move_cost", "wait_cost"]) {
-            if (!Number.isInteger(p[k]) || p[k] < 0) fail(k + " must be a non-negative integer");
-        }
-
-        if (!Number.isInteger(p.resource_effect) || p.resource_effect < 0) {
-            fail("resource_effect must be a non-negative integer");
-        }
-        if (!Number.isInteger(p.hazard_effect) || p.hazard_effect < 0) {
-            fail("hazard_effect must be a non-negative integer");
-        }
-
-        if (!Number.isInteger(p.resource_regeneration) || p.resource_regeneration < 0) {
-            fail("resource_regeneration must be a non-negative integer");
-        }
-
-        if (!Number.isInteger(p.death_threshold)) {
-            fail("death_threshold must be an integer");
-        }
-
-        if (!Number.isInteger(p.observation_radius) || p.observation_radius < 0) {
-            fail("observation_radius must be a non-negative integer");
-        }
+    static _validate(params) {
+        if (!validate_WorldConfig(params)) throw new ContractError("invalid world_config");
     }
-
     static defaults() {
         return new WorldConfig({
+            topology: "BOUNDED",
             width: 20,
             height: 20,
             obstacle_density: 0.10,
@@ -76,7 +42,7 @@ class WorldConfig {
             move_cost: 2,
             wait_cost: 0,
             resource_effect: 10,
-            hazard_effect: 15,
+            hazard_damage: 15,
             resource_regeneration: 1,
             death_threshold: 0,
             observation_radius: 2

@@ -6,7 +6,7 @@ const path = require('node:path');
 const root = path.resolve(__dirname, '..');
 function load() {
     const ctx = vm.createContext({});
-    for (const name of ['prng', 'hash', 'seed']) {
+    for (const name of ['contracts', 'prng', 'hash', 'seed']) {
         vm.runInContext(fs.readFileSync(path.join(root, 'js/core', name + '.js'), 'utf8'), ctx);
     }
     return vm.runInContext('({PRNG, ContractError, fnv1a, utf8_encode, derive_seed})', ctx);
