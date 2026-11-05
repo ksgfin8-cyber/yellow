@@ -105,6 +105,23 @@ class World {
         return candidates[idx];
     }
 
+    // v0.2.4 §6.1/§14 recovered in the F2-C reply; no per-tick orchestration.
+    resolve_lifecycle() {
+        assert_WorldState(this.state, this.config);
+        const entity = this.get_experimental_entity();
+        if (!entity) throw new ContractError("invalid initial_state");
+        if (entity.lifecycle === "DEAD" || entity.energy > this.config.death_threshold) {
+            return [];
+        }
+        const event = {
+            type: "ENTITY_DIED",
+            entity_id: entity.id,
+            position: {x: entity.position.x, y: entity.position.y}
+        };
+        entity.lifecycle = "DEAD";
+        return [event]; // raw WorldEvent; Recorder alone adds tick/source/sequence
+    }
+
     // --- Dinámica autónoma --------------------------------------------
 
     regenerate_resources() {
@@ -218,4 +235,67 @@ class World {
         const e = this.get_experimental_entity();
         return e.energy <= this.config.death_threshold;
     }
+}
+
+// F2-C independent preparation only (before §11.1 step 8).
+// Does NOT implement initialize_world/InitialWorldResult or lifecycle/event resolution.
+function prepare_world_before_lifecycle(config, seed) {
+    const checkedConfig = new WorldConfig(config);
+    const rng = new PRNG(seed); // validate original world seed; do not derive another seed
+    const world = new World(checkedConfig);
+    world.rng = rng;
+    const grid = world._generate_grid();
+    verify_generated_initial_resources(grid, checkedConfig);
+
+    let position;
+    try {
+        position = world._choose_initial_position(grid);
+    } catch (error) {
+        // Only the specified no-candidate failure receives initialization metadata.
+        if (error instanceof InitializationError && error.reason === "invalid initial_position") {
+            error.seed = seed;
+        }
+        throw error;
+    }
+
+    const entity = new EntityState("0987898", position, checkedConfig.initial_energy,
+        "ACTIVE", checkedConfig);
+    const entities = new Map([[entity.id, entity]]);
+    world.state = new WorldState(0, grid, entities, rng.get_state(), checkedConfig);
+    world.experimental_entity_id = entity.id;
+    assert_WorldState(world.state, checkedConfig);
+    // No final sync here: its normative point is AFTER lifecycle in the next helper.
+    return world;
+}
+
+// On the F2-B-generated domain, resources already have stock=1. Validate only;
+// do not redistribute, consume RNG, repair depleted resources or mutate the grid.
+function verify_generated_initial_resources(grid, config) {
+    WorldConfig._validate(config);
+    if (!Array.isArray(grid) || grid.length !== config.height) {
+        throw new ContractError("invalid initial_state");
+    }
+    for (let y = 0; y < config.height; y++) {
+        if (!Array.isArray(grid[y]) || grid[y].length !== config.width) {
+            throw new ContractError("invalid initial_state");
+        }
+        for (let x = 0; x < config.width; x++) {
+            const cell = grid[y][x];
+            if (!validate_Cell(cell) ||
+                (cell.effect !== null && cell.effect.kind === "RESOURCE" && cell.effect.stock !== 1)) {
+                throw new ContractError("invalid initial_state");
+            }
+        }
+    }
+}
+
+// F2-C partial pipeline through §11.1 step 10, plus a diagnostic snapshot.
+// Step 11 remains unresolved: raw WorldEvent vs tick/source/sequence requirements.
+// This is NOT initialize_world and does NOT return a canonical InitialWorldResult.
+function prepare_world_through_lifecycle(config, seed) {
+    const world = prepare_world_before_lifecycle(config, seed);
+    const initial_events = world.resolve_lifecycle();
+    world.sync_rng_state();
+    assert_WorldState(world.state, world.config);
+    return {world, initial_events, snapshot: world.full_snapshot()};
 }
