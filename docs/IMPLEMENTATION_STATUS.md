@@ -1,9 +1,12 @@
 # Estado de implementación de WORLD-LAB
 
 Documento **informativo y operacional**; registra la aclaración autorizada INIT-004
-sin atribuirse autoridad propia. Corte operativo F2-G: 2026-11-05 (America/Guayaquil),
-base `main` posterior al PR #10 = `1ef8799f1d1e842a70686e5cc42363f90b8e3e25`.
-Rama: `dev/f2-g-world-initialization`.
+sin atribuirse autoridad propia. Corte operativo F2-H: 2026-11-05 (America/Guayaquil),
+base `main` posterior al PR #11 = `c57a84a72119a8d752368f1c556aaebfc7ae5617`.
+Rama: `dev/f2-h-action-events`.
+
+Corte anterior F2-G: base `1ef8799f1d1e842a70686e5cc42363f90b8e3e25`,
+rama `dev/f2-g-world-initialization`.
 
 Corte anterior F2-F: base `b37abd3f46d4aa8032556e0dbc92b5a41c6c0448`,
 rama `dev/f2-f-world-observation`.
@@ -52,14 +55,14 @@ no solo los tres módulos core como describe el informe F1-A.
 REPORTED: resultados y particularidades del runtime de las ejecuciones originales;
 las ejecuciones F2-D siguientes son evidencia nueva, no certificación retroactiva.
 
-## Estado por componente (actualizado F2-G)
+## Estado por componente (actualizado F2-H)
 
-| Incremento / componente | Estado y alcance de evidencia (DOC-01, actualizado F2-G) |
+| Incremento / componente | Estado y alcance de evidencia (DOC-01, actualizado F2-H) |
 |---|---|
 | F1-A: PRNG, UTF-8, FNV, semillas | Implementado; VERIFIED por ejecución de 18 casos locales. `next_int` admite extremos Number seguros y cardinalidad ≤2^32; esa decisión interna está documentada, sin ampliar §10.3. No es la suite canónica completa. |
 | F1-B: contratos | Parcialmente implementado; VERIFIED por ejecución de B01–B12: WorldConfig, binary64, predicados Cell/Entity/WorldState y Action. No incorpora por sí solo esos contratos al motor. |
 | FeedbackConfig / ExperimentConfig | Pendientes de cierre documental/integración. VERIFIED por lectura: clases legacy y un inspector parcial `complete:false`; TR-006/007. |
-| WORLD | F2-A/B proporcionan tipos, snapshots, generación y selección; F2-C lifecycle <= y preparación. F2-D/E/F mantienen acciones, dinámica y observación verificadas localmente bajo sus políticas documentadas. F2-G cierra initialize_world → InitialWorldResult y adapta World.initialize a la misma ruta: validación de eventos crudos, lifecycle/sync únicos, snapshots separados y atomicidad local (21 pruebas nuevas). INIT-004 resuelta por aclaración autorizada; TR-008 resuelta para carga/inicialización en runner. No equivale a F2 completo o conformidad global. |
+| WORLD | F2-A/B proporcionan tipos, snapshots, generación y selección; F2-C lifecycle <= y preparación. F2-D/E/F mantienen acciones, dinámica y observación verificadas localmente bajo sus políticas documentadas. F2-G cierra initialize_world → InitialWorldResult y adapta World.initialize a la misma ruta: validación de eventos crudos, lifecycle/sync únicos, snapshots separados y atomicidad local (21 pruebas nuevas). F2-H añade eventos operacionales crudos preparados antes de confirmar acciones (15 pruebas nuevas), sustituyendo ACT-P04. INIT-004 resuelta por aclaración autorizada; TR-008 resuelta para carga/inicialización en runner. No equivale a F2 completo o conformidad global. |
 | EXPERIMENT | Ciclo legacy presente; pendientes secuencia canónica, transacción con rollback, determine_termination y ExperimentResult (§5, §20, §26.5, §32). TR-005. |
 | Observaciones / agentes | F2-F implementa observación pura tick/self/local_view, BOUNDED, OUT_OF_BOUNDS, occupied=false y RESOURCE sin distinción de stock (18 pruebas locales). Subesquemas y capacidad documentados como OBS-P01–03, no conformidad histórica demostrada. Agentes sin cambios ni nueva auditoría; integración no verificada. |
 | Recorder / hashes | Código legacy presente. VERIFIED por lectura de `recorder.js`/`hash_state.js`: sin source/sequence ni listas action_events/lifecycle_events del StepRecord; record_step asigna rng_state del argumento WORLD. Hashes sobre texto, no WLS1. Migración pendiente (§4, §18, §21–§24, §34). |
@@ -113,10 +116,10 @@ con defecto nuevo ni se consideran estas dependencias bloqueantes globales.
 
 | ID | Componente | Evidencia | Impacto | Resolución prevista | Estado |
 |---|---|---|---|---|---|
-| TR-001 | Corpus normativo | Reglas recuperadas transmitidas en órdenes F2-B/C/G; copia histórica independiente sigue fuera del repo y no examinada aquí. INIT-004 aclarada por responsable del proyecto | Inicialización cerrada localmente; contratos históricos de acciones/subesquemas y serialización aún incompletos | Aplicar solo lo transmitido; mantener riesgos ACT/OBS/DYN y obtener fuentes auténticas si aparecen | Parcialmente resuelta; VERIFIED orden F2-G/pruebas; atribución histórica REPORTED, no conformidad histórica global |
+| TR-001 | Corpus normativo | Reglas recuperadas transmitidas en órdenes F2-B/C/G/H; copia histórica independiente sigue fuera del repo y no examinada aquí. INIT-004 aclarada por responsable del proyecto | Inicialización cerrada localmente; contratos históricos de acciones/subesquemas y serialización aún incompletos | Aplicar solo lo transmitido; mantener riesgos ACT/OBS/DYN y obtener fuentes auténticas si aparecen | Parcialmente resuelta; VERIFIED orden F2-G/pruebas; atribución histórica REPORTED, no conformidad histórica global |
 | TR-002 | EntityState y creación | F2-A/C aportaron tipos/preparación; F2-G World.initialize llama initialize_world y adopta copia tipada independiente con lifecycle/config explícitos | Resuelta la ruta de creación heredada inválida; consumidores no migrados al ciclo canónico completo | Conservar pruebas F2G-01/05/13/16; integrar eventos/ciclo solo en alcance autorizado | VERIFIED ejecución F2-G; creación y adaptación inicial resueltas, integración experimental pendiente |
 | TR-003 | Movimiento / observación | F2-D verifica MOVE BOUNDED; F2-F elimina módulo de build_observation y verifica centro/bordes/esquinas/mapas estrechos con F2F-02–07 | Movimiento y proyección espacial corregidos localmente; orquestación experimental no verificada | Conservar evidencia local y comprobar consumidores cuando se integren; subesquemas/capacidad OBS-P01–03 explícitos | VERIFIED ejecución F2-D/F2-F; divergencia espacial resuelta en alcance local, sin certificar aplicación completa |
-| TR-004 | Configuración / daño | apply_action usa campos canónicos, verificados en F2-D; tras F2-G legacy T14 alcanza fallo de factory makeHazard ausente | Campo de daño corregido localmente; runner heredado no acredita aplicación de peligro | Conservar pruebas focalizadas y resolver consumidores en su alcance; ACT-P03/04 siguen pendientes de contraste histórico | VERIFIED F2-D y diagnóstico F2-G; integración de daño no certificada |
+| TR-004 | Configuración / daño | apply_action usa campos canónicos, verificados en F2-D; tras F2-G legacy T14 alcanza fallo de factory makeHazard ausente | Campo de daño corregido localmente; runner heredado no acredita aplicación de peligro | Conservar pruebas focalizadas y resolver consumidores en su alcance; ACT-P03 y detalles ACT-H01/02 siguen pendientes de contraste histórico | VERIFIED F2-D y diagnóstico F2-G; integración de daño no certificada |
 | TR-005 | EXPERIMENT / reloj | `experiment.js:run` incrementa time y regenera antes de observación/acción; `run_without_agent` no aplica WAIT y registra null; §5/§20/§32 | Orden/nulabilidad contrarios a norma; sin rollback transaccional | Migración en alcance F3 y pruebas de orden, terminación y fallos; dependencias TR-001 | VERIFIED por lectura; incompatibilidad heredada abierta |
 | TR-006 | FeedbackConfig / Feedback | §17 dice cuatro flags exactos sin nombres; `feedback.js` tiene tres con coerción `!!` y esquema de salida diferente | Clase legacy no es contrato canónico; no puede inventarse cuarto flag | Obtener nombres/dominos de fuente normativa y migrar configuración/proyección | VERIFIED por lectura; incompatibilidad heredada y dependencia documental abiertas |
 | TR-007 | ExperimentConfig | `inspect_ExperimentConfig_defined_fields` siempre complete:false; constructor legacy exige max_ticks>0 y registro de agente; §19.1 contempla cero | Inspección sin issues no acredita aceptación; cero rechazado por constructor legacy | Recuperar contrato completo y unificar aceptación sin añadir restricciones inferidas | VERIFIED por lectura y B12; implementación parcial e incompatibilidad legacy abiertas |
@@ -370,6 +373,10 @@ en F2-C conservan su autoridad; no se añaden metadatos en WORLD.
 | Determinismo / estado válido | Dos fixtures con ledger esperado independiente y validación de estado tras cada paso | F2D-12/27 |
 
 ### Decisiones observables autorizadas, no contratos históricos recuperados
+
+Registro del corte F2-D. La revisión vigente de ACT-P01–06 y la sustitución de
+ACT-P04 por contratos transmitidos están en la sección F2-H; la tabla siguiente
+conserva la decisión provisional original como historia.
 
 | ID | Indeterminación y contratos conocidos | Alternativas consideradas | Decisión adoptada y justificación | Pruebas | Riesgo pendiente |
 |---|---|---|---|---|---|
@@ -743,3 +750,123 @@ renderer, EXPERIMENT y RECORDER y pruebas anteriores se conservan sin cambios.
 Archivos del incremento: js/world/world.js, tests/f2-g.test.cjs y este documento.
 No surgió un aprendizaje nuevo que requiera modificar ENGINEERING_LEARNINGS.
 Sin conformidad global, merge, despliegue ni avance a F2-H/F3.
+
+
+## F2-H — eventos operacionales y revisión de ActionResult
+
+### Fuentes contractuales y alcance implementado
+
+Fuente histórica **transmitida por el responsable del proyecto en la orden F2-H,
+§§2–3**, recibida en este chat: WorldEvent tiene exactamente type/entity_id/position;
+WORLD no añade tick/source/sequence; apply_action no emite ENTITY_DIED;
+eventos de acción preceden a lifecycle; RESOURCE_CONSUMED y HAZARD_TRIGGERED son
+eventos operacionales definidos. La orden pide emitir ENTITY_MOVED cuando
+corresponda y eventos de efectos realmente ejecutados. §4 de v0.2.5 y la
+recuperación transmitida reservan el enriquecimiento al RECORDER; §5 separa
+apply_action y resolve_lifecycle. VERIFIED: texto recibido y secciones pertinentes
+leídas. No se dispone ni se afirma lectura de la copia histórica completa.
+
+Ahora un MOVE aceptado devuelve ENTITY_MOVED en destino; si consume stock1→0,
+añade RESOURCE_CONSUMED; si ejecuta el efecto de peligro, añade HAZARD_TRIGGERED.
+Stock0 no genera consumo. WAIT no desplaza ni reactiva efectos y devuelve [];
+rechazos tampoco generan efectos ni eventos ficticios. No se incorpora
+ENTITY_BLOCKED, HAZARD_ENTERED u otro tipo no aportado por la orden.
+Cada evento y su posición son objetos nuevos; no comparten coordenadas con el
+estado ni con otro evento. El esquema de ActionResult sigue siendo exactamente
+{validity,reason,energy_delta,events}; no se añade contexto o metadatos.
+
+### Revisión vigente ACT-P01–06
+
+| ID | Clasificación tras contraste F2-H | Fuente, decisión conservada/cambio y riesgo |
+|---|---|---|
+| ACT-P01 | Política de ingeniería conservada en esquema/dominios; WorldEvent respaldado por contrato recuperado | La orden no aporta el esquema histórico completo de ActionResult ni nuevas clasificaciones de validity/reason: se mantienen cuatro campos y dominios actuales. WorldEvent de tres campos sí es norma transmitida en F2-H §2. Conformidad histórica completa de ActionResult no demostrada |
+| ACT-P02 | Política compatible conservada; obligaciones explícitas F2-H preservadas | Misma disponibilidad energética, costes, rechazo sin mutación y WAIT sin entrada. La orden exige preservar semántica y no inventar desplazamientos/efectos WAIT; no recupera todos los casos históricos de WAIT/energía negativa. Rechazos mantienen events:[] sin inventar catálogo |
+| ACT-P03 | Semántica energética conservada; emisión operacional respaldada por F2-H | Coste/ganancia/daño y orden de cálculos intactos. Recurso stock1→0 exige RESOURCE_CONSUMED; activación del peligro exige HAZARD_TRIGGERED. No se reclasifica como histórico el orden aritmético elegido en F2-D. No cambia la dinámica del WORLD |
+| ACT-P04 | Provisional events:[] sustituida; esquema/tipos y separación de responsabilidades normativos recuperados | Contratos F2-H §2–3/§18 y §§4/5/13: eventos crudos, efectos reales, sin muerte ni metadatos. Detalles de emisión/orden interno no reproducidos íntegramente quedan explícitos en ACT-H01/02; no se declara cerrado todo TR-001 |
+| ACT-P05 | Política de ingeniería conservada | Delta efectivo canonicalize_binary64(final-inicial), sin modificar redondeo ni sumar nominales. La orden exige preservarlo, pero no aporta una definición histórica adicional de su significado |
+| ACT-P06 | Preparación/confirmación extendida por obligación explícita F2-H §4 | Se preparan energía, delta y eventos completos antes de verificar escrituras y confirmar posición/energía/stock. Fallo de cálculo o construcción no publica resultado ni cambios parciales. Sigue siendo atomicidad local de registros ordinarios, no transacción global ni protección ante Proxy hostil |
+
+**ACT-H01 — decisión compatible de orden interno y correspondencia.** Se emite
+ENTITY_MOVED para cada MOVE aceptado (siempre cambia una coordenada por BOUNDED),
+con posición de destino; después va el evento del efecto en ese mismo destino.
+Alternativa de ordenar efecto antes de movimiento no se selecciona: la lista
+adoptada refleja entrada y efecto posterior sin alterar su ejecución. El texto
+aportado confirma acción antes de lifecycle, **no reproduce un orden histórico
+interno más detallado**. Por tanto movimiento→efecto se registra como ingeniería,
+no como orden histórico demostrado. La implementación no fusiona eventos de
+lifecycle ni enriquece; EXPERIMENT/RECORDER deberán preservar las fases al integrarse.
+F2H-08 llama las operaciones separadamente para comprobar su frontera, no prueba
+un ciclo experimental completo.
+
+**ACT-H02 — activación con magnitud cero.** resource_effect0 no impide consumir
+stock1→0, por lo que se emite consumo. hazard_damage0 sigue ejecutando el efecto
+de entrada (resta0) y emite HAZARD_TRIGGERED. No se introduce daño ni mecánica
+nueva. Distinguir activación de variación numérica evita suprimir un efecto
+realmente ejecutado por redondeo/cero. La condición histórica específica de
+peligro con daño0 no está reproducida: esta precisión queda como decisión de
+ingeniería compatible; WAIT sigue sin activarlo. F2H-05/15 cubren esos límites.
+
+### Preparación transaccional y pruebas
+
+_make_action_event solo construye registros crudos con tipos constantes de estas
+ramas, a partir de entidad/destino ya validados. Toda construcción ocurre después
+de los cálculos finitos/delta y antes de cualquier escritura. No se modifica la
+precedencia ENTITY_NOT_ACTIVE→OUT_OF_BOUNDS→BLOCKED_CELL→INSUFFICIENT_ENERGY,
+los costes/efectos, BOUNDED, reloj, lifecycle, RNG o sync. El fallo de asignación
+simulado al construir el primer o segundo evento conserva identidad y estado.
+La lista parcial interna no se publica si ocurre una excepción.
+
+| Obligación | Pruebas locales F2-H |
+|---|---|
+| MOVE sin efecto, recurso disponible/agotado, peligro y correspondencia real | F2H-01–05 |
+| WAIT y rechazos sin movimiento/consumo/activación ficticios | F2H-06/07 |
+| Orden, esquema cerrado, ausencia de muerte y metadatos | F2H-01–08/13 |
+| Referencias independientes y determinismo | F2H-09/14 |
+| Fallos de construcción/cálculo y stock no escribible sin cambios parciales | F2H-10–12 |
+| Reloj/lifecycle/rng_state intactos, sin RNG/Recorder/sync | F2H-08/13/14 |
+| Binary64, delta efectivo, ceros y grandes magnitudes preservados | F2H-15 y F2D-09/10/14–27 |
+
+Se migran **solo las expectativas de la política sustituida ACT-P04** en la suite
+F2-D: la antigua aserción universal events.length=0 se reemplaza por listas de
+tipos explícitas esperadas para MOVE/efectos; WAIT/rechazos siguen exigiendo lista
+vacía. Todas las comprobaciones de estado, energía, delta, precedencia y errores
+se conservan; los 28 casos siguen presentes. F2-H verifica además los payloads
+completos, no solo nombres. No se tocan runner ni aserciones legacy, ni se cambia
+un contrato para satisfacerlas. Los otros archivos de pruebas anteriores quedan
+idénticos. Los IDs F2H son locales, no tests canónicos T01–T280.
+
+Node.js v24.22.1, ejecución en /workspace/yellow:
+
+| Comando | Resultado | Exit |
+|---|---|---|
+| `node tests/f1-a.test.cjs` | 18 PASS, 0 FAIL | 0 |
+| `node tests/f1-b.test.cjs` | 12 PASS, 0 FAIL | 0 |
+| `node tests/f2-a.test.cjs` | 14 PASS, 0 FAIL | 0 |
+| `node tests/f2-b.test.cjs` | 13 PASS, 0 FAIL | 0 |
+| `node tests/f2-c.test.cjs` | 21 PASS, 0 FAIL | 0 |
+| `node tests/f2-d.test.cjs` | 28 PASS, 0 FAIL; expectativas ACT-P04 migradas | 0 |
+| `node tests/f2-e.test.cjs` | 16 PASS, 0 FAIL | 0 |
+| `node tests/f2-f.test.cjs` | 18 PASS, 0 FAIL | 0 |
+| `node tests/f2-g.test.cjs` | 21 PASS, 0 FAIL | 0 |
+| `node tests/f2-h.test.cjs` | 15 PASS, 0 FAIL | 0 |
+| `node tests/f1-a-legacy.cjs` | 10 PASS, 12 FAIL, mismas causas que F2-G | 1 |
+| `git diff --check` | Sin errores | 0 |
+
+**176 pruebas locales aprobadas**, 15 nuevas F2-H, sin omitidas. Legacy mantiene
+nueve errores EffectKind, makeResource/makeHazard ausentes y T16 invalid initial_state;
+no certifica ejecución experimental. Las primeras dos expectativas fallidas del
+nuevo harness H usaban energía0 con threshold0: la inicialización canónica crea
+DEAD correctamente. Se corrigieron esas configuraciones de prueba a threshold-1
+para probar entidad ACTIVE sin resurrección ni cambio a lifecycle del producto;
+se reejecutaron los casos y la totalidad de suites.
+
+### Continuidad y límites
+
+ACT-P04 sustituida en el alcance transmitido. INIT-004 y cierre de inicialización
+F2-G se conservan; no se modifica RECORDER, EXPERIMENT, replay/WLS1, agentes o web.
+Siguen pendientes el orden histórico interno no reproducido, la definición
+histórica completa de ActionResult y la integración de eventos en trayectorias.
+No se declara conformidad histórica completa, conformidad global o interoperabilidad.
+Archivos: world.js, action_result.js, tests/f2-d.test.cjs, tests/f2-h.test.cjs y
+este estado operacional. ENGINEERING_LEARNINGS no cambia: EL-004 ya cubre la
+distinción entre políticas, norma y evidencia. Sin merge, despliegue ni F2-I.

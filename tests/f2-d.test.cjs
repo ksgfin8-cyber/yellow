@@ -109,10 +109,11 @@ test('F2D-12: deterministic planning from identical valid fixtures',()=>{
 
 
 // Engineering policies authorized by the complementary F2-D directive.
-function assertResult(result, validity, reason, energy_delta) {
+// F2-H migrates only superseded ACT-P04 expectations; state/energy assertions stay.
+function assertResult(result, validity, reason, energy_delta, eventTypes = []) {
     assert.deepEqual(Array.from(Object.keys(result)).sort(),['energy_delta','events','reason','validity']);
     assert.equal(result.validity,validity);assert.equal(result.reason,reason);
-    assert.ok(Object.is(result.energy_delta,energy_delta));assert.equal(result.events.length,0);
+    assert.ok(Object.is(result.energy_delta,energy_delta));assert.deepEqual(Array.from(result.events,event=>event.type),eventTypes);
 }
 function unchanged(w, fn) {
     const before=structuredClone(w.state),state=w.rng.get_state();
@@ -128,7 +129,7 @@ test('F2D-14 §6/13: actual cardinal moves are bounded, with cost and net delta'
     const targets={MOVE_N:[1,0],MOVE_S:[1,2],MOVE_E:[2,1],MOVE_W:[0,1]};
     for(const [type,[x,y]] of Object.entries(targets)) {
         const w=fixture({initial_energy:10,move_cost:3});
-        assertResult(w.apply_action(act(type)),'VALID','NONE',-3);
+        assertResult(w.apply_action(act(type)),'VALID','NONE',-3,['ENTITY_MOVED']);
         const e=w.get_experimental_entity();assert.equal(e.position.x,x);assert.equal(e.position.y,y);assert.equal(e.energy,7);
         assert.equal(e.lifecycle,'ACTIVE');assert.ok(validate_WorldState(w.state,w.config));
     }
@@ -156,8 +157,8 @@ test('F2D-17 §13: complete MOVE precedence, failure mappings and no mutation',(
 test('F2D-18 policy: WAIT insufficient, exact equality, zero cost and negative energy',()=>{
     const poor=fixture({initial_energy:1,wait_cost:2});assertResult(unchanged(poor,()=>poor.apply_action(act('WAIT'))),'FAILED','INSUFFICIENT_ENERGY',0);
     for(const type of ['MOVE_E','WAIT']) {
-        const exact=fixture({initial_energy:2,move_cost:2,wait_cost:2});assertResult(exact.apply_action(act(type)),'VALID','NONE',-2);assert.equal(exact.get_experimental_entity().energy,0);
-        const free=fixture({initial_energy:0,move_cost:0,wait_cost:0});assertResult(free.apply_action(act(type)),'VALID','NONE',0);
+        const exact=fixture({initial_energy:2,move_cost:2,wait_cost:2});assertResult(exact.apply_action(act(type)),'VALID','NONE',-2,type==='WAIT'?[]:['ENTITY_MOVED']);assert.equal(exact.get_experimental_entity().energy,0);
+        const free=fixture({initial_energy:0,move_cost:0,wait_cost:0});assertResult(free.apply_action(act(type)),'VALID','NONE',0,type==='WAIT'?[]:['ENTITY_MOVED']);
         const negative=fixture({initial_energy:-1,move_cost:0,wait_cost:0,death_threshold:-2});
         assertResult(unchanged(negative,()=>negative.apply_action(act(type))),'FAILED','INSUFFICIENT_ENERGY',0);
     }
@@ -165,9 +166,9 @@ test('F2D-18 policy: WAIT insufficient, exact equality, zero cost and negative e
 test('F2D-19 policy: resource stock 1 consumed on entry, stock 0 gives no gain or regeneration',()=>{
     const w=fixture({initial_energy:10,move_cost:2,resource_effect:7});w.state.grid[1][2]=new Cell('FREE',{kind:'RESOURCE',stock:1});
     w.regenerate_resources=()=>assert.fail('must not regenerate');
-    assertResult(w.apply_action(act('MOVE_E')),'VALID','NONE',5);assert.equal(w.get_experimental_entity().energy,15);assert.equal(w.state.grid[1][2].effect.stock,0);
-    assertResult(w.apply_action(act('MOVE_W')),'VALID','NONE',-2);
-    assertResult(w.apply_action(act('MOVE_E')),'VALID','NONE',-2);assert.equal(w.get_experimental_entity().energy,11);assert.equal(w.state.grid[1][2].effect.stock,0);
+    assertResult(w.apply_action(act('MOVE_E')),'VALID','NONE',5,['ENTITY_MOVED','RESOURCE_CONSUMED']);assert.equal(w.get_experimental_entity().energy,15);assert.equal(w.state.grid[1][2].effect.stock,0);
+    assertResult(w.apply_action(act('MOVE_W')),'VALID','NONE',-2,['ENTITY_MOVED']);
+    assertResult(w.apply_action(act('MOVE_E')),'VALID','NONE',-2,['ENTITY_MOVED']);assert.equal(w.get_experimental_entity().energy,11);assert.equal(w.state.grid[1][2].effect.stock,0);
     const zero=fixture({resource_effect:0});zero.state.grid[1][2]=new Cell('FREE',{kind:'RESOURCE',stock:1});zero.apply_action(act('MOVE_E'));assert.equal(zero.state.grid[1][2].effect.stock,0);
 });
 test('F2D-20 policy: entry resource cannot finance a previously unaffordable move',()=>{
@@ -177,11 +178,11 @@ test('F2D-20 policy: entry resource cannot finance a previously unaffordable mov
 });
 test('F2D-21 §6/policy: hazard_damage on MOVE entry; negative energy does not resolve lifecycle',()=>{
     const w=fixture({initial_energy:10,move_cost:2,hazard_damage:7,wait_cost:1});w.state.grid[1][2]=new Cell('FREE',{kind:'HAZARD'});
-    assertResult(w.apply_action(act('MOVE_E')),'VALID','NONE',-9);assert.equal(w.get_experimental_entity().energy,1);
+    assertResult(w.apply_action(act('MOVE_E')),'VALID','NONE',-9,['ENTITY_MOVED','HAZARD_TRIGGERED']);assert.equal(w.get_experimental_entity().energy,1);
     assertResult(w.apply_action(act('WAIT')),'VALID','NONE',-1);assert.equal(w.get_experimental_entity().energy,0);assert.equal(w.get_experimental_entity().lifecycle,'ACTIVE');
     const lethal=fixture({initial_energy:2,move_cost:2,hazard_damage:5});lethal.state.grid[1][2]=new Cell('FREE',{kind:'HAZARD'});
-    assertResult(lethal.apply_action(act('MOVE_E')),'VALID','NONE',-7);assert.equal(lethal.get_experimental_entity().energy,-5);assert.equal(lethal.get_experimental_entity().lifecycle,'ACTIVE');
-    const harmless=fixture({initial_energy:2,move_cost:0,hazard_damage:0});harmless.state.grid[1][2]=new Cell('FREE',{kind:'HAZARD'});assertResult(harmless.apply_action(act('MOVE_E')),'VALID','NONE',0);
+    assertResult(lethal.apply_action(act('MOVE_E')),'VALID','NONE',-7,['ENTITY_MOVED','HAZARD_TRIGGERED']);assert.equal(lethal.get_experimental_entity().energy,-5);assert.equal(lethal.get_experimental_entity().lifecycle,'ACTIVE');
+    const harmless=fixture({initial_energy:2,move_cost:0,hazard_damage:0});harmless.state.grid[1][2]=new Cell('FREE',{kind:'HAZARD'});assertResult(harmless.apply_action(act('MOVE_E')),'VALID','NONE',0,['ENTITY_MOVED','HAZARD_TRIGGERED']);
 });
 test('F2D-22 §6.3/6.4/policy: signed zeros and realized binary64 net delta',()=>{
     const w=fixture({initial_energy:-0,wait_cost:0});assert.ok(Object.is(w.get_experimental_entity().energy,-0));
@@ -209,7 +210,7 @@ test('F2D-25 §4/5/13: all actual actions preserve time, lifecycle, rng_state an
         const w=fixture({initial_energy:10});w.state.time=9n;const state=w.state.rng_state;
         w.rng=new Proxy({}, {get(){assert.fail('apply_action RNG access');}});
         w.sync_rng_state=()=>assert.fail('unexpected sync');w.resolve_lifecycle=()=>assert.fail('unexpected lifecycle');w.regenerate_resources=()=>assert.fail('unexpected dynamics');
-        const result=w.apply_action(act(type));assert.equal(result.validity,'VALID');assert.equal(w.state.time,9n);assert.equal(w.state.rng_state,state);assert.equal(w.get_experimental_entity().lifecycle,'ACTIVE');assert.equal(result.events.length,0);
+        const result=w.apply_action(act(type));assert.equal(result.validity,'VALID');assert.equal(w.state.time,9n);assert.equal(w.state.rng_state,state);assert.equal(w.get_experimental_entity().lifecycle,'ACTIVE');assert.deepEqual(Array.from(result.events,event=>event.type),type==='WAIT'?[]:['ENTITY_MOVED']);
     }
 });
 test('F2D-26 policy: fresh closed results/events contain no mutable WORLD or Action references',()=>{
@@ -221,9 +222,9 @@ test('F2D-26 policy: fresh closed results/events contain no mutable WORLD or Act
 test('F2D-27 policy: fixed multi-action energy ledger and deterministic full state',()=>{
     const setup=()=>{const w=fixture({initial_energy:20,move_cost:2,wait_cost:1,resource_effect:3,hazard_damage:4});w.state.grid[1][2]=new Cell('FREE',{kind:'RESOURCE',stock:1});w.state.grid[0][2]=new Cell('FREE',{kind:'HAZARD'});return w;};
     const a=setup(),b=setup();
-    const steps=[['MOVE_E',21,1],['MOVE_N',15,-6],['WAIT',14,-1],['MOVE_W',12,-2],['MOVE_S',10,-2]];
-    for(const [type,energy,delta] of steps) {
-        const ar=a.apply_action(act(type)),br=b.apply_action(act(type));assertResult(ar,'VALID','NONE',delta);assert.deepEqual(ar,br);
+    const steps=[['MOVE_E',21,1,['ENTITY_MOVED','RESOURCE_CONSUMED']],['MOVE_N',15,-6,['ENTITY_MOVED','HAZARD_TRIGGERED']],['WAIT',14,-1,[]],['MOVE_W',12,-2,['ENTITY_MOVED']],['MOVE_S',10,-2,['ENTITY_MOVED']]];
+    for(const [type,energy,delta,eventTypes] of steps) {
+        const ar=a.apply_action(act(type)),br=b.apply_action(act(type));assertResult(ar,'VALID','NONE',delta,eventTypes);assert.deepEqual(ar,br);
         assert.equal(a.get_experimental_entity().energy,energy);assert.equal(b.get_experimental_entity().energy,energy);assert.deepEqual(structuredClone(a.state),structuredClone(b.state));
         assert.ok(validate_WorldState(a.state,a.config));
     }

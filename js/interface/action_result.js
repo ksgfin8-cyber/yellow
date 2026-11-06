@@ -18,4 +18,6 @@ const ActionResultReason = Object.freeze({
 
 // World.apply_action() constructs fresh records. VALID/NONE, INVALID/spatial or
 // inactive reason, FAILED/INSUFFICIENT_ENERGY; finite canonical net energy delta.
-// Action events are an empty raw list by policy, never Recorder metadata.
+// F2-H replaces ACT-P04: accepted MOVE emits ENTITY_MOVED, then the executed
+// RESOURCE_CONSUMED or HAZARD_TRIGGERED effect, as raw closed WorldEvent records.
+// WAIT/rejected actions have no operational events; no death or Recorder metadata.

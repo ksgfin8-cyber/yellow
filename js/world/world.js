@@ -189,6 +189,11 @@ class World {
         return canonicalize_binary64(energy + delta);
     }
 
+    // Raw action WorldEvent; inputs have already passed WORLD/action validation.
+    static _make_action_event(type, entity, position) {
+        return {type, entity_id: entity.id, position: {x: position.x, y: position.y}};
+    }
+
     // F2-D: normative boundaries plus explicit engineering policies recorded in STATUS.
     apply_action(action) {
         const type = this._action_type(action);
@@ -210,18 +215,27 @@ class World {
         const before = entity.energy;
         let energy = World._finite_energy_sum(before, -cost);
         let resource = null;
+        let effect_event = null;
         if (target !== null) {
             const effect = this.state.grid[target.y][target.x].effect;
             if (effect !== null && effect.kind === "RESOURCE" && effect.stock === 1) {
                 energy = World._finite_energy_sum(energy, this.config.resource_effect);
                 resource = effect;
+                effect_event = "RESOURCE_CONSUMED";
             } else if (effect !== null && effect.kind === "HAZARD") {
                 energy = World._finite_energy_sum(energy, -this.config.hazard_damage);
+                effect_event = "HAZARD_TRIGGERED";
             }
         }
         energy = canonicalize_binary64(energy);
         const energy_delta = canonicalize_binary64(energy - before);
-        const result = {validity: "VALID", reason: "NONE", energy_delta, events: []};
+        const events = [];
+        if (target !== null) {
+            // ACT-H01: movement before its entry effect; all records staged before writes.
+            events.push(World._make_action_event("ENTITY_MOVED", entity, target));
+            if (effect_event !== null) events.push(World._make_action_event(effect_event, entity, target));
+        }
+        const result = {validity: "VALID", reason: "NONE", energy_delta, events};
 
         // Ordinary F2-A records may have been frozen by a caller. Reject before writes.
         const changes = [];
