@@ -1,8 +1,12 @@
 # Estado de implementación de WORLD-LAB
 
-Documento **informativo y operacional**, no normativo. Corte operativo F2-F:
-2026-11-05 (America/Guayaquil), base `main` posterior al PR #9 =
-`b37abd3f46d4aa8032556e0dbc92b5a41c6c0448`. Rama: `dev/f2-f-world-observation`.
+Documento **informativo y operacional**; registra la aclaración autorizada INIT-004
+sin atribuirse autoridad propia. Corte operativo F2-G: 2026-11-05 (America/Guayaquil),
+base `main` posterior al PR #10 = `1ef8799f1d1e842a70686e5cc42363f90b8e3e25`.
+Rama: `dev/f2-g-world-initialization`.
+
+Corte anterior F2-F: base `b37abd3f46d4aa8032556e0dbc92b5a41c6c0448`,
+rama `dev/f2-f-world-observation`.
 
 Corte anterior F2-E: base `f8aaca31951e425333416cfce85a031572890cfe`,
 rama `dev/f2-e-world-dynamics`.
@@ -48,19 +52,19 @@ no solo los tres módulos core como describe el informe F1-A.
 REPORTED: resultados y particularidades del runtime de las ejecuciones originales;
 las ejecuciones F2-D siguientes son evidencia nueva, no certificación retroactiva.
 
-## Estado por componente (actualizado F2-F)
+## Estado por componente (actualizado F2-G)
 
-| Incremento / componente | Estado y alcance de evidencia (DOC-01, actualizado F2-F) |
+| Incremento / componente | Estado y alcance de evidencia (DOC-01, actualizado F2-G) |
 |---|---|
 | F1-A: PRNG, UTF-8, FNV, semillas | Implementado; VERIFIED por ejecución de 18 casos locales. `next_int` admite extremos Number seguros y cardinalidad ≤2^32; esa decisión interna está documentada, sin ampliar §10.3. No es la suite canónica completa. |
 | F1-B: contratos | Parcialmente implementado; VERIFIED por ejecución de B01–B12: WorldConfig, binary64, predicados Cell/Entity/WorldState y Action. No incorpora por sí solo esos contratos al motor. |
 | FeedbackConfig / ExperimentConfig | Pendientes de cierre documental/integración. VERIFIED por lectura: clases legacy y un inspector parcial `complete:false`; TR-006/007. |
-| WORLD | F2-A implementa tipos validados, copias profundas, WorldState.full_snapshot y delegación World.full_snapshot (§7–§9); VERIFIED por F2A-01–14. F2-B verifica generación y selección inicial (§11.2 recuperado/§11.3) con F2B-01–13. F2-C parcial añade preparación, lifecycle <=, eventos crudos y sync posterior (21 pruebas). Sin initialize_world/InitialWorldResult completos: INIT-004 bloquea la validación de metadatos de §11.7. F2-D implementa apply_action con validación, MOVE BOUNDED, precedencia completa, costes y efectos con los campos canónicos, WAIT y resultados bajo decisiones de ingeniería explícitas (28 pruebas). Conformidad histórica de ActionResult/eventos no verificada. F2-E implementa advance_dynamics y regeneración binaria determinista con validación y preparación/confirmación (16 pruebas); fórmula conservada como decisión de ingeniería DYN-P01. F2-F migra observación pura BOUNDED, tick exacto, privacidad de stock y validación (18 pruebas). initialize sigue legacy. TR-003 queda resuelta en alcance espacial local; TR-001/004/008 persisten. F2 completo no implementado. |
+| WORLD | F2-A/B proporcionan tipos, snapshots, generación y selección; F2-C lifecycle <= y preparación. F2-D/E/F mantienen acciones, dinámica y observación verificadas localmente bajo sus políticas documentadas. F2-G cierra initialize_world → InitialWorldResult y adapta World.initialize a la misma ruta: validación de eventos crudos, lifecycle/sync únicos, snapshots separados y atomicidad local (21 pruebas nuevas). INIT-004 resuelta por aclaración autorizada; TR-008 resuelta para carga/inicialización en runner. No equivale a F2 completo o conformidad global. |
 | EXPERIMENT | Ciclo legacy presente; pendientes secuencia canónica, transacción con rollback, determine_termination y ExperimentResult (§5, §20, §26.5, §32). TR-005. |
 | Observaciones / agentes | F2-F implementa observación pura tick/self/local_view, BOUNDED, OUT_OF_BOUNDS, occupied=false y RESOURCE sin distinción de stock (18 pruebas locales). Subesquemas y capacidad documentados como OBS-P01–03, no conformidad histórica demostrada. Agentes sin cambios ni nueva auditoría; integración no verificada. |
 | Recorder / hashes | Código legacy presente. VERIFIED por lectura de `recorder.js`/`hash_state.js`: sin source/sequence ni listas action_events/lifecycle_events del StepRecord; record_step asigna rng_state del argumento WORLD. Hashes sobre texto, no WLS1. Migración pendiente (§4, §18, §21–§24, §34). |
 | Replay / WLS1 / Metrics | Pendientes: no se encontraron implementaciones en el árbol JS inspeccionado. T20 legacy vuelve a ejecutar Experiment; no implementa replay. Ausencia no clasificada como defecto de F1-A/B. |
-| Renderer / entrada web | Legacy presente, sin validación integrada. VERIFIED por lectura: render recibe World y `main.js` reconstruye su estado. TR-008 impide interpretar las pruebas actuales como validación de la aplicación. |
+| Renderer / entrada web | Legacy presente, sin cambios ni validación de navegador/render. La inicialización de World en el runner ya funciona; no acredita la aplicación completa ni la orquestación experimental. |
 | Integración y conformidad global | No verificadas. UNKNOWN respecto al cumplimiento global; no existe evidencia ejecutada de T01–T280 ni interoperabilidad. §37 no se satisface con las pruebas locales. |
 
 ## Evidencia ejecutada en F2-D
@@ -101,22 +105,23 @@ TR-008 queda parcialmente resuelta (carga corregida, dependencias operacionales
 pendientes); TR-010 tiene copia exacta verificada pero integración temporal/WLS1
 pendiente. F2-B resuelve generación/selección en el alcance recuperado, pero
 TR-001 permanece parcialmente resuelta y TR-003–007/009 siguen abiertos.
-F2-C es parcial: INIT-005 se resolvió con el contrato histórico recuperado;
-INIT-004 permanece como posible contradicción normativa localizada y bloquea
-§11.7/la API canónica completa, no las operaciones independientes verificadas. No se equipara funcionalidad futura
+En F2-C, INIT-005 se resolvió con el contrato histórico recuperado.
+La cuestión INIT-004 registrada en F2-C se resuelve en F2-G mediante aclaración
+autorizada: WORLD valida eventos crudos y RECORDER validará los metadatos.
+La API inicial completa está ahora verificada localmente; la integración global sigue pendiente. No se equipara funcionalidad futura
 con defecto nuevo ni se consideran estas dependencias bloqueantes globales.
 
 | ID | Componente | Evidencia | Impacto | Resolución prevista | Estado |
 |---|---|---|---|---|---|
-| TR-001 | Corpus normativo | Recuperación transmitida de v0.2.4 §§6.1/14/18/21.2 en F2-C; INIT-004 persiste. Sin fuente histórica independiente adicional para acciones | ActionResult, WAIT, costes/efectos y eventos mantienen riesgo de conformidad histórica; no contradicción demostrada | Directiva complementaria F2-D autoriza políticas compatibles ACT-P01–06; conservar riesgo histórico y resolver §11.7 con autoridad | Parcialmente resuelta; VERIFIED implementación/pruebas locales, conformidad histórica restante UNKNOWN |
-| TR-002 | EntityState y creación | F2-A resolvió tipo/copia; F2-C prepare_world_before_lifecycle usa lifecycle/config explícitos y F2C-03/04/08/13–21 los verifican | Preparación/lifecycle inicial válidos; World.initialize y consumidores EXPERIMENT aún usan la firma antigua | Evidencia: commits F2-A/F2-C en historial y pruebas citadas. Integrar únicamente cuando se cierre el contrato canónico de eventos/lifecycle | VERIFIED ejecución; estructura y preparación resueltas, incompatibilidad legacy no resuelta globalmente |
-| TR-003 | Movimiento / observación | F2-D verifica MOVE BOUNDED; F2-F elimina módulo de build_observation y verifica centro/bordes/esquinas/mapas estrechos con F2F-02–07 | Movimiento y proyección espacial corregidos localmente; orquestación experimental no verificada | Conservar evidencia local y comprobar consumidores cuando se integren; subesquemas/capacidad OBS-P01–03 explícitos | VERIFIED ejecución F2-D/F2-F; divergencia espacial resuelta en alcance local, sin cerrar TR-008 ni certificar aplicación completa |
-| TR-004 | Configuración / daño | apply_action usa move_cost, wait_cost, resource_effect y hazard_damage; F2D-14/15/19/21/27 verifican contabilidad | Consumidor de daño migrado sin alias hazard_effect; integración legacy no alcanzada por inicialización inválida | Conservar evidencia local y verificar consumidores al integrarlos; políticas de orden/eventos ACT-P03/04 pendientes de contraste histórico | VERIFIED lectura/ejecución F2-D; divergencia de campo resuelta en apply_action, conformidad integrada no verificada |
+| TR-001 | Corpus normativo | Reglas recuperadas transmitidas en órdenes F2-B/C/G; copia histórica independiente sigue fuera del repo y no examinada aquí. INIT-004 aclarada por responsable del proyecto | Inicialización cerrada localmente; contratos históricos de acciones/subesquemas y serialización aún incompletos | Aplicar solo lo transmitido; mantener riesgos ACT/OBS/DYN y obtener fuentes auténticas si aparecen | Parcialmente resuelta; VERIFIED orden F2-G/pruebas; atribución histórica REPORTED, no conformidad histórica global |
+| TR-002 | EntityState y creación | F2-A/C aportaron tipos/preparación; F2-G World.initialize llama initialize_world y adopta copia tipada independiente con lifecycle/config explícitos | Resuelta la ruta de creación heredada inválida; consumidores no migrados al ciclo canónico completo | Conservar pruebas F2G-01/05/13/16; integrar eventos/ciclo solo en alcance autorizado | VERIFIED ejecución F2-G; creación y adaptación inicial resueltas, integración experimental pendiente |
+| TR-003 | Movimiento / observación | F2-D verifica MOVE BOUNDED; F2-F elimina módulo de build_observation y verifica centro/bordes/esquinas/mapas estrechos con F2F-02–07 | Movimiento y proyección espacial corregidos localmente; orquestación experimental no verificada | Conservar evidencia local y comprobar consumidores cuando se integren; subesquemas/capacidad OBS-P01–03 explícitos | VERIFIED ejecución F2-D/F2-F; divergencia espacial resuelta en alcance local, sin certificar aplicación completa |
+| TR-004 | Configuración / daño | apply_action usa campos canónicos, verificados en F2-D; tras F2-G legacy T14 alcanza fallo de factory makeHazard ausente | Campo de daño corregido localmente; runner heredado no acredita aplicación de peligro | Conservar pruebas focalizadas y resolver consumidores en su alcance; ACT-P03/04 siguen pendientes de contraste histórico | VERIFIED F2-D y diagnóstico F2-G; integración de daño no certificada |
 | TR-005 | EXPERIMENT / reloj | `experiment.js:run` incrementa time y regenera antes de observación/acción; `run_without_agent` no aplica WAIT y registra null; §5/§20/§32 | Orden/nulabilidad contrarios a norma; sin rollback transaccional | Migración en alcance F3 y pruebas de orden, terminación y fallos; dependencias TR-001 | VERIFIED por lectura; incompatibilidad heredada abierta |
 | TR-006 | FeedbackConfig / Feedback | §17 dice cuatro flags exactos sin nombres; `feedback.js` tiene tres con coerción `!!` y esquema de salida diferente | Clase legacy no es contrato canónico; no puede inventarse cuarto flag | Obtener nombres/dominos de fuente normativa y migrar configuración/proyección | VERIFIED por lectura; incompatibilidad heredada y dependencia documental abiertas |
 | TR-007 | ExperimentConfig | `inspect_ExperimentConfig_defined_fields` siempre complete:false; constructor legacy exige max_ticks>0 y registro de agente; §19.1 contempla cero | Inspección sin issues no acredita aceptación; cero rechazado por constructor legacy | Recuperar contrato completo y unificar aceptación sin añadir restricciones inferidas | VERIFIED por lectura y B12; implementación parcial e incompatibilidad legacy abiertas |
-| TR-008 | Carga / integración inicial | F2-A corrigió carga; F2-B corrigió factories en generación; F2-C prepara estado, resuelve lifecycle y produce eventos crudos independientemente. El runner actual aún falla en EntityState desde World.initialize | El nuevo helper no es alias ni reparación silenciosa de initialize_world/World.initialize | No usar la salida diagnóstica como InitialWorldResult; resolver INIT-004 antes de migrar consumidores | VERIFIED ejecución F2-C; carga/generación/preparación cubiertas, inicialización completa pendiente |
-| TR-009 | Suite legacy | Ejecuciones arriba; `js/tests/tests.js`: T15/T19 contienen `|| true`; T18 captura su propia aserción; T20 compara dos runs; T21 no llama Renderer | PASS no siempre acredita intención; mismo conteo 4 PASS/18 FAIL con causas distintas no verifica integración ni replay | Diseñar pruebas pertinentes a contratos recuperados y a rutas antes bloqueadas; distinguir IDs locales/canónicos | VERIFIED lectura DOC-01/ejecución F2-C; límite de evidencia y defectos legacy abiertos |
+| TR-008 | Carga / integración inicial | initialize_world y World.initialize funcionan mediante una ruta común; F2G-01/09–13/16–21; legacy supera construcción inicial y pasa de 4 PASS/18 FAIL a 10 PASS/12 FAIL | El bloqueo EntityState/World.initialize anterior está resuelto. Persisten fallos posteriores ajenos al incremento y no se verificó navegador/render | Conservar evidencia local y adaptar EXPERIMENT/RECORDER posteriormente; no confundir inicialización con aplicación completa | VERIFIED ejecución F2-G; resuelta carga/inicialización en runner, integración global no verificada |
+| TR-009 | Suite legacy | F2-G:10 PASS/12 FAIL; nueve EffectKind, dos factories ausentes y T16 invalid initial_state. T16 exige toro y coloca entidad en (0,0) sin asegurar FREE | Nuevas rutas alcanzadas no convierten las aserciones legacy en norma ni certifican replay; defectos conocidos de tests persisten | No cambiar asserts para ocultar fallos; mantener pruebas locales y separar causas de fallos | VERIFIED ejecución F2-G y lectura focalizada T16; no suite canónica T01–T280 |
 | TR-010 | uint64 e integración | `is_uint64` admite BigInt uint64 o Number seguro; B08 y F2A-11; `experiment.js` usa `time += 1`; `hash_state.js` serializa texto; §6.3/§7/§34 | INFERRED: BigInt requiere integrar aritmética y serialización; aceptar estructura no garantiza interoperabilidad | Mantener exactitud al integrar reloj/WLS1 y probar extremos; no convertir a Number con pérdida | VERIFIED representación/B08 y F2A-11; copias exactas verificadas en F2-A; integración reloj/WLS1 abierta |
 
 No se identificó una desviación normativa nueva no autorizada mediante esta
@@ -127,8 +132,8 @@ revisión focalizada; ello no certifica su ausencia fuera de lo examinado.
 | Contrato / operación afectada | Qué falta o requiere resolución | Trabajo independiente posible | Evidencia para cerrar |
 |---|---|---|---|
 | §11.2: generación del mapa | Algoritmo recuperado desde el texto histórico v0.2.4 proporcionado en la orden F2-B; falta fuente independiente en repo | Generación y selección ya verificadas; pueden usarse sin inicialización completa | Conservar procedencia y recuperar documento original para trazabilidad duradera; no reconstruir otras cláusulas |
-| §13–§15/§18: acciones, lifecycle, eventos | Condición <= y WorldEvent/RecordedEvent recuperados en F2-C; persiste INIT-004 y faltan contratos operacionales de acción/dinámica | Preparación/lifecycle, acciones F2-D y dinámica F2-E verificadas localmente; políticas de ingeniería identificadas | Resolver §11.7 y contrastar políticas de acciones/regeneración con fuente histórica si aparece; integración experimental pendiente |
-| §11.1/§11.7/§26: inicialización y errores | §11.7 demanda metadatos incompatibles con WorldEvent crudo; captura de errores delimitada por orden F2-C §6.6 | Preparación/lifecycle/sync, con error de posición preservando semilla y otros errores sin envolver | Decisión autorizada sobre §11.7 antes de cerrar la API; no alterar v0.2.5 unilateralmente |
+| §13–§15/§18: acciones, lifecycle, eventos | Condición <= y eventos recuperados en F2-C; INIT-004 aclarada en F2-G; políticas ACT/DYN siguen sin contraste histórico completo | WORLD inicial completo y operaciones independientes verificadas localmente | Integración experimental y contraste histórico de políticas cuando haya fuente, sin reabrir INIT-004 por ausencia del archivo original |
+| §11.1/§11.7/§26: inicialización y errores | Aclaración F2-G separa consistencia cruda de validación temporal; API inicial cerrada localmente | initialize_world y adaptador preservan semilla en fallo de posición y no envuelven errores ajenos | RECORDER deberá enriquecer/validar RecordedEvent; EXPERIMENT deberá consumir InitialWorldResult y eventos sin resolver lifecycle otra vez |
 | §17/§19: feedback y aceptación del experimento | Nombres de cuatro flags, dominios/validación heredados | WORLD sin agente/feedback dentro de contratos disponibles | Esquemas normativos completos; pruebas de configuración pertinentes |
 | §21/§25/§26.5/§34: registro, replay, atomicidad y bytes | Algoritmos heredados; WLS1 V1 de 59 bytes no reproducido; V2–V10 declarados pendientes | No bloquea todo trabajo estructural F2; sí cierre de equivalencia afectada | Corpus anterior, vectores y pruebas respectivas antes de F3/F4 dependiente |
 | §31/§36/§37: aceptación completa | I-01–I-66 y definiciones individuales de tests no reproducidos; T61–T80 no están asignados en tabla §36 | Pruebas locales trazables sin llamarlas suite canónica | Invariantes/casos originales y resolución del inventario incompleto |
@@ -241,6 +246,9 @@ aquí. Pruebas locales distintas de T01–T280; sin conformidad global.
 
 ## Registro de resoluciones de ingeniería y cuestiones normativas
 
+Contexto histórico F2-C: las descripciones siguientes conservan el diagnóstico de
+aquel incremento; la fila INIT-004 y la sección F2-G registran su resolución actual.
+
 **F2-C parcialmente implementado.** No existe una API initialize_world completa ni
 se devuelve InitialWorldResult. Hay dos helpers de preparación explícitamente
 parciales: `prepare_world_before_lifecycle(config, seed)` termina antes del paso
@@ -255,7 +263,7 @@ está identificada, no se omite silenciosamente para declarar éxito canónico.
 | INIT-001 | Contrato normativo explícito | §6, §7, §10, §11.1 pasos 1–7 y §11.3/4 | F2C-01–07/12: config/semilla, PRNG original, mapa/posición F2-B, entidad única 0987898, energía exacta, ACTIVE antes de resolución, time=0 | Preparación estructural verificada sin consumo RNG adicional | Constructor F2-A recibe config/lifecycle; RNG refleja extracciones reales |
 | INIT-002 | Contrato normativo incorporado por referencia | v0.2.4 §§6.1/14/18/21.2 conservados por v0.2.5; recuperación transmitida durante F2-C | Texto recibido especifica energy <= death_threshold, WorldEvent de tres campos, RecordedEvent con tick/source/sequence y enriquecimiento exclusivo en Recorder | Aplicado solo lo conservado: condición exacta, lifecycle inicial y eventos crudos; no se implementa Recorder | Desbloquea INIT-005 y payload crudo; no resuelve §11.7 ni todo TR-001 |
 | INIT-003 | Decisión de implementación compatible | initialize_resources en §11.1; stock=1 establecido por generación F2-B y orden F2-C §6.3 | F2C-07/11/12 comprueban conservación de celdas/stock/RNG | verify_generated_initial_resources valida sin mutación el dominio generado; rechaza stock agotado sin repararlo | No define initialize_resources general ni crea segunda distribución; semántica histórica general aún UNKNOWN |
-| INIT-004 | Posible contradicción normativa localizada | §4/§11.1/§11.7 de v0.2.5 frente a §18 y §21.2 recuperados | WorldEvent={type,entity_id,position}; RecordedEvent añade tick/source/sequence solo en Recorder; §11.1 valida los eventos crudos antes de Recorder, pero §11.7 exige esos tres metadatos | Sin representación inventada, enriquecimiento en WORLD, validación debilitada ni API final declarada completa; pendiente decisión autorizada | Bloquea validate_initial_events_consistency completa y cierre de initialize_world/InitialWorldResult; no las operaciones independientes |
+| INIT-004 | Aclaración normativa autorizada, resuelta en WORLD | Orden F2-G §3 del responsable: §§11.1/11.7/18/21.2 | Obligación original: §11.1 valida WorldEvent crudos y §11.7 pide tick/source/sequence. Aclaración: semántica/estructura cruda en WORLD; metadatos solo en RecordedEvent/RECORDER | validate_initial_events_consistency exige ACTIVE→[] o DEAD→un ENTITY_DIED exacto, id/posición correspondientes, sin campos extra; F2G-06–10/17 | Cierre de initialize_world habilitado; validación temporal/enriquecimiento de Recorder sigue pendiente fuera de este incremento |
 | INIT-005 | Contrato incorporado recuperado; laguna inicial resuelta | v0.2.4 §6.1/§14, no sustituido por v0.2.5 | Recuperación explícita: energy <= death_threshold, energías/umbrales negativos permitidos, ACTIVE inicial, sin resurrección ni duplicados; F2C-13/15/16/20 | World.resolve_lifecycle implementa condición y una transición con evento crudo; preparación inicial lo invoca exactamente una vez | Muerte, igualdad y negativos verificados; no depende del código legacy como autoridad |
 | INIT-006 | Contrato explícito y delimitación autorizada de errores | §6/§10/§11.3/§26; orden F2-C §6.6 | F2C-09/10/19: no candidatos conserva seed original y reason/mensaje invalid initial_position; otros errores preservan identidad | Solo fallo de posición recibe seed en la composición; no se envuelven errores de configuración/contrato/programación | No crea categorías nuevas ni convierte RNG actual en semilla; comportamiento aplicado por autorización explícita F2-C |
 | INIT-007 | Decisión de implementación compatible | Orden §11.1 pasos 8–10 y frontera de helper parcial | F2C-16/17/18: resolve una vez → sync una vez → validación estructural → snapshot diagnóstico; sin draws ni cambio temporal | Pipeline independiente verificado, sin presentar el snapshot como resultado validado por §11.7 | Falta la decisión normativa de eventos para salida canónica; no se altera la norma |
@@ -610,3 +618,128 @@ explícitos de conformidad/capacidad. Acciones, dinámica, lifecycle, inicializa
 contratos/tipos congelados, especificación y suites previas no cambian.
 Sin conformidad global ni interoperabilidad demostrada; no se realiza merge,
 despliegue ni se inicia F2-G/F3.
+
+
+## F2-G — cierre de inicialización y aclaración autorizada INIT-004
+
+### Fuente, autoridad y alcance exacto de la aclaración
+
+**Autorización del responsable del proyecto:** orden F2-G recibida en este chat,
+§3 «Aclaración autorizada INIT-004», archivo adjunto Texto pegado.txt, SHA-256
+`285ecd4e11668543cba3254418b599f12d0a71c3351ee3a74e34ad8e89419df1`.
+El usuario declara recuperada una copia histórica auténtica v0.2.4 fuera del repo;
+Codex **no leyó ese archivo histórico completo** ni lo presenta como incorporado.
+VERIFIED: contenido de la orden recibida y cláusulas aplicables de la transcripción.
+REPORTED: recuperación/autenticidad de la copia histórica externa.
+
+Obligaciones originales conservadas como evidencia:
+
+- §11.1 exige resolver lifecycle una sola vez, validar initial_events y devolver
+  WorldEvent[] crudos en InitialWorldResult.
+- §11.7 exige tick=0, source="lifecycle", sequence creciente desde0 y consistencia
+  de entity_id/position y muerte inicial.
+- §18 conserva tipos históricos; lo transmitido en F2-C diferencia WorldEvent
+  {type,entity_id,position} de RecordedEvent con metadatos.
+- §21.2 (incorporado por referencia; contenido transmitido en F2-C y orden F2-G)
+  reserva el enriquecimiento inicial al RECORDER, sin otra resolución de lifecycle.
+
+**Resolución autorizada aplicada:** WORLD valida el esquema cerrado y la
+consistencia semántica de WorldEvent crudos con el estado inicial. ACTIVE exige
+cero eventos iniciales; DEAD exige exactamente un ENTITY_DIED con id y posición
+correspondientes. No se aceptan eventos extra ni metadatos. La validación temporal
+de §11.7 se aplica a RecordedEvent[] después del enriquecimiento exclusivo del
+RECORDER (tick=0, source="lifecycle", sequence=0,1,...), en una fase posterior.
+Justificación arquitectónica: validar metadatos crudos antes del Recorder
+confundía los dos tipos y trasladaba una responsabilidad de §4/§21.2 a WORLD.
+La orden resuelve esa tensión localizada; no es una decisión de ingeniería inferida
+ni una edición unilateral de otros contratos. El archivo normativo original no
+se modifica. La validación temporal del RECORDER **no está implementada aquí**.
+
+### Implementación y decisiones internas
+
+Una ruta compartida: prepare_world_before_lifecycle →
+prepare_world_through_lifecycle → initialize_world. Los helpers F2-B/C se reutilizan;
+no se duplica generación ni resolución. Orden ejecutado:
+config válida → semilla válida → PRNG original → WORLD temporal → mapa →
+verificación de recursos → posición/entidad ACTIVE → resolve_lifecycle una vez →
+sync una vez → validación WorldState → validación cruda → snapshot y resultado.
+La validación explícita de semilla reutiliza PRNG._validate_state antes de crear
+el stream; la comprobación interna del constructor no consume extracciones.
+
+InitialWorldResult tiene exactamente {world_state,initial_events,rng_state}.
+world_state es full_snapshot independiente, time=0, id0987898, posición FREE/NONE,
+energía exacta y lifecycle resuelto por <=. rng_state coincide con el stream tras
+mapa y una selección next_int; validación, lifecycle y copias no consumen RNG.
+validate_initial_events_consistency(state,events) presupone WorldState ya validado
+con su configuración; comprueba estado inicial/entidad y eventos, devuelve true
+para válido y lanza ContractError("invalid initial_events") para inconsistencia.
+No sustituye validate_WorldState ni valida RecordedEvent.
+
+| ID / decisión interna | Comportamiento / justificación | Pruebas / límite |
+|---|---|---|
+| INIT-G01 — adaptación explícita | World.initialize(seed) llama initialize_world, prepara una copia del snapshot para estado activo y restaura un PRNG en rng_state sin draws; configura id y config inmutable. Devuelve el mismo esquema InitialWorldResult como extensión documentada de la interfaz antes void; el resultado no comparte estado mutable con el WORLD receptor | F2G-10/11/13/20. No añade campo world a la salida canónica, ni segunda generación/lifecycle; consumidores antiguos que ignoran retorno pueden seguir inicializando, sin prometer compatibilidad global |
+| INIT-G02 — atomicidad local | Todo se construye temporalmente antes de publicar config/state/rng/id. Se comprueban campos propios escribibles del receptor antes de confirmar. Fallo de primera inicialización conserva state/rng/id nulos; reintento fallido conserva el WORLD anterior íntegro, sin estado parcial nuevo | F2G-14/16–18/21. Registros ordinarios; no rollback global de EXPERIMENT ni protección frente a Proxy hostil |
+| INIT-G03 — errores delimitados | Solo ausencia de candidatos genera InitializationError con seed recibida/reason invalid initial_position. Errores de contrato, programación y capacidad conservan clase/identidad; nunca se convierten indiscriminadamente en fallo de posición | F2G-14–18/21. Inyección de RangeError comprueba separación operacional; no es prueba de agotar memoria real |
+
+No se crea Recorder ni se ejecutan acciones, dinámica, agentes o ciclos. La
+inicialización crea un estado nuevo time0; no incrementa ni transforma el reloj
+del receptor anterior durante planificación. Las asignaciones finales publican
+el estado nuevo solo tras éxito completo. No se cambian las políticas ACT/DYN/OBS.
+
+### Correspondencia y ejecución
+
+F2G son IDs locales distintos de T01–T280. El oráculo independiente usa Xorshift
+BigInt y recorrido plano con rechazo para selección; se comparan mapa, posición,
+conteo de extracciones y estado RNG. Se instrumentan ambas APIs para detectar
+expresamente una segunda resolución de lifecycle. No se alteran aserciones previas.
+
+| Obligación | Pruebas nuevas |
+|---|---|
+| Esquema, estado válido/time0, determinismo y PRNG | F2G-01–04/09/11 |
+| ACTIVE antes de resolución, muerte <=, evento único crudo y consistencia cerrada | F2G-05–10/17 |
+| Snapshot independiente y equivalencia de adaptador | F2G-12/13/20 |
+| Posición ausente, configuración/semilla inválida | F2G-14/15 |
+| Atomicidad ante fallos tempranos/tardíos/copia/campo no escribible y errores no envueltos | F2G-16–18/21 |
+| Sin Recorder, acciones, dinámica o avance de reloj | F2G-09–11/19 |
+
+En /workspace/yellow, Node.js v24.22.1:
+
+| Comando | Resultado observado | Exit |
+|---|---|---|
+| `node tests/f1-a.test.cjs` | 18 PASS, 0 FAIL | 0 |
+| `node tests/f1-b.test.cjs` | 12 PASS, 0 FAIL | 0 |
+| `node tests/f2-a.test.cjs` | 14 PASS, 0 FAIL | 0 |
+| `node tests/f2-b.test.cjs` | 13 PASS, 0 FAIL | 0 |
+| `node tests/f2-c.test.cjs` | 21 PASS, 0 FAIL | 0 |
+| `node tests/f2-d.test.cjs` | 28 PASS, 0 FAIL | 0 |
+| `node tests/f2-e.test.cjs` | 16 PASS, 0 FAIL | 0 |
+| `node tests/f2-f.test.cjs` | 18 PASS, 0 FAIL | 0 |
+| `node tests/f2-g.test.cjs` | 21 PASS, 0 FAIL | 0 |
+| `node tests/f1-a-legacy.cjs` | 10 PASS, 12 FAIL | 1 |
+| `git diff --check` | Sin errores | 0 |
+
+**161 pruebas locales aprobadas**, 21 nuevas F2-G, sin omitidas. Legacy antes:
+4 PASS/18 FAIL, todas las fallidas en EntityState desde World.initialize. Ahora
+10 PASS (T01/T02/T03/T05/T09/T10/T11/T15/T17/T18), 12 FAIL: nueve EffectKind
+(T04/06/07/08/13/19/20/21/22), makeResource ausente (T12), makeHazard ausente
+(T14), invalid initial_state (T16). T16 reubica la entidad en0,0 sin asegurar FREE
+y exige topología toroidal, incompatible con BOUNDED; no se modifica su aserción.
+Los fallos actuales alcanzan rutas antes bloqueadas; igual clase/mensaje en T16
+no significa que siga fallando la construcción inicial. No se declara regresión
+nueva probada ni ausencia global de regresiones a partir del conteo. No se
+implementan fixes fuera de alcance para hacer pasar la suite heredada.
+
+### Cierre y riesgos pendientes
+
+INIT-004 resuelta mediante aclaración autorizada y pruebas crudas. TR-002 y
+TR-008 resueltas en creación/adaptación inicial; el runner con scripts reales
+alcanza consumidores posteriores. Esto no valida navegador/render ni secuencia
+canónica de EXPERIMENT. El RECORDER deberá enriquecer y validar RecordedEvent;
+EXPERIMENT deberá consumir los eventos iniciales sin volver a resolver lifecycle.
+TR-001 continúa parcial: el corpus histórico completo no está incorporado ni leído;
+contratos de acciones/subregistros, WLS1, replay e interoperabilidad siguen con sus
+riesgos. Contratos/tipos congelados, PRNG, acciones, dinámica, observación, agentes,
+renderer, EXPERIMENT y RECORDER y pruebas anteriores se conservan sin cambios.
+Archivos del incremento: js/world/world.js, tests/f2-g.test.cjs y este documento.
+No surgió un aprendizaje nuevo que requiera modificar ENGINEERING_LEARNINGS.
+Sin conformidad global, merge, despliegue ni avance a F2-H/F3.
