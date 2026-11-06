@@ -1,9 +1,12 @@
 # Estado de implementación de WORLD-LAB
 
 Documento **informativo y operacional**; registra la aclaración autorizada INIT-004
-sin atribuirse autoridad propia. Corte operativo F3-A: 2026-11-05 (America/Guayaquil),
-base `main` posterior al PR #13 = `4ac1ec6bd17d546c4ed9ae92c60ee04c3fb5c825`.
-Rama: `dev/f3-a-tick-transaction`.
+sin atribuirse autoridad propia. Corte operativo F3-B: 2026-11-06 (America/Guayaquil),
+base `main` posterior al PR #14 = `da2d1db11ee1cdd7709eedaa866dbf36aa84497d`.
+Rama: `dev/f3-b-experiment-config`.
+
+Corte anterior F3-A: base `4ac1ec6bd17d546c4ed9ae92c60ee04c3fb5c825`,
+rama `dev/f3-a-tick-transaction`.
 
 Corte anterior F2-I: base `becf49740905ee136c046c792f071edf2f8c85d0`,
 rama `dev/f2-i-feedback-contract`.
@@ -61,13 +64,13 @@ no solo los tres módulos core como describe el informe F1-A.
 REPORTED: resultados y particularidades del runtime de las ejecuciones originales;
 las ejecuciones F2-D siguientes son evidencia nueva, no certificación retroactiva.
 
-## Estado por componente (actualizado F3-A)
+## Estado por componente (actualizado F3-B)
 
-| Incremento / componente | Estado y alcance de evidencia (DOC-01, actualizado F3-A) |
+| Incremento / componente | Estado y alcance de evidencia (DOC-01, actualizado F3-B) |
 |---|---|
 | F1-A: PRNG, UTF-8, FNV, semillas | Implementado; VERIFIED por ejecución de 18 casos locales. `next_int` admite extremos Number seguros y cardinalidad ≤2^32; esa decisión interna está documentada, sin ampliar §10.3. No es la suite canónica completa. |
 | F1-B: contratos | Parcialmente implementado; VERIFIED por ejecución de B01–B12: WorldConfig, binary64, predicados Cell/Entity/WorldState y Action. No incorpora por sí solo esos contratos al motor. |
-| FeedbackConfig / ExperimentConfig | FeedbackConfig y build_feedback migrados en F2-I: cuatro flags/defaults recuperados, validación estricta y proyección cerrada con copias independientes; 18 pruebas locales. TR-006 resuelta en este alcance. ExperimentConfig/inspector complete:false siguen pendientes; TR-007 no se modifica. Integración experimental no verificada. |
+| FeedbackConfig / ExperimentConfig | Feedback F2-I verificado localmente. F3-B implementa ExperimentConfig cerrado de cinco campos, semilla exacta, dominio F3A-P01 y copias anidadas inmutables (18 pruebas). TR-007 resuelta en alcance de configuración bajo política de identificador F3B-P01; gramática histórica completa no verificada. Inspector F1-B complete:false conserva su propósito parcial y no es validador canónico. Integración experimental pendiente. |
 | WORLD | F2-A/B proporcionan tipos, snapshots, generación y selección; F2-C lifecycle <= y preparación. F2-D/E/F mantienen acciones, dinámica y observación verificadas localmente bajo sus políticas documentadas. F2-G cierra initialize_world → InitialWorldResult y adapta World.initialize a la misma ruta: validación de eventos crudos, lifecycle/sync únicos, snapshots separados y atomicidad local (21 pruebas nuevas). F2-H añade eventos operacionales crudos preparados antes de confirmar acciones (15 pruebas nuevas), sustituyendo ACT-P04. INIT-004 resuelta por aclaración autorizada; TR-008 resuelta para carga/inicialización en runner. No equivale a F2 completo o conformidad global. |
 | EXPERIMENT | F3-A añade núcleo independiente determine_termination/execute_tick/execute_tick_transaction, con rollback WorldState+PRNG, uint64 exacto y salidas F3A-P01–03 autorizadas (40 pruebas locales). Experiment.run/run_without_agent, configuración y consumidores no migrados. TR-005 parcialmente resuelta solo en núcleo; integración del ciclo sigue pendiente. |
 | Observaciones / agentes | F2-F implementa observación pura tick/self/local_view, BOUNDED, OUT_OF_BOUNDS, occupied=false y RESOURCE sin distinción de stock (18 pruebas locales). Subesquemas y capacidad documentados como OBS-P01–03, no conformidad histórica demostrada. Agentes sin cambios ni nueva auditoría; integración no verificada. |
@@ -128,7 +131,7 @@ con defecto nuevo ni se consideran estas dependencias bloqueantes globales.
 | TR-004 | Configuración / daño | apply_action usa campos canónicos, verificados en F2-D; tras F2-G legacy T14 alcanza fallo de factory makeHazard ausente | Campo de daño corregido localmente; runner heredado no acredita aplicación de peligro | Conservar pruebas focalizadas y resolver consumidores en su alcance; ACT-P03 y detalles ACT-H01/02 siguen pendientes de contraste histórico | VERIFIED F2-D y diagnóstico F2-G; integración de daño no certificada |
 | TR-005 | EXPERIMENT / reloj | F3-A verifica orden acción→lifecycle→dinámica→reloj→sync, terminación única y rollback en kernel separado. Los bucles de experiment.js conservan orden legacy | Núcleo transaccional resuelto localmente; todavía no sustituye el ciclo real ni integra Recorder/agentes | Integrar núcleo en incremento posterior y comprobar terminación en los tres puntos del ciclo; no duplicar precedencia | VERIFIED F3A-01–40; parcialmente resuelta, orquestación completa pendiente |
 | TR-006 | FeedbackConfig / Feedback | Orden F2-I transmite §17 histórico: expose_validity=true, expose_reason=false, expose_events=false, expose_energy_delta=true, booleanos exactos y Feedback cerrado | Eliminados flags incompletos, coerciones y esquema legacy; FB-P01–03 documentan detalles de proyección no recuperados | Conservar 18 casos F2-I y verificar uso por consumidores en futuro alcance, sin adaptar agentes/EXPERIMENT ahora | VERIFIED lectura de fragmento/ejecución F2-I; resuelta localmente configuración/proyección, no integración ni conformidad histórica de marcadores ocultos |
-| TR-007 | ExperimentConfig | Clase legacy exige max_ticks>0 y registro de agente; §19.1 admite cero. F3A-P01 autoriza dominio uint64 exacto en el núcleo, sin cambiar el constructor legacy | Dominio de max_ticks disponible como decisión técnica autorizada, no recuperación histórica del esquema completo de ExperimentConfig | Migrar aceptación de ExperimentConfig en alcance posterior; inspector complete:false sigue intacto | VERIFIED código F3-A/pruebas numéricas; configuración e integración pendientes |
+| TR-007 | ExperimentConfig | F3-B constructor/validate_ExperimentConfig aceptan cinco campos cerrados, uint32 no nulo, max_ticks uint64 exacto, WORLD/Feedback canónicos e identificador F3B-P01 independiente del registro | Se eliminan restricción max_ticks>0, normalización de semilla y acoplamiento de aceptación a AGENT_REGISTRY; bucles siguen legacy | Integrar configuración sin convertir límites ni asumir disponibilidad de factory; inspección F1-B sigue parcial | VERIFIED F3B-01–18; resuelta configuración local, gramática histórica del identificador e integración pendientes |
 | TR-008 | Carga / integración inicial | initialize_world y World.initialize funcionan mediante una ruta común; F2G-01/09–13/16–21; legacy supera construcción inicial y pasa de 4 PASS/18 FAIL a 10 PASS/12 FAIL | El bloqueo EntityState/World.initialize anterior está resuelto. Persisten fallos posteriores ajenos al incremento y no se verificó navegador/render | Conservar evidencia local y adaptar EXPERIMENT/RECORDER posteriormente; no confundir inicialización con aplicación completa | VERIFIED ejecución F2-G; resuelta carga/inicialización en runner, integración global no verificada |
 | TR-009 | Suite legacy | F2-G:10 PASS/12 FAIL; nueve EffectKind, dos factories ausentes y T16 invalid initial_state. T16 exige toro y coloca entidad en (0,0) sin asegurar FREE | Nuevas rutas alcanzadas no convierten las aserciones legacy en norma ni certifican replay; defectos conocidos de tests persisten | No cambiar asserts para ocultar fallos; mantener pruebas locales y separar causas de fallos | VERIFIED ejecución F2-G y lectura focalizada T16; no suite canónica T01–T280 |
 | TR-010 | uint64 e integración | F3-A compara/incrementa con BigInt exacto, conserva representación y promueve Number solo al superar entero seguro; rollback preserva Number/BigInt. Bucles legacy siguen time+=1 y hashes no son WLS1 | Precisión temporal del núcleo resuelta; integración de reloj/serialización aún no verificada | Integrar EXPERIMENT y WLS1 conservando exactitud, sin confundir pruebas locales con interoperabilidad | VERIFIED F3A-08/17–23/30/39; parcialmente resuelta, consumidores/bytes pendientes |
@@ -143,7 +146,7 @@ revisión focalizada; ello no certifica su ausencia fuera de lo examinado.
 | §11.2: generación del mapa | Algoritmo recuperado desde el texto histórico v0.2.4 proporcionado en la orden F2-B; falta fuente independiente en repo | Generación y selección ya verificadas; pueden usarse sin inicialización completa | Conservar procedencia y recuperar documento original para trazabilidad duradera; no reconstruir otras cláusulas |
 | §13–§15/§18: acciones, lifecycle, eventos | Condición <= y eventos recuperados en F2-C; INIT-004 aclarada en F2-G; políticas ACT/DYN siguen sin contraste histórico completo | WORLD inicial completo y operaciones independientes verificadas localmente | Integración experimental y contraste histórico de políticas cuando haya fuente, sin reabrir INIT-004 por ausencia del archivo original |
 | §11.1/§11.7/§26: inicialización y errores | Aclaración F2-G separa consistencia cruda de validación temporal; API inicial cerrada localmente | initialize_world y adaptador preservan semilla en fallo de posición y no envuelven errores ajenos | RECORDER deberá enriquecer/validar RecordedEvent; EXPERIMENT deberá consumir InitialWorldResult y eventos sin resolver lifecycle otra vez |
-| §17/§19: feedback y aceptación del experimento | Flags/defaults §17 recuperados y Feedback migrado F2-I; ExperimentConfig §19 sigue incompleto | Proyección estricta verificada, sin coerción ni aliases | Integrar Feedback en EXPERIMENT/agentes según configuración canónica; cerrar §19 y contrastar políticas de ocultación si aparece cláusula histórica adicional |
+| §17/§19: feedback y aceptación del experimento | Feedback y configuración migrados F2-I/F3-B; representación de ocultación e identificador no tienen todas sus cláusulas históricas reproducidas | Constructor/validadores canónicos disponibles bajo políticas documentadas | Integrar ciclo/factory/Recorder en alcance posterior sin usar inspector parcial como aceptación; contrastar precisiones históricas si aparece fuente |
 | §21/§25/§26.5/§34: registro, replay, atomicidad y bytes | Algoritmos heredados; WLS1 V1 de 59 bytes no reproducido; V2–V10 declarados pendientes | No bloquea todo trabajo estructural F2; sí cierre de equivalencia afectada | Corpus anterior, vectores y pruebas respectivas antes de F3/F4 dependiente |
 | §31/§36/§37: aceptación completa | I-01–I-66 y definiciones individuales de tests no reproducidos; T61–T80 no están asignados en tabla §36 | Pruebas locales trazables sin llamarlas suite canónica | Invariantes/casos originales y resolución del inventario incompleto |
 
@@ -1141,3 +1144,168 @@ Estos resultados no acreditan conformidad global, replay o interoperabilidad.
 Archivos: tick_transaction.js, tests/f3-a.test.cjs, IMPLEMENTATION_STATUS.md y una
 entrada generalizable EL-006 en ENGINEERING_LEARNINGS.md. Sin merge, despliegue
 ni F3-B.
+
+
+## F3-B — ExperimentConfig y contrato de integración preparado
+
+### Implementación y contraste de autoridad
+
+NORMATIVE / orden F3-B: esquema cerrado exactamente experiment_seed, max_ticks,
+world_config, feedback_config, agent_type. Semilla Number uint32 no nula sin
+truncamiento; WORLD y Feedback válidos según sus validadores existentes.
+F3A-P01 es ENGINEERING DECISION autorizada previamente: max_ticks matemático
+[0,2^64−1], Number seguro no negativo o BigInt uint64, incluidos 0/0n. Se utiliza
+el **mismo is_uint64** que tick_max_ticks; el constructor conserva valor y tipo,
+incluso -0 Number permitido como cero. No convierte límites a Number ni semillas
+con >>>0. VERIFIED por lectura y F3B-02–08/15/18.
+
+Se añaden validate_ExperimentConfig (predicado completo) y ExperimentConfig._validate
+en experiment_config.js. El constructor captura WorldConfig y FeedbackConfig en
+instancias nuevas congeladas, aceptando solo registros/instancias que ya cumplen
+sus esquemas exactos. Después congela los cinco campos exteriores. No hay defaults
+parciales, reparación de legacy ni referencias a configuraciones mutables fuente.
+Identidad reproducible significa valores y representación conservados, no igualdad
+de referencias de objetos. F3B-01/11/12/14 verifican cierre e inmutabilidad.
+
+La función histórica inspect_ExperimentConfig_defined_fields de F1-B permanece
+**parcial, complete:false**, y no sustituye al nuevo predicado/constructor. Sus
+pruebas previas siguen intactas; no se altera structures.js ni un validador WORLD.
+
+| Decisión técnica | Laguna / alternativas y comportamiento | Evidencia / límite |
+|---|---|---|
+| F3B-P01 — agent_type | §19 enumera el campo y §20.1 lo utiliza como namespace de derive_seed y argumento de agent_factory; §28.1–4 remiten a v0.2.4 sin reproducir gramática. Agent base solo exige reset/step. Se elige string Unicode válido no vacío como identificador mínimo; se descartan enum del registro legacy y regex/trim/NFC no fundamentados. Se aceptan nombres no registrados, mayúsculas/caracteres no ASCII, espacios y otros caracteres Unicode válidos sin normalizarlos | F3B-09/10/13/17. No vacío es una precisión de ingeniería, no cláusula histórica recuperada. Gramática histórica completa no disponible; aceptación de config no garantiza factory/agent disponible |
+| F3B-P02 — captura anidada | Alternativas: exigir instanceof/referencias compartidas o validar valores y copiar. Se validan exactamente los contratos WORLD/Feedback y se construyen instancias canónicas independientes, preservando todos sus valores binarios/booleanos | F3B-07/08/11/14/18. No se convierten datos inválidos en válidos ni se debilitan los constructores anidados |
+| F3B-P03 — diagnóstico | No hay invalid experiment_config en el catálogo §26.6. Para esquema/semilla/identificador inválidos se utiliza ContractError("world transition failed"); max_ticks usa invalid max_ticks y anidados conservan invalid world_config/invalid feedback_config | F3B-01–10. Mensajes son decisión de diagnóstico, no transcripción histórica del error de cada campo |
+
+No se afirma lectura del documento histórico v0.2.4 completo. El contraste usa el
+fragmento canónico disponible, las reglas recuperadas transmitidas anteriormente
+y el alcance de esta orden. El código AGENT_REGISTRY no adquiere autoridad:
+"wait/random/rule" son disponibilidad legacy, no el dominio canónico de agent_type.
+No se crea agente, RNG ni Recorder al validar/capturar configuración; no se deriva
+semilla nueva en el constructor. La derivación futura conserva los bytes exactos
+del identificador; é y e+acento combinante pueden producir semillas distintas.
+
+### Secuencia de orquestación futura — documentada, no implementada
+
+1. Validar/capturar ExperimentConfig completo; derivar world_seed con namespace
+   "world" y agent_seed con agent_type, sin normalizar su texto; tomar radio configurado.
+2. Inicializar una sola vez mediante la ruta F2-G. Uso propuesto del adaptador
+   existente: crear World(config.world_config) y llamar world.initialize(world_seed),
+   que llama **una sola vez initialize_world** y devuelve InitialWorldResult mientras
+   conserva estado activo separado. No llamar ambas APIs consecutivamente en el
+   ciclo: duplicaría generación. F3B-16 compara ambas como oráculo, no es un bucle.
+3. Tras inicialización confirmada, RECORDER deberá recibir el snapshot inicial y
+   los WorldEvent iniciales para enriquecerlos como lifecycle/tick0/sequence desde0.
+   Esto es registro inicial, no escritura de un step antes de su transacción. No
+   volver a resolver lifecycle. InitializationError de posición debe registrarse
+   fuera de Trajectory; otros errores no se convierten en invalid initial_position.
+4. Crear agente con factory y agent_seed; reset una vez; last_action_result=null.
+   Evaluar terminación inicial mediante determine_termination. Si está terminal,
+   no pedir acción ni producir tick; conservar registro inicial aun con max_ticks0.
+5. Al inicio de cada iteración, consultar la misma función terminal. Si continúa:
+   construir Observation en T antes de acción/reloj/dinámica; build_feedback recibe
+   esa observación, el resultado crudo previo y FeedbackConfig. El agente recibe
+   la proyección copiada, nunca referencias al WORLD o al resultado crudo previo.
+6. agent.step; comprobar estructura de Action sin confundirla con reconocimiento
+   del enum. Errores del agente/estructura aplican §20.6 sin iniciar transición.
+   execute_tick_transaction realiza acción/lifecycle/dinámica/reloj/sync; el bucle
+   no ejecuta ninguno de esos pasos por separado ni añade muerte a ActionResult.
+7. Solo tras obtener ConfirmedTickResult válido, llamar a la futura frontera
+   record_step(confirmed, observation, feedback, action). Después conservar
+   confirmed.action_result como fuente cruda de feedback siguiente y respetar
+   confirmed.termination, calculada en el punto final de la transición por la
+   función normativa única. No duplicar precedencia con comparaciones energéticas.
+
+Los puntos terminales son inicial/antes del bucle, inicio de iteración y fin de
+transición confirmada. El kernel además defiende su precondición contra llamadas
+en WORLD terminal; no se reescribe esa lógica en el orquestador. En modo sin agente,
+§20.2 usa WAIT, observation=null y feedback=null; Action y ActionResult siguen
+presentes y pasan por la misma transacción. No se añade un flag de modo a config.
+Este diseño no migra run/run_without_agent ni añade un adaptador provisional.
+
+### Frontera RECORDER: datos exactos a recibir
+
+La llamada lógica futura record_step(confirmed, observation, feedback, action)
+está indicada por §20.1; la firma legacy de seis argumentos no es compatible.
+La tabla define entradas y propiedad de datos, no una nueva implementación de
+StepRecord ni de sus hashes/serialización.
+
+| Entrada | Dato recibido / obligación del receptor |
+|---|---|
+| confirmed.tick | T+1 exacto y numéricamente igual a confirmed.world_state.time; no convertir BigInt a Number con pérdida |
+| confirmed.world_state | Snapshot completo posacción/lifecycle/dinámica/reloj/sync; copiar para propiedad interna del Recorder. No volver a sincronizar ni escribir rng_state, no pedir estado vivo al WORLD |
+| confirmed.action_result | Los cuatro campos crudos originales, incluidos sus WorldEvent; conservar valores y copia profunda, sin añadir ENTITY_DIED ni sustituirlos por Feedback ocultado |
+| confirmed.action_events | Fuente única para enriquecer eventos de acción de ese step, en orden. Su igualdad con action_result.events no justifica registrarlos dos veces |
+| confirmed.lifecycle_events | Eventos crudos separados; enriquecer después de action_events, sin llamar a resolve_lifecycle ni reconstruir muerte por energía |
+| confirmed.termination | null/ENTITY_DIED/MAX_TICKS_REACHED, para finalizar o continuar sin nueva regla terminal. No se añade por ello un campo nuevo a StepRecord |
+| Observation | Copia independiente previa, tick=T; self/local_view ya proyectados. null solo en modo sin agente |
+| Feedback | Copia independiente de los tres campos F2-I, con proyección del resultado anterior conforme a flags. null solo sin agente; no es fuente del ActionResult crudo actual |
+| Action | Registro cerrado {type} seleccionado para el tick, copia independiente; presente también para WAIT/sin agente |
+
+RECORDER será el único que añada tick=T+1, source y sequence, conservando orden
+acción→lifecycle. Los literales source="action"/"lifecycle" para eventos de step
+son una propuesta de interfaz, no cláusula histórica recuperada aquí: el catálogo
+completo debe contrastarse al implementar Recorder. El caso inicial sí está
+aclarado por INIT-004: tick0/source lifecycle, contador según §§21.2/21.5.
+StepRecord exige listas RecordedEvent de
+acción y lifecycle por separado (§22), sin re-enriquecer entradas ya registradas.
+Guardar snapshots/entradas en propiedad del Recorder requiere copias profundas
+(o una política de transferencia inmutable explícita futura), nunca aliases a
+estados transitorios ni al WORLD. La escritura propia del Recorder debe ser
+atómica conforme a su contrato; aquí no se implementa RecordTransaction.
+state_hash_world/full y entity_states deberán derivarse del snapshot confirmado
+según sus contratos; no se selecciona WLS1/bytes/hash alternativo para conectar
+prematuramente el ciclo.
+
+### Incompatibilidades pendientes y auditoría focalizada
+
+| Archivo / evidencia | Impacto observado | Decisión en F3-B |
+|---|---|---|
+| experiment_config.js: validación usa is_uint64; tick_transaction.js: tick_max_ticks usa el mismo predicado; F3B-04–06/15/18 | Mismo dominio F3A-P01, sin conversiones de límites; cero no implica que el bucle legacy ya sea canónico | VERIFIED configuración/núcleo; mantener bucles intactos |
+| experiment_config.js: semilla validada y asignada directamente; F3B-02/03/12/18 | No truncamiento a uint32 ni reparación de entradas; vectores se conservan | VERIFIED; no alterar derive_seed ni PRNG |
+| world_config.js/structures.js/feedback.js sin diff; F3B-07/08/11/14 | Se reutilizan sus validadores y copias congeladas; no se amplía aceptación de WORLD | VERIFIED por diff/pruebas; constructor propio, no dependencia inversa |
+| experiment_config.js sin AGENT_REGISTRY, imports de kernel/Recorder o creación RNG; F3B-09/17 | Sin dependencia circular. Config válida puede tener un identificador aún no resoluble por factory | VERIFIED aislamiento; política/error de factory desconocida es decisión futura, no una nueva restricción de configuración |
+| recorder.js:18–20 firma antigua y escritura en world_state.rng_state | No recibe ConfirmedTickResult y trata el snapshot como entrada mutable | No invocar como integración provisional; migración posterior, sin cambiar Recorder aquí |
+| recorder.js no define record_initial_lifecycle_from_world ni record_initialization_failure | Faltan recepción de muerte inicial validada y registro de fallo fuera de Trajectory exigidos por §20 | Resolver interfaz inicial de Recorder antes de migrar bucle; no llamar record_death_event_if_needed como sustituto artificial |
+| recorder.js:34–53 retiene observation/feedback/action/action_result y solo itera ActionResult.events | Riesgo de aliases; faltan listas separadas, source y sequence. Muerte separada con position:null en :57–65 | Definir recepción por copia y enriquecimiento exclusivo; no inventar muerte ni duplicar eventos |
+| recorder.js:22/23 y §22/§34 | Hashes legacy no demuestran WLS1. §22 llama tick "entero seguro ≥0" mientras F3A-P03 permite uint64 BigInt, incluso >MAX_SAFE_INTEGER | Aclarar dominio/representación de StepRecord/RecordedEvent y serialización al migrar Recorder; no restringir F3A-P01 ni convertir BigInt para ocultar la diferencia |
+| experiment.js: reloj/dinámica antes de observación y muerte añadida a ActionResult | No puede declararse integrado con núcleo/Feedback canónicos porque config ya valide | Ciclo permanece UNTESTED como implementación canónica; sustituir en alcance posterior |
+
+La frontera documentada evita entregar referencias activas, pero su cumplimiento
+por RECORDER sigue **UNTESTED**: no hay un mock de integración que se presente como
+conformidad real. La política de aceptación de identificadores y los dominios de
+registro grandes requieren contraste/decisión posterior. No se interpreta una
+limitación de hash/registro como permiso para reducir el dominio temporal aprobado.
+
+### Evidencia ejecutada
+
+Node.js v24.22.1, /workspace/yellow. F3B son pruebas locales, no T01–T280.
+
+| Comando | Resultado | Exit |
+|---|---|---|
+| `node tests/f1-a.test.cjs` | 18 PASS, 0 FAIL | 0 |
+| `node tests/f1-b.test.cjs` | 12 PASS, 0 FAIL | 0 |
+| `node tests/f2-a.test.cjs` | 14 PASS, 0 FAIL | 0 |
+| `node tests/f2-b.test.cjs` | 13 PASS, 0 FAIL | 0 |
+| `node tests/f2-c.test.cjs` | 21 PASS, 0 FAIL | 0 |
+| `node tests/f2-d.test.cjs` | 28 PASS, 0 FAIL | 0 |
+| `node tests/f2-e.test.cjs` | 16 PASS, 0 FAIL | 0 |
+| `node tests/f2-f.test.cjs` | 18 PASS, 0 FAIL | 0 |
+| `node tests/f2-g.test.cjs` | 21 PASS, 0 FAIL | 0 |
+| `node tests/f2-h.test.cjs` | 15 PASS, 0 FAIL | 0 |
+| `node tests/f2-i.test.cjs` | 18 PASS, 0 FAIL | 0 |
+| `node tests/f3-a.test.cjs` | 40 PASS, 0 FAIL | 0 |
+| `node tests/f3-b.test.cjs` | 18 PASS, 0 FAIL | 0 |
+| `node tests/f1-a-legacy.cjs` | 10 PASS/12 FAIL; mismas causas previas | 1 |
+| `git diff --check` | Sin errores | 0 |
+
+**252 pruebas locales aprobadas**, 18 nuevas F3-B, sin omitidas. Legacy conserva
+nueve EffectKind, makeResource/makeHazard ausentes y T16 invalid initial_state.
+No se cambian expectativas ni suites anteriores. VERIFIED F3B-01–18: cierre,
+semillas, límites, configuraciones inválidas, identificadores, copias inmutables,
+identidad de semillas/Unicode y compatibilidad estructural real con F3-A.
+TR-007 se resuelve en configuración local bajo F3B-P01; TR-005/010 mantienen sus
+pendientes de ciclo/serialización. INIT-004/TR-008 siguen como en F2-G.
+Archivos: experiment_config.js, tests/f3-b.test.cjs y este documento.
+No se modifica ENGINEERING_LEARNINGS: EL-001/004/006 ya cubren los hallazgos
+pertinentes. Sin conformidad global/interoperabilidad, merge, despliegue ni F3-C.
