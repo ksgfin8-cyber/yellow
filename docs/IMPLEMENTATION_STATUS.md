@@ -1,9 +1,12 @@
 # Estado de implementación de WORLD-LAB
 
 Documento **informativo y operacional**; registra la aclaración autorizada INIT-004
-sin atribuirse autoridad propia. Corte operativo F2-H: 2026-11-05 (America/Guayaquil),
-base `main` posterior al PR #11 = `c57a84a72119a8d752368f1c556aaebfc7ae5617`.
-Rama: `dev/f2-h-action-events`.
+sin atribuirse autoridad propia. Corte operativo F2-I: 2026-11-05 (America/Guayaquil),
+base `main` posterior al PR #12 = `becf49740905ee136c046c792f071edf2f8c85d0`.
+Rama: `dev/f2-i-feedback-contract`.
+
+Corte anterior F2-H: base `c57a84a72119a8d752368f1c556aaebfc7ae5617`,
+rama `dev/f2-h-action-events`.
 
 Corte anterior F2-G: base `1ef8799f1d1e842a70686e5cc42363f90b8e3e25`,
 rama `dev/f2-g-world-initialization`.
@@ -55,13 +58,13 @@ no solo los tres módulos core como describe el informe F1-A.
 REPORTED: resultados y particularidades del runtime de las ejecuciones originales;
 las ejecuciones F2-D siguientes son evidencia nueva, no certificación retroactiva.
 
-## Estado por componente (actualizado F2-H)
+## Estado por componente (actualizado F2-I)
 
-| Incremento / componente | Estado y alcance de evidencia (DOC-01, actualizado F2-H) |
+| Incremento / componente | Estado y alcance de evidencia (DOC-01, actualizado F2-I) |
 |---|---|
 | F1-A: PRNG, UTF-8, FNV, semillas | Implementado; VERIFIED por ejecución de 18 casos locales. `next_int` admite extremos Number seguros y cardinalidad ≤2^32; esa decisión interna está documentada, sin ampliar §10.3. No es la suite canónica completa. |
 | F1-B: contratos | Parcialmente implementado; VERIFIED por ejecución de B01–B12: WorldConfig, binary64, predicados Cell/Entity/WorldState y Action. No incorpora por sí solo esos contratos al motor. |
-| FeedbackConfig / ExperimentConfig | Pendientes de cierre documental/integración. VERIFIED por lectura: clases legacy y un inspector parcial `complete:false`; TR-006/007. |
+| FeedbackConfig / ExperimentConfig | FeedbackConfig y build_feedback migrados en F2-I: cuatro flags/defaults recuperados, validación estricta y proyección cerrada con copias independientes; 18 pruebas locales. TR-006 resuelta en este alcance. ExperimentConfig/inspector complete:false siguen pendientes; TR-007 no se modifica. Integración experimental no verificada. |
 | WORLD | F2-A/B proporcionan tipos, snapshots, generación y selección; F2-C lifecycle <= y preparación. F2-D/E/F mantienen acciones, dinámica y observación verificadas localmente bajo sus políticas documentadas. F2-G cierra initialize_world → InitialWorldResult y adapta World.initialize a la misma ruta: validación de eventos crudos, lifecycle/sync únicos, snapshots separados y atomicidad local (21 pruebas nuevas). F2-H añade eventos operacionales crudos preparados antes de confirmar acciones (15 pruebas nuevas), sustituyendo ACT-P04. INIT-004 resuelta por aclaración autorizada; TR-008 resuelta para carga/inicialización en runner. No equivale a F2 completo o conformidad global. |
 | EXPERIMENT | Ciclo legacy presente; pendientes secuencia canónica, transacción con rollback, determine_termination y ExperimentResult (§5, §20, §26.5, §32). TR-005. |
 | Observaciones / agentes | F2-F implementa observación pura tick/self/local_view, BOUNDED, OUT_OF_BOUNDS, occupied=false y RESOURCE sin distinción de stock (18 pruebas locales). Subesquemas y capacidad documentados como OBS-P01–03, no conformidad histórica demostrada. Agentes sin cambios ni nueva auditoría; integración no verificada. |
@@ -121,7 +124,7 @@ con defecto nuevo ni se consideran estas dependencias bloqueantes globales.
 | TR-003 | Movimiento / observación | F2-D verifica MOVE BOUNDED; F2-F elimina módulo de build_observation y verifica centro/bordes/esquinas/mapas estrechos con F2F-02–07 | Movimiento y proyección espacial corregidos localmente; orquestación experimental no verificada | Conservar evidencia local y comprobar consumidores cuando se integren; subesquemas/capacidad OBS-P01–03 explícitos | VERIFIED ejecución F2-D/F2-F; divergencia espacial resuelta en alcance local, sin certificar aplicación completa |
 | TR-004 | Configuración / daño | apply_action usa campos canónicos, verificados en F2-D; tras F2-G legacy T14 alcanza fallo de factory makeHazard ausente | Campo de daño corregido localmente; runner heredado no acredita aplicación de peligro | Conservar pruebas focalizadas y resolver consumidores en su alcance; ACT-P03 y detalles ACT-H01/02 siguen pendientes de contraste histórico | VERIFIED F2-D y diagnóstico F2-G; integración de daño no certificada |
 | TR-005 | EXPERIMENT / reloj | `experiment.js:run` incrementa time y regenera antes de observación/acción; `run_without_agent` no aplica WAIT y registra null; §5/§20/§32 | Orden/nulabilidad contrarios a norma; sin rollback transaccional | Migración en alcance F3 y pruebas de orden, terminación y fallos; dependencias TR-001 | VERIFIED por lectura; incompatibilidad heredada abierta |
-| TR-006 | FeedbackConfig / Feedback | §17 dice cuatro flags exactos sin nombres; `feedback.js` tiene tres con coerción `!!` y esquema de salida diferente | Clase legacy no es contrato canónico; no puede inventarse cuarto flag | Obtener nombres/dominos de fuente normativa y migrar configuración/proyección | VERIFIED por lectura; incompatibilidad heredada y dependencia documental abiertas |
+| TR-006 | FeedbackConfig / Feedback | Orden F2-I transmite §17 histórico: expose_validity=true, expose_reason=false, expose_events=false, expose_energy_delta=true, booleanos exactos y Feedback cerrado | Eliminados flags incompletos, coerciones y esquema legacy; FB-P01–03 documentan detalles de proyección no recuperados | Conservar 18 casos F2-I y verificar uso por consumidores en futuro alcance, sin adaptar agentes/EXPERIMENT ahora | VERIFIED lectura de fragmento/ejecución F2-I; resuelta localmente configuración/proyección, no integración ni conformidad histórica de marcadores ocultos |
 | TR-007 | ExperimentConfig | `inspect_ExperimentConfig_defined_fields` siempre complete:false; constructor legacy exige max_ticks>0 y registro de agente; §19.1 contempla cero | Inspección sin issues no acredita aceptación; cero rechazado por constructor legacy | Recuperar contrato completo y unificar aceptación sin añadir restricciones inferidas | VERIFIED por lectura y B12; implementación parcial e incompatibilidad legacy abiertas |
 | TR-008 | Carga / integración inicial | initialize_world y World.initialize funcionan mediante una ruta común; F2G-01/09–13/16–21; legacy supera construcción inicial y pasa de 4 PASS/18 FAIL a 10 PASS/12 FAIL | El bloqueo EntityState/World.initialize anterior está resuelto. Persisten fallos posteriores ajenos al incremento y no se verificó navegador/render | Conservar evidencia local y adaptar EXPERIMENT/RECORDER posteriormente; no confundir inicialización con aplicación completa | VERIFIED ejecución F2-G; resuelta carga/inicialización en runner, integración global no verificada |
 | TR-009 | Suite legacy | F2-G:10 PASS/12 FAIL; nueve EffectKind, dos factories ausentes y T16 invalid initial_state. T16 exige toro y coloca entidad en (0,0) sin asegurar FREE | Nuevas rutas alcanzadas no convierten las aserciones legacy en norma ni certifican replay; defectos conocidos de tests persisten | No cambiar asserts para ocultar fallos; mantener pruebas locales y separar causas de fallos | VERIFIED ejecución F2-G y lectura focalizada T16; no suite canónica T01–T280 |
@@ -137,7 +140,7 @@ revisión focalizada; ello no certifica su ausencia fuera de lo examinado.
 | §11.2: generación del mapa | Algoritmo recuperado desde el texto histórico v0.2.4 proporcionado en la orden F2-B; falta fuente independiente en repo | Generación y selección ya verificadas; pueden usarse sin inicialización completa | Conservar procedencia y recuperar documento original para trazabilidad duradera; no reconstruir otras cláusulas |
 | §13–§15/§18: acciones, lifecycle, eventos | Condición <= y eventos recuperados en F2-C; INIT-004 aclarada en F2-G; políticas ACT/DYN siguen sin contraste histórico completo | WORLD inicial completo y operaciones independientes verificadas localmente | Integración experimental y contraste histórico de políticas cuando haya fuente, sin reabrir INIT-004 por ausencia del archivo original |
 | §11.1/§11.7/§26: inicialización y errores | Aclaración F2-G separa consistencia cruda de validación temporal; API inicial cerrada localmente | initialize_world y adaptador preservan semilla en fallo de posición y no envuelven errores ajenos | RECORDER deberá enriquecer/validar RecordedEvent; EXPERIMENT deberá consumir InitialWorldResult y eventos sin resolver lifecycle otra vez |
-| §17/§19: feedback y aceptación del experimento | Nombres de cuatro flags, dominios/validación heredados | WORLD sin agente/feedback dentro de contratos disponibles | Esquemas normativos completos; pruebas de configuración pertinentes |
+| §17/§19: feedback y aceptación del experimento | Flags/defaults §17 recuperados y Feedback migrado F2-I; ExperimentConfig §19 sigue incompleto | Proyección estricta verificada, sin coerción ni aliases | Integrar Feedback en EXPERIMENT/agentes según configuración canónica; cerrar §19 y contrastar políticas de ocultación si aparece cláusula histórica adicional |
 | §21/§25/§26.5/§34: registro, replay, atomicidad y bytes | Algoritmos heredados; WLS1 V1 de 59 bytes no reproducido; V2–V10 declarados pendientes | No bloquea todo trabajo estructural F2; sí cierre de equivalencia afectada | Corpus anterior, vectores y pruebas respectivas antes de F3/F4 dependiente |
 | §31/§36/§37: aceptación completa | I-01–I-66 y definiciones individuales de tests no reproducidos; T61–T80 no están asignados en tabla §36 | Pruebas locales trazables sin llamarlas suite canónica | Invariantes/casos originales y resolución del inventario incompleto |
 
@@ -870,3 +873,101 @@ No se declara conformidad histórica completa, conformidad global o interoperabi
 Archivos: world.js, action_result.js, tests/f2-d.test.cjs, tests/f2-h.test.cjs y
 este estado operacional. ENGINEERING_LEARNINGS no cambia: EL-004 ya cubre la
 distinción entre políticas, norma y evidencia. Sin merge, despliegue ni F2-I.
+
+
+## F2-I — FeedbackConfig y proyección canónica de Feedback
+
+### Contratos recuperados y cambios
+
+Fuente: **orden F2-I del responsable, §§2–5**, fragmento recuperado de §17 v0.2.4
+incorporado por v0.2.5. VERIFIED: contenido transmitido y lectura selectiva de
+§§0/4/16/17/19/20/28 y documentación pertinente. No se afirma lectura del documento
+histórico completo ni recuperación de detalles que la orden no reproduce.
+
+FeedbackConfig tiene exactamente cuatro booleanos: expose_validity=true,
+expose_reason=false, expose_events=false, expose_energy_delta=true. Se implementan
+validate_FeedbackConfig y FeedbackConfig._validate en feedback.js; constructor
+sin defaults parciales ni conversiones, defaults() exacto e instancia congelada.
+Desconocidos, ausentes, heredados en lugar de propios, símbolos extra, accessors y
+valores no booleanos se rechazan. Config inválida siempre produce
+ContractError("invalid feedback_config"), incluso si no hay acción anterior.
+
+build_feedback(observation,last_action_result,config) devuelve exactamente
+{observation,has_prior_action,last_action_result}. Con historial null devuelve
+false/null. Con acción anterior válida devuelve true y una proyección de cuatro
+campos {validity,reason,energy_delta,events}. No añade flags, nombres legacy,
+contexto o estado interno. Se elimina NONE_FEEDBACK, que no era el Feedback cerrado
+canónico, y action_validity/action_reason/action_events. No hay compatibilidad
+silenciosa con tres flags, historial falsy o el esquema anterior.
+
+### Decisiones técnicas, distintas del contrato histórico transmitido
+
+| ID | Detalle no determinado / alternativas | Decisión y justificación | Evidencia / riesgo |
+|---|---|---|---|
+| FB-P01 — representación de campos ocultos | Mantener cuatro campos; no inventar estados/motivos/eventos. Omitir claves rompería la forma elegida; reutilizar valor fuente o NONE introduciría fuga/estado artificial | validity y reason deshabilitados son null (ausencia de etiqueta, no nuevo enum); events deshabilitados son []; energy_delta deshabilitado es +0 constante finito. Campos habilitados copian su valor real. La proyección tiene la misma forma, pero etiquetas nullable: no es un ActionResult crudo fabricado ni se debe revalidar como tal | F2I-06–10/18. Marcadores ocultos no están definidos en el fragmento histórico: política compatible, no conformidad histórica de representación demostrada |
+| FB-P02 — validación estructural disponible | El texto no aporta todos los subesquemas históricos. Se reutilizan los adoptados y verificados en F2-F/H; no se modifica su productor | Observation cerrada con tick uint64, self id/position/energy y ventana cuadrada impar no vacía de celdas representation/occupied=false. ActionResult crudo cerrado, enums vigentes, delta finito y eventos operacionales de tres campos conocidos. Se validan incluso los campos que serán ocultados; no se agregan inferencias de correspondencia semántica entre validity/reason/eventos ni límites de mapa no disponibles | F2I-13–17. Validación estructural contextual, no aceptación de todo contrato histórico o de RecordedEvent. No acepta ENTITY_DIED dentro del resultado de apply_action |
+| FB-P03 — ausencia y copias | Alternativas: admitir falsy/undefined, compartir Observation o copiar solo la lista de eventos | Solo null significa sin acción (coherente con §20.1); undefined/false/0 no sustituyen null. Copias nuevas de Observation completa, self/position, filas/celdas y eventos/posiciones expuestos en cada llamada. Sin referencias a config, resultado fuente o prototipos personalizados | F2I-05/11/12/15/16/18. Más memoria por copia profunda; errores de asignación no se convierten en errores contractuales ni se añade un límite normativo nuevo |
+
+Errores estructurales de Observation/ActionResult usan el mensaje de catálogo
+ContractError("world transition failed"); es elección de diagnóstico, no un
+mensaje histórico recuperado para esos parámetros. Registros son datos propios,
+no getters; huecos/accessors en slots de filas/celdas/eventos se rechazan sin
+invocarlos. La función valida config antes de construir salida y devuelve solo
+un resultado completo. No valida relación temporal entre observación y acción
+anterior: corresponde al ciclo de EXPERIMENT, que aquí no se cambia.
+
+### Propiedad informacional comprobada
+
+Para cada combinación de flags, fijando Observation y los campos habilitados,
+variar **solo valores estructuralmente válidos de campos deshabilitados** deja
+el Feedback completo idéntico (F2I-09). Los marcadores no dependen del dato oculto;
+no se duplican valores en propiedades extra, prototipos, arrays compartidos o
+referencias a resultados previos. El contador/lista de eventos deshabilitados no
+se traslada al resultado. has_prior_action revela únicamente presencia, por el
+contrato, no el valor de campos ocultos. F2I-08/10/11/18 prueban esos canales.
+
+El alcance es no interferencia de la **proyección de entradas válidas**, no ocultar
+información que Observation u otros flags habilitan expresamente. Por ejemplo,
+reason expuesto puede permitir inferir validity: suprimir reason o inventar un
+valor pese a expose_reason=true alteraría la política de flags. No se afirma
+eliminar correlaciones semánticas entre datos autorizados ni resistencia de tiempo/
+asignaciones; la validación debe examinar también campos ocultos para rechazar
+entradas malformadas. Estas distinciones evitan prometer confidencialidad global
+más fuerte que la proyección comprobada.
+
+### Ejecución y trazabilidad
+
+Pruebas con Observation y ActionResult reales producidos por WORLD F2-G/H y
+build_observation F2-F; no se modifica ninguno de ellos. Oráculo de las 16
+combinaciones construido con valores esperados independientes. Se prueban
+configuración/defaults/esquemas cerrados, errores de coerción, historial null,
+proyección completa y oculta, referencias en ambos sentidos, datos congelados,
+determinismo, reloj uint64 BigInt y números binary64 exactos. Math.random lanza
+error en el harness, y el PRNG real/WorldState se comparan antes/después.
+IDs F2I locales, no T01–T280. Suites anteriores y runner/aserciones legacy intactos.
+
+| Comando (Node.js v24.22.1) | Resultado | Exit |
+|---|---|---|
+| `node tests/f1-a.test.cjs` | 18 PASS, 0 FAIL | 0 |
+| `node tests/f1-b.test.cjs` | 12 PASS, 0 FAIL | 0 |
+| `node tests/f2-a.test.cjs` | 14 PASS, 0 FAIL | 0 |
+| `node tests/f2-b.test.cjs` | 13 PASS, 0 FAIL | 0 |
+| `node tests/f2-c.test.cjs` | 21 PASS, 0 FAIL | 0 |
+| `node tests/f2-d.test.cjs` | 28 PASS, 0 FAIL | 0 |
+| `node tests/f2-e.test.cjs` | 16 PASS, 0 FAIL | 0 |
+| `node tests/f2-f.test.cjs` | 18 PASS, 0 FAIL | 0 |
+| `node tests/f2-g.test.cjs` | 21 PASS, 0 FAIL | 0 |
+| `node tests/f2-h.test.cjs` | 15 PASS, 0 FAIL | 0 |
+| `node tests/f2-i.test.cjs` | 18 PASS, 0 FAIL | 0 |
+| `node tests/f1-a-legacy.cjs` | 10 PASS/12 FAIL, mismas causas que F2-H | 1 |
+| `git diff --check` | Sin errores | 0 |
+
+**194 pruebas locales aprobadas**, 18 nuevas F2-I; ninguna omitida. Legacy mantiene
+nueve EffectKind, makeResource/makeHazard ausentes y T16 invalid initial_state.
+Su falta de cambios no acredita integración canónica de Feedback ni aplicación
+completa. TR-006 se resuelve para configuración/proyección; TR-007/ExperimentConfig,
+consumo por agentes/EXPERIMENT y el corpus histórico restante siguen pendientes.
+INIT-004 y TR-008 conservan el cierre alcanzado en F2-G; ACT/OBS/DYN no cambian.
+Archivos: js/interface/feedback.js, tests/f2-i.test.cjs y este documento.
+ENGINEERING_LEARNINGS permanece intacto: no se añade una nueva regla general.
+Sin conformidad global/interoperabilidad, merge, despliegue o inicio de F3.
