@@ -2,7 +2,7 @@
 
 Registro **informativo**, sin autoridad para cambiar contratos FROZEN.
 Corte original: DOC-01, `main c98243bf0be1b5a26503d78771179e907bfdf480`.
-Actualización F3-A: evidencia y regla EL-006.
+Actualizaciones: F3-A, EL-006; F3-C, EL-007.
 El detalle vivo, las fuentes y resultados ejecutados están en
 [IMPLEMENTATION_STATUS](IMPLEMENTATION_STATUS.md); los informes
 [F1-A](F1-A-deterministic-core.md) y [F1-B](F1-B-contracts.md) preservan historia.
@@ -21,6 +21,7 @@ OPEN-CRITICAL de §0.3. La norma v0.2.5 y su §0.1 prevalecen sobre este registr
 | EL-004 | Informe histórico, plan y decisión interna tienen autoridad y vigencia distintas | VERIFIED: §0.1 prevalece; F1-A sitúa ContractError en prng.js, F1-B lo mueve a core/contracts.js; §10.3 no explicita todo el dominio de extremos de next_int | INFERRED: repetir una recomendación o descripción antigua puede convertirla indebidamente en requisito; REPORTED: afirmaciones históricas de ejecuciones originales | Etiquetar norma/decisión/hipótesis y su fuente; contrastar informes con código actual; no tratar un plan ni un resultado reportado como nueva autoridad normativa |
 | EL-005 | La profundidad útil de verificación depende del modo de fallo, no solo del tamaño del cambio | VERIFIED por lectura y ejecución de tests/f1-a.test.cjs: vector, oráculo BigInt, rechazo forzado y restauración; tests/f1-b.test.cjs: dominios, campos, cardinalidad y bytes binary64 | INFERRED: cada técnica acredita propiedades diferentes; no justifica exigir auditoría global a cada cambio | Elegir pruebas focalizadas para los riesgos afectados, preservar criterios de aceptación aplicables y ampliar solo ante cambios, fallos o incertidumbre relevante |
 | EL-006 | El estado PRNG interno y rng_state persistido son dos capturas distintas antes del punto de sync | VERIFIED F3A-31: antes del tick difieren; un fallo tras consumir/reemplazar PRNG restaura ambos valores y el generador original | Restablecer PRNG desde snapshot.rng_state perdería el estado interno previo; afecta a futuras transacciones/replay | Capturar y restaurar cada componente incluido en la atomicidad de su contrato; no sustituir estado PRNG vivo por su último valor persistido |
+| EL-007 | Un esquema cerrado puede hacer que un test falle antes de alcanzar el fallo inyectado | VERIFIED F3C-11: inyección de full_snapshot en el prototipo y contador de alcance comprueban el error de asignación; añadir un método como campo propio de WorldState rompería antes su esquema | Una aserción de error/rollback sola no acredita la fase que pretendía probar | Inyectar fallos sin invalidar precondiciones ajenas y comprobar que se alcanzó la fase, además de comparar el estado anterior/posterior |
 
 
 ## Proyección para orientar pruebas
