@@ -1,9 +1,12 @@
 # Estado de implementación de WORLD-LAB
 
 Documento **informativo y operacional**; registra la aclaración autorizada INIT-004
-sin atribuirse autoridad propia. Corte operativo F2-I: 2026-11-05 (America/Guayaquil),
-base `main` posterior al PR #12 = `becf49740905ee136c046c792f071edf2f8c85d0`.
-Rama: `dev/f2-i-feedback-contract`.
+sin atribuirse autoridad propia. Corte operativo F3-A: 2026-11-05 (America/Guayaquil),
+base `main` posterior al PR #13 = `4ac1ec6bd17d546c4ed9ae92c60ee04c3fb5c825`.
+Rama: `dev/f3-a-tick-transaction`.
+
+Corte anterior F2-I: base `becf49740905ee136c046c792f071edf2f8c85d0`,
+rama `dev/f2-i-feedback-contract`.
 
 Corte anterior F2-H: base `c57a84a72119a8d752368f1c556aaebfc7ae5617`,
 rama `dev/f2-h-action-events`.
@@ -58,15 +61,15 @@ no solo los tres módulos core como describe el informe F1-A.
 REPORTED: resultados y particularidades del runtime de las ejecuciones originales;
 las ejecuciones F2-D siguientes son evidencia nueva, no certificación retroactiva.
 
-## Estado por componente (actualizado F2-I)
+## Estado por componente (actualizado F3-A)
 
-| Incremento / componente | Estado y alcance de evidencia (DOC-01, actualizado F2-I) |
+| Incremento / componente | Estado y alcance de evidencia (DOC-01, actualizado F3-A) |
 |---|---|
 | F1-A: PRNG, UTF-8, FNV, semillas | Implementado; VERIFIED por ejecución de 18 casos locales. `next_int` admite extremos Number seguros y cardinalidad ≤2^32; esa decisión interna está documentada, sin ampliar §10.3. No es la suite canónica completa. |
 | F1-B: contratos | Parcialmente implementado; VERIFIED por ejecución de B01–B12: WorldConfig, binary64, predicados Cell/Entity/WorldState y Action. No incorpora por sí solo esos contratos al motor. |
 | FeedbackConfig / ExperimentConfig | FeedbackConfig y build_feedback migrados en F2-I: cuatro flags/defaults recuperados, validación estricta y proyección cerrada con copias independientes; 18 pruebas locales. TR-006 resuelta en este alcance. ExperimentConfig/inspector complete:false siguen pendientes; TR-007 no se modifica. Integración experimental no verificada. |
 | WORLD | F2-A/B proporcionan tipos, snapshots, generación y selección; F2-C lifecycle <= y preparación. F2-D/E/F mantienen acciones, dinámica y observación verificadas localmente bajo sus políticas documentadas. F2-G cierra initialize_world → InitialWorldResult y adapta World.initialize a la misma ruta: validación de eventos crudos, lifecycle/sync únicos, snapshots separados y atomicidad local (21 pruebas nuevas). F2-H añade eventos operacionales crudos preparados antes de confirmar acciones (15 pruebas nuevas), sustituyendo ACT-P04. INIT-004 resuelta por aclaración autorizada; TR-008 resuelta para carga/inicialización en runner. No equivale a F2 completo o conformidad global. |
-| EXPERIMENT | Ciclo legacy presente; pendientes secuencia canónica, transacción con rollback, determine_termination y ExperimentResult (§5, §20, §26.5, §32). TR-005. |
+| EXPERIMENT | F3-A añade núcleo independiente determine_termination/execute_tick/execute_tick_transaction, con rollback WorldState+PRNG, uint64 exacto y salidas F3A-P01–03 autorizadas (40 pruebas locales). Experiment.run/run_without_agent, configuración y consumidores no migrados. TR-005 parcialmente resuelta solo en núcleo; integración del ciclo sigue pendiente. |
 | Observaciones / agentes | F2-F implementa observación pura tick/self/local_view, BOUNDED, OUT_OF_BOUNDS, occupied=false y RESOURCE sin distinción de stock (18 pruebas locales). Subesquemas y capacidad documentados como OBS-P01–03, no conformidad histórica demostrada. Agentes sin cambios ni nueva auditoría; integración no verificada. |
 | Recorder / hashes | Código legacy presente. VERIFIED por lectura de `recorder.js`/`hash_state.js`: sin source/sequence ni listas action_events/lifecycle_events del StepRecord; record_step asigna rng_state del argumento WORLD. Hashes sobre texto, no WLS1. Migración pendiente (§4, §18, §21–§24, §34). |
 | Replay / WLS1 / Metrics | Pendientes: no se encontraron implementaciones en el árbol JS inspeccionado. T20 legacy vuelve a ejecutar Experiment; no implementa replay. Ausencia no clasificada como defecto de F1-A/B. |
@@ -123,12 +126,12 @@ con defecto nuevo ni se consideran estas dependencias bloqueantes globales.
 | TR-002 | EntityState y creación | F2-A/C aportaron tipos/preparación; F2-G World.initialize llama initialize_world y adopta copia tipada independiente con lifecycle/config explícitos | Resuelta la ruta de creación heredada inválida; consumidores no migrados al ciclo canónico completo | Conservar pruebas F2G-01/05/13/16; integrar eventos/ciclo solo en alcance autorizado | VERIFIED ejecución F2-G; creación y adaptación inicial resueltas, integración experimental pendiente |
 | TR-003 | Movimiento / observación | F2-D verifica MOVE BOUNDED; F2-F elimina módulo de build_observation y verifica centro/bordes/esquinas/mapas estrechos con F2F-02–07 | Movimiento y proyección espacial corregidos localmente; orquestación experimental no verificada | Conservar evidencia local y comprobar consumidores cuando se integren; subesquemas/capacidad OBS-P01–03 explícitos | VERIFIED ejecución F2-D/F2-F; divergencia espacial resuelta en alcance local, sin certificar aplicación completa |
 | TR-004 | Configuración / daño | apply_action usa campos canónicos, verificados en F2-D; tras F2-G legacy T14 alcanza fallo de factory makeHazard ausente | Campo de daño corregido localmente; runner heredado no acredita aplicación de peligro | Conservar pruebas focalizadas y resolver consumidores en su alcance; ACT-P03 y detalles ACT-H01/02 siguen pendientes de contraste histórico | VERIFIED F2-D y diagnóstico F2-G; integración de daño no certificada |
-| TR-005 | EXPERIMENT / reloj | `experiment.js:run` incrementa time y regenera antes de observación/acción; `run_without_agent` no aplica WAIT y registra null; §5/§20/§32 | Orden/nulabilidad contrarios a norma; sin rollback transaccional | Migración en alcance F3 y pruebas de orden, terminación y fallos; dependencias TR-001 | VERIFIED por lectura; incompatibilidad heredada abierta |
+| TR-005 | EXPERIMENT / reloj | F3-A verifica orden acción→lifecycle→dinámica→reloj→sync, terminación única y rollback en kernel separado. Los bucles de experiment.js conservan orden legacy | Núcleo transaccional resuelto localmente; todavía no sustituye el ciclo real ni integra Recorder/agentes | Integrar núcleo en incremento posterior y comprobar terminación en los tres puntos del ciclo; no duplicar precedencia | VERIFIED F3A-01–40; parcialmente resuelta, orquestación completa pendiente |
 | TR-006 | FeedbackConfig / Feedback | Orden F2-I transmite §17 histórico: expose_validity=true, expose_reason=false, expose_events=false, expose_energy_delta=true, booleanos exactos y Feedback cerrado | Eliminados flags incompletos, coerciones y esquema legacy; FB-P01–03 documentan detalles de proyección no recuperados | Conservar 18 casos F2-I y verificar uso por consumidores en futuro alcance, sin adaptar agentes/EXPERIMENT ahora | VERIFIED lectura de fragmento/ejecución F2-I; resuelta localmente configuración/proyección, no integración ni conformidad histórica de marcadores ocultos |
-| TR-007 | ExperimentConfig | `inspect_ExperimentConfig_defined_fields` siempre complete:false; constructor legacy exige max_ticks>0 y registro de agente; §19.1 contempla cero | Inspección sin issues no acredita aceptación; cero rechazado por constructor legacy | Recuperar contrato completo y unificar aceptación sin añadir restricciones inferidas | VERIFIED por lectura y B12; implementación parcial e incompatibilidad legacy abiertas |
+| TR-007 | ExperimentConfig | Clase legacy exige max_ticks>0 y registro de agente; §19.1 admite cero. F3A-P01 autoriza dominio uint64 exacto en el núcleo, sin cambiar el constructor legacy | Dominio de max_ticks disponible como decisión técnica autorizada, no recuperación histórica del esquema completo de ExperimentConfig | Migrar aceptación de ExperimentConfig en alcance posterior; inspector complete:false sigue intacto | VERIFIED código F3-A/pruebas numéricas; configuración e integración pendientes |
 | TR-008 | Carga / integración inicial | initialize_world y World.initialize funcionan mediante una ruta común; F2G-01/09–13/16–21; legacy supera construcción inicial y pasa de 4 PASS/18 FAIL a 10 PASS/12 FAIL | El bloqueo EntityState/World.initialize anterior está resuelto. Persisten fallos posteriores ajenos al incremento y no se verificó navegador/render | Conservar evidencia local y adaptar EXPERIMENT/RECORDER posteriormente; no confundir inicialización con aplicación completa | VERIFIED ejecución F2-G; resuelta carga/inicialización en runner, integración global no verificada |
 | TR-009 | Suite legacy | F2-G:10 PASS/12 FAIL; nueve EffectKind, dos factories ausentes y T16 invalid initial_state. T16 exige toro y coloca entidad en (0,0) sin asegurar FREE | Nuevas rutas alcanzadas no convierten las aserciones legacy en norma ni certifican replay; defectos conocidos de tests persisten | No cambiar asserts para ocultar fallos; mantener pruebas locales y separar causas de fallos | VERIFIED ejecución F2-G y lectura focalizada T16; no suite canónica T01–T280 |
-| TR-010 | uint64 e integración | `is_uint64` admite BigInt uint64 o Number seguro; B08 y F2A-11; `experiment.js` usa `time += 1`; `hash_state.js` serializa texto; §6.3/§7/§34 | INFERRED: BigInt requiere integrar aritmética y serialización; aceptar estructura no garantiza interoperabilidad | Mantener exactitud al integrar reloj/WLS1 y probar extremos; no convertir a Number con pérdida | VERIFIED representación/B08 y F2A-11; copias exactas verificadas en F2-A; integración reloj/WLS1 abierta |
+| TR-010 | uint64 e integración | F3-A compara/incrementa con BigInt exacto, conserva representación y promueve Number solo al superar entero seguro; rollback preserva Number/BigInt. Bucles legacy siguen time+=1 y hashes no son WLS1 | Precisión temporal del núcleo resuelta; integración de reloj/serialización aún no verificada | Integrar EXPERIMENT y WLS1 conservando exactitud, sin confundir pruebas locales con interoperabilidad | VERIFIED F3A-08/17–23/30/39; parcialmente resuelta, consumidores/bytes pendientes |
 
 No se identificó una desviación normativa nueva no autorizada mediante esta
 revisión focalizada; ello no certifica su ausencia fuera de lo examinado.
@@ -971,3 +974,170 @@ INIT-004 y TR-008 conservan el cierre alcanzado en F2-G; ACT/OBS/DYN no cambian.
 Archivos: js/interface/feedback.js, tests/f2-i.test.cjs y este documento.
 ENGINEERING_LEARNINGS permanece intacto: no se añade una nueva regla general.
 Sin conformidad global/interoperabilidad, merge, despliegue o inicio de F3.
+
+
+## F3-A — núcleo transaccional, terminación y decisiones autorizadas
+
+### Autoridad y recuperación
+
+**NORMATIVE:** v0.2.5 §§4/5/12–15/20/26/31–33 establecen separación de
+responsabilidades, orden de transición, propiedad del reloj, precedencia de
+muerte y atomicidad del tick. max_ticks=0 está permitido por §19.1. Los métodos
+WORLD implementados en F2 se reutilizan sin duplicar sus reglas.
+
+**HISTORICAL:** según la recuperación transmitida por el responsable en el
+paquete ejecutivo F3-A, §26.5 v0.2.4 define secuencia y rollback, pero no enumera
+campos de TickResult/ConfirmedTickResult; §19 confirma cero, sin límite superior
+ni BigInt expresos. No se afirma lectura del documento histórico completo.
+La inspección inicial encontró esas lagunas en la transcripción y pidió el
+contrato; el paquete posterior las resuelve mediante autorización de ingeniería,
+no mediante una transcripción histórica inexistente.
+
+**ENGINEERING DECISION:** F3A-P01–03 fueron aprobadas explícitamente por el
+responsable del proyecto en la orden ejecutiva consolidada recibida en este chat,
+§§2–4. Las decisiones siguientes implementan ese paquete y no alteran el archivo
+canónico. **VERIFIED** identifica ejecución de las pruebas indicadas; la integración
+con bucles/Recorder/replay permanece **UNTESTED** en este incremento.
+
+### F3A-P01 — max_ticks, reloj y precondiciones
+
+Laguna: dominio superior/representaciones de max_ticks no recuperados. Alternativas
+consideradas: limitar a Number seguro o reflejar uint64 completo; el responsable
+aprobó Z∩[0,2^64−1], con Number seguro no negativo o BigInt uint64. Se reutiliza
+is_uint64, sin coerción de strings, booleanos, objetos, fracciones o no finitos.
+0 y 0n son válidos. Comparación normalizada a BigInt, nunca redondeando a Number.
+
+El incremento se prepara exactamente con BigInt. Number se conserva mientras
+el siguiente valor sea seguro; **promoción explícita a BigInt** al cruzar
+2^53−1, necesaria para representar el siguiente uint64 sin pérdida. Un reloj
+BigInt permanece BigInt. Alternativa de rechazar prematuramente en MAX_SAFE_INTEGER
+se descarta porque el dominio aprobado admite valores mayores. En MAX_UINT64
+no se incrementa: ya se alcanzó cualquier max_ticks permitido; el helper aritmético
+también rechaza overflow independientemente. No hay wraparound ni reducción uint32.
+F3A-15/17–23/39 verifican cero, extremos, comparación mixta y representación.
+
+Precondiciones, sin mutación: max_ticks válido primero; config/WorldState/reloj y
+entidad seleccionada válidos; no terminal; incremento representable; ranuras de
+restauración world.state/world.rng y campos time/PRNG.state escribibles; WorldState
+tipado y PRNG nativo de los módulos existentes. DEAD o time>=max_ticks produce
+ContractError("world transition failed") antes de ejecutar acción. Config inválida
+conserva "invalid world_config", estado inválido "invalid initial_state" y límite
+inválido "invalid max_ticks"; no se absorben en la normalización de una transición.
+Limitación: no es un adaptador de RNG arbitrarios ni de objetos hostiles Proxy.
+
+### F3A-P02 — TickResult y transición WORLD
+
+Laguna: campos no enumerados históricamente. Frente a concatenar eventos o añadir
+snapshot/tiempo, el contrato autorizado selecciona exactamente:
+
+`{action_result, action_events, lifecycle_events}`.
+
+action_result conserva los cuatro campos/valores crudos de apply_action;
+action_events es estructuralmente equivalente a action_result.events;
+lifecycle_events conserva la lista de resolve_lifecycle. Se copian registros y
+posiciones en listas independientes. WorldEvent mantiene exactamente type/entity_id/position, sin tick/source/sequence ni muerte dentro de action_events.
+Una sola entidad admite como máximo un evento de muerte por esta resolución.
+
+execute_tick ejecuta apply_action → resolve_lifecycle → advance_dynamics, una vez
+cada uno. Valida/copia resultados sin consultar PRNG, modificar time, sincronizar,
+construir Observation/Feedback o acceder a agentes/Recorder. Una acción rechazada
+sigue siendo un tick con lifecycle y dinámica posteriores. **No ofrece rollback
+por sí sola**: la frontera global es execute_tick_transaction. F3A-01/03–07/33/34/
+37–40 verifican contrato y comportamiento real. Riesgos históricos ACT/OBS/DYN
+anteriores no se convierten aquí en nuevas reglas canónicas.
+
+### F3A-P03 — ConfirmedTickResult y confirmación
+
+Laguna: esquema de salida de la transacción no enumerado históricamente. La
+alternativa de devolver referencias vivas se descarta por aislamiento; el contrato
+autorizado tiene exactamente seis campos:
+
+`{tick, world_state, action_result, action_events, lifecycle_events, termination}`.
+
+tick es time_before+1 exacto; world_state es snapshot profundo tras dinámica,
+reloj y sync; las tres salidas de acción/lifecycle conservan valores/orden crudos.
+termination es null, ENTITY_DIED o MAX_TICKS_REACHED, calculada por la función única
+sobre estado confirmado, usando lifecycle y dando precedencia a muerte. El
+validador recibe esa causa ya calculada: no reevalúa otra vez la terminación.
+
+La transacción captura por separado snapshot previo y estado PRNG interno,
+ejecuta execute_tick, escribe el reloj preparado y sincroniza **una sola vez**;
+valida WorldState, calcula terminación, construye/copia y valida el resultado
+antes de devolverlo. La validación comprueba esquema, igualdad estructural de
+listas, tiempo exacto incluso con representaciones distintas, consistencia de
+lifecycle al final de este tick, snapshot igual al estado activo y realmente separado
+en grid/filas/celdas/efectos/mapa/entidad/posición, y rng_state sincronizado.
+F3A-02/08–10/13/14/24–38 verifican estas invariantes.
+
+La confirmación incluye construcción y validación del snapshot/resultado. Un
+fallo en acción, lifecycle, dinámica, sync, estado o resultado restaura
+world.state desde la copia y la referencia original PRNG con su estado interno
+capturado, y lanza ContractError("world transition failed"). Se captura el método
+nativo de restauración antes del tick; no se confía en un RNG reemplazado por la
+fase que falla. No se usa el rng_state persistido como sustituto del PRNG interno:
+pueden diferir antes del punto único de sync. F3A-31 prueba exactamente ese caso.
+
+El rollback prescrito restaura **datos estructurales**, no la identidad del objeto
+WorldState previo ni sus descriptores; clientes deben conservar full_snapshot,
+no aliases al estado mutable durante una transición. No se prometen restauración
+de referencias externas retenidas al objeto que falló, efectos laterales externos,
+mutaciones arbitrarias de configuración/prototipos o congelación maliciosa a mitad
+de ejecución. Los métodos WORLD reales no realizan esas operaciones. No se
+introduce una transacción de agentes o Recorder. Fallos al preparar snapshots,
+antes de empezar, se normalizan sin ejecutar ni publicar una transición.
+
+### Ubicación, carga y frontera futura
+
+Implementación y validadores específicos en **js/experiment/tick_transaction.js**.
+Es un script clásico independiente, que debe cargarse después de WORLD, Action y
+ActionResult. Las pruebas lo cargan explícitamente después de esos scripts.
+**No se añade al HTML ni se cambia la interfaz web**; el futuro incremento que
+integre EXPERIMENT deberá conectarlo. Experiment.run/run_without_agent quedan
+idénticos al main base, al igual que WORLD, PRNG, contratos previos, Recorder,
+agentes, renderer, hashes y suites anteriores. No hay segunda implementación de
+acciones/lifecycle/dinámica ni registro antes de confirmar.
+
+TR-005 y TR-010 parcialmente resueltas solo para el núcleo: secuencia/rollback y
+precisión temporal verificadas. La sustitución de bucles legacy, tres puntos de
+evaluación terminal del ciclo completo y uso por RECORDER permanecen UNTESTED.
+ExperimentConfig no cambia: su incompatibilidad con cero/BigInt sigue en TR-007,
+aunque el kernel ya acepta el dominio autorizado. INIT-004/TR-008 no se reabren.
+
+### Matriz de evidencia ejecutada
+
+| Grupo / requisito | Casos locales | Evidencia |
+|---|---|---|
+| P02/P03, listas separadas, esquemas/eventos crudos | F3A-01–05 | Validadores reales, payloads sin metadatos; rechazo de listas divergentes, campos extra, snapshots incorrectos/compartidos |
+| Orden y punto temporal de confirmación | F3A-06–10 | Energía vista por lifecycle, DEAD y stock0 vistos por dinámica, reloj viejo/nuevo, sync único y error posterior |
+| Precedencia terminal y no iniciar en terminal | F3A-11–16 | ACTIVE con energía negativa no se declara DEAD; DEAD con energía alta sí; cero y coincidencia muerte/límite |
+| P01 y uint64/Number/BigInt | F3A-17–23 | Cruce de MAX_SAFE_INTEGER, BigInt grande, datos inválidos sin coerción, máximo uint64 y overflow |
+| Rollback y no publicación parcial | F3A-24–32 | Fallos tras operaciones reales, corrupción/alias de snapshot, error de asignación inyectado, restauración de todo WorldState y PRNG reemplazado |
+| Transiciones e independencia | F3A-33–40 | Muerte por peligro, recurso consumido/regenerado tras muerte, snapshots en ambos sentidos, ledger energético esperado, sin Recorder/Agent/Observation/Feedback |
+
+Node.js v24.22.1, /workspace/yellow. Los IDs F3A son locales y no sustituyen
+T01–T280. No se modificaron tests anteriores ni aserciones/runners heredados.
+
+| Comando | Resultado | Exit |
+|---|---|---|
+| `node tests/f3-a.test.cjs` | 40 PASS, 0 FAIL | 0 |
+| `node tests/f1-a.test.cjs` | 18 PASS, 0 FAIL | 0 |
+| `node tests/f1-b.test.cjs` | 12 PASS, 0 FAIL | 0 |
+| `node tests/f2-a.test.cjs` | 14 PASS, 0 FAIL | 0 |
+| `node tests/f2-b.test.cjs` | 13 PASS, 0 FAIL | 0 |
+| `node tests/f2-c.test.cjs` | 21 PASS, 0 FAIL | 0 |
+| `node tests/f2-d.test.cjs` | 28 PASS, 0 FAIL | 0 |
+| `node tests/f2-e.test.cjs` | 16 PASS, 0 FAIL | 0 |
+| `node tests/f2-f.test.cjs` | 18 PASS, 0 FAIL | 0 |
+| `node tests/f2-g.test.cjs` | 21 PASS, 0 FAIL | 0 |
+| `node tests/f2-h.test.cjs` | 15 PASS, 0 FAIL | 0 |
+| `node tests/f2-i.test.cjs` | 18 PASS, 0 FAIL | 0 |
+| `node tests/f1-a-legacy.cjs` | 10 PASS/12 FAIL, sin diferencias respecto a F2-I | 1 |
+| `git diff --check` | Sin errores | 0 |
+
+Total VERIFIED: **234 pruebas locales aprobadas**, 40 nuevas F3-A, sin omitidas.
+Legacy conserva nueve EffectKind, makeResource/makeHazard ausentes y T16 invalid
+initial_state; no ejecuta el kernel nuevo porque los bucles no se migran aquí.
+Estos resultados no acreditan conformidad global, replay o interoperabilidad.
+Archivos: tick_transaction.js, tests/f3-a.test.cjs, IMPLEMENTATION_STATUS.md y una
+entrada generalizable EL-006 en ENGINEERING_LEARNINGS.md. Sin merge, despliegue
+ni F3-B.
