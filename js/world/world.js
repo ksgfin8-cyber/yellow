@@ -24,27 +24,21 @@ class World {
     // --- Inicialización ------------------------------------------------
 
     initialize(seed) {
-        // Semilla ya debe ser válida para el PRNG.
-        this.rng = new PRNG(seed);
-
-        const grid = this._generate_grid();
-
-        const initialPosition = this._choose_initial_position(grid);
-
-        const entity = new EntityState(
-            "0987898",
-            initialPosition,
-            this.config.initial_energy
-        );
-
-        const entities = new Map();
-        entities.set(entity.id, entity);
-
-        // Sincronizar rng_state antes de persistir.
-        const rng_state = this.rng.get_state();
-
-        this.state = new WorldState(0, grid, entities, rng_state);
-        this.experimental_entity_id = entity.id;
+        // Adapter only: one canonical generation/lifecycle route. Build everything
+        // before publishing fields; the returned snapshot never aliases live state.
+        const config = new WorldConfig(this.config);
+        const result = initialize_world(config, seed);
+        const state = result.world_state.copy();
+        const rng = new PRNG(result.rng_state); // restore stream, no extraction
+        const id = state.entities.keys().next().value;
+        const changes = [["config", config], ["state", state], ["rng", rng], ["experimental_entity_id", id]];
+        for (const [key] of changes) {
+            if (Object.getOwnPropertyDescriptor(this, key)?.writable !== true) {
+                throw new ContractError("world transition failed");
+            }
+        }
+        for (const [key, value] of changes) this[key] = value;
+        return result;
     }
 
     // §11.2, algorithm recovered in the F2-B order. Returns a grid, not a WorldState.
@@ -281,6 +275,7 @@ class World {
 // Does NOT implement initialize_world/InitialWorldResult or lifecycle/event resolution.
 function prepare_world_before_lifecycle(config, seed) {
     const checkedConfig = new WorldConfig(config);
+    PRNG._validate_state(seed); // §11.1: validate before constructing the stream
     const rng = new PRNG(seed); // validate original world seed; do not derive another seed
     const world = new World(checkedConfig);
     world.rng = rng;
@@ -329,13 +324,44 @@ function verify_generated_initial_resources(grid, config) {
     }
 }
 
-// F2-C partial pipeline through §11.1 step 10, plus a diagnostic snapshot.
-// Step 11 remains unresolved: raw WorldEvent vs tick/source/sequence requirements.
-// This is NOT initialize_world and does NOT return a canonical InitialWorldResult.
+// Shared pipeline. F2-G adds raw-event validation under authorized INIT-004.
+// Keep the F2-C helper shape for diagnostics; initialize_world projects the public result.
 function prepare_world_through_lifecycle(config, seed) {
     const world = prepare_world_before_lifecycle(config, seed);
     const initial_events = world.resolve_lifecycle();
     world.sync_rng_state();
     assert_WorldState(world.state, world.config);
+    validate_initial_events_consistency(world.state, initial_events);
     return {world, initial_events, snapshot: world.full_snapshot()};
+}
+
+// INIT-004 clarification (F2-G order): WORLD validates raw events; only RECORDER
+// later validates/enriches tick/source/sequence. Precondition: validated WorldState.
+function validate_initial_events_consistency(initial_state, initial_events) {
+    const invalid = () => { throw new ContractError("invalid initial_events"); };
+    if (!has_exact_fields(initial_state, ["time", "grid", "entities", "rng_state"]) ||
+        (initial_state.time !== 0 && initial_state.time !== 0n) ||
+        !(initial_state.entities instanceof Map) || initial_state.entities.size !== 1 ||
+        !Array.isArray(initial_events)) invalid();
+    const [id, entity] = initial_state.entities.entries().next().value;
+    if (!has_exact_fields(entity, ["id", "position", "energy", "lifecycle"]) ||
+        id !== entity.id || !has_exact_fields(entity.position, ["x", "y"]) ||
+        (entity.lifecycle !== "ACTIVE" && entity.lifecycle !== "DEAD")) invalid();
+    if (entity.lifecycle === "ACTIVE") {
+        if (initial_events.length !== 0) invalid();
+    } else {
+        if (initial_events.length !== 1) invalid();
+        const event = initial_events[0];
+        if (!has_exact_fields(event, ["type", "entity_id", "position"]) ||
+            event.type !== "ENTITY_DIED" || event.entity_id !== entity.id ||
+            !has_exact_fields(event.position, ["x", "y"]) ||
+            event.position.x !== entity.position.x || event.position.y !== entity.position.y) invalid();
+    }
+    return true;
+}
+
+// §11.1 / F2-G: exact InitialWorldResult, detached from the temporary active WORLD.
+function initialize_world(config, seed) {
+    const {snapshot, initial_events} = prepare_world_through_lifecycle(config, seed);
+    return {world_state: snapshot, initial_events, rng_state: snapshot.rng_state};
 }
