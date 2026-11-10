@@ -4,7 +4,14 @@ Documento **informativo y operacional**. Consolidación DOC-02: **2026-11-10
 (America/Guayaquil)**. Rama documental `dev/doc-02-knowledge-consolidation`, creada
 sobre `origin/main`; aquel cambio no incorporaba código ni pruebas de F3-C.
 
-**Actualización vigente F3-D/2 (2026-11-10): puerta READY; F3-D COMPLETED en el
+**Actualización vigente F3-E (2026-11-10): RECORDER B COMPLETED en alcance local.**
+Base main `bdf347344e47d7908fe327fcef31111905e0a4f9` (PR #19), rama
+`dev/f3-e-recorder-completion`: StepRecords multi-tick completos con hashes WLS1,
+eventos/secuencias y confirmación atómica; Trajectory con copias independientes.
+327 pruebas locales. [Contratos, límites y evidencia F3-E](#f3-e).
+EXPERIMENT/replay no se implementan ni se declara conformidad global.
+
+**Corte previo F3-D/2 (2026-11-10): puerta READY; F3-D COMPLETED en el
 alcance contractual disponible.** Base main posterior al PR #18,
 `fa79ad6a990ea8b1b477868c1e4a81e05d25f481`. Fragmento §34 y V1 recuperados;
 WORLD/FULL y hashes verificados, 303 pruebas locales. [Evidencia F3-D/2](#f3-d2).
@@ -49,7 +56,8 @@ replay completo. El alcance B no está completo en ninguna de las dos referencia
 
 | Necesidad | Fuente única para el detalle |
 |---|---|
-| Estado F3-D/2 vigente | [Contrato recuperado, V1, implementación y pruebas](#f3-d2); [corte F3-D parcial anterior](#f3-d) |
+| Estado RECORDER F3-E vigente | [Pasos, eventos, atomicidad, Trajectory y regresión](#f3-e) |
+| Cierre previo de hashes F3-D/2 | [Contrato recuperado, V1, implementación y pruebas](#f3-d2); [corte F3-D parcial anterior](#f3-d) |
 | Integración F3-C previa y frontera WLS1 | [Merge, corrección y pruebas](#integracion-f3-c); [contratos requeridos para F3-D](#frontera-f3-d) |
 | Autoridad y significado de evidencia | [Autoridad](#autoridad); [especificación canónica](WORLD-LAB_v0.2.5_canonical_transcripcion.md) |
 | Contrato → componente → pruebas | [Mapa del repositorio](#mapa-repositorio); [estado por componente](#estado-componentes) |
@@ -190,6 +198,7 @@ no nuevos identificadores normativos.
 | F3B-P01–03 | Vigentes ENGINEERING DECISION: identidad Unicode no vacía sin normalizar ni consultar registry, captura anidada y diagnóstico | [F3-B](#f3-b), experiment_config.js; F3B-01–18. Config válida no garantiza factory disponible |
 | F3C-P01/02 | **Solo rama**, ENGINEERING DECISION autorizada: metadata Number seguro y entity_states Map; esquema/valores recuperados diferenciados | [F3-C](#f3-c); F3C-07/14/15/17/19. Límites de metadata no atribuidos al texto histórico |
 | F3C-P03/04 | **Solo rama**, precisiones técnicas de conversión exacta/puntero y preparación sin publicación | [F3-C](#f3-c); F3C-14–22. Alternativas completas no enumeradas en ese registro; no suponerlas recuperadas |
+| F3E-P01/P02; F3C-P04 | Staging F3-C conservado, bloqueo de publicación sustituido por pasos completos; revalidación de prefijo y finalización coherente son precisiones de ingeniería | [F3-E](#f3-e), Recorder; no reejecuta WORLD ni ofrece rollback conjunto con EXPERIMENT |
 | F3D-P01 / F3D-P02 / F3D2-P01 | Acumulador vigente; rechazo provisional de hashes sustituido por WLS1 real; contexto de validación y APIs son ENGINEERING DECISION | [F3-D/2](#f3-d2), hash_state.js; 15 pruebas nuevas y F3-D original intacto. Layout/tags son HISTORICAL RECOVERED, no ingeniería |
 | P0-3 / nulabilidad F3-C | NORMATIVE: sustituye equivalencia heredada de tres nulos; action y action_result presentes, WAIT real sin agente | [F3-C](#f3-c), §§20.2/22/32; F3C-18 y kernel F3-A. No nulos fabricados |
 
@@ -262,7 +271,7 @@ La consolidación no autoriza implementarlos ni iniciar F3-D.
 | WORLD | F2-A/B proporcionan tipos, snapshots, generación y selección; F2-C lifecycle <= y preparación. F2-D/E/F mantienen acciones, dinámica y observación verificadas localmente bajo sus políticas documentadas. F2-G cierra initialize_world → InitialWorldResult y adapta World.initialize a la misma ruta: validación de eventos crudos, lifecycle/sync únicos, snapshots separados y atomicidad local (21 pruebas nuevas). F2-H añade eventos operacionales crudos preparados antes de confirmar acciones (15 pruebas nuevas), sustituyendo ACT-P04. INIT-004 resuelta por aclaración autorizada; TR-008 resuelta para carga/inicialización en runner. No equivale a F2 completo o conformidad global. |
 | EXPERIMENT | F3-A añade núcleo independiente determine_termination/execute_tick/execute_tick_transaction, con rollback WorldState+PRNG, uint64 exacto y salidas F3A-P01–03 autorizadas (40 pruebas locales). Experiment.run/run_without_agent y consumidores no migrados; configuración migrada por F3-B. TR-005 parcialmente resuelta solo en núcleo; integración del ciclo sigue pendiente. |
 | Observaciones / agentes | F2-F implementa observación pura tick/self/local_view, BOUNDED, OUT_OF_BOUNDS, occupied=false y RESOURCE sin distinción de stock (18 pruebas locales). Subesquemas y capacidad documentados como OBS-P01–03, no conformidad histórica demostrada. Agentes sin cambios ni nueva auditoría; integración no verificada. |
-| Recorder / hashes | main PR #18 conserva F3-C parcial. Rama F3-D/2 completa WLS1 WORLD/FULL y hashes con V1 recuperado; se sustituye el bloqueo provisional de hash_state.js. RECORDER permanece idéntico y no publica StepRecords. 303 pruebas locales, sin conformidad global; [evidencia vigente](#f3-d2). |
+| Recorder / hashes | main PR #19 dispone de WLS1 verificado y RECORDER parcial. Rama F3-E completa registro multi-tick y Trajectory con hashes WORLD/FULL, secuencias globales y RecordTransaction; 24 pruebas nuevas. EXPERIMENT sigue sin integrar; [evidencia actual](#f3-e). |
 | Replay / WLS1 / Metrics | Rama F3-D/2 implementa WLS1 y hashes, verificados con V1 recuperado y oráculos independientes; replay y Metrics siguen sin implementar. T20 legacy repite Experiment y no es replay. No hay interoperabilidad global demostrada. |
 | Renderer / entrada web | Legacy presente, sin cambios ni validación de navegador/render. La inicialización de World en el runner ya funciona; no acredita la aplicación completa ni la orquestación experimental. |
 | Integración y conformidad global | No verificadas. UNKNOWN respecto al cumplimiento global; no existe evidencia ejecutada de T01–T280 ni interoperabilidad. §37 no se satisface con las pruebas locales. |
@@ -308,7 +317,7 @@ resoluciones ni permiten declarar integración global.
 
 | ID | Componente | Evidencia | Impacto | Resolución prevista | Estado | Condición verificable de cierre / siguiente dependencia |
 |---|---|---|---|---|---|---|
-| TR-001 | Corpus normativo | F3-D/2 recibe §34.1–9, layout y V1 completos; otros fragmentos F2/F3 conservan procedencia. No se leyó el documento histórico completo | Se cierra el bloqueo de bytes/hashes en rama F3-D/2; quedan otras cláusulas y V2–V10 | [Fuente, V1 y pruebas F3-D/2](#f3-d2); no reconstruir lo aún ausente ni ampliar RECORDER | Parcialmente resuelta; WLS1 VERIFIED localmente, no conformidad global | Mantener evidencia exacta; RECORDER B requiere pruebas de publicación/atomicidad en incremento autorizado; otras cláusulas requieren fuentes/tests respectivos. |
+| TR-001 | Corpus normativo | F3-D/2 recibe §34.1–9, layout y V1 completos; otros fragmentos F2/F3 conservan procedencia. No se leyó el documento histórico completo | Se cierra el bloqueo de bytes/hashes en rama F3-D/2; quedan otras cláusulas y V2–V10 | [Fuente, V1 y pruebas F3-D/2](#f3-d2); no reconstruir lo aún ausente ni ampliar RECORDER | Parcialmente resuelta; WLS1 VERIFIED localmente, no conformidad global | Mantener evidencia exacta; RECORDER B verificado localmente en F3-E; otras cláusulas requieren fuentes/tests respectivos. La integración con EXPERIMENT y replay conserva sus criterios propios. |
 | TR-002 | EntityState y creación | F2-A/C aportaron tipos/preparación; F2-G World.initialize llama initialize_world y adopta copia tipada independiente con lifecycle/config explícitos | Resuelta la ruta de creación heredada inválida; consumidores no migrados al ciclo canónico completo | Conservar pruebas F2G-01/05/13/16; integrar eventos/ciclo solo en alcance autorizado | VERIFIED ejecución F2-G; creación y adaptación inicial resueltas, integración experimental pendiente | Creación local ya cerrada en F2-G; integración: consumir InitialWorldResult y eventos sin duplicar lifecycle, con prueba del ciclo real. |
 | TR-003 | Movimiento / observación | F2-D verifica MOVE BOUNDED; F2-F elimina módulo de build_observation y verifica centro/bordes/esquinas/mapas estrechos con F2F-02–07 | Movimiento y proyección espacial corregidos localmente; orquestación experimental no verificada | Conservar evidencia local y comprobar consumidores cuando se integren; subesquemas/capacidad OBS-P01–03 explícitos | VERIFIED ejecución F2-D/F2-F; divergencia espacial resuelta en alcance local, sin certificar aplicación completa | Bordes/BOUNDED locales ya verificados; integración: consumidor real conserva geometría, privacidad y radio con pruebas alcanzadas. |
 | TR-004 | Configuración / daño | apply_action usa campos canónicos, verificados en F2-D; tras F2-G legacy T14 alcanza fallo de factory makeHazard ausente | Campo de daño corregido localmente; runner heredado no acredita aplicación de peligro | Conservar pruebas focalizadas y resolver consumidores en su alcance; ACT-P03 y detalles ACT-H01/02 siguen pendientes de contraste histórico | VERIFIED F2-D y diagnóstico F2-G; integración de daño no certificada | Mantener pruebas de daño/coste reales; consumidor integrado demuestra efecto y eventos sin factories legacy. |
@@ -2075,3 +2084,175 @@ pero **RECORDER sigue parcial y sin publicar StepRecords** hasta otro incremento
 Solo hash_state.js, tests/f3-d2.test.cjs y este documento cambian; no se modifica
 la especificación canónica, WORLD, core/PRNG/semillas, F3-A/B, Recorder, EXPERIMENT,
 agentes, interfaz ni renderer. Sin merge ni despliegue ni inicio de RECORDER B.
+
+<a id="f3-e"></a>
+## F3-E — RECORDER B COMPLETED en alcance local
+
+Corte 2026-11-10 (America/Guayaquil), rama dev/f3-e-recorder-completion desde
+main `bdf347344e47d7908fe327fcef31111905e0a4f9` (PR #19). Orden ejecutiva F3-E:
+§§4–5/18/20–24/26/31–34, P0-3/P1-1 y contratos F3-A/F3-C/F3-D/2.
+**VERIFIED por ejecución:** registro de varios ticks reales, StepRecord cerrado
+completo, hashes WLS1, secuencias globales, atomicidad y Trajectory independiente.
+No se implementan EXPERIMENT ni replay ni rollback conjunto WORLD+RECORDER.
+
+### Contratos implementados y vigencia
+
+record_step(confirmed, observation, feedback, action) mantiene once campos exactos:
+tick, world_state, observation, feedback, action, action_result, action_events,
+lifecycle_events, state_hash_world, state_hash_full, entity_states. tick sigue siendo
+Number seguro; una entrada BigInt representable se convierte sin pérdida, snapshot.time
+conserva su representación. El dominio uint64 de F3-A y la frontera TR-010 no cambian.
+
+La preparación F3-C se conserva como wrapper interno puro; F3C-P04 se sustituye
+solo en su bloqueo de publicación. Se usa como precedente initial_state o el
+último StepRecord, se exige tick=precedente.time+1 y snapshot.time=tick, identidad
+estable y estado estructural válido. No se agregan pasos tras DEAD, max_ticks o
+AGENT_CONTRACT_ERROR. La causa de ConfirmedTickResult debe coincidir con
+**determine_termination existente**, invocado sobre una fachada de datos de solo
+lectura (state/config/id), sin WORLD vivo, agente, RNG ni Recorder externo.
+No se introduce otra precedencia terminal ni motor de transición.
+
+Observación, si existe, tiene tick/self del precedente; Feedback corresponde a
+esa Observation y a la proyección del ActionResult previamente registrado según
+los cuatro flags. No se reconstruye local_view para comprobar su equivalencia
+semántica con el mapa: esa verificación completa corresponde al replay. Action y
+ActionResult siempre presentes; solo WAIT real con observación/feedback ambos
+nulos en modo sin agente. Se conserva el ActionResult crudo, no su proyección.
+
+Se enriquece exclusivamente aquí: iniciales tick0/lifecycle, después acciones y
+lifecycle de cada tick. sequence global desde0, sin reinicio y con reservas
+provisionales F3C-P01/P03. Trajectory.events debe coincidir exactamente con la
+concatenación iniciales→action_events→lifecycle_events de todos sus pasos; el
+validador comprueba contenido y orden, no solo cantidad. Map entity_states copia
+id/position/energy/lifecycle del snapshot y no comparte su posición.
+
+STATE_HASH_WORLD y STATE_HASH_FULL se calculan sobre **el mismo snapshot que se
+incorpora al StepRecord**; validación posterior vuelve a contrastarlos sobre ese
+objeto. WLS1 no se modifica. Eventos, acción, resultado y entradas se copian antes
+de publicar. RecordTransaction confirma mediante reemplazo de sus siete ranuras;
+si algo falla restaura los valores/referencias anteriores sin mutar las listas
+preexistentes. record_step devuelve undefined, conservando la API de comando.
+
+### Decisiones técnicas acotadas y límites
+
+**F3E-P01 — ENGINEERING DECISION:** validar el prefijo completo, eventos, contador,
+contextos y hashes en cada preparación/confirmación, frente a confiar ciegamente
+en el último registro. Detecta corrupción de esquemas/mapas/hashes/eventos de las
+propiedades públicas. No reejecuta acciones ni comprueba equivalencia completa de
+transición. El coste acumulado de registrar n pasos es cuadrático en n al
+revalidar el prefijo (y proporcional al estado serializado); no se presenta como
+optimización para trayectorias masivas. No se prueba materializar 2^53 eventos.
+
+**F3E-P02 — ENGINEERING DECISION de finalización:** la causa MAX_TICKS_REACHED por
+defecto es provisional mientras se registra; finalize solo permite éxito si
+coincide con terminación real. AGENT_CONTRACT_ERROR se acepta como parada externa
+no terminal, impide pasos siguientes y exporta el prefijo, sin inventar un estado
+ExperimentResult.status. EXPERIMENT deberá marcar el fallo conforme a §20.6.
+Una muerte/límite no se puede reemplazar por fallo de agente. Metadata conserva
+{version:"v0.1"} como contenido opaco heredado, sin autoridad normativa.
+
+Se mantienen muerte inicial y límite0 con steps=[], eventos de replay iniciales
+sin reenriquecimiento, y InitializationFailure fuera de Trajectory. finalize
+valida antes de copiar todo el historial, configuración, mapas y eventos. No
+conserva referencias mutables al WORLD ni las entrega al llamador. Trajectory ya
+tenía sus seis campos exactos, por lo que **trajectory.js no requiere cambios**.
+
+Atomicidad limitada a Recorder nativo/datos ordinarios y fases sin efectos
+externos: no garantiza protección ante Proxy hostil que muta datos previos,
+cambios maliciosos de prototipos/descriptores durante commit o aliases públicos
+alterados concurrentemente. Un fallo de registro conserva el WORLD ya confirmado;
+la coordinación con EXPERIMENT queda pendiente, no se promete rollback conjunto.
+Se requiere cargar tick_transaction.js y los productores de interfaz/WLS1; no se
+modifica HTML ni se conecta el bucle legacy en este incremento.
+
+### Evidencia y trazabilidad
+
+| Casos locales F3E | Propiedad ejecutada |
+|---|---|
+| 01/02 | Esquema cerrado, Map/snapshot independiente, tres ticks reales con contexto previo y terminación por límite |
+| 03/09/19/21 | Orden de seis eventos movimiento/peligro/muerte, iniciales/replay, copias y consumo/regeneración de recursos |
+| 04/21/24 | Hashes del snapshot exacto, comparación WLS1 y oráculo independiente Buffer/BigInt; cambios solo RNG conservan WORLD y cambian FULL |
+| 05/17/19 | Aislamiento entradas/salida/WORLD, sin métodos mutadores ni RNG vivo; snapshots y posiciones separados |
+| 06/07/08/10/20/23 | Continuidad/identidad/causa, rechazo duplicados/saltos, Feedback previo y 16 flags, WAIT real, finales y parada por agente |
+| 11/12 | BigInt pequeño, frontera Number seguro y rechazo temporal; overflow real del enriquecedor provocado en preparación sin commit |
+| 13/14/15 | Fallos de preparación/copia/serialización/hash/validación con contadores que acreditan la fase alcanzada; hashes fallan tanto en primer paso como en revalidación de prefijo |
+| 16/22 | Fallo tras cada una de siete publicaciones efectivas, restauración de todas las ranuras; retry del mismo confirmado reutiliza sequence0 y no revierte WORLD |
+| 18 | Corrupción de agregación, hash, Map y campo adicional detectada por validación de historial |
+
+F3E-11 no pretende publicar MAX_SAFE_INTEGER como primer tick ni relajar
+continuidad: prueba la conversión exacta usada y el rechazo de saltos/grandes.
+F3E-12 inyecta el inicio MAX_SAFE en el enriquecedor de una acción con dos eventos
+para alcanzar su error de overflow; no altera el dominio ni fabrica una trayectoria
+con un contador enorme. F3E-15 acredita expresamente la llegada a validación del
+paso nuevo; F3E-16 falla después de escribir cada campo, no antes de la fase.
+
+Las 24 pruebas F3-C y las pruebas F3-D/2 permanecen byte a byte intactas.
+F3C-20 intercepta las funciones hash y su aserción de ausencia se captura como
+fallo de registro: tras levantar el bloqueo de B, **ese caso histórico no demuestra
+ausencia de llamadas a hashes**. La nueva evidencia relevante es F3E-04/14/21/24:
+hashes canónicos reales y fallos inyectados con contadores, sin cambiar expectativas
+heredadas. No se presenta una prueba que se detiene antes de la fase como prueba
+de publicación completa ni se llama a estos casos T01–T280.
+
+### Demostración reproducible de tres ticks
+
+Fixture F3E-03: mapa4×3, semilla1, entidad en(1,1), energía6, costeMOVE1,
+peligro en(2,1) daño3, límite10. El mapa con peligro forma parte del estado inicial
+registrado. Acciones MOVE_E, MOVE_W, MOVE_E mediante execute_tick_transaction;
+observación/feedback reales antes de cada tick. Resultado final ENTITY_DIED.
+
+| Tick | Energía final | state_hash_world | state_hash_full | sequence de eventos |
+|---|---|---|---|---|
+| 1 | 2 | 3051273274 | 3456103947 | 0,1 |
+| 2 | 1 | 1757557637 | 3601543720 | 2 |
+| 3 | -3 | 2138345419 | 3810741570 | 3,4,5 |
+
+Son resultados de ejemplo locales, no nuevos vectores normativos. WORLD sigue
+confirmado en time3; Recorder posee tres snapshots, seis eventos y contador6.
+
+### Ejecución de regresión
+
+Node.js v24.22.1, /workspace/yellow. `node tests/<archivo>` en cada suite; todas
+exit0, sin fallos ni omitidas. Ningún archivo de pruebas anterior se modifica.
+
+| Archivo | PASS |
+|---|---|
+| f1-a.test.cjs | 18 |
+| f1-b.test.cjs | 12 |
+| f2-a.test.cjs | 14 |
+| f2-b.test.cjs | 13 |
+| f2-c.test.cjs | 21 |
+| f2-d.test.cjs | 28 |
+| f2-e.test.cjs | 16 |
+| f2-f.test.cjs | 18 |
+| f2-g.test.cjs | 21 |
+| f2-h.test.cjs | 15 |
+| f2-i.test.cjs | 18 |
+| f3-a.test.cjs | 40 |
+| f3-b.test.cjs | 18 |
+| f3-c.test.cjs | 24 |
+| f3-d.test.cjs | 12 |
+| f3-d2.test.cjs | 15 |
+| f3-e.test.cjs | **24** |
+| Total | **327** |
+
+`node tests/f1-a-legacy.cjs`: **13 PASS /9 FAIL**, exit1, sin nuevas causas frente
+a main. T06/07/08/20/22 recording failed: diagnóstico VM focalizado comprueba que
+entran en _prepare_step con lifecycle inicial no registrado y primer argumento
+Number de firma legacy, no ConfirmedTickResult. El bucle también necesita cargar
+el kernel y migrar orquestación; no se añade compatibilidad artificial.
+T12 makeResource, T13 EffectKind, T14 makeHazard y T16 invalid initial_state
+permanecen. T18 y el falso replay T20 conservan las advertencias históricas.
+`git diff --check`: limpio; enlaces internos y alcance de archivos comprobados.
+
+### Cierre y disponibilidad
+
+F3-E **COMPLETED en alcance local**: Steps completos multi-tick y Trajectory
+independiente con hashes auténticos y commit atómico. Preparado para integrar
+EXPERIMENT por una orden posterior; faltan su bucle canónico, coordinación de
+fallos tras confirmar WORLD, agentes/web, replay, V2–V10 y conformidad global.
+TR-005/008/009/010 conservan sus pendientes. No se demuestra interoperabilidad ni
+T01–T280 por estas suites locales.
+Solo recorder.js, tests/f3-e.test.cjs y este documento cambian. Sin modificaciones
+a norma, hashes/WLS1, WORLD, PRNG, F3-A/B, Feedback/Observation, EXPERIMENT,
+Trajectory, agentes, replay, renderer o interfaz. Sin merge ni despliegue.
