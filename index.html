@@ -2,14 +2,21 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>WORLD-LAB v0.1</title>
+    <title>WORLD-LAB v0.2.5</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>WORLD-LAB v0.1</h1>
+    <h1>WORLD-LAB v0.2.5</h1>
+    <p id="demo-config"></p>
+    <button id="run-wait" type="button">Ejecutar WaitAgent</button>
+    <button id="run-random" type="button">Ejecutar RandomAgent</button>
+    <p id="execution-status" role="status" aria-live="polite"></p>
+    <pre id="summary" aria-label="Resultado experimental"></pre>
+    <p id="diagnostic" role="alert" hidden></p>
+    <p id="render-status" role="status" hidden></p>
     <canvas id="canvas"></canvas>
 
-    <!-- Orden de carga: core → world → interface → agents → experiment → tests → visualization → main -->
+    <!-- Orden de carga: core → world → interface → agents → configuration → kernel → recorder → experiment → replay → visualization → main -->
     <script src="js/core/contracts.js"></script>
     <script src="js/core/prng.js"></script>
     <script src="js/core/hash.js"></script>
@@ -36,10 +43,11 @@
     <script src="js/experiment/experiment_config.js"></script>
     <script src="js/experiment/trajectory.js"></script>
     <script src="js/experiment/hash_state.js"></script>
+    <script src="js/experiment/tick_transaction.js"></script>
     <script src="js/experiment/recorder.js"></script>
     <script src="js/experiment/experiment.js"></script>
 
-    <script src="js/tests/tests.js"></script>
+    <script src="js/experiment/replay.js"></script>
 
     <script src="js/visualization/renderer.js"></script>
     <script src="js/main.js"></script>
