@@ -4,7 +4,14 @@ Documento **informativo y operacional**. Consolidación DOC-02: **2026-11-10
 (America/Guayaquil)**. Rama documental `dev/doc-02-knowledge-consolidation`, creada
 sobre `origin/main`; aquel cambio no incorporaba código ni pruebas de F3-C.
 
-**Actualización vigente F3-F (2026-11-10): ciclo experimental COMPLETED en alcance local.**
+**Actualización vigente F3-G (2026-11-10): replay PARTIAL.** Base main PR #21
+`943458da7340ead3f947aa54bcbc97186b5fa732`, rama dev/f3-g-replay-core.
+Siete statuses verificados para time0/parámetros representables, rollback propio de
+replay WORLD/RNG/Recorder; 377 pruebas locales. Dos incompatibilidades de §25
+siguen bloqueadas: parámetros inválidos frente a *_used y origen temporal>0.
+[Evidencia, caracterización y propuestas mínimas F3-G](#f3-g). Sin conformidad global.
+
+**Corte previo F3-F (2026-11-10): ciclo experimental COMPLETED en alcance local.**
 Base main PR #20 `8f8a771d76e88499bba6c2ef3a894fe1f981f346`; rama
 `dev/f3-f-experiment-integration`. Ambos modos producen ExperimentResult y
 trayectorias WLS1; fallos internos se propagan sin reintento ni falso COMPLETED.
@@ -63,7 +70,8 @@ replay completo. El alcance B no está completo en ninguna de las dos referencia
 
 | Necesidad | Fuente única para el detalle |
 |---|---|
-| Estado EXPERIMENT F3-F vigente | [Orquestación, resultados, fallos y rendimiento](#f3-f) |
+| Estado replay F3-G vigente | [Motor parcial, ramas bloqueadas y pruebas](#f3-g) |
+| Cierre previo EXPERIMENT F3-F | [Orquestación, resultados, fallos y rendimiento](#f3-f) |
 | Cierre previo RECORDER F3-E | [Pasos, eventos, atomicidad, Trajectory y regresión](#f3-e) |
 | Cierre previo de hashes F3-D/2 | [Contrato recuperado, V1, implementación y pruebas](#f3-d2); [corte F3-D parcial anterior](#f3-d) |
 | Integración F3-C previa y frontera WLS1 | [Merge, corrección y pruebas](#integracion-f3-c); [contratos requeridos para F3-D](#frontera-f3-d) |
@@ -206,6 +214,7 @@ no nuevos identificadores normativos.
 | F3B-P01–03 | Vigentes ENGINEERING DECISION: identidad Unicode no vacía sin normalizar ni consultar registry, captura anidada y diagnóstico | [F3-B](#f3-b), experiment_config.js; F3B-01–18. Config válida no garantiza factory disponible |
 | F3C-P01/02 | **Solo rama**, ENGINEERING DECISION autorizada: metadata Number seguro y entity_states Map; esquema/valores recuperados diferenciados | [F3-C](#f3-c); F3C-07/14/15/17/19. Límites de metadata no atribuidos al texto histórico |
 | F3C-P03/04 | **Solo rama**, precisiones técnicas de conversión exacta/puntero y preparación sin publicación | [F3-C](#f3-c); F3C-14–22. Alternativas completas no enumeradas en ese registro; no suponerlas recuperadas |
+| F3G-P01–03 | Adaptación privada a Recorder, checkpoint de ambos propietarios y representación exacta de contadores; A/B siguen abiertos | [F3-G](#f3-g); no modifica fail-stop F3-F ni las precondiciones compartidas |
 | F3F-P01–03 | Fail-stop sin rollback conjunto ni categorías públicas nuevas; setup fuera de catch step; detalles por rama §20 | [F3-F](#f3-f), experiment.js; errores y limitaciones explícitos, no norma histórica inventada |
 | F3E-P01/P02; F3C-P04 | Staging F3-C conservado, bloqueo de publicación sustituido por pasos completos; revalidación de prefijo y finalización coherente son precisiones de ingeniería | [F3-E](#f3-e), Recorder; no reejecuta WORLD ni ofrece rollback conjunto con EXPERIMENT |
 | F3D-P01 / F3D-P02 / F3D2-P01 | Acumulador vigente; rechazo provisional de hashes sustituido por WLS1 real; contexto de validación y APIs son ENGINEERING DECISION | [F3-D/2](#f3-d2), hash_state.js; 15 pruebas nuevas y F3-D original intacto. Layout/tags son HISTORICAL RECOVERED, no ingeniería |
@@ -281,7 +290,7 @@ La consolidación no autoriza implementarlos ni iniciar F3-D.
 | EXPERIMENT | Rama F3-F integra ambos modos con inicialización única, Feedback, agentes/factories, kernel F3-A y Recorder F3-E; ExperimentResult cerrado. Errores de step → FAILED con prefijo; internos/setup se propagan. Atomicidad conjunta no implementada. 23 pruebas end-to-end nuevas; [evidencia](#f3-f). |
 | Observaciones / agentes | F2-F implementa observación pura tick/self/local_view, BOUNDED, OUT_OF_BOUNDS, occupied=false y RESOURCE sin distinción de stock (18 pruebas locales). Subesquemas y capacidad documentados como OBS-P01–03, no conformidad histórica demostrada. Agentes sin cambios ni nueva auditoría; integración no verificada. |
 | Recorder / hashes | main PR #19 dispone de WLS1 verificado y RECORDER parcial. Rama F3-E completa registro multi-tick y Trajectory con hashes WORLD/FULL, secuencias globales y RecordTransaction; 24 pruebas nuevas. EXPERIMENT sigue sin integrar; [evidencia actual](#f3-e). |
-| Replay / WLS1 / Metrics | Rama F3-D/2 implementa WLS1 y hashes, verificados con V1 recuperado y oráculos independientes; replay y Metrics siguen sin implementar. T20 legacy repite Experiment y no es replay. No hay interoperabilidad global demostrada. |
+| Replay / WLS1 / Metrics | Rama F3-G añade motor replay PARTIAL: siete statuses para origen0/parámetros representables, reconstrucción y checkpoint sin RNG extra, prefijo consistente ante fallos. Bloqueos de §25 y validación exhaustiva pendientes. WLS1 verificado; Metrics sin implementar. [Evidencia vigente](#f3-g). |
 | Renderer / entrada web | Legacy presente, sin cambios ni validación de navegador/render. La inicialización de World en el runner ya funciona; no acredita la aplicación completa ni la orquestación experimental. |
 | Integración y conformidad global | No verificadas. UNKNOWN respecto al cumplimiento global; no existe evidencia ejecutada de T01–T280 ni interoperabilidad. §37 no se satisface con las pruebas locales. |
 
@@ -2460,3 +2469,217 @@ V2–V10, T01–T280 e interoperabilidad. Conformidad global no demostrada.
 Solo experiment.js, tests/f3-f.test.cjs y este documento cambian. Sin cambios en
 norma, WORLD, agentes, semillas/PRNG, WLS1, F3-A/F3-E, configuración, interfaz,
 renderer, index.html ni main.js. Sin merge automático ni despliegue.
+
+<a id="f3-g"></a>
+## F3-G — replay PARTIAL; dos ramas contractuales bloqueadas
+
+Corte 2026-11-10 (America/Guayaquil), rama dev/f3-g-replay-core; base main PR #21:
+`943458da7340ead3f947aa54bcbc97186b5fa732`. Orden F3-G y resolución posterior del
+responsable «F3-G: Resolución contractual de §25», recibida en este chat. Se leyó
+§25 v0.2.5 y los fragmentos transmitidos; no el documento histórico completo.
+**Estado: PARTIAL**, incluso con los siete statuses ejecutados para el subconjunto
+no bloqueado. No se declara validación exhaustiva, conformidad global o Hito C.
+
+### Contratos recuperados y ámbito disponible
+
+HISTORICAL RECOVERED por la orden y resolución: firma
+replay_trajectory(initial_state, initial_events, actions, world_config,
+feedback_config, expected_steps, max_ticks); once campos cerrados de ReplayResult;
+siete statuses y orden de validación/ejecución especificados. expected_steps es
+**Number entero seguro no negativo [0,2^53−1], admite0 y rechaza BigInt**.
+INVALID_REPLAY_INPUT.unused_actions es actions.length si la lista es válida,
+0 en otro caso. La atribución de recuperación auténtica proviene del responsable;
+VERIFIED aquí: contenido recibido, contraste con código/norma y pruebas locales.
+
+Funciona: origen time0 o0n, eventos iniciales registrados válidos, expected_steps
+en su dominio y max_ticks representable exactamente como contador Number seguro
+(incluido BigInt pequeño convertido sin pérdida). max_ticks semántico se valida
+con tick_max_ticks/is_uint64 existentes, sin reducir el dominio WORLD/F3-A.
+
+ReplayResult exacto: status, records, events, final_state, executed, unused_actions,
+max_ticks_used, expected_steps_used, unknown_action_index, error_message,
+termination_hint. Los records conservan los once campos StepRecord existentes,
+no un esquema alternativo. Final state y registros/eventos son copias independientes.
+
+### Casos bloqueados: caracterización, no conformidad
+
+**A — parámetros inválidos y representación de *_used (TR-001/010).** La resolución
+confirma dos obligaciones incompatibles para parámetros inválidos: *_used enteros
+seguros e igualdad con los valores recibidos. No define representación alternativa.
+Si expected_steps es negativo/fraccionario/NaN/BigInt/inseguro, o max_ticks es
+inválido, no se fabrica INVALID_REPLAY_INPUT con valores0/null/normalizados.
+Se propaga el ContractError de la primera validación fallida, respetando el orden;
+no se presenta esa excepción como la solución normativa de la rama.
+
+Una instancia adicional de la misma frontera: max_ticks uint64 válido pero mayor
+que MAX_SAFE_INTEGER tampoco cabe en el contador histórico Number seguro. En ese
+caso el motor rechaza con world transition failed tras validar entradas, sin
+etiquetarlo falsamente invalid max_ticks ni bajar el límite del kernel. Para BigInt
+representable se conserva el valor matemático exacto en *_used Number (F3G-P03).
+Prueba F3G-16 caracteriza estas restricciones; no acredita conformidad del caso
+bloqueado. F3G-26 prueba el máximo Number seguro sin ejecutar un episodio enorme.
+
+Propuesta mínima pendiente de autorización: decidir una política explícita de
+excepción para parámetros inválidos, o revisar la nulabilidad/igualdad y dominio
+de *_used en ese status. Para uint64 grande, armonizar el dominio del contador de
+resultado con el límite temporal o fijar explícitamente la frontera del replay.
+No se aplica ninguna de esas alternativas ni se modifica la norma aquí.
+
+**B — initial_state.time>0 (TR-001/010).** §25.1 recuperado permite origen≤max_ticks
+sin exigir0, pero validate_initial_events_consistency de WORLD exige0 y P0-7
+obliga a invocarlo. Recorder.record_initial_state también exige0. La reconstrucción
+pura admite uint64 completo, pero el replay público queda bloqueado para origen
+positivo: propaga invalid initial_events, sin presentar como históricamente inválido
+un estado que §25 admite. F3G-17 prueba ambas precondiciones incompatibles, no las
+relaja. No se desplaza el reloj ni se falsifican snapshots/metadata para sortearlas.
+
+Propuesta mínima: aclarar el dominio normativo del origen (si se acota a0) o
+autorizar una adaptación específica de validación inicial/Recorder para un origen
+arbitrario, con reglas temporales precisas. No se modifica ninguna dependencia
+protegida. Por estos bloqueos F3-G **no puede declararse COMPLETED**.
+
+### Motor y decisiones técnicas
+
+[replay.js](../js/experiment/replay.js) añade replay_trajectory,
+validate_replay_inputs, validate_ReplayResult_structure y helpers de reconstrucción,
+checkpoint y exportación de prefijo. Valida en orden WorldConfig, FeedbackConfig,
+WorldState, RecordedEvents iniciales, estructura de todas las acciones y números.
+Unknown type no se rechaza en el escaneo estructural; se alcanza incrementalmente.
+El validador de eventos de Recorder reutiliza la consistencia compartida P0-7.
+
+Orden por índice: determine_termination (DEAD antes del límite), agotamiento de
+acciones, tipo desconocido, kernel F3-A, record_step F3-E. Cero pasos pedidos se
+satisface con OK y hint calculado por la función única; si faltan pasos, una causa
+terminal produce status parcial, **no OK**. No hay agente ni otro motor de acciones.
+
+| Status disponible | Contadores y salida |
+|---|---|
+| OK | executed=records.length=expected_steps; hint=determine_termination sobre el estado final; error/index null |
+| EARLY_TERMINATION | executed<expected, estado DEAD; hint/error/index null |
+| MAX_TICKS_REACHED | executed<expected, límite alcanzado y no DEAD; hint/error/index null |
+| INCOMPLETE_ACTION_SEQUENCE | executed=actions.length<expected; unused0; hint/error/index null |
+| UNKNOWN_ACTION | index=executed<actions.length; unknown incluye la acción no ejecutada entre unused; hint/error null |
+| EXECUTION_ERROR | Solo prefijo confirmado; error_message de catálogo, index/hint null; final_state del checkpoint |
+| INVALID_REPLAY_INPUT | Cuando parámetros/counters no están bloqueados: records/events[], final_state=null, executed0, hint/index null, error de validación; unused según lista válida |
+
+Para entradas no inválidas unused_actions=max(0,actions.length−executed), incluidos
+sobrantes de OK y acción fallida/desconocida. expected_steps_used conserva Number;
+max_ticks_used conserva valor exacto representable. No se consumen acciones extra
+para buscar errores después de cumplir la cantidad pedida o alcanzar terminación.
+
+**F3G-P01 — ENGINEERING DECISION de adaptación privada:** Recorder exige
+ExperimentConfig, aunque la firma de replay no recibe semilla/tipo de experimento.
+Se usa contexto técnico privado experiment_seed=1/agent_type=replay, con WORLD,
+Feedback y max_ticks reales. No son la configuración ni semilla original y no se
+exponen en ReplayResult; no se deriva semilla, crea agente ni consume RNG por ellos.
+WORLD se reconstruye copiando el estado efectivo y restaurando PRNG directamente
+desde rng_state. Alternativa de interpretar rng_state como experiment_seed se
+rechaza; tampoco se vuelve a inicializar el mapa. F3G-02/22 acreditan ausencia de
+generación, selección, derivación, agente y draws adicionales.
+
+**F3G-P02 — checkpoint de dos propietarios, específico de replay:** se captura
+snapshot WORLD, referencia PRNG y su estado interno, y las siete ranuras nativas de
+Recorder antes del tick. F3-E no muta prefijos en sitio, por lo que sus referencias
+previas son suficientes para restaurarlos. Si falla WORLD/Recorder o la copia del
+nuevo prefijo, se restauran los dos propietarios y se conserva el último prefijo
+independiente ya capturado. Esto incluye una excepción después de que Recorder
+haya completado su propio commit. No hay reintento. Errores de fase WORLD se
+normalizan a world transition failed; fase registro/copia a recording failed,
+dentro de §26.6. El checkpoint fallido antes de mutar también se diagnostica.
+
+El prefijo consistente exportado no recalcula hashes al manejar el fallo: puede
+retornarse EXECUTION_ERROR aunque la dependencia de hashing continúe fallando.
+Los hashes se habían verificado en el commit Recorder anterior. Se usa su copiador
+existente; no se finge finalize de una Trajectory no terminal ni se le asigna
+AGENT_CONTRACT_ERROR para exportarla. F3-F conserva exactamente su fail-stop;
+su frontera de errores no se altera por el rollback de replay.
+
+**F3G-P03 — representación de parámetros/resultados:** BigInt seguro de max_ticks
+se convierte sin pérdida a Number para *_used, respetando el contrato histórico de
+contador y la igualdad numérica. BigInt de expected_steps no se admite. Si no hay
+representación compatible, se aísla el bloqueo A, no se cambia WORLD ni se fabrica
+un resultado. validate_replay_inputs devuelve contexto validado/copias o lanza;
+validate_ReplayResult_structure devuelve booleano y usa STEP_RECORD_FIELDS/validadores
+existentes. No recalcula por reejecución ni certifica toda §25.3.1; esa validación
+exhaustiva queda fuera de F3-G. El replay reconstruye Observation/Feedback según la
+firma recibida; no recibe un modo para inferir contextos null de una trayectoria
+sin agente. La comparación integral ejecutada utiliza episodios con agente F3-F.
+
+### Pruebas, fases y ejemplo real
+
+La primera prueba integral F3G-01 reproduce una trayectoria real de run_experiment
+F3-F con tres pasos: igualdad estructural de snapshots, resultados, eventos y
+bytes WLS1. F3G-10 prueba la API pública y el esquema completo; F3G-23 reproduce
+movimientos y muerte, no solo una trayectoria con lista de eventos vacía.
+
+| Casos F3G | Evidencia ejecutada |
+|---|---|
+| 01/10/23 | F3-F real → replay, estructura de records, RecordedEvents, bytes/hashes y orden global |
+| 02/06/07/08/09/21/22 | Restauración exacta/no generación/derivación, muerte inicial, uint64 puro, repetición y copias independientes, sin reenriquecimiento; lifecycle/sync solo por tick |
+| 03/04/05/19/20/24/27 | Errores de WORLD, Recorder tras transición y publicación, excepción después del commit, hash persistente y checkpoint; contadores prueban fase alcanzada y restauración de prefijo/RNG |
+| 11–15/18 | Cero pasos, hint DEAD>MAX, precedencias incrementales, todos los statuses, cantidades/índices, validación inicial en orden |
+| 16/17 | **Caracterización de bloqueos A/B, no conformidad**: el error observado permanece explícito |
+| 25/26 | Esquemas/huecos/counters/hints del validador mínimo, límites Number seguros sin simulación enorme |
+
+Ejemplo F3G-23/F3F-21: config semilla1, mapa2×2 FREE/NONE, energía3, costeMOVE1,
+límite3; acciones MOVE_E/MOVE_W/MOVE_E según posición inicial. Replay devuelve:
+statusOK, executed3, unused_actions0, expected_steps_used3, max_ticks_used3,
+unknown_action_index=null, error_message=null, termination_hint=ENTITY_DIED.
+Los cuatro RecordedEvents coinciden exactamente con F3-F; hash final WORLD
+1573707962 y FULL3948499472, idénticos a la trayectoria fuente. Son resultados
+locales, no nuevos vectores normativos ni prueba de interoperabilidad independiente.
+
+En F3G-04 se fuerza estado PRNG interno diferente al rng_state persistido antes
+del tick: el fallo restaura ambos valores y la referencia original del generador.
+F3G-05 falla después de escritura efectiva sequence_counter; F3G-20 después del
+commit Recorder completo; ambos conservan exactamente un paso y su WORLD previo.
+F3G-24 retorna ese prefijo sin volver a llamar un hash persistentemente fallido.
+F3G-27 falla en la segunda lectura time0 de WORLD.full_snapshot, correspondiente
+al checkpoint antes de la primera transición; no se atribuye a una fase no alcanzada.
+La garantía cubre objetos nativos y fases sin mutación hostil de prefijos/descriptores,
+como F3-A/F3-E; no presume restauración arbitraria de prototipos/configuración.
+
+### Regresión ejecutada
+
+Node v24.22.1, /workspace/yellow. Comando `node tests/<archivo>` para cada suite;
+exit0, sin fallos ni omitidas. Tests anteriores idénticos byte a byte a main.
+
+| Archivo | PASS |
+|---|---|
+| f1-a.test.cjs | 18 |
+| f1-b.test.cjs | 12 |
+| f2-a.test.cjs | 14 |
+| f2-b.test.cjs | 13 |
+| f2-c.test.cjs | 21 |
+| f2-d.test.cjs | 28 |
+| f2-e.test.cjs | 16 |
+| f2-f.test.cjs | 18 |
+| f2-g.test.cjs | 21 |
+| f2-h.test.cjs | 15 |
+| f2-i.test.cjs | 18 |
+| f3-a.test.cjs | 40 |
+| f3-b.test.cjs | 18 |
+| f3-c.test.cjs | 24 |
+| f3-d.test.cjs | 12 |
+| f3-d2.test.cjs | 15 |
+| f3-e.test.cjs | 24 |
+| f3-f.test.cjs | 23 |
+| f3-g.test.cjs | **27** (25 de comportamiento local y2 de caracterización) |
+| Total | **377** |
+
+`node tests/f1-a-legacy.cjs`: 13 PASS/9 FAIL, exit1, mismas causas que F3-F:
+T06/07/08/20/22 determine_termination is not defined (cargador HTML sin kernel);
+T12 makeResource, T13 EffectKind, T14 makeHazard, T16 invalid initial_state.
+No se cambian expectativas ni se carga replay en HTML. `git diff --check`: limpio;
+referencias y alcance verificados. Ningún test local equivale a T01–T280 ejecutado.
+
+### Entrega parcial y continuación
+
+Solo replay.js, tests/f3-g.test.cjs y este documento cambian. WORLD, Recorder,
+PRNG, WLS1, F3-F, agentes, web y norma permanecen intactos. Motor no bloqueado
+listo para revisión; faltan autorización que resuelva A/B y representación de
+contadores grandes, y validación exhaustiva de continuidad/resultados externos.
+Se conservan el coste cuadrático heredado de Recorder y copias adicionales de
+prefijo; no se introduce optimización no autorizada ni se repite el benchmark500.
+F3-G sigue **PARTIAL**; no se inicia la validación integral ni otro incremento.
+Sin merge automático ni despliegue.
