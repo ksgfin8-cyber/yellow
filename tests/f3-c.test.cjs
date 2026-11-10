@@ -103,3 +103,26 @@ test('F3C-22: no WORLD/lifecycle/RNG/Recorder callbacks; preparation determinist
     const f=material(),before=clone(f.confirmed),rng=f.w.rng.get_state();for(const key of ['resolve_lifecycle','sync_rng_state','apply_action'])f.w[key]=()=>assert.fail(key);Object.defineProperty(f.w,'rng',{get(){assert.fail('WORLD RNG');}});
     const a=f.r._prepare_step(f.confirmed,f.o,f.fb,f.action),b=f.r._prepare_step(f.confirmed,f.o,f.fb,f.action);assert.deepEqual(clone(a),clone(b));assert.deepEqual(clone(f.confirmed),before);assert.ok(rng>0);
 });
+
+test('F3C-23 integration: replay rejects a last MAX_SAFE sequence before publication, without relaxing initial coherence',()=>{
+    const source=ready({initial_energy:0}),target=base({initial_energy:0});
+    target.r.record_initial_state(target.initial.world_state);
+    const event={...clone(source.r.events[0]),sequence:Number.MAX_SAFE_INTEGER};
+    assert.equal(api.validate_RecordedEvent(event),true); // valid metadata, invalid initial start
+    const world=clone(target.w.state),rng=target.w.rng.get_state();
+    unchanged(target.r,()=>failed(()=>target.r.record_initial_lifecycle_from_recorded([event])));
+    assert.equal(target.r.sequence_counter,0);
+    assert.equal(target.r._initial_lifecycle_recorded,false);
+    assert.deepEqual(clone(target.w.state),world);assert.equal(target.w.rng.get_state(),rng);
+});
+test('F3C-24 integration: replay next-counter calculation promotes exactly at MAX_SAFE without widening event sequence',()=>{
+    const next=vm.runInContext('recorder_sequence_after',api.ctx),{r}=ready();
+    unchanged(r,()=>{
+        assert.equal(next(0),1);
+        assert.equal(next(Number.MAX_SAFE_INTEGER-1),Number.MAX_SAFE_INTEGER);
+        const after=next(Number.MAX_SAFE_INTEGER);
+        assert.equal(after,9007199254740992n);assert.equal(typeof after,'bigint');
+        assert.equal(after+1n,9007199254740993n);
+        for(const invalid of [9007199254740992,9007199254740992n,Number.MAX_SAFE_INTEGER.toString(),-1,NaN])failed(()=>next(invalid));
+    });
+});

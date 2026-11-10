@@ -2,12 +2,19 @@
 
 Documento **informativo y operacional**. Consolidación DOC-02: **2026-11-10
 (America/Guayaquil)**. Rama documental `dev/doc-02-knowledge-consolidation`, creada
-sobre `origin/main`; no incorpora código ni pruebas de F3-C.
+sobre `origin/main`; aquel cambio no incorporaba código ni pruebas de F3-C.
+
+**Actualización vigente: integración parcial F3-C, 2026-11-10.** Rama
+`dev/f3-c-recorder` sincronizada con main `2846a8560c00daef85d91c9a9feffa7456862039`
+mediante merge `cccb7b4b6cc80f4a22a30c14ac66476063946df4`. main contiene DOC-02,
+pero **F3-C sigue sin merge hacia main**. RECORDER continúa parcial, B bloqueada.
+Detalle de corrección, 276 pruebas locales y preparación documental WLS1 en
+[integración F3-C](#integracion-f3-c) y [frontera F3-D](#frontera-f3-d).
 
 <a id="doc02-scope"></a>
-## Qué está integrado y qué está solo en rama
+## Corte DOC-02: qué estaba integrado y qué estaba solo en rama
 
-**VERIFIED por Git y ejecución DOC-02:** `main` permanece en
+**Corte histórico VERIFIED por Git y ejecución DOC-02:** `main` estaba en
 [`b00a50ebcc25f2a0d3e3abe4cc5eb2b1b64a79b8`](https://github.com/ksgfin8-cyber/yellow/commit/b00a50ebcc25f2a0d3e3abe4cc5eb2b1b64a79b8),
 posterior al PR #15. F3-C está publicado únicamente en
 [`dev/f3-c-recorder`, `0a6e245b930698b62ac25a34bf539f3828be20a0`](https://github.com/ksgfin8-cyber/yellow/commit/0a6e245b930698b62ac25a34bf539f3828be20a0).
@@ -30,6 +37,7 @@ replay completo. El alcance B no está completo en ninguna de las dos referencia
 
 | Necesidad | Fuente única para el detalle |
 |---|---|
+| Integración F3-C vigente y frontera WLS1 | [Merge, corrección y pruebas](#integracion-f3-c); [contratos requeridos para F3-D](#frontera-f3-d) |
 | Autoridad y significado de evidencia | [Autoridad](#autoridad); [especificación canónica](WORLD-LAB_v0.2.5_canonical_transcripcion.md) |
 | Contrato → componente → pruebas | [Mapa del repositorio](#mapa-repositorio); [estado por componente](#estado-componentes) |
 | Decisión vigente, sustitución y justificación | [Índice de decisiones](#decisiones-vigentes); cada enlace lleva al expediente existente |
@@ -1666,3 +1674,123 @@ totalmente conforme, WLS1 verificado o interoperabilidad. INIT-004/TR-008 perman
 resueltos para WORLD; el límite de registro no reduce max_ticks ni cambia F3-A.
 Archivos: recorder.js, tests/f3-c.test.cjs, este documento y EL-007 de aprendizajes.
 Sin merge, despliegue ni inicio de F3-D.
+
+<a id="integracion-f3-c"></a>
+## Integración F3-C sobre DOC-02 y frontera de F3-D
+
+**Corte 2026-11-10 (America/Guayaquil). VERIFIED por Git y ejecución:**
+main remoto utilizado `2846a8560c00daef85d91c9a9feffa7456862039` (PR #16, DOC-02);
+F3-C anterior `0a6e245b930698b62ac25a34bf539f3828be20a0`; base común
+`b00a50ebcc25f2a0d3e3abe4cc5eb2b1b64a79b8`. main aportaba solo cambios documentales.
+Se incorporó main **a la rama F3-C**, no F3-C a main, mediante merge
+`cccb7b4b6cc80f4a22a30c14ac66476063946df4`, con ambos padres recuperables.
+La corrección y esta evidencia se añaden después del merge, en la misma rama.
+
+Hubo conflictos únicamente en IMPLEMENTATION_STATUS y ENGINEERING_LEARNINGS:
+cabeceras/alcance, estado Recorder, tabla TR e introducción F3-C, además de EL-007.
+Se resolvió cada bloque con la versión consolidada DOC-02, que ya conservaba la
+evidencia F3-C y añadía navegación/procedencia. Antes de la corrección, ambos
+documentos quedaron idénticos a main; Recorder y las 22 pruebas F3-C quedaron
+idénticos a la rama original. No se sustituyó ningún documento por una versión
+anterior ni se perdió evidencia. No hubo conflicto en código, pruebas o norma.
+
+**Estado vigente:** RECORDER sigue **PARCIAL**, capacidad A disponible solo en rama
+F3-C; B/StepRecord completo sigue bloqueado por WLS1. main tiene documentación
+DOC-02, no esta implementación. Se conservan source/tick/secuencias, copias y
+atomicidad inicial; nulabilidad observation⇔feedback, WAIT real y ActionResult
+presente; separación uint64/Number seguro y prohibición de hashes legacy/ficticios.
+F3C-01–22, incluido F3C-20, vuelven a comprobar esas fronteras. La publicación de
+esta rama para revisión no equivale a merge ni conformidad global.
+
+### Corrección focalizada del siguiente contador
+
+**VERIFIED por lectura/cálculo:** la expresión anterior del replay inicial
+`last_sequence + 1` producía Number 9007199254740992 al recibir MAX_SAFE_INTEGER:
+esa suma particular es exacta, pero el resultado es un **Number inseguro**, y
+sumarle 1 de nuevo ya colapsa al mismo valor. F3C-P03 conserva el siguiente
+contador interno como BigInt al cruzar el límite, manteniendo sequence de cada
+RecordedEvent como Number seguro.
+
+La ruta pública actual exige secuencia inicial desde0 y solo [] o una muerte;
+por ello **no se demostró un fallo observable con entradas iniciales válidas**.
+Un evento inicial con sequence=MAX_SAFE_INTEGER se rechaza por coherencia antes
+de confirmar; no se relaja esa validación para alcanzar una rama de prueba.
+
+Se extrae el cálculo interno `recorder_sequence_after` y se usa en
+record_initial_lifecycle_from_recorded: entrada Number seguro no negativa,
+BigInt(sequence)+1, retorno Number mientras sea seguro y BigInt después. Vacío
+sigue dejando contador0. Es una precisión local de **ENGINEERING DECISION
+F3C-P03 ya autorizada**, no un dominio histórico nuevo ni cambio en F3-A/P01.
+Alternativa de rechazar el último valor seguro en el cálculo no se elige: conservar
+su siguiente contador exacto mantiene la política existente del enriquecedor.
+No se añaden otras correcciones preventivas.
+
+- [F3C-23](../tests/f3-c.test.cjs): el evento con último MAX_SAFE_INTEGER cumple
+  el esquema genérico, pero replay inicial lo rechaza sin mutar Recorder/WORLD/RNG.
+- F3C-24: alcanza el cálculo realmente usado por replay en 0, MAX_SAFE−1 y MAX_SAFE;
+  comprueba Number seguro / BigInt 9007199254740992n exactos y rechazo de entradas
+  fuera de dominio. Es prueba de la aritmética aislada, no aceptación pública de
+  eventos iniciales fuera de coherencia.
+
+### Verificación por archivo y regresiones
+
+En /workspace/yellow, Node.js v24.22.1. Cada fila se ejecutó con
+`node tests/<archivo>`; exit0, cero fallos y cero omitidas en las suites unitarias.
+Tras resolver el merge, las 22 originales pasaron antes de corregir el contador;
+su contenido original sigue siendo prefijo byte a byte del archivo ampliado.
+Las demás suites/runners son idénticas a 0a6e245 y a main.
+
+| Archivo en tests/ | F3-C anterior / DOC-02 | Rama sincronizada |
+|---|---|---|
+| f1-a.test.cjs | 18 PASS | 18 PASS |
+| f1-b.test.cjs | 12 PASS | 12 PASS |
+| f2-a.test.cjs | 14 PASS | 14 PASS |
+| f2-b.test.cjs | 13 PASS | 13 PASS |
+| f2-c.test.cjs | 21 PASS | 21 PASS |
+| f2-d.test.cjs | 28 PASS | 28 PASS |
+| f2-e.test.cjs | 16 PASS | 16 PASS |
+| f2-f.test.cjs | 18 PASS | 18 PASS |
+| f2-g.test.cjs | 21 PASS | 21 PASS |
+| f2-h.test.cjs | 15 PASS | 15 PASS |
+| f2-i.test.cjs | 18 PASS | 18 PASS |
+| f3-a.test.cjs | 40 PASS | 40 PASS |
+| f3-b.test.cjs | 18 PASS | 18 PASS |
+| f3-c.test.cjs | 22 PASS | **24 PASS**, originales22 + nuevas2 |
+| Total unitario | 274 PASS | **276 PASS** |
+| f1-a-legacy.cjs | 10 PASS / 12 FAIL, exit1 | 10 PASS / 12 FAIL, exit1, mismas causas que F3-C anterior |
+
+Legacy repetida: T06/07/08/20/22 recording failed; T04/13/19/21 EffectKind ausente;
+T12 makeResource, T14 makeHazard, T16 invalid initial_state. Frente a main cambian
+las cinco causas documentadas por DOC-02; frente a F3-C publicado no hay causas
+nuevas. No se editaron expectativas heredadas. Ni igualdad de conteos ni suites
+locales acreditan T01–T280, replay o interoperabilidad.
+
+`git diff --check`: sin errores. Norma, F1-A/F1-B históricos, hashes, WORLD,
+núcleo F3-A, configuración F3-B, bucles EXPERIMENT, HTML y agentes intactos.
+Se preservan anclas/índices DOC-02, categorías de autoridad/evidencia, expedientes
+y la distinción main/rama; los enlaces relativos y objetos Git citados se validan.
+
+<a id="frontera-f3-d"></a>
+### Contrato que deberá estar disponible antes de implementar F3-D
+
+Preparación documental, **sin iniciar F3-D**. NORMATIVE y fragmento recuperado no
+significan disponer del §34 histórico completo. La resolución transmitida F3-C
+recuperó contratos de eventos/registro; **no recuperó el layout WLS1 ni V1**.
+
+| Aspecto | Obligación conocida / fuente | Información aún necesaria y criterio de verificación |
+|---|---|---|
+| FNV-1a sobre bytes | NORMATIVE §24.1/2: offset 0x811c9dc5, primo 0x01000193, hash de estados canónicos; §34 exige bytes. FULL comprende WORLD+RNG, no agente/trayectoria | API de bytes y prueba independiente del acumulador uint32. fnv1a actual recibe texto, lo codifica UTF-8; sus vectores F1-A no prueban WLS1 |
+| Formato WLS1 | NORMATIVE §34 incorpora v0.2.4; no reproduce layout | Fuente auténtica con campos, orden, tamaños, endianness, tags/ausencia/efectos y cobertura WORLD/FULL. No adoptar concatenación textual legacy |
+| Celdas y entidades | NORMATIVE §§7–9: celdas (y,x), tipos válidos, mapa de exactamente una entidad y lifecycle explícito | Orden y codificación binaria de cada registro/entidad según §34 histórico; criterio de ordenación si aplica. No inferirlo de Array.sort legacy |
+| Identificadores | NORMATIVE §9: string UTF-8 no vacío; UTF-8 estricto ya implementado para semillas, §11.6 | Recuperar la regla WLS1 de longitud, unidad, ancho, prefijo y límites; no asumir longitud UTF-16 ni transferir reglas de normalización de semillas a WLS1 sin fuente |
+| binary64 | NORMATIVE §§6.3/6.4, P1-3/4: finitos, IEEE-754 exacto salvo -0→+0 antes de hash/serialización | Orden de bytes/layout histórico; vectores de límites, redondeo y cero canónico sin formato decimal intermedio |
+| time / rng_state | NORMATIVE §7: uint64 / uint32 no cero; F3A-P01 autoriza representación JS Number seguro o BigInt para dominio temporal completo | Codificación binaria exacta y endianness de §34; límites mixtos sin pérdida. TR-010 persiste: StepRecord.tick seguro no se amplía por implementar bytes |
+| Vectores | NORMATIVE §34.9 remite a V1 de 59 bytes; V2–V10 y hashes independientes pendientes en la transcripción | Recuperar estado de entrada y los 59 bytes completos auténticos de V1; contrastar byte a byte y hash independiente. V2–V10 requieren referencia verificable, no resultados fabricados desde legacy |
+
+**UNKNOWN:** contenido de esas disposiciones ausentes. Si la futura orden autoriza
+precisiones de ingeniería para aspectos no fijados, deberán identificarse con
+alternativas, justificación y pruebas; esta preparación no selecciona layout,
+endianness, tamaños o vectores nuevos ni les atribuye autoridad histórica.
+No se modifican hash_state.js ni core/hash.js. B sigue bloqueada y no se publica
+ningún StepRecord con hashes provisionales, nulos o de prueba. Condiciones de cierre
+siguen en TR-001/005/010; merge a main y comienzo de F3-D requieren otra autorización.

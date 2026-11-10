@@ -11,6 +11,11 @@ function recording_require(condition) {
 function recorder_safe_number(value) {
     return typeof value === "number" && Number.isSafeInteger(value) && value >= 0;
 }
+function recorder_sequence_after(sequence) {
+    recording_require(recorder_safe_number(sequence));
+    const next = BigInt(sequence) + 1n;
+    return next <= RECORDER_MAX_SAFE ? Number(next) : next;
+}
 function recorder_tick(value) {
     // Explicit lossless boundary conversion, never a reduction of F3A-P01.
     recording_require(is_uint64(value) && BigInt(value) <= RECORDER_MAX_SAFE);
@@ -173,7 +178,7 @@ class Recorder {
             const prepared = this._prepare_current();
             prepared.events = [];
             for (let i = 0; i < initial_events.length; i++) prepared.events.push(recorder_copy_event(feedback_array_item(initial_events, i)));
-            prepared.sequence_counter = prepared.events.length === 0 ? 0 : prepared.events[prepared.events.length - 1].sequence + 1;
+            prepared.sequence_counter = prepared.events.length === 0 ? 0 : recorder_sequence_after(prepared.events[prepared.events.length - 1].sequence);
             prepared._initial_lifecycle_recorded = true;
             return prepared;
         });
