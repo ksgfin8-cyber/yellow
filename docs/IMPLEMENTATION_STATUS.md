@@ -4,7 +4,13 @@ Documento **informativo y operacional**. Consolidación DOC-02: **2026-11-10
 (America/Guayaquil)**. Rama documental `dev/doc-02-knowledge-consolidation`, creada
 sobre `origin/main`; aquel cambio no incorporaba código ni pruebas de F3-C.
 
-**Actualización vigente F3-D: PARTIAL, puerta WLS1 BLOCKED (2026-11-10).**
+**Actualización vigente F3-D/2 (2026-11-10): puerta READY; F3-D COMPLETED en el
+alcance contractual disponible.** Base main posterior al PR #18,
+`fa79ad6a990ea8b1b477868c1e4a81e05d25f481`. Fragmento §34 y V1 recuperados;
+WORLD/FULL y hashes verificados, 303 pruebas locales. [Evidencia F3-D/2](#f3-d2).
+RECORDER conserva su estado parcial y no se modifica; no implica conformidad global.
+
+**Corte F3-D anterior: PARTIAL, puerta WLS1 BLOCKED (2026-11-10).**
 Base main `4cde54c7c966530aa7ed59c48d10ea630130dfaa`, posterior al PR #17:
 F3-C está integrado y sigue parcial. En dev/f3-d-wls1-hashes se verifica el
 acumulador FNV sobre bytes, pero faltan layout §34 y V1; hashes canónicos no
@@ -43,7 +49,7 @@ replay completo. El alcance B no está completo en ninguna de las dos referencia
 
 | Necesidad | Fuente única para el detalle |
 |---|---|
-| Estado F3-D vigente | [Puerta WLS1, funciones, pruebas y bloqueo](#f3-d) |
+| Estado F3-D/2 vigente | [Contrato recuperado, V1, implementación y pruebas](#f3-d2); [corte F3-D parcial anterior](#f3-d) |
 | Integración F3-C previa y frontera WLS1 | [Merge, corrección y pruebas](#integracion-f3-c); [contratos requeridos para F3-D](#frontera-f3-d) |
 | Autoridad y significado de evidencia | [Autoridad](#autoridad); [especificación canónica](WORLD-LAB_v0.2.5_canonical_transcripcion.md) |
 | Contrato → componente → pruebas | [Mapa del repositorio](#mapa-repositorio); [estado por componente](#estado-componentes) |
@@ -184,6 +190,7 @@ no nuevos identificadores normativos.
 | F3B-P01–03 | Vigentes ENGINEERING DECISION: identidad Unicode no vacía sin normalizar ni consultar registry, captura anidada y diagnóstico | [F3-B](#f3-b), experiment_config.js; F3B-01–18. Config válida no garantiza factory disponible |
 | F3C-P01/02 | **Solo rama**, ENGINEERING DECISION autorizada: metadata Number seguro y entity_states Map; esquema/valores recuperados diferenciados | [F3-C](#f3-c); F3C-07/14/15/17/19. Límites de metadata no atribuidos al texto histórico |
 | F3C-P03/04 | **Solo rama**, precisiones técnicas de conversión exacta/puntero y preparación sin publicación | [F3-C](#f3-c); F3C-14–22. Alternativas completas no enumeradas en ese registro; no suponerlas recuperadas |
+| F3D-P01 / F3D-P02 / F3D2-P01 | Acumulador vigente; rechazo provisional de hashes sustituido por WLS1 real; contexto de validación y APIs son ENGINEERING DECISION | [F3-D/2](#f3-d2), hash_state.js; 15 pruebas nuevas y F3-D original intacto. Layout/tags son HISTORICAL RECOVERED, no ingeniería |
 | P0-3 / nulabilidad F3-C | NORMATIVE: sustituye equivalencia heredada de tres nulos; action y action_result presentes, WAIT real sin agente | [F3-C](#f3-c), §§20.2/22/32; F3C-18 y kernel F3-A. No nulos fabricados |
 
 <a id="historial-integracion"></a>
@@ -255,8 +262,8 @@ La consolidación no autoriza implementarlos ni iniciar F3-D.
 | WORLD | F2-A/B proporcionan tipos, snapshots, generación y selección; F2-C lifecycle <= y preparación. F2-D/E/F mantienen acciones, dinámica y observación verificadas localmente bajo sus políticas documentadas. F2-G cierra initialize_world → InitialWorldResult y adapta World.initialize a la misma ruta: validación de eventos crudos, lifecycle/sync únicos, snapshots separados y atomicidad local (21 pruebas nuevas). F2-H añade eventos operacionales crudos preparados antes de confirmar acciones (15 pruebas nuevas), sustituyendo ACT-P04. INIT-004 resuelta por aclaración autorizada; TR-008 resuelta para carga/inicialización en runner. No equivale a F2 completo o conformidad global. |
 | EXPERIMENT | F3-A añade núcleo independiente determine_termination/execute_tick/execute_tick_transaction, con rollback WorldState+PRNG, uint64 exacto y salidas F3A-P01–03 autorizadas (40 pruebas locales). Experiment.run/run_without_agent y consumidores no migrados; configuración migrada por F3-B. TR-005 parcialmente resuelta solo en núcleo; integración del ciclo sigue pendiente. |
 | Observaciones / agentes | F2-F implementa observación pura tick/self/local_view, BOUNDED, OUT_OF_BOUNDS, occupied=false y RESOURCE sin distinción de stock (18 pruebas locales). Subesquemas y capacidad documentados como OBS-P01–03, no conformidad histórica demostrada. Agentes sin cambios ni nueva auditoría; integración no verificada. |
-| Recorder / hashes | **main PR #17: F3-C parcial integrado**, 24 pruebas; registra iniciales/prepara datos, sin publicar StepRecords. **Rama F3-D: PARTIAL/BLOCKED**, FNV sobre bytes verificado; APIs hash/serialización rechazan en lugar de devolver texto. §34/V1 ausentes: RECORDER no se completa. [Detalle vigente](#f3-d). |
-| Replay / WLS1 / Metrics | Pendientes: no se encontraron implementaciones en el árbol JS inspeccionado. T20 legacy vuelve a ejecutar Experiment; no implementa replay. Ausencia no clasificada como defecto de F1-A/B. |
+| Recorder / hashes | main PR #18 conserva F3-C parcial. Rama F3-D/2 completa WLS1 WORLD/FULL y hashes con V1 recuperado; se sustituye el bloqueo provisional de hash_state.js. RECORDER permanece idéntico y no publica StepRecords. 303 pruebas locales, sin conformidad global; [evidencia vigente](#f3-d2). |
+| Replay / WLS1 / Metrics | Rama F3-D/2 implementa WLS1 y hashes, verificados con V1 recuperado y oráculos independientes; replay y Metrics siguen sin implementar. T20 legacy repite Experiment y no es replay. No hay interoperabilidad global demostrada. |
 | Renderer / entrada web | Legacy presente, sin cambios ni validación de navegador/render. La inicialización de World en el runner ya funciona; no acredita la aplicación completa ni la orquestación experimental. |
 | Integración y conformidad global | No verificadas. UNKNOWN respecto al cumplimiento global; no existe evidencia ejecutada de T01–T280 ni interoperabilidad. §37 no se satisface con las pruebas locales. |
 
@@ -301,7 +308,7 @@ resoluciones ni permiten declarar integración global.
 
 | ID | Componente | Evidencia | Impacto | Resolución prevista | Estado | Condición verificable de cierre / siguiente dependencia |
 |---|---|---|---|---|---|---|
-| TR-001 | Corpus normativo | Fragmentos F2-B/C/G/H disponibles en main; la resolución transmitida F3-C añade en rama: source, StepRecord.tick y entity_states ahora disponibles; límites RecordedEvent/sequence precisados técnicamente por F3C-P01 | Se habilita capacidad inicial/preparación; WLS1/hashes y otras cláusulas históricas siguen pendientes | Aplicar solo fragmentos recibidos; distinguir políticas y no fabricar StepRecord con hashes ausentes | Parcialmente resuelta; VERIFIED fragmentos/22 pruebas F3-C, no lectura de documento histórico completo ni conformidad global | WLS1: fuente/bytes/vectores completos y hashes verificados antes de confirmar StepRecord con pruebas de atomicidad. Corpus restante trazado a implementación/tests; no cerrar todo TR-001 por un fragmento. |
+| TR-001 | Corpus normativo | F3-D/2 recibe §34.1–9, layout y V1 completos; otros fragmentos F2/F3 conservan procedencia. No se leyó el documento histórico completo | Se cierra el bloqueo de bytes/hashes en rama F3-D/2; quedan otras cláusulas y V2–V10 | [Fuente, V1 y pruebas F3-D/2](#f3-d2); no reconstruir lo aún ausente ni ampliar RECORDER | Parcialmente resuelta; WLS1 VERIFIED localmente, no conformidad global | Mantener evidencia exacta; RECORDER B requiere pruebas de publicación/atomicidad en incremento autorizado; otras cláusulas requieren fuentes/tests respectivos. |
 | TR-002 | EntityState y creación | F2-A/C aportaron tipos/preparación; F2-G World.initialize llama initialize_world y adopta copia tipada independiente con lifecycle/config explícitos | Resuelta la ruta de creación heredada inválida; consumidores no migrados al ciclo canónico completo | Conservar pruebas F2G-01/05/13/16; integrar eventos/ciclo solo en alcance autorizado | VERIFIED ejecución F2-G; creación y adaptación inicial resueltas, integración experimental pendiente | Creación local ya cerrada en F2-G; integración: consumir InitialWorldResult y eventos sin duplicar lifecycle, con prueba del ciclo real. |
 | TR-003 | Movimiento / observación | F2-D verifica MOVE BOUNDED; F2-F elimina módulo de build_observation y verifica centro/bordes/esquinas/mapas estrechos con F2F-02–07 | Movimiento y proyección espacial corregidos localmente; orquestación experimental no verificada | Conservar evidencia local y comprobar consumidores cuando se integren; subesquemas/capacidad OBS-P01–03 explícitos | VERIFIED ejecución F2-D/F2-F; divergencia espacial resuelta en alcance local, sin certificar aplicación completa | Bordes/BOUNDED locales ya verificados; integración: consumidor real conserva geometría, privacidad y radio con pruebas alcanzadas. |
 | TR-004 | Configuración / daño | apply_action usa campos canónicos, verificados en F2-D; tras F2-G legacy T14 alcanza fallo de factory makeHazard ausente | Campo de daño corregido localmente; runner heredado no acredita aplicación de peligro | Conservar pruebas focalizadas y resolver consumidores en su alcance; ACT-P03 y detalles ACT-H01/02 siguen pendientes de contraste histórico | VERIFIED F2-D y diagnóstico F2-G; integración de daño no certificada | Mantener pruebas de daño/coste reales; consumidor integrado demuestra efecto y eventos sin factories legacy. |
@@ -309,7 +316,7 @@ resoluciones ni permiten declarar integración global.
 | TR-006 | FeedbackConfig / Feedback | Orden F2-I transmite §17 histórico: expose_validity=true, expose_reason=false, expose_events=false, expose_energy_delta=true, booleanos exactos y Feedback cerrado | Eliminados flags incompletos, coerciones y esquema legacy; FB-P01–03 documentan detalles de proyección no recuperados | Conservar 18 casos F2-I y verificar uso por consumidores en futuro alcance, sin adaptar agentes/EXPERIMENT ahora | VERIFIED lectura de fragmento/ejecución F2-I; resuelta localmente configuración/proyección, no integración ni conformidad histórica de marcadores ocultos | Proyección local cerrada; integración con agente/ciclo preserva flags y nulabilidad. Representación histórica solo se cierra con fuente auténtica. |
 | TR-007 | ExperimentConfig | F3-B constructor/validate_ExperimentConfig aceptan cinco campos cerrados, uint32 no nulo, max_ticks uint64 exacto, WORLD/Feedback canónicos e identificador F3B-P01 independiente del registro | Se eliminan restricción max_ticks>0, normalización de semilla y acoplamiento de aceptación a AGENT_REGISTRY; bucles siguen legacy | Integrar configuración sin convertir límites ni asumir disponibilidad de factory; inspección F1-B sigue parcial | VERIFIED F3B-01–18; resuelta configuración local, gramática histórica del identificador e integración pendientes | Configuración local cerrada; factory/agent resueltos explícitamente y probados sin restringir silenciosamente agent_type. |
 | TR-008 | Carga / integración inicial | initialize_world y World.initialize funcionan mediante una ruta común; F2G-01/09–13/16–21; legacy supera construcción inicial y pasa de 4 PASS/18 FAIL a 10 PASS/12 FAIL | El bloqueo EntityState/World.initialize anterior está resuelto. Persisten fallos posteriores ajenos al incremento y no se verificó navegador/render | Conservar evidencia local y adaptar EXPERIMENT/RECORDER posteriormente; no confundir inicialización con aplicación completa | VERIFIED ejecución F2-G; resuelta carga/inicialización en runner, integración global no verificada | Carga/inicialización Node cerrada; navegador ejecuta entrada real, agentes y renderer con snapshots sin mutación; no basta cargar scripts. |
-| TR-009 | Suite legacy | VERIFIED ejecución DOC-02 en ambos SHA: 10 PASS/12 FAIL. main: nueve EffectKind, makeResource, makeHazard y T16 invalid initial_state; F3-C cambia T06/07/08/20/22 a recording failed | Igualdad de conteos no demuestra ausencia de regresión; interfaz de registro antigua retirada/bloqueada solo en F3-C. T16 exige toro y no garantiza FREE | Mantener expectativas intactas, separar incompatibilidades y comprobar rutas realmente alcanzadas | Evidencia diferenciada por rama; no suite canónica T01–T280 | Cada fallo tiene causa y ruta verificadas; migraciones autorizadas y tests pertinentes prueban la operación, no solo un conteo igual. |
+| TR-009 | Suite legacy | Base PR #18: 10 PASS/12 FAIL; rama F3-D/2: 13 PASS/9 FAIL, T04/T19/T21 ahora pasan con hashes reales | Continúan cinco recording failed de Recorder y cuatro incompatibilidades restantes; no certifica replay | Mantener expectativas y causas por rama; [detalle F3-D/2](#f3-d2) | VERIFIED ejecución F3-D/2, sin nuevas causas de fallo | Migraciones autorizadas deben alcanzar las operaciones afectadas; no basta igualdad de conteos o éxito local. |
 | TR-010 | uint64 e integración | F3-A conserva uint64; §22 recuperado exige StepRecord.tick Number seguro. F3-C convierte BigInt pequeño solo sin pérdida y rechaza tick no representable. RecordedEvent/sequence Number seguro según F3C-P01 | Incompatibilidad de frontera permanece para ticks >MAX_SAFE_INTEGER, sin reducir max_ticks ni tocar núcleo/config | Resolver integración/persistencia y hashes en autorización posterior; no cast con pérdida | VERIFIED F3C-07/14/17 y F3-A; representación de registro acotada, integración de dominio completo pendiente | Decisión de integración/persistencia compatible con ambos dominios y pruebas en MAX_SAFE_INTEGER/uint64; sin pérdida ni reducción implícita. |
 
 No se identificó una desviación normativa nueva no autorizada mediante esta
@@ -1803,7 +1810,7 @@ ningún StepRecord con hashes provisionales, nulos o de prueba. Condiciones de c
 siguen en TR-001/005/010; merge a main y comienzo de F3-D requieren otra autorización.
 
 <a id="f3-d"></a>
-## F3-D — PARTIAL; puerta WLS1 BLOCKED
+## Corte histórico F3-D — PARTIAL; puerta WLS1 BLOCKED
 
 Corte 2026-11-10 (America/Guayaquil). Rama dev/f3-d-wls1-hashes desde
 main `4cde54c7c966530aa7ed59c48d10ea630130dfaa`, posterior al PR #17: F3-C ya
@@ -1902,3 +1909,169 @@ No hay conformidad WLS1/global, replay o interoperabilidad verificados.
 Solo se modifican core/hash.js, experiment/hash_state.js, tests/f3-d.test.cjs y
 este documento. Sin cambios a norma, WORLD, PRNG, F3-A, ExperimentConfig, bucles,
 Recorder, agentes, web ni renderer. Sin merge/despliegue ni avance de incremento.
+
+<a id="f3-d2"></a>
+## F3-D/2 — WLS1 y hashes COMPLETED en el alcance contractual disponible
+
+Corte 2026-11-10 (America/Guayaquil). Base main posterior al PR #18:
+`fa79ad6a990ea8b1b477868c1e4a81e05d25f481`; rama dev/f3-d2-wls1-completion.
+**Puerta READY; implementación VERIFIED localmente.** El bloqueo de layout/V1 de
+F3-D se resuelve por el fragmento auténtico transmitido en la orden F3-D/2.
+No equivale a conformidad global ni Hito C. RECORDER B no se implementa.
+
+### Fuente recuperada y contraste de consistencia
+
+**HISTORICAL RECOVERED:** §34.1–9 atribuido por el responsable a WORLD-LAB v0.2.4
+Canonical, Texto pegado(5).txt. Fuente recibida: orden ejecutiva F3-D/2,
+SHA-256 `47db32068e479861054f03e85123b1e927b7be17da94a41cca540143ae46cd40`.
+VERIFIED: lectura del fragmento y contraste con §§6.4/7–9/24/34 v0.2.5.
+REPORTED: recuperación/autenticidad del documento externo completo, que no se leyó
+íntegramente. El fragmento incorporado tiene autoridad normativa en su ámbito;
+no se atribuye esa autoridad a las decisiones de interfaz JS.
+
+| Cláusula recuperada | Regla exacta aplicada |
+|---|---|
+| §34.1/2 | Magic 57 4C 53 31; enteros y binary64 big-endian; enums uint8; campos en orden fijo |
+| §34.3 WORLD | magic[4], time[uint64], width[uint32], height[uint32], cells(y,x), entity_count[uint32], entidades ordenadas por ID |
+| Orden de IDs | Comparación byte-wise UTF-8 sin signo; prefijo corto primero |
+| §34.4 Cell | traversal uint8 FREE=0/BLOCKED=1; effect uint8 NONE=0/RESOURCE=1/HAZARD=2; stock uint8 0 para NONE/HAZARD, 0 o1 para RESOURCE |
+| §34.5 Entity | id_length[uint32] en bytes UTF-8, id_utf8, x[uint32], y[uint32], energy[binary64], lifecycle[uint8] ACTIVE=0/DEAD=1 |
+| §34.6/7 FULL | WORLD concatenado con rng_state[uint32]; RNG no aparece en WORLD |
+| §34.8, v0.2.5 §6.4/P1-4 | energy finita; -0→+0 antes de codificar, demás bits binary64 conservados |
+| §34.9 | V1 FULL de59 bytes recuperado; V2–V10 y hashes de referencia pendientes; Hito C exige referencia y segunda implementación |
+
+No hay contradicción material con v0.2.5. El esquema admite exactamente una entidad:
+se mantiene esa restricción aunque la serialización defina ordenación general.
+ACTIVE con energía0 es un estado estructural válido: no se deduce lifecycle de la
+energía ni se ejecuta inicialización/lifecycle para fabricar V1; death_threshold
+no forma parte de WorldState ni de sus bytes.
+
+### V1 preservado y resultados exactos
+
+Estado representado: time0; width1/height1; FREE/NONE; una entidad con ID0987898,
+posición(0,0), energía+0, lifecycleACTIVE; rng_state1.
+
+Bytes FULL **recuperados**, agrupados como en la orden (59):
+
+```text
+57 4C 53 31
+00 00 00 00 00 00 00 00
+00 00 00 01
+00 00 00 01
+00 00 00
+00 00 00 01
+00 00 00 07
+30 39 38 37 38 39 38
+00 00 00 00
+00 00 00 00
+00 00 00 00 00 00 00 00
+00
+00 00 00 01
+```
+
+WORLD son los primeros **55 bytes**; FULL añade los cuatro finales 00 00 00 01.
+La longitud se comprueba antes de implementar y en F3D2-01, sin rellenar bytes.
+Hashes **calculados aquí**, no hashes históricos publicados recuperados:
+
+| Estado V1 | Bytes | FNV-1a decimal | Hex |
+|---|---|---|---|
+| WORLD | 55 | 1615943297 | 0x60515681 |
+| FULL | 59 | 2531032062 | 0x96DC7BFE |
+
+Oráculos: cálculo previo sobre el literal hexadecimal con enteros Python módulo
+2^32 y prueba con BigInt JS; ambos independientes del acumulador Math.imul.
+Para los otros casos, codificador de referencia con Buffer.writeUInt32BE,
+writeBigUInt64BE, writeDoubleBE, Buffer UTF-8 y Buffer.compare, concatenando bloques;
+producción usa DataView y cursor. El esperado no llama al serializador ensayado.
+Los casos adicionales son tests locales, **no V2–V10** ni interoperabilidad completa.
+
+### API, validación y decisiones de ingeniería
+
+En [hash_state.js](../js/experiment/hash_state.js):
+canonical_world_state_bytes(state), canonical_full_state_bytes(state) y
+serialize_world_state(state, include_rng=false) producen Uint8Array nuevos.
+STATE_HASH_WORLD/FULL llaman a fnv1a_bytes sobre sus bytes respectivos. Desaparece
+el rechazo provisional para entradas válidas; no hay ruta textual o hashes falsos.
+Core/hash.js y derivación de semillas no se modifican.
+
+**F3D2-P01 — ENGINEERING DECISION de interfaz/validación:** conservar el nombre
+serialize_world_state y flag opcional booleano estricto (defaultWORLD), en vez de
+romper las llamadas de consumidores o aceptar flags coercionados. Funciones con
+nombres WORLD/FULL evitan depender del flag. WorldState no expone config pública:
+para reutilizar validate_WorldState se infieren width/height del grid y se usa un
+contexto WorldConfig con esos tamaños y los defaults restantes; no se modifica
+WORLD ni se añaden campos. Esos defaults no se serializan ni determinan energía,
+lifecycle o mecánicas. Se validan MAX_CELLS, matriz densa/rectangular y todos los
+contratos existentes antes de asignar salida. Alternativa de duplicar validadores
+se descarta para conservar una sola definición estructural.
+
+Acepta WorldState tipado o registro estructural válido con Map del mismo ámbito,
+como el predicado F1-B. Errores de datos/flag → ContractError("recording failed"),
+diagnóstico F3D-P02 conservado dentro del catálogo §26.6. No finitos, BigInt fuera
+de uint64, Number inseguro, RNG0/fuera de uint32, IDs inválidos y esquemas ajenos
+se rechazan sin reparación ni truncación. El orden espacial y los tags son
+HISTORICAL RECOVERED, **no** políticas de ingeniería. Los valores de tiempo se
+convierten a BigInt solo después de validar, sin pérdida ni reducción del dominio.
+Capacidad de asignación del proceso puede producir RangeError operacional; no se
+promete memoria infinita ni se añade un nuevo límite normativo.
+
+**F3D-P01 vigente:** acumulador de bytes y wrapper UTF-8 sin cambios.
+**F3D-P02 sustituida para datos válidos:** ya no hay bloqueo global de APIs; sí
+rechazo de entradas inválidas. Las 12 pruebas originales F3-D se conservan byte a
+byte; el nombre histórico de F3D-12 menciona bloqueo, pero sus entradas son null y
+un registro vacío/proxy, que siguen siendo inválidos. Esa prueba no acredita
+aceptación válida: F3D2-01–15 la prueban explícitamente.
+
+### Pruebas y regresión por archivo
+
+Node.js v24.22.1, /workspace/yellow. Comando para cada suite:
+`node tests/<archivo>`. Exit0, 0 FAIL/omitidas en todas las suites unitarias.
+
+| Archivo en tests/ | Resultado |
+|---|---|
+| f1-a.test.cjs | 18 PASS |
+| f1-b.test.cjs | 12 PASS |
+| f2-a.test.cjs | 14 PASS |
+| f2-b.test.cjs | 13 PASS |
+| f2-c.test.cjs | 21 PASS |
+| f2-d.test.cjs | 28 PASS |
+| f2-e.test.cjs | 16 PASS |
+| f2-f.test.cjs | 18 PASS |
+| f2-g.test.cjs | 21 PASS |
+| f2-h.test.cjs | 15 PASS |
+| f2-i.test.cjs | 18 PASS |
+| f3-a.test.cjs | 40 PASS |
+| f3-b.test.cjs | 18 PASS |
+| f3-c.test.cjs | 24 PASS |
+| f3-d.test.cjs | 12 PASS, originales intactas |
+| f3-d2.test.cjs | **15 PASS**, nuevas |
+| Total | **303 PASS**; 288 anteriores +15 |
+| node tests/f1-a-legacy.cjs | **13 PASS/9 FAIL**, exit1 |
+| git diff --check | Sin errores |
+
+Correspondencia: F3D2-01/02 V1+hashes; 03/04 tags/orden/posición/lifecycle; 05/06
+UTF-8/longitud/prefijos/orden no UTF-16; 07 uint64 completo y representaciones mixtas;
+08 rng uint32 y WORLD invariante/FULL diferente; 09 binary64 y canonicalización;
+10/11 dominios/esquemas/huecos/getters; 12/13 copias/pureza/PRNG/WorldState real;
+14 flag y default; 15 igualdad estructural independientemente del orden de campos.
+La comparación de IDs se ensaya separadamente porque no se relaja el dominio de
+una sola entidad para probar el sort. Todos los archivos previos de tests son
+idénticos a main; no se cambian expectativas para ocultar incompatibilidades.
+
+Legacy T04/T19/T21 pasan ahora, antes recording failed: alcanzan hashes reales.
+Persisten T06/07/08/20/22 recording failed (RECORDER parcial), T12 makeResource,
+T13 EffectKind, T14 makeHazard y T16 invalid initial_state. No surgen nuevas causas.
+No se interpreta ese avance como certificación de replay o ciclo experimental.
+
+### Cierre y frontera RECORDER
+
+F3-D **COMPLETED bajo los contratos disponibles y pruebas locales**: puerta READY,
+WLS1 WORLD/FULL y V1 exactos, hashes sobre bytes auténticos, regresión verificada.
+V2–V10 siguen pendientes de referencia y segunda implementación para Hito C;
+conformidad global/T01–T280, replay e interoperabilidad siguen no demostrados.
+TR-001 no se cierra íntegramente; TR-010 (uint64 versus StepRecord.tick seguro)
+no se modifica. La dependencia de bytes/hashes para RECORDER ya está disponible,
+pero **RECORDER sigue parcial y sin publicar StepRecords** hasta otro incremento.
+Solo hash_state.js, tests/f3-d2.test.cjs y este documento cambian; no se modifica
+la especificación canónica, WORLD, core/PRNG/semillas, F3-A/B, Recorder, EXPERIMENT,
+agentes, interfaz ni renderer. Sin merge ni despliegue ni inicio de RECORDER B.
