@@ -184,3 +184,164 @@ function replay_trajectory(initial_state, initial_events, actions, world_config,
     if (!validate_ReplayResult_structure(result, context)) throw new ContractError("world transition failed");
     return result;
 }
+
+// F3-H: value equality is structural, independent of hashes and object order.
+function replay_values_equal(a, b, field = "") {
+    if ((field === "time" || field === "tick") && is_uint64(a) && is_uint64(b)) return BigInt(a) === BigInt(b);
+    if (typeof a === "number" && typeof b === "number") return (a === 0 && b === 0) || Object.is(a, b);
+    if (a === b) return true;
+    if (a === null || b === null || typeof a !== "object" || typeof b !== "object") return false;
+    if (a instanceof Map || b instanceof Map) {
+        if (!(a instanceof Map) || !(b instanceof Map) || a.size !== b.size) return false;
+        for (const [key, value] of a) if (!b.has(key) || !replay_values_equal(value, b.get(key))) return false;
+        return true;
+    }
+    if (Array.isArray(a) || Array.isArray(b)) {
+        if (!Array.isArray(a) || !Array.isArray(b) || a.length !== b.length) return false;
+        for (let i = 0; i < a.length; i++) if (!replay_values_equal(feedback_array_item(a, i), feedback_array_item(b, i))) return false;
+        return true;
+    }
+    const keys = Reflect.ownKeys(a);
+    if (keys.length !== Reflect.ownKeys(b).length) return false;
+    return keys.every(key => {
+        const x = Object.getOwnPropertyDescriptor(a, key), y = Object.getOwnPropertyDescriptor(b, key);
+        return x && y && Object.hasOwn(x, "value") && Object.hasOwn(y, "value") && replay_values_equal(x.value, y.value, key);
+    });
+}
+function validate_termination_hint(rr) {
+    try {
+        if (rr.termination_hint === null) return true; // §25.3.2 expressly permits null at any final state
+        if (!["ENTITY_DIED", "MAX_TICKS_REACHED"].includes(rr.termination_hint) ||
+            !has_exact_fields(rr.final_state, ["time", "grid", "entities", "rng_state"]) ||
+            !is_uint64(rr.final_state.time) || !(rr.final_state.entities instanceof Map) || rr.final_state.entities.size !== 1) return false;
+        const entity = rr.final_state.entities.values().next().value;
+        if (rr.termination_hint === "ENTITY_DIED") return entity.lifecycle === "DEAD";
+        return entity.lifecycle === "ACTIVE" && recorder_safe_number(rr.max_ticks_used) &&
+            BigInt(rr.final_state.time) >= BigInt(rr.max_ticks_used);
+    } catch (error) { return false; }
+}
+function derive_termination_reason(rr) {
+    if (!rr || ![null, "ENTITY_DIED", "MAX_TICKS_REACHED"].includes(rr.termination_hint)) throw new ContractError("world transition failed");
+    if (rr.termination_hint !== null) return rr.termination_hint;
+    if (rr.final_state === null) return "INDETERMINATE";
+    const entity = rr.final_state.entities.values().next().value;
+    if (entity.lifecycle === "DEAD") return "ENTITY_DIED";
+    if (BigInt(rr.final_state.time) >= BigInt(rr.max_ticks_used)) return "MAX_TICKS_REACHED";
+    return "INDETERMINATE";
+}
+// Private explicit-context proof: one kernel call per record, no Recorder prefix
+// revalidation and no configuration defaults/inference. Never trusts hashes alone.
+function replay_continuity_proof(rr, context, trajectory_null_mode = false) {
+    const world = replay_world_from_state(context.initial_state, context.world_config);
+    const all_events = context.initial_events.slice();
+    let sequence = BigInt(all_events.length), previous_result = null;
+    for (let i = 0; i < rr.records.length; i++) {
+        const step = feedback_array_item(rr.records, i), action = feedback_array_item(context.actions, i);
+        if (!replay_record_structure(step, context) || !Object.hasOwn(ActionType, action.type) ||
+            !replay_values_equal(step.action, action) || determine_termination(world, context.max_ticks) !== null) return null;
+        const observation = trajectory_null_mode ? null : build_observation(world, world.get_experimental_entity(), context.world_config.observation_radius);
+        const feedback = trajectory_null_mode ? null : build_feedback(observation, previous_result, context.feedback_config);
+        if ((trajectory_null_mode && action.type !== "WAIT") || !replay_values_equal(step.observation, observation) ||
+            !replay_values_equal(step.feedback, feedback)) return null;
+        const confirmed = execute_tick_transaction(world, {type: action.type}, context.max_ticks);
+        if (BigInt(step.tick) !== BigInt(confirmed.tick) || !replay_values_equal(step.world_state, confirmed.world_state) ||
+            !replay_values_equal(step.action_result, confirmed.action_result) ||
+            step.state_hash_world !== STATE_HASH_WORLD(step.world_state) || step.state_hash_full !== STATE_HASH_FULL(step.world_state)) return null;
+        for (const [source, list, raw] of [["action", step.action_events, confirmed.action_events], ["lifecycle", step.lifecycle_events, confirmed.lifecycle_events]]) {
+            if (list.length !== raw.length) return null;
+            for (let j = 0; j < list.length; j++) {
+                const event = feedback_array_item(list, j), expected = raw[j];
+                if (!validate_RecordedEvent(event) || event.type !== expected.type || event.entity_id !== expected.entity_id ||
+                    !replay_values_equal(event.position, expected.position) || event.source !== source ||
+                    BigInt(event.tick) !== BigInt(confirmed.tick) || BigInt(event.sequence) !== sequence) return null;
+                sequence++; all_events.push(event);
+            }
+        }
+        if (!replay_values_equal(step.entity_states, confirmed.world_state.entities)) return null;
+        previous_result = confirmed.action_result;
+    }
+    if (!replay_values_equal(rr.final_state, world.state) || !replay_values_equal(rr.events, all_events)) return null;
+    return {final_state: world.state, termination: determine_termination(world, context.max_ticks)};
+}
+// Published three-argument signature is retained. Physics/Feedback context is
+// unavailable here; nonempty standalone validation is explicitly PARTIAL.
+function validate_replay_continuity(rr, initial_state, actions) {
+    if (!rr || !Array.isArray(rr.records) || !replay_valid_action_list(actions) ||
+        !has_exact_fields(initial_state, ["time", "grid", "entities", "rng_state"])) return false;
+    if (rr.records.length === 0) return true; // empty per-step invariant
+    throw new ContractError("world transition failed");
+}
+const REPLAY_ERROR_CATALOG = Object.freeze(["invalid world_config", "invalid feedback_config", "invalid initial_state",
+    "invalid initial_events", "invalid action structure", "invalid expected_steps", "invalid max_ticks",
+    "initial_state.time > max_ticks", "invalid initial_position", "world transition failed", "recording failed",
+    "rng zero state", "agent produced structurally invalid action"]);
+function replay_context_values(context) {
+    return validate_replay_inputs(context.initial_state, context.initial_events, context.actions,
+        context.world_config, context.feedback_config, context.expected_steps, context.max_ticks);
+}
+function validate_ReplayResult(rr, request_context) {
+    try {
+        const c = request_context;
+        if (!c || !replay_counter_parameters(c.expected_steps, c.max_ticks) ||
+            !has_exact_fields(rr, REPLAY_RESULT_FIELDS) || !REPLAY_STATUSES.includes(rr.status)) return false;
+        if (rr.status === "INVALID_REPLAY_INPUT") {
+            if (validate_WorldConfig(c.world_config) && validate_WorldState(c.initial_state, c.world_config) && BigInt(c.initial_state.time) > 0n) return false;
+            try { replay_context_values(c); return false; }
+            catch (error) { return validate_ReplayResult_structure(rr, c) && REPLAY_ERROR_CATALOG.includes(rr.error_message) && rr.error_message === error.message; }
+        }
+        const context = replay_context_values(c);
+        if (!Array.isArray(rr.records) || !Array.isArray(rr.events) || !recorder_safe_number(rr.executed) ||
+            rr.executed !== rr.records.length || rr.executed > context.expected_steps ||
+            !recorder_safe_number(rr.unused_actions) || rr.unused_actions !== Math.max(0, context.actions.length - rr.executed) ||
+            !recorder_safe_number(rr.max_ticks_used) || BigInt(rr.max_ticks_used) !== BigInt(context.max_ticks) ||
+            rr.expected_steps_used !== context.expected_steps || !recorder_safe_number(rr.expected_steps_used) ||
+            !validate_WorldState(rr.final_state, context.world_config) || !replay_array_every(rr.events, validate_RecordedEvent)) return false;
+        const proof = replay_continuity_proof(rr, context);
+        if (!proof || !validate_termination_hint(rr)) return false;
+        if (rr.status === "OK") return rr.executed === context.expected_steps && rr.error_message === null && rr.unknown_action_index === null;
+        if (rr.termination_hint !== null) return false;
+        if (rr.status === "EXECUTION_ERROR") return rr.unknown_action_index === null && REPLAY_ERROR_CATALOG.includes(rr.error_message);
+        if (rr.executed >= context.expected_steps || rr.error_message !== null) return false;
+        if (rr.status === "UNKNOWN_ACTION") return proof.termination === null && rr.unknown_action_index === rr.executed &&
+            rr.executed < context.actions.length && !Object.hasOwn(ActionType, context.actions[rr.executed].type);
+        if (rr.unknown_action_index !== null) return false;
+        if (rr.status === "INCOMPLETE_ACTION_SEQUENCE") return proof.termination === null && rr.executed === context.actions.length;
+        return proof.termination === (rr.status === "EARLY_TERMINATION" ? "ENTITY_DIED" : "MAX_TICKS_REACHED");
+    } catch (error) { return false; }
+}
+function replay_original_context(original, world_config) {
+    if (!has_exact_fields(original, ["experiment_config", "initial_state", "steps", "events", "termination_reason", "metadata"]) ||
+        !validate_ExperimentConfig(original.experiment_config) || !replay_values_equal(world_config, original.experiment_config.world_config) ||
+        !Array.isArray(original.steps) || !Array.isArray(original.events) ||
+        !["ENTITY_DIED", "MAX_TICKS_REACHED", "AGENT_CONTRACT_ERROR"].includes(original.termination_reason)) return null;
+    if (!validate_WorldState(original.initial_state, world_config)) return null;
+    const count = original.initial_state.entities.values().next().value.lifecycle === "DEAD" ? 1 : 0;
+    const context = replay_context_values({world_config, feedback_config: original.experiment_config.feedback_config,
+        initial_state: original.initial_state, initial_events: original.events.slice(0, count),
+        actions: original.steps.map(step => step.action), expected_steps: original.steps.length,
+        max_ticks: original.experiment_config.max_ticks});
+    const end = original.steps.length === 0 ? original.initial_state : original.steps[original.steps.length - 1].world_state;
+    const null_mode = original.steps.length > 0 && original.steps[0].observation === null;
+    const proof = replay_continuity_proof({records: original.steps, events: original.events, final_state: end}, context, null_mode);
+    if (!proof || (original.termination_reason === "AGENT_CONTRACT_ERROR" ? proof.termination !== null : original.termination_reason !== proof.termination)) return null;
+    return context;
+}
+function validate_replay(original, rr, world_config) {
+    // JS envelope and reason strings are engineering diagnostics, not recovered
+    // normative error-message categories. Metadata is deliberately opaque.
+    const mismatch = reason => ({status: "MISMATCH", reason});
+    try {
+        const context = replay_original_context(original, world_config);
+        if (!context) return mismatch("invalid original trajectory");
+        if (!validate_ReplayResult(rr, context)) return mismatch("invalid ReplayResult");
+        if (rr.status !== "OK") return mismatch("replay status is not OK");
+        if (rr.expected_steps_used !== original.steps.length || rr.records.length !== original.steps.length) return mismatch("step count mismatch");
+        if (!replay_values_equal(rr.records, original.steps)) return mismatch("StepRecord mismatch");
+        const final_state = original.steps.length === 0 ? original.initial_state : original.steps[original.steps.length - 1].world_state;
+        if (!replay_values_equal(rr.final_state, final_state)) return mismatch("final state mismatch");
+        if (!replay_values_equal(rr.events, original.events)) return mismatch("events mismatch");
+        const termination = derive_termination_reason(rr);
+        if (termination === "INDETERMINATE" || termination !== original.termination_reason) return mismatch("termination mismatch");
+        return {status: "MATCH"};
+    } catch (error) { return mismatch("invalid validation input"); }
+}
