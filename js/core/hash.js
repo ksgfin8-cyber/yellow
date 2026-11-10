@@ -10,11 +10,23 @@ function fnv1a(text) {
     }
 
     // Convertir a UTF-8 explícitamente para evitar dependencias del navegador.
-    const bytes = utf8_encode(text);
+    return fnv1a_bytes(utf8_encode(text));
+}
+
+// F3-D independent byte accumulator; this does not define a WLS1 layout.
+function fnv1a_bytes(bytes) {
+    if (!Array.isArray(bytes) && !(bytes instanceof Uint8Array)) {
+        throw new ContractError("recording failed");
+    }
 
     let hash = FNV_OFFSET_BASIS >>> 0;
     for (let i = 0; i < bytes.length; i++) {
-        hash = (hash ^ bytes[i]) >>> 0;
+        const item = Object.getOwnPropertyDescriptor(bytes, String(i));
+        if (!item || !Object.hasOwn(item, "value") ||
+            !Number.isInteger(item.value) || item.value < 0 || item.value > 255) {
+            throw new ContractError("recording failed");
+        }
+        hash = (hash ^ item.value) >>> 0;
         // Multiplicación módulo 2^32 sin pérdida de precisión:
         // usar Math.imul para multiplicación de 32 bits.
         hash = Math.imul(hash, FNV_PRIME) >>> 0;

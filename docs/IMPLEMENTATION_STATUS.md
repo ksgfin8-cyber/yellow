@@ -4,7 +4,13 @@ Documento **informativo y operacional**. Consolidación DOC-02: **2026-11-10
 (America/Guayaquil)**. Rama documental `dev/doc-02-knowledge-consolidation`, creada
 sobre `origin/main`; aquel cambio no incorporaba código ni pruebas de F3-C.
 
-**Actualización vigente: integración parcial F3-C, 2026-11-10.** Rama
+**Actualización vigente F3-D: PARTIAL, puerta WLS1 BLOCKED (2026-11-10).**
+Base main `4cde54c7c966530aa7ed59c48d10ea630130dfaa`, posterior al PR #17:
+F3-C está integrado y sigue parcial. En dev/f3-d-wls1-hashes se verifica el
+acumulador FNV sobre bytes, pero faltan layout §34 y V1; hashes canónicos no
+disponibles y RECORDER no se completa. Véase [F3-D](#f3-d), 288 pruebas locales.
+
+**Corte de integración F3-C previo, 2026-11-10.** Rama
 `dev/f3-c-recorder` sincronizada con main `2846a8560c00daef85d91c9a9feffa7456862039`
 mediante merge `cccb7b4b6cc80f4a22a30c14ac66476063946df4`. main contiene DOC-02,
 pero **F3-C sigue sin merge hacia main**. RECORDER continúa parcial, B bloqueada.
@@ -37,7 +43,8 @@ replay completo. El alcance B no está completo en ninguna de las dos referencia
 
 | Necesidad | Fuente única para el detalle |
 |---|---|
-| Integración F3-C vigente y frontera WLS1 | [Merge, corrección y pruebas](#integracion-f3-c); [contratos requeridos para F3-D](#frontera-f3-d) |
+| Estado F3-D vigente | [Puerta WLS1, funciones, pruebas y bloqueo](#f3-d) |
+| Integración F3-C previa y frontera WLS1 | [Merge, corrección y pruebas](#integracion-f3-c); [contratos requeridos para F3-D](#frontera-f3-d) |
 | Autoridad y significado de evidencia | [Autoridad](#autoridad); [especificación canónica](WORLD-LAB_v0.2.5_canonical_transcripcion.md) |
 | Contrato → componente → pruebas | [Mapa del repositorio](#mapa-repositorio); [estado por componente](#estado-componentes) |
 | Decisión vigente, sustitución y justificación | [Índice de decisiones](#decisiones-vigentes); cada enlace lleva al expediente existente |
@@ -248,7 +255,7 @@ La consolidación no autoriza implementarlos ni iniciar F3-D.
 | WORLD | F2-A/B proporcionan tipos, snapshots, generación y selección; F2-C lifecycle <= y preparación. F2-D/E/F mantienen acciones, dinámica y observación verificadas localmente bajo sus políticas documentadas. F2-G cierra initialize_world → InitialWorldResult y adapta World.initialize a la misma ruta: validación de eventos crudos, lifecycle/sync únicos, snapshots separados y atomicidad local (21 pruebas nuevas). F2-H añade eventos operacionales crudos preparados antes de confirmar acciones (15 pruebas nuevas), sustituyendo ACT-P04. INIT-004 resuelta por aclaración autorizada; TR-008 resuelta para carga/inicialización en runner. No equivale a F2 completo o conformidad global. |
 | EXPERIMENT | F3-A añade núcleo independiente determine_termination/execute_tick/execute_tick_transaction, con rollback WorldState+PRNG, uint64 exacto y salidas F3A-P01–03 autorizadas (40 pruebas locales). Experiment.run/run_without_agent y consumidores no migrados; configuración migrada por F3-B. TR-005 parcialmente resuelta solo en núcleo; integración del ciclo sigue pendiente. |
 | Observaciones / agentes | F2-F implementa observación pura tick/self/local_view, BOUNDED, OUT_OF_BOUNDS, occupied=false y RESOURCE sin distinción de stock (18 pruebas locales). Subesquemas y capacidad documentados como OBS-P01–03, no conformidad histórica demostrada. Agentes sin cambios ni nueva auditoría; integración no verificada. |
-| Recorder / hashes | **main: Recorder y hashes legacy**. **Rama F3-C GO parcial**: registro inicial, RecordedEvent/source, secuencias y replay inicial, InitializationFailure fuera de Trajectory, RecordTransaction para operaciones iniciales y preparación interna de entradas reales F3-A (22 pruebas). record_step no publica StepRecord: bloqueado hasta hashes WLS1 verificados. Hashes legacy intactos y aislados; no se reescribe rng_state. Atomicidad completa de pasos e integración siguen pendientes. |
+| Recorder / hashes | **main PR #17: F3-C parcial integrado**, 24 pruebas; registra iniciales/prepara datos, sin publicar StepRecords. **Rama F3-D: PARTIAL/BLOCKED**, FNV sobre bytes verificado; APIs hash/serialización rechazan en lugar de devolver texto. §34/V1 ausentes: RECORDER no se completa. [Detalle vigente](#f3-d). |
 | Replay / WLS1 / Metrics | Pendientes: no se encontraron implementaciones en el árbol JS inspeccionado. T20 legacy vuelve a ejecutar Experiment; no implementa replay. Ausencia no clasificada como defecto de F1-A/B. |
 | Renderer / entrada web | Legacy presente, sin cambios ni validación de navegador/render. La inicialización de World en el runner ya funciona; no acredita la aplicación completa ni la orquestación experimental. |
 | Integración y conformidad global | No verificadas. UNKNOWN respecto al cumplimiento global; no existe evidencia ejecutada de T01–T280 ni interoperabilidad. §37 no se satisface con las pruebas locales. |
@@ -1794,3 +1801,104 @@ endianness, tamaños o vectores nuevos ni les atribuye autoridad histórica.
 No se modifican hash_state.js ni core/hash.js. B sigue bloqueada y no se publica
 ningún StepRecord con hashes provisionales, nulos o de prueba. Condiciones de cierre
 siguen en TR-001/005/010; merge a main y comienzo de F3-D requieren otra autorización.
+
+<a id="f3-d"></a>
+## F3-D — PARTIAL; puerta WLS1 BLOCKED
+
+Corte 2026-11-10 (America/Guayaquil). Rama dev/f3-d-wls1-hashes desde
+main `4cde54c7c966530aa7ed59c48d10ea630130dfaa`, posterior al PR #17: F3-C ya
+está integrado con sus 24 pruebas y conserva su alcance parcial. La orden ejecutiva
+F3-D permite trabajo independiente si el layout incorporado está ausente, y prohíbe
+mantener hashes textuales operativos bajo nombres canónicos. No autoriza completar
+RECORDER ni su publicación de StepRecords.
+
+### Puerta contractual y procedencia
+
+**Resultado: BLOCKED para serialización WLS1 y hashes WORLD/FULL; PARTIAL para
+el incremento.** Ninguna cláusula histórica binaria nueva fue recuperada.
+La orden recibida enumera verificaciones, pero no proporciona layout ni V1.
+
+VERIFIED por lectura/Git: §24 fija constantes/composición y §34 remite al texto
+v0.2.4. En main solo hay cinco documentos; el commit de incorporación a154b14
+contiene la transcripción v0.2.5. Las rutas históricas docs/specifications en
+909a43f y baa785e miden un byte (LF), no son §34. El historial pertinente no aporta
+layout ni V1. No se afirma inspección de un archivo histórico externo completo.
+La matriz [frontera F3-D](#frontera-f3-d) conserva los requisitos de recuperación;
+se precisa aquí qué pudo ejecutarse, sin reconstruir la norma con legacy.
+
+| Regla | Clasificación / fuente disponible | Estado de puerta |
+|---|---|---|
+| FNV-1a, offset 0x811c9dc5, primo 0x01000193, uint32; hashes de bytes canónicos | NORMATIVE §24/§34; acumulador independiente implementado | VERIFIED sobre bytes, no WLS1 |
+| FULL = WORLD + RNG; no agente/trayectoria | NORMATIVE §24.2 | Composición conceptual conocida; lista exacta de campos/layout WORLD/FULL UNKNOWN |
+| Magic, versión, orden de campos, anchos, endianness, tags y ausentes | UNKNOWN: §34 histórico incorporado pero no reproducido | BLOCKED; sin decisiones sustitutivas |
+| Celdas (y,x), tipos, stock binario; entidad única y lifecycle explícito | NORMATIVE §§1/7–9 y contratos disponibles | Orden espacial conocido; codificación binaria y orden de entidades WLS1 UNKNOWN |
+| ID UTF-8 no vacío | NORMATIVE §9; codificador estricto existente de §11.6 | Prefijo/ancho/unidad/límite de longitud y reglas WLS1 de ID UNKNOWN; no inferir de length JS o sort legacy |
+| time uint64, rng_state uint32 no cero | NORMATIVE §7; representaciones JS F3A-P01 ENGINEERING DECISION vigente | Dominios preservados; tamaño/orden exactos del layout y endianness requieren fuente |
+| binary64 finito, canonicalize_binary64 salvo -0→+0 | NORMATIVE §§6.3/6.4 y §34 | Helper existente intacto y pruebas F1-B conservadas; bytes WLS1 aún UNKNOWN |
+| V1 completo de 59 bytes | Referencia NORMATIVE §34.9 al histórico; contenido UNKNOWN | Sin estado de entrada ni bytes auténticos: comparación byte a byte NO EJECUTADA |
+| V2–V10 / hashes independientes | §34.9 los declara pendientes | No generados ni atribuidos a referencia normativa |
+
+### Implementación independiente y decisiones acotadas
+
+**F3D-P01 — ENGINEERING DECISION de API:** se añade fnv1a_bytes(bytes) en
+[core/hash.js](../js/core/hash.js). Acepta Array denso de Number enteros 0..255 o
+Uint8Array del mismo ámbito JS; procesa solo la vista, sin coerción, wraparound de
+entradas, lectura de getters, texto intermedio, mutación o RNG. Rechaza huecos,
+accessors y valores inválidos. No se ofrece streaming ni estado mutable externo.
+Alternativas: algoritmo duplicado para UTF-8 o un acumulador común; se elige común.
+fnv1a(text) conserva su firma, errores de tipo/Unicode y vectores: codifica UTF-8
+estricto y delega al mismo acumulador. Math.imul y reducción uint32 se mantienen.
+El error de la API nueva es ContractError("recording failed"), decisión diagnóstica
+usando catálogo §26.6; no se atribuye ese mensaje al contrato histórico de bytes.
+
+**F3D-P02 — ENGINEERING DECISION de bloqueo explícito:**
+[hash_state.js](../js/experiment/hash_state.js) retira la serialización textual.
+serialize_world_state, STATE_HASH_WORLD y STATE_HASH_FULL conservan los nombres
+pero rechazan siempre con ContractError("recording failed"), sin consultar/mutar
+la entrada ni devolver un hash, bytes vacíos, texto o valor provisional. Es una
+operación no disponible, no un serializador definitivo. Frente a renombrar y
+mantener un hash legacy alternativo, se elige fallo explícito sin ruta ambigua.
+No se pretende distinguir errores estructurales de WORLD en un formato que todavía
+no puede ejecutarse. Validación de estados/uint64/binary64 existentes no se cambia.
+
+**Disponibilidad para RECORDER: NO.** El acumulador de bytes está disponible;
+faltan los bytes auténticos que debe consumir. Recorder permanece exactamente
+como en main F3-C: prepara datos y rechaza record_step sin publicar hashes/steps.
+No se alteran las políticas de secuencias, reloj, lifecycle o Feedback.
+
+### Pruebas ejecutadas y pendientes
+
+Node v24.22.1, /workspace/yellow. Comandos directos `node tests/<archivo>`.
+
+| Archivo / grupo | Resultado | Evidencia |
+|---|---|---|
+| f3-d.test.cjs | **12 PASS**, exit0, 0 omitidas | F3D-01: vectores §24.5 sobre ASCII literal; 02–04: todos los bytes, orden inverso, 256 casos unitarios y 65536 bytes contra oráculo BigInt independiente; 05: ventana Uint8Array; 06–08: dominios/sin coerción/huecos/getters; 09: pureza/repetición; 10: wrapper/UTF-8/semillas; 11: sin RNG; 12: APIs bloqueadas sin lectura/mutación ni resultado ficticio |
+| f1-a.test.cjs / f1-b.test.cjs | 18 / 12 PASS | Vectores y contratos preservados |
+| f2-a / f2-b / f2-c / f2-d .test.cjs | 14 / 13 / 21 / 28 PASS | Sin cambios en suites ni contratos |
+| f2-e / f2-f / f2-g / f2-h / f2-i .test.cjs | 16 / 18 / 21 / 15 / 18 PASS | Sin cambios en suites ni contratos |
+| f3-a / f3-b / f3-c .test.cjs | 40 / 18 / 24 PASS | uint64, rollback, configuración y RECORDER parcial conservados |
+| Total unitario | **288 PASS**, exit0 en las 15 suites; 0 FAIL/omitidas | 276 anteriores + 12 nuevas; IDs locales, no T01–T280 |
+| node tests/f1-a-legacy.cjs | **10 PASS / 12 FAIL**, exit1 | Causas diferenciadas abajo; ninguna expectativa modificada |
+| git diff --check | Sin errores | Norma e informes históricos intactos |
+
+Normativos verificados aquí: vectores FNV-1a de §24.5 (vacío/a/foobar) y vectores
+semilla F1-A conservados. Los demás bytes de prueba se contrastan con multiplicación
+BigInt módulo 2^32 independiente de Math.imul; son casos locales, **no V1–V10**.
+No se usa la función ensayada para generar el resultado esperado.
+
+Legacy: T04/06/07/08/19/20/21/22 recording failed; T13 EffectKind; T12 makeResource;
+T14 makeHazard; T16 invalid initial_state. Frente a main cambian **T04/T19/T21**,
+antes EffectKind, ahora rechazo explícito de hash no canónico. Las otras nueve
+causas permanecen. El conteo10/12 no demuestra ausencia de regresiones: se retira
+intencionadamente la capacidad de devolver hashes textuales bajo nombres canónicos.
+
+**UNTESTED/BLOCKED:** bytes/orden/composición WORLD/FULL, efectos/lifecycle/IDs
+serializados, endianness, binary64/uint64 codificados, V1 byte a byte, V2–V10,
+oráculos de hashes de estado, diferencias WORLD/FULL al cambiar solo RNG y
+StepRecords con hashes. No se convierten en tests omitidos contados como PASS.
+Para cerrar, obtener contrato auténtico §34 y V1 completo y ejecutar esas pruebas.
+No hay conformidad WLS1/global, replay o interoperabilidad verificados.
+
+Solo se modifican core/hash.js, experiment/hash_state.js, tests/f3-d.test.cjs y
+este documento. Sin cambios a norma, WORLD, PRNG, F3-A, ExperimentConfig, bucles,
+Recorder, agentes, web ni renderer. Sin merge/despliegue ni avance de incremento.
