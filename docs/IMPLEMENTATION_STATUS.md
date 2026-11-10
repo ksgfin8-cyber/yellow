@@ -4,7 +4,14 @@ Documento **informativo y operacional**. Consolidación DOC-02: **2026-11-10
 (America/Guayaquil)**. Rama documental `dev/doc-02-knowledge-consolidation`, creada
 sobre `origin/main`; aquel cambio no incorporaba código ni pruebas de F3-C.
 
-**Actualización vigente F3-E (2026-11-10): RECORDER B COMPLETED en alcance local.**
+**Actualización vigente F3-F (2026-11-10): ciclo experimental COMPLETED en alcance local.**
+Base main PR #20 `8f8a771d76e88499bba6c2ef3a894fe1f981f346`; rama
+`dev/f3-f-experiment-integration`. Ambos modos producen ExperimentResult y
+trayectorias WLS1; fallos internos se propagan sin reintento ni falso COMPLETED.
+Atomicidad conjunta WORLD/RECORDER no implementada. 350 pruebas locales y medición
+10/100/500 ticks. [Evidencia, errores y límites F3-F](#f3-f).
+
+**Corte previo F3-E (2026-11-10): RECORDER B COMPLETED en alcance local.**
 Base main `bdf347344e47d7908fe327fcef31111905e0a4f9` (PR #19), rama
 `dev/f3-e-recorder-completion`: StepRecords multi-tick completos con hashes WLS1,
 eventos/secuencias y confirmación atómica; Trajectory con copias independientes.
@@ -56,7 +63,8 @@ replay completo. El alcance B no está completo en ninguna de las dos referencia
 
 | Necesidad | Fuente única para el detalle |
 |---|---|
-| Estado RECORDER F3-E vigente | [Pasos, eventos, atomicidad, Trajectory y regresión](#f3-e) |
+| Estado EXPERIMENT F3-F vigente | [Orquestación, resultados, fallos y rendimiento](#f3-f) |
+| Cierre previo RECORDER F3-E | [Pasos, eventos, atomicidad, Trajectory y regresión](#f3-e) |
 | Cierre previo de hashes F3-D/2 | [Contrato recuperado, V1, implementación y pruebas](#f3-d2); [corte F3-D parcial anterior](#f3-d) |
 | Integración F3-C previa y frontera WLS1 | [Merge, corrección y pruebas](#integracion-f3-c); [contratos requeridos para F3-D](#frontera-f3-d) |
 | Autoridad y significado de evidencia | [Autoridad](#autoridad); [especificación canónica](WORLD-LAB_v0.2.5_canonical_transcripcion.md) |
@@ -198,6 +206,7 @@ no nuevos identificadores normativos.
 | F3B-P01–03 | Vigentes ENGINEERING DECISION: identidad Unicode no vacía sin normalizar ni consultar registry, captura anidada y diagnóstico | [F3-B](#f3-b), experiment_config.js; F3B-01–18. Config válida no garantiza factory disponible |
 | F3C-P01/02 | **Solo rama**, ENGINEERING DECISION autorizada: metadata Number seguro y entity_states Map; esquema/valores recuperados diferenciados | [F3-C](#f3-c); F3C-07/14/15/17/19. Límites de metadata no atribuidos al texto histórico |
 | F3C-P03/04 | **Solo rama**, precisiones técnicas de conversión exacta/puntero y preparación sin publicación | [F3-C](#f3-c); F3C-14–22. Alternativas completas no enumeradas en ese registro; no suponerlas recuperadas |
+| F3F-P01–03 | Fail-stop sin rollback conjunto ni categorías públicas nuevas; setup fuera de catch step; detalles por rama §20 | [F3-F](#f3-f), experiment.js; errores y limitaciones explícitos, no norma histórica inventada |
 | F3E-P01/P02; F3C-P04 | Staging F3-C conservado, bloqueo de publicación sustituido por pasos completos; revalidación de prefijo y finalización coherente son precisiones de ingeniería | [F3-E](#f3-e), Recorder; no reejecuta WORLD ni ofrece rollback conjunto con EXPERIMENT |
 | F3D-P01 / F3D-P02 / F3D2-P01 | Acumulador vigente; rechazo provisional de hashes sustituido por WLS1 real; contexto de validación y APIs son ENGINEERING DECISION | [F3-D/2](#f3-d2), hash_state.js; 15 pruebas nuevas y F3-D original intacto. Layout/tags son HISTORICAL RECOVERED, no ingeniería |
 | P0-3 / nulabilidad F3-C | NORMATIVE: sustituye equivalencia heredada de tres nulos; action y action_result presentes, WAIT real sin agente | [F3-C](#f3-c), §§20.2/22/32; F3C-18 y kernel F3-A. No nulos fabricados |
@@ -269,7 +278,7 @@ La consolidación no autoriza implementarlos ni iniciar F3-D.
 | F1-B: contratos | Parcialmente implementado; VERIFIED por ejecución de B01–B12: WorldConfig, binary64, predicados Cell/Entity/WorldState y Action. No incorpora por sí solo esos contratos al motor. |
 | FeedbackConfig / ExperimentConfig | Feedback F2-I verificado localmente. F3-B implementa ExperimentConfig cerrado de cinco campos, semilla exacta, dominio F3A-P01 y copias anidadas inmutables (18 pruebas). TR-007 resuelta en alcance de configuración bajo política de identificador F3B-P01; gramática histórica completa no verificada. Inspector F1-B complete:false conserva su propósito parcial y no es validador canónico. Integración experimental pendiente. |
 | WORLD | F2-A/B proporcionan tipos, snapshots, generación y selección; F2-C lifecycle <= y preparación. F2-D/E/F mantienen acciones, dinámica y observación verificadas localmente bajo sus políticas documentadas. F2-G cierra initialize_world → InitialWorldResult y adapta World.initialize a la misma ruta: validación de eventos crudos, lifecycle/sync únicos, snapshots separados y atomicidad local (21 pruebas nuevas). F2-H añade eventos operacionales crudos preparados antes de confirmar acciones (15 pruebas nuevas), sustituyendo ACT-P04. INIT-004 resuelta por aclaración autorizada; TR-008 resuelta para carga/inicialización en runner. No equivale a F2 completo o conformidad global. |
-| EXPERIMENT | F3-A añade núcleo independiente determine_termination/execute_tick/execute_tick_transaction, con rollback WorldState+PRNG, uint64 exacto y salidas F3A-P01–03 autorizadas (40 pruebas locales). Experiment.run/run_without_agent y consumidores no migrados; configuración migrada por F3-B. TR-005 parcialmente resuelta solo en núcleo; integración del ciclo sigue pendiente. |
+| EXPERIMENT | Rama F3-F integra ambos modos con inicialización única, Feedback, agentes/factories, kernel F3-A y Recorder F3-E; ExperimentResult cerrado. Errores de step → FAILED con prefijo; internos/setup se propagan. Atomicidad conjunta no implementada. 23 pruebas end-to-end nuevas; [evidencia](#f3-f). |
 | Observaciones / agentes | F2-F implementa observación pura tick/self/local_view, BOUNDED, OUT_OF_BOUNDS, occupied=false y RESOURCE sin distinción de stock (18 pruebas locales). Subesquemas y capacidad documentados como OBS-P01–03, no conformidad histórica demostrada. Agentes sin cambios ni nueva auditoría; integración no verificada. |
 | Recorder / hashes | main PR #19 dispone de WLS1 verificado y RECORDER parcial. Rama F3-E completa registro multi-tick y Trajectory con hashes WORLD/FULL, secuencias globales y RecordTransaction; 24 pruebas nuevas. EXPERIMENT sigue sin integrar; [evidencia actual](#f3-e). |
 | Replay / WLS1 / Metrics | Rama F3-D/2 implementa WLS1 y hashes, verificados con V1 recuperado y oráculos independientes; replay y Metrics siguen sin implementar. T20 legacy repite Experiment y no es replay. No hay interoperabilidad global demostrada. |
@@ -321,11 +330,11 @@ resoluciones ni permiten declarar integración global.
 | TR-002 | EntityState y creación | F2-A/C aportaron tipos/preparación; F2-G World.initialize llama initialize_world y adopta copia tipada independiente con lifecycle/config explícitos | Resuelta la ruta de creación heredada inválida; consumidores no migrados al ciclo canónico completo | Conservar pruebas F2G-01/05/13/16; integrar eventos/ciclo solo en alcance autorizado | VERIFIED ejecución F2-G; creación y adaptación inicial resueltas, integración experimental pendiente | Creación local ya cerrada en F2-G; integración: consumir InitialWorldResult y eventos sin duplicar lifecycle, con prueba del ciclo real. |
 | TR-003 | Movimiento / observación | F2-D verifica MOVE BOUNDED; F2-F elimina módulo de build_observation y verifica centro/bordes/esquinas/mapas estrechos con F2F-02–07 | Movimiento y proyección espacial corregidos localmente; orquestación experimental no verificada | Conservar evidencia local y comprobar consumidores cuando se integren; subesquemas/capacidad OBS-P01–03 explícitos | VERIFIED ejecución F2-D/F2-F; divergencia espacial resuelta en alcance local, sin certificar aplicación completa | Bordes/BOUNDED locales ya verificados; integración: consumidor real conserva geometría, privacidad y radio con pruebas alcanzadas. |
 | TR-004 | Configuración / daño | apply_action usa campos canónicos, verificados en F2-D; tras F2-G legacy T14 alcanza fallo de factory makeHazard ausente | Campo de daño corregido localmente; runner heredado no acredita aplicación de peligro | Conservar pruebas focalizadas y resolver consumidores en su alcance; ACT-P03 y detalles ACT-H01/02 siguen pendientes de contraste histórico | VERIFIED F2-D y diagnóstico F2-G; integración de daño no certificada | Mantener pruebas de daño/coste reales; consumidor integrado demuestra efecto y eventos sin factories legacy. |
-| TR-005 | EXPERIMENT / reloj | F3-A verifica orden acción→lifecycle→dinámica→reloj→sync, terminación única y rollback en kernel separado. Los bucles de experiment.js conservan orden legacy | Núcleo transaccional resuelto localmente; todavía no sustituye el ciclo real ni integra Recorder/agentes | Integrar núcleo en incremento posterior y comprobar terminación en los tres puntos del ciclo; no duplicar precedencia | VERIFIED F3A-01–40; parcialmente resuelta, orquestación completa pendiente | EXPERIMENT usa kernel único y evalúa terminación en tres puntos; prueba reloj, WAIT, muerte, rollback y frontera de registro real. |
+| TR-005 | EXPERIMENT / reloj | F3-F integra secuencia canónica mediante F3-A, 23 pruebas; lifecycle/sync únicos por inicialización/tick | Episodios locales completos; fallo WORLD confirmado→Recorder conserva prefijo y se propaga sin retry | [F3-F](#f3-f); no prometer rollback conjunto; registrar política y futuros diagnósticos | Orquestación local resuelta, coordinación global parcial explícita | Cualquier futura recuperación conjunta requiere contrato y prueba; replay/UI siguen fuera de este cierre. |
 | TR-006 | FeedbackConfig / Feedback | Orden F2-I transmite §17 histórico: expose_validity=true, expose_reason=false, expose_events=false, expose_energy_delta=true, booleanos exactos y Feedback cerrado | Eliminados flags incompletos, coerciones y esquema legacy; FB-P01–03 documentan detalles de proyección no recuperados | Conservar 18 casos F2-I y verificar uso por consumidores en futuro alcance, sin adaptar agentes/EXPERIMENT ahora | VERIFIED lectura de fragmento/ejecución F2-I; resuelta localmente configuración/proyección, no integración ni conformidad histórica de marcadores ocultos | Proyección local cerrada; integración con agente/ciclo preserva flags y nulabilidad. Representación histórica solo se cierra con fuente auténtica. |
 | TR-007 | ExperimentConfig | F3-B constructor/validate_ExperimentConfig aceptan cinco campos cerrados, uint32 no nulo, max_ticks uint64 exacto, WORLD/Feedback canónicos e identificador F3B-P01 independiente del registro | Se eliminan restricción max_ticks>0, normalización de semilla y acoplamiento de aceptación a AGENT_REGISTRY; bucles siguen legacy | Integrar configuración sin convertir límites ni asumir disponibilidad de factory; inspección F1-B sigue parcial | VERIFIED F3B-01–18; resuelta configuración local, gramática histórica del identificador e integración pendientes | Configuración local cerrada; factory/agent resueltos explícitamente y probados sin restringir silenciosamente agent_type. |
 | TR-008 | Carga / integración inicial | initialize_world y World.initialize funcionan mediante una ruta común; F2G-01/09–13/16–21; legacy supera construcción inicial y pasa de 4 PASS/18 FAIL a 10 PASS/12 FAIL | El bloqueo EntityState/World.initialize anterior está resuelto. Persisten fallos posteriores ajenos al incremento y no se verificó navegador/render | Conservar evidencia local y adaptar EXPERIMENT/RECORDER posteriormente; no confundir inicialización con aplicación completa | VERIFIED ejecución F2-G; resuelta carga/inicialización en runner, integración global no verificada | Carga/inicialización Node cerrada; navegador ejecuta entrada real, agentes y renderer con snapshots sin mutación; no basta cargar scripts. |
-| TR-009 | Suite legacy | Base PR #18: 10 PASS/12 FAIL; rama F3-D/2: 13 PASS/9 FAIL, T04/T19/T21 ahora pasan con hashes reales | Continúan cinco recording failed de Recorder y cuatro incompatibilidades restantes; no certifica replay | Mantener expectativas y causas por rama; [detalle F3-D/2](#f3-d2) | VERIFIED ejecución F3-D/2, sin nuevas causas de fallo | Migraciones autorizadas deben alcanzar las operaciones afectadas; no basta igualdad de conteos o éxito local. |
+| TR-009 | Suite legacy | Rama F3-F mantiene 13 PASS/9 FAIL, pero T06/07/08/20/22 pasan de recording failed a determine_termination is not defined | Falta kernel en cargador HTML no autorizado a modificar; consumidores esperan Trajectory directa, no ExperimentResult | [Diagnóstico F3-F](#f3-f), conservar expectativas | VERIFIED causas diferenciadas; cuatro restantes conservan error | Migrar cargador/consumidores en alcance posterior y ejecutar rutas reales; no equiparar conteos a compatibilidad. |
 | TR-010 | uint64 e integración | F3-A conserva uint64; §22 recuperado exige StepRecord.tick Number seguro. F3-C convierte BigInt pequeño solo sin pérdida y rechaza tick no representable. RecordedEvent/sequence Number seguro según F3C-P01 | Incompatibilidad de frontera permanece para ticks >MAX_SAFE_INTEGER, sin reducir max_ticks ni tocar núcleo/config | Resolver integración/persistencia y hashes en autorización posterior; no cast con pérdida | VERIFIED F3C-07/14/17 y F3-A; representación de registro acotada, integración de dominio completo pendiente | Decisión de integración/persistencia compatible con ambos dominios y pruebas en MAX_SAFE_INTEGER/uint64; sin pérdida ni reducción implícita. |
 
 No se identificó una desviación normativa nueva no autorizada mediante esta
@@ -2256,3 +2265,198 @@ T01–T280 por estas suites locales.
 Solo recorder.js, tests/f3-e.test.cjs y este documento cambian. Sin modificaciones
 a norma, hashes/WLS1, WORLD, PRNG, F3-A/B, Feedback/Observation, EXPERIMENT,
 Trajectory, agentes, replay, renderer o interfaz. Sin merge ni despliegue.
+
+<a id="f3-f"></a>
+## F3-F — ciclo experimental COMPLETED en alcance local
+
+Corte 2026-11-10 (America/Guayaquil), base main posterior al PR #20:
+`8f8a771d76e88499bba6c2ef3a894fe1f981f346`, rama dev/f3-f-experiment-integration.
+**VERIFIED por episodios end-to-end reales:** run_experiment(config, agent_factory)
+y run_without_agent(config) devuelven ExperimentResult cerrado, con StepRecords
+WLS1 y eventos finales. No se cambia WORLD, kernel, RECORDER, agentes ni UI.
+
+### Orquestación y contratos
+
+Se valida/copia ExperimentConfig; se derivan world_seed con namespace world y
+agent_seed con agent_type exacto, sin aliases ni normalización. Incluso sin agente
+se mantiene esa derivación pura (no consume streams); no se crea/reset/llama ningún
+agente en ese modo. Con agente, factory recibe solo tipo/semilla. La aceptación de
+config no depende de registry: resolución y disponibilidad son frontera EXPERIMENT.
+
+World.initialize es el adaptador F2-G a initialize_world único: se utiliza su
+InitialWorldResult y su adopción de state/RNG ya realizada. Se registran snapshot
+y eventos crudos, sin volver a resolver lifecycle, sincronizar RNG ni inicializar
+otra vez. Factory y reset ocurren antes de comprobar terminación inicial, conforme
+a §20.1, también en episodios de cero ticks. La muerte prevalece sobre límite0.
+
+Luego se usa determine_termination existente antes del bucle y al inicio de la
+iteración; se construyen Observation T y Feedback previo; se valida estructura de
+Action; execute_tick_transaction confirma T+1; Recorder registra ese confirmado;
+solo entonces se actualiza last_action_result. Se examina confirmed.termination
+calculada por el kernel, sin duplicar su precedencia. Las validaciones internas de
+F3-A/F3-E también consultan la misma función: no se afirma un conteo global de solo
+tres invocaciones contando esos validadores. Sin agente se ejecuta WAIT real con
+contextos nulos y resultado efectivo; nunca se fabrica ActionResult.
+
+La clase Experiment permanece como adaptador y captura config inmutable; run(factory)
+y run_without_agent() retornan **ExperimentResult**, no una Trajectory aislada.
+Los cuatro campos exactos: status, trajectory, failure_reason, failure_details.
+Éxito: COMPLETED, Trajectory completa, ambos failure_* null.
+
+### Errores, decisiones y frontera de atomicidad
+
+| Caso | Comportamiento y autoridad |
+|---|---|
+| Posición inicial sin candidatos | NORMATIVE §§20.1/20.5: Recorder registra InitializationFailure fuera de Trajectory; resultado FAILED, trajectory=null, failure_reason=INITIALIZATION_ERROR, details={seed,message,config}. No se crea agente |
+| Error de step / Action estructuralmente inválida | NORMATIVE §§20.1/20.6/P0-4: FAILED/AGENT_CONTRACT_ERROR, details={message,config}, trayectoria confirmada preservada con esa causa. Sin tick adicional ni WAIT sustituto |
+| Action estructuralmente válida de tipo desconocido | Contrato §12/13: pasa forma y el kernel rechaza operacionalmente. No se reclasifica como error estructural de agente |
+| Factory/reset y producto de agente inválido | F3F-P02 ENGINEERING DECISION: fuera del catch de step; error original de factory/reset propagado. Producto sin reset/step callable o factory no función → ContractError(world transition failed) de preparación, sin categoría pública nueva |
+| Error interno de observación/transición/registro/finalización | F3F-P01 ENGINEERING DECISION: propagar y detener, sin producir ExperimentResult COMPLETED ni un nuevo failure_reason. No convertir errores de capacidad/programación en InitializationError |
+
+**F3F-P01 — fail-stop WORLD/RECORDER.** §20.1 solo captura explícitamente
+inicialización y step; no proporciona categoría pública completa para todos los
+fallos internos. Se mantiene esa propagación y se aísla la frontera. Alternativas
+no adoptadas: reintentar el tick (duplicaría efectos/estado de agente), etiquetar
+como AGENT_CONTRACT_ERROR o inventar TRANSITION_ERROR/RECORDING_ERROR públicos,
+o prometer rollback conjunto sin autoridad. Ninguna se necesita para episodios
+normales. Si WORLD confirma y Recorder falla, WORLD puede quedar adelantado un
+tick, Recorder conserva su prefijo y el error sale al llamador. No hay reejecución,
+resultado exitoso incompleto ni exportación de trayectoria interna disfrazada de
+éxito. Ese prefijo no se devuelve como ExperimentResult de un fallo sin categoría
+normativa definida. Un futuro contrato puede precisar diagnóstico/recuperación.
+
+**Propiedad de atomicidad conjunta: PARTIAL/NO IMPLEMENTADA.** F3-A restaura WORLD
+ante fallo dentro de su transacción; F3-E restaura Recorder ante fallo de registro.
+El test F3F-15 falla después de la escritura sequence_counter durante el segundo
+commit de Recorder: WORLD.time2, Recorder.steps1, agente.step llamado2 veces;
+Recorder íntegro frente a su captura previa. No se afirma rollback de agente.
+No se modifica ninguna de esas dos fronteras para fingir una transacción global.
+
+**F3F-P02 — clasificación de preparación.** §20.6 especifica step, no todo error
+de factory/reset. Se conservan fuera del catch como §20.1; se descarta clasificarlos
+indiscriminadamente como acción inválida. Sus errores originales conservan
+identidad. El chequeo mínimo de producto exige objeto con métodos reset/step,
+sin inspeccionar estado interno. Config Unicode válida no garantiza factory.
+Conformidad histórica completa de diagnósticos de setup sigue no verificada.
+
+**F3F-P03 — detalles de fallo por rama.** El resumen de tipo §20 lista seed/message/
+config, pero el pseudocódigo de la rama AGENT_CONTRACT_ERROR da message/config.
+Se sigue la forma específica de cada rama: seed solo para inicialización; no se
+inventa una semilla de error de agente. Copias independientes de config; mensaje
+String(error) conforme a la rama. Esto no amplía el esquema público de cuatro
+campos ni introduce nueva categoría de fallo.
+
+### Evidencia de pruebas
+
+| Casos F3F locales | Propiedad ejecutada |
+|---|---|
+| 01–05/19 | Episodios cero/uno/varios ticks, muerte inicial/posterior, precedencia, WAIT real sin agente y adaptador de clase; Observation T/Feedback previo |
+| 06/07/11 | Igualdad estructural, bytes/hashes y semilla; Wait/Random/Rule reales; factory controlada para identificador no registrado |
+| 08–13/22/23 | Step inválido/excepción sin tick adicional, UNKNOWN operacional, factory/reset, InitializationFailure, error ajeno y capacidad de observación |
+| 14/15 | Fallo efectivo en segunda dinámica con WORLD restaurado; fallo efectivo tras publicación parcial de Recorder, prefijo y contador restaurados, sin retry |
+| 16/17 | Una resolución lifecycle y un sync iniciales, más uno por tick; trayectorias/configs de fallo independientes del WORLD/Recorder vivos |
+| 18 | max_ticks uint64 completo aceptado; BigInt/no representable o salto en ConfirmedTickResult rechazados por Recorder sin falso éxito |
+| 20/21 | Eventos crudos iniciales sin reenriquecer/doble muerte; movimiento→lifecycle y secuencia global mediante orquestador real |
+
+F3F-18 usa confirmados inyectados para alcanzar la frontera numérica, no ejecuta
+2^53 ticks ni reduce max_ticks. La independencia del estado de agente se verifica
+sin pasar WORLD/RNG/Recorder como argumentos; el estado mutable propio del agente
+no se inspecciona. No se considera la repetición de runs equivalente a replay.
+
+### Ejemplo reproducible de episodio completo
+
+Fixture F3F-21: semilla de experimento1, mapa2×2 FREE/NONE, energía3, costes MOVE1 y
+WAIT1, radio1, max_ticks3. Factory controlada devuelve MOVE_E si x0, MOVE_W si x1.
+Resultado COMPLETED, causa ENTITY_DIED (muerte y límite coinciden), cuatro eventos:
+ENTITY_MOVED tick1 seq0, ENTITY_MOVED tick2 seq1, ENTITY_MOVED tick3 seq2,
+ENTITY_DIED tick3 seq3. Snapshot inicial rng_state2061750760.
+
+| Tick | Posición | Energía | WORLD hash | FULL hash |
+|---|---|---|---|---|
+| 1 | (1,0) | 2 | 1616389299 | 3108831289 |
+| 2 | (0,0) | 1 | 499366166 | 457716380 |
+| 3 | (1,0) | 0 | 1573707962 | 3948499472 |
+
+Son valores de ejemplo, no vectores normativos. run_without_agent con la misma
+config ejecuta WAIT: también tres ticks y muerte, contextos nulos y ActionResult
+real. Reproducibilidad comparada por estructura, acciones/eventos y bytes WLS1,
+no solo por cantidad de pasos. No se define un hash nuevo de Trajectory.
+
+### Rendimiento observado, sin optimización
+
+Reproducción opcional: `node tests/f3-f.test.cjs --benchmark` (10/100/500;
+no se activa en la ejecución unitaria normal). La medición se realizó con el
+mismo código de instrumentación en /tmp/f3f-bench.cjs antes de incorporarlo como
+modo opcional al archivo de pruebas.
+
+Medición única local, Node v24.22.1, mapa1×1 FREE/NONE, radio0, energía1000,
+WAIT coste0, sin agente, mismos módulos que las pruebas Node. Se midió el
+orquestador real con performance.now y wrappers de kernel/record_step/finalize;
+sin alterar código versionado de F3-A/F3-E. Ejecuciones consecutivas, sin comparar
+con otras plataformas ni tratarlas como garantía temporal. Todas finalizaron
+COMPLETED con el número de pasos pedido, sin fallo de memoria observado.
+
+| Ticks | Total ms | Kernel ms | record_step acumulado ms | finalize ms |
+|---|---|---|---|---|
+| 10 | 79.68 | 11.49 | 53.08 | 6.10 |
+| 100 | 3767.46 | 69.38 | 3601.64 | 50.20 |
+| 500 | 89485.36 | 349.53 | 88695.46 | 231.13 |
+
+El coste dominante es la revalidación del prefijo F3E-P01; 500 ticks pequeños ya
+requieren unos90 segundos. Es un límite operativo relevante para episodios largos,
+no un fallo de determinismo ni motivo para quitar validaciones aquí. Propuesta
+focalizada para futura autorización: evaluar validación incremental de paso nuevo
+con prefijo previamente validado bajo propiedad/inmutabilidad verificable, manteniendo
+controles de hashes/eventos y atomicidad. No se implementa ni se declara único
+algoritmo permitido. La optimización de Recorder sigue fuera de F3-F.
+
+### Regresión y ejecución
+
+Cada comando `node tests/<archivo>` ejecutado desde /workspace/yellow. Todas las
+suites unitarias: exit0, 0 FAIL/omitidas; ningún archivo de prueba previo editado.
+
+| Archivo | PASS |
+|---|---|
+| f1-a.test.cjs | 18 |
+| f1-b.test.cjs | 12 |
+| f2-a.test.cjs | 14 |
+| f2-b.test.cjs | 13 |
+| f2-c.test.cjs | 21 |
+| f2-d.test.cjs | 28 |
+| f2-e.test.cjs | 16 |
+| f2-f.test.cjs | 18 |
+| f2-g.test.cjs | 21 |
+| f2-h.test.cjs | 15 |
+| f2-i.test.cjs | 18 |
+| f3-a.test.cjs | 40 |
+| f3-b.test.cjs | 18 |
+| f3-c.test.cjs | 24 |
+| f3-d.test.cjs | 12 |
+| f3-d2.test.cjs | 15 |
+| f3-e.test.cjs | 24 |
+| f3-f.test.cjs | **23** |
+| Total | **350** |
+
+`node tests/f1-a-legacy.cjs`: **13 PASS/9 FAIL**, exit1, conteo igual pero **cambian
+cinco causas**. T06/07/08/20/22 ahora determine_termination is not defined (antes
+recording failed): HTML/runner no cargan tick_transaction.js; los tests nuevos lo
+cargan explícitamente como exige la orden. No se inserta kernel en index.html.
+Aun después de cargarlo, los consumidores web/legacy deben migrar de Trajectory
+directa a ExperimentResult. js/main.js sigue usando experiment.run().steps;
+se identifica sin modificarlo. T12 makeResource, T13 EffectKind, T14 makeHazard,
+T16 invalid initial_state conservan causas. No se ocultan regresiones por igualdad
+de conteos ni se adapta el resultado al esquema antiguo contra §20.
+`git diff --check`: limpio; referencias internas y alcance verificados.
+
+### Cierre y preparación de replay
+
+F3-F **COMPLETED en alcance local**: ambos modos y errores normativamente definidos
+funcionan end-to-end con trayectorias registradas. Política interna fail-stop
+verificada; atomicidad conjunta no implementada ni convertida en requisito histórico.
+Listo para definir el incremento de replay mediante orden posterior, **sin iniciarlo**.
+Pendientes: contrato completo de diagnóstico/recuperación interno, coordinación
+si se requiere rollback global, rendimiento de Recorder, UI/cargador, replay,
+V2–V10, T01–T280 e interoperabilidad. Conformidad global no demostrada.
+Solo experiment.js, tests/f3-f.test.cjs y este documento cambian. Sin cambios en
+norma, WORLD, agentes, semillas/PRNG, WLS1, F3-A/F3-E, configuración, interfaz,
+renderer, index.html ni main.js. Sin merge automático ni despliegue.
