@@ -1,5 +1,5 @@
 // Renderer. Solo lee WorldState. Nunca modifica.
-// Contrato: js/visualization/renderer.js según especificación §21.
+// Vista web de un WorldState validado; no ejecuta transiciones experimentales.
 
 class Renderer {
     constructor(canvas) {
@@ -9,6 +9,8 @@ class Renderer {
     }
 
     render(world) {
+        WorldConfig._validate(world.config);
+        assert_WorldState(world.state, world.config);
         const ctx = this.ctx;
         const cs = this.cellSize;
 
@@ -34,17 +36,12 @@ class Renderer {
         }
 
         // Entidad.
-        const e = world.get_experimental_entity();
+        const e = world.state.entities.values().next().value;
         if (e) {
             ctx.fillStyle = "#2196f3";
             ctx.fillRect(e.position.x * cs, e.position.y * cs, cs - 1, cs - 1);
         }
 
-        // Info textual.
-        ctx.fillStyle = "#000";
-        ctx.font = "14px monospace";
-        if (e) {
-            ctx.fillText("Energy: " + e.energy + "  Time: " + world.state.time, 10, this.canvas.height - 10);
-        }
+        // Textual state belongs to the DOM summary, so it does not cover grid cells.
     }
 }

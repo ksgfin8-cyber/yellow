@@ -4,7 +4,15 @@ Documento **informativo y operacional**. Consolidación DOC-02: **2026-11-10
 (America/Guayaquil)**. Rama documental `dev/doc-02-knowledge-consolidation`, creada
 sobre `origin/main`; aquel cambio no incorporaba código ni pruebas de F3-C.
 
-**Actualización vigente F3-H (2026-11-10): validación con contexto implementada;
+**Actualización vigente F4-A (2026-11-10): integración web COMPLETED en su
+alcance local.** Base main PR #23 `1491d9213acf7fe1cb2b1e7531889e296b4a61ce`,
+rama `dev/f4-a-web-integration`, pendiente de revisión/merge. La web ejecuta
+EXPERIMENT y muestra ExperimentResult/estado final sin cambiar el motor.
+415 casos Node y un caso adicional de Chromium real aprobados; legacy 13/9 con
+causas diferenciadas. Las cuatro fronteras F3-G/H continúan abiertas y no se
+certifica conformidad global. [Integración, evidencia y límites F4-A](#f4-a).
+
+**Corte previo F3-H (2026-11-10): validación con contexto implementada;
 cierre PARTIAL.** Base main PR #22 `7a8f34668c70d3e4da217915030ecba476c17f94`,
 rama dev/f3-h-replay-validation. A/C/D/E y continuidad interna se verifican con
 reproducción independiente, estructura/eventos/hashes/terminación; 400 pruebas.
@@ -77,7 +85,8 @@ replay completo. El alcance B no está completo en ninguna de las dos referencia
 
 | Necesidad | Fuente única para el detalle |
 |---|---|
-| Estado validación F3-H vigente | [Contraste exhaustivo, rendimiento y fronteras](#f3-h) |
+| Integración web F4-A vigente | [Carga real, resultados, renderer y Chromium](#f4-a) |
+| Estado validación F3-H | [Contraste exhaustivo, rendimiento y fronteras](#f3-h) |
 | Cierre previo replay F3-G | [Motor parcial, ramas bloqueadas y pruebas](#f3-g) |
 | Cierre previo EXPERIMENT F3-F | [Orquestación, resultados, fallos y rendimiento](#f3-f) |
 | Cierre previo RECORDER F3-E | [Pasos, eventos, atomicidad, Trajectory y regresión](#f3-e) |
@@ -351,8 +360,8 @@ resoluciones ni permiten declarar integración global.
 | TR-005 | EXPERIMENT / reloj | F3-F integra secuencia canónica mediante F3-A, 23 pruebas; lifecycle/sync únicos por inicialización/tick | Episodios locales completos; fallo WORLD confirmado→Recorder conserva prefijo y se propaga sin retry | [F3-F](#f3-f); no prometer rollback conjunto; registrar política y futuros diagnósticos | Orquestación local resuelta, coordinación global parcial explícita | Cualquier futura recuperación conjunta requiere contrato y prueba; replay/UI siguen fuera de este cierre. |
 | TR-006 | FeedbackConfig / Feedback | Orden F2-I transmite §17 histórico: expose_validity=true, expose_reason=false, expose_events=false, expose_energy_delta=true, booleanos exactos y Feedback cerrado | Eliminados flags incompletos, coerciones y esquema legacy; FB-P01–03 documentan detalles de proyección no recuperados | Conservar 18 casos F2-I y verificar uso por consumidores en futuro alcance, sin adaptar agentes/EXPERIMENT ahora | VERIFIED lectura de fragmento/ejecución F2-I; resuelta localmente configuración/proyección, no integración ni conformidad histórica de marcadores ocultos | Proyección local cerrada; integración con agente/ciclo preserva flags y nulabilidad. Representación histórica solo se cierra con fuente auténtica. |
 | TR-007 | ExperimentConfig | F3-B constructor/validate_ExperimentConfig aceptan cinco campos cerrados, uint32 no nulo, max_ticks uint64 exacto, WORLD/Feedback canónicos e identificador F3B-P01 independiente del registro | Se eliminan restricción max_ticks>0, normalización de semilla y acoplamiento de aceptación a AGENT_REGISTRY; bucles siguen legacy | Integrar configuración sin convertir límites ni asumir disponibilidad de factory; inspección F1-B sigue parcial | VERIFIED F3B-01–18; resuelta configuración local, gramática histórica del identificador e integración pendientes | Configuración local cerrada; factory/agent resueltos explícitamente y probados sin restringir silenciosamente agent_type. |
-| TR-008 | Carga / integración inicial | initialize_world y World.initialize funcionan mediante una ruta común; F2G-01/09–13/16–21; legacy supera construcción inicial y pasa de 4 PASS/18 FAIL a 10 PASS/12 FAIL | El bloqueo EntityState/World.initialize anterior está resuelto. Persisten fallos posteriores ajenos al incremento y no se verificó navegador/render | Conservar evidencia local y adaptar EXPERIMENT/RECORDER posteriormente; no confundir inicialización con aplicación completa | VERIFIED ejecución F2-G; resuelta carga/inicialización en runner, integración global no verificada | Carga/inicialización Node cerrada; navegador ejecuta entrada real, agentes y renderer con snapshots sin mutación; no basta cargar scripts. |
-| TR-009 | Suite legacy | Rama F3-F mantiene 13 PASS/9 FAIL, pero T06/07/08/20/22 pasan de recording failed a determine_termination is not defined | Falta kernel en cargador HTML no autorizado a modificar; consumidores esperan Trajectory directa, no ExperimentResult | [Diagnóstico F3-F](#f3-f), conservar expectativas | VERIFIED causas diferenciadas; cuatro restantes conservan error | Migrar cargador/consumidores en alcance posterior y ejecutar rutas reales; no equiparar conteos a compatibilidad. |
+| TR-008 | Carga / integración web | F4A-01–16: HTML incluye kernel/replay, entrada consume ExperimentResult, Chromium ejecuta Wait/Random y renderiza estado final o inicial | Se cierra la entrada web legacy y se conserva el resultado ante errores visuales | [F4-A](#f4-a); mantener snapshots independientes y episodios pequeños | VERIFIED Node/Chromium; integración web COMPLETED en rama F4-A, pendiente de merge; no conformidad global | Criterio web alcanzado; aceptación integral conserva fronteras de replay, dominios y corpus de pruebas. |
+| TR-009 | Suite legacy | F4-A: 13 PASS/9 FAIL; T06/07/08/20/22 ya cargan kernel y fallan al esperar Trajectory directa; T12/13/14 factories eliminadas; T16 TOROIDAL | El fallo de carga desaparece; las expectativas históricas siguen incompatibles con la API vigente | [Causas ejecutadas F4-A](#f4-a); runner separado de la web, aserciones intactas | VERIFIED causas diferenciadas; no hay mejora artificial del total | Consumidores web migrados; pruebas v0.1 conservadas como diagnóstico histórico, no criterio canónico. |
 | TR-010 | uint64 e integración | F3-A conserva uint64; §22 recuperado exige StepRecord.tick Number seguro. F3-C convierte BigInt pequeño solo sin pérdida y rechaza tick no representable. RecordedEvent/sequence Number seguro según F3C-P01 | Incompatibilidad de frontera permanece para ticks >MAX_SAFE_INTEGER, sin reducir max_ticks ni tocar núcleo/config | Resolver integración/persistencia y hashes en autorización posterior; no cast con pérdida | VERIFIED F3C-07/14/17 y F3-A; representación de registro acotada, integración de dominio completo pendiente | Decisión de integración/persistencia compatible con ambos dominios y pruebas en MAX_SAFE_INTEGER/uint64; sin pérdida ni reducción implícita. |
 
 No se identificó una desviación normativa nueva no autorizada mediante esta
@@ -2896,3 +2905,173 @@ motor F3-G. Sin cambios a WORLD, PRNG, Recorder, WLS1, EXPERIMENT, agentes, UI,
 renderer ni norma. Listo para revisión del alcance implementado; aceptación integral
 pendiente de las fronteras indicadas, V2–V10, T01–T280 e interoperabilidad.
 Sin merge automático, despliegue, interfaz ni optimización de Recorder.
+
+
+<a id="f4-a"></a>
+## F4-A — integración web del núcleo experimental
+
+**COMPLETED en el alcance web autorizado; VERIFIED 2026-11-10.** Base
+`origin/main` posterior al PR #23, SHA
+`1491d9213acf7fe1cb2b1e7531889e296b4a61ce`; rama
+`dev/f4-a-web-integration`. Entrega para revisión, sin merge ni despliegue.
+No cambia WORLD, PRNG, WLS1, RECORDER, EXPERIMENT, replay ni norma. No implica
+aceptación integral ni cierre de las cuatro fronteras F3-G/H.
+
+### Contratos consumidos y decisiones de presentación
+
+**NORMATIVE:** se conservan los contratos canónicos implementados por el motor:
+WorldState/Cell/Map, reloj exacto Number/BigInt, eventos y separación entre
+componentes. La autoridad contractual y decisiones de cada módulo permanecen
+en sus incrementos anteriores. No se recupera nuevo texto histórico aquí.
+
+**ENGINEERING DECISION F4A-P01 — vista final independiente:** la entrada llama
+`new Experiment(config).run()` y conserva su ExperimentResult sin normalizarlo.
+Muestra su status COMPLETED/FAILED, número real de steps/events, termination_reason,
+tiempo, entidad, posición, energía/lifecycle y hashes uint32 del último StepRecord
+como hexadecimal de ocho dígitos. El estado mostrado es el último world_state,
+o initial_state si no hay pasos. Sin pasos no se publican hashes sustitutos.
+
+El renderer recibe `{config, state}` con `state.full_snapshot()` independiente,
+validado; lee el único EntityState del Map y conserva coordenadas BOUNDED, celdas
+y efectos. No necesita construir otro WORLD, RNG ni ejecutar otra transición.
+Se conserva el color azul para la entidad, verde para recursos disponibles, rojo
+para peligros, gris oscuro para BLOCKED y claro para celdas libres/recursos agotados.
+La información textual se muestra en DOM; el footer anterior tapaba la última
+fila del mapa. No se rediseña la interfaz ni se añade dashboard.
+
+**ENGINEERING DECISION F4A-P02 — errores visibles:** FAILED sin trayectoria
+muestra el diagnóstico de inicialización y oculta el canvas. FAILED con trayectoria
+parcial de agente muestra diagnóstico y los datos reales del prefijo. Un error
+interno propagado se muestra como «Error de ejecución», sin fabricar un
+ExperimentResult ni una causa terminal. Un error visual tiene su propio mensaje:
+no altera el status ni los datos experimentales. F4A-14/15 y Chromium comprueban
+que incluso un renderer defectuoso que muta su copia y lanza no cambia el resultado.
+
+**ENGINEERING DECISION F4A-P03 — demostración acotada:** semilla12345, mapa6×6,
+máximo10 ticks, configuración canónica por defecto en los demás campos. Dos botones
+invocan WaitAgent y RandomAgent reales. No se aumenta timeout ni se optimiza
+Recorder; el coste cuadrático de generación/validación de historia sigue vigente.
+No se usa Math.random ni se adapta silenciosamente el resultado para dibujar.
+
+### Cargador y cambios auxiliares demostrados
+
+[index.html](../index.html) carga cada script una vez. Se incorporan
+[tick_transaction.js](../js/experiment/tick_transaction.js) antes de Recorder y
+[replay.js](../js/experiment/replay.js) después de EXPERIMENT, incluyendo sus
+validadores. WORLD/contratos, interfaz, agentes, configuración, Trajectory/WLS1 ya
+se cargaban y se conservan en orden. main se ejecuta por DOMContentLoaded.
+
+Se retira `js/tests/tests.js` de la página de producción. Las pruebas v0.1
+permanecen intactas en el repositorio y se ejecutan explícitamente desde el runner
+legacy. Los cargadores de F3-E/F/G/H usaban ese script como barrera y cargaban
+kernel/replay a mano: al cambiar HTML, F3-E alcanzó `window` sin DOM y sus24 casos
+fallaron. Solo se modifican esas cuatro funciones load para omitir main/renderer y
+cargar los módulos reales una vez desde HTML; todas sus aserciones se preservan.
+El runner legacy carga su archivo histórico si la página no lo incluyó, y conserva
+su ruta --baseline sin duplicar la declaración Tests.
+
+Cambio auxiliar CSS justificado por prueba real: `canvas {display:block}` anulaba
+`hidden`, dejando visible un canvas tras fallo. F4A-16 falló con display block
+frente a none. Se añade únicamente `canvas[hidden] {display:none}`; la misma prueba
+pasa después. No se añaden estilos decorativos.
+
+### Correspondencia y evidencia ejecutada
+
+Suite local [tests/f4-a.test.cjs](../tests/f4-a.test.cjs); IDs F4A locales,
+no sustituyen T01–T280 ni convierten reglas FROZEN en evidencia empírica.
+
+| Comprobación | Casos ejecutados |
+|---|---|
+| Orden real, unicidad, kernel/replay, legacy fuera de producción | F4A-01/02, Chromium F4A-16 |
+| ExperimentResult y hashes/cantidades reales, Wait/Random, repetibilidad | F4A-03/04, F4A-16 |
+| Muerte, muerte inicial, límite cero, estado inicial sin pasos | F4A-05–07, F4A-16 |
+| Fallo inicial y de agente; errores internos sin falso éxito | F4A-08–10, F4A-16 para inicial/agente |
+| Map, coordenadas, stock/efectos, BigInt, lectura sin mutación | F4A-11–13, F4A-16 para Map/posición/BigInt/pureza |
+| Copia independiente, error visual sin cambiar resultado | F4A-14/15, F4A-16 |
+
+Comandos para reproducir desde `/workspace/yellow`, Node v24.22.1
+(se ejecutó cada archivo mediante `node tests/<archivo>`):
+
+```bash
+for suite in tests/f*-*.test.cjs; do node "$suite" || exit; done
+node tests/f1-a-legacy.cjs
+git diff --check
+```
+
+Las21 suites Node terminan con exit0: las400 pruebas anteriores más15 nuevas,
+**415 PASS, 0 FAIL, 0 omitidas**. Detalle por archivo:
+
+| Suite | PASS | Suite | PASS |
+|---|---|---|---|
+| F1-A | 18 | F1-B | 12 |
+| F2-A | 14 | F2-B | 13 |
+| F2-C | 21 | F2-D | 28 |
+| F2-E | 16 | F2-F | 18 |
+| F2-G | 21 | F2-H | 15 |
+| F2-I | 18 | F3-A | 40 |
+| F3-B | 18 | F3-C | 24 |
+| F3-D | 12 | F3-D/2 | 15 |
+| F3-E | 24 | F3-F | 23 |
+| F3-G | 27 | F3-H | 23 |
+| F4-A Node/DOM | 15 | Total Node | **415** |
+
+Prueba real opcional y reproducible con Playwright/Chromium disponibles:
+
+```bash
+PLAYWRIGHT_MODULE=/opt/codex/runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/index.js \
+CHROMIUM_EXECUTABLE=/usr/bin/chromium F4A_SCREENSHOT=/tmp/f4-a-web.png \
+node tests/f4-a.test.cjs --browser
+```
+
+El modo --browser ejecutó15 casos Node más F4A-16: **16 PASS, 0 FAIL**, con
+Chromium155.0.8059.79 headless, viewport1000×760 y HTTP local efímero. La primera
+invocación en sandbox falló al abrir localhost con EPERM; se ejecutó la misma
+prueba fuera del sandbox. Servidor/navegador se cierran al terminar. No es despliegue.
+El navegador no registró pageerror, errores de consola ni solicitudes fallidas.
+El pixel en el centro de la posición real de entidad fue RGBA(33,150,243,255).
+
+| Caso Chromium (mapa2×2, semilla12345, WAIT coste1 salvo indicación) | Resultado observado |
+|---|---|
+| Wait, límite3 | COMPLETED,3 pasos,0 eventos, MAX_TICKS_REACHED |
+| Random, límite3 | COMPLETED,3 pasos,1 evento, MAX_TICKS_REACHED |
+| Energía1 | COMPLETED,1 paso,1 evento, ENTITY_DIED |
+| Energía0 | COMPLETED,0 pasos,1 evento inicial, ENTITY_DIED |
+| Límite0 | COMPLETED,0 pasos,0 eventos, MAX_TICKS_REACHED |
+| obstacle_density=1 | FAILED, trayectoria null, INITIALIZATION_ERROR/invalid initial_position; canvas invisible |
+| Agente lanza en segunda llamada | FAILED,1 paso preservado, AGENT_CONTRACT_ERROR visible |
+| Error visual inyectado | status COMPLETED conservado, datos intactos, canvas invisible, diagnóstico separado |
+
+La captura `/tmp/f4-a-web.png` se generó y se inspeccionó visualmente; es evidencia
+de ejecución local, no un archivo versionado ni una dirección de despliegue.
+Demostración Random por defecto:10 pasos,5 eventos, MAX_TICKS_REACHED, tiempo10,
+entidad0987898 en(1,3), energía90 ACTIVE, hashWORLD `0x8cd3ed79`,
+hashFULL `0x8c60e4f`. El mapa6×6 y la entidad azul coinciden con el estado final.
+
+### Pruebas históricas y límites pendientes
+
+Legacy ejecutada: **13 PASS/9 FAIL, exit1**. Las expectativas no se cambian.
+
+| Casos legacy | Error actual | Clasificación |
+|---|---|---|
+| T06/07/08/20/22 | Cannot read properties of undefined (reading 'length') | Ahora se alcanza EXPERIMENT con kernel; acceden a .steps de ExperimentResult como si fuera Trajectory directa. El error anterior determine_termination is not defined desaparece |
+| T12 | makeResource is not defined | Factory histórica eliminada |
+| T13 | EffectKind is not defined | Enum histórico eliminado |
+| T14 | makeHazard is not defined | Factory histórica eliminada |
+| T16 | invalid initial_state | Expectativa TOROIDAL incompatible con BOUNDED |
+
+T18 sigue siendo un PASS histórico débil (captura su propia aserción) y T20 no
+comprueba replay real; no se presentan como verificación canónica. No se introducen
+aliases, enums ni geometría legacy para cambiar el total.
+
+**VERIFIED:** integración web y evidencia Chromium descritas, suites locales,
+conservación de aserciones antiguas y módulos protegidos. **UNTESTED:** otros motores
+de navegador, dispositivos móviles y accesibilidad exhaustiva; no se infieren de
+Chromium headless. Captura inspeccionada no equivale a interoperabilidad.
+
+Permanecen las cuatro fronteras F3-G/H: INVALID con parámetros no representables,
+origen time>0, continuidad pública no vacía sin contexto y comparación de
+trayectorias sin agente con replay observado. No se modifican. También permanecen
+la frontera uint64/StepRecord Number seguro, rollback conjunto WORLD/Recorder,
+coste de Recorder, vectoresV2–V10, T01–T280 e interoperabilidad no demostrada.
+La web está lista para revisión de su alcance; la aceptación integral conserva
+estas dependencias. No se avanza a otro incremento.

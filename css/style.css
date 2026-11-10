@@ -16,3 +16,7 @@ canvas {
     background: #fff;
     display: block;
 }
+
+canvas[hidden] {
+    display: none;
+}
