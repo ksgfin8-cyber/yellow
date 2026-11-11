@@ -4,7 +4,14 @@ Documento **informativo y operacional**. Consolidación DOC-02: **2026-11-10
 (America/Guayaquil)**. Rama documental `dev/doc-02-knowledge-consolidation`, creada
 sobre `origin/main`; aquel cambio no incorporaba código ni pruebas de F3-C.
 
-**Actualización vigente F4-F (2026-11-11 UTC): auditoría COMPLETED;
+**Actualización vigente F4-G (2026-11-11, America/Guayaquil): corrección
+focalizada F4F-001 COMPLETED; GO para revisión de cierre.** Base main posterior al PR #29
+`ce9082c55b304cfaac924e7477bf9424c444f3ea`, rama
+`dev/f4-g-replay-validator-fix`. Se reutiliza la guardia estructural antes de la
+prueba física. Sin enmienda normativa ni cambios en el motor físico.
+[Corrección, contrastes y evidencia F4-G](#f4-g).
+
+**Corte previo F4-F (2026-11-11 UTC): auditoría COMPLETED;
 aceptación canónica HOLD por F4F-001 (P1).** Base main posterior al PR #28
 `20a89415e568b50926ff94bb39b7b1c8962f47b3`, rama
 `dev/f4-f-contractual-audit`. Solo pruebas nuevas e informe: ninguna corrección
@@ -124,7 +131,8 @@ replay completo. El alcance B no está completo en ninguna de las dos referencia
 
 | Necesidad | Fuente única para el detalle |
 |---|---|
-| Auditoría contractual vigente F4-F | [HOLD, contraejemplo y preparación canónica](#f4-f) |
+| Corrección vigente F4-G | [F4G-001, cierre y regresión](#f4-g) |
+| Auditoría previa F4-F | [HOLD original, contraejemplo y preparación canónica](#f4-f) |
 | Enmienda e implementación F4-E | [Genealogía y evidencia previa](#f4-e) |
 | Revisión contractual previa F4-D | [Propuesta única pendiente y matriz de preconformidad](#f4-d) |
 | Historial propio y registro incremental F4-C | [Política, equivalencia, atomicidad y complejidad](#f4-c) |
@@ -4426,3 +4434,149 @@ Ningún resultado local ni ausencia de otros hallazgos autoriza conformidad glob
 
 F4-F termina como auditoría, sin merge, despliegue, cambios productivos ni inicio
 de otro incremento. La propuesta de corrección es informativa y no se ejecutó.
+
+
+<a id="f4-g"></a>
+## F4-G — corrección P1 F4F-001 y cierre de regresión
+
+### F4G-001 — IMPLEMENTATION DEFECT CORRECTION
+
+Base main PR #29: `ce9082c55b304cfaac924e7477bf9424c444f3ea`.
+Rama: `dev/f4-g-replay-validator-fix`. Autoridad: **v0.2.6 D-01-C**, con las
+reglas por status de §25.3 y la semántica de hint de §25.3.2/P0-8 heredadas.
+Es una corrección productiva autorizada; no constituye una enmienda normativa.
+
+| Aspecto | Registro |
+|---|---|
+| Origen / severidad | F4F-001, P1 mayor. La auditoría F4-F queda conservada como evidencia histórica del defecto |
+| Contraejemplo | Replay real de WAIT desde checkpoint manual time=7; cambiar status a BOGUS conserva prefijo físico pero continuidad pública devolvía true. Otras seis mutaciones: max_ticks_used=null, expected_steps_used="1", unused_actions=-1, termination_hint="BOGUS", unknown_action_index="bad", error_message={} |
+| Causa raíz | La guardia pública solo verificaba claves/listas/cantidad antes del helper físico; el validador completo mantenía por separado las reglas de dominio/status. El helper estructural existente tampoco podía reutilizarse sin preservar hints nulos legales |
+| Corrección exacta | `validate_replay_continuity` exige contexto cerrado y reutiliza `validate_ReplayResult_structure` antes de llamar a `replay_continuity_proof`. El validador completo delega a continuidad para todo status distinto de INVALID; la rama INVALID conserva su validación de solicitud/error y no ejecuta física |
+| Ajustes al helper compartido | Conserva executed≤expected_steps; usa validate_termination_hint para OK, incluido null en terminales; comparte catálogo de errores de EXECUTION_ERROR; exige final no terminal para UNKNOWN/INCOMPLETE como ya hacía el validador completo. Se elimina una rama INVALID inalcanzable, ya resuelta al principio del mismo helper |
+| Invariantes preservadas | Esquema cerrado, siete estados sin cambios, uint64 exacto, expected_steps/sequence Number seguro, modos/contexto explícitos, pureza, mismo motor físico, orden de transición/eventos, hashes WLS1 y checkpoints/RNG |
+| Evidencia antes | Con HEAD en la base indicada y antes de editar: node tests/f4-f.test.cjs → 11 PASS / 1 FAIL, exit1; F4F-10 reproduce las siete aceptaciones indebidas y F4F-11 falla true!==false |
+| Evidencia después | F4F-10 exige false para las siete variantes y prueba cero reconstrucciones/ejecuciones; F4F-11 conserva literalmente su expectativa false y pasa. Suite: 12 PASS / 0 FAIL, exit0, sin skip/TODO |
+| Estado final | **CLOSED / VERIFIED en esta rama**; pendiente de revisión e integración. GO para la corrección F4-G, sin declaración de conformidad global |
+
+La caracterización original permanece recuperable en Git:
+[tests F4-F antes de corregir](https://github.com/ksgfin8-cyber/yellow/blob/ce9082c55b304cfaac924e7477bf9424c444f3ea/tests/f4-f.test.cjs).
+Solo se migra la expectativa deliberadamente defectuosa de F4F-10 conforme a esta
+orden; no se relajan pruebas anteriores. F4F-11 no se omite ni se cambia a true.
+Los contrastes nuevos caben en F4F-10/12 y la comprobación física F4F-09: no se
+crea una suite F4-G adicional ni se infla el conteo de tests registrados.
+
+### Reutilización y separación entre estructura y física
+
+Se examinó primero `validate_ReplayResult_structure`. Su rama OK exigía el hint
+calculado exacto, aunque P0-8 admite null incluso en un estado terminal; la rama
+EXECUTION_ERROR aceptaba cualquier texto no vacío, mientras que el validador
+completo exigía el catálogo. UNKNOWN/INCOMPLETE comprobaban cantidades/acción,
+pero el validador completo comprobaba además precedencia terminal después de la
+prueba física. Reutilizarlo sin reconciliar esas diferencias habría introducido
+rechazos legítimos o divergencias. Se consolidan esas reglas existentes en el
+helper; no se crean reglas de estados ni un segundo motor.
+
+Flujo actual, sin recursión: validador completo no-INVALID → continuidad pública
+→ contexto validado → guardia estructural/status → única prueba física compartida.
+La guardia puede consultar terminación del snapshot validado sin mutarlo; no
+reconstruye WORLD ni ejecuta acciones. Tras ella, la reproducción compara el
+snapshot efectivo, hashes, eventos, observaciones y feedback como antes.
+
+INVALID_REPLAY_INPUT no contiene un prefijo reproducible con contexto válido:
+continuidad devuelve false y no reconstruye WORLD. El validador completo puede
+aceptar la respuesta INVALID correcta usando su solicitud inválida y sus
+contadores parciales, sin requerir una solicitud física válida. Un
+EXECUTION_ERROR con prefijo válido sí supera continuidad; eso no prueba la causa
+externa del fallo. El límite epistemológico previo permanece explícito.
+
+La estructura se recorre antes de la reproducción, con trabajo lineal y sin
+pruebas físicas adicionales. Se mantiene una reconstrucción por invocación válida
+y una transición por registro; cero transiciones para cero pasos. No se introduce
+caché, defaults, estado global de contexto ni cambios de firmas públicas.
+
+### Contrastes focalizados por status y frontera
+
+F4F-10 añade una matriz de 13 solicitudes/resultados reales: ambos modos para
+OK/MAX_TICKS_REACHED/EARLY_TERMINATION/INCOMPLETE_ACTION_SEQUENCE/
+INVALID_REPLAY_INPUT/EXECUTION_ERROR y WITH_AGENT para UNKNOWN_ACTION.
+WITHOUT_AGENT solo admite WAIT: no se fabrica un UNKNOWN legítimo en ese modo.
+Los estados parciales usan un prefijo de un paso; EXECUTION_ERROR se obtiene
+mediante un fallo inyectado después del segundo append real, con rollback al
+primero. Las solicitudes parten de un checkpoint positivo 7n.
+
+| Resultado | Continuidad pública | Validador completo | Reconstrucciones por llamada a cada uno |
+|---|---|---|---:|
+| OK, MAX_TICKS_REACHED, EARLY_TERMINATION | true para resultado real coherente | true | 1 |
+| INCOMPLETE_ACTION_SEQUENCE, UNKNOWN_ACTION | true para prefijo no terminal y metadatos válidos | true | 1 |
+| EXECUTION_ERROR | true para prefijo físico válido y error del catálogo | true; no demuestra causalidad externa | 1 |
+| INVALID_REPLAY_INPUT | false, sin prefijo reproducible | true para respuesta INVALID correcta | 0 |
+| Siete mutaciones malformadas | false antes de prueba física | false antes de prueba física | 0 |
+| Contexto incompleto/extra, modo desconocido o configuración inválida | false | false | 0 |
+
+Contadores instrumentados alrededor de reconstrucción, helper de prueba física y
+kernel comprueban estos resultados por llamada, no solo un valor booleano final.
+Los argumentos rr/contexto se comparan antes/después. Un segundo registro con
+Action malformada también se rechaza antes de reconstruir WORLD o ejecutar el
+primer registro válido. Se quita cada uno de los
+ocho campos obligatorios y se perturban ambos tipos de configuración.
+
+F4F-12 añade ocho escenarios terminales (ACTIVE/DEAD × cero/un paso × ambos modos)
+en UINT64_MAX o MAX−1. Cada uno prueba hint correcto y null en ambos predicados:
+exactamente una reconstrucción por llamada; ticks/counters grandes sin conversión
+insegura. F4F-01 conserva la matriz de fronteras y salidas canónicas; F4F-09 exige
+que ambos predicados rechacen un estado físicamente alterado incluso con hash
+recalculado por el oráculo independiente. La guardia previa no sustituye la prueba
+física por confianza en los hashes.
+
+### Verificación, alcance y recomendación
+
+Comandos desde /workspace/yellow, Node v24.22.1 y Chromium 155.0.8059.79:
+
+```bash
+# Antes de editar, HEAD ce9082c…: 11 PASS / 1 FAIL (exit1)
+node tests/f4-f.test.cjs
+# Después de corregir y ampliar contrastes: 12 PASS / 0 FAIL (exit0)
+node tests/f4-f.test.cjs
+# Se ejecuta node tests/<archivo> para cada una de las 24 suites F1–F4-E.
+PLAYWRIGHT_MODULE=/opt/codex/runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/index.js \
+node tests/f4-a.test.cjs --browser
+node tests/f1-a-legacy.cjs
+git diff --check
+```
+
+Resultados ejecutados: **F4-F 12 PASS / 0 FAIL**, exit0, sin omitidos/TODO;
+**F1–F4-E 470 PASS / 0 FAIL**, las 24 suites exit0, mismos conteos por archivo que
+la tabla F4-F. Se comparó el resultado de cada archivo con la auditoría previa:
+ninguna divergencia. De los 470, **464 son casos actuales y seis son
+caracterizaciones históricas v0.2.5**, no evidencia de conformidad vigente.
+Total Node actual: **476 PASS**, más seis históricos; 482 casos registrados en
+las 25 suites. Las matrices internas no se cuentan como tests separados.
+
+Chromium: **16 PASS / 0 FAIL**, exit0; 15 casos Node repetidos y un caso adicional
+real de navegador. Integración EXPERIMENT→RECORDER→REPLAY→VALIDACIÓN/MATCH
+superada en F4E-11/14 y suites F3-F/G/H; WLS1 histórico y oráculos independientes
+conservados en F3-D/D2, F4E-14 y F4F-01/03/04. Node v24.22.1 y Chromium
+155.0.8059.79; no se instalan dependencias. Los subprocesos Git históricos y el
+servidor localhost/navegador usan la ejecución autorizada fuera del sandbox.
+
+Legacy: **13 PASS / 9 FAIL**, exit1. Se compararon IDs y mensajes con F4-F:
+idénticos. T06/07/08/20/22 esperan Trajectory directa en lugar de ExperimentResult;
+T12/13/14 llaman factories/enum retirados; T16 intenta TOROIDAL y falla validación
+inicial. No se cambian sus aserciones ni se les atribuye un fallo nuevo.
+`git diff --check` y revisión de referencias internas: correctos. El diff se
+limita a reutilización/reconciliación de la guardia, migración explícita de
+F4F-10, contrastes focalizados y documentación.
+
+**Recomendación: GO para revisión y cierre de F4-G.** F4F-001 se reproduce en la
+base y se rechaza tras la corrección sin cambiar la expectativa normativa de
+F4F-11. No se observa divergencia entre validadores en los contrastes ejecutados.
+No se declara conformidad global ni interoperabilidad independiente. Permanecen
+las limitaciones de procedencia del checkpoint y causalidad externa de errores,
+el corpus/harness T01–T280 incompleto y los vectores pendientes ya documentados.
+No se inicia ese harness ni se autoriza otro incremento.
+
+Solo cambian `js/experiment/replay.js`, `tests/f4-f.test.cjs` y este documento.
+WORLD, PRNG, RECORDER, EXPERIMENT, WLS1, web, fuentes normativas y todas las demás
+pruebas permanecen idénticos a la base. No se inicia T01–T280 ni otra funcionalidad.
+Las secciones históricas F4-E/F4-F conservan sus conclusiones de aquel momento;
+el estado vigente se establece aquí, sin borrar la evidencia roja anterior.
