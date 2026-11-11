@@ -1,0 +1,590 @@
+{
+  "review_base": "e7fada1a0e78ff711f056b53148e048102fd1c02",
+  "method": "Direct reading of cited native function bodies + reproducible lexical write/call-site inventory; no AST/formal verifier claim",
+  "source_files": [
+    {
+      "path": "js/agents/agent.js",
+      "sha256": "5f593b29539753f6f82c1417a7f3380c96cf1d0e542cd506ebe3347118f75cd1"
+    },
+    {
+      "path": "js/agents/random_agent.js",
+      "sha256": "62d91dc38ca39cf9fafdb540256971c7530387b1f457d7a93dcbdef6414c3a3c"
+    },
+    {
+      "path": "js/agents/registry.js",
+      "sha256": "5197d317006b9b001f2de492de00808c7d070aa6e8ae54a9817a0758e2cdb85f"
+    },
+    {
+      "path": "js/agents/rule_agent.js",
+      "sha256": "e0512ab282c503f78c4272d1f12cf54836f69dc12a36b08886382f5b0c6aec80"
+    },
+    {
+      "path": "js/agents/wait_agent.js",
+      "sha256": "e40b09ad92201b9727b25e1902bc8a45c108890c2c481de9a9743b195459d6d8"
+    },
+    {
+      "path": "js/contracts/structures.js",
+      "sha256": "fba224b53c4a1fb1d8b940101d932a3674eaa634311bf8a60409fac44388c757"
+    },
+    {
+      "path": "js/core/contracts.js",
+      "sha256": "fe520d19c3fb63ed6fd6658d2e6309c2d9fc06df2acc3f3334098bf9a9cba894"
+    },
+    {
+      "path": "js/core/hash.js",
+      "sha256": "825f348e0e7be9e477cfa6b8554d925a5a724051c5234855aa261dda5d07b370"
+    },
+    {
+      "path": "js/core/prng.js",
+      "sha256": "2881cb208796d3a19ca28482ff6805715d776eed5dbcd8ee90001d404e701cfe"
+    },
+    {
+      "path": "js/core/seed.js",
+      "sha256": "1169cf301a44c33f335b2606ceb4961ad983f1754160320901b68006215dc355"
+    },
+    {
+      "path": "js/experiment/experiment.js",
+      "sha256": "3cda35d8a8a5151dcfdceb6a1b0e89a75031bf6ebe238859e9886054cec599ad"
+    },
+    {
+      "path": "js/experiment/experiment_config.js",
+      "sha256": "d3bcd273c83275a420157bfddbd04e2c94c4d78c0b4304e4af42d9379d40bda3"
+    },
+    {
+      "path": "js/experiment/hash_state.js",
+      "sha256": "98c0370aa77fec06ea45a4bc5b12233083d8a724f3a05e271deb6f265d397bd6"
+    },
+    {
+      "path": "js/experiment/recorder.js",
+      "sha256": "d9825f9dafc6ddff2537103dd95b3595b5bca06d9b4ed3ee8e52e862e94d0cdb"
+    },
+    {
+      "path": "js/experiment/replay.js",
+      "sha256": "49229202c9290b74cc34d19773d6d2d7ad518d0e3c82878f285b7638cc62b580"
+    },
+    {
+      "path": "js/experiment/tick_transaction.js",
+      "sha256": "a03384cc7f10900683f9acbe179b02f00d2ce62d3a6de03eefd5edefae16c227"
+    },
+    {
+      "path": "js/experiment/trajectory.js",
+      "sha256": "3257419313a9b81828d134aa96b3cade8c9d9b39cb24d7607c93cb9cee5ce663"
+    },
+    {
+      "path": "js/interface/action.js",
+      "sha256": "f6af2a6a451bd40831a2776da75f8e66e98e358aaf7427551befb933358bb577"
+    },
+    {
+      "path": "js/interface/action_result.js",
+      "sha256": "f059ffd8fd770fd3e2b8d656f4d65528ff1a2253dc7ad82a9e7452307115ec18"
+    },
+    {
+      "path": "js/interface/feedback.js",
+      "sha256": "c37d67a23af0549c23adc1cd54b62bd3f85c57713ef8c04a4d98a255869f424f"
+    },
+    {
+      "path": "js/interface/observation.js",
+      "sha256": "db6373fc9a8e641a8cfcbea1a72b229a7d83ba3f501029edf4b7d13d1509d371"
+    },
+    {
+      "path": "js/main.js",
+      "sha256": "e94aefc3e0f452bfbe8ceaddfcfb906296cbbc2e6eac339e94d227804404e8b7"
+    },
+    {
+      "path": "js/tests/tests.js",
+      "sha256": "832096f8c29924cfb5f3a31317c21e5b95034832a57af796af1866ce56a6dfe1"
+    },
+    {
+      "path": "js/visualization/renderer.js",
+      "sha256": "dd9cf87a51b47021213034df756f18fe0eea58d0568bbd50a561c21cc2a6c0d2"
+    },
+    {
+      "path": "js/world/cells.js",
+      "sha256": "f18b91041c2ed4404ffce2794a1e38da429c6a72ab735d4b18c1c9b1504a24d3"
+    },
+    {
+      "path": "js/world/entity.js",
+      "sha256": "807cc430ef6729f7632e4633c37fb2461639346f0cbb4ec1fee17a34a322c74a"
+    },
+    {
+      "path": "js/world/world.js",
+      "sha256": "b63ce107b0a28b4a263dfe3724f960fb42b03f298d853f7023e1da49066abb56"
+    },
+    {
+      "path": "js/world/world_config.js",
+      "sha256": "96ef813ee5fe693d002b259168944efb8b41ffb1c0442f2dd6e070b99d8eec54"
+    },
+    {
+      "path": "js/world/world_state.js",
+      "sha256": "93a0da82a23280350babc82056b06697e6f3c0de4dfa060483d92adf20cf3ac5"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "ARCH-WORLD-AGENT",
+      "clauses": [
+        "§4",
+        "§4.1",
+        "§4.2"
+      ],
+      "scope": "Closed source revision, ordinary validated records and native bindings; no claim about arbitrary runtime replacement or hostile callbacks",
+      "evidence": [
+        {
+          "path": "js/world/world.js",
+          "function_or_anchor": "class World",
+          "file_sha256": "b63ce107b0a28b4a263dfe3724f960fb42b03f298d853f7023e1da49066abb56",
+          "lines": [
+            16,
+            39
+          ],
+          "excerpt": "class World {\n    constructor(config) {\n        this.config = config;\n        this.state = null;\n        this.rng = null;\n        this.experimental_entity_id = null;\n    }\n\n    // --- Inicialización ------------------------------------------------\n\n    initialize(seed) {\n        // Adapter only: one canonical generation/lifecycle route. Build everything\n        // before publishing fields; the returned snapshot never aliases live state.\n        const config = new WorldConfig(this.config);\n        const result = initialize_world(config, seed);\n        const state = result.world_state.copy();\n        const rng = new PRNG(result.rng_state); // restore stream, no extraction\n        const id = state.entities.keys().next().value;\n        const changes = [[\"config\", config], [\"state\", state], [\"rng\", rng], [\"experimental_entity_id\", id]];\n        for (const [key] of changes) {\n            if (Object.getOwnPropertyDescriptor(this, key)?.writable !== true) {\n                throw new ContractError(\"world transition failed\");\n            }\n        }",
+          "excerpt_sha256": "0a0b5f29cdaf4c2f8dcc3d61439f36cb4c9d75dda1f1c8af2a89edc6ae3ba144"
+        },
+        {
+          "path": "js/world/world.js",
+          "function_or_anchor": "apply_action(action)",
+          "file_sha256": "b63ce107b0a28b4a263dfe3724f960fb42b03f298d853f7023e1da49066abb56",
+          "lines": [
+            198,
+            254
+          ],
+          "excerpt": "    apply_action(action) {\n        const type = this._action_type(action);\n        const entity = this.get_experimental_entity();\n        const unchanged = (validity, reason) => ({validity, reason, energy_delta: 0, events: []});\n        if (entity.lifecycle !== \"ACTIVE\") return unchanged(\"INVALID\", \"ENTITY_NOT_ACTIVE\");\n\n        let target = null;\n        if (type !== \"WAIT\") {\n            const reason = this._move_failure_before_energy(action);\n            if (reason !== null) return unchanged(\"INVALID\", reason);\n            target = this._bounded_move_target(action);\n        }\n\n        const cost = canonicalize_binary64(type === \"WAIT\" ? this.config.wait_cost : this.config.move_cost);\n        if (canonicalize_binary64(entity.energy) < cost) return unchanged(\"FAILED\", \"INSUFFICIENT_ENERGY\");\n\n        // Stage all arithmetic and effects before committing any mutation.\n        const before = entity.energy;\n        let energy = World._finite_energy_sum(before, -cost);\n        let resource = null;\n        let effect_event = null;\n        if (target !== null) {\n            const effect = this.state.grid[target.y][target.x].effect;\n            if (effect !== null && effect.kind === \"RESOURCE\" && effect.stock === 1) {\n                energy = World._finite_energy_sum(energy, this.config.resource_effect);\n                resource = effect;\n                effect_event = \"RESOURCE_CONSUMED\";\n            } else if (effect !== null && effect.kind === \"HAZARD\") {\n                energy = World._finite_energy_sum(energy, -this.config.hazard_damage);\n                effect_event = \"HAZARD_TRIGGERED\";\n            }\n        }\n        energy = canonicalize_binary64(energy);\n        const energy_delta = canonicalize_binary64(energy - before);\n        const events = [];\n        if (target !== null) {\n            // ACT-H01: movement before its entry effect; all records staged before writes.\n            events.push(World._make_action_event(\"ENTITY_MOVED\", entity, target));\n            if (effect_event !== null) events.push(World._make_action_event(effect_event, entity, target));\n        }\n        const result = {validity: \"VALID\", reason: \"NONE\", energy_delta, events};\n\n        // Ordinary F2-A records may have been frozen by a caller. Reject before writes.\n        const changes = [];\n        if (!Object.is(entity.energy, energy)) changes.push([entity, \"energy\", energy]);\n        if (target !== null) changes.push([entity, \"position\", target]);\n        if (resource !== null) changes.push([resource, \"stock\", 0]);\n        for (const [record, key] of changes) {\n            if (Object.getOwnPropertyDescriptor(record, key)?.writable !== true) {\n                throw new ContractError(\"world transition failed\");\n            }\n        }\n        for (const [record, key, value] of changes) record[key] = value;\n        return result;\n    }\n\n    static _offset(actionType) {",
+          "excerpt_sha256": "c8a8f38cbdd6ce06ea54049d9420a62a5568d19da382fb2ea706287fc96a49f9"
+        },
+        {
+          "path": "js/agents/random_agent.js",
+          "function_or_anchor": "class RandomAgent",
+          "file_sha256": "62d91dc38ca39cf9fafdb540256971c7530387b1f457d7a93dcbdef6414c3a3c",
+          "lines": [
+            4,
+            21
+          ],
+          "excerpt": "class RandomAgent extends Agent {\n    constructor(seed) {\n        super();\n        this._initial_seed = seed;\n        this.rng = new PRNG(seed);\n    }\n\n    reset() {\n        // Restaurar el estado inicial exacto.\n        this.rng = new PRNG(this._initial_seed);\n    }\n\n    step(feedback) {\n        const idx = this.rng.next_int(0, 4);\n        const actions = [\"MOVE_N\", \"MOVE_S\", \"MOVE_E\", \"MOVE_W\", \"WAIT\"];\n        return makeAction(actions[idx]);\n    }\n}",
+          "excerpt_sha256": "128efa7087d31fe046dedfae7470059afef9ef18283ad8f92a2db00d57b5568b"
+        },
+        {
+          "path": "js/experiment/experiment.js",
+          "function_or_anchor": "function execute_experiment",
+          "file_sha256": "3cda35d8a8a5151dcfdceb6a1b0e89a75031bf6ebe238859e9886054cec599ad",
+          "lines": [
+            5,
+            74
+          ],
+          "excerpt": "function execute_experiment(config, agent_factory, with_agent) {\n    const checked = new ExperimentConfig(config);\n    const world_seed = derive_seed(checked.experiment_seed, \"world\");\n    const agent_seed = derive_seed(checked.experiment_seed, checked.agent_type);\n    const recorder = new Recorder(checked);\n    const world = new World(checked.world_config);\n    let initial;\n    try {\n        // World.initialize is the F2-G adapter to the single initialize_world route;\n        // it already adopts the independent state/RNG. Do not initialize/sync twice.\n        initial = world.initialize(world_seed);\n    } catch (error) {\n        if (!(error instanceof InitializationError)) throw error;\n        const failure = recorder.record_initialization_failure(error, checked);\n        return experiment_result(\"FAILED\", null, \"INITIALIZATION_ERROR\", {\n            seed: failure.seed, message: failure.message, config: recorder_config_record(checked)\n        });\n    }\n    recorder.record_initial_state(initial.world_state);\n    recorder.record_initial_lifecycle_from_world(initial.initial_events);\n    let agent = null;\n    if (with_agent) {\n        // Setup/factory/reset failures are outside §20.6's step-action catch.\n        if (typeof agent_factory !== \"function\") throw new ContractError(\"world transition failed\");\n        agent = agent_factory(checked.agent_type, agent_seed);\n        if (agent === null || typeof agent !== \"object\" ||\n            typeof agent.reset !== \"function\" || typeof agent.step !== \"function\") {\n            throw new ContractError(\"world transition failed\");\n        }\n        agent.reset();\n    }\n    let last_action_result = null;\n    let termination = determine_termination(world, checked.max_ticks);\n    if (termination === null) {\n        while (true) {\n            termination = determine_termination(world, checked.max_ticks);\n            if (termination !== null) break;\n            let observation = null, feedback = null, action;\n            if (with_agent) {\n                observation = build_observation(world, world.get_experimental_entity(), checked.world_config.observation_radius);\n                if (BigInt(observation.tick) !== BigInt(world.state.time)) throw new ContractError(\"world transition failed\");\n                feedback = build_feedback(observation, last_action_result, checked.feedback_config);\n                try {\n                    action = agent.step(feedback);\n                    if (!validate_Action_structural(action)) {\n                        throw new ContractError(\"agent produced structurally invalid action\");\n                    }\n                } catch (error) {\n                    recorder.set_termination_reason(\"AGENT_CONTRACT_ERROR\");\n                    return experiment_result(\"FAILED\", recorder.finalize(), \"AGENT_CONTRACT_ERROR\", {\n                        message: String(error), config: recorder_config_record(checked)\n                    });\n                }\n            } else {\n                action = {type: \"WAIT\"};\n            }\n            const confirmed = execute_tick_transaction(world, action, checked.max_ticks);\n            // Fail-stop boundary: if recording fails, propagate; no retry, no\n            // fake terminal reason, and no claim of joint WORLD/Recorder rollback.\n            recorder.record_step(confirmed, observation, feedback, action);\n            last_action_result = confirmed.action_result;\n            termination = confirmed.termination;\n            if (termination !== null) break;\n        }\n    }\n    recorder.set_termination_reason(termination);\n    return experiment_result(\"COMPLETED\", recorder.finalize());\n}\nfunction run_experiment(config, agent_factory = create_agent) {\n    return execute_experiment(config, agent_factory, true);",
+          "excerpt_sha256": "ba9842bd39f4c9a486165afb39e0c83478b763a8b751e058e5459bcdd63cd5a1"
+        }
+      ],
+      "observed": "WORLD stores config/state/RNG and accepts Action; native methods do not receive an agent. Factory receives type/derived seed, step receives Feedback. RandomAgent constructs its own PRNG.",
+      "required_next_evidence": "Independent capability/data-flow review of all call paths and adapter trust boundary; metamorphic ND5B-AGENT-ISOLATION only covers declared executions.",
+      "review_result": "BOUNDED_SOURCE_REVIEW; NOT A UNIVERSAL OR INDEPENDENT FORMAL PROOF"
+    },
+    {
+      "id": "ARCH-NO-LEARNING",
+      "clauses": [
+        "§1.4",
+        "§4.2"
+      ],
+      "scope": "Closed source revision, ordinary validated records and native bindings; no claim about arbitrary runtime replacement or hostile callbacks",
+      "evidence": [
+        {
+          "path": "js/world/world_config.js",
+          "function_or_anchor": "constructor(params)",
+          "file_sha256": "96ef813ee5fe693d002b259168944efb8b41ffb1c0442f2dd6e070b99d8eec54",
+          "lines": [
+            25,
+            44
+          ],
+          "excerpt": "    constructor(params) {\n        WorldConfig._validate(params);\n        for (const k of WORLD_CONFIG_FIELDS) this[k] = params[k];\n        Object.freeze(this);\n    }\n    static _validate(params) {\n        if (!validate_WorldConfig(params)) throw new ContractError(\"invalid world_config\");\n    }\n    static defaults() {\n        return new WorldConfig({\n            topology: \"BOUNDED\",\n            width: 20,\n            height: 20,\n            obstacle_density: 0.10,\n            resource_density: 0.15,\n            hazard_density: 0.05,\n            initial_energy: 100,\n            move_cost: 2,\n            wait_cost: 0,\n            resource_effect: 10,",
+          "excerpt_sha256": "04b56ceb49b38cf8eebd911a75fd46c23268cc3cdb14108824a5a01cff3b6d5a"
+        },
+        {
+          "path": "js/world/world.js",
+          "function_or_anchor": "apply_action(action)",
+          "file_sha256": "b63ce107b0a28b4a263dfe3724f960fb42b03f298d853f7023e1da49066abb56",
+          "lines": [
+            198,
+            254
+          ],
+          "excerpt": "    apply_action(action) {\n        const type = this._action_type(action);\n        const entity = this.get_experimental_entity();\n        const unchanged = (validity, reason) => ({validity, reason, energy_delta: 0, events: []});\n        if (entity.lifecycle !== \"ACTIVE\") return unchanged(\"INVALID\", \"ENTITY_NOT_ACTIVE\");\n\n        let target = null;\n        if (type !== \"WAIT\") {\n            const reason = this._move_failure_before_energy(action);\n            if (reason !== null) return unchanged(\"INVALID\", reason);\n            target = this._bounded_move_target(action);\n        }\n\n        const cost = canonicalize_binary64(type === \"WAIT\" ? this.config.wait_cost : this.config.move_cost);\n        if (canonicalize_binary64(entity.energy) < cost) return unchanged(\"FAILED\", \"INSUFFICIENT_ENERGY\");\n\n        // Stage all arithmetic and effects before committing any mutation.\n        const before = entity.energy;\n        let energy = World._finite_energy_sum(before, -cost);\n        let resource = null;\n        let effect_event = null;\n        if (target !== null) {\n            const effect = this.state.grid[target.y][target.x].effect;\n            if (effect !== null && effect.kind === \"RESOURCE\" && effect.stock === 1) {\n                energy = World._finite_energy_sum(energy, this.config.resource_effect);\n                resource = effect;\n                effect_event = \"RESOURCE_CONSUMED\";\n            } else if (effect !== null && effect.kind === \"HAZARD\") {\n                energy = World._finite_energy_sum(energy, -this.config.hazard_damage);\n                effect_event = \"HAZARD_TRIGGERED\";\n            }\n        }\n        energy = canonicalize_binary64(energy);\n        const energy_delta = canonicalize_binary64(energy - before);\n        const events = [];\n        if (target !== null) {\n            // ACT-H01: movement before its entry effect; all records staged before writes.\n            events.push(World._make_action_event(\"ENTITY_MOVED\", entity, target));\n            if (effect_event !== null) events.push(World._make_action_event(effect_event, entity, target));\n        }\n        const result = {validity: \"VALID\", reason: \"NONE\", energy_delta, events};\n\n        // Ordinary F2-A records may have been frozen by a caller. Reject before writes.\n        const changes = [];\n        if (!Object.is(entity.energy, energy)) changes.push([entity, \"energy\", energy]);\n        if (target !== null) changes.push([entity, \"position\", target]);\n        if (resource !== null) changes.push([resource, \"stock\", 0]);\n        for (const [record, key] of changes) {\n            if (Object.getOwnPropertyDescriptor(record, key)?.writable !== true) {\n                throw new ContractError(\"world transition failed\");\n            }\n        }\n        for (const [record, key, value] of changes) record[key] = value;\n        return result;\n    }\n\n    static _offset(actionType) {",
+          "excerpt_sha256": "c8a8f38cbdd6ce06ea54049d9420a62a5568d19da382fb2ea706287fc96a49f9"
+        },
+        {
+          "path": "js/world/world.js",
+          "function_or_anchor": "regenerate_resources()",
+          "file_sha256": "b63ce107b0a28b4a263dfe3724f960fb42b03f298d853f7023e1da49066abb56",
+          "lines": [
+            123,
+            151
+          ],
+          "excerpt": "        this.regenerate_resources();\n    }\n\n    regenerate_resources() {\n        WorldConfig._validate(this.config);\n        assert_WorldState(this.state, this.config);\n        const { width, height, resource_regeneration } = this.config;\n        if (resource_regeneration === 0) return;\n\n        const changes = [];\n        for (let y = 0; y < height; y++) {\n            for (let x = 0; x < width; x++) {\n                const cell = this.state.grid[y][x];\n                const effect = cell.effect;\n                if (effect === null || effect.kind !== \"RESOURCE\" || effect.stock === 1) continue;\n                // Engineering policy DYN-P01: binary stock and uint32 rate make\n                // this exact integer expression 1 for every positive rate.\n                const stock = Math.min(1, effect.stock + resource_regeneration);\n                if (Object.getOwnPropertyDescriptor(effect, \"stock\")?.writable !== true) {\n                    throw new ContractError(\"world transition failed\");\n                }\n                changes.push([effect, stock]);\n            }\n        }\n        // All structural checks and ordinary-record write checks precede mutation.\n        for (const [effect, stock] of changes) effect.stock = stock;\n    }\n\n    // --- Transición ---------------------------------------------------",
+          "excerpt_sha256": "c4832941ab18083817701de3d935fe26feee6a4c972ba417d7b55498aee17058"
+        }
+      ],
+      "observed": "Config is copied/frozen; inspected transition code updates position/energy/stock/lifecycle/RNG, without training or policy update from agent internals.",
+      "required_next_evidence": "Formal definition/scope from missing historical §39 and full write-set/data-flow review; finite source inspection is not a theorem about learning.",
+      "review_result": "BOUNDED_SOURCE_REVIEW; NOT A UNIVERSAL OR INDEPENDENT FORMAL PROOF"
+    },
+    {
+      "id": "ARCH-RECORDER-EXCLUSIVE",
+      "clauses": [
+        "§4.1",
+        "§18",
+        "§21"
+      ],
+      "scope": "Closed source revision, ordinary validated records and native bindings; no claim about arbitrary runtime replacement or hostile callbacks",
+      "evidence": [
+        {
+          "path": "js/world/world.js",
+          "function_or_anchor": "static _make_action_event",
+          "file_sha256": "b63ce107b0a28b4a263dfe3724f960fb42b03f298d853f7023e1da49066abb56",
+          "lines": [
+            193,
+            198
+          ],
+          "excerpt": "    static _make_action_event(type, entity, position) {\n        return {type, entity_id: entity.id, position: {x: position.x, y: position.y}};\n    }\n\n    // F2-D: normative boundaries plus explicit engineering policies recorded in STATUS.\n    apply_action(action) {",
+          "excerpt_sha256": "70e3713037529a76936c96128f33bd197b53c68356c8ad97eee88e2c34c82ce8"
+        },
+        {
+          "path": "js/world/world.js",
+          "function_or_anchor": "resolve_lifecycle()",
+          "file_sha256": "b63ce107b0a28b4a263dfe3724f960fb42b03f298d853f7023e1da49066abb56",
+          "lines": [
+            103,
+            122
+          ],
+          "excerpt": "    resolve_lifecycle() {\n        assert_WorldState(this.state, this.config);\n        const entity = this.get_experimental_entity();\n        if (!entity) throw new ContractError(\"invalid initial_state\");\n        if (entity.lifecycle === \"DEAD\" || entity.energy > this.config.death_threshold) {\n            return [];\n        }\n        const event = {\n            type: \"ENTITY_DIED\",\n            entity_id: entity.id,\n            position: {x: entity.position.x, y: entity.position.y}\n        };\n        entity.lifecycle = \"DEAD\";\n        return [event]; // raw WorldEvent; Recorder alone adds tick/source/sequence\n    }\n\n    // --- Dinámica autónoma --------------------------------------------\n\n    // §15: no events, actions, lifecycle, clock changes or RNG access.\n    advance_dynamics() {",
+          "excerpt_sha256": "b4638d56c3d335a8971ce2965be4752671ca385b26885d327d83e6b0b4b62642"
+        },
+        {
+          "path": "js/experiment/recorder.js",
+          "function_or_anchor": "_prepare_events(raw",
+          "file_sha256": "d9825f9dafc6ddff2537103dd95b3595b5bca06d9b4ed3ee8e52e862e94d0cdb",
+          "lines": [
+            278,
+            299
+          ],
+          "excerpt": "    _prepare_events(raw, tick, source, start = histories.get(this).sequence_counter) {\n        recording_require(Array.isArray(raw) && (source === \"action\" || source === \"lifecycle\") && is_uint64(start));\n        const recorded_tick = recorder_tick(tick);\n        const next = BigInt(start) + BigInt(raw.length);\n        if (raw.length > 0) recording_require(next - 1n <= RECORDER_MAX_SAFE);\n        const events = [];\n        for (let i = 0; i < raw.length; i++) {\n            const event = feedback_array_item(raw, i);\n            recording_require(has_exact_fields(event, [\"type\", \"entity_id\", \"position\"]));\n            const recorded = {type: event.type, entity_id: event.entity_id,\n                position: feedback_copy_position(event.position), tick: recorded_tick, source,\n                sequence: Number(BigInt(start) + BigInt(i))}; // the only enrichment/sequence assignment point\n            recording_require(validate_RecordedEvent(recorded));\n            events.push(recorded);\n        }\n        recording_require(events.length === raw.length && events.every(validate_RecordedEvent));\n        return {events, sequence_counter: next <= RECORDER_MAX_SAFE ? Number(next) : next};\n    }\n    record_initial_lifecycle_from_world(initial_events) {\n        this._record(() => {\n            this._require_initial_open();\n            validate_initial_events_consistency(histories.get(this).initial_state, initial_events);",
+          "excerpt_sha256": "8327a9ba71a9727adefad2c08334e336be10449e4c04022d268f87e63e891f18"
+        },
+        {
+          "path": "js/experiment/recorder.js",
+          "function_or_anchor": "record_initial_lifecycle_from_recorded",
+          "file_sha256": "d9825f9dafc6ddff2537103dd95b3595b5bca06d9b4ed3ee8e52e862e94d0cdb",
+          "lines": [
+            308,
+            319
+          ],
+          "excerpt": "    record_initial_lifecycle_from_recorded(initial_events) {\n        this._record(() => {\n            this._require_initial_open();\n            this._validate_initial_recorded(histories.get(this).initial_state, initial_events);\n            const prepared = this._prepare_current();\n            prepared.events = [];\n            for (let i = 0; i < initial_events.length; i++) prepared.events.push(recorder_copy_event(feedback_array_item(initial_events, i)));\n            prepared.sequence_counter = prepared.events.length === 0 ? 0 : recorder_sequence_after(prepared.events[prepared.events.length - 1].sequence);\n            prepared._initial_lifecycle_recorded = true;\n            return prepared;\n        });\n    }",
+          "excerpt_sha256": "3a819b84b7c3d76146aaf99c89c0187b959a34530ab6a7e99f65cd85c137d814"
+        }
+      ],
+      "observed": "WORLD creates raw three-field events; Recorder._prepare_events creates temporal/source/sequence enrichment. Replay-initial recorded events are copied, not enriched again.",
+      "required_next_evidence": "Independent full producer/consumer call-graph review distinguishing copying RecordedEvent from enriching WorldEvent; incomplete historical event contract remains separately recorded.",
+      "review_result": "BOUNDED_SOURCE_REVIEW; NOT A UNIVERSAL OR INDEPENDENT FORMAL PROOF"
+    },
+    {
+      "id": "ARCH-TIME-SYNC",
+      "clauses": [
+        "§5.1",
+        "§5.2",
+        "§32",
+        "D-01-E"
+      ],
+      "scope": "Closed source revision, ordinary validated records and native bindings; no claim about arbitrary runtime replacement or hostile callbacks",
+      "evidence": [
+        {
+          "path": "js/experiment/tick_transaction.js",
+          "function_or_anchor": "function execute_tick(world",
+          "file_sha256": "a03384cc7f10900683f9acbe179b02f00d2ce62d3a6de03eefd5edefae16c227",
+          "lines": [
+            70,
+            80
+          ],
+          "excerpt": "function execute_tick(world, action) {\n    tick_assert_world(world);\n    const action_result = world.apply_action(action);\n    const lifecycle_events = world.resolve_lifecycle();\n    world.advance_dynamics();\n    tick_require(tick_valid_action_result(action_result) && tick_valid_events(lifecycle_events, [\"ENTITY_DIED\"]));\n    const result = {action_result: tick_copy_action_result(action_result),\n        action_events: tick_copy_events(action_result.events), lifecycle_events: tick_copy_events(lifecycle_events)};\n    tick_require(validate_TickResult(result));\n    return result; // no temporal commit, RNG access or global rollback here\n}",
+          "excerpt_sha256": "ccc79b965953a329923a5211955cf2a4bde27e6f00ea41abfff9b58e5cca60b9"
+        },
+        {
+          "path": "js/experiment/tick_transaction.js",
+          "function_or_anchor": "function execute_tick_transaction",
+          "file_sha256": "a03384cc7f10900683f9acbe179b02f00d2ce62d3a6de03eefd5edefae16c227",
+          "lines": [
+            119,
+            160
+          ],
+          "excerpt": "function execute_tick_transaction(world, action, max_ticks) {\n    tick_max_ticks(max_ticks); // keep invalid max_ticks outside transition normalization\n    tick_assert_world(world); // keep configuration/state input diagnostics\n    tick_require(determine_termination(world, max_ticks) === null);\n    const t_before = world.state.time;\n    const next_time = tick_exact_increment(t_before);\n    // A native PRNG and writable restoration slots are required before any action.\n    tick_require(world.state instanceof WorldState && tick_writable_data(world, \"state\") &&\n        tick_writable_data(world, \"rng\") && tick_writable_data(world.state, \"time\"));\n    const rng = world.rng;\n    tick_require(rng instanceof PRNG && tick_writable_data(rng, \"state\") && is_uint32(rng.state) && rng.state !== 0);\n    const restore_rng = PRNG.prototype.set_state.bind(rng);\n    let state_before, rng_before;\n    try {\n        state_before = world.state.full_snapshot();\n        rng_before = rng.get_state();\n        tick_require(is_uint32(rng_before) && rng_before !== 0 && rng_before === rng.state);\n    } catch (error) {\n        throw new ContractError(\"world transition failed\"); // no mutation has started\n    }\n    try {\n        const tick_result = execute_tick(world, action);\n        tick_require(Object.is(world.state.time, t_before));\n        world.state.time = next_time;\n        tick_require(world.rng === rng);\n        world.sync_rng_state(); // only temporal commit point\n        assert_WorldState(world.state, world.config);\n        tick_require(Object.is(world.state.time, next_time));\n        const termination = determine_termination(world, max_ticks);\n        const result = {tick: represent_uint64(world.state.time), world_state: world.full_snapshot(),\n            action_result: tick_copy_action_result(tick_result.action_result),\n            action_events: tick_copy_events(tick_result.action_events),\n            lifecycle_events: tick_copy_events(tick_result.lifecycle_events), termination};\n        tick_require(validate_ConfirmedTickResult(result, world, termination));\n        return result;\n    } catch (error) {\n        world.state = state_before;\n        world.rng = rng;\n        restore_rng(rng_before);\n        throw new ContractError(\"world transition failed\");\n    }\n}",
+          "excerpt_sha256": "1adb0cca949b701ac682bbe57f4c5aaf7d78086a17ea45a473d243ed07942186"
+        },
+        {
+          "path": "js/experiment/experiment.js",
+          "function_or_anchor": "const confirmed = execute_tick_transaction",
+          "file_sha256": "3cda35d8a8a5151dcfdceb6a1b0e89a75031bf6ebe238859e9886054cec599ad",
+          "lines": [
+            61,
+            72
+          ],
+          "excerpt": "            const confirmed = execute_tick_transaction(world, action, checked.max_ticks);\n            // Fail-stop boundary: if recording fails, propagate; no retry, no\n            // fake terminal reason, and no claim of joint WORLD/Recorder rollback.\n            recorder.record_step(confirmed, observation, feedback, action);\n            last_action_result = confirmed.action_result;\n            termination = confirmed.termination;\n            if (termination !== null) break;\n        }\n    }\n    recorder.set_termination_reason(termination);\n    return experiment_result(\"COMPLETED\", recorder.finalize());\n}",
+          "excerpt_sha256": "800c71b7445d371ec8627cb4e7853efeb5af2d7572f12ded7289981a74ea9036"
+        }
+      ],
+      "observed": "Kernel delegates action→lifecycle→dynamics; after that sets next_time then synchronizes once, validates and snapshots. Experiment records only confirmed results. This is EXPERIMENT orchestration responsibility, not WORLD method time advance.",
+      "required_next_evidence": "Complete call/write-site review plus temporal/fault partitions; code location/class name alone does not establish component ownership.",
+      "review_result": "BOUNDED_SOURCE_REVIEW; NOT A UNIVERSAL OR INDEPENDENT FORMAL PROOF"
+    },
+    {
+      "id": "ARCH-OBSERVATION-PURE",
+      "clauses": [
+        "§16",
+        "§4.1"
+      ],
+      "scope": "Closed source revision, ordinary validated records and native bindings; no claim about arbitrary runtime replacement or hostile callbacks",
+      "evidence": [
+        {
+          "path": "js/interface/observation.js",
+          "function_or_anchor": "function build_observation",
+          "file_sha256": "db6373fc9a8e641a8cfcbea1a72b229a7d83ba3f501029edf4b7d13d1509d371",
+          "lines": [
+            14,
+            56
+          ],
+          "excerpt": "function build_observation(world, entity, radius) {\n    if (world === null || typeof world !== \"object\") {\n        throw new ContractError(\"invalid initial_state\");\n    }\n    WorldConfig._validate(world.config);\n    assert_WorldState(world.state, world.config);\n    if (!validate_EntityState(entity, world.config) || world.state.entities.get(entity.id) !== entity) {\n        throw new ContractError(\"invalid initial_state\");\n    }\n    if (!is_uint32(radius)) throw new ContractError(\"world transition failed\");\n\n    // Exact planning even at maximum uint32 radius; fail before creating output.\n    const side = 2n * BigInt(radius) + 1n;\n    const estimatedBytes = side * side * 64n + side * 8n;\n    if (estimatedBytes > OBSERVATION_MEMORY_BUDGET_BYTES) {\n        throw new RangeError(\"observation window exceeds implementation capacity\");\n    }\n\n    const {width, height} = world.config;\n    const local_view = [];\n    for (let dy = -radius; dy <= radius; dy++) {\n        const row = [];\n        for (let dx = -radius; dx <= radius; dx++) {\n            const x = entity.position.x + dx;\n            const y = entity.position.y + dy;\n            let representation = CellObservation.OUT_OF_BOUNDS;\n            if (x >= 0 && x < width && y >= 0 && y < height) {\n                const cell = world.state.grid[y][x];\n                if (cell.traversal === \"BLOCKED\") representation = CellObservation.BLOCKED;\n                else if (cell.effect === null) representation = CellObservation.FREE;\n                else if (cell.effect.kind === \"RESOURCE\") representation = CellObservation.RESOURCE;\n                else representation = CellObservation.HAZARD; // validated Cell\n            }\n            row.push({representation, occupied: false});\n        }\n        local_view.push(row);\n    }\n    return {\n        tick: represent_uint64(world.state.time),\n        self: {id: entity.id, position: {x: entity.position.x, y: entity.position.y}, energy: entity.energy},\n        local_view\n    };\n}",
+          "excerpt_sha256": "2381e36dc63a56cc03a9a6c36d44308f3f5722dcee82b543e2b020ae2b552c3b"
+        }
+      ],
+      "observed": "Projection reads validated state, creates new self/view/position records, emits canonical tick and performs no PRNG draw. It has an explicit 64MiB estimated-output capacity guard.",
+      "required_next_evidence": "All-path effect/data-flow review and definition of operational capacity failure separate from valid uint32 radius; OBS-P03 is engineering policy, not a normative radius cap.",
+      "review_result": "BOUNDED_SOURCE_REVIEW; NOT A UNIVERSAL OR INDEPENDENT FORMAL PROOF"
+    },
+    {
+      "id": "ARCH-RENDERER-PURE",
+      "clauses": [
+        "§29",
+        "§4.1"
+      ],
+      "scope": "Closed source revision, ordinary validated records and native bindings; no claim about arbitrary runtime replacement or hostile callbacks",
+      "evidence": [
+        {
+          "path": "js/visualization/renderer.js",
+          "function_or_anchor": "render(world)",
+          "file_sha256": "dd9cf87a51b47021213034df756f18fe0eea58d0568bbd50a561c21cc2a6c0d2",
+          "lines": [
+            11,
+            47
+          ],
+          "excerpt": "    render(world) {\n        WorldConfig._validate(world.config);\n        assert_WorldState(world.state, world.config);\n        const ctx = this.ctx;\n        const cs = this.cellSize;\n\n        ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);\n\n        for (let y = 0; y < world.config.height; y++) {\n            for (let x = 0; x < world.config.width; x++) {\n                const cell = world.state.grid[y][x];\n                const px = x * cs;\n                const py = y * cs;\n\n                if (cell.traversal === \"BLOCKED\") {\n                    ctx.fillStyle = \"#333\";\n                } else if (cell.effect && cell.effect.kind === \"RESOURCE\" && cell.effect.stock > 0) {\n                    ctx.fillStyle = \"#4caf50\";\n                } else if (cell.effect && cell.effect.kind === \"HAZARD\") {\n                    ctx.fillStyle = \"#f44336\";\n                } else {\n                    ctx.fillStyle = \"#eee\";\n                }\n                ctx.fillRect(px, py, cs - 1, cs - 1);\n            }\n        }\n\n        // Entidad.\n        const e = world.state.entities.values().next().value;\n        if (e) {\n            ctx.fillStyle = \"#2196f3\";\n            ctx.fillRect(e.position.x * cs, e.position.y * cs, cs - 1, cs - 1);\n        }\n\n        // Textual state belongs to the DOM summary, so it does not cover grid cells.\n    }\n}",
+          "excerpt_sha256": "e62009c5b4f9cec57b5f0294922cf441cc833d54f70461acb09c087a9c5d3220"
+        },
+        {
+          "path": "js/main.js",
+          "function_or_anchor": "renderer.render",
+          "file_sha256": "e94aefc3e0f452bfbe8ceaddfcfb906296cbbc2e6eac339e94d227804404e8b7",
+          "lines": [
+            42,
+            53
+          ],
+          "excerpt": "        renderer.render({config: config.world_config, state: state.full_snapshot()});\n        canvas.hidden = false;\n    } catch (error) {\n        render_status.textContent = \"No se pudo visualizar el resultado: \" + String(error);\n        render_status.hidden = false;\n    }\n}\nfunction run_web_experiment(config, agent_factory) {\n    const canvas = document.getElementById(\"canvas\");\n    canvas.hidden = true;\n    document.getElementById(\"execution-status\").textContent = \"Ejecutando…\";\n    document.getElementById(\"summary\").textContent = \"\";",
+          "excerpt_sha256": "85a651e3d1c03952cd7c3f9fdf18fbc0d5ab776acf4609baba2e9c409addb867"
+        }
+      ],
+      "observed": "Renderer reads config/state and writes canvas/context; inspected body assigns no state/grid/entity/RNG field. UI supplies a display wrapper around a snapshot.",
+      "required_next_evidence": "Independent effect review including callback/canvas assumptions and consumer API scope; Chromium purity examples are supplementary, not universal static proof.",
+      "review_result": "BOUNDED_SOURCE_REVIEW; NOT A UNIVERSAL OR INDEPENDENT FORMAL PROOF"
+    },
+    {
+      "id": "ARCH-SNAPSHOT-ISOLATION",
+      "clauses": [
+        "§7.2",
+        "§21",
+        "§26.5"
+      ],
+      "scope": "Closed source revision, ordinary validated records and native bindings; no claim about arbitrary runtime replacement or hostile callbacks",
+      "evidence": [
+        {
+          "path": "js/world/world_state.js",
+          "function_or_anchor": "constructor(time",
+          "file_sha256": "93a0da82a23280350babc82056b06697e6f3c0de4dfa060483d92adf20cf3ac5",
+          "lines": [
+            5,
+            31
+          ],
+          "excerpt": "    constructor(time, grid, entities, rng_state, config) {\n        if (!validate_WorldState({time, grid, entities, rng_state}, config)) {\n            throw new ContractError(\"invalid initial_state\");\n        }\n        this.#config = new WorldConfig(config);\n        this.time = time;\n        this.grid = grid.map(row => row.map(cell => new Cell(cell.traversal, cell.effect)));\n        this.entities = new Map();\n        for (const [id, entity] of entities) {\n            this.entities.set(id, new EntityState(entity.id, entity.position, entity.energy,\n                entity.lifecycle, this.#config));\n        }\n        this.rng_state = rng_state;\n    }\n\n    copy() {\n        // Validate before copying: do not strip added fields or repair corrupt state.\n        if (!validate_WorldState(this, this.#config)) {\n            throw new ContractError(\"invalid initial_state\");\n        }\n        return new WorldState(this.time, this.grid, this.entities, this.rng_state, this.#config);\n    }\n\n    full_snapshot() {\n        return this.copy();\n    }\n}",
+          "excerpt_sha256": "958df687bdb28e89ec959037205cecec7315dedee7efd8c09b60534f3ad5b0fc"
+        },
+        {
+          "path": "js/experiment/tick_transaction.js",
+          "function_or_anchor": "function tick_snapshot_matches",
+          "file_sha256": "a03384cc7f10900683f9acbe179b02f00d2ce62d3a6de03eefd5edefae16c227",
+          "lines": [
+            82,
+            98
+          ],
+          "excerpt": "function tick_snapshot_matches(a, b) {\n    if (a === b || a.entities === b.entities || a.grid === b.grid) return false;\n    if (BigInt(a.time) !== BigInt(b.time) || a.rng_state !== b.rng_state) return false;\n    for (const [id, entity] of a.entities) {\n        const other = b.entities.get(id);\n        if (!other || entity === other || entity.position === other.position || entity.id !== other.id || entity.lifecycle !== other.lifecycle ||\n            !Object.is(entity.energy, other.energy) || entity.position.x !== other.position.x ||\n            entity.position.y !== other.position.y) return false;\n    }\n    for (let y = 0; y < a.grid.length; y++) for (let x = 0; x < a.grid[y].length; x++) {\n        const left = a.grid[y][x], right = b.grid[y][x];\n        if (a.grid[y] === b.grid[y] || left === right ||\n            (left.effect !== null && left.effect === right.effect) || left.traversal !== right.traversal || (left.effect === null) !== (right.effect === null)) return false;\n        if (left.effect !== null && (left.effect.kind !== right.effect.kind || left.effect.stock !== right.effect.stock)) return false;\n    }\n    return true;\n}",
+          "excerpt_sha256": "8c3ea05f018b2f229f3030f5f93e1bad11d7790f017ea3d421cac6e3e3cd75cf"
+        },
+        {
+          "path": "js/experiment/recorder.js",
+          "function_or_anchor": "function commit(",
+          "file_sha256": "d9825f9dafc6ddff2537103dd95b3595b5bca06d9b4ed3ee8e52e862e94d0cdb",
+          "lines": [
+            126,
+            148
+          ],
+          "excerpt": "function commit(transaction, prepare, validate, append) {\n    const recorder = transaction.recorder;\n    recording_require(histories.has(recorder) && !active.has(recorder));\n    const before = capture(recorder);\n    active.add(recorder);\n    try {\n        const prepared = prepare();\n        if (!append) recording_require(histories.get(recorder).steps.length === 0 && has_exact_fields(prepared, RECORD_TRANSACTION_FIELDS));\n        validate(prepared);\n        // Adopt an unexposed copy: hooks/callers retaining prepared values cannot mutate it.\n        const owned = append ? {step: prepared.step === null ? null : copy_step(recorder, prepared.step),\n            events: prepared.events.map(recorder_copy_event), sequence_counter: prepared.sequence_counter,\n            termination_reason: prepared.termination_reason} : copy_fields(recorder, prepared);\n        transactions.set(transaction, {append, owned});\n        for (const key of RECORD_TRANSACTION_FIELDS) transaction._publish(key,\n            append ? (key === \"steps\" ? (prepared.step === null ? [] : [prepared.step]) : key === \"events\" ? prepared.events : prepared[key]) : prepared[key]);\n    } catch (error) {\n        restore(recorder, before);\n        throw new ContractError(\"recording failed\");\n    } finally { transactions.delete(transaction); active.delete(recorder); }\n}\nclass RecordTransaction {\n    constructor(recorder) { Object.defineProperty(this, \"recorder\", {value: recorder, enumerable: true}); }",
+          "excerpt_sha256": "f2a9e2efc14e8269c68c38e34563e2e550cd5a2d285bc07a4b91be5b70199e6f"
+        }
+      ],
+      "observed": "WorldState copies cells/entities/positions. Confirmed result gets a deep snapshot; recorder adopts unexposed owned copies. Snapshot validator checks identity separation and values.",
+      "required_next_evidence": "Alias/ownership review across all public getters, retained staging values and checkpoints; F4C policy remains D until formal profile compatibility is resolved.",
+      "review_result": "BOUNDED_SOURCE_REVIEW; NOT A UNIVERSAL OR INDEPENDENT FORMAL PROOF"
+    },
+    {
+      "id": "ARCH-EXPERIMENT-REPLAY-BOUNDARY",
+      "clauses": [
+        "§20",
+        "§25.4",
+        "§26.5",
+        "D-01-B"
+      ],
+      "scope": "Closed source revision, ordinary validated records and native bindings; no claim about arbitrary runtime replacement or hostile callbacks",
+      "evidence": [
+        {
+          "path": "js/experiment/experiment.js",
+          "function_or_anchor": "const confirmed = execute_tick_transaction",
+          "file_sha256": "3cda35d8a8a5151dcfdceb6a1b0e89a75031bf6ebe238859e9886054cec599ad",
+          "lines": [
+            61,
+            72
+          ],
+          "excerpt": "            const confirmed = execute_tick_transaction(world, action, checked.max_ticks);\n            // Fail-stop boundary: if recording fails, propagate; no retry, no\n            // fake terminal reason, and no claim of joint WORLD/Recorder rollback.\n            recorder.record_step(confirmed, observation, feedback, action);\n            last_action_result = confirmed.action_result;\n            termination = confirmed.termination;\n            if (termination !== null) break;\n        }\n    }\n    recorder.set_termination_reason(termination);\n    return experiment_result(\"COMPLETED\", recorder.finalize());\n}",
+          "excerpt_sha256": "800c71b7445d371ec8627cb4e7853efeb5af2d7572f12ded7289981a74ea9036"
+        },
+        {
+          "path": "js/experiment/replay.js",
+          "function_or_anchor": "function replay_tick_transaction",
+          "file_sha256": "49229202c9290b74cc34d19773d6d2d7ad518d0e3c82878f285b7638cc62b580",
+          "lines": [
+            21,
+            49
+          ],
+          "excerpt": "function replay_tick_transaction(world, recorder, action, feedback_config, max_ticks, export_prefix, execution_mode) {\n    // Separate snapshots: the internal stream can differ from persisted rng_state\n    // before the kernel's synchronization point. Preserve both exactly.\n    let state_before, rng, rng_before, restore_rng, recorder_before;\n    try {\n        state_before = world.full_snapshot();\n        rng = world.rng;\n        rng_before = rng.get_state();\n        restore_rng = PRNG.prototype.set_state.bind(rng);\n        recorder_before = recorder._checkpoint();\n    } catch (error) { throw new ContractError(\"world transition failed\"); }\n    let phase = \"world\";\n    try {\n        const previous = recorder._prior_action_result();\n        const observation = execution_mode===\"WITHOUT_AGENT\"?null:build_observation(world, world.get_experimental_entity(), world.config.observation_radius);\n        const feedback = observation===null?null:build_feedback(observation, previous, feedback_config);\n        const confirmed = execute_tick_transaction(world, action, max_ticks);\n        phase = \"recorder\";\n        recorder.record_step(confirmed, observation, feedback, action);\n        return {confirmed, prefix: export_prefix ? replay_prefix_snapshot(world, recorder) : null};\n    } catch (error) {\n        world.state = state_before;\n        world.rng = rng;\n        restore_rng(rng_before);\n        recorder._restore_checkpoint(recorder_before);\n        throw new ContractError(phase === \"recorder\" ? \"recording failed\" : \"world transition failed\");\n    }\n}\nfunction replay_prefix_snapshot(world, recorder) {",
+          "excerpt_sha256": "04d21e9901b8116b43d82beab6020a8f37ed0f9dbf5c2c158a57288dee72a639"
+        },
+        {
+          "path": "js/experiment/recorder.js",
+          "function_or_anchor": "function capture(",
+          "file_sha256": "d9825f9dafc6ddff2537103dd95b3595b5bca06d9b4ed3ee8e52e862e94d0cdb",
+          "lines": [
+            111,
+            126
+          ],
+          "excerpt": "function capture(recorder) {\n    const h = histories.get(recorder);\n    return {values: Object.fromEntries(RECORD_TRANSACTION_FIELDS.map(key => [key, h[key]])),\n        segment: segments.has(recorder), steps_length: h.steps.length, events_length: h.events.length,\n        last_step: h.steps[h.steps.length - 1], last_event: h.events[h.events.length - 1]};\n}\nfunction restore(recorder, saved) {\n    const h = histories.get(recorder);\n    recording_require(saved.values.steps.length >= saved.steps_length && saved.values.events.length >= saved.events_length);\n    recording_require((saved.steps_length === 0 || saved.values.steps[saved.steps_length - 1] === saved.last_step) &&\n        (saved.events_length === 0 || saved.values.events[saved.events_length - 1] === saved.last_event));\n    for (const key of RECORD_TRANSACTION_FIELDS) h[key] = saved.values[key];\n    h.steps.length = saved.steps_length; h.events.length = saved.events_length;\n    if(saved.segment) segments.add(recorder); else segments.delete(recorder);\n}\nfunction commit(transaction, prepare, validate, append) {",
+          "excerpt_sha256": "9a49fbf31b480d248a20e70f856ea9534e3fba36f93952fffcdec3005c29aaac"
+        }
+      ],
+      "observed": "Experiment is fail-stop if recording fails after world confirmation; replay snapshots WORLD/RNG and recorder token, and restores them on world/recording failure. Recorder checkpoints restore append-only history lengths/state.",
+      "required_next_evidence": "Do not claim a new joint Experiment transaction; reconcile broad §5.5 with exact replay/Experiment scope and authorized decisions in candidate precision pack.",
+      "review_result": "BOUNDED_SOURCE_REVIEW; NOT A UNIVERSAL OR INDEPENDENT FORMAL PROOF"
+    },
+    {
+      "id": "ARCH-METRICS-SCOPE",
+      "clauses": [
+        "§4",
+        "§4.1",
+        "§30"
+      ],
+      "scope": "Closed source revision, ordinary validated records and native bindings; no claim about arbitrary runtime replacement or hostile callbacks",
+      "evidence": [],
+      "observed": "No js/metrics component was found in the enumerated js source tree. No evidence is supplied for a Metrics consumer or its no-mutation behavior.",
+      "required_next_evidence": "Retain the current conditional consumer constraint; provide its interface/implementation/evidence or an express normative scope decision. Absence of code is not an exclusion.",
+      "review_result": "BOUNDED_SOURCE_REVIEW; NOT A UNIVERSAL OR INDEPENDENT FORMAL PROOF"
+    }
+  ],
+  "lexical_clock_write_sites": [
+    {
+      "path": "js/experiment/tick_transaction.js",
+      "line": 142,
+      "text": "world.state.time = next_time;"
+    }
+  ],
+  "lexical_sync_mentions": [
+    {
+      "path": "js/experiment/tick_transaction.js",
+      "line": 144,
+      "text": "world.sync_rng_state(); // only temporal commit point"
+    },
+    {
+      "path": "js/tests/tests.js",
+      "line": 269,
+      "text": "w.sync_rng_state();"
+    },
+    {
+      "path": "js/world/world.js",
+      "line": 272,
+      "text": "sync_rng_state() {"
+    },
+    {
+      "path": "js/world/world.js",
+      "line": 346,
+      "text": "world.sync_rng_state();"
+    }
+  ],
+  "lexical_limit": "Comments stripped only at //; scans may miss indirect aliases/dynamic access. Findings rely on cited source reading, not scan absence.",
+  "notes": [
+    {
+      "id": "ARCH-NOTE-LEGACY-SECTION-agent",
+      "severity": "P2 DOCUMENTATION",
+      "path": "js/agents/agent.js",
+      "file_sha256": "5f593b29539753f6f82c1417a7f3380c96cf1d0e542cd506ebe3347118f75cd1",
+      "line": 2,
+      "evidence": "// Contrato: js/agents/agent.js según especificación §14.1.",
+      "current_clause": "S025 §14 is Lifecycle; agent contract is §28",
+      "impact": "Stale comment pointer can mislead traceability; no behavioral violation reproduced",
+      "recommended_correction": "Update comments in a later authorized maintenance change; do not use them as normative authority"
+    },
+    {
+      "id": "ARCH-NOTE-LEGACY-SECTION-random_agent",
+      "severity": "P2 DOCUMENTATION",
+      "path": "js/agents/random_agent.js",
+      "file_sha256": "62d91dc38ca39cf9fafdb540256971c7530387b1f457d7a93dcbdef6414c3a3c",
+      "line": 2,
+      "evidence": "// Contrato: js/agents/random_agent.js según especificación §14.3.",
+      "current_clause": "S025 §14 is Lifecycle; agent contract is §28",
+      "impact": "Stale comment pointer can mislead traceability; no behavioral violation reproduced",
+      "recommended_correction": "Update comments in a later authorized maintenance change; do not use them as normative authority"
+    },
+    {
+      "id": "ARCH-NOTE-LEGACY-SECTION-registry",
+      "severity": "P2 DOCUMENTATION",
+      "path": "js/agents/registry.js",
+      "file_sha256": "5197d317006b9b001f2de492de00808c7d070aa6e8ae54a9817a0758e2cdb85f",
+      "line": 2,
+      "evidence": "// Contrato: js/agents/registry.js según especificación §14.5.",
+      "current_clause": "S025 §14 is Lifecycle; agent contract is §28",
+      "impact": "Stale comment pointer can mislead traceability; no behavioral violation reproduced",
+      "recommended_correction": "Update comments in a later authorized maintenance change; do not use them as normative authority"
+    },
+    {
+      "id": "ARCH-NOTE-LEGACY-SECTION-rule_agent",
+      "severity": "P2 DOCUMENTATION",
+      "path": "js/agents/rule_agent.js",
+      "file_sha256": "e0512ab282c503f78c4272d1f12cf54836f69dc12a36b08886382f5b0c6aec80",
+      "line": 2,
+      "evidence": "// Contrato: js/agents/rule_agent.js según especificación §14.4.",
+      "current_clause": "S025 §14 is Lifecycle; agent contract is §28",
+      "impact": "Stale comment pointer can mislead traceability; no behavioral violation reproduced",
+      "recommended_correction": "Update comments in a later authorized maintenance change; do not use them as normative authority"
+    },
+    {
+      "id": "ARCH-NOTE-LEGACY-SECTION-wait_agent",
+      "severity": "P2 DOCUMENTATION",
+      "path": "js/agents/wait_agent.js",
+      "file_sha256": "e40b09ad92201b9727b25e1902bc8a45c108890c2c481de9a9743b195459d6d8",
+      "line": 2,
+      "evidence": "// Contrato: js/agents/wait_agent.js según especificación §14.2.",
+      "current_clause": "S025 §14 is Lifecycle; agent contract is §28",
+      "impact": "Stale comment pointer can mislead traceability; no behavioral violation reproduced",
+      "recommended_correction": "Update comments in a later authorized maintenance change; do not use them as normative authority"
+    }
+  ],
+  "reproduced_behavioral_P0_P1_defects": [],
+  "global_properties_proven": false
+}

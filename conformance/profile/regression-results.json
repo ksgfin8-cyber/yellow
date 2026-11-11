@@ -1,0 +1,335 @@
+{
+  "base": "e7fada1a0e78ff711f056b53148e048102fd1c02",
+  "unit_command": "node tests/<file> (each file below)",
+  "prior_unit_suites": [
+    {
+      "file": "f1-a.test.cjs",
+      "exit": 0,
+      "pass": [
+        "18"
+      ],
+      "fail": [
+        "0"
+      ]
+    },
+    {
+      "file": "f1-b.test.cjs",
+      "exit": 0,
+      "pass": [
+        "12"
+      ],
+      "fail": [
+        "0"
+      ]
+    },
+    {
+      "file": "f2-a.test.cjs",
+      "exit": 0,
+      "pass": [
+        "14"
+      ],
+      "fail": [
+        "0"
+      ]
+    },
+    {
+      "file": "f2-b.test.cjs",
+      "exit": 0,
+      "pass": [
+        "13"
+      ],
+      "fail": [
+        "0"
+      ]
+    },
+    {
+      "file": "f2-c.test.cjs",
+      "exit": 0,
+      "pass": [
+        "21"
+      ],
+      "fail": [
+        "0"
+      ]
+    },
+    {
+      "file": "f2-d.test.cjs",
+      "exit": 0,
+      "pass": [
+        "28"
+      ],
+      "fail": [
+        "0"
+      ]
+    },
+    {
+      "file": "f2-e.test.cjs",
+      "exit": 0,
+      "pass": [
+        "16"
+      ],
+      "fail": [
+        "0"
+      ]
+    },
+    {
+      "file": "f2-f.test.cjs",
+      "exit": 0,
+      "pass": [
+        "18"
+      ],
+      "fail": [
+        "0"
+      ]
+    },
+    {
+      "file": "f2-g.test.cjs",
+      "exit": 0,
+      "pass": [
+        "21"
+      ],
+      "fail": [
+        "0"
+      ]
+    },
+    {
+      "file": "f2-h.test.cjs",
+      "exit": 0,
+      "pass": [
+        "15"
+      ],
+      "fail": [
+        "0"
+      ]
+    },
+    {
+      "file": "f2-i.test.cjs",
+      "exit": 0,
+      "pass": [
+        "18"
+      ],
+      "fail": [
+        "0"
+      ]
+    },
+    {
+      "file": "f3-a.test.cjs",
+      "exit": 0,
+      "pass": [
+        "40"
+      ],
+      "fail": [
+        "0"
+      ]
+    },
+    {
+      "file": "f3-b.test.cjs",
+      "exit": 0,
+      "pass": [
+        "18"
+      ],
+      "fail": [
+        "0"
+      ]
+    },
+    {
+      "file": "f3-c.test.cjs",
+      "exit": 0,
+      "pass": [
+        "24"
+      ],
+      "fail": [
+        "0"
+      ]
+    },
+    {
+      "file": "f3-d.test.cjs",
+      "exit": 0,
+      "pass": [
+        "12"
+      ],
+      "fail": [
+        "0"
+      ]
+    },
+    {
+      "file": "f3-d2.test.cjs",
+      "exit": 0,
+      "pass": [
+        "15"
+      ],
+      "fail": [
+        "0"
+      ]
+    },
+    {
+      "file": "f3-e.test.cjs",
+      "exit": 0,
+      "pass": [
+        "24"
+      ],
+      "fail": [
+        "0"
+      ]
+    },
+    {
+      "file": "f3-f.test.cjs",
+      "exit": 0,
+      "pass": [
+        "23"
+      ],
+      "fail": [
+        "0"
+      ]
+    },
+    {
+      "file": "f3-g.test.cjs",
+      "exit": 0,
+      "pass": [
+        "27"
+      ],
+      "fail": [
+        "0"
+      ]
+    },
+    {
+      "file": "f3-h.test.cjs",
+      "exit": 0,
+      "pass": [
+        "23"
+      ],
+      "fail": [
+        "0"
+      ]
+    },
+    {
+      "file": "f4-a.test.cjs",
+      "exit": 0,
+      "pass": [
+        "15"
+      ],
+      "fail": [
+        "0"
+      ]
+    },
+    {
+      "file": "f4-b.test.cjs",
+      "exit": 0,
+      "pass": [
+        "18"
+      ],
+      "fail": [
+        "0"
+      ]
+    },
+    {
+      "file": "f4-c.test.cjs",
+      "exit": 0,
+      "pass": [
+        "20"
+      ],
+      "fail": [
+        "0"
+      ]
+    },
+    {
+      "file": "f4-e.test.cjs",
+      "exit": 0,
+      "pass": [
+        "17"
+      ],
+      "fail": [
+        "0"
+      ]
+    },
+    {
+      "file": "f4-f.test.cjs",
+      "exit": 0,
+      "pass": [
+        "12"
+      ],
+      "fail": [
+        "0"
+      ]
+    },
+    {
+      "file": "f5-a.test.cjs",
+      "exit": 0,
+      "pass": [
+        "12"
+      ],
+      "fail": [
+        "0"
+      ]
+    },
+    {
+      "file": "f5-b.test.cjs",
+      "exit": 0,
+      "pass": [
+        "6"
+      ],
+      "fail": [
+        "0"
+      ]
+    }
+  ],
+  "prior_unit_summary": {
+    "files": 27,
+    "pass": 500,
+    "fail": 0,
+    "current_revision_assertions": 494,
+    "historical_fixed_v025_assertions": 6
+  },
+  "profile_command": "node tests/f5-c.test.cjs",
+  "profile_tests": {
+    "pass": 11,
+    "fail": 0,
+    "scope": "manifest integrity and rejection checks, not engine conformance"
+  },
+  "browser": {
+    "command": "PLAYWRIGHT_MODULE=/opt/codex/runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/index.js node tests/f4-a.test.cjs --browser",
+    "pass": 16,
+    "fail": 0,
+    "includes_node_repetitions": 15,
+    "additional_real_chromium_case": 1
+  },
+  "corpus": [
+    {
+      "command": "node conformance/runner.cjs --out /tmp/f5c-f5a.json",
+      "reference": "conformance/results/f5-a.json",
+      "byte_identical": true,
+      "pass": 50,
+      "fail": 0,
+      "blocked": 289
+    },
+    {
+      "command": "node conformance/runner.cjs --cases cases-f5-b.json --out /tmp/f5c-f5b-repeat.json",
+      "reference": "conformance/results/f5-b.json",
+      "byte_identical": true,
+      "pass": 114,
+      "fail": 0,
+      "blocked": 289
+    }
+  ],
+  "legacy": {
+    "command": "node tests/f1-a-legacy.cjs",
+    "exit": 1,
+    "pass": 13,
+    "fail": 9,
+    "unchanged": true,
+    "failures": {
+      "T06/T07/T08/T20/T22": "legacy reads retired array/result shapes (undefined.length)",
+      "T12": "makeResource removed from canonical cells",
+      "T13": "EffectKind removed from canonical cells",
+      "T14": "makeHazard removed from canonical cells",
+      "T16": "legacy initial state rejected by canonical validation"
+    }
+  },
+  "scope": "Separate overlapping corpus, browser repeats and unit counts. No global conformity or interoperability inferred.",
+  "verification_invocation_correction": {
+    "attempt": "node conformance/runner.cjs --cases conformance/cases-f5-b.json --out /tmp/f5c-f5b-repeat.json",
+    "exit": 2,
+    "reason": "CLI requires manifest basename, rejects path before execution",
+    "corrected_repeat_matches_archive": true
+  }
+}

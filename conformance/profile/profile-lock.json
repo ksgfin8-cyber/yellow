@@ -1,0 +1,9 @@
+{
+  "profile_id": "WL-ACCEPT-v026-CAND-1.0.0",
+  "approved": false,
+  "manifest": {
+    "path": "conformance/acceptance-profile-candidate.json",
+    "sha256": "b932ff6f9337f8ebaa525a70dec68f727bc60a62b604853607178a70700c11da"
+  },
+  "semantic_note": "Integrity lock, not approval or normative authority"
+}

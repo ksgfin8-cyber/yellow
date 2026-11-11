@@ -1,0 +1,1595 @@
+{
+  "profile_id": "WL-ACCEPT-v026-CAND-1.0.0",
+  "version": "1.0.0-candidate",
+  "status": "DRAFT_HOLD_NOT_APPROVED",
+  "preparation_decision": "F5C-001 — ACCEPTANCE BASIS CANDIDATE PREPARATION",
+  "decision_classification": "Methodological and Normative Acceptance-Governance Decision Preparation",
+  "base": "e7fada1a0e78ff711f056b53148e048102fd1c02",
+  "normative_revision": "WORLD-LAB v0.2.6 D-01 over inherited v0.2.5",
+  "normative_priority": [
+    "S026 explicit substitutions only",
+    "S025 rest of current norm",
+    "Recovered incorporated fragments with their exact scope/attribution"
+  ],
+  "approval": {
+    "approved": false,
+    "modifies_section37": false,
+    "approval_does_not_imply_conformance": true,
+    "express_normative_authorization_required": true
+  },
+  "obligations": {
+    "inventory_ref": "conformance/profile/clause-inventory.json",
+    "mandatory_ids": [
+      "S025:§0.1:L0009",
+      "S025:§0.1:L0010",
+      "S025:§0.1:L0011",
+      "S025:§0.1:L0012",
+      "S025:§0.1:L0013",
+      "S025:§0.1:L0014",
+      "S025:§0.1:L0015",
+      "S025:§0.1:L0016",
+      "S025:§0.1:L0017",
+      "S025:§0.1:L0018",
+      "S025:§0.2:L0020",
+      "S025:§0.3:L0023",
+      "S025:§0.3:L0025",
+      "S025:§0.3:L0027",
+      "S025:§0.3:L0029",
+      "S025:§0.3:L0031",
+      "S025:§0.3:L0033",
+      "S025:§0.4:L0036",
+      "S025:§0.4:L0038",
+      "S025:§0.4:L0040",
+      "S025:§0.4:L0042",
+      "S025:§0.5:L0045",
+      "S025:§0.5:L0047",
+      "S025:§0.5:L0049",
+      "S025:§0.5:L0051",
+      "S025:§1.1:L0055",
+      "S025:§1.2:L0058",
+      "S025:§1.3:L0061",
+      "S025:§1.3:L0063",
+      "S025:§1.3:L0065",
+      "S025:§1.3:L0067",
+      "S025:§1.3:L0069",
+      "S025:§1.3:L0071",
+      "S025:§1.3:L0073",
+      "S025:§1.3:L0075",
+      "S025:§1.3:L0077",
+      "S025:§1.3:L0079",
+      "S025:§1.3:L0081",
+      "S025:§1.3:L0083",
+      "S025:§1.3:L0085",
+      "S025:§1.4:L0088",
+      "S025:§1.5:L0091",
+      "S025:§2:L0094",
+      "S025:§2:L0096",
+      "S025:§2:L0098",
+      "S025:§2:L0100",
+      "S025:§2:L0102",
+      "S025:§2:L0104",
+      "S025:§2:L0106",
+      "S025:§2:L0108",
+      "S025:§2:L0110",
+      "S025:§2:L0112",
+      "S025:§2:L0114",
+      "S025:§2:L0116",
+      "S025:§2:L0118",
+      "S025:§2:L0120",
+      "S025:§2:L0122",
+      "S025:§2:L0124",
+      "S025:§3:L0127",
+      "S025:§3:L0130",
+      "S025:§3:L0131",
+      "S025:§3:L0132",
+      "S025:§4:L0134",
+      "S025:§4:L0143",
+      "S025:§4:L0148",
+      "S025:§4:L0153",
+      "S025:§4:L0160",
+      "S025:§4.1:L0164",
+      "S025:§4.1:L0166",
+      "S025:§4.1:L0168",
+      "S025:§4.1:L0170",
+      "S025:§4.1:L0172",
+      "S025:§4.1:L0174",
+      "S025:§4.1:L0176",
+      "S025:§4.1:L0178",
+      "S025:§4.1:L0180",
+      "S025:§4.1:L0182",
+      "S025:§4.2:L0185",
+      "S025:§5.1:L0189",
+      "S025:§5.2:L0200",
+      "S025:§5.2:L0202",
+      "S025:§5.2:L0204",
+      "S025:§5.2:L0206",
+      "S025:§5.3:L0209",
+      "S025:§5.4:L0214",
+      "S025:§5.5:L0224",
+      "S025:§5.6:L0227",
+      "S025:§5.6:L0229",
+      "S025:§5.6:L0231",
+      "S025:§5.6:L0233",
+      "S025:§5.6:L0235",
+      "S025:§5.7:L0238",
+      "S025:§6.1:L0243",
+      "S025:§6.1:L0244",
+      "S025:§6.1:L0245",
+      "S025:§6.1:L0246",
+      "S025:§6.1:L0247",
+      "S025:§6.1:L0248",
+      "S025:§6.1:L0249",
+      "S025:§6.1:L0250",
+      "S025:§6.1:L0251",
+      "S025:§6.1:L0252",
+      "S025:§6.1:L0253",
+      "S025:§6.1:L0255",
+      "S025:§6.2:L0258",
+      "S025:§6.2:L0260",
+      "S025:§6.2:L0262",
+      "S025:§6.2:L0264",
+      "S025:§6.2:L0266",
+      "S025:§6.2:L0268",
+      "S025:§6.2:L0270",
+      "S025:§6.2:L0272",
+      "S025:§6.2:L0274",
+      "S025:§6.3:L0277",
+      "S025:§6.3:L0279",
+      "S025:§6.3:L0281",
+      "S025:§6.3:L0283",
+      "S025:§6.3:L0285",
+      "S025:§6.3:L0287",
+      "S025:§6.3:L0289",
+      "S025:§6.4:L0292",
+      "S025:§7.1:L0302",
+      "S025:§7.1:L0303",
+      "S025:§7.1:L0304",
+      "S025:§7.1:L0305",
+      "S025:§7.2:L0307",
+      "S025:§8:L0310",
+      "S025:§8:L0312",
+      "S025:§9:L0315",
+      "S025:§9:L0317",
+      "S025:§10.1:L0321",
+      "S025:§10.1:L0324",
+      "S025:§10.1:L0326",
+      "S025:§10.1:L0333",
+      "S025:§10.1:L0336",
+      "S025:§10.1:L0339",
+      "S025:§10.1:L0341",
+      "S025:§10.1:L0343",
+      "S025:§10.1:L0345",
+      "S025:§10.1:L0347",
+      "S025:§10.1:L0349",
+      "S025:§10.2:L0359",
+      "S025:§10.3:L0362",
+      "S025:§10.4:L0369",
+      "S025:§10.5:L0371",
+      "S025:§10.6:L0374",
+      "S025:§10.6:L0375",
+      "S025:§10.6:L0376",
+      "S025:§10.7:L0380",
+      "S025:§10.7:L0382",
+      "S025:§10.7:L0384",
+      "S025:§10.7:L0386",
+      "S025:§10.7:L0388",
+      "S025:§10.7:L0390",
+      "S025:§10.7:L0392",
+      "S025:§10.7:L0394",
+      "S025:§11.1:L0398",
+      "S025:§11.1:L0402",
+      "S025:§11.1:L0418",
+      "S025:§11.1:L0424",
+      "S025:§11.2:L0427",
+      "S025:§11.3:L0430",
+      "S025:§11.4:L0433",
+      "S025:§11.5:L0436",
+      "S025:§11.6:L0439",
+      "S025:§11.6:L0444",
+      "S025:§11.6:L0451",
+      "S025:§11.6:L0456",
+      "S025:§11.6:L0459",
+      "S025:§11.6:L0462",
+      "S025:§11.7:L0465",
+      "S025:§11.7:L0477",
+      "S025:§12:L0480",
+      "S025:§13:L0483",
+      "S025:§13:L0485",
+      "S025:§13:L0487",
+      "S025:§14:L0490",
+      "S025:§15:L0493",
+      "S025:§16:L0496",
+      "S025:§16:L0498",
+      "S025:§17:L0501",
+      "S025:§17:L0503",
+      "S025:§18:L0506",
+      "S025:§19:L0509",
+      "S025:§19.1:L0512",
+      "S025:§20.1:L0516",
+      "S025:§20.1:L0523",
+      "S025:§20.1:L0525",
+      "S025:§20.1:L0530",
+      "S025:§20.1:L0540",
+      "S025:§20.1:L0543",
+      "S025:§20.1:L0546",
+      "S025:§20.1:L0550",
+      "S025:§20.1:L0559",
+      "S025:§20.1:L0561",
+      "S025:§20.1:L0567",
+      "S025:§20.1:L0573",
+      "S025:§20.1:L0585",
+      "S025:§20.1:L0589",
+      "S025:§20.1:L0593",
+      "S025:§20.1:L0600",
+      "S025:§20.1:L0602",
+      "S025:§20.1:L0604",
+      "S025:§20.1:L0606",
+      "S025:§20.1:L0608",
+      "S025:§20.1:L0610",
+      "S025:§20.2:L0613",
+      "S025:§20.2:L0616",
+      "S025:§20.2:L0618",
+      "S025:§20.2:L0622",
+      "S025:§20.2:L0624",
+      "S025:§20.2:L0626",
+      "S025:§20.2:L0631",
+      "S025:§20.2:L0633",
+      "S025:§20.2:L0636",
+      "S025:§20.2:L0638",
+      "S025:§20.2:L0640",
+      "S025:§20.2:L0642",
+      "S025:§20.2:L0644",
+      "S025:§20.2:L0646",
+      "S025:§20.2:L0648",
+      "S025:§20.3:L0652",
+      "S025:§20.3:L0653",
+      "S025:§20.3:L0654",
+      "S025:§20.3:L0655",
+      "S025:§20.3:L0656",
+      "S025:§20.4:L0658",
+      "S025:§20.5:L0661",
+      "S025:§20.6:L0670",
+      "S025:§20.6:L0672",
+      "S025:§20.6:L0674",
+      "S025:§20.6:L0676",
+      "S025:§20.6:L0678",
+      "S025:§20.6:L0680",
+      "S025:§20.6:L0682",
+      "S025:§20.6:L0684",
+      "S025:§21:L0687",
+      "S025:§21.5:L0691",
+      "S025:§21.5:L0695",
+      "S025:§22:L0707",
+      "S025:§22:L0710",
+      "S025:§22:L0711",
+      "S025:§22:L0712",
+      "S025:§22:L0713",
+      "S025:§22:L0714",
+      "S025:§22:L0715",
+      "S025:§22:L0716",
+      "S025:§22:L0717",
+      "S025:§22:L0718",
+      "S025:§22:L0719",
+      "S025:§22:L0720",
+      "S025:§22:L0721",
+      "S025:§23:L0724",
+      "S025:§23:L0726",
+      "S025:§24.1:L0730",
+      "S025:§24.2:L0733",
+      "S025:§24.2:L0736",
+      "S025:§24.2:L0738",
+      "S025:§24.5:L0742",
+      "S025:§25.1:L0746",
+      "S025:§25.2:L0749",
+      "S025:§25.3:L0752",
+      "S025:§25.3:L0757",
+      "S025:§25.3:L0760",
+      "S025:§25.3:L0764",
+      "S025:§25.3:L0769",
+      "S025:§25.3:L0771",
+      "S025:§25.3:L0782",
+      "S025:§25.3:L0794",
+      "S025:§25.3:L0806",
+      "S025:§25.3:L0818",
+      "S025:§25.3:L0831",
+      "S025:§25.3:L0840",
+      "S025:§25.3:L0849",
+      "S025:§25.3:L0852",
+      "S025:§25.3:L0856",
+      "S025:§25.3:L0860",
+      "S025:§25.3:L0875",
+      "S025:§25.3:L0878",
+      "S025:§25.3:L0882",
+      "S025:§25.3:L0886",
+      "S025:§25.3:L0890",
+      "S025:§25.3:L0894",
+      "S025:§25.3:L0897",
+      "S025:§25.3:L0899",
+      "S025:§25.4:L0901",
+      "S025:§25.4:L0903",
+      "S025:§25.4:L0905",
+      "S025:§25.4:L0907",
+      "S025:§25.4:L0909",
+      "S025:§26:L0913",
+      "S025:§26.5:L0917",
+      "S025:§26.6:L0920",
+      "S025:§26.6:L0922",
+      "S025:§27:L0925",
+      "S025:§28:L0928",
+      "S025:§28.5:L0932",
+      "S025:§29:L0935",
+      "S025:§30:L0938",
+      "S025:§31:L0941",
+      "S025:§31:L0944",
+      "S025:§31:L0945",
+      "S025:§31:L0946",
+      "S025:§31:L0947",
+      "S025:§31:L0948",
+      "S025:§31:L0949",
+      "S025:§31:L0950",
+      "S025:§31:L0951",
+      "S025:§31:L0952",
+      "S025:§31:L0953",
+      "S025:§31:L0954",
+      "S025:§31:L0955",
+      "S025:§31:L0956",
+      "S025:§31:L0957",
+      "S025:§31:L0958",
+      "S025:§31:L0959",
+      "S025:§32:L0961",
+      "S025:§33.1:L0980",
+      "S025:§33.2:L0981",
+      "S025:§33.3:L0982",
+      "S025:§33.4:L0983",
+      "S025:§33.5:L0984",
+      "S025:§33.6:L0985",
+      "S025:§33.7:L0986",
+      "S025:§33.8:L0987",
+      "S025:§33.9:L0988",
+      "S025:§33.10:L0989",
+      "S025:§33.11:L0990",
+      "S025:§33.12:L0991",
+      "S025:§33.13:L0992",
+      "S025:§34:L0995",
+      "S025:§34:L0997",
+      "S025:§34:L0999",
+      "S025:§34.9:L1002",
+      "S025:§35:L1008",
+      "S025:§35.5:L1012",
+      "S025:§35.6:L1015",
+      "S025:§35.6:L1017",
+      "S025:§35.6:L1019",
+      "S025:§35.6:L1021",
+      "S025:§35.6:L1023",
+      "S025:§36:L1027",
+      "S025:§36:L1028",
+      "S025:§36:L1029",
+      "S025:§36:L1030",
+      "S025:§36:L1031",
+      "S025:§36:L1032",
+      "S025:§36:L1033",
+      "S025:§36:L1034",
+      "S025:§36:L1035",
+      "S025:§36:L1036",
+      "S025:§36:L1037",
+      "S025:§36:L1040",
+      "S025:§36:L1042",
+      "S025:§36:L1043",
+      "S025:§36:L1044",
+      "S025:§36:L1045",
+      "S025:§36:L1046",
+      "S025:§36:L1047",
+      "S025:§36:L1048",
+      "S025:§36:L1049",
+      "S025:§36:L1050",
+      "S025:§36:L1051",
+      "S025:§36:L1052",
+      "S025:§36:L1053",
+      "S025:§36:L1054",
+      "S025:§36:L1055",
+      "S025:§37:L1057",
+      "S025:§37:L1059",
+      "S025:§37:L1061",
+      "S025:§37:L1063",
+      "S025:§37:L1065",
+      "S025:§37:L1067",
+      "S025:§37:L1069",
+      "S025:§37:L1083",
+      "S025:§38:L1086",
+      "S025:§38:L1088",
+      "S025:§38:L1090",
+      "S025:§38:L1092",
+      "S025:§38:L1094",
+      "S025:§38:L1096",
+      "S025:§38:L1098",
+      "S025:§38:L1100",
+      "S025:§38:L1102",
+      "S025:§38:L1104",
+      "S025:§38:L1106",
+      "S025:§39:L1109",
+      "S026:§D01-PREAMBLE:L0001",
+      "S026:§D01-PREAMBLE:L0010",
+      "S026:§D01-PREAMBLE:L0018",
+      "S026:§D01-AE:L0034",
+      "S026:§D01-AE:L0036",
+      "S026:§D01-AE:L0051",
+      "S026:§D01-AE:L0060",
+      "S026:§D01-AE:L0067",
+      "S026:§D01-AE:L0077",
+      "S026:§D01-AE:L0082",
+      "S026:§D01-B:L0096",
+      "S026:§D01-B:L0098",
+      "S026:§D01-B:L0116",
+      "S026:§D01-B:L0124",
+      "S026:§D01-B:L0129",
+      "S026:§D01-CD:L0142",
+      "S026:§D01-CD:L0144",
+      "S026:§D01-CD:L0153",
+      "S026:§D01-CD:L0163",
+      "S026:§D01-CD:L0172",
+      "S026:§D01-CD:L0182",
+      "S026:§D01-CD:L0188",
+      "S026:§D01-TRANSVERSAL:L0197",
+      "S026:§D01-TRANSVERSAL:L0208",
+      "S026:§D01-TRANSVERSAL:L0222",
+      "S026:§D01-TRANSVERSAL:L0230",
+      "S026:§D01-E-FINAL:L0236",
+      "S026:§D01-E-FINAL:L0244",
+      "H034:§34.1:L0021",
+      "H034:§34.2:L0025",
+      "H034:§34.3:L0029",
+      "H034:§34.3:L0039",
+      "H034:§34.4:L0043",
+      "H034:§34.5:L0051",
+      "H034:§34.6:L0062",
+      "H034:§34.7:L0066",
+      "H034:§34.8:L0070",
+      "H034:§34.9:L0074",
+      "H034:§34.9:L0076",
+      "H034:§34.9:L0092",
+      "HINIT:§11.7:L0030",
+      "HINIT:§11.7:L0032",
+      "HINIT:§11.7:L0034",
+      "HINIT:§11.7:L0036",
+      "HINIT:§11.7:L0044",
+      "HINIT:§11.7:L0046",
+      "HINIT:§11.7:L0051",
+      "HINIT:§11.7:L0053",
+      "HINIT:§11.7:L0055",
+      "HINIT:§11.7:L0061",
+      "HINIT:§11.7:L0063",
+      "HINLINE:§11.2:L0013",
+      "HINLINE:§11.2:L0019",
+      "HINLINE:§11.2:L0023",
+      "HINLINE:§11.2:L0025",
+      "HINLINE:§17:L0035",
+      "HINLINE:§17:L0042",
+      "HINLINE:§17:L0048",
+      "HINLINE:§18:L0053",
+      "HINLINE:§22:L0069",
+      "HINLINE:§14:L0086",
+      "HINLINE:§25.8:L0099",
+      "S025:§31:OPAQUE:I-01",
+      "S025:§31:OPAQUE:I-02",
+      "S025:§31:OPAQUE:I-03",
+      "S025:§31:OPAQUE:I-04",
+      "S025:§31:OPAQUE:I-05",
+      "S025:§31:OPAQUE:I-06",
+      "S025:§31:OPAQUE:I-07",
+      "S025:§31:OPAQUE:I-08",
+      "S025:§31:OPAQUE:I-09",
+      "S025:§31:OPAQUE:I-10",
+      "S025:§31:OPAQUE:I-11",
+      "S025:§31:OPAQUE:I-12",
+      "S025:§31:OPAQUE:I-13",
+      "S025:§31:OPAQUE:I-14",
+      "S025:§31:OPAQUE:I-15",
+      "S025:§31:OPAQUE:I-16",
+      "S025:§31:OPAQUE:I-17",
+      "S025:§31:OPAQUE:I-18",
+      "S025:§31:OPAQUE:I-19",
+      "S025:§31:OPAQUE:I-20",
+      "S025:§31:OPAQUE:I-21",
+      "S025:§31:OPAQUE:I-22",
+      "S025:§31:OPAQUE:I-23",
+      "S025:§31:OPAQUE:I-24",
+      "S025:§31:OPAQUE:I-25",
+      "S025:§31:OPAQUE:I-26",
+      "S025:§31:OPAQUE:I-27",
+      "S025:§31:OPAQUE:I-28",
+      "S025:§31:OPAQUE:I-29",
+      "S025:§31:OPAQUE:I-30",
+      "S025:§31:OPAQUE:I-31",
+      "S025:§31:OPAQUE:I-32",
+      "S025:§31:OPAQUE:I-33",
+      "S025:§31:OPAQUE:I-34",
+      "S025:§31:OPAQUE:I-35",
+      "S025:§31:OPAQUE:I-36",
+      "S025:§31:OPAQUE:I-37",
+      "S025:§31:OPAQUE:I-38",
+      "S025:§31:OPAQUE:I-39",
+      "S025:§31:OPAQUE:I-40",
+      "S025:§31:OPAQUE:I-41",
+      "S025:§31:OPAQUE:I-42",
+      "S025:§31:OPAQUE:I-43",
+      "S025:§31:OPAQUE:I-44",
+      "S025:§31:OPAQUE:I-45",
+      "S025:§31:OPAQUE:I-46",
+      "S025:§31:OPAQUE:I-47",
+      "S025:§31:OPAQUE:I-48",
+      "S025:§31:OPAQUE:I-49",
+      "S025:§31:OPAQUE:I-50",
+      "S025:§31:OPAQUE:I-51",
+      "S025:§31:OPAQUE:I-52",
+      "S025:§31:OPAQUE:I-53",
+      "S025:§31:OPAQUE:I-54",
+      "S025:§31:OPAQUE:I-55",
+      "S025:§31:OPAQUE:I-56",
+      "S025:§31:OPAQUE:I-57",
+      "S025:§31:OPAQUE:I-58",
+      "S025:§31:OPAQUE:I-59",
+      "S025:§31:OPAQUE:I-60",
+      "S025:§31:OPAQUE:I-61",
+      "S025:§31:OPAQUE:I-62",
+      "S025:§31:OPAQUE:I-63",
+      "S025:§31:OPAQUE:I-64",
+      "S025:§31:OPAQUE:I-65",
+      "S025:§31:OPAQUE:I-66"
+    ],
+    "opaque_mandatory_ids": [
+      "S025:§1.3:L0085",
+      "S025:§3:L0127",
+      "S025:§5.1:L0189",
+      "S025:§10.5:L0371",
+      "S025:§18:L0506",
+      "S025:§21:L0687",
+      "S025:§21.5:L0695",
+      "S025:§22:L0707",
+      "S025:§25.1:L0746",
+      "S025:§25.2:L0749",
+      "S025:§25.4:L0901",
+      "S025:§25.4:L0909",
+      "S025:§26.5:L0917",
+      "S025:§27:L0925",
+      "S025:§28:L0928",
+      "S025:§28.5:L0932",
+      "S025:§31:L0941",
+      "S025:§35:L1008",
+      "S025:§38:L1086",
+      "S025:§39:L1109",
+      "S025:§31:OPAQUE:I-01",
+      "S025:§31:OPAQUE:I-02",
+      "S025:§31:OPAQUE:I-03",
+      "S025:§31:OPAQUE:I-04",
+      "S025:§31:OPAQUE:I-05",
+      "S025:§31:OPAQUE:I-06",
+      "S025:§31:OPAQUE:I-07",
+      "S025:§31:OPAQUE:I-08",
+      "S025:§31:OPAQUE:I-09",
+      "S025:§31:OPAQUE:I-10",
+      "S025:§31:OPAQUE:I-11",
+      "S025:§31:OPAQUE:I-12",
+      "S025:§31:OPAQUE:I-13",
+      "S025:§31:OPAQUE:I-14",
+      "S025:§31:OPAQUE:I-15",
+      "S025:§31:OPAQUE:I-16",
+      "S025:§31:OPAQUE:I-17",
+      "S025:§31:OPAQUE:I-18",
+      "S025:§31:OPAQUE:I-19",
+      "S025:§31:OPAQUE:I-20",
+      "S025:§31:OPAQUE:I-21",
+      "S025:§31:OPAQUE:I-22",
+      "S025:§31:OPAQUE:I-23",
+      "S025:§31:OPAQUE:I-24",
+      "S025:§31:OPAQUE:I-25",
+      "S025:§31:OPAQUE:I-26",
+      "S025:§31:OPAQUE:I-27",
+      "S025:§31:OPAQUE:I-28",
+      "S025:§31:OPAQUE:I-29",
+      "S025:§31:OPAQUE:I-30",
+      "S025:§31:OPAQUE:I-31",
+      "S025:§31:OPAQUE:I-32",
+      "S025:§31:OPAQUE:I-33",
+      "S025:§31:OPAQUE:I-34",
+      "S025:§31:OPAQUE:I-35",
+      "S025:§31:OPAQUE:I-36",
+      "S025:§31:OPAQUE:I-37",
+      "S025:§31:OPAQUE:I-38",
+      "S025:§31:OPAQUE:I-39",
+      "S025:§31:OPAQUE:I-40",
+      "S025:§31:OPAQUE:I-41",
+      "S025:§31:OPAQUE:I-42",
+      "S025:§31:OPAQUE:I-43",
+      "S025:§31:OPAQUE:I-44",
+      "S025:§31:OPAQUE:I-45",
+      "S025:§31:OPAQUE:I-46",
+      "S025:§31:OPAQUE:I-47",
+      "S025:§31:OPAQUE:I-48",
+      "S025:§31:OPAQUE:I-49",
+      "S025:§31:OPAQUE:I-50",
+      "S025:§31:OPAQUE:I-51",
+      "S025:§31:OPAQUE:I-52",
+      "S025:§31:OPAQUE:I-53",
+      "S025:§31:OPAQUE:I-54",
+      "S025:§31:OPAQUE:I-55",
+      "S025:§31:OPAQUE:I-56",
+      "S025:§31:OPAQUE:I-57",
+      "S025:§31:OPAQUE:I-58",
+      "S025:§31:OPAQUE:I-59",
+      "S025:§31:OPAQUE:I-60",
+      "S025:§31:OPAQUE:I-61",
+      "S025:§31:OPAQUE:I-62",
+      "S025:§31:OPAQUE:I-63",
+      "S025:§31:OPAQUE:I-64",
+      "S025:§31:OPAQUE:I-65",
+      "S025:§31:OPAQUE:I-66"
+    ],
+    "complete_available_text_indexed": true,
+    "complete_incorporated_contract_universe_identified": false
+  },
+  "mandatory_cases": [
+    "CR-FNV-EMPTY",
+    "CR-FNV-A",
+    "CR-FNV-FOOBAR",
+    "CR-SEED-WORLD",
+    "CR-SEED-RANDOM_AGENT",
+    "CR-WLS1-V1",
+    "ND-XOR-1",
+    "ND-XOR-2147483648",
+    "ND-XOR-4294967295",
+    "ND-XOR-ZERO",
+    "ND-SEED-UTF8",
+    "ND-SEED-SURROGATE",
+    "ND-CONFIG-MAX",
+    "ND-CONFIG-OVER",
+    "ND-CONFIG-EXTRA",
+    "ND-HASH-V1",
+    "ND-BINARY64-ZERO",
+    "ND-BINARY64-SUBNORMAL",
+    "ND-BINARY64-PI",
+    "ND-ROLLBACK",
+    "ND-TERMINAL-ACTIVE",
+    "ND-TERMINAL-DEAD",
+    "ND-INVALID-BOTH",
+    "ND-INVALID-BIGMAX",
+    "ND-INVALID-BIGEXPECTED",
+    "ND-SEGMENT-ZERO-ACTIVE",
+    "ND-SEGMENT-ZERO-DEAD",
+    "ND5B-HASH-RNG-2",
+    "ND5B-HASH-RNG-4294967295",
+    "ND5B-RNG-FLOAT",
+    "ND5B-RNG-REJECT",
+    "ND5B-RNG-RESTORE",
+    "ND5B-ROLLBACK-advance_dynamics",
+    "ND5B-ROLLBACK-apply_action",
+    "ND5B-ROLLBACK-resolve_lifecycle",
+    "ND5B-ROLLBACK-sync_rng_state",
+    "ND5B-ROLLBACK-validate",
+    "ND5B-TICK-UNCONFIRMED",
+    "ND5B-WLS1-CELL-ORDER",
+    "ND5B-WLS1-MAX",
+    "ND5B-WLS1-NEGZERO",
+    "ND5B-WLS1-NUL",
+    "ND5B-WLS1-UTF8",
+    "ND5B-CONFIG-FRACTION",
+    "ND5B-CONFIG-NAN",
+    "ND5B-CONFIG-NEGATIVE",
+    "ND5B-CONFIG-STRING",
+    "ND5B-CONFIG-SUM",
+    "ND5B-CONFIG-TOPOLOGY",
+    "ND5B-CONFIG-ZERO",
+    "ND5B-ENERGY-LOWER",
+    "ND5B-ENERGY-UPPER",
+    "ND5B-ENERGY-ZERO",
+    "ND5B-FEEDBACK-COERCE",
+    "ND5B-FEEDBACK-EXTRA",
+    "ND5B-LIFECYCLE-ABOVE",
+    "ND5B-LIFECYCLE-AT",
+    "ND5B-OBSERVATION"
+  ],
+  "conditionally_required_cases": [
+    {
+      "id": "ND-TICK-ORDER",
+      "dependencies": [
+        "G01-ACTION-RESULT",
+        "G03-OBSERVATION-FEEDBACK",
+        "G05-INTERFACE-SCHEMAS"
+      ],
+      "state": "BLOCKED UNTIL CONTRACT/POSITIVE SCHEMA FIXTURE IS APPROVED"
+    },
+    {
+      "id": "ND-INITIAL-EVENT",
+      "dependencies": [
+        "G01-ACTION-RESULT",
+        "G03-OBSERVATION-FEEDBACK",
+        "G05-INTERFACE-SCHEMAS"
+      ],
+      "state": "BLOCKED UNTIL CONTRACT/POSITIVE SCHEMA FIXTURE IS APPROVED"
+    },
+    {
+      "id": "ND-MODE-WITH_AGENT",
+      "dependencies": [
+        "G01-ACTION-RESULT",
+        "G03-OBSERVATION-FEEDBACK",
+        "G05-INTERFACE-SCHEMAS"
+      ],
+      "state": "BLOCKED UNTIL CONTRACT/POSITIVE SCHEMA FIXTURE IS APPROVED"
+    },
+    {
+      "id": "ND-MODE-WITHOUT_AGENT",
+      "dependencies": [
+        "G01-ACTION-RESULT",
+        "G03-OBSERVATION-FEEDBACK",
+        "G05-INTERFACE-SCHEMAS"
+      ],
+      "state": "BLOCKED UNTIL CONTRACT/POSITIVE SCHEMA FIXTURE IS APPROVED"
+    },
+    {
+      "id": "ND-UINT64",
+      "dependencies": [
+        "G01-ACTION-RESULT",
+        "G03-OBSERVATION-FEEDBACK",
+        "G05-INTERFACE-SCHEMAS"
+      ],
+      "state": "BLOCKED UNTIL CONTRACT/POSITIVE SCHEMA FIXTURE IS APPROVED"
+    },
+    {
+      "id": "ND-STRUCTURE-HASH",
+      "dependencies": [
+        "G01-ACTION-RESULT",
+        "G03-OBSERVATION-FEEDBACK",
+        "G05-INTERFACE-SCHEMAS"
+      ],
+      "state": "BLOCKED UNTIL CONTRACT/POSITIVE SCHEMA FIXTURE IS APPROVED"
+    },
+    {
+      "id": "ND-METADATA-status",
+      "dependencies": [
+        "G01-ACTION-RESULT",
+        "G03-OBSERVATION-FEEDBACK",
+        "G05-INTERFACE-SCHEMAS"
+      ],
+      "state": "BLOCKED UNTIL CONTRACT/POSITIVE SCHEMA FIXTURE IS APPROVED"
+    },
+    {
+      "id": "ND-METADATA-max_ticks_used",
+      "dependencies": [
+        "G01-ACTION-RESULT",
+        "G03-OBSERVATION-FEEDBACK",
+        "G05-INTERFACE-SCHEMAS"
+      ],
+      "state": "BLOCKED UNTIL CONTRACT/POSITIVE SCHEMA FIXTURE IS APPROVED"
+    },
+    {
+      "id": "ND-METADATA-expected_steps_used",
+      "dependencies": [
+        "G01-ACTION-RESULT",
+        "G03-OBSERVATION-FEEDBACK",
+        "G05-INTERFACE-SCHEMAS"
+      ],
+      "state": "BLOCKED UNTIL CONTRACT/POSITIVE SCHEMA FIXTURE IS APPROVED"
+    },
+    {
+      "id": "ND-METADATA-unused_actions",
+      "dependencies": [
+        "G01-ACTION-RESULT",
+        "G03-OBSERVATION-FEEDBACK",
+        "G05-INTERFACE-SCHEMAS"
+      ],
+      "state": "BLOCKED UNTIL CONTRACT/POSITIVE SCHEMA FIXTURE IS APPROVED"
+    },
+    {
+      "id": "ND-METADATA-termination_hint",
+      "dependencies": [
+        "G01-ACTION-RESULT",
+        "G03-OBSERVATION-FEEDBACK",
+        "G05-INTERFACE-SCHEMAS"
+      ],
+      "state": "BLOCKED UNTIL CONTRACT/POSITIVE SCHEMA FIXTURE IS APPROVED"
+    },
+    {
+      "id": "ND-METADATA-unknown_action_index",
+      "dependencies": [
+        "G01-ACTION-RESULT",
+        "G03-OBSERVATION-FEEDBACK",
+        "G05-INTERFACE-SCHEMAS"
+      ],
+      "state": "BLOCKED UNTIL CONTRACT/POSITIVE SCHEMA FIXTURE IS APPROVED"
+    },
+    {
+      "id": "ND-METADATA-error_message",
+      "dependencies": [
+        "G01-ACTION-RESULT",
+        "G03-OBSERVATION-FEEDBACK",
+        "G05-INTERFACE-SCHEMAS"
+      ],
+      "state": "BLOCKED UNTIL CONTRACT/POSITIVE SCHEMA FIXTURE IS APPROVED"
+    },
+    {
+      "id": "ND-CONTEXT-extra",
+      "dependencies": [
+        "G01-ACTION-RESULT",
+        "G03-OBSERVATION-FEEDBACK",
+        "G05-INTERFACE-SCHEMAS"
+      ],
+      "state": "BLOCKED UNTIL CONTRACT/POSITIVE SCHEMA FIXTURE IS APPROVED"
+    },
+    {
+      "id": "ND-CONTEXT-execution_mode",
+      "dependencies": [
+        "G01-ACTION-RESULT",
+        "G03-OBSERVATION-FEEDBACK",
+        "G05-INTERFACE-SCHEMAS"
+      ],
+      "state": "BLOCKED UNTIL CONTRACT/POSITIVE SCHEMA FIXTURE IS APPROVED"
+    },
+    {
+      "id": "ND-HINT-NULL-ACTIVE",
+      "dependencies": [
+        "G01-ACTION-RESULT",
+        "G03-OBSERVATION-FEEDBACK",
+        "G05-INTERFACE-SCHEMAS"
+      ],
+      "state": "BLOCKED UNTIL CONTRACT/POSITIVE SCHEMA FIXTURE IS APPROVED"
+    },
+    {
+      "id": "ND-HINT-NULL-DEAD",
+      "dependencies": [
+        "G01-ACTION-RESULT",
+        "G03-OBSERVATION-FEEDBACK",
+        "G05-INTERFACE-SCHEMAS"
+      ],
+      "state": "BLOCKED UNTIL CONTRACT/POSITIVE SCHEMA FIXTURE IS APPROVED"
+    },
+    {
+      "id": "ND5B-AGENT-ISOLATION",
+      "dependencies": [
+        "G01-ACTION-RESULT",
+        "G03-OBSERVATION-FEEDBACK",
+        "G05-INTERFACE-SCHEMAS"
+      ],
+      "state": "BLOCKED UNTIL CONTRACT/POSITIVE SCHEMA FIXTURE IS APPROVED"
+    },
+    {
+      "id": "ND5B-REPLAY-COST-CONTEXT",
+      "dependencies": [
+        "G01-ACTION-RESULT",
+        "G03-OBSERVATION-FEEDBACK",
+        "G05-INTERFACE-SCHEMAS"
+      ],
+      "state": "BLOCKED UNTIL CONTRACT/POSITIVE SCHEMA FIXTURE IS APPROVED"
+    },
+    {
+      "id": "ND5B-REPLAY-EVENT-ORDER",
+      "dependencies": [
+        "G01-ACTION-RESULT",
+        "G03-OBSERVATION-FEEDBACK",
+        "G05-INTERFACE-SCHEMAS"
+      ],
+      "state": "BLOCKED UNTIL CONTRACT/POSITIVE SCHEMA FIXTURE IS APPROVED"
+    },
+    {
+      "id": "ND5B-REPLAY-EVENT-SEQUENCE",
+      "dependencies": [
+        "G01-ACTION-RESULT",
+        "G03-OBSERVATION-FEEDBACK",
+        "G05-INTERFACE-SCHEMAS"
+      ],
+      "state": "BLOCKED UNTIL CONTRACT/POSITIVE SCHEMA FIXTURE IS APPROVED"
+    },
+    {
+      "id": "ND5B-REPLAY-FEEDBACK",
+      "dependencies": [
+        "G01-ACTION-RESULT",
+        "G03-OBSERVATION-FEEDBACK",
+        "G05-INTERFACE-SCHEMAS"
+      ],
+      "state": "BLOCKED UNTIL CONTRACT/POSITIVE SCHEMA FIXTURE IS APPROVED"
+    },
+    {
+      "id": "ND5B-REPLAY-FLAGS-CONTEXT",
+      "dependencies": [
+        "G01-ACTION-RESULT",
+        "G03-OBSERVATION-FEEDBACK",
+        "G05-INTERFACE-SCHEMAS"
+      ],
+      "state": "BLOCKED UNTIL CONTRACT/POSITIVE SCHEMA FIXTURE IS APPROVED"
+    },
+    {
+      "id": "ND5B-REPLAY-GENUINE-COLLISION",
+      "dependencies": [
+        "G01-ACTION-RESULT",
+        "G03-OBSERVATION-FEEDBACK",
+        "G05-INTERFACE-SCHEMAS"
+      ],
+      "state": "BLOCKED UNTIL CONTRACT/POSITIVE SCHEMA FIXTURE IS APPROVED"
+    },
+    {
+      "id": "ND5B-REPLAY-INITIAL-ENERGY",
+      "dependencies": [
+        "G01-ACTION-RESULT",
+        "G03-OBSERVATION-FEEDBACK",
+        "G05-INTERFACE-SCHEMAS"
+      ],
+      "state": "BLOCKED UNTIL CONTRACT/POSITIVE SCHEMA FIXTURE IS APPROVED"
+    },
+    {
+      "id": "ND5B-REPLAY-INITIAL-RNG",
+      "dependencies": [
+        "G01-ACTION-RESULT",
+        "G03-OBSERVATION-FEEDBACK",
+        "G05-INTERFACE-SCHEMAS"
+      ],
+      "state": "BLOCKED UNTIL CONTRACT/POSITIVE SCHEMA FIXTURE IS APPROVED"
+    },
+    {
+      "id": "ND5B-REPLAY-METADATA",
+      "dependencies": [
+        "G01-ACTION-RESULT",
+        "G03-OBSERVATION-FEEDBACK",
+        "G05-INTERFACE-SCHEMAS"
+      ],
+      "state": "BLOCKED UNTIL CONTRACT/POSITIVE SCHEMA FIXTURE IS APPROVED"
+    },
+    {
+      "id": "ND5B-REPLAY-MODE",
+      "dependencies": [
+        "G01-ACTION-RESULT",
+        "G03-OBSERVATION-FEEDBACK",
+        "G05-INTERFACE-SCHEMAS"
+      ],
+      "state": "BLOCKED UNTIL CONTRACT/POSITIVE SCHEMA FIXTURE IS APPROVED"
+    },
+    {
+      "id": "ND5B-REPLAY-OBSERVATION",
+      "dependencies": [
+        "G01-ACTION-RESULT",
+        "G03-OBSERVATION-FEEDBACK",
+        "G05-INTERFACE-SCHEMAS"
+      ],
+      "state": "BLOCKED UNTIL CONTRACT/POSITIVE SCHEMA FIXTURE IS APPROVED"
+    },
+    {
+      "id": "ND5B-REPLAY-REHASHED-STATE",
+      "dependencies": [
+        "G01-ACTION-RESULT",
+        "G03-OBSERVATION-FEEDBACK",
+        "G05-INTERFACE-SCHEMAS"
+      ],
+      "state": "BLOCKED UNTIL CONTRACT/POSITIVE SCHEMA FIXTURE IS APPROVED"
+    },
+    {
+      "id": "ND5B-REPLAY-STORED-HASH",
+      "dependencies": [
+        "G01-ACTION-RESULT",
+        "G03-OBSERVATION-FEEDBACK",
+        "G05-INTERFACE-SCHEMAS"
+      ],
+      "state": "BLOCKED UNTIL CONTRACT/POSITIVE SCHEMA FIXTURE IS APPROVED"
+    },
+    {
+      "id": "ND5B-REPLAY-TIME-GAP",
+      "dependencies": [
+        "G01-ACTION-RESULT",
+        "G03-OBSERVATION-FEEDBACK",
+        "G05-INTERFACE-SCHEMAS"
+      ],
+      "state": "BLOCKED UNTIL CONTRACT/POSITIVE SCHEMA FIXTURE IS APPROVED"
+    },
+    {
+      "id": "ND5B-SNAPSHOT",
+      "dependencies": [
+        "G01-ACTION-RESULT",
+        "G03-OBSERVATION-FEEDBACK",
+        "G05-INTERFACE-SCHEMAS"
+      ],
+      "state": "BLOCKED UNTIL CONTRACT/POSITIVE SCHEMA FIXTURE IS APPROVED"
+    },
+    {
+      "id": "ND5B-TIME-EQUIVALENT",
+      "dependencies": [
+        "G01-ACTION-RESULT",
+        "G03-OBSERVATION-FEEDBACK",
+        "G05-INTERFACE-SCHEMAS"
+      ],
+      "state": "BLOCKED UNTIL CONTRACT/POSITIVE SCHEMA FIXTURE IS APPROVED"
+    },
+    {
+      "id": "ND5B-TIME-OVERFLOW",
+      "dependencies": [
+        "G01-ACTION-RESULT",
+        "G03-OBSERVATION-FEEDBACK",
+        "G05-INTERFACE-SCHEMAS"
+      ],
+      "state": "BLOCKED UNTIL CONTRACT/POSITIVE SCHEMA FIXTURE IS APPROVED"
+    },
+    {
+      "id": "ND5B-TIME-UNSAFE",
+      "dependencies": [
+        "G01-ACTION-RESULT",
+        "G03-OBSERVATION-FEEDBACK",
+        "G05-INTERFACE-SCHEMAS"
+      ],
+      "state": "BLOCKED UNTIL CONTRACT/POSITIVE SCHEMA FIXTURE IS APPROVED"
+    },
+    {
+      "id": "ND5B-ACTION-MOVE_E",
+      "dependencies": [
+        "G01-ACTION-RESULT",
+        "G03-OBSERVATION-FEEDBACK",
+        "G05-INTERFACE-SCHEMAS"
+      ],
+      "state": "BLOCKED UNTIL CONTRACT/POSITIVE SCHEMA FIXTURE IS APPROVED"
+    },
+    {
+      "id": "ND5B-ACTION-MOVE_N",
+      "dependencies": [
+        "G01-ACTION-RESULT",
+        "G03-OBSERVATION-FEEDBACK",
+        "G05-INTERFACE-SCHEMAS"
+      ],
+      "state": "BLOCKED UNTIL CONTRACT/POSITIVE SCHEMA FIXTURE IS APPROVED"
+    },
+    {
+      "id": "ND5B-ACTION-UNKNOWN",
+      "dependencies": [
+        "G01-ACTION-RESULT",
+        "G03-OBSERVATION-FEEDBACK",
+        "G05-INTERFACE-SCHEMAS"
+      ],
+      "state": "BLOCKED UNTIL CONTRACT/POSITIVE SCHEMA FIXTURE IS APPROVED"
+    },
+    {
+      "id": "ND5B-ACTION-WAIT",
+      "dependencies": [
+        "G01-ACTION-RESULT",
+        "G03-OBSERVATION-FEEDBACK",
+        "G05-INTERFACE-SCHEMAS"
+      ],
+      "state": "BLOCKED UNTIL CONTRACT/POSITIVE SCHEMA FIXTURE IS APPROVED"
+    },
+    {
+      "id": "ND5B-AGENT-malformed",
+      "dependencies": [
+        "G01-ACTION-RESULT",
+        "G03-OBSERVATION-FEEDBACK",
+        "G05-INTERFACE-SCHEMAS"
+      ],
+      "state": "BLOCKED UNTIL CONTRACT/POSITIVE SCHEMA FIXTURE IS APPROVED"
+    },
+    {
+      "id": "ND5B-AGENT-throw",
+      "dependencies": [
+        "G01-ACTION-RESULT",
+        "G03-OBSERVATION-FEEDBACK",
+        "G05-INTERFACE-SCHEMAS"
+      ],
+      "state": "BLOCKED UNTIL CONTRACT/POSITIVE SCHEMA FIXTURE IS APPROVED"
+    },
+    {
+      "id": "ND5B-INIT-FAILURE",
+      "dependencies": [
+        "G01-ACTION-RESULT",
+        "G03-OBSERVATION-FEEDBACK",
+        "G05-INTERFACE-SCHEMAS"
+      ],
+      "state": "BLOCKED UNTIL CONTRACT/POSITIVE SCHEMA FIXTURE IS APPROVED"
+    },
+    {
+      "id": "ND5B-NO-AGENT",
+      "dependencies": [
+        "G01-ACTION-RESULT",
+        "G03-OBSERVATION-FEEDBACK",
+        "G05-INTERFACE-SCHEMAS"
+      ],
+      "state": "BLOCKED UNTIL CONTRACT/POSITIVE SCHEMA FIXTURE IS APPROVED"
+    }
+  ],
+  "complementary_cases": [
+    "ND-DYNAMICS",
+    "ER-REPLAY-WITH_AGENT",
+    "ER-REPLAY-WITHOUT_AGENT",
+    "ER-REPLAY-UINT64",
+    "ER-VALIDATION-WORK",
+    "ER-METADATA-NO-WORK",
+    "ER5B-COLLISION-ORIGIN",
+    "ER5B-PREFIX-MOVE",
+    "ER5B-PREFIX-WAIT",
+    "ER5B-RECORDER-OWNERSHIP",
+    "ER5B-EFFECT-HAZARD",
+    "ER5B-EFFECT-RESOURCE"
+  ],
+  "case_categories_unchanged": true,
+  "non_executable_mandatory_evidence": [
+    {
+      "id": "EVIDENCE-ARCH-WORLD-AGENT",
+      "required": true,
+      "status": "BOUNDED SOURCE REVIEW AVAILABLE, INDEPENDENT COMPLETE REVIEW PENDING",
+      "criterion": "Source-anchored complete effects/dependencies/alias/control review under stated applicability, signed or independently reviewed; no universal inference from grep absence",
+      "review_ref": "conformance/profile/architecture-review.json / ARCH-WORLD-AGENT"
+    },
+    {
+      "id": "EVIDENCE-ARCH-NO-LEARNING",
+      "required": true,
+      "status": "BOUNDED SOURCE REVIEW AVAILABLE, INDEPENDENT COMPLETE REVIEW PENDING",
+      "criterion": "Source-anchored complete effects/dependencies/alias/control review under stated applicability, signed or independently reviewed; no universal inference from grep absence",
+      "review_ref": "conformance/profile/architecture-review.json / ARCH-NO-LEARNING"
+    },
+    {
+      "id": "EVIDENCE-ARCH-RECORDER-EXCLUSIVE",
+      "required": true,
+      "status": "BOUNDED SOURCE REVIEW AVAILABLE, INDEPENDENT COMPLETE REVIEW PENDING",
+      "criterion": "Source-anchored complete effects/dependencies/alias/control review under stated applicability, signed or independently reviewed; no universal inference from grep absence",
+      "review_ref": "conformance/profile/architecture-review.json / ARCH-RECORDER-EXCLUSIVE"
+    },
+    {
+      "id": "EVIDENCE-ARCH-TIME-SYNC",
+      "required": true,
+      "status": "BOUNDED SOURCE REVIEW AVAILABLE, INDEPENDENT COMPLETE REVIEW PENDING",
+      "criterion": "Source-anchored complete effects/dependencies/alias/control review under stated applicability, signed or independently reviewed; no universal inference from grep absence",
+      "review_ref": "conformance/profile/architecture-review.json / ARCH-TIME-SYNC"
+    },
+    {
+      "id": "EVIDENCE-ARCH-OBSERVATION-PURE",
+      "required": true,
+      "status": "BOUNDED SOURCE REVIEW AVAILABLE, INDEPENDENT COMPLETE REVIEW PENDING",
+      "criterion": "Source-anchored complete effects/dependencies/alias/control review under stated applicability, signed or independently reviewed; no universal inference from grep absence",
+      "review_ref": "conformance/profile/architecture-review.json / ARCH-OBSERVATION-PURE"
+    },
+    {
+      "id": "EVIDENCE-ARCH-RENDERER-PURE",
+      "required": true,
+      "status": "BOUNDED SOURCE REVIEW AVAILABLE, INDEPENDENT COMPLETE REVIEW PENDING",
+      "criterion": "Source-anchored complete effects/dependencies/alias/control review under stated applicability, signed or independently reviewed; no universal inference from grep absence",
+      "review_ref": "conformance/profile/architecture-review.json / ARCH-RENDERER-PURE"
+    },
+    {
+      "id": "EVIDENCE-ARCH-SNAPSHOT-ISOLATION",
+      "required": true,
+      "status": "BOUNDED SOURCE REVIEW AVAILABLE, INDEPENDENT COMPLETE REVIEW PENDING",
+      "criterion": "Source-anchored complete effects/dependencies/alias/control review under stated applicability, signed or independently reviewed; no universal inference from grep absence",
+      "review_ref": "conformance/profile/architecture-review.json / ARCH-SNAPSHOT-ISOLATION"
+    },
+    {
+      "id": "EVIDENCE-ARCH-EXPERIMENT-REPLAY-BOUNDARY",
+      "required": true,
+      "status": "BOUNDED SOURCE REVIEW AVAILABLE, INDEPENDENT COMPLETE REVIEW PENDING",
+      "criterion": "Source-anchored complete effects/dependencies/alias/control review under stated applicability, signed or independently reviewed; no universal inference from grep absence",
+      "review_ref": "conformance/profile/architecture-review.json / ARCH-EXPERIMENT-REPLAY-BOUNDARY"
+    },
+    {
+      "id": "EVIDENCE-ARCH-METRICS-SCOPE",
+      "required": true,
+      "status": "BOUNDED SOURCE REVIEW AVAILABLE, INDEPENDENT COMPLETE REVIEW PENDING",
+      "criterion": "Source-anchored complete effects/dependencies/alias/control review under stated applicability, signed or independently reviewed; no universal inference from grep absence",
+      "review_ref": "conformance/profile/architecture-review.json / ARCH-METRICS-SCOPE"
+    },
+    {
+      "id": "EVIDENCE-COMPLETE-AUTHORITY",
+      "required": true,
+      "status": "BLOCKED",
+      "criterion": "Resolve G00 complete incorporated obligation universe, not merely familiar policies"
+    },
+    {
+      "id": "EVIDENCE-INDEPENDENT-WORLD",
+      "required": true,
+      "applies_to": "Hito C only; no second implementation authorized in F5-C",
+      "status": "NOT STARTED",
+      "criterion": "Approved frozen corpus and vectors before independent implementations; same expectations and full structural/byte comparison"
+    }
+  ],
+  "oracle_policy": {
+    "expected_data_frozen_before_comparison": true,
+    "source_and_oracle_provenance_required": true,
+    "product_output_never_sole_expectation": true,
+    "degrees_of_independence_explicit": true,
+    "case_review_ref": "conformance/profile/corpus-quality-review.json",
+    "no_engineering_policy_promotion": true
+  },
+  "required_domain_partitions": [
+    {
+      "id": "P-RNG",
+      "clauses": [
+        "§10.1–7",
+        "§11.6"
+      ],
+      "required": [
+        "seed0/1/high-bit/UINT32_MAX and malformed types",
+        "mask/shift invariants and zero-state error",
+        "float dyadic endpoint/formula",
+        "int singleton, rejection limit-1/equal/above, full cardinality, invalid ranges after G07",
+        "checkpoint restoration and Unicode scalar/surrogate/no-normalization classes"
+      ],
+      "evidence": "Mathematical oracle + precise stream-binding review; not just statistical tests"
+    },
+    {
+      "id": "P-CONFIG-STATE",
+      "clauses": [
+        "§6–9"
+      ],
+      "required": [
+        "numeric/type/missing/extra fields, immutable config",
+        "width*height max and just over without overflow",
+        "density0/1/sum>1",
+        "energy finite negative/±0/subnormal/max and invalid nonfinite",
+        "rectangular grid/holes, one entity vs0/2, ACTIVE FREE, raw/effective RNG validity"
+      ],
+      "evidence": "Domain partitions, invalid rejection before commit, alias/effect review"
+    },
+    {
+      "id": "P-TIME",
+      "clauses": [
+        "D-01-A/E",
+        "§5",
+        "§26.5"
+      ],
+      "required": [
+        "0, safe Number/BigInt equivalence, MAX_SAFE boundary, UINT64_MAX-1/MAX/overflow",
+        "independent invalid expected/max counters and validation precedence",
+        "sequence/expected safe-Number boundaries without widening",
+        "rollback before/after clock and sync"
+      ],
+      "evidence": "Exact integer/byte oracle, transition fault injection"
+    },
+    {
+      "id": "P-ACTION-LIFECYCLE",
+      "clauses": [
+        "§12–15",
+        "§6.3–4"
+      ],
+      "required": [
+        "five actions and unknown type",
+        "all MOVE precedence combinations",
+        "WAIT DEAD/negative/zero/equal-cost under G01",
+        "resource0/1, effect0/positive, hazard0/positive under G01/G04",
+        "binary64 ties/zero/finiteness and local atomic preparation",
+        "threshold negative/equal/above, no resurrection/double death",
+        "resource regen0/positive/max under G02"
+      ],
+      "evidence": "Authority must close before normative positive oracles are frozen"
+    },
+    {
+      "id": "P-OBS-FEEDBACK",
+      "clauses": [
+        "§16–17",
+        "D-01-D/E"
+      ],
+      "required": [
+        "interior/edge/corner/narrow map, radius0/1/capacity classes",
+        "Chebyshev/OOB/occupied=false, indistinguishable resource stock",
+        "all16 flags, no prior action/prior action, disabled-field nonleak",
+        "purity/copies and exact observation tick",
+        "capacity operational failure distinct from invalid domain after G07"
+      ],
+      "evidence": "Approved subrecord/projection contract G03, information-flow and effect review"
+    },
+    {
+      "id": "P-RECORDER-REPLAY",
+      "clauses": [
+        "§18",
+        "§21–25",
+        "D-01"
+      ],
+      "required": [
+        "raw vs recorded schema, initial EMPTY/DEAD events",
+        "action before lifecycle, contiguous global segment sequences",
+        "seven statuses including valid error-prefix vs malformed metadata",
+        "time0 vs positive ACTIVE/DEAD origins, zero/nonzero requested steps",
+        "WITH/WITHOUT mode, full context, changed physical costs/flags",
+        "complete structure and bytes; equal/colliding hashes insufficient",
+        "preparation/commit/error rollback, retained snapshot mutation"
+      ],
+      "evidence": "Approved schemas, typed negative fixtures with positive baselines and deep comparison"
+    },
+    {
+      "id": "P-WLS1",
+      "clauses": [
+        "§24",
+        "§34"
+      ],
+      "required": [
+        "header/BE uint32/uint64, y-x cells and fixed tags",
+        "UTF-8 byte length, normalization distinction, finite binary64 except zero sign",
+        "WORLD vs FULL and RNG-only changes",
+        "V1 literal and new proposal set only after express freezing"
+      ],
+      "evidence": "Independent byte/math oracle; proposed fixtures are not historical V2–V10"
+    },
+    {
+      "id": "P-SUPERVISORS-CONSUMERS",
+      "clauses": [
+        "§4",
+        "§19–20",
+        "§27–30",
+        "§35",
+        "§39"
+      ],
+      "required": [
+        "factory/reset/step/action failure boundaries and partial trajectories",
+        "Experiment fail-stop vs replay restoration",
+        "no WORLD learning or agent internal-state inspection",
+        "snapshot renderer and Metrics conditional consumer effects",
+        "independent WORLD comparison for any Hito C claim"
+      ],
+      "evidence": "Static/data-flow review + integration + complete historical scope; missing component is not exclusion"
+    }
+  ],
+  "adversarial_case_ids": [
+    "ER-METADATA-NO-WORK",
+    "ND-STRUCTURE-HASH",
+    "ND-METADATA-status",
+    "ND-METADATA-max_ticks_used",
+    "ND-METADATA-expected_steps_used",
+    "ND-METADATA-unused_actions",
+    "ND-METADATA-termination_hint",
+    "ND-METADATA-unknown_action_index",
+    "ND-METADATA-error_message",
+    "ND-CONTEXT-extra",
+    "ND-CONTEXT-execution_mode",
+    "ER5B-COLLISION-ORIGIN",
+    "ND5B-REPLAY-COST-CONTEXT",
+    "ND5B-REPLAY-EVENT-ORDER",
+    "ND5B-REPLAY-EVENT-SEQUENCE",
+    "ND5B-REPLAY-FEEDBACK",
+    "ND5B-REPLAY-FLAGS-CONTEXT",
+    "ND5B-REPLAY-GENUINE-COLLISION",
+    "ND5B-REPLAY-INITIAL-ENERGY",
+    "ND5B-REPLAY-INITIAL-RNG",
+    "ND5B-REPLAY-METADATA",
+    "ND5B-REPLAY-MODE",
+    "ND5B-REPLAY-OBSERVATION",
+    "ND5B-REPLAY-REHASHED-STATE",
+    "ND5B-REPLAY-STORED-HASH",
+    "ND5B-REPLAY-TIME-GAP",
+    "ND5B-RNG-RESTORE",
+    "ND5B-TIME-UNSAFE"
+  ],
+  "test_dependencies": [
+    {
+      "case": "ND5B-REPLAY-COST-CONTEXT",
+      "positive_baseline": "ER5B-PREFIX-WAIT",
+      "meaning": "Execute valid paired fixture; its ER category is not normative authority"
+    },
+    {
+      "case": "ND5B-REPLAY-EVENT-ORDER",
+      "positive_baseline": "ER5B-PREFIX-MOVE",
+      "meaning": "Execute valid paired fixture; its ER category is not normative authority"
+    },
+    {
+      "case": "ND5B-REPLAY-EVENT-SEQUENCE",
+      "positive_baseline": "ER5B-PREFIX-MOVE",
+      "meaning": "Execute valid paired fixture; its ER category is not normative authority"
+    },
+    {
+      "case": "ND5B-REPLAY-FEEDBACK",
+      "positive_baseline": "ER5B-PREFIX-WAIT",
+      "meaning": "Execute valid paired fixture; its ER category is not normative authority"
+    },
+    {
+      "case": "ND5B-REPLAY-FLAGS-CONTEXT",
+      "positive_baseline": "ER5B-PREFIX-WAIT",
+      "meaning": "Execute valid paired fixture; its ER category is not normative authority"
+    },
+    {
+      "case": "ND5B-REPLAY-GENUINE-COLLISION",
+      "positive_baseline": "ER5B-COLLISION-ORIGIN",
+      "meaning": "Execute valid paired fixture; its ER category is not normative authority"
+    },
+    {
+      "case": "ND5B-REPLAY-INITIAL-ENERGY",
+      "positive_baseline": "ER5B-PREFIX-WAIT",
+      "meaning": "Execute valid paired fixture; its ER category is not normative authority"
+    },
+    {
+      "case": "ND5B-REPLAY-INITIAL-RNG",
+      "positive_baseline": "ER5B-PREFIX-WAIT",
+      "meaning": "Execute valid paired fixture; its ER category is not normative authority"
+    },
+    {
+      "case": "ND5B-REPLAY-METADATA",
+      "positive_baseline": "ER5B-PREFIX-WAIT",
+      "meaning": "Execute valid paired fixture; its ER category is not normative authority"
+    },
+    {
+      "case": "ND5B-REPLAY-MODE",
+      "positive_baseline": "ER5B-PREFIX-WAIT",
+      "meaning": "Execute valid paired fixture; its ER category is not normative authority"
+    },
+    {
+      "case": "ND5B-REPLAY-OBSERVATION",
+      "positive_baseline": "ER5B-PREFIX-WAIT",
+      "meaning": "Execute valid paired fixture; its ER category is not normative authority"
+    },
+    {
+      "case": "ND5B-REPLAY-REHASHED-STATE",
+      "positive_baseline": "ER5B-PREFIX-WAIT",
+      "meaning": "Execute valid paired fixture; its ER category is not normative authority"
+    },
+    {
+      "case": "ND5B-REPLAY-STORED-HASH",
+      "positive_baseline": "ER5B-PREFIX-WAIT",
+      "meaning": "Execute valid paired fixture; its ER category is not normative authority"
+    },
+    {
+      "case": "ND5B-REPLAY-TIME-GAP",
+      "positive_baseline": "ER5B-PREFIX-WAIT",
+      "meaning": "Execute valid paired fixture; its ER category is not normative authority"
+    },
+    {
+      "case": "ND5B-RNG-RESTORE",
+      "positive_baseline": "ND5B-RNG-REJECT",
+      "meaning": "Execute valid paired fixture; its ER category is not normative authority"
+    }
+  ],
+  "verified_scope_exclusions": [
+    {
+      "id": "EX-SOCIAL-DYNAMIC-HAZARD",
+      "sources": [
+        "S025 §1.3",
+        "S025 §7.1",
+        "S025 §35.6 S-3"
+      ],
+      "meaning": "No claim about cooperation or adaptation to dynamic hazards in the single-entity/static-hazard experiment",
+      "status": "VERIFIED_EXCEPTION",
+      "verification": "Literal normative scope, not absence of implementation",
+      "does_not_exempt": "All current single-entity/static-hazard contracts remain mandatory"
+    },
+    {
+      "id": "EX-CHECKPOINT-PROVENANCE",
+      "sources": [
+        "S026 D-01-B"
+      ],
+      "meaning": "Replay segment proves continuity from supplied effective state, not legitimate historical origin",
+      "status": "VERIFIED_EXCEPTION",
+      "verification": "Express D-01 epistemic limitation",
+      "does_not_exempt": "State/RNG/context/event/sequence validation"
+    },
+    {
+      "id": "EX-EXTERNAL-AGENT-CAUSE",
+      "sources": [
+        "S026 transversal §25.7 precision"
+      ],
+      "meaning": "Replay does not reproduce causal external agent failure",
+      "status": "VERIFIED_EXCEPTION",
+      "verification": "Express D-01 limitation; nonterminal prefix still validated",
+      "does_not_exempt": "Correct prefix and MISMATCH/INDETERMINATE handling"
+    }
+  ],
+  "forbidden_exclusion_reasons": [
+    "missing implementation",
+    "missing tests",
+    "unresolved incorporated contract",
+    "memory budget silently redefined as valid input domain",
+    "large number of passing examples"
+  ],
+  "explicit_limitations": [
+    "No historical checkpoint provenance or causal agent-failure certificate",
+    "No complete original v0.2.4 manuscript or T01–T280 definitions",
+    "No independent WORLD implementation or universal formal proof",
+    "PV-F5C proposals are not approved V2–V10 reference vectors"
+  ],
+  "historical_blocks": {
+    "count": 289,
+    "preserved": true,
+    "may_not_count_as_pass": true
+  },
+  "criteria": {
+    "candidate_readiness": "HOLD while any mandatory contract is indefinite or blocking precision remains unapproved; approval package must identify all obligations, domains, oracles, alternative evidence and exact hashes. Runtime PASS count is not a readiness criterion.",
+    "conformance": "Current §37 unchanged. Any future profile-based declaration requires express normative approval, no undefined mandatory obligation, every mandatory sufficiency row SATISFIED_BY_EVIDENCE or a true normative scope exception, all required runtime cases/evidence accepted, and closure of blocking P0/P1.",
+    "interoperability": "Separate approval and independent implementations, frozen reference set/corpus first; matching one implementation against partial oracles is insufficient.",
+    "suspend_on_counterevidence": "A reproducible P0/P1, invalid source/oracle, contradicted mandatory rule or invalidated evidence suspends the affected declaration pending explicit review; expectations cannot be silently changed."
+  },
+  "recommended_decision": "HOLD",
+  "decision_reason": "G00 prevents rigorous identification of all inherited mandatory content. Closing the bounded familiar policy precisions alone is insufficient.",
+  "pending_decisions_ref": "conformance/profile/contract-gaps.json",
+  "references": [
+    {
+      "path": "conformance/profile/sources-candidate.json",
+      "sha256": "495b745d52cb2d81370ca1fda18d017ec12aeed74ae8651348b9eedcfe37ca19"
+    },
+    {
+      "path": "conformance/profile/clause-inventory.json",
+      "sha256": "14bc641626d36d8cec423796ede8cb9d2ede19220e7775d52fe6a911ba88aa22"
+    },
+    {
+      "path": "conformance/profile/contract-gaps.json",
+      "sha256": "bd59504d04153659e873bf9e608f40d876f40a931f4c03347b04f9657d5bfcd9"
+    },
+    {
+      "path": "conformance/profile/corpus-quality-review.json",
+      "sha256": "5ac63bcebff3ff0f3db1e51c47db0ffab2634570c6b39bc6eb56cd9cfad71691"
+    },
+    {
+      "path": "conformance/profile/architecture-review.json",
+      "sha256": "afcab664c51eafc6e04d74c61fe9e0e0c01549ee3c22146c234601248e65a670"
+    },
+    {
+      "path": "conformance/profile/vector-candidates.json",
+      "sha256": "3f6e6a2f12f2cb02ccd0fb4ec59ce111fc569e881d6b2688ffd778b4a940f0af"
+    },
+    {
+      "path": "conformance/profile/sufficiency-matrix.json",
+      "sha256": "57e2cd2af4a75f3d561e1cd8dbfcc540214bb7a129d7c9086a84997aee7340a2"
+    },
+    {
+      "path": "conformance/profile/authority-breach-register.json",
+      "sha256": "2eea0279d3c2ad05578bf320b89cb12aca67b54a235e09f9ef936c256165d627"
+    },
+    {
+      "path": "conformance/cases-f5-b.json",
+      "sha256": "6229941747ca4a1a17b3b4c138b451a681aaeaa5baf1964c7a39fb8bb5ad2459"
+    },
+    {
+      "path": "conformance/cases.json",
+      "sha256": "ad6091d1edbee00622924f438c5b0cbce63bd6ab55c1fb768443ddf29360a50c"
+    },
+    {
+      "path": "conformance/corpus.json",
+      "sha256": "ad7c684dba76bbb03c9fd3e22d2085675f02ab549a5fb7956de8836bda6fefef"
+    },
+    {
+      "path": "conformance/obligations.json",
+      "sha256": "3518a0e71f7d026e4b7b86a68c2bfacf7daab810e4d37cea777fedba35d5e314"
+    },
+    {
+      "path": "conformance/results/f5-b.json",
+      "sha256": "3d4f2638b2469d4799ba87b412124ddeaab1676df34d988df33420984faa0077"
+    },
+    {
+      "path": "conformance/results/f5-b-mutants.json",
+      "sha256": "bc2c27b03e1cccc00c47745968504fa31725a241c28563f3c7170864857e4d6d"
+    },
+    {
+      "path": "docs/CONFORMANCE_ACCEPTANCE_PROPOSAL.md",
+      "sha256": "5aa0ca80ba89147e7fe97a226ea0f5989a8a396559c4842523ace70fe3eee769"
+    },
+    {
+      "path": "docs/ACCEPTANCE_PROFILE_F5-C.md",
+      "sha256": "6a0c29c7fa1f62a34ffeab9f967d770de85319ea749bbf50b08cc6c5dab08311"
+    },
+    {
+      "path": "conformance/profile/README.md",
+      "sha256": "f0e0824b1f230db448f5c8cc13a64919c4088e2b2cf98b1fbf6fbb44c26132d8"
+    },
+    {
+      "path": "conformance/profile/regression-results.json",
+      "sha256": "e4f4b68acce8bec2ad336806238974fe80c17e18e58adb8873372cb53d046bc0"
+    },
+    {
+      "path": "conformance/profile/owner-fragments.md",
+      "sha256": "034589089b093b99f0d39958a6f6b695757ccc79b6e04c40082f7a52b6e507b0"
+    },
+    {
+      "path": "tests/f5-c.test.cjs",
+      "sha256": "7eb3b699f3773e9032038ae7ecee59fc8a15e563f6b1fcf8e2d1ac158a1f6189"
+    },
+    {
+      "path": "conformance/profile/build_candidate.py",
+      "sha256": "98fdb1497c439740a1b7b356710371cadada24069e25b24f725ee20fffff311a"
+    },
+    {
+      "path": "conformance/profile/build_gaps.py",
+      "sha256": "cc985048e6c614f37e99b25210c8a1bf10974f6dc387dc442dec4e82623fdf91"
+    },
+    {
+      "path": "conformance/profile/build_inventory.py",
+      "sha256": "63da6dc632ddfa8e2a697f76f988869967fae204cd922a6a08f09c7d1f43d230"
+    },
+    {
+      "path": "conformance/profile/build_quality.py",
+      "sha256": "40fe6549c8fbb231c27c3ab32c3d630d370b0ad9eb9fe7b3c8884f068def2c94"
+    },
+    {
+      "path": "conformance/profile/build_static_review.py",
+      "sha256": "2c5f251c8c5059aadf0d2fc4f1bb976c68a0b42dcecf4968132595312e15397a"
+    },
+    {
+      "path": "conformance/profile/build_vectors.py",
+      "sha256": "1e109eb19f7bb3a9c7530b869e6f71e79e8278a347bff389254748caa4be6325"
+    },
+    {
+      "path": "conformance/profile/validate.cjs",
+      "sha256": "f0cae831ce3c1902998233e9c148a0d1ed8d628d9d3e1cab2f4c0c266f636cd7"
+    }
+  ]
+}
