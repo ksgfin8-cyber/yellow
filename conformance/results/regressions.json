@@ -1,0 +1,327 @@
+{
+  "category": "ENGINEERING-REGRESSION",
+  "suites": [
+    {
+      "file": "f1-a.test.cjs",
+      "exit": 0,
+      "pass": [
+        "18"
+      ],
+      "fail": [
+        "0"
+      ]
+    },
+    {
+      "file": "f1-b.test.cjs",
+      "exit": 0,
+      "pass": [
+        "12"
+      ],
+      "fail": [
+        "0"
+      ]
+    },
+    {
+      "file": "f2-a.test.cjs",
+      "exit": 0,
+      "pass": [
+        "14"
+      ],
+      "fail": [
+        "0"
+      ]
+    },
+    {
+      "file": "f2-b.test.cjs",
+      "exit": 0,
+      "pass": [
+        "13"
+      ],
+      "fail": [
+        "0"
+      ]
+    },
+    {
+      "file": "f2-c.test.cjs",
+      "exit": 0,
+      "pass": [
+        "21"
+      ],
+      "fail": [
+        "0"
+      ]
+    },
+    {
+      "file": "f2-d.test.cjs",
+      "exit": 0,
+      "pass": [
+        "28"
+      ],
+      "fail": [
+        "0"
+      ]
+    },
+    {
+      "file": "f2-e.test.cjs",
+      "exit": 0,
+      "pass": [
+        "16"
+      ],
+      "fail": [
+        "0"
+      ]
+    },
+    {
+      "file": "f2-f.test.cjs",
+      "exit": 0,
+      "pass": [
+        "18"
+      ],
+      "fail": [
+        "0"
+      ]
+    },
+    {
+      "file": "f2-g.test.cjs",
+      "exit": 0,
+      "pass": [
+        "21"
+      ],
+      "fail": [
+        "0"
+      ]
+    },
+    {
+      "file": "f2-h.test.cjs",
+      "exit": 0,
+      "pass": [
+        "15"
+      ],
+      "fail": [
+        "0"
+      ]
+    },
+    {
+      "file": "f2-i.test.cjs",
+      "exit": 0,
+      "pass": [
+        "18"
+      ],
+      "fail": [
+        "0"
+      ]
+    },
+    {
+      "file": "f3-a.test.cjs",
+      "exit": 0,
+      "pass": [
+        "40"
+      ],
+      "fail": [
+        "0"
+      ]
+    },
+    {
+      "file": "f3-b.test.cjs",
+      "exit": 0,
+      "pass": [
+        "18"
+      ],
+      "fail": [
+        "0"
+      ]
+    },
+    {
+      "file": "f3-c.test.cjs",
+      "exit": 0,
+      "pass": [
+        "24"
+      ],
+      "fail": [
+        "0"
+      ]
+    },
+    {
+      "file": "f3-d.test.cjs",
+      "exit": 0,
+      "pass": [
+        "12"
+      ],
+      "fail": [
+        "0"
+      ]
+    },
+    {
+      "file": "f3-d2.test.cjs",
+      "exit": 0,
+      "pass": [
+        "15"
+      ],
+      "fail": [
+        "0"
+      ]
+    },
+    {
+      "file": "f3-e.test.cjs",
+      "exit": 0,
+      "pass": [
+        "24"
+      ],
+      "fail": [
+        "0"
+      ]
+    },
+    {
+      "file": "f3-f.test.cjs",
+      "exit": 0,
+      "pass": [
+        "23"
+      ],
+      "fail": [
+        "0"
+      ]
+    },
+    {
+      "file": "f3-g.test.cjs",
+      "exit": 0,
+      "pass": [
+        "27"
+      ],
+      "fail": [
+        "0"
+      ]
+    },
+    {
+      "file": "f3-h.test.cjs",
+      "exit": 0,
+      "pass": [
+        "23"
+      ],
+      "fail": [
+        "0"
+      ]
+    },
+    {
+      "file": "f4-a.test.cjs",
+      "exit": 0,
+      "pass": [
+        "15"
+      ],
+      "fail": [
+        "0"
+      ]
+    },
+    {
+      "file": "f4-b.test.cjs",
+      "exit": 0,
+      "pass": [
+        "18"
+      ],
+      "fail": [
+        "0"
+      ]
+    },
+    {
+      "file": "f4-c.test.cjs",
+      "exit": 0,
+      "pass": [
+        "20"
+      ],
+      "fail": [
+        "0"
+      ]
+    },
+    {
+      "file": "f4-e.test.cjs",
+      "exit": 0,
+      "pass": [
+        "17"
+      ],
+      "fail": [
+        "0"
+      ]
+    },
+    {
+      "file": "f4-f.test.cjs",
+      "exit": 0,
+      "pass": [
+        "12"
+      ],
+      "fail": [
+        "0"
+      ]
+    }
+  ],
+  "total_pass": 482,
+  "current_cases": 476,
+  "historical_only": 6,
+  "historical_case_ids": [
+    "F3G-16",
+    "F3G-17",
+    "F3H-06",
+    "F3H-15",
+    "F3H-16",
+    "F3H-23"
+  ],
+  "infrastructure": {
+    "file": "tests/f5-a.test.cjs",
+    "pass": 12,
+    "fail": 0
+  },
+  "chromium": {
+    "pass": 16,
+    "fail": 0,
+    "repeated_node_cases": 15,
+    "additional_real_browser_case": 1,
+    "version": "155.0.8059.79"
+  },
+  "legacy": {
+    "pass": 13,
+    "fail": 9,
+    "exit": 1,
+    "unchanged_causes": [
+      "T06 FAIL Cannot read properties of undefined (reading 'length')",
+      "T07 FAIL Cannot read properties of undefined (reading 'length')",
+      "T08 FAIL Cannot read properties of undefined (reading 'length')",
+      "T12 FAIL makeResource is not defined",
+      "T13 FAIL EffectKind is not defined",
+      "T14 FAIL makeHazard is not defined",
+      "T16 FAIL invalid initial_state",
+      "T20 FAIL Cannot read properties of undefined (reading 'length')",
+      "T22 FAIL Cannot read properties of undefined (reading 'length')"
+    ]
+  },
+  "node": "v24.22.1",
+  "note": "Engineering regression is separate from the 50 harness cases and 289 source-blocked entries; no T ID is promoted.",
+  "commands": [
+    "node tests/f1-a.test.cjs",
+    "node tests/f1-b.test.cjs",
+    "node tests/f2-a.test.cjs",
+    "node tests/f2-b.test.cjs",
+    "node tests/f2-c.test.cjs",
+    "node tests/f2-d.test.cjs",
+    "node tests/f2-e.test.cjs",
+    "node tests/f2-f.test.cjs",
+    "node tests/f2-g.test.cjs",
+    "node tests/f2-h.test.cjs",
+    "node tests/f2-i.test.cjs",
+    "node tests/f3-a.test.cjs",
+    "node tests/f3-b.test.cjs",
+    "node tests/f3-c.test.cjs",
+    "node tests/f3-d.test.cjs",
+    "node tests/f3-d2.test.cjs",
+    "node tests/f3-e.test.cjs",
+    "node tests/f3-f.test.cjs",
+    "node tests/f3-g.test.cjs",
+    "node tests/f3-h.test.cjs",
+    "node tests/f4-a.test.cjs",
+    "node tests/f4-b.test.cjs",
+    "node tests/f4-c.test.cjs",
+    "node tests/f4-e.test.cjs",
+    "node tests/f4-f.test.cjs",
+    "node tests/f5-a.test.cjs",
+    "PLAYWRIGHT_MODULE=/opt/codex/runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/index.js node tests/f4-a.test.cjs --browser",
+    "node tests/f1-a-legacy.cjs",
+    "git diff --check"
+  ]
+}

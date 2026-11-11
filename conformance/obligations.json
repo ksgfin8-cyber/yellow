@@ -1,0 +1,3344 @@
+[
+  {
+    "id": "§0",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§0",
+    "text": "Autoridad, estados y regla general",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§1",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§1",
+    "text": "Propósito y alcance",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§2",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§2",
+    "text": "Principios normativos",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§3",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§3",
+    "text": "Terminología",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§4",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§4",
+    "text": "Arquitectura y fronteras",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§5",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§5",
+    "text": "Modelo temporal",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§6",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§6",
+    "text": "WorldConfig",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§7",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§7",
+    "text": "WorldState",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§8",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§8",
+    "text": "Grid / Cell",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§9",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§9",
+    "text": "Entity",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§10",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§10",
+    "text": "PRNG",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§11",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§11",
+    "text": "Inicialización del mundo",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§12",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§12",
+    "text": "Acciones",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§13",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§13",
+    "text": "apply_action()",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§14",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§14",
+    "text": "Lifecycle",
+    "related_historical_tests": [],
+    "executable_cases": [
+      "ND-INITIAL-EVENT"
+    ],
+    "coverage": "PARTIAL; exact listed assertions only"
+  },
+  {
+    "id": "§15",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§15",
+    "text": "Dynamics",
+    "related_historical_tests": [],
+    "executable_cases": [
+      "ND-DYNAMICS"
+    ],
+    "coverage": "PARTIAL; exact listed assertions only"
+  },
+  {
+    "id": "§16",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§16",
+    "text": "Observation",
+    "related_historical_tests": [],
+    "executable_cases": [
+      "ER-REPLAY-WITH_AGENT",
+      "ER-REPLAY-WITHOUT_AGENT"
+    ],
+    "coverage": "PARTIAL; exact listed assertions only"
+  },
+  {
+    "id": "§17",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§17",
+    "text": "Feedback",
+    "related_historical_tests": [],
+    "executable_cases": [
+      "ER-REPLAY-WITH_AGENT",
+      "ER-REPLAY-WITHOUT_AGENT"
+    ],
+    "coverage": "PARTIAL; exact listed assertions only"
+  },
+  {
+    "id": "§18",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§18",
+    "text": "Events",
+    "related_historical_tests": [],
+    "executable_cases": [
+      "ND-INITIAL-EVENT"
+    ],
+    "coverage": "PARTIAL; exact listed assertions only"
+  },
+  {
+    "id": "§19",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§19",
+    "text": "ExperimentConfig",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§20",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§20",
+    "text": "Ciclo de ejecución",
+    "related_historical_tests": [],
+    "executable_cases": [
+      "ER-REPLAY-WITH_AGENT",
+      "ER-REPLAY-WITHOUT_AGENT"
+    ],
+    "coverage": "PARTIAL; exact listed assertions only"
+  },
+  {
+    "id": "§21",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§21",
+    "text": "Recorder",
+    "related_historical_tests": [],
+    "executable_cases": [
+      "ND-INITIAL-EVENT"
+    ],
+    "coverage": "PARTIAL; exact listed assertions only"
+  },
+  {
+    "id": "§22",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§22",
+    "text": "StepRecord",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§23",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§23",
+    "text": "Trajectory",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§24",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§24",
+    "text": "Hashes",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§25",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§25",
+    "text": "Replay",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§26",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§26",
+    "text": "Validación y errores",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§27",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§27",
+    "text": "Modo sin agente",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§28",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§28",
+    "text": "Agent contract",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§29",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§29",
+    "text": "Renderer",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§30",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§30",
+    "text": "Metrics",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "Invariantes",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§32",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§32",
+    "text": "Orden normativo de ejecución",
+    "related_historical_tests": [],
+    "executable_cases": [
+      "ND-TICK-ORDER"
+    ],
+    "coverage": "PARTIAL; exact listed assertions only"
+  },
+  {
+    "id": "§33",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§33",
+    "text": "Pseudocódigo normativo",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§34",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§34",
+    "text": "Serialización WLS1",
+    "related_historical_tests": [],
+    "executable_cases": [
+      "ND-HASH-V1",
+      "ND-BINARY64-ZERO",
+      "ND-BINARY64-SUBNORMAL",
+      "ND-BINARY64-PI",
+      "ER-REPLAY-UINT64"
+    ],
+    "coverage": "PARTIAL; exact listed assertions only"
+  },
+  {
+    "id": "§35",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§35",
+    "text": "Reproducibilidad",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§36",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§36",
+    "text": "Inventario de tests",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§37",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§37",
+    "text": "Criterio de conformidad (corregido, P1-5)",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§38",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§38",
+    "text": "Congelación",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§39",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§39",
+    "text": "Alcance sobre agentes con aprendizaje",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-01",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "SOURCE UNAVAILABLE; I-01–I-66 incorporated by reference without individual text",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-02",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "SOURCE UNAVAILABLE; I-01–I-66 incorporated by reference without individual text",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-03",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "SOURCE UNAVAILABLE; I-01–I-66 incorporated by reference without individual text",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-04",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "SOURCE UNAVAILABLE; I-01–I-66 incorporated by reference without individual text",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-05",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "SOURCE UNAVAILABLE; I-01–I-66 incorporated by reference without individual text",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-06",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "SOURCE UNAVAILABLE; I-01–I-66 incorporated by reference without individual text",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-07",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "SOURCE UNAVAILABLE; I-01–I-66 incorporated by reference without individual text",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-08",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "SOURCE UNAVAILABLE; I-01–I-66 incorporated by reference without individual text",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-09",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "SOURCE UNAVAILABLE; I-01–I-66 incorporated by reference without individual text",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-10",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "SOURCE UNAVAILABLE; I-01–I-66 incorporated by reference without individual text",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-11",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "SOURCE UNAVAILABLE; I-01–I-66 incorporated by reference without individual text",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-12",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "SOURCE UNAVAILABLE; I-01–I-66 incorporated by reference without individual text",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-13",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "SOURCE UNAVAILABLE; I-01–I-66 incorporated by reference without individual text",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-14",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "SOURCE UNAVAILABLE; I-01–I-66 incorporated by reference without individual text",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-15",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "SOURCE UNAVAILABLE; I-01–I-66 incorporated by reference without individual text",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-16",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "SOURCE UNAVAILABLE; I-01–I-66 incorporated by reference without individual text",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-17",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "SOURCE UNAVAILABLE; I-01–I-66 incorporated by reference without individual text",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-18",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "SOURCE UNAVAILABLE; I-01–I-66 incorporated by reference without individual text",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-19",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "SOURCE UNAVAILABLE; I-01–I-66 incorporated by reference without individual text",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-20",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "SOURCE UNAVAILABLE; I-01–I-66 incorporated by reference without individual text",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-21",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "SOURCE UNAVAILABLE; I-01–I-66 incorporated by reference without individual text",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-22",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "SOURCE UNAVAILABLE; I-01–I-66 incorporated by reference without individual text",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-23",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "SOURCE UNAVAILABLE; I-01–I-66 incorporated by reference without individual text",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-24",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "SOURCE UNAVAILABLE; I-01–I-66 incorporated by reference without individual text",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-25",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "SOURCE UNAVAILABLE; I-01–I-66 incorporated by reference without individual text",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-26",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "SOURCE UNAVAILABLE; I-01–I-66 incorporated by reference without individual text",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-27",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "SOURCE UNAVAILABLE; I-01–I-66 incorporated by reference without individual text",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-28",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "SOURCE UNAVAILABLE; I-01–I-66 incorporated by reference without individual text",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-29",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "SOURCE UNAVAILABLE; I-01–I-66 incorporated by reference without individual text",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-30",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "SOURCE UNAVAILABLE; I-01–I-66 incorporated by reference without individual text",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-31",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "SOURCE UNAVAILABLE; I-01–I-66 incorporated by reference without individual text",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-32",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "SOURCE UNAVAILABLE; I-01–I-66 incorporated by reference without individual text",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-33",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "SOURCE UNAVAILABLE; I-01–I-66 incorporated by reference without individual text",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-34",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "SOURCE UNAVAILABLE; I-01–I-66 incorporated by reference without individual text",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-35",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "SOURCE UNAVAILABLE; I-01–I-66 incorporated by reference without individual text",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-36",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "SOURCE UNAVAILABLE; I-01–I-66 incorporated by reference without individual text",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-37",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "SOURCE UNAVAILABLE; I-01–I-66 incorporated by reference without individual text",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-38",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "SOURCE UNAVAILABLE; I-01–I-66 incorporated by reference without individual text",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-39",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "SOURCE UNAVAILABLE; I-01–I-66 incorporated by reference without individual text",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-40",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "SOURCE UNAVAILABLE; I-01–I-66 incorporated by reference without individual text",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-41",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "SOURCE UNAVAILABLE; I-01–I-66 incorporated by reference without individual text",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-42",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "SOURCE UNAVAILABLE; I-01–I-66 incorporated by reference without individual text",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-43",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "SOURCE UNAVAILABLE; I-01–I-66 incorporated by reference without individual text",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-44",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "SOURCE UNAVAILABLE; I-01–I-66 incorporated by reference without individual text",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-45",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "SOURCE UNAVAILABLE; I-01–I-66 incorporated by reference without individual text",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-46",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "SOURCE UNAVAILABLE; I-01–I-66 incorporated by reference without individual text",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-47",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "SOURCE UNAVAILABLE; I-01–I-66 incorporated by reference without individual text",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-48",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "SOURCE UNAVAILABLE; I-01–I-66 incorporated by reference without individual text",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-49",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "SOURCE UNAVAILABLE; I-01–I-66 incorporated by reference without individual text",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-50",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "SOURCE UNAVAILABLE; I-01–I-66 incorporated by reference without individual text",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-51",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "SOURCE UNAVAILABLE; I-01–I-66 incorporated by reference without individual text",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-52",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "SOURCE UNAVAILABLE; I-01–I-66 incorporated by reference without individual text",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-53",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "SOURCE UNAVAILABLE; I-01–I-66 incorporated by reference without individual text",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-54",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "SOURCE UNAVAILABLE; I-01–I-66 incorporated by reference without individual text",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-55",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "SOURCE UNAVAILABLE; I-01–I-66 incorporated by reference without individual text",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-56",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "SOURCE UNAVAILABLE; I-01–I-66 incorporated by reference without individual text",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-57",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "SOURCE UNAVAILABLE; I-01–I-66 incorporated by reference without individual text",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-58",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "SOURCE UNAVAILABLE; I-01–I-66 incorporated by reference without individual text",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-59",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "SOURCE UNAVAILABLE; I-01–I-66 incorporated by reference without individual text",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-60",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "SOURCE UNAVAILABLE; I-01–I-66 incorporated by reference without individual text",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-61",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "SOURCE UNAVAILABLE; I-01–I-66 incorporated by reference without individual text",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-62",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "SOURCE UNAVAILABLE; I-01–I-66 incorporated by reference without individual text",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-63",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "SOURCE UNAVAILABLE; I-01–I-66 incorporated by reference without individual text",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-64",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "SOURCE UNAVAILABLE; I-01–I-66 incorporated by reference without individual text",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-65",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "SOURCE UNAVAILABLE; I-01–I-66 incorporated by reference without individual text",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-66",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "SOURCE UNAVAILABLE; I-01–I-66 incorporated by reference without individual text",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-67",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "Toda operación en Xorshift32 se reduce a uint32 mediante AND MASK32.",
+    "related_historical_tests": [],
+    "executable_cases": [
+      "ND-XOR-1",
+      "ND-XOR-2147483648",
+      "ND-XOR-4294967295"
+    ],
+    "coverage": "PARTIAL; exact listed assertions only"
+  },
+  {
+    "id": "§31/I-68",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "state == 0 en Xorshift32 ⇒ ContractError(\"rng zero state\").",
+    "related_historical_tests": [],
+    "executable_cases": [
+      "ND-XOR-ZERO"
+    ],
+    "coverage": "PARTIAL; exact listed assertions only"
+  },
+  {
+    "id": "§31/I-69",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "width × height ≤ MAX_CELLS = 2^20.",
+    "related_historical_tests": [],
+    "executable_cases": [
+      "ND-CONFIG-MAX"
+    ],
+    "coverage": "PARTIAL; exact listed assertions only"
+  },
+  {
+    "id": "§31/I-70",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "Configuración que excede MAX_CELLS ⇒ \"invalid world_config\", nunca \"insufficient resources\".",
+    "related_historical_tests": [],
+    "executable_cases": [
+      "ND-CONFIG-OVER",
+      "ND-CONFIG-EXTRA"
+    ],
+    "coverage": "PARTIAL; exact listed assertions only"
+  },
+  {
+    "id": "§31/I-71",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "run_without_agent ejecuta WAIT en cada tick.",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-72",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "StepRecord.action y StepRecord.action_result nunca son null.",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-73",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "AGENT_CONTRACT_ERROR produce ExperimentResult.status = \"FAILED\" con trayectoria parcial preservada.",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-74",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "validate_replay_continuity verifica que cada StepRecord es continuación exacta del anterior.",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-75",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "executed == 0 ⇒ final_state ≡ initial_state para status ≠ INVALID_REPLAY_INPUT.",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-76",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "termination_hint == ENTITY_DIED ⇒ final_state.entity.lifecycle == DEAD.",
+    "related_historical_tests": [],
+    "executable_cases": [
+      "ND-TERMINAL-ACTIVE",
+      "ND-TERMINAL-DEAD"
+    ],
+    "coverage": "PARTIAL; exact listed assertions only"
+  },
+  {
+    "id": "§31/I-77",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "termination_hint == MAX_TICKS_REACHED ⇒ final_state.time >= max_ticks_used ∧ lifecycle ≠ DEAD.",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-78",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "validate_initial_events_consistency se invoca antes de replay y durante initialize_world.",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-79",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "record_initial_lifecycle_from_recorded con recorded_events == [] inicializa sequence_counter = 0.",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-80",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "Operaciones sobre energy usan IEEE-754 binary64, round-to-nearest, ties-to-even.",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "§31/I-81",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "Salvo -0 → +0, binary64 conserva representación exacta.",
+    "related_historical_tests": [],
+    "executable_cases": [
+      "ND-BINARY64-ZERO",
+      "ND-BINARY64-SUBNORMAL",
+      "ND-BINARY64-PI"
+    ],
+    "coverage": "PARTIAL; exact listed assertions only"
+  },
+  {
+    "id": "§31/I-82",
+    "sources": [
+      "S025"
+    ],
+    "source_version": "v0.2.5",
+    "locator": "§31",
+    "text": "Conformance, Replay e Interoperability permanecen UNTESTED hasta ejecución.",
+    "related_historical_tests": [],
+    "executable_cases": [],
+    "coverage": "UNTESTED in new harness; no thematic coverage claim"
+  },
+  {
+    "id": "P0-1",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "v0.2.5",
+    "locator": "§36 / correction summary",
+    "text": "Explicit correction-to-clause mapping; historical test definition remains unavailable",
+    "related_historical_tests": [
+      "T266"
+    ],
+    "executable_cases": [
+      "ND-XOR-1",
+      "ND-XOR-2147483648",
+      "ND-XOR-4294967295"
+    ],
+    "coverage": "PARTIAL relationship only; does not recover the historical test"
+  },
+  {
+    "id": "P0-2",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "v0.2.5",
+    "locator": "§36 / correction summary",
+    "text": "Explicit correction-to-clause mapping; historical test definition remains unavailable",
+    "related_historical_tests": [
+      "T267"
+    ],
+    "executable_cases": [
+      "ND-CONFIG-MAX",
+      "ND-CONFIG-OVER",
+      "ND-CONFIG-EXTRA"
+    ],
+    "coverage": "PARTIAL relationship only; does not recover the historical test"
+  },
+  {
+    "id": "P0-3",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "v0.2.5",
+    "locator": "§36 / correction summary",
+    "text": "Explicit correction-to-clause mapping; historical test definition remains unavailable",
+    "related_historical_tests": [
+      "T268",
+      "T269"
+    ],
+    "executable_cases": [
+      "ND-TICK-ORDER"
+    ],
+    "coverage": "PARTIAL relationship only; does not recover the historical test"
+  },
+  {
+    "id": "P0-4",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "v0.2.5",
+    "locator": "§36 / correction summary",
+    "text": "Explicit correction-to-clause mapping; historical test definition remains unavailable",
+    "related_historical_tests": [
+      "T270"
+    ],
+    "executable_cases": [],
+    "coverage": "PARTIAL relationship only; does not recover the historical test"
+  },
+  {
+    "id": "P0-5",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "v0.2.5",
+    "locator": "§36 / correction summary",
+    "text": "Explicit correction-to-clause mapping; historical test definition remains unavailable",
+    "related_historical_tests": [
+      "T271"
+    ],
+    "executable_cases": [
+      "ND-STRUCTURE-HASH"
+    ],
+    "coverage": "PARTIAL relationship only; does not recover the historical test"
+  },
+  {
+    "id": "P0-6",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "v0.2.5",
+    "locator": "§36 / correction summary",
+    "text": "Explicit correction-to-clause mapping; historical test definition remains unavailable",
+    "related_historical_tests": [
+      "T272"
+    ],
+    "executable_cases": [
+      "ND-METADATA-status",
+      "ND-METADATA-max_ticks_used",
+      "ND-METADATA-expected_steps_used",
+      "ND-METADATA-unused_actions",
+      "ND-METADATA-termination_hint",
+      "ND-METADATA-unknown_action_index",
+      "ND-METADATA-error_message"
+    ],
+    "coverage": "PARTIAL relationship only; does not recover the historical test"
+  },
+  {
+    "id": "P0-7",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "v0.2.5",
+    "locator": "§36 / correction summary",
+    "text": "Explicit correction-to-clause mapping; historical test definition remains unavailable",
+    "related_historical_tests": [
+      "T273"
+    ],
+    "executable_cases": [
+      "ND-INITIAL-EVENT"
+    ],
+    "coverage": "PARTIAL relationship only; does not recover the historical test"
+  },
+  {
+    "id": "P0-8",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "v0.2.5",
+    "locator": "§36 / correction summary",
+    "text": "Explicit correction-to-clause mapping; historical test definition remains unavailable",
+    "related_historical_tests": [
+      "T274"
+    ],
+    "executable_cases": [
+      "ND-HINT-NULL-ACTIVE",
+      "ND-HINT-NULL-DEAD"
+    ],
+    "coverage": "PARTIAL relationship only; does not recover the historical test"
+  },
+  {
+    "id": "P1-1",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "v0.2.5",
+    "locator": "§36 / correction summary",
+    "text": "Explicit correction-to-clause mapping; historical test definition remains unavailable",
+    "related_historical_tests": [
+      "T275"
+    ],
+    "executable_cases": [],
+    "coverage": "PARTIAL relationship only; does not recover the historical test"
+  },
+  {
+    "id": "P1-2",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "v0.2.5",
+    "locator": "§36 / correction summary",
+    "text": "Explicit correction-to-clause mapping; historical test definition remains unavailable",
+    "related_historical_tests": [
+      "T276"
+    ],
+    "executable_cases": [
+      "CR-SEED-WORLD",
+      "CR-SEED-RANDOM_AGENT",
+      "ND-SEED-UTF8",
+      "ND-SEED-SURROGATE"
+    ],
+    "coverage": "PARTIAL relationship only; does not recover the historical test"
+  },
+  {
+    "id": "P1-3",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "v0.2.5",
+    "locator": "§36 / correction summary",
+    "text": "Explicit correction-to-clause mapping; historical test definition remains unavailable",
+    "related_historical_tests": [
+      "T277"
+    ],
+    "executable_cases": [],
+    "coverage": "PARTIAL relationship only; does not recover the historical test"
+  },
+  {
+    "id": "P1-4",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "v0.2.5",
+    "locator": "§36 / correction summary",
+    "text": "Explicit correction-to-clause mapping; historical test definition remains unavailable",
+    "related_historical_tests": [
+      "T278"
+    ],
+    "executable_cases": [
+      "ND-HASH-V1",
+      "ND-BINARY64-ZERO",
+      "ND-BINARY64-SUBNORMAL",
+      "ND-BINARY64-PI",
+      "ER-REPLAY-UINT64"
+    ],
+    "coverage": "PARTIAL relationship only; does not recover the historical test"
+  },
+  {
+    "id": "P1-5",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "v0.2.5",
+    "locator": "§36 / correction summary",
+    "text": "Explicit correction-to-clause mapping; historical test definition remains unavailable",
+    "related_historical_tests": [
+      "T279"
+    ],
+    "executable_cases": [],
+    "coverage": "PARTIAL relationship only; does not recover the historical test"
+  },
+  {
+    "id": "R-1",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "NOT SPECIFIED in available group label",
+    "locator": "§36 group R-1 / D-27–D-42",
+    "text": "SOURCE UNAVAILABLE for individual correction definition",
+    "related_historical_tests": [
+      "T203",
+      "T204"
+    ],
+    "executable_cases": [],
+    "coverage": "BLOCKED; grouped historical association is not a one-to-one assignment"
+  },
+  {
+    "id": "D-27",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "NOT SPECIFIED in available group label",
+    "locator": "§36 group R-1 / D-27–D-42",
+    "text": "SOURCE UNAVAILABLE for individual correction definition",
+    "related_historical_tests": [
+      "T203",
+      "T204"
+    ],
+    "executable_cases": [],
+    "coverage": "BLOCKED; grouped historical association is not a one-to-one assignment"
+  },
+  {
+    "id": "D-28",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "NOT SPECIFIED in available group label",
+    "locator": "§36 group R-1 / D-27–D-42",
+    "text": "SOURCE UNAVAILABLE for individual correction definition",
+    "related_historical_tests": [
+      "T203",
+      "T204"
+    ],
+    "executable_cases": [],
+    "coverage": "BLOCKED; grouped historical association is not a one-to-one assignment"
+  },
+  {
+    "id": "D-29",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "NOT SPECIFIED in available group label",
+    "locator": "§36 group R-1 / D-27–D-42",
+    "text": "SOURCE UNAVAILABLE for individual correction definition",
+    "related_historical_tests": [
+      "T203",
+      "T204"
+    ],
+    "executable_cases": [],
+    "coverage": "BLOCKED; grouped historical association is not a one-to-one assignment"
+  },
+  {
+    "id": "D-30",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "NOT SPECIFIED in available group label",
+    "locator": "§36 group R-1 / D-27–D-42",
+    "text": "SOURCE UNAVAILABLE for individual correction definition",
+    "related_historical_tests": [
+      "T203",
+      "T204"
+    ],
+    "executable_cases": [],
+    "coverage": "BLOCKED; grouped historical association is not a one-to-one assignment"
+  },
+  {
+    "id": "D-31",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "NOT SPECIFIED in available group label",
+    "locator": "§36 group R-1 / D-27–D-42",
+    "text": "SOURCE UNAVAILABLE for individual correction definition",
+    "related_historical_tests": [
+      "T203",
+      "T204"
+    ],
+    "executable_cases": [],
+    "coverage": "BLOCKED; grouped historical association is not a one-to-one assignment"
+  },
+  {
+    "id": "D-32",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "NOT SPECIFIED in available group label",
+    "locator": "§36 group R-1 / D-27–D-42",
+    "text": "SOURCE UNAVAILABLE for individual correction definition",
+    "related_historical_tests": [
+      "T203",
+      "T204"
+    ],
+    "executable_cases": [],
+    "coverage": "BLOCKED; grouped historical association is not a one-to-one assignment"
+  },
+  {
+    "id": "D-33",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "NOT SPECIFIED in available group label",
+    "locator": "§36 group R-1 / D-27–D-42",
+    "text": "SOURCE UNAVAILABLE for individual correction definition",
+    "related_historical_tests": [
+      "T203",
+      "T204"
+    ],
+    "executable_cases": [],
+    "coverage": "BLOCKED; grouped historical association is not a one-to-one assignment"
+  },
+  {
+    "id": "D-34",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "NOT SPECIFIED in available group label",
+    "locator": "§36 group R-1 / D-27–D-42",
+    "text": "SOURCE UNAVAILABLE for individual correction definition",
+    "related_historical_tests": [
+      "T203",
+      "T204"
+    ],
+    "executable_cases": [],
+    "coverage": "BLOCKED; grouped historical association is not a one-to-one assignment"
+  },
+  {
+    "id": "D-35",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "NOT SPECIFIED in available group label",
+    "locator": "§36 group R-1 / D-27–D-42",
+    "text": "SOURCE UNAVAILABLE for individual correction definition",
+    "related_historical_tests": [
+      "T203",
+      "T204"
+    ],
+    "executable_cases": [],
+    "coverage": "BLOCKED; grouped historical association is not a one-to-one assignment"
+  },
+  {
+    "id": "D-36",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "NOT SPECIFIED in available group label",
+    "locator": "§36 group R-1 / D-27–D-42",
+    "text": "SOURCE UNAVAILABLE for individual correction definition",
+    "related_historical_tests": [
+      "T203",
+      "T204"
+    ],
+    "executable_cases": [],
+    "coverage": "BLOCKED; grouped historical association is not a one-to-one assignment"
+  },
+  {
+    "id": "D-37",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "NOT SPECIFIED in available group label",
+    "locator": "§36 group R-1 / D-27–D-42",
+    "text": "SOURCE UNAVAILABLE for individual correction definition",
+    "related_historical_tests": [
+      "T203",
+      "T204"
+    ],
+    "executable_cases": [],
+    "coverage": "BLOCKED; grouped historical association is not a one-to-one assignment"
+  },
+  {
+    "id": "D-38",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "NOT SPECIFIED in available group label",
+    "locator": "§36 group R-1 / D-27–D-42",
+    "text": "SOURCE UNAVAILABLE for individual correction definition",
+    "related_historical_tests": [
+      "T203",
+      "T204"
+    ],
+    "executable_cases": [],
+    "coverage": "BLOCKED; grouped historical association is not a one-to-one assignment"
+  },
+  {
+    "id": "D-39",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "NOT SPECIFIED in available group label",
+    "locator": "§36 group R-1 / D-27–D-42",
+    "text": "SOURCE UNAVAILABLE for individual correction definition",
+    "related_historical_tests": [
+      "T203",
+      "T204"
+    ],
+    "executable_cases": [],
+    "coverage": "BLOCKED; grouped historical association is not a one-to-one assignment"
+  },
+  {
+    "id": "D-40",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "NOT SPECIFIED in available group label",
+    "locator": "§36 group R-1 / D-27–D-42",
+    "text": "SOURCE UNAVAILABLE for individual correction definition",
+    "related_historical_tests": [
+      "T203",
+      "T204"
+    ],
+    "executable_cases": [],
+    "coverage": "BLOCKED; grouped historical association is not a one-to-one assignment"
+  },
+  {
+    "id": "D-41",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "NOT SPECIFIED in available group label",
+    "locator": "§36 group R-1 / D-27–D-42",
+    "text": "SOURCE UNAVAILABLE for individual correction definition",
+    "related_historical_tests": [
+      "T203",
+      "T204"
+    ],
+    "executable_cases": [],
+    "coverage": "BLOCKED; grouped historical association is not a one-to-one assignment"
+  },
+  {
+    "id": "D-42",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "NOT SPECIFIED in available group label",
+    "locator": "§36 group R-1 / D-27–D-42",
+    "text": "SOURCE UNAVAILABLE for individual correction definition",
+    "related_historical_tests": [
+      "T203",
+      "T204"
+    ],
+    "executable_cases": [],
+    "coverage": "BLOCKED; grouped historical association is not a one-to-one assignment"
+  },
+  {
+    "id": "M-1",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "NOT SPECIFIED in available group label",
+    "locator": "§36 group M-1–M-25 / A-1–A-4",
+    "text": "SOURCE UNAVAILABLE for individual correction definition",
+    "related_historical_tests": [
+      "T205",
+      "T206",
+      "T207",
+      "T208",
+      "T209",
+      "T210",
+      "T211",
+      "T212",
+      "T213",
+      "T214",
+      "T215",
+      "T216",
+      "T217",
+      "T218"
+    ],
+    "executable_cases": [],
+    "coverage": "BLOCKED; grouped historical association is not a one-to-one assignment"
+  },
+  {
+    "id": "M-2",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "NOT SPECIFIED in available group label",
+    "locator": "§36 group M-1–M-25 / A-1–A-4",
+    "text": "SOURCE UNAVAILABLE for individual correction definition",
+    "related_historical_tests": [
+      "T205",
+      "T206",
+      "T207",
+      "T208",
+      "T209",
+      "T210",
+      "T211",
+      "T212",
+      "T213",
+      "T214",
+      "T215",
+      "T216",
+      "T217",
+      "T218"
+    ],
+    "executable_cases": [],
+    "coverage": "BLOCKED; grouped historical association is not a one-to-one assignment"
+  },
+  {
+    "id": "M-3",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "NOT SPECIFIED in available group label",
+    "locator": "§36 group M-1–M-25 / A-1–A-4",
+    "text": "SOURCE UNAVAILABLE for individual correction definition",
+    "related_historical_tests": [
+      "T205",
+      "T206",
+      "T207",
+      "T208",
+      "T209",
+      "T210",
+      "T211",
+      "T212",
+      "T213",
+      "T214",
+      "T215",
+      "T216",
+      "T217",
+      "T218"
+    ],
+    "executable_cases": [],
+    "coverage": "BLOCKED; grouped historical association is not a one-to-one assignment"
+  },
+  {
+    "id": "M-4",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "NOT SPECIFIED in available group label",
+    "locator": "§36 group M-1–M-25 / A-1–A-4",
+    "text": "SOURCE UNAVAILABLE for individual correction definition",
+    "related_historical_tests": [
+      "T205",
+      "T206",
+      "T207",
+      "T208",
+      "T209",
+      "T210",
+      "T211",
+      "T212",
+      "T213",
+      "T214",
+      "T215",
+      "T216",
+      "T217",
+      "T218"
+    ],
+    "executable_cases": [],
+    "coverage": "BLOCKED; grouped historical association is not a one-to-one assignment"
+  },
+  {
+    "id": "M-5",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "NOT SPECIFIED in available group label",
+    "locator": "§36 group M-1–M-25 / A-1–A-4",
+    "text": "SOURCE UNAVAILABLE for individual correction definition",
+    "related_historical_tests": [
+      "T205",
+      "T206",
+      "T207",
+      "T208",
+      "T209",
+      "T210",
+      "T211",
+      "T212",
+      "T213",
+      "T214",
+      "T215",
+      "T216",
+      "T217",
+      "T218"
+    ],
+    "executable_cases": [],
+    "coverage": "BLOCKED; grouped historical association is not a one-to-one assignment"
+  },
+  {
+    "id": "M-6",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "NOT SPECIFIED in available group label",
+    "locator": "§36 group M-1–M-25 / A-1–A-4",
+    "text": "SOURCE UNAVAILABLE for individual correction definition",
+    "related_historical_tests": [
+      "T205",
+      "T206",
+      "T207",
+      "T208",
+      "T209",
+      "T210",
+      "T211",
+      "T212",
+      "T213",
+      "T214",
+      "T215",
+      "T216",
+      "T217",
+      "T218"
+    ],
+    "executable_cases": [],
+    "coverage": "BLOCKED; grouped historical association is not a one-to-one assignment"
+  },
+  {
+    "id": "M-7",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "NOT SPECIFIED in available group label",
+    "locator": "§36 group M-1–M-25 / A-1–A-4",
+    "text": "SOURCE UNAVAILABLE for individual correction definition",
+    "related_historical_tests": [
+      "T205",
+      "T206",
+      "T207",
+      "T208",
+      "T209",
+      "T210",
+      "T211",
+      "T212",
+      "T213",
+      "T214",
+      "T215",
+      "T216",
+      "T217",
+      "T218"
+    ],
+    "executable_cases": [],
+    "coverage": "BLOCKED; grouped historical association is not a one-to-one assignment"
+  },
+  {
+    "id": "M-8",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "NOT SPECIFIED in available group label",
+    "locator": "§36 group M-1–M-25 / A-1–A-4",
+    "text": "SOURCE UNAVAILABLE for individual correction definition",
+    "related_historical_tests": [
+      "T205",
+      "T206",
+      "T207",
+      "T208",
+      "T209",
+      "T210",
+      "T211",
+      "T212",
+      "T213",
+      "T214",
+      "T215",
+      "T216",
+      "T217",
+      "T218"
+    ],
+    "executable_cases": [],
+    "coverage": "BLOCKED; grouped historical association is not a one-to-one assignment"
+  },
+  {
+    "id": "M-9",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "NOT SPECIFIED in available group label",
+    "locator": "§36 group M-1–M-25 / A-1–A-4",
+    "text": "SOURCE UNAVAILABLE for individual correction definition",
+    "related_historical_tests": [
+      "T205",
+      "T206",
+      "T207",
+      "T208",
+      "T209",
+      "T210",
+      "T211",
+      "T212",
+      "T213",
+      "T214",
+      "T215",
+      "T216",
+      "T217",
+      "T218"
+    ],
+    "executable_cases": [],
+    "coverage": "BLOCKED; grouped historical association is not a one-to-one assignment"
+  },
+  {
+    "id": "M-10",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "NOT SPECIFIED in available group label",
+    "locator": "§36 group M-1–M-25 / A-1–A-4",
+    "text": "SOURCE UNAVAILABLE for individual correction definition",
+    "related_historical_tests": [
+      "T205",
+      "T206",
+      "T207",
+      "T208",
+      "T209",
+      "T210",
+      "T211",
+      "T212",
+      "T213",
+      "T214",
+      "T215",
+      "T216",
+      "T217",
+      "T218"
+    ],
+    "executable_cases": [],
+    "coverage": "BLOCKED; grouped historical association is not a one-to-one assignment"
+  },
+  {
+    "id": "M-11",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "NOT SPECIFIED in available group label",
+    "locator": "§36 group M-1–M-25 / A-1–A-4",
+    "text": "SOURCE UNAVAILABLE for individual correction definition",
+    "related_historical_tests": [
+      "T205",
+      "T206",
+      "T207",
+      "T208",
+      "T209",
+      "T210",
+      "T211",
+      "T212",
+      "T213",
+      "T214",
+      "T215",
+      "T216",
+      "T217",
+      "T218"
+    ],
+    "executable_cases": [],
+    "coverage": "BLOCKED; grouped historical association is not a one-to-one assignment"
+  },
+  {
+    "id": "M-12",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "NOT SPECIFIED in available group label",
+    "locator": "§36 group M-1–M-25 / A-1–A-4",
+    "text": "SOURCE UNAVAILABLE for individual correction definition",
+    "related_historical_tests": [
+      "T205",
+      "T206",
+      "T207",
+      "T208",
+      "T209",
+      "T210",
+      "T211",
+      "T212",
+      "T213",
+      "T214",
+      "T215",
+      "T216",
+      "T217",
+      "T218"
+    ],
+    "executable_cases": [],
+    "coverage": "BLOCKED; grouped historical association is not a one-to-one assignment"
+  },
+  {
+    "id": "M-13",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "NOT SPECIFIED in available group label",
+    "locator": "§36 group M-1–M-25 / A-1–A-4",
+    "text": "SOURCE UNAVAILABLE for individual correction definition",
+    "related_historical_tests": [
+      "T205",
+      "T206",
+      "T207",
+      "T208",
+      "T209",
+      "T210",
+      "T211",
+      "T212",
+      "T213",
+      "T214",
+      "T215",
+      "T216",
+      "T217",
+      "T218"
+    ],
+    "executable_cases": [],
+    "coverage": "BLOCKED; grouped historical association is not a one-to-one assignment"
+  },
+  {
+    "id": "M-14",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "NOT SPECIFIED in available group label",
+    "locator": "§36 group M-1–M-25 / A-1–A-4",
+    "text": "SOURCE UNAVAILABLE for individual correction definition",
+    "related_historical_tests": [
+      "T205",
+      "T206",
+      "T207",
+      "T208",
+      "T209",
+      "T210",
+      "T211",
+      "T212",
+      "T213",
+      "T214",
+      "T215",
+      "T216",
+      "T217",
+      "T218"
+    ],
+    "executable_cases": [],
+    "coverage": "BLOCKED; grouped historical association is not a one-to-one assignment"
+  },
+  {
+    "id": "M-15",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "NOT SPECIFIED in available group label",
+    "locator": "§36 group M-1–M-25 / A-1–A-4",
+    "text": "SOURCE UNAVAILABLE for individual correction definition",
+    "related_historical_tests": [
+      "T205",
+      "T206",
+      "T207",
+      "T208",
+      "T209",
+      "T210",
+      "T211",
+      "T212",
+      "T213",
+      "T214",
+      "T215",
+      "T216",
+      "T217",
+      "T218"
+    ],
+    "executable_cases": [],
+    "coverage": "BLOCKED; grouped historical association is not a one-to-one assignment"
+  },
+  {
+    "id": "M-16",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "NOT SPECIFIED in available group label",
+    "locator": "§36 group M-1–M-25 / A-1–A-4",
+    "text": "SOURCE UNAVAILABLE for individual correction definition",
+    "related_historical_tests": [
+      "T205",
+      "T206",
+      "T207",
+      "T208",
+      "T209",
+      "T210",
+      "T211",
+      "T212",
+      "T213",
+      "T214",
+      "T215",
+      "T216",
+      "T217",
+      "T218"
+    ],
+    "executable_cases": [],
+    "coverage": "BLOCKED; grouped historical association is not a one-to-one assignment"
+  },
+  {
+    "id": "M-17",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "NOT SPECIFIED in available group label",
+    "locator": "§36 group M-1–M-25 / A-1–A-4",
+    "text": "SOURCE UNAVAILABLE for individual correction definition",
+    "related_historical_tests": [
+      "T205",
+      "T206",
+      "T207",
+      "T208",
+      "T209",
+      "T210",
+      "T211",
+      "T212",
+      "T213",
+      "T214",
+      "T215",
+      "T216",
+      "T217",
+      "T218"
+    ],
+    "executable_cases": [],
+    "coverage": "BLOCKED; grouped historical association is not a one-to-one assignment"
+  },
+  {
+    "id": "M-18",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "NOT SPECIFIED in available group label",
+    "locator": "§36 group M-1–M-25 / A-1–A-4",
+    "text": "SOURCE UNAVAILABLE for individual correction definition",
+    "related_historical_tests": [
+      "T205",
+      "T206",
+      "T207",
+      "T208",
+      "T209",
+      "T210",
+      "T211",
+      "T212",
+      "T213",
+      "T214",
+      "T215",
+      "T216",
+      "T217",
+      "T218"
+    ],
+    "executable_cases": [],
+    "coverage": "BLOCKED; grouped historical association is not a one-to-one assignment"
+  },
+  {
+    "id": "M-19",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "NOT SPECIFIED in available group label",
+    "locator": "§36 group M-1–M-25 / A-1–A-4",
+    "text": "SOURCE UNAVAILABLE for individual correction definition",
+    "related_historical_tests": [
+      "T205",
+      "T206",
+      "T207",
+      "T208",
+      "T209",
+      "T210",
+      "T211",
+      "T212",
+      "T213",
+      "T214",
+      "T215",
+      "T216",
+      "T217",
+      "T218"
+    ],
+    "executable_cases": [],
+    "coverage": "BLOCKED; grouped historical association is not a one-to-one assignment"
+  },
+  {
+    "id": "M-20",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "NOT SPECIFIED in available group label",
+    "locator": "§36 group M-1–M-25 / A-1–A-4",
+    "text": "SOURCE UNAVAILABLE for individual correction definition",
+    "related_historical_tests": [
+      "T205",
+      "T206",
+      "T207",
+      "T208",
+      "T209",
+      "T210",
+      "T211",
+      "T212",
+      "T213",
+      "T214",
+      "T215",
+      "T216",
+      "T217",
+      "T218"
+    ],
+    "executable_cases": [],
+    "coverage": "BLOCKED; grouped historical association is not a one-to-one assignment"
+  },
+  {
+    "id": "M-21",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "NOT SPECIFIED in available group label",
+    "locator": "§36 group M-1–M-25 / A-1–A-4",
+    "text": "SOURCE UNAVAILABLE for individual correction definition",
+    "related_historical_tests": [
+      "T205",
+      "T206",
+      "T207",
+      "T208",
+      "T209",
+      "T210",
+      "T211",
+      "T212",
+      "T213",
+      "T214",
+      "T215",
+      "T216",
+      "T217",
+      "T218"
+    ],
+    "executable_cases": [],
+    "coverage": "BLOCKED; grouped historical association is not a one-to-one assignment"
+  },
+  {
+    "id": "M-22",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "NOT SPECIFIED in available group label",
+    "locator": "§36 group M-1–M-25 / A-1–A-4",
+    "text": "SOURCE UNAVAILABLE for individual correction definition",
+    "related_historical_tests": [
+      "T205",
+      "T206",
+      "T207",
+      "T208",
+      "T209",
+      "T210",
+      "T211",
+      "T212",
+      "T213",
+      "T214",
+      "T215",
+      "T216",
+      "T217",
+      "T218"
+    ],
+    "executable_cases": [],
+    "coverage": "BLOCKED; grouped historical association is not a one-to-one assignment"
+  },
+  {
+    "id": "M-23",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "NOT SPECIFIED in available group label",
+    "locator": "§36 group M-1–M-25 / A-1–A-4",
+    "text": "SOURCE UNAVAILABLE for individual correction definition",
+    "related_historical_tests": [
+      "T205",
+      "T206",
+      "T207",
+      "T208",
+      "T209",
+      "T210",
+      "T211",
+      "T212",
+      "T213",
+      "T214",
+      "T215",
+      "T216",
+      "T217",
+      "T218"
+    ],
+    "executable_cases": [],
+    "coverage": "BLOCKED; grouped historical association is not a one-to-one assignment"
+  },
+  {
+    "id": "M-24",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "NOT SPECIFIED in available group label",
+    "locator": "§36 group M-1–M-25 / A-1–A-4",
+    "text": "SOURCE UNAVAILABLE for individual correction definition",
+    "related_historical_tests": [
+      "T205",
+      "T206",
+      "T207",
+      "T208",
+      "T209",
+      "T210",
+      "T211",
+      "T212",
+      "T213",
+      "T214",
+      "T215",
+      "T216",
+      "T217",
+      "T218"
+    ],
+    "executable_cases": [],
+    "coverage": "BLOCKED; grouped historical association is not a one-to-one assignment"
+  },
+  {
+    "id": "M-25",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "NOT SPECIFIED in available group label",
+    "locator": "§36 group M-1–M-25 / A-1–A-4",
+    "text": "SOURCE UNAVAILABLE for individual correction definition",
+    "related_historical_tests": [
+      "T205",
+      "T206",
+      "T207",
+      "T208",
+      "T209",
+      "T210",
+      "T211",
+      "T212",
+      "T213",
+      "T214",
+      "T215",
+      "T216",
+      "T217",
+      "T218"
+    ],
+    "executable_cases": [],
+    "coverage": "BLOCKED; grouped historical association is not a one-to-one assignment"
+  },
+  {
+    "id": "A-1",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "NOT SPECIFIED in available group label",
+    "locator": "§36 group M-1–M-25 / A-1–A-4",
+    "text": "SOURCE UNAVAILABLE for individual correction definition",
+    "related_historical_tests": [
+      "T205",
+      "T206",
+      "T207",
+      "T208",
+      "T209",
+      "T210",
+      "T211",
+      "T212",
+      "T213",
+      "T214",
+      "T215",
+      "T216",
+      "T217",
+      "T218"
+    ],
+    "executable_cases": [],
+    "coverage": "BLOCKED; grouped historical association is not a one-to-one assignment"
+  },
+  {
+    "id": "A-2",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "NOT SPECIFIED in available group label",
+    "locator": "§36 group M-1–M-25 / A-1–A-4",
+    "text": "SOURCE UNAVAILABLE for individual correction definition",
+    "related_historical_tests": [
+      "T205",
+      "T206",
+      "T207",
+      "T208",
+      "T209",
+      "T210",
+      "T211",
+      "T212",
+      "T213",
+      "T214",
+      "T215",
+      "T216",
+      "T217",
+      "T218"
+    ],
+    "executable_cases": [],
+    "coverage": "BLOCKED; grouped historical association is not a one-to-one assignment"
+  },
+  {
+    "id": "A-3",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "NOT SPECIFIED in available group label",
+    "locator": "§36 group M-1–M-25 / A-1–A-4",
+    "text": "SOURCE UNAVAILABLE for individual correction definition",
+    "related_historical_tests": [
+      "T205",
+      "T206",
+      "T207",
+      "T208",
+      "T209",
+      "T210",
+      "T211",
+      "T212",
+      "T213",
+      "T214",
+      "T215",
+      "T216",
+      "T217",
+      "T218"
+    ],
+    "executable_cases": [],
+    "coverage": "BLOCKED; grouped historical association is not a one-to-one assignment"
+  },
+  {
+    "id": "A-4",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "NOT SPECIFIED in available group label",
+    "locator": "§36 group M-1–M-25 / A-1–A-4",
+    "text": "SOURCE UNAVAILABLE for individual correction definition",
+    "related_historical_tests": [
+      "T205",
+      "T206",
+      "T207",
+      "T208",
+      "T209",
+      "T210",
+      "T211",
+      "T212",
+      "T213",
+      "T214",
+      "T215",
+      "T216",
+      "T217",
+      "T218"
+    ],
+    "executable_cases": [],
+    "coverage": "BLOCKED; grouped historical association is not a one-to-one assignment"
+  },
+  {
+    "id": "B-1",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "v0.2.2",
+    "locator": "§36 group B-1–B-8 (v0.2.2)",
+    "text": "SOURCE UNAVAILABLE for individual correction definition",
+    "related_historical_tests": [
+      "T219",
+      "T220",
+      "T221",
+      "T222",
+      "T223",
+      "T224",
+      "T225",
+      "T226",
+      "T227",
+      "T228",
+      "T229",
+      "T230",
+      "T231",
+      "T232",
+      "T233",
+      "T234",
+      "T235",
+      "T236",
+      "T237",
+      "T238",
+      "T239",
+      "T240"
+    ],
+    "executable_cases": [],
+    "coverage": "BLOCKED; grouped historical association is not a one-to-one assignment"
+  },
+  {
+    "id": "B-2",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "v0.2.2",
+    "locator": "§36 group B-1–B-8 (v0.2.2)",
+    "text": "SOURCE UNAVAILABLE for individual correction definition",
+    "related_historical_tests": [
+      "T219",
+      "T220",
+      "T221",
+      "T222",
+      "T223",
+      "T224",
+      "T225",
+      "T226",
+      "T227",
+      "T228",
+      "T229",
+      "T230",
+      "T231",
+      "T232",
+      "T233",
+      "T234",
+      "T235",
+      "T236",
+      "T237",
+      "T238",
+      "T239",
+      "T240"
+    ],
+    "executable_cases": [],
+    "coverage": "BLOCKED; grouped historical association is not a one-to-one assignment"
+  },
+  {
+    "id": "B-3",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "v0.2.2",
+    "locator": "§36 group B-1–B-8 (v0.2.2)",
+    "text": "SOURCE UNAVAILABLE for individual correction definition",
+    "related_historical_tests": [
+      "T219",
+      "T220",
+      "T221",
+      "T222",
+      "T223",
+      "T224",
+      "T225",
+      "T226",
+      "T227",
+      "T228",
+      "T229",
+      "T230",
+      "T231",
+      "T232",
+      "T233",
+      "T234",
+      "T235",
+      "T236",
+      "T237",
+      "T238",
+      "T239",
+      "T240"
+    ],
+    "executable_cases": [],
+    "coverage": "BLOCKED; grouped historical association is not a one-to-one assignment"
+  },
+  {
+    "id": "B-4",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "v0.2.2",
+    "locator": "§36 group B-1–B-8 (v0.2.2)",
+    "text": "SOURCE UNAVAILABLE for individual correction definition",
+    "related_historical_tests": [
+      "T219",
+      "T220",
+      "T221",
+      "T222",
+      "T223",
+      "T224",
+      "T225",
+      "T226",
+      "T227",
+      "T228",
+      "T229",
+      "T230",
+      "T231",
+      "T232",
+      "T233",
+      "T234",
+      "T235",
+      "T236",
+      "T237",
+      "T238",
+      "T239",
+      "T240"
+    ],
+    "executable_cases": [],
+    "coverage": "BLOCKED; grouped historical association is not a one-to-one assignment"
+  },
+  {
+    "id": "B-5",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "v0.2.2",
+    "locator": "§36 group B-1–B-8 (v0.2.2)",
+    "text": "SOURCE UNAVAILABLE for individual correction definition",
+    "related_historical_tests": [
+      "T219",
+      "T220",
+      "T221",
+      "T222",
+      "T223",
+      "T224",
+      "T225",
+      "T226",
+      "T227",
+      "T228",
+      "T229",
+      "T230",
+      "T231",
+      "T232",
+      "T233",
+      "T234",
+      "T235",
+      "T236",
+      "T237",
+      "T238",
+      "T239",
+      "T240"
+    ],
+    "executable_cases": [],
+    "coverage": "BLOCKED; grouped historical association is not a one-to-one assignment"
+  },
+  {
+    "id": "B-6",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "v0.2.2",
+    "locator": "§36 group B-1–B-8 (v0.2.2)",
+    "text": "SOURCE UNAVAILABLE for individual correction definition",
+    "related_historical_tests": [
+      "T219",
+      "T220",
+      "T221",
+      "T222",
+      "T223",
+      "T224",
+      "T225",
+      "T226",
+      "T227",
+      "T228",
+      "T229",
+      "T230",
+      "T231",
+      "T232",
+      "T233",
+      "T234",
+      "T235",
+      "T236",
+      "T237",
+      "T238",
+      "T239",
+      "T240"
+    ],
+    "executable_cases": [],
+    "coverage": "BLOCKED; grouped historical association is not a one-to-one assignment"
+  },
+  {
+    "id": "B-7",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "v0.2.2",
+    "locator": "§36 group B-1–B-8 (v0.2.2)",
+    "text": "SOURCE UNAVAILABLE for individual correction definition",
+    "related_historical_tests": [
+      "T219",
+      "T220",
+      "T221",
+      "T222",
+      "T223",
+      "T224",
+      "T225",
+      "T226",
+      "T227",
+      "T228",
+      "T229",
+      "T230",
+      "T231",
+      "T232",
+      "T233",
+      "T234",
+      "T235",
+      "T236",
+      "T237",
+      "T238",
+      "T239",
+      "T240"
+    ],
+    "executable_cases": [],
+    "coverage": "BLOCKED; grouped historical association is not a one-to-one assignment"
+  },
+  {
+    "id": "B-8",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "v0.2.2",
+    "locator": "§36 group B-1–B-8 (v0.2.2)",
+    "text": "SOURCE UNAVAILABLE for individual correction definition",
+    "related_historical_tests": [
+      "T219",
+      "T220",
+      "T221",
+      "T222",
+      "T223",
+      "T224",
+      "T225",
+      "T226",
+      "T227",
+      "T228",
+      "T229",
+      "T230",
+      "T231",
+      "T232",
+      "T233",
+      "T234",
+      "T235",
+      "T236",
+      "T237",
+      "T238",
+      "T239",
+      "T240"
+    ],
+    "executable_cases": [],
+    "coverage": "BLOCKED; grouped historical association is not a one-to-one assignment"
+  },
+  {
+    "id": "B-9",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "v0.2.3",
+    "locator": "§36 group B-9–B-13, V-1, V-2 (v0.2.3)",
+    "text": "SOURCE UNAVAILABLE for individual correction definition",
+    "related_historical_tests": [
+      "T241",
+      "T242",
+      "T243",
+      "T244",
+      "T245",
+      "T246",
+      "T247",
+      "T248",
+      "T249",
+      "T250",
+      "T251",
+      "T252",
+      "T253",
+      "T254",
+      "T255"
+    ],
+    "executable_cases": [],
+    "coverage": "BLOCKED; grouped historical association is not a one-to-one assignment"
+  },
+  {
+    "id": "B-10",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "v0.2.3",
+    "locator": "§36 group B-9–B-13, V-1, V-2 (v0.2.3)",
+    "text": "SOURCE UNAVAILABLE for individual correction definition",
+    "related_historical_tests": [
+      "T241",
+      "T242",
+      "T243",
+      "T244",
+      "T245",
+      "T246",
+      "T247",
+      "T248",
+      "T249",
+      "T250",
+      "T251",
+      "T252",
+      "T253",
+      "T254",
+      "T255"
+    ],
+    "executable_cases": [],
+    "coverage": "BLOCKED; grouped historical association is not a one-to-one assignment"
+  },
+  {
+    "id": "B-11",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "v0.2.3",
+    "locator": "§36 group B-9–B-13, V-1, V-2 (v0.2.3)",
+    "text": "SOURCE UNAVAILABLE for individual correction definition",
+    "related_historical_tests": [
+      "T241",
+      "T242",
+      "T243",
+      "T244",
+      "T245",
+      "T246",
+      "T247",
+      "T248",
+      "T249",
+      "T250",
+      "T251",
+      "T252",
+      "T253",
+      "T254",
+      "T255"
+    ],
+    "executable_cases": [],
+    "coverage": "BLOCKED; grouped historical association is not a one-to-one assignment"
+  },
+  {
+    "id": "B-12",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "v0.2.3",
+    "locator": "§36 group B-9–B-13, V-1, V-2 (v0.2.3)",
+    "text": "SOURCE UNAVAILABLE for individual correction definition",
+    "related_historical_tests": [
+      "T241",
+      "T242",
+      "T243",
+      "T244",
+      "T245",
+      "T246",
+      "T247",
+      "T248",
+      "T249",
+      "T250",
+      "T251",
+      "T252",
+      "T253",
+      "T254",
+      "T255"
+    ],
+    "executable_cases": [],
+    "coverage": "BLOCKED; grouped historical association is not a one-to-one assignment"
+  },
+  {
+    "id": "B-13",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "v0.2.3",
+    "locator": "§36 group B-9–B-13, V-1, V-2 (v0.2.3)",
+    "text": "SOURCE UNAVAILABLE for individual correction definition",
+    "related_historical_tests": [
+      "T241",
+      "T242",
+      "T243",
+      "T244",
+      "T245",
+      "T246",
+      "T247",
+      "T248",
+      "T249",
+      "T250",
+      "T251",
+      "T252",
+      "T253",
+      "T254",
+      "T255"
+    ],
+    "executable_cases": [],
+    "coverage": "BLOCKED; grouped historical association is not a one-to-one assignment"
+  },
+  {
+    "id": "V-1",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "v0.2.3",
+    "locator": "§36 group B-9–B-13, V-1, V-2 (v0.2.3)",
+    "text": "SOURCE UNAVAILABLE for individual correction definition",
+    "related_historical_tests": [
+      "T241",
+      "T242",
+      "T243",
+      "T244",
+      "T245",
+      "T246",
+      "T247",
+      "T248",
+      "T249",
+      "T250",
+      "T251",
+      "T252",
+      "T253",
+      "T254",
+      "T255"
+    ],
+    "executable_cases": [],
+    "coverage": "BLOCKED; grouped historical association is not a one-to-one assignment"
+  },
+  {
+    "id": "V-2",
+    "sources": [
+      "S025"
+    ],
+    "original_version": "v0.2.3",
+    "locator": "§36 group B-9–B-13, V-1, V-2 (v0.2.3)",
+    "text": "SOURCE UNAVAILABLE for individual correction definition",
+    "related_historical_tests": [
+      "T241",
+      "T242",
+      "T243",
+      "T244",
+      "T245",
+      "T246",
+      "T247",
+      "T248",
+      "T249",
+      "T250",
+      "T251",
+      "T252",
+      "T253",
+      "T254",
+      "T255"
+    ],
+    "executable_cases": [],
+    "coverage": "BLOCKED; grouped historical association is not a one-to-one assignment"
+  },
+  {
+    "id": "D-01-A",
+    "sources": [
+      "S026"
+    ],
+    "source_version": "v0.2.6",
+    "locator": "D-01 A",
+    "text": "Current replacement; historical definitions remain separately inventoried",
+    "related_historical_tests": [],
+    "executable_cases": [
+      "ND-INVALID-BOTH",
+      "ND-INVALID-BIGMAX",
+      "ND-INVALID-BIGEXPECTED"
+    ],
+    "coverage": "PARTIAL; exact listed assertions only"
+  },
+  {
+    "id": "D-01-B",
+    "sources": [
+      "S026"
+    ],
+    "source_version": "v0.2.6",
+    "locator": "D-01 B",
+    "text": "Current replacement; historical definitions remain separately inventoried",
+    "related_historical_tests": [],
+    "executable_cases": [
+      "ER-REPLAY-WITH_AGENT",
+      "ER-REPLAY-WITHOUT_AGENT",
+      "ND-SEGMENT-ZERO-ACTIVE",
+      "ND-SEGMENT-ZERO-DEAD"
+    ],
+    "coverage": "PARTIAL; exact listed assertions only"
+  },
+  {
+    "id": "D-01-C",
+    "sources": [
+      "S026"
+    ],
+    "source_version": "v0.2.6",
+    "locator": "D-01 C",
+    "text": "Current replacement; historical definitions remain separately inventoried",
+    "related_historical_tests": [],
+    "executable_cases": [
+      "ND-MODE-WITH_AGENT",
+      "ND-MODE-WITHOUT_AGENT",
+      "ND-UINT64",
+      "ER-VALIDATION-WORK",
+      "ER-METADATA-NO-WORK",
+      "ND-STRUCTURE-HASH",
+      "ND-METADATA-status",
+      "ND-METADATA-max_ticks_used",
+      "ND-METADATA-expected_steps_used",
+      "ND-METADATA-unused_actions",
+      "ND-METADATA-termination_hint",
+      "ND-METADATA-unknown_action_index",
+      "ND-METADATA-error_message",
+      "ND-CONTEXT-extra",
+      "ND-CONTEXT-execution_mode",
+      "ND-HINT-NULL-ACTIVE",
+      "ND-HINT-NULL-DEAD"
+    ],
+    "coverage": "PARTIAL; exact listed assertions only"
+  },
+  {
+    "id": "D-01-D",
+    "sources": [
+      "S026"
+    ],
+    "source_version": "v0.2.6",
+    "locator": "D-01 D",
+    "text": "Current replacement; historical definitions remain separately inventoried",
+    "related_historical_tests": [],
+    "executable_cases": [
+      "ER-REPLAY-WITH_AGENT",
+      "ND-MODE-WITH_AGENT",
+      "ER-REPLAY-WITHOUT_AGENT",
+      "ND-MODE-WITHOUT_AGENT",
+      "ND-CONTEXT-extra",
+      "ND-CONTEXT-execution_mode"
+    ],
+    "coverage": "PARTIAL; exact listed assertions only"
+  },
+  {
+    "id": "D-01-E",
+    "sources": [
+      "S026"
+    ],
+    "source_version": "v0.2.6",
+    "locator": "D-01 E",
+    "text": "Current replacement; historical definitions remain separately inventoried",
+    "related_historical_tests": [],
+    "executable_cases": [
+      "ER-REPLAY-UINT64",
+      "ND-UINT64",
+      "ND-INVALID-BOTH",
+      "ND-INVALID-BIGMAX",
+      "ND-INVALID-BIGEXPECTED",
+      "ND-SEGMENT-ZERO-ACTIVE",
+      "ND-SEGMENT-ZERO-DEAD"
+    ],
+    "coverage": "PARTIAL; exact listed assertions only"
+  }
+]
