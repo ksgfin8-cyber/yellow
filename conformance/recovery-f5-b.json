@@ -1,0 +1,237 @@
+{
+  "base": "b13d637dd405d363442803ad53821f5a6c6f4a62",
+  "scope": "FINAL BOUNDED SEARCH, not a claim of global irrecoverability",
+  "methods": [
+    "git fetch origin (main tracking reference)",
+    "git rev-list --objects --all; inspect candidate historical docs/specifications blobs",
+    "Inspect existing sources.json and recovered H034/HINIT captures, corpus.json and obligation source locators",
+    "Enumerate accessible uploaded work orders with hashes; compare Git history since F5-A base"
+  ],
+  "new_since_f5a": [
+    "b13d637dd405d363442803ad53821f5a6c6f4a62 Merge pull request #31 from ksgfin8-cyber/dev/f5-a-conformance-harness",
+    "9d745daac08709472aa0013c1d6e60822e45248d test(conformance): inventory normative corpus and add isolated acceptance harness (F5-A)"
+  ],
+  "candidate_blobs": [
+    {
+      "object": "8b137891791fe96927ad78e64b0aad7bded08bdc",
+      "path": "docs/specifications",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "result": "Only newline; no test corpus"
+    }
+  ],
+  "accessible_artifacts": [
+    {
+      "capture_directory": "1100537a-85ba-4631-a061-85166eccfe8a",
+      "title": "# WORLD-LAB \u2014 ORDEN EJECUTIVA F4-C",
+      "bytes": 9511,
+      "sha256": "4931764ac9ea591ca24d907690b14d89f290438bd8afde68399cd77cb5cf2db8",
+      "filename": "Texto pegado.txt"
+    },
+    {
+      "capture_directory": "164628d6-0fdf-45fc-9e97-7fe7e79d6e98",
+      "title": "# WORLD-LAB \u2014 ORDEN EJECUTIVA F4-E",
+      "bytes": 15180,
+      "sha256": "39bdc48348914c0291493e66588a8e80980ee04c03854d3033edf57a924db102",
+      "filename": "Texto pegado.txt"
+    },
+    {
+      "capture_directory": "317cb491-6f33-4dda-87f2-25d9cfa27057",
+      "title": "# WORLD-LAB \u2014 ORDEN EJECUTIVA F4-B",
+      "bytes": 8853,
+      "sha256": "0a0ece0ed1952e1bbec65136f3dfb6821bb707859ce44dac897d68980b3c3fe6",
+      "filename": "Texto pegado.txt"
+    },
+    {
+      "capture_directory": "36c9fed5-dac4-43d7-aa38-4b1f62d787d3",
+      "title": "# WORLD-LAB \u2014 ORDEN EJECUTIVA F3-D/2",
+      "bytes": 6355,
+      "sha256": "47db32068e479861054f03e85123b1e927b7be17da94a41cca540143ae46cd40",
+      "filename": "Texto pegado.txt"
+    },
+    {
+      "capture_directory": "3b19f64e-2b1f-4244-81aa-9bde3e8d4c0b",
+      "title": "# WORLD-LAB \u2014 ORDEN EJECUTIVA F4-A",
+      "bytes": 5804,
+      "sha256": "65a7477ead89368891194a7e35de509a632f0726fea5f251304360aee3dd8c20",
+      "filename": "Texto pegado.txt"
+    },
+    {
+      "capture_directory": "4b063bc6-6982-4213-aa11-840695791a79",
+      "title": "# WORLD-LAB \u2014 ORDEN EJECUTIVA F3-F",
+      "bytes": 8831,
+      "sha256": "e1d4b13491985abcced36f7bf985ad4c60ba2afb0859cb7a71e3693105310ce2",
+      "filename": "Texto pegado.txt"
+    },
+    {
+      "capture_directory": "4b26853d-3163-4d7c-853c-e7938bd65789",
+      "title": "# WORLD-LAB \u2014 Orden de implementaci\u00f3n F1-B",
+      "bytes": 5383,
+      "sha256": "d16121df4bc9b271d9c2ee090a5f666a66858aadfc2d1e91660fcce360ef9f24",
+      "filename": "Texto pegado.txt"
+    },
+    {
+      "capture_directory": "4d47c454-aa69-4afa-aaab-a9fe3c02d9c9",
+      "title": "# WORLD-LAB \u2014 ORDEN EJECUTIVA F3-D",
+      "bytes": 8885,
+      "sha256": "3a62785ea15b3bd94b615b3b41cafe987c2cbcebd68e072111210db749956bb1",
+      "filename": "Texto pegado.txt"
+    },
+    {
+      "capture_directory": "50950020-e00b-40d6-86b0-3423257a495e",
+      "title": "# WORLD-LAB \u2014 ORDEN DE IMPLEMENTACI\u00d3N F2-C",
+      "bytes": 16477,
+      "sha256": "6ce5fcfb5bb8c00fb2c129fdc6c805dc31f6b748a539166c6d30df23ffed2a00",
+      "filename": "Texto pegado.txt"
+    },
+    {
+      "capture_directory": "5c07d278-653c-442b-b36e-01ce650c7b77",
+      "title": "# WORLD-LAB \u2014 ORDEN EJECUTIVA F4-G",
+      "bytes": 5906,
+      "sha256": "223e006ec3e07d45861f4f9ec001df2c0eb20e32b6a7913f9aae382146ffbda4",
+      "filename": "Texto pegado.txt"
+    },
+    {
+      "capture_directory": "5d1e7ffb-4316-451a-b74c-672c13ee528c",
+      "title": "# WORLD-LAB \u2014 Orden DOC-02",
+      "bytes": 7021,
+      "sha256": "a19af0ec66b3c050ea9d93435c39ae01f1d860ca2b606d0122856870a2d880a2",
+      "filename": "Texto pegado.txt"
+    },
+    {
+      "capture_directory": "60205ef8-4fad-4dca-947b-0ee63818a538",
+      "title": "# WORLD-LAB \u2014 F2-G",
+      "bytes": 6127,
+      "sha256": "285ecd4e11668543cba3254418b599f12d0a71c3351ee3a74e34ad8e89419df1",
+      "filename": "Texto pegado.txt"
+    },
+    {
+      "capture_directory": "7de02c5f-ce05-4ed4-a0b2-dfb1efbd5e36",
+      "title": "# WORLD-LAB \u2014 ORDEN F3-A",
+      "bytes": 5224,
+      "sha256": "8a2ec5b88de9622d186959e34a23f84921518b1911c27a8a269bfef9bcf470fb",
+      "filename": "Texto pegado.txt"
+    },
+    {
+      "capture_directory": "8508b0d7-fcd6-4e86-aa92-db57b977ce55",
+      "title": "# WORLD-LAB \u2014 ORDEN EJECUTIVA F3-E",
+      "bytes": 8878,
+      "sha256": "630fb71b19d4bfa14d17f926e85e3adf39f09b8fc7dde12e6a7d900abe1d53a5",
+      "filename": "Texto pegado.txt"
+    },
+    {
+      "capture_directory": "925de035-f098-4760-b25a-a7282000bc0f",
+      "title": "# WORLD-LAB \u2014 ORDEN EJECUTIVA F4-D",
+      "bytes": 7513,
+      "sha256": "7863ab03eacd46ef0efbe8ce7a485be728b12d9764f974cb254d3856e4c5e069",
+      "filename": "Texto pegado.txt"
+    },
+    {
+      "capture_directory": "9ed5a698-9f86-400b-9080-471177113c38",
+      "title": "# WORLD-LAB \u2014 ORDEN DE TRABAJO DOC-01",
+      "bytes": 16372,
+      "sha256": "60c55d6afc5104b88c8e35eb0d2661b7f9274be7db1bbe3e31e4aa3e01fb4da7",
+      "filename": "Texto pegado.txt"
+    },
+    {
+      "capture_directory": "a5c1ff73-b16b-40e7-9af6-e92700cadadd",
+      "title": "# WORLD-LAB \u2014 ORDEN F3-B",
+      "bytes": 5169,
+      "sha256": "8aa5c43584f82297ddac3840ca43d7cf39a20208692bac1ea94602cf1a3d5b1b",
+      "filename": "Texto pegado.txt"
+    },
+    {
+      "capture_directory": "a6fb460a-c3f5-4ea4-9ab8-5a3e43b4f3f8",
+      "title": "# WORLD-LAB \u2014 ORDEN EJECUTIVA F5-A",
+      "bytes": 9110,
+      "sha256": "2e6cfe95b40c309c4c8d43d842506a8b3dadbfecf0ff247faa7529fef4059afc",
+      "filename": "Texto pegado.txt"
+    },
+    {
+      "capture_directory": "a71c26eb-6e4f-418e-b0be-f6521813fde1",
+      "title": "# WORLD-LAB \u2014 ORDEN EJECUTIVA F5-B",
+      "bytes": 10723,
+      "sha256": "873a8312aa2c8e1363caaf3832d075b19c94a9a45e932fe3b255ad3187605b92",
+      "filename": "Texto pegado.txt"
+    },
+    {
+      "capture_directory": "b60605c3-a0a4-4a04-80ea-b7a9fbe6b48f",
+      "title": "# WORLD-LAB \u2014 ORDEN DE IMPLEMENTACI\u00d3N F2-F",
+      "bytes": 6029,
+      "sha256": "6cb517860a8e779497bc69ce3b63b44c88b55fe6f5d003e1433613471b2d64db",
+      "filename": "Texto pegado.txt"
+    },
+    {
+      "capture_directory": "b850075a-6cc0-4578-afa5-49972f981f48",
+      "title": "# WORLD-LAB \u2014 ORDEN F2-A",
+      "bytes": 5765,
+      "sha256": "17737b9831bb7c2f299ba0d59e424cde04a7acebeb296dac46c3038475f57a51",
+      "filename": "Texto pegado.txt"
+    },
+    {
+      "capture_directory": "cb7871c0-f35e-4951-8c6e-300f986b0b38",
+      "title": "# WORLD-LAB \u2014 ORDEN EJECUTIVA F3-H",
+      "bytes": 7118,
+      "sha256": "396ff3405fef57dc8d5f7e6fa0920ced5f8114f1b4f5659a79fee6068ca9cbcd",
+      "filename": "Texto pegado.txt"
+    },
+    {
+      "capture_directory": "d239523a-775b-439d-813a-dfc41c276670",
+      "title": "# WORLD-LAB \u2014 ORDEN EJECUTIVA F4-F",
+      "bytes": 9051,
+      "sha256": "c1042608dd990b6215a2b405f604c2275941301aea2a59aa573a1bda36b3b343",
+      "filename": "Texto pegado.txt"
+    },
+    {
+      "capture_directory": "d56c1b07-e936-4448-82e6-129f5f3f9cd0",
+      "title": "# WORLD-LAB \u2014 ORDEN DE IMPLEMENTACI\u00d3N F2-D",
+      "bytes": 14556,
+      "sha256": "7274a5084fdd4c8b813834d19abb846177e34704a96f4e8b6205566cfc3b83ad",
+      "filename": "Texto pegado.txt"
+    },
+    {
+      "capture_directory": "d718167a-3ddc-4344-b94f-bb377eccb1a6",
+      "title": "# WORLD-LAB \u2014 ORDEN EJECUTIVA F3-G",
+      "bytes": 8748,
+      "sha256": "b3b5213711b1b45f6d664e1c3c72ddaa2a7e329ff5d9d0e3ce3a816c182f486c",
+      "filename": "Texto pegado.txt"
+    },
+    {
+      "capture_directory": "d8665fb3-e5ac-4029-9d0c-449c931a252d",
+      "title": "# WORLD-LAB \u2014 ORDEN F3-C",
+      "bytes": 8391,
+      "sha256": "cb4dd54a64aa553789d88b277923264fd32de630cc2e021eca7d619294c254bc",
+      "filename": "Texto pegado.txt"
+    },
+    {
+      "capture_directory": "d9ae1300-0f8b-46dc-ae52-3afc76272baf",
+      "title": "# WORLD-LAB \u2014 ORDEN DE IMPLEMENTACI\u00d3N F2-F",
+      "bytes": 6029,
+      "sha256": "6cb517860a8e779497bc69ce3b63b44c88b55fe6f5d003e1433613471b2d64db",
+      "filename": "Texto pegado.txt"
+    }
+  ],
+  "classification": {
+    "original_complete_T_corpus_recovered": false,
+    "recovered_clauses_without_individual_tests": [
+      "H034: owner-recovered \u00a734; already captured F5-A",
+      "HINIT: owner-recovered initialization/events and INIT-004; already captured F5-A"
+    ],
+    "partial_T_references": 248,
+    "unassigned_T_ids": 32,
+    "individual_T_definitions_unavailable": 280,
+    "pending_reference_vectors_without_values": [
+      "V2",
+      "V3",
+      "V4",
+      "V5",
+      "V6",
+      "V7",
+      "V8",
+      "V9",
+      "V10"
+    ]
+  },
+  "external_references": "v0.2.1 and v0.2.4 are reported outside the inspected Git corpus; no new verifiable original file was supplied in F5-B. No ChatGPT Library access is claimed. Request incorporation only when an actual verifiable file is available.",
+  "conclusion": "No additional authentic individual historical test definition recovered. Preserve all 289 original BLOCKED entries. Stop repeated searches without a new source. A later verified source can reopen recovery."
+}

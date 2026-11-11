@@ -1,0 +1,3355 @@
+[
+  {
+    "id": "OB-RNG-RESTORE",
+    "priority": "P0",
+    "kind": "OBSERVABLE OBLIGATION",
+    "parent_ids": [
+      "§10"
+    ],
+    "clauses": [
+      "§10.7"
+    ],
+    "sources": [
+      "S025"
+    ],
+    "source_locators": [
+      "§10.7"
+    ],
+    "scope": "Checkpoint restores next uint32/float/int outputs",
+    "preconditions": [
+      {
+        "case": "ND5B-RNG-RESTORE",
+        "requires": "Nonzero uint32 state, explicit 7-draw checkpoint"
+      }
+    ],
+    "operation": [
+      {
+        "case": "ND5B-RNG-RESTORE",
+        "operation": "f5b:rng_restore"
+      }
+    ],
+    "oracle": [
+      {
+        "case": "ND5B-RNG-RESTORE",
+        "kind": "value",
+        "method": "Independent BigInt shifts and exact division/modulo, not PRNG.next",
+        "independence": "MANUAL / MATHEMATICAL"
+      }
+    ],
+    "postconditions": [
+      {
+        "case": "ND5B-RNG-RESTORE",
+        "exact_expected_ref": "cases-f5-b.json / ND5B-RNG-RESTORE / expected"
+      }
+    ],
+    "case_ids": [
+      "ND5B-RNG-RESTORE"
+    ],
+    "domain_coverage": "PARTIAL; finite explicit examples, no universal assertion",
+    "decision_if_cases_pass": "SATISFIED_WITH_EXECUTED_EXAMPLES",
+    "alternative_evidence": null,
+    "universal_conformance_claim": false
+  },
+  {
+    "id": "OB-RNG-REJECTION",
+    "priority": "P0",
+    "kind": "OBSERVABLE OBLIGATION",
+    "parent_ids": [
+      "§10"
+    ],
+    "clauses": [
+      "§10.3"
+    ],
+    "sources": [
+      "S025"
+    ],
+    "source_locators": [
+      "§10.3"
+    ],
+    "scope": "Equality/above rejection boundary consumes additional draws",
+    "preconditions": [
+      {
+        "case": "ND5B-RNG-REJECT",
+        "requires": "Instrumented next() stream straddles rejection limit"
+      }
+    ],
+    "operation": [
+      {
+        "case": "ND5B-RNG-REJECT",
+        "operation": "f5b:rng_rejection"
+      }
+    ],
+    "oracle": [
+      {
+        "case": "ND5B-RNG-REJECT",
+        "kind": "value",
+        "method": "n=10; limit=4294967290; reject equality and larger; 7289 mod10=9",
+        "independence": "MANUAL / MATHEMATICAL"
+      }
+    ],
+    "postconditions": [
+      {
+        "case": "ND5B-RNG-REJECT",
+        "exact_expected_ref": "cases-f5-b.json / ND5B-RNG-REJECT / expected"
+      }
+    ],
+    "case_ids": [
+      "ND5B-RNG-REJECT"
+    ],
+    "domain_coverage": "PARTIAL; finite explicit examples, no universal assertion",
+    "decision_if_cases_pass": "SATISFIED_WITH_EXECUTED_EXAMPLES",
+    "alternative_evidence": null,
+    "universal_conformance_claim": false
+  },
+  {
+    "id": "OB-RNG-FLOAT",
+    "priority": "P0",
+    "kind": "OBSERVABLE OBLIGATION",
+    "parent_ids": [
+      "§10"
+    ],
+    "clauses": [
+      "§10.2"
+    ],
+    "sources": [
+      "S025"
+    ],
+    "source_locators": [
+      "§10.2"
+    ],
+    "scope": "Maximum draw divided exactly by 2^32",
+    "preconditions": [
+      {
+        "case": "ND5B-RNG-FLOAT",
+        "requires": "Single uint32 maximum draw"
+      }
+    ],
+    "operation": [
+      {
+        "case": "ND5B-RNG-FLOAT",
+        "operation": "f5b:rng_float"
+      }
+    ],
+    "oracle": [
+      {
+        "case": "ND5B-RNG-FLOAT",
+        "kind": "value",
+        "method": "Exact dyadic binary64 division by 2^32",
+        "independence": "MANUAL / MATHEMATICAL"
+      }
+    ],
+    "postconditions": [
+      {
+        "case": "ND5B-RNG-FLOAT",
+        "exact_expected_ref": "cases-f5-b.json / ND5B-RNG-FLOAT / expected"
+      }
+    ],
+    "case_ids": [
+      "ND5B-RNG-FLOAT"
+    ],
+    "domain_coverage": "PARTIAL; finite explicit examples, no universal assertion",
+    "decision_if_cases_pass": "SATISFIED_WITH_EXECUTED_EXAMPLES",
+    "alternative_evidence": null,
+    "universal_conformance_claim": false
+  },
+  {
+    "id": "OB-TICK-ORDER",
+    "priority": "P0",
+    "kind": "OBSERVABLE OBLIGATION",
+    "parent_ids": [
+      "§5",
+      "§32"
+    ],
+    "clauses": [
+      "§5.1",
+      "§32"
+    ],
+    "sources": [
+      "S025"
+    ],
+    "source_locators": [
+      "§5.1",
+      "§32"
+    ],
+    "scope": "Action→lifecycle→dynamics, clock/sync only in confirmation",
+    "preconditions": [
+      {
+        "case": "ND-TICK-ORDER",
+        "requires": "Exact F5-A input in cases.json"
+      },
+      {
+        "case": "ND5B-TICK-UNCONFIRMED",
+        "requires": "Active entity, zero cost, no effects, no temporal confirmation"
+      }
+    ],
+    "operation": [
+      {
+        "case": "ND-TICK-ORDER",
+        "operation": "tick_order"
+      },
+      {
+        "case": "ND5B-TICK-UNCONFIRMED",
+        "operation": "f5b:execute_tick"
+      }
+    ],
+    "oracle": [
+      {
+        "case": "ND-TICK-ORDER",
+        "kind": "value",
+        "method": "Normative order; manually fixed zero-cost/effect WAIT and unchanged RNG"
+      },
+      {
+        "case": "ND5B-TICK-UNCONFIRMED",
+        "kind": "value",
+        "method": "Explicit normative sequence; execute_tick cannot advance clock or synchronize",
+        "independence": "MANUAL / MATHEMATICAL"
+      }
+    ],
+    "postconditions": [
+      {
+        "case": "ND-TICK-ORDER",
+        "exact_expected_ref": "cases-f5-b.json / ND-TICK-ORDER / expected"
+      },
+      {
+        "case": "ND5B-TICK-UNCONFIRMED",
+        "exact_expected_ref": "cases-f5-b.json / ND5B-TICK-UNCONFIRMED / expected"
+      }
+    ],
+    "case_ids": [
+      "ND-TICK-ORDER",
+      "ND5B-TICK-UNCONFIRMED"
+    ],
+    "domain_coverage": "PARTIAL; finite explicit examples, no universal assertion",
+    "decision_if_cases_pass": "SATISFIED_WITH_EXECUTED_EXAMPLES",
+    "alternative_evidence": null,
+    "universal_conformance_claim": false
+  },
+  {
+    "id": "OB-TICK-TIME-AND-SYNC",
+    "priority": "P0",
+    "kind": "OBSERVABLE OBLIGATION",
+    "parent_ids": [
+      "§4",
+      "§5"
+    ],
+    "clauses": [
+      "§4.1",
+      "§5.2"
+    ],
+    "sources": [
+      "S025"
+    ],
+    "source_locators": [
+      "§4.1",
+      "§5.2"
+    ],
+    "scope": "Unconfirmed tick neither changes time nor synchronizes RNG",
+    "preconditions": [
+      {
+        "case": "ND5B-TICK-UNCONFIRMED",
+        "requires": "Active entity, zero cost, no effects, no temporal confirmation"
+      }
+    ],
+    "operation": [
+      {
+        "case": "ND5B-TICK-UNCONFIRMED",
+        "operation": "f5b:execute_tick"
+      }
+    ],
+    "oracle": [
+      {
+        "case": "ND5B-TICK-UNCONFIRMED",
+        "kind": "value",
+        "method": "Explicit normative sequence; execute_tick cannot advance clock or synchronize",
+        "independence": "MANUAL / MATHEMATICAL"
+      }
+    ],
+    "postconditions": [
+      {
+        "case": "ND5B-TICK-UNCONFIRMED",
+        "exact_expected_ref": "cases-f5-b.json / ND5B-TICK-UNCONFIRMED / expected"
+      }
+    ],
+    "case_ids": [
+      "ND5B-TICK-UNCONFIRMED"
+    ],
+    "domain_coverage": "PARTIAL; finite explicit examples, no universal assertion",
+    "decision_if_cases_pass": "SATISFIED_WITH_EXECUTED_EXAMPLES",
+    "alternative_evidence": null,
+    "universal_conformance_claim": false
+  },
+  {
+    "id": "OB-ROLLBACK-STATE",
+    "priority": "P0",
+    "kind": "OBSERVABLE OBLIGATION",
+    "parent_ids": [
+      "§5",
+      "§26"
+    ],
+    "clauses": [
+      "§5.5",
+      "§26.5"
+    ],
+    "sources": [
+      "S025"
+    ],
+    "source_locators": [
+      "§5.5",
+      "§26.5"
+    ],
+    "scope": "WORLD restored after action/lifecycle/dynamics/sync/postvalidation fault",
+    "preconditions": [
+      {
+        "case": "ND5B-ROLLBACK-advance_dynamics",
+        "requires": "Valid writable WORLD; injected failure at advance_dynamics"
+      },
+      {
+        "case": "ND5B-ROLLBACK-apply_action",
+        "requires": "Valid writable WORLD; injected failure at apply_action"
+      },
+      {
+        "case": "ND5B-ROLLBACK-resolve_lifecycle",
+        "requires": "Valid writable WORLD; injected failure at resolve_lifecycle"
+      },
+      {
+        "case": "ND5B-ROLLBACK-sync_rng_state",
+        "requires": "Valid writable WORLD; injected failure at sync_rng_state"
+      },
+      {
+        "case": "ND5B-ROLLBACK-validate",
+        "requires": "Valid writable WORLD; injected failure at validate"
+      }
+    ],
+    "operation": [
+      {
+        "case": "ND5B-ROLLBACK-advance_dynamics",
+        "operation": "f5b:kernel_fault"
+      },
+      {
+        "case": "ND5B-ROLLBACK-apply_action",
+        "operation": "f5b:kernel_fault"
+      },
+      {
+        "case": "ND5B-ROLLBACK-resolve_lifecycle",
+        "operation": "f5b:kernel_fault"
+      },
+      {
+        "case": "ND5B-ROLLBACK-sync_rng_state",
+        "operation": "f5b:kernel_fault"
+      },
+      {
+        "case": "ND5B-ROLLBACK-validate",
+        "operation": "f5b:kernel_fault"
+      }
+    ],
+    "oracle": [
+      {
+        "case": "ND5B-ROLLBACK-advance_dynamics",
+        "kind": "value",
+        "method": "Expected state and effective RNG fixed before failure; mutate both or invalidate grid before validation",
+        "independence": "MANUAL / MATHEMATICAL"
+      },
+      {
+        "case": "ND5B-ROLLBACK-apply_action",
+        "kind": "value",
+        "method": "Expected state and effective RNG fixed before failure; mutate both or invalidate grid before validation",
+        "independence": "MANUAL / MATHEMATICAL"
+      },
+      {
+        "case": "ND5B-ROLLBACK-resolve_lifecycle",
+        "kind": "value",
+        "method": "Expected state and effective RNG fixed before failure; mutate both or invalidate grid before validation",
+        "independence": "MANUAL / MATHEMATICAL"
+      },
+      {
+        "case": "ND5B-ROLLBACK-sync_rng_state",
+        "kind": "value",
+        "method": "Expected state and effective RNG fixed before failure; mutate both or invalidate grid before validation",
+        "independence": "MANUAL / MATHEMATICAL"
+      },
+      {
+        "case": "ND5B-ROLLBACK-validate",
+        "kind": "value",
+        "method": "Expected state and effective RNG fixed before failure; mutate both or invalidate grid before validation",
+        "independence": "MANUAL / MATHEMATICAL"
+      }
+    ],
+    "postconditions": [
+      {
+        "case": "ND5B-ROLLBACK-advance_dynamics",
+        "exact_expected_ref": "cases-f5-b.json / ND5B-ROLLBACK-advance_dynamics / expected"
+      },
+      {
+        "case": "ND5B-ROLLBACK-apply_action",
+        "exact_expected_ref": "cases-f5-b.json / ND5B-ROLLBACK-apply_action / expected"
+      },
+      {
+        "case": "ND5B-ROLLBACK-resolve_lifecycle",
+        "exact_expected_ref": "cases-f5-b.json / ND5B-ROLLBACK-resolve_lifecycle / expected"
+      },
+      {
+        "case": "ND5B-ROLLBACK-sync_rng_state",
+        "exact_expected_ref": "cases-f5-b.json / ND5B-ROLLBACK-sync_rng_state / expected"
+      },
+      {
+        "case": "ND5B-ROLLBACK-validate",
+        "exact_expected_ref": "cases-f5-b.json / ND5B-ROLLBACK-validate / expected"
+      }
+    ],
+    "case_ids": [
+      "ND5B-ROLLBACK-advance_dynamics",
+      "ND5B-ROLLBACK-apply_action",
+      "ND5B-ROLLBACK-resolve_lifecycle",
+      "ND5B-ROLLBACK-sync_rng_state",
+      "ND5B-ROLLBACK-validate"
+    ],
+    "domain_coverage": "PARTIAL; finite explicit examples, no universal assertion",
+    "decision_if_cases_pass": "SATISFIED_WITH_EXECUTED_EXAMPLES",
+    "alternative_evidence": null,
+    "universal_conformance_claim": false
+  },
+  {
+    "id": "OB-ROLLBACK-RNG",
+    "priority": "P0",
+    "kind": "OBSERVABLE OBLIGATION",
+    "parent_ids": [
+      "§10",
+      "§26"
+    ],
+    "clauses": [
+      "§10.7",
+      "§26.5"
+    ],
+    "sources": [
+      "S025"
+    ],
+    "source_locators": [
+      "§10.7",
+      "§26.5"
+    ],
+    "scope": "Effective RNG restored after mutation and transition failure",
+    "preconditions": [
+      {
+        "case": "ND5B-ROLLBACK-advance_dynamics",
+        "requires": "Valid writable WORLD; injected failure at advance_dynamics"
+      },
+      {
+        "case": "ND5B-ROLLBACK-apply_action",
+        "requires": "Valid writable WORLD; injected failure at apply_action"
+      },
+      {
+        "case": "ND5B-ROLLBACK-resolve_lifecycle",
+        "requires": "Valid writable WORLD; injected failure at resolve_lifecycle"
+      },
+      {
+        "case": "ND5B-ROLLBACK-sync_rng_state",
+        "requires": "Valid writable WORLD; injected failure at sync_rng_state"
+      },
+      {
+        "case": "ND5B-ROLLBACK-validate",
+        "requires": "Valid writable WORLD; injected failure at validate"
+      }
+    ],
+    "operation": [
+      {
+        "case": "ND5B-ROLLBACK-advance_dynamics",
+        "operation": "f5b:kernel_fault"
+      },
+      {
+        "case": "ND5B-ROLLBACK-apply_action",
+        "operation": "f5b:kernel_fault"
+      },
+      {
+        "case": "ND5B-ROLLBACK-resolve_lifecycle",
+        "operation": "f5b:kernel_fault"
+      },
+      {
+        "case": "ND5B-ROLLBACK-sync_rng_state",
+        "operation": "f5b:kernel_fault"
+      },
+      {
+        "case": "ND5B-ROLLBACK-validate",
+        "operation": "f5b:kernel_fault"
+      }
+    ],
+    "oracle": [
+      {
+        "case": "ND5B-ROLLBACK-advance_dynamics",
+        "kind": "value",
+        "method": "Expected state and effective RNG fixed before failure; mutate both or invalidate grid before validation",
+        "independence": "MANUAL / MATHEMATICAL"
+      },
+      {
+        "case": "ND5B-ROLLBACK-apply_action",
+        "kind": "value",
+        "method": "Expected state and effective RNG fixed before failure; mutate both or invalidate grid before validation",
+        "independence": "MANUAL / MATHEMATICAL"
+      },
+      {
+        "case": "ND5B-ROLLBACK-resolve_lifecycle",
+        "kind": "value",
+        "method": "Expected state and effective RNG fixed before failure; mutate both or invalidate grid before validation",
+        "independence": "MANUAL / MATHEMATICAL"
+      },
+      {
+        "case": "ND5B-ROLLBACK-sync_rng_state",
+        "kind": "value",
+        "method": "Expected state and effective RNG fixed before failure; mutate both or invalidate grid before validation",
+        "independence": "MANUAL / MATHEMATICAL"
+      },
+      {
+        "case": "ND5B-ROLLBACK-validate",
+        "kind": "value",
+        "method": "Expected state and effective RNG fixed before failure; mutate both or invalidate grid before validation",
+        "independence": "MANUAL / MATHEMATICAL"
+      }
+    ],
+    "postconditions": [
+      {
+        "case": "ND5B-ROLLBACK-advance_dynamics",
+        "exact_expected_ref": "cases-f5-b.json / ND5B-ROLLBACK-advance_dynamics / expected"
+      },
+      {
+        "case": "ND5B-ROLLBACK-apply_action",
+        "exact_expected_ref": "cases-f5-b.json / ND5B-ROLLBACK-apply_action / expected"
+      },
+      {
+        "case": "ND5B-ROLLBACK-resolve_lifecycle",
+        "exact_expected_ref": "cases-f5-b.json / ND5B-ROLLBACK-resolve_lifecycle / expected"
+      },
+      {
+        "case": "ND5B-ROLLBACK-sync_rng_state",
+        "exact_expected_ref": "cases-f5-b.json / ND5B-ROLLBACK-sync_rng_state / expected"
+      },
+      {
+        "case": "ND5B-ROLLBACK-validate",
+        "exact_expected_ref": "cases-f5-b.json / ND5B-ROLLBACK-validate / expected"
+      }
+    ],
+    "case_ids": [
+      "ND5B-ROLLBACK-advance_dynamics",
+      "ND5B-ROLLBACK-apply_action",
+      "ND5B-ROLLBACK-resolve_lifecycle",
+      "ND5B-ROLLBACK-sync_rng_state",
+      "ND5B-ROLLBACK-validate"
+    ],
+    "domain_coverage": "PARTIAL; finite explicit examples, no universal assertion",
+    "decision_if_cases_pass": "SATISFIED_WITH_EXECUTED_EXAMPLES",
+    "alternative_evidence": null,
+    "universal_conformance_claim": false
+  },
+  {
+    "id": "OB-SNAPSHOT-ALIAS",
+    "priority": "P0",
+    "kind": "OBSERVABLE OBLIGATION",
+    "parent_ids": [
+      "§7"
+    ],
+    "clauses": [
+      "§7.2"
+    ],
+    "sources": [
+      "S025"
+    ],
+    "source_locators": [
+      "§7.2"
+    ],
+    "scope": "Active/confirmed snapshots do not share mutable entity position/energy",
+    "preconditions": [
+      {
+        "case": "ND5B-SNAPSHOT",
+        "requires": "Confirmed snapshot and active state exist"
+      }
+    ],
+    "operation": [
+      {
+        "case": "ND5B-SNAPSHOT",
+        "operation": "f5b:snapshot"
+      }
+    ],
+    "oracle": [
+      {
+        "case": "ND5B-SNAPSHOT",
+        "kind": "value",
+        "method": "Bidirectional perturbation of active WORLD/snapshot; independent-copy invariant",
+        "independence": "MANUAL / MATHEMATICAL"
+      }
+    ],
+    "postconditions": [
+      {
+        "case": "ND5B-SNAPSHOT",
+        "exact_expected_ref": "cases-f5-b.json / ND5B-SNAPSHOT / expected"
+      }
+    ],
+    "case_ids": [
+      "ND5B-SNAPSHOT"
+    ],
+    "domain_coverage": "PARTIAL; finite explicit examples, no universal assertion",
+    "decision_if_cases_pass": "SATISFIED_WITH_EXECUTED_EXAMPLES",
+    "alternative_evidence": null,
+    "universal_conformance_claim": false
+  },
+  {
+    "id": "OB-UINT64-OVERFLOW",
+    "priority": "P0",
+    "kind": "OBSERVABLE OBLIGATION",
+    "parent_ids": [
+      "D-01-E"
+    ],
+    "clauses": [
+      "D-01-E"
+    ],
+    "sources": [
+      "S026"
+    ],
+    "source_locators": [
+      "D-01-E"
+    ],
+    "scope": "No successor beyond UINT64_MAX",
+    "preconditions": [
+      {
+        "case": "ND5B-TIME-OVERFLOW",
+        "requires": "time=max_ticks=UINT64_MAX, ACTIVE"
+      }
+    ],
+    "operation": [
+      {
+        "case": "ND5B-TIME-OVERFLOW",
+        "operation": "tick_order"
+      }
+    ],
+    "oracle": [
+      {
+        "case": "ND5B-TIME-OVERFLOW",
+        "kind": "throws",
+        "method": "No legal uint64 successor; reject before transition",
+        "independence": "MANUAL / MATHEMATICAL"
+      }
+    ],
+    "postconditions": [
+      {
+        "case": "ND5B-TIME-OVERFLOW",
+        "exact_expected_ref": "cases-f5-b.json / ND5B-TIME-OVERFLOW / expected"
+      }
+    ],
+    "case_ids": [
+      "ND5B-TIME-OVERFLOW"
+    ],
+    "domain_coverage": "PARTIAL; finite explicit examples, no universal assertion",
+    "decision_if_cases_pass": "SATISFIED_WITH_EXECUTED_EXAMPLES",
+    "alternative_evidence": null,
+    "universal_conformance_claim": false
+  },
+  {
+    "id": "OB-REPLAY-STRUCTURE",
+    "priority": "P0",
+    "kind": "OBSERVABLE OBLIGATION",
+    "parent_ids": [
+      "§25",
+      "§24"
+    ],
+    "clauses": [
+      "§25.3.1",
+      "§24.3–4"
+    ],
+    "sources": [
+      "S025",
+      "S026",
+      "H034"
+    ],
+    "source_locators": [
+      "§25.3.1",
+      "§24.3–4"
+    ],
+    "scope": "Reject altered state despite retained, independently recalculated or genuinely colliding correct WORLD/FULL hashes",
+    "preconditions": [
+      {
+        "case": "ER5B-PREFIX-WAIT",
+        "requires": "Explicit current-schema two-step fixture; zero costs, no effects"
+      },
+      {
+        "case": "ND5B-REPLAY-STORED-HASH",
+        "requires": "Typed perturbation of paired ER5B-PREFIX-WAIT fixture"
+      },
+      {
+        "case": "ND5B-REPLAY-REHASHED-STATE",
+        "requires": "Typed perturbation of paired ER5B-PREFIX-WAIT fixture"
+      },
+      {
+        "case": "ER5B-COLLISION-ORIGIN",
+        "requires": "Manual one-step current-schema positive fixture at collision energy A"
+      },
+      {
+        "case": "ND5B-REPLAY-GENUINE-COLLISION",
+        "requires": "Energy A/B have equal correct WORLD and FULL FNV hashes at time8, but different states"
+      }
+    ],
+    "operation": [
+      {
+        "case": "ER5B-PREFIX-WAIT",
+        "operation": "replay"
+      },
+      {
+        "case": "ND5B-REPLAY-STORED-HASH",
+        "operation": "validate"
+      },
+      {
+        "case": "ND5B-REPLAY-REHASHED-STATE",
+        "operation": "validate"
+      },
+      {
+        "case": "ER5B-COLLISION-ORIGIN",
+        "operation": "replay"
+      },
+      {
+        "case": "ND5B-REPLAY-GENUINE-COLLISION",
+        "operation": "validate"
+      }
+    ],
+    "oracle": [
+      {
+        "case": "ER5B-PREFIX-WAIT",
+        "kind": "value",
+        "method": "Manual positions/ticks/events + independent WLS1/FNV; current ActionResult/Feedback policies",
+        "independence": "MANUAL / MATHEMATICAL",
+        "policy_reference": "F5-A current API fixture and ACT/DYN/F4C policies in docs/IMPLEMENTATION_STATUS.md at b13d637dd405d363442803ad53821f5a6c6f4a62; not normative authority"
+      },
+      {
+        "case": "ND5B-REPLAY-STORED-HASH",
+        "kind": "value",
+        "method": "Normative structural/temporal rejection; positive fixture is separately executed, no self-generated expected state",
+        "independence": "MANUAL / MATHEMATICAL"
+      },
+      {
+        "case": "ND5B-REPLAY-REHASHED-STATE",
+        "kind": "value",
+        "method": "Normative structural/temporal rejection; positive fixture is separately executed, no self-generated expected state",
+        "independence": "MANUAL / MATHEMATICAL"
+      },
+      {
+        "case": "ER5B-COLLISION-ORIGIN",
+        "kind": "value",
+        "method": "Explicit one-step WAIT, independent bytes/hash; fixture schema remains engineering policy",
+        "independence": "MANUAL / MATHEMATICAL",
+        "policy_reference": "F5-A current API fixture and ACT/DYN/F4C policies in docs/IMPLEMENTATION_STATUS.md at b13d637dd405d363442803ad53821f5a6c6f4a62; not normative authority"
+      },
+      {
+        "case": "ND5B-REPLAY-GENUINE-COLLISION",
+        "kind": "value",
+        "method": "Independent verified true FNV collision; structural transition must reject energy B despite both valid matching hashes",
+        "independence": "MANUAL / MATHEMATICAL"
+      }
+    ],
+    "postconditions": [
+      {
+        "case": "ER5B-PREFIX-WAIT",
+        "exact_expected_ref": "cases-f5-b.json / ER5B-PREFIX-WAIT / expected"
+      },
+      {
+        "case": "ND5B-REPLAY-STORED-HASH",
+        "exact_expected_ref": "cases-f5-b.json / ND5B-REPLAY-STORED-HASH / expected"
+      },
+      {
+        "case": "ND5B-REPLAY-REHASHED-STATE",
+        "exact_expected_ref": "cases-f5-b.json / ND5B-REPLAY-REHASHED-STATE / expected"
+      },
+      {
+        "case": "ER5B-COLLISION-ORIGIN",
+        "exact_expected_ref": "cases-f5-b.json / ER5B-COLLISION-ORIGIN / expected"
+      },
+      {
+        "case": "ND5B-REPLAY-GENUINE-COLLISION",
+        "exact_expected_ref": "cases-f5-b.json / ND5B-REPLAY-GENUINE-COLLISION / expected"
+      }
+    ],
+    "case_ids": [
+      "ER5B-PREFIX-WAIT",
+      "ND5B-REPLAY-STORED-HASH",
+      "ND5B-REPLAY-REHASHED-STATE",
+      "ER5B-COLLISION-ORIGIN",
+      "ND5B-REPLAY-GENUINE-COLLISION"
+    ],
+    "domain_coverage": "PARTIAL; finite explicit examples, no universal assertion",
+    "decision_if_cases_pass": "SATISFIED_WITH_EXECUTED_EXAMPLES",
+    "alternative_evidence": null,
+    "universal_conformance_claim": false
+  },
+  {
+    "id": "OB-REPLAY-TEMPORAL",
+    "priority": "P0",
+    "kind": "OBSERVABLE OBLIGATION",
+    "parent_ids": [
+      "§25",
+      "D-01-E"
+    ],
+    "clauses": [
+      "§25.3.1",
+      "D-01-E"
+    ],
+    "sources": [
+      "S025",
+      "S026",
+      "H034"
+    ],
+    "source_locators": [
+      "§25.3.1",
+      "D-01-E"
+    ],
+    "scope": "Each record is exactly predecessor time+1",
+    "preconditions": [
+      {
+        "case": "ER5B-PREFIX-WAIT",
+        "requires": "Explicit current-schema two-step fixture; zero costs, no effects"
+      },
+      {
+        "case": "ND5B-REPLAY-TIME-GAP",
+        "requires": "Typed perturbation of paired ER5B-PREFIX-WAIT fixture"
+      }
+    ],
+    "operation": [
+      {
+        "case": "ER5B-PREFIX-WAIT",
+        "operation": "replay"
+      },
+      {
+        "case": "ND5B-REPLAY-TIME-GAP",
+        "operation": "validate"
+      }
+    ],
+    "oracle": [
+      {
+        "case": "ER5B-PREFIX-WAIT",
+        "kind": "value",
+        "method": "Manual positions/ticks/events + independent WLS1/FNV; current ActionResult/Feedback policies",
+        "independence": "MANUAL / MATHEMATICAL",
+        "policy_reference": "F5-A current API fixture and ACT/DYN/F4C policies in docs/IMPLEMENTATION_STATUS.md at b13d637dd405d363442803ad53821f5a6c6f4a62; not normative authority"
+      },
+      {
+        "case": "ND5B-REPLAY-TIME-GAP",
+        "kind": "value",
+        "method": "Normative structural/temporal rejection; positive fixture is separately executed, no self-generated expected state",
+        "independence": "MANUAL / MATHEMATICAL"
+      }
+    ],
+    "postconditions": [
+      {
+        "case": "ER5B-PREFIX-WAIT",
+        "exact_expected_ref": "cases-f5-b.json / ER5B-PREFIX-WAIT / expected"
+      },
+      {
+        "case": "ND5B-REPLAY-TIME-GAP",
+        "exact_expected_ref": "cases-f5-b.json / ND5B-REPLAY-TIME-GAP / expected"
+      }
+    ],
+    "case_ids": [
+      "ER5B-PREFIX-WAIT",
+      "ND5B-REPLAY-TIME-GAP"
+    ],
+    "domain_coverage": "PARTIAL; finite explicit examples, no universal assertion",
+    "decision_if_cases_pass": "SATISFIED_WITH_EXECUTED_EXAMPLES",
+    "alternative_evidence": null,
+    "universal_conformance_claim": false
+  },
+  {
+    "id": "OB-EVENT-ORDER",
+    "priority": "P0",
+    "kind": "OBSERVABLE OBLIGATION",
+    "parent_ids": [
+      "§25",
+      "D-01-B"
+    ],
+    "clauses": [
+      "§25.3.1",
+      "D-01-B"
+    ],
+    "sources": [
+      "S025",
+      "S026",
+      "H034"
+    ],
+    "source_locators": [
+      "§25.3.1",
+      "D-01-B"
+    ],
+    "scope": "Typed event order is part of full structural continuity",
+    "preconditions": [
+      {
+        "case": "ER5B-PREFIX-MOVE",
+        "requires": "Explicit current-schema two-step fixture; zero costs, no effects"
+      },
+      {
+        "case": "ND5B-REPLAY-EVENT-ORDER",
+        "requires": "Typed perturbation of paired ER5B-PREFIX-MOVE fixture"
+      }
+    ],
+    "operation": [
+      {
+        "case": "ER5B-PREFIX-MOVE",
+        "operation": "replay"
+      },
+      {
+        "case": "ND5B-REPLAY-EVENT-ORDER",
+        "operation": "validate"
+      }
+    ],
+    "oracle": [
+      {
+        "case": "ER5B-PREFIX-MOVE",
+        "kind": "value",
+        "method": "Manual positions/ticks/events + independent WLS1/FNV; current ActionResult/Feedback policies",
+        "independence": "MANUAL / MATHEMATICAL",
+        "policy_reference": "F5-A current API fixture and ACT/DYN/F4C policies in docs/IMPLEMENTATION_STATUS.md at b13d637dd405d363442803ad53821f5a6c6f4a62; not normative authority"
+      },
+      {
+        "case": "ND5B-REPLAY-EVENT-ORDER",
+        "kind": "value",
+        "method": "Normative structural/temporal rejection; positive fixture is separately executed, no self-generated expected state",
+        "independence": "MANUAL / MATHEMATICAL"
+      }
+    ],
+    "postconditions": [
+      {
+        "case": "ER5B-PREFIX-MOVE",
+        "exact_expected_ref": "cases-f5-b.json / ER5B-PREFIX-MOVE / expected"
+      },
+      {
+        "case": "ND5B-REPLAY-EVENT-ORDER",
+        "exact_expected_ref": "cases-f5-b.json / ND5B-REPLAY-EVENT-ORDER / expected"
+      }
+    ],
+    "case_ids": [
+      "ER5B-PREFIX-MOVE",
+      "ND5B-REPLAY-EVENT-ORDER"
+    ],
+    "domain_coverage": "PARTIAL; finite explicit examples, no universal assertion",
+    "decision_if_cases_pass": "SATISFIED_WITH_EXECUTED_EXAMPLES",
+    "alternative_evidence": null,
+    "universal_conformance_claim": false
+  },
+  {
+    "id": "OB-EVENT-SEQUENCE",
+    "priority": "P0",
+    "kind": "OBSERVABLE OBLIGATION",
+    "parent_ids": [
+      "D-01-B"
+    ],
+    "clauses": [
+      "D-01-B"
+    ],
+    "sources": [
+      "S025",
+      "S026",
+      "H034"
+    ],
+    "source_locators": [
+      "D-01-B"
+    ],
+    "scope": "Local segment sequence remains globally contiguous across ticks",
+    "preconditions": [
+      {
+        "case": "ER5B-PREFIX-MOVE",
+        "requires": "Explicit current-schema two-step fixture; zero costs, no effects"
+      },
+      {
+        "case": "ND5B-REPLAY-EVENT-SEQUENCE",
+        "requires": "Typed perturbation of paired ER5B-PREFIX-MOVE fixture"
+      }
+    ],
+    "operation": [
+      {
+        "case": "ER5B-PREFIX-MOVE",
+        "operation": "replay"
+      },
+      {
+        "case": "ND5B-REPLAY-EVENT-SEQUENCE",
+        "operation": "validate"
+      }
+    ],
+    "oracle": [
+      {
+        "case": "ER5B-PREFIX-MOVE",
+        "kind": "value",
+        "method": "Manual positions/ticks/events + independent WLS1/FNV; current ActionResult/Feedback policies",
+        "independence": "MANUAL / MATHEMATICAL",
+        "policy_reference": "F5-A current API fixture and ACT/DYN/F4C policies in docs/IMPLEMENTATION_STATUS.md at b13d637dd405d363442803ad53821f5a6c6f4a62; not normative authority"
+      },
+      {
+        "case": "ND5B-REPLAY-EVENT-SEQUENCE",
+        "kind": "value",
+        "method": "Normative structural/temporal rejection; positive fixture is separately executed, no self-generated expected state",
+        "independence": "MANUAL / MATHEMATICAL"
+      }
+    ],
+    "postconditions": [
+      {
+        "case": "ER5B-PREFIX-MOVE",
+        "exact_expected_ref": "cases-f5-b.json / ER5B-PREFIX-MOVE / expected"
+      },
+      {
+        "case": "ND5B-REPLAY-EVENT-SEQUENCE",
+        "exact_expected_ref": "cases-f5-b.json / ND5B-REPLAY-EVENT-SEQUENCE / expected"
+      }
+    ],
+    "case_ids": [
+      "ER5B-PREFIX-MOVE",
+      "ND5B-REPLAY-EVENT-SEQUENCE"
+    ],
+    "domain_coverage": "PARTIAL; finite explicit examples, no universal assertion",
+    "decision_if_cases_pass": "SATISFIED_WITH_EXECUTED_EXAMPLES",
+    "alternative_evidence": null,
+    "universal_conformance_claim": false
+  },
+  {
+    "id": "OB-CONTEXT-COST",
+    "priority": "P0",
+    "kind": "OBSERVABLE OBLIGATION",
+    "parent_ids": [
+      "D-01-C"
+    ],
+    "clauses": [
+      "D-01-C"
+    ],
+    "sources": [
+      "S025",
+      "S026",
+      "H034"
+    ],
+    "source_locators": [
+      "D-01-C"
+    ],
+    "scope": "Changing physical costs cannot be silently inferred away",
+    "preconditions": [
+      {
+        "case": "ER5B-PREFIX-WAIT",
+        "requires": "Explicit current-schema two-step fixture; zero costs, no effects"
+      },
+      {
+        "case": "ND5B-REPLAY-COST-CONTEXT",
+        "requires": "Typed perturbation of paired ER5B-PREFIX-WAIT fixture"
+      }
+    ],
+    "operation": [
+      {
+        "case": "ER5B-PREFIX-WAIT",
+        "operation": "replay"
+      },
+      {
+        "case": "ND5B-REPLAY-COST-CONTEXT",
+        "operation": "validate"
+      }
+    ],
+    "oracle": [
+      {
+        "case": "ER5B-PREFIX-WAIT",
+        "kind": "value",
+        "method": "Manual positions/ticks/events + independent WLS1/FNV; current ActionResult/Feedback policies",
+        "independence": "MANUAL / MATHEMATICAL",
+        "policy_reference": "F5-A current API fixture and ACT/DYN/F4C policies in docs/IMPLEMENTATION_STATUS.md at b13d637dd405d363442803ad53821f5a6c6f4a62; not normative authority"
+      },
+      {
+        "case": "ND5B-REPLAY-COST-CONTEXT",
+        "kind": "value",
+        "method": "Normative structural/temporal rejection; positive fixture is separately executed, no self-generated expected state",
+        "independence": "MANUAL / MATHEMATICAL"
+      }
+    ],
+    "postconditions": [
+      {
+        "case": "ER5B-PREFIX-WAIT",
+        "exact_expected_ref": "cases-f5-b.json / ER5B-PREFIX-WAIT / expected"
+      },
+      {
+        "case": "ND5B-REPLAY-COST-CONTEXT",
+        "exact_expected_ref": "cases-f5-b.json / ND5B-REPLAY-COST-CONTEXT / expected"
+      }
+    ],
+    "case_ids": [
+      "ER5B-PREFIX-WAIT",
+      "ND5B-REPLAY-COST-CONTEXT"
+    ],
+    "domain_coverage": "PARTIAL; finite explicit examples, no universal assertion",
+    "decision_if_cases_pass": "SATISFIED_WITH_EXECUTED_EXAMPLES",
+    "alternative_evidence": null,
+    "universal_conformance_claim": false
+  },
+  {
+    "id": "OB-CONTEXT-FLAGS",
+    "priority": "P0",
+    "kind": "OBSERVABLE OBLIGATION",
+    "parent_ids": [
+      "D-01-C",
+      "D-01-D"
+    ],
+    "clauses": [
+      "D-01-C",
+      "D-01-D"
+    ],
+    "sources": [
+      "S025",
+      "S026",
+      "H034"
+    ],
+    "source_locators": [
+      "D-01-C",
+      "D-01-D"
+    ],
+    "scope": "Feedback exposure context must match supplied request",
+    "preconditions": [
+      {
+        "case": "ER5B-PREFIX-WAIT",
+        "requires": "Explicit current-schema two-step fixture; zero costs, no effects"
+      },
+      {
+        "case": "ND5B-REPLAY-FLAGS-CONTEXT",
+        "requires": "Typed perturbation of paired ER5B-PREFIX-WAIT fixture"
+      }
+    ],
+    "operation": [
+      {
+        "case": "ER5B-PREFIX-WAIT",
+        "operation": "replay"
+      },
+      {
+        "case": "ND5B-REPLAY-FLAGS-CONTEXT",
+        "operation": "validate"
+      }
+    ],
+    "oracle": [
+      {
+        "case": "ER5B-PREFIX-WAIT",
+        "kind": "value",
+        "method": "Manual positions/ticks/events + independent WLS1/FNV; current ActionResult/Feedback policies",
+        "independence": "MANUAL / MATHEMATICAL",
+        "policy_reference": "F5-A current API fixture and ACT/DYN/F4C policies in docs/IMPLEMENTATION_STATUS.md at b13d637dd405d363442803ad53821f5a6c6f4a62; not normative authority"
+      },
+      {
+        "case": "ND5B-REPLAY-FLAGS-CONTEXT",
+        "kind": "value",
+        "method": "Normative structural/temporal rejection; positive fixture is separately executed, no self-generated expected state",
+        "independence": "MANUAL / MATHEMATICAL"
+      }
+    ],
+    "postconditions": [
+      {
+        "case": "ER5B-PREFIX-WAIT",
+        "exact_expected_ref": "cases-f5-b.json / ER5B-PREFIX-WAIT / expected"
+      },
+      {
+        "case": "ND5B-REPLAY-FLAGS-CONTEXT",
+        "exact_expected_ref": "cases-f5-b.json / ND5B-REPLAY-FLAGS-CONTEXT / expected"
+      }
+    ],
+    "case_ids": [
+      "ER5B-PREFIX-WAIT",
+      "ND5B-REPLAY-FLAGS-CONTEXT"
+    ],
+    "domain_coverage": "PARTIAL; finite explicit examples, no universal assertion",
+    "decision_if_cases_pass": "SATISFIED_WITH_EXECUTED_EXAMPLES",
+    "alternative_evidence": null,
+    "universal_conformance_claim": false
+  },
+  {
+    "id": "OB-REPLAY-OBSERVATION",
+    "priority": "P0",
+    "kind": "OBSERVABLE OBLIGATION",
+    "parent_ids": [
+      "§16",
+      "§25"
+    ],
+    "clauses": [
+      "§16",
+      "§25.3.1"
+    ],
+    "sources": [
+      "S025",
+      "S026",
+      "H034"
+    ],
+    "source_locators": [
+      "§16",
+      "§25.3.1"
+    ],
+    "scope": "Observation and feedback observation are compared, not omitted",
+    "preconditions": [
+      {
+        "case": "ER5B-PREFIX-WAIT",
+        "requires": "Explicit current-schema two-step fixture; zero costs, no effects"
+      },
+      {
+        "case": "ND5B-REPLAY-OBSERVATION",
+        "requires": "Typed perturbation of paired ER5B-PREFIX-WAIT fixture"
+      }
+    ],
+    "operation": [
+      {
+        "case": "ER5B-PREFIX-WAIT",
+        "operation": "replay"
+      },
+      {
+        "case": "ND5B-REPLAY-OBSERVATION",
+        "operation": "validate"
+      }
+    ],
+    "oracle": [
+      {
+        "case": "ER5B-PREFIX-WAIT",
+        "kind": "value",
+        "method": "Manual positions/ticks/events + independent WLS1/FNV; current ActionResult/Feedback policies",
+        "independence": "MANUAL / MATHEMATICAL",
+        "policy_reference": "F5-A current API fixture and ACT/DYN/F4C policies in docs/IMPLEMENTATION_STATUS.md at b13d637dd405d363442803ad53821f5a6c6f4a62; not normative authority"
+      },
+      {
+        "case": "ND5B-REPLAY-OBSERVATION",
+        "kind": "value",
+        "method": "Normative structural/temporal rejection; positive fixture is separately executed, no self-generated expected state",
+        "independence": "MANUAL / MATHEMATICAL"
+      }
+    ],
+    "postconditions": [
+      {
+        "case": "ER5B-PREFIX-WAIT",
+        "exact_expected_ref": "cases-f5-b.json / ER5B-PREFIX-WAIT / expected"
+      },
+      {
+        "case": "ND5B-REPLAY-OBSERVATION",
+        "exact_expected_ref": "cases-f5-b.json / ND5B-REPLAY-OBSERVATION / expected"
+      }
+    ],
+    "case_ids": [
+      "ER5B-PREFIX-WAIT",
+      "ND5B-REPLAY-OBSERVATION"
+    ],
+    "domain_coverage": "PARTIAL; finite explicit examples, no universal assertion",
+    "decision_if_cases_pass": "SATISFIED_WITH_EXECUTED_EXAMPLES",
+    "alternative_evidence": null,
+    "universal_conformance_claim": false
+  },
+  {
+    "id": "OB-REPLAY-FEEDBACK",
+    "priority": "P0",
+    "kind": "OBSERVABLE OBLIGATION",
+    "parent_ids": [
+      "§17",
+      "§25"
+    ],
+    "clauses": [
+      "§17",
+      "§25.3.1"
+    ],
+    "sources": [
+      "S025",
+      "S026",
+      "H034"
+    ],
+    "source_locators": [
+      "§17",
+      "§25.3.1"
+    ],
+    "scope": "Prior action feedback is compared structurally",
+    "preconditions": [
+      {
+        "case": "ER5B-PREFIX-WAIT",
+        "requires": "Explicit current-schema two-step fixture; zero costs, no effects"
+      },
+      {
+        "case": "ND5B-REPLAY-FEEDBACK",
+        "requires": "Typed perturbation of paired ER5B-PREFIX-WAIT fixture"
+      }
+    ],
+    "operation": [
+      {
+        "case": "ER5B-PREFIX-WAIT",
+        "operation": "replay"
+      },
+      {
+        "case": "ND5B-REPLAY-FEEDBACK",
+        "operation": "validate"
+      }
+    ],
+    "oracle": [
+      {
+        "case": "ER5B-PREFIX-WAIT",
+        "kind": "value",
+        "method": "Manual positions/ticks/events + independent WLS1/FNV; current ActionResult/Feedback policies",
+        "independence": "MANUAL / MATHEMATICAL",
+        "policy_reference": "F5-A current API fixture and ACT/DYN/F4C policies in docs/IMPLEMENTATION_STATUS.md at b13d637dd405d363442803ad53821f5a6c6f4a62; not normative authority"
+      },
+      {
+        "case": "ND5B-REPLAY-FEEDBACK",
+        "kind": "value",
+        "method": "Normative structural/temporal rejection; positive fixture is separately executed, no self-generated expected state",
+        "independence": "MANUAL / MATHEMATICAL"
+      }
+    ],
+    "postconditions": [
+      {
+        "case": "ER5B-PREFIX-WAIT",
+        "exact_expected_ref": "cases-f5-b.json / ER5B-PREFIX-WAIT / expected"
+      },
+      {
+        "case": "ND5B-REPLAY-FEEDBACK",
+        "exact_expected_ref": "cases-f5-b.json / ND5B-REPLAY-FEEDBACK / expected"
+      }
+    ],
+    "case_ids": [
+      "ER5B-PREFIX-WAIT",
+      "ND5B-REPLAY-FEEDBACK"
+    ],
+    "domain_coverage": "PARTIAL; finite explicit examples, no universal assertion",
+    "decision_if_cases_pass": "SATISFIED_WITH_EXECUTED_EXAMPLES",
+    "alternative_evidence": null,
+    "universal_conformance_claim": false
+  },
+  {
+    "id": "OB-ORIGIN-STATE",
+    "priority": "P0",
+    "kind": "OBSERVABLE OBLIGATION",
+    "parent_ids": [
+      "§25",
+      "D-01-B"
+    ],
+    "clauses": [
+      "§25.3.1",
+      "D-01-B"
+    ],
+    "sources": [
+      "S025",
+      "S026",
+      "H034"
+    ],
+    "source_locators": [
+      "§25.3.1",
+      "D-01-B"
+    ],
+    "scope": "Replay restores supplied state/effective RNG, not a guessed seed",
+    "preconditions": [
+      {
+        "case": "ER5B-PREFIX-WAIT",
+        "requires": "Explicit current-schema two-step fixture; zero costs, no effects"
+      },
+      {
+        "case": "ND5B-REPLAY-INITIAL-ENERGY",
+        "requires": "Typed perturbation of paired ER5B-PREFIX-WAIT fixture"
+      },
+      {
+        "case": "ND5B-REPLAY-INITIAL-RNG",
+        "requires": "Typed perturbation of paired ER5B-PREFIX-WAIT fixture"
+      }
+    ],
+    "operation": [
+      {
+        "case": "ER5B-PREFIX-WAIT",
+        "operation": "replay"
+      },
+      {
+        "case": "ND5B-REPLAY-INITIAL-ENERGY",
+        "operation": "validate"
+      },
+      {
+        "case": "ND5B-REPLAY-INITIAL-RNG",
+        "operation": "validate"
+      }
+    ],
+    "oracle": [
+      {
+        "case": "ER5B-PREFIX-WAIT",
+        "kind": "value",
+        "method": "Manual positions/ticks/events + independent WLS1/FNV; current ActionResult/Feedback policies",
+        "independence": "MANUAL / MATHEMATICAL",
+        "policy_reference": "F5-A current API fixture and ACT/DYN/F4C policies in docs/IMPLEMENTATION_STATUS.md at b13d637dd405d363442803ad53821f5a6c6f4a62; not normative authority"
+      },
+      {
+        "case": "ND5B-REPLAY-INITIAL-ENERGY",
+        "kind": "value",
+        "method": "Normative structural/temporal rejection; positive fixture is separately executed, no self-generated expected state",
+        "independence": "MANUAL / MATHEMATICAL"
+      },
+      {
+        "case": "ND5B-REPLAY-INITIAL-RNG",
+        "kind": "value",
+        "method": "Normative structural/temporal rejection; positive fixture is separately executed, no self-generated expected state",
+        "independence": "MANUAL / MATHEMATICAL"
+      }
+    ],
+    "postconditions": [
+      {
+        "case": "ER5B-PREFIX-WAIT",
+        "exact_expected_ref": "cases-f5-b.json / ER5B-PREFIX-WAIT / expected"
+      },
+      {
+        "case": "ND5B-REPLAY-INITIAL-ENERGY",
+        "exact_expected_ref": "cases-f5-b.json / ND5B-REPLAY-INITIAL-ENERGY / expected"
+      },
+      {
+        "case": "ND5B-REPLAY-INITIAL-RNG",
+        "exact_expected_ref": "cases-f5-b.json / ND5B-REPLAY-INITIAL-RNG / expected"
+      }
+    ],
+    "case_ids": [
+      "ER5B-PREFIX-WAIT",
+      "ND5B-REPLAY-INITIAL-ENERGY",
+      "ND5B-REPLAY-INITIAL-RNG"
+    ],
+    "domain_coverage": "PARTIAL; finite explicit examples, no universal assertion",
+    "decision_if_cases_pass": "SATISFIED_WITH_EXECUTED_EXAMPLES",
+    "alternative_evidence": null,
+    "universal_conformance_claim": false
+  },
+  {
+    "id": "OB-METADATA-DOMAINS",
+    "priority": "P0",
+    "kind": "OBSERVABLE OBLIGATION",
+    "parent_ids": [
+      "D-01-C"
+    ],
+    "clauses": [
+      "D-01-C"
+    ],
+    "sources": [
+      "S026",
+      "S025",
+      "H034"
+    ],
+    "source_locators": [
+      "D-01-C"
+    ],
+    "scope": "Malformed metadata rejected with valid physical prefix (F4F-001 regression)",
+    "preconditions": [
+      {
+        "case": "ND-METADATA-status",
+        "requires": "Exact F5-A input in cases.json"
+      },
+      {
+        "case": "ND-METADATA-max_ticks_used",
+        "requires": "Exact F5-A input in cases.json"
+      },
+      {
+        "case": "ND-METADATA-expected_steps_used",
+        "requires": "Exact F5-A input in cases.json"
+      },
+      {
+        "case": "ND-METADATA-unused_actions",
+        "requires": "Exact F5-A input in cases.json"
+      },
+      {
+        "case": "ND-METADATA-termination_hint",
+        "requires": "Exact F5-A input in cases.json"
+      },
+      {
+        "case": "ND-METADATA-unknown_action_index",
+        "requires": "Exact F5-A input in cases.json"
+      },
+      {
+        "case": "ND-METADATA-error_message",
+        "requires": "Exact F5-A input in cases.json"
+      },
+      {
+        "case": "ND5B-REPLAY-METADATA",
+        "requires": "Typed perturbation of paired ER5B-PREFIX-WAIT fixture"
+      }
+    ],
+    "operation": [
+      {
+        "case": "ND-METADATA-status",
+        "operation": "validate"
+      },
+      {
+        "case": "ND-METADATA-max_ticks_used",
+        "operation": "validate"
+      },
+      {
+        "case": "ND-METADATA-expected_steps_used",
+        "operation": "validate"
+      },
+      {
+        "case": "ND-METADATA-unused_actions",
+        "operation": "validate"
+      },
+      {
+        "case": "ND-METADATA-termination_hint",
+        "operation": "validate"
+      },
+      {
+        "case": "ND-METADATA-unknown_action_index",
+        "operation": "validate"
+      },
+      {
+        "case": "ND-METADATA-error_message",
+        "operation": "validate"
+      },
+      {
+        "case": "ND5B-REPLAY-METADATA",
+        "operation": "validate"
+      }
+    ],
+    "oracle": [
+      {
+        "case": "ND-METADATA-status",
+        "kind": "value",
+        "method": "Single explicit out-of-domain perturbation must fail before reconstruction; F4F-001"
+      },
+      {
+        "case": "ND-METADATA-max_ticks_used",
+        "kind": "value",
+        "method": "Single explicit out-of-domain perturbation must fail before reconstruction; F4F-001"
+      },
+      {
+        "case": "ND-METADATA-expected_steps_used",
+        "kind": "value",
+        "method": "Single explicit out-of-domain perturbation must fail before reconstruction; F4F-001"
+      },
+      {
+        "case": "ND-METADATA-unused_actions",
+        "kind": "value",
+        "method": "Single explicit out-of-domain perturbation must fail before reconstruction; F4F-001"
+      },
+      {
+        "case": "ND-METADATA-termination_hint",
+        "kind": "value",
+        "method": "Single explicit out-of-domain perturbation must fail before reconstruction; F4F-001"
+      },
+      {
+        "case": "ND-METADATA-unknown_action_index",
+        "kind": "value",
+        "method": "Single explicit out-of-domain perturbation must fail before reconstruction; F4F-001"
+      },
+      {
+        "case": "ND-METADATA-error_message",
+        "kind": "value",
+        "method": "Single explicit out-of-domain perturbation must fail before reconstruction; F4F-001"
+      },
+      {
+        "case": "ND5B-REPLAY-METADATA",
+        "kind": "value",
+        "method": "Normative structural/temporal rejection; positive fixture is separately executed, no self-generated expected state",
+        "independence": "MANUAL / MATHEMATICAL"
+      }
+    ],
+    "postconditions": [
+      {
+        "case": "ND-METADATA-status",
+        "exact_expected_ref": "cases-f5-b.json / ND-METADATA-status / expected"
+      },
+      {
+        "case": "ND-METADATA-max_ticks_used",
+        "exact_expected_ref": "cases-f5-b.json / ND-METADATA-max_ticks_used / expected"
+      },
+      {
+        "case": "ND-METADATA-expected_steps_used",
+        "exact_expected_ref": "cases-f5-b.json / ND-METADATA-expected_steps_used / expected"
+      },
+      {
+        "case": "ND-METADATA-unused_actions",
+        "exact_expected_ref": "cases-f5-b.json / ND-METADATA-unused_actions / expected"
+      },
+      {
+        "case": "ND-METADATA-termination_hint",
+        "exact_expected_ref": "cases-f5-b.json / ND-METADATA-termination_hint / expected"
+      },
+      {
+        "case": "ND-METADATA-unknown_action_index",
+        "exact_expected_ref": "cases-f5-b.json / ND-METADATA-unknown_action_index / expected"
+      },
+      {
+        "case": "ND-METADATA-error_message",
+        "exact_expected_ref": "cases-f5-b.json / ND-METADATA-error_message / expected"
+      },
+      {
+        "case": "ND5B-REPLAY-METADATA",
+        "exact_expected_ref": "cases-f5-b.json / ND5B-REPLAY-METADATA / expected"
+      }
+    ],
+    "case_ids": [
+      "ND-METADATA-status",
+      "ND-METADATA-max_ticks_used",
+      "ND-METADATA-expected_steps_used",
+      "ND-METADATA-unused_actions",
+      "ND-METADATA-termination_hint",
+      "ND-METADATA-unknown_action_index",
+      "ND-METADATA-error_message",
+      "ND5B-REPLAY-METADATA"
+    ],
+    "domain_coverage": "PARTIAL; finite explicit examples, no universal assertion",
+    "decision_if_cases_pass": "SATISFIED_WITH_EXECUTED_EXAMPLES",
+    "alternative_evidence": null,
+    "universal_conformance_claim": false
+  },
+  {
+    "id": "OB-MODE-EXPLICIT",
+    "priority": "P0",
+    "kind": "OBSERVABLE OBLIGATION",
+    "parent_ids": [
+      "D-01-D"
+    ],
+    "clauses": [
+      "D-01-D"
+    ],
+    "sources": [
+      "S025",
+      "S026",
+      "H034"
+    ],
+    "source_locators": [
+      "D-01-D"
+    ],
+    "scope": "Observed/non-observed modes are not interchangeable",
+    "preconditions": [
+      {
+        "case": "ER5B-PREFIX-WAIT",
+        "requires": "Explicit current-schema two-step fixture; zero costs, no effects"
+      },
+      {
+        "case": "ND5B-REPLAY-MODE",
+        "requires": "Typed perturbation of paired ER5B-PREFIX-WAIT fixture"
+      },
+      {
+        "case": "ND-MODE-WITHOUT_AGENT",
+        "requires": "Exact F5-A input in cases.json"
+      }
+    ],
+    "operation": [
+      {
+        "case": "ER5B-PREFIX-WAIT",
+        "operation": "replay"
+      },
+      {
+        "case": "ND5B-REPLAY-MODE",
+        "operation": "validate"
+      },
+      {
+        "case": "ND-MODE-WITHOUT_AGENT",
+        "operation": "validate"
+      }
+    ],
+    "oracle": [
+      {
+        "case": "ER5B-PREFIX-WAIT",
+        "kind": "value",
+        "method": "Manual positions/ticks/events + independent WLS1/FNV; current ActionResult/Feedback policies",
+        "independence": "MANUAL / MATHEMATICAL",
+        "policy_reference": "F5-A current API fixture and ACT/DYN/F4C policies in docs/IMPLEMENTATION_STATUS.md at b13d637dd405d363442803ad53821f5a6c6f4a62; not normative authority"
+      },
+      {
+        "case": "ND5B-REPLAY-MODE",
+        "kind": "value",
+        "method": "Normative structural/temporal rejection; positive fixture is separately executed, no self-generated expected state",
+        "independence": "MANUAL / MATHEMATICAL"
+      },
+      {
+        "case": "ND-MODE-WITHOUT_AGENT",
+        "kind": "value",
+        "method": "Explicit eight-field context and declared mode; complete pre-authored physical fixture"
+      }
+    ],
+    "postconditions": [
+      {
+        "case": "ER5B-PREFIX-WAIT",
+        "exact_expected_ref": "cases-f5-b.json / ER5B-PREFIX-WAIT / expected"
+      },
+      {
+        "case": "ND5B-REPLAY-MODE",
+        "exact_expected_ref": "cases-f5-b.json / ND5B-REPLAY-MODE / expected"
+      },
+      {
+        "case": "ND-MODE-WITHOUT_AGENT",
+        "exact_expected_ref": "cases-f5-b.json / ND-MODE-WITHOUT_AGENT / expected"
+      }
+    ],
+    "case_ids": [
+      "ER5B-PREFIX-WAIT",
+      "ND5B-REPLAY-MODE",
+      "ND-MODE-WITHOUT_AGENT"
+    ],
+    "domain_coverage": "PARTIAL; finite explicit examples, no universal assertion",
+    "decision_if_cases_pass": "SATISFIED_WITH_EXECUTED_EXAMPLES",
+    "alternative_evidence": null,
+    "universal_conformance_claim": false
+  },
+  {
+    "id": "OB-TIME-REPRESENTATION",
+    "priority": "P0",
+    "kind": "OBSERVABLE OBLIGATION",
+    "parent_ids": [
+      "D-01-E"
+    ],
+    "clauses": [
+      "D-01-E"
+    ],
+    "sources": [
+      "S026"
+    ],
+    "source_locators": [
+      "D-01-E"
+    ],
+    "scope": "Admitted equivalent integers compare by value; unsafe Number rejected",
+    "preconditions": [
+      {
+        "case": "ND5B-TIME-EQUIVALENT",
+        "requires": "Only admissible small Number ticks replaced by equal BigInt values"
+      },
+      {
+        "case": "ND5B-TIME-UNSAFE",
+        "requires": "Unsafe Number is outside uint64 JS representation domain"
+      },
+      {
+        "case": "ND-UINT64",
+        "requires": "Exact F5-A input in cases.json"
+      }
+    ],
+    "operation": [
+      {
+        "case": "ND5B-TIME-EQUIVALENT",
+        "operation": "validate"
+      },
+      {
+        "case": "ND5B-TIME-UNSAFE",
+        "operation": "validate"
+      },
+      {
+        "case": "ND-UINT64",
+        "operation": "validate"
+      }
+    ],
+    "oracle": [
+      {
+        "case": "ND5B-TIME-EQUIVALENT",
+        "kind": "value",
+        "method": "Exact mathematical uint64 equality on admitted representations; not type-identity comparison",
+        "independence": "MANUAL / MATHEMATICAL"
+      },
+      {
+        "case": "ND5B-TIME-UNSAFE",
+        "kind": "value",
+        "method": "Number.isSafeInteger bound, no reconstruction of lost precision",
+        "independence": "MANUAL / MATHEMATICAL"
+      },
+      {
+        "case": "ND-UINT64",
+        "kind": "value",
+        "method": "Exact uint64 terminal fixture, canonical BigInt output"
+      }
+    ],
+    "postconditions": [
+      {
+        "case": "ND5B-TIME-EQUIVALENT",
+        "exact_expected_ref": "cases-f5-b.json / ND5B-TIME-EQUIVALENT / expected"
+      },
+      {
+        "case": "ND5B-TIME-UNSAFE",
+        "exact_expected_ref": "cases-f5-b.json / ND5B-TIME-UNSAFE / expected"
+      },
+      {
+        "case": "ND-UINT64",
+        "exact_expected_ref": "cases-f5-b.json / ND-UINT64 / expected"
+      }
+    ],
+    "case_ids": [
+      "ND5B-TIME-EQUIVALENT",
+      "ND5B-TIME-UNSAFE",
+      "ND-UINT64"
+    ],
+    "domain_coverage": "PARTIAL; finite explicit examples, no universal assertion",
+    "decision_if_cases_pass": "SATISFIED_WITH_EXECUTED_EXAMPLES",
+    "alternative_evidence": null,
+    "universal_conformance_claim": false
+  },
+  {
+    "id": "OB-WLS1-CELLS",
+    "priority": "P0",
+    "kind": "OBSERVABLE OBLIGATION",
+    "parent_ids": [
+      "§34"
+    ],
+    "clauses": [
+      "§34"
+    ],
+    "sources": [
+      "S025",
+      "H034"
+    ],
+    "source_locators": [
+      "§34"
+    ],
+    "scope": "Fixed tag codes and row-major byte layout",
+    "preconditions": [
+      {
+        "case": "CR-WLS1-V1",
+        "requires": "Exact F5-A input in cases.json"
+      },
+      {
+        "case": "ND5B-WLS1-CELL-ORDER",
+        "requires": "Valid 3x2 grid exercises every fixed cell tag in row-major order"
+      }
+    ],
+    "operation": [
+      {
+        "case": "CR-WLS1-V1",
+        "operation": "wls1"
+      },
+      {
+        "case": "ND5B-WLS1-CELL-ORDER",
+        "operation": "wls1"
+      }
+    ],
+    "oracle": [
+      {
+        "case": "CR-WLS1-V1",
+        "kind": "value",
+        "method": "Literal 59 FULL bytes; input decoded by fixed recovered layout, no WORLD initialization"
+      },
+      {
+        "case": "ND5B-WLS1-CELL-ORDER",
+        "kind": "value",
+        "method": "Independent Buffer encoder, literal distinct cell ordering and tags",
+        "independence": "MANUAL / MATHEMATICAL"
+      }
+    ],
+    "postconditions": [
+      {
+        "case": "CR-WLS1-V1",
+        "exact_expected_ref": "cases-f5-b.json / CR-WLS1-V1 / expected"
+      },
+      {
+        "case": "ND5B-WLS1-CELL-ORDER",
+        "exact_expected_ref": "cases-f5-b.json / ND5B-WLS1-CELL-ORDER / expected"
+      }
+    ],
+    "case_ids": [
+      "CR-WLS1-V1",
+      "ND5B-WLS1-CELL-ORDER"
+    ],
+    "domain_coverage": "PARTIAL; finite explicit examples, no universal assertion",
+    "decision_if_cases_pass": "SATISFIED_WITH_EXECUTED_EXAMPLES",
+    "alternative_evidence": null,
+    "universal_conformance_claim": false
+  },
+  {
+    "id": "OB-WLS1-UTF8-BINARY64",
+    "priority": "P0",
+    "kind": "OBSERVABLE OBLIGATION",
+    "parent_ids": [
+      "§34",
+      "§6"
+    ],
+    "clauses": [
+      "§34",
+      "§6.4"
+    ],
+    "sources": [
+      "S025",
+      "H034"
+    ],
+    "source_locators": [
+      "§34",
+      "§6.4"
+    ],
+    "scope": "Byte lengths/UTF-8, binary64 exact except -0→+0",
+    "preconditions": [
+      {
+        "case": "ND5B-WLS1-MAX",
+        "requires": "Finite binary64 and valid nonempty UTF-8 ID"
+      },
+      {
+        "case": "ND5B-WLS1-NEGZERO",
+        "requires": "Finite binary64 and valid nonempty UTF-8 ID"
+      },
+      {
+        "case": "ND5B-WLS1-NUL",
+        "requires": "Finite binary64 and valid nonempty UTF-8 ID"
+      },
+      {
+        "case": "ND5B-WLS1-UTF8",
+        "requires": "Finite binary64 and valid nonempty UTF-8 ID"
+      }
+    ],
+    "operation": [
+      {
+        "case": "ND5B-WLS1-MAX",
+        "operation": "wls1"
+      },
+      {
+        "case": "ND5B-WLS1-NEGZERO",
+        "operation": "wls1"
+      },
+      {
+        "case": "ND5B-WLS1-NUL",
+        "operation": "wls1"
+      },
+      {
+        "case": "ND5B-WLS1-UTF8",
+        "operation": "wls1"
+      }
+    ],
+    "oracle": [
+      {
+        "case": "ND5B-WLS1-MAX",
+        "kind": "value",
+        "method": "Buffer UTF-8 byte length, BE binary64; -0 alone canonicalizes, no Unicode normalization",
+        "independence": "MANUAL / MATHEMATICAL"
+      },
+      {
+        "case": "ND5B-WLS1-NEGZERO",
+        "kind": "value",
+        "method": "Buffer UTF-8 byte length, BE binary64; -0 alone canonicalizes, no Unicode normalization",
+        "independence": "MANUAL / MATHEMATICAL"
+      },
+      {
+        "case": "ND5B-WLS1-NUL",
+        "kind": "value",
+        "method": "Buffer UTF-8 byte length, BE binary64; -0 alone canonicalizes, no Unicode normalization",
+        "independence": "MANUAL / MATHEMATICAL"
+      },
+      {
+        "case": "ND5B-WLS1-UTF8",
+        "kind": "value",
+        "method": "Buffer UTF-8 byte length, BE binary64; -0 alone canonicalizes, no Unicode normalization",
+        "independence": "MANUAL / MATHEMATICAL"
+      }
+    ],
+    "postconditions": [
+      {
+        "case": "ND5B-WLS1-MAX",
+        "exact_expected_ref": "cases-f5-b.json / ND5B-WLS1-MAX / expected"
+      },
+      {
+        "case": "ND5B-WLS1-NEGZERO",
+        "exact_expected_ref": "cases-f5-b.json / ND5B-WLS1-NEGZERO / expected"
+      },
+      {
+        "case": "ND5B-WLS1-NUL",
+        "exact_expected_ref": "cases-f5-b.json / ND5B-WLS1-NUL / expected"
+      },
+      {
+        "case": "ND5B-WLS1-UTF8",
+        "exact_expected_ref": "cases-f5-b.json / ND5B-WLS1-UTF8 / expected"
+      }
+    ],
+    "case_ids": [
+      "ND5B-WLS1-MAX",
+      "ND5B-WLS1-NEGZERO",
+      "ND5B-WLS1-NUL",
+      "ND5B-WLS1-UTF8"
+    ],
+    "domain_coverage": "PARTIAL; finite explicit examples, no universal assertion",
+    "decision_if_cases_pass": "SATISFIED_WITH_EXECUTED_EXAMPLES",
+    "alternative_evidence": null,
+    "universal_conformance_claim": false
+  },
+  {
+    "id": "OB-WLS1-RNG-HASH",
+    "priority": "P0",
+    "kind": "OBSERVABLE OBLIGATION",
+    "parent_ids": [
+      "§24",
+      "§34"
+    ],
+    "clauses": [
+      "§24.2",
+      "§34"
+    ],
+    "sources": [
+      "S025",
+      "H034"
+    ],
+    "source_locators": [
+      "§24.2",
+      "§34"
+    ],
+    "scope": "WORLD excludes RNG; FULL hashes exact uint32 RNG suffix",
+    "preconditions": [
+      {
+        "case": "ND5B-HASH-RNG-2",
+        "requires": "Only effective RNG changes"
+      },
+      {
+        "case": "ND5B-HASH-RNG-4294967295",
+        "requires": "Only effective RNG changes"
+      }
+    ],
+    "operation": [
+      {
+        "case": "ND5B-HASH-RNG-2",
+        "operation": "hash_state"
+      },
+      {
+        "case": "ND5B-HASH-RNG-4294967295",
+        "operation": "hash_state"
+      }
+    ],
+    "oracle": [
+      {
+        "case": "ND5B-HASH-RNG-2",
+        "kind": "value",
+        "method": "Independent byte concatenation/FNV; WORLD excludes RNG, FULL includes exact uint32",
+        "independence": "MANUAL / MATHEMATICAL"
+      },
+      {
+        "case": "ND5B-HASH-RNG-4294967295",
+        "kind": "value",
+        "method": "Independent byte concatenation/FNV; WORLD excludes RNG, FULL includes exact uint32",
+        "independence": "MANUAL / MATHEMATICAL"
+      }
+    ],
+    "postconditions": [
+      {
+        "case": "ND5B-HASH-RNG-2",
+        "exact_expected_ref": "cases-f5-b.json / ND5B-HASH-RNG-2 / expected"
+      },
+      {
+        "case": "ND5B-HASH-RNG-4294967295",
+        "exact_expected_ref": "cases-f5-b.json / ND5B-HASH-RNG-4294967295 / expected"
+      }
+    ],
+    "case_ids": [
+      "ND5B-HASH-RNG-2",
+      "ND5B-HASH-RNG-4294967295"
+    ],
+    "domain_coverage": "PARTIAL; finite explicit examples, no universal assertion",
+    "decision_if_cases_pass": "SATISFIED_WITH_EXECUTED_EXAMPLES",
+    "alternative_evidence": null,
+    "universal_conformance_claim": false
+  },
+  {
+    "id": "OB-AGENT-WORLD-SEPARATION",
+    "priority": "P0",
+    "kind": "OBSERVABLE OBLIGATION",
+    "parent_ids": [
+      "§4",
+      "§35"
+    ],
+    "clauses": [
+      "§4.2",
+      "§35.5"
+    ],
+    "sources": [
+      "S025"
+    ],
+    "source_locators": [
+      "§4.2",
+      "§35.5"
+    ],
+    "scope": "Changing only private agent draw count preserves WORLD trajectory",
+    "preconditions": [
+      {
+        "case": "ND5B-AGENT-ISOLATION",
+        "requires": "Identical WAIT actions; only agent-owned RNG draw count differs 1 versus17"
+      }
+    ],
+    "operation": [
+      {
+        "case": "ND5B-AGENT-ISOLATION",
+        "operation": "f5b:agent_isolation"
+      }
+    ],
+    "oracle": [
+      {
+        "case": "ND5B-AGENT-ISOLATION",
+        "kind": "value",
+        "method": "Metamorphic WORLD independence from private agent stream; same implementation, not independent interoperability",
+        "independence": "METAMORPHIC WITHIN ONE IMPLEMENTATION"
+      }
+    ],
+    "postconditions": [
+      {
+        "case": "ND5B-AGENT-ISOLATION",
+        "exact_expected_ref": "cases-f5-b.json / ND5B-AGENT-ISOLATION / expected"
+      }
+    ],
+    "case_ids": [
+      "ND5B-AGENT-ISOLATION"
+    ],
+    "domain_coverage": "PARTIAL; finite explicit examples, no universal assertion",
+    "decision_if_cases_pass": "PARTIALLY_COVERED",
+    "alternative_evidence": "Metamorphic example is not a complete data-flow proof or adversarial sandbox proof",
+    "universal_conformance_claim": false
+  },
+  {
+    "id": "OB-CONFIG-DOMAINS",
+    "priority": "P1",
+    "kind": "OBSERVABLE OBLIGATION",
+    "parent_ids": [
+      "§6"
+    ],
+    "clauses": [
+      "§6.1",
+      "§6.2"
+    ],
+    "sources": [
+      "S025"
+    ],
+    "source_locators": [
+      "§6.1",
+      "§6.2"
+    ],
+    "scope": "Explicit numeric domains, cell limit, closed schema and immutability",
+    "preconditions": [
+      {
+        "case": "ND5B-CONFIG-FRACTION",
+        "requires": "Single out-of-domain field in otherwise valid config"
+      },
+      {
+        "case": "ND5B-CONFIG-NAN",
+        "requires": "Single out-of-domain field in otherwise valid config"
+      },
+      {
+        "case": "ND5B-CONFIG-NEGATIVE",
+        "requires": "Negative finite initial energy, safe negative threshold and uint32 regeneration maximum"
+      },
+      {
+        "case": "ND5B-CONFIG-STRING",
+        "requires": "Single out-of-domain field in otherwise valid config"
+      },
+      {
+        "case": "ND5B-CONFIG-SUM",
+        "requires": "Single out-of-domain field in otherwise valid config"
+      },
+      {
+        "case": "ND5B-CONFIG-TOPOLOGY",
+        "requires": "Single out-of-domain field in otherwise valid config"
+      },
+      {
+        "case": "ND5B-CONFIG-ZERO",
+        "requires": "Single out-of-domain field in otherwise valid config"
+      }
+    ],
+    "operation": [
+      {
+        "case": "ND5B-CONFIG-FRACTION",
+        "operation": "config"
+      },
+      {
+        "case": "ND5B-CONFIG-NAN",
+        "operation": "config"
+      },
+      {
+        "case": "ND5B-CONFIG-NEGATIVE",
+        "operation": "config"
+      },
+      {
+        "case": "ND5B-CONFIG-STRING",
+        "operation": "config"
+      },
+      {
+        "case": "ND5B-CONFIG-SUM",
+        "operation": "config"
+      },
+      {
+        "case": "ND5B-CONFIG-TOPOLOGY",
+        "operation": "config"
+      },
+      {
+        "case": "ND5B-CONFIG-ZERO",
+        "operation": "config"
+      }
+    ],
+    "oracle": [
+      {
+        "case": "ND5B-CONFIG-FRACTION",
+        "kind": "throws",
+        "method": "Explicit closed domains/sum/topology; reject before grid allocation",
+        "independence": "MANUAL / MATHEMATICAL"
+      },
+      {
+        "case": "ND5B-CONFIG-NAN",
+        "kind": "throws",
+        "method": "Explicit closed domains/sum/topology; reject before grid allocation",
+        "independence": "MANUAL / MATHEMATICAL"
+      },
+      {
+        "case": "ND5B-CONFIG-NEGATIVE",
+        "kind": "value",
+        "method": "Literal permitted domain endpoints, immutable WorldConfig",
+        "independence": "MANUAL / MATHEMATICAL"
+      },
+      {
+        "case": "ND5B-CONFIG-STRING",
+        "kind": "throws",
+        "method": "Explicit closed domains/sum/topology; reject before grid allocation",
+        "independence": "MANUAL / MATHEMATICAL"
+      },
+      {
+        "case": "ND5B-CONFIG-SUM",
+        "kind": "throws",
+        "method": "Explicit closed domains/sum/topology; reject before grid allocation",
+        "independence": "MANUAL / MATHEMATICAL"
+      },
+      {
+        "case": "ND5B-CONFIG-TOPOLOGY",
+        "kind": "throws",
+        "method": "Explicit closed domains/sum/topology; reject before grid allocation",
+        "independence": "MANUAL / MATHEMATICAL"
+      },
+      {
+        "case": "ND5B-CONFIG-ZERO",
+        "kind": "throws",
+        "method": "Explicit closed domains/sum/topology; reject before grid allocation",
+        "independence": "MANUAL / MATHEMATICAL"
+      }
+    ],
+    "postconditions": [
+      {
+        "case": "ND5B-CONFIG-FRACTION",
+        "exact_expected_ref": "cases-f5-b.json / ND5B-CONFIG-FRACTION / expected"
+      },
+      {
+        "case": "ND5B-CONFIG-NAN",
+        "exact_expected_ref": "cases-f5-b.json / ND5B-CONFIG-NAN / expected"
+      },
+      {
+        "case": "ND5B-CONFIG-NEGATIVE",
+        "exact_expected_ref": "cases-f5-b.json / ND5B-CONFIG-NEGATIVE / expected"
+      },
+      {
+        "case": "ND5B-CONFIG-STRING",
+        "exact_expected_ref": "cases-f5-b.json / ND5B-CONFIG-STRING / expected"
+      },
+      {
+        "case": "ND5B-CONFIG-SUM",
+        "exact_expected_ref": "cases-f5-b.json / ND5B-CONFIG-SUM / expected"
+      },
+      {
+        "case": "ND5B-CONFIG-TOPOLOGY",
+        "exact_expected_ref": "cases-f5-b.json / ND5B-CONFIG-TOPOLOGY / expected"
+      },
+      {
+        "case": "ND5B-CONFIG-ZERO",
+        "exact_expected_ref": "cases-f5-b.json / ND5B-CONFIG-ZERO / expected"
+      }
+    ],
+    "case_ids": [
+      "ND5B-CONFIG-FRACTION",
+      "ND5B-CONFIG-NAN",
+      "ND5B-CONFIG-NEGATIVE",
+      "ND5B-CONFIG-STRING",
+      "ND5B-CONFIG-SUM",
+      "ND5B-CONFIG-TOPOLOGY",
+      "ND5B-CONFIG-ZERO"
+    ],
+    "domain_coverage": "PARTIAL; finite explicit examples, no universal assertion",
+    "decision_if_cases_pass": "SATISFIED_WITH_EXECUTED_EXAMPLES",
+    "alternative_evidence": null,
+    "universal_conformance_claim": false
+  },
+  {
+    "id": "OB-ENERGY-BINARY64",
+    "priority": "P1",
+    "kind": "OBSERVABLE OBLIGATION",
+    "parent_ids": [
+      "§6"
+    ],
+    "clauses": [
+      "§6.3",
+      "§6.4"
+    ],
+    "sources": [
+      "S025"
+    ],
+    "source_locators": [
+      "§6.3",
+      "§6.4"
+    ],
+    "scope": "Observed energy calculation helper uses binary64 ties-to-even and canonical zero without side effects; does not recover missing action-cost policies",
+    "preconditions": [
+      {
+        "case": "ND5B-ENERGY-LOWER",
+        "requires": "Finite energy, allowed integer increment, exact tie or negative zero"
+      },
+      {
+        "case": "ND5B-ENERGY-UPPER",
+        "requires": "Finite energy, allowed integer increment, exact tie or negative zero"
+      },
+      {
+        "case": "ND5B-ENERGY-ZERO",
+        "requires": "Finite energy, allowed integer increment, exact tie or negative zero"
+      }
+    ],
+    "operation": [
+      {
+        "case": "ND5B-ENERGY-LOWER",
+        "operation": "f5b:energy_round"
+      },
+      {
+        "case": "ND5B-ENERGY-UPPER",
+        "operation": "f5b:energy_round"
+      },
+      {
+        "case": "ND5B-ENERGY-ZERO",
+        "operation": "f5b:energy_round"
+      }
+    ],
+    "oracle": [
+      {
+        "case": "ND5B-ENERGY-LOWER",
+        "kind": "value",
+        "method": "Manual IEEE-754 spacing=2 above 2^53; tie picks even significand; only zero sign canonicalizes",
+        "independence": "MANUAL / MATHEMATICAL"
+      },
+      {
+        "case": "ND5B-ENERGY-UPPER",
+        "kind": "value",
+        "method": "Manual IEEE-754 spacing=2 above 2^53; tie picks even significand; only zero sign canonicalizes",
+        "independence": "MANUAL / MATHEMATICAL"
+      },
+      {
+        "case": "ND5B-ENERGY-ZERO",
+        "kind": "value",
+        "method": "Manual IEEE-754 spacing=2 above 2^53; tie picks even significand; only zero sign canonicalizes",
+        "independence": "MANUAL / MATHEMATICAL"
+      }
+    ],
+    "postconditions": [
+      {
+        "case": "ND5B-ENERGY-LOWER",
+        "exact_expected_ref": "cases-f5-b.json / ND5B-ENERGY-LOWER / expected"
+      },
+      {
+        "case": "ND5B-ENERGY-UPPER",
+        "exact_expected_ref": "cases-f5-b.json / ND5B-ENERGY-UPPER / expected"
+      },
+      {
+        "case": "ND5B-ENERGY-ZERO",
+        "exact_expected_ref": "cases-f5-b.json / ND5B-ENERGY-ZERO / expected"
+      }
+    ],
+    "case_ids": [
+      "ND5B-ENERGY-LOWER",
+      "ND5B-ENERGY-UPPER",
+      "ND5B-ENERGY-ZERO"
+    ],
+    "domain_coverage": "PARTIAL; finite explicit examples, no universal assertion",
+    "decision_if_cases_pass": "SATISFIED_WITH_EXECUTED_EXAMPLES",
+    "alternative_evidence": null,
+    "universal_conformance_claim": false
+  },
+  {
+    "id": "OB-OBSERVATION-BOUNDARY",
+    "priority": "P1",
+    "kind": "OBSERVABLE OBLIGATION",
+    "parent_ids": [
+      "§16"
+    ],
+    "clauses": [
+      "§16"
+    ],
+    "sources": [
+      "S025",
+      "S026"
+    ],
+    "source_locators": [
+      "§16"
+    ],
+    "scope": "Literal 3x3 Chebyshev boundary mask and occupied=false",
+    "preconditions": [
+      {
+        "case": "ND5B-OBSERVATION",
+        "requires": "2x2 map, entity at corner (0,0), Chebyshev radius=1"
+      }
+    ],
+    "operation": [
+      {
+        "case": "ND5B-OBSERVATION",
+        "operation": "f5b:observe"
+      }
+    ],
+    "oracle": [
+      {
+        "case": "ND5B-OBSERVATION",
+        "kind": "value",
+        "method": "Literal nine-position boundary mask; purity and RNG invariants, no hidden resource-stock assumption",
+        "independence": "MANUAL / MATHEMATICAL"
+      }
+    ],
+    "postconditions": [
+      {
+        "case": "ND5B-OBSERVATION",
+        "exact_expected_ref": "cases-f5-b.json / ND5B-OBSERVATION / expected"
+      }
+    ],
+    "case_ids": [
+      "ND5B-OBSERVATION"
+    ],
+    "domain_coverage": "PARTIAL; finite explicit examples, no universal assertion",
+    "decision_if_cases_pass": "SATISFIED_WITH_EXECUTED_EXAMPLES",
+    "alternative_evidence": null,
+    "universal_conformance_claim": false
+  },
+  {
+    "id": "OB-OBSERVATION-PURITY",
+    "priority": "P1",
+    "kind": "OBSERVABLE OBLIGATION",
+    "parent_ids": [
+      "§4",
+      "§16"
+    ],
+    "clauses": [
+      "§4.1",
+      "§16"
+    ],
+    "sources": [
+      "S025",
+      "S026"
+    ],
+    "source_locators": [
+      "§4.1",
+      "§16"
+    ],
+    "scope": "Observation does not mutate WORLD or consume RNG",
+    "preconditions": [
+      {
+        "case": "ND5B-OBSERVATION",
+        "requires": "2x2 map, entity at corner (0,0), Chebyshev radius=1"
+      }
+    ],
+    "operation": [
+      {
+        "case": "ND5B-OBSERVATION",
+        "operation": "f5b:observe"
+      }
+    ],
+    "oracle": [
+      {
+        "case": "ND5B-OBSERVATION",
+        "kind": "value",
+        "method": "Literal nine-position boundary mask; purity and RNG invariants, no hidden resource-stock assumption",
+        "independence": "MANUAL / MATHEMATICAL"
+      }
+    ],
+    "postconditions": [
+      {
+        "case": "ND5B-OBSERVATION",
+        "exact_expected_ref": "cases-f5-b.json / ND5B-OBSERVATION / expected"
+      }
+    ],
+    "case_ids": [
+      "ND5B-OBSERVATION"
+    ],
+    "domain_coverage": "PARTIAL; finite explicit examples, no universal assertion",
+    "decision_if_cases_pass": "SATISFIED_WITH_EXECUTED_EXAMPLES",
+    "alternative_evidence": null,
+    "universal_conformance_claim": false
+  },
+  {
+    "id": "OB-FEEDBACK-CONFIG",
+    "priority": "P1",
+    "kind": "OBSERVABLE OBLIGATION",
+    "parent_ids": [
+      "§17"
+    ],
+    "clauses": [
+      "§17"
+    ],
+    "sources": [
+      "S025"
+    ],
+    "source_locators": [
+      "§17"
+    ],
+    "scope": "Strict boolean fields and no extra key",
+    "preconditions": [
+      {
+        "case": "ND5B-FEEDBACK-COERCE",
+        "requires": "Four known flag names from current context; malformed boolean/extra key"
+      },
+      {
+        "case": "ND5B-FEEDBACK-EXTRA",
+        "requires": "Four known flag names from current context; malformed boolean/extra key"
+      }
+    ],
+    "operation": [
+      {
+        "case": "ND5B-FEEDBACK-COERCE",
+        "operation": "f5b:feedback_config"
+      },
+      {
+        "case": "ND5B-FEEDBACK-EXTRA",
+        "operation": "f5b:feedback_config"
+      }
+    ],
+    "oracle": [
+      {
+        "case": "ND5B-FEEDBACK-COERCE",
+        "kind": "throws",
+        "method": "Closed schema and genuine booleans, no coercion",
+        "independence": "MANUAL / MATHEMATICAL"
+      },
+      {
+        "case": "ND5B-FEEDBACK-EXTRA",
+        "kind": "throws",
+        "method": "Closed schema and genuine booleans, no coercion",
+        "independence": "MANUAL / MATHEMATICAL"
+      }
+    ],
+    "postconditions": [
+      {
+        "case": "ND5B-FEEDBACK-COERCE",
+        "exact_expected_ref": "cases-f5-b.json / ND5B-FEEDBACK-COERCE / expected"
+      },
+      {
+        "case": "ND5B-FEEDBACK-EXTRA",
+        "exact_expected_ref": "cases-f5-b.json / ND5B-FEEDBACK-EXTRA / expected"
+      }
+    ],
+    "case_ids": [
+      "ND5B-FEEDBACK-COERCE",
+      "ND5B-FEEDBACK-EXTRA"
+    ],
+    "domain_coverage": "PARTIAL; finite explicit examples, no universal assertion",
+    "decision_if_cases_pass": "SATISFIED_WITH_EXECUTED_EXAMPLES",
+    "alternative_evidence": null,
+    "universal_conformance_claim": false
+  },
+  {
+    "id": "OB-ACTION-FRONTIER",
+    "priority": "P1",
+    "kind": "OBSERVABLE OBLIGATION",
+    "parent_ids": [
+      "§13"
+    ],
+    "clauses": [
+      "§13"
+    ],
+    "sources": [
+      "S025"
+    ],
+    "source_locators": [
+      "§13"
+    ],
+    "scope": "Actions preserve time/lifecycle/RNG and bounded position with blocked neighbor",
+    "preconditions": [
+      {
+        "case": "ND5B-ACTION-MOVE_E",
+        "requires": "Bounded 2x1 map, blocked east neighbor; no effects and zero costs"
+      },
+      {
+        "case": "ND5B-ACTION-MOVE_N",
+        "requires": "Bounded 2x1 map, blocked east neighbor; no effects and zero costs"
+      },
+      {
+        "case": "ND5B-ACTION-WAIT",
+        "requires": "Bounded 2x1 map, blocked east neighbor; no effects and zero costs"
+      }
+    ],
+    "operation": [
+      {
+        "case": "ND5B-ACTION-MOVE_E",
+        "operation": "f5b:world_action"
+      },
+      {
+        "case": "ND5B-ACTION-MOVE_N",
+        "operation": "f5b:world_action"
+      },
+      {
+        "case": "ND5B-ACTION-WAIT",
+        "operation": "f5b:world_action"
+      }
+    ],
+    "oracle": [
+      {
+        "case": "ND5B-ACTION-MOVE_E",
+        "kind": "value",
+        "method": "Bounded geometry, immutable time/lifecycle/RNG; no assertion of unrecovered invalid-action energy policy",
+        "independence": "MANUAL / MATHEMATICAL"
+      },
+      {
+        "case": "ND5B-ACTION-MOVE_N",
+        "kind": "value",
+        "method": "Bounded geometry, immutable time/lifecycle/RNG; no assertion of unrecovered invalid-action energy policy",
+        "independence": "MANUAL / MATHEMATICAL"
+      },
+      {
+        "case": "ND5B-ACTION-WAIT",
+        "kind": "value",
+        "method": "Bounded geometry, immutable time/lifecycle/RNG; no assertion of unrecovered invalid-action energy policy",
+        "independence": "MANUAL / MATHEMATICAL"
+      }
+    ],
+    "postconditions": [
+      {
+        "case": "ND5B-ACTION-MOVE_E",
+        "exact_expected_ref": "cases-f5-b.json / ND5B-ACTION-MOVE_E / expected"
+      },
+      {
+        "case": "ND5B-ACTION-MOVE_N",
+        "exact_expected_ref": "cases-f5-b.json / ND5B-ACTION-MOVE_N / expected"
+      },
+      {
+        "case": "ND5B-ACTION-WAIT",
+        "exact_expected_ref": "cases-f5-b.json / ND5B-ACTION-WAIT / expected"
+      }
+    ],
+    "case_ids": [
+      "ND5B-ACTION-MOVE_E",
+      "ND5B-ACTION-MOVE_N",
+      "ND5B-ACTION-WAIT"
+    ],
+    "domain_coverage": "PARTIAL; finite explicit examples, no universal assertion",
+    "decision_if_cases_pass": "SATISFIED_WITH_EXECUTED_EXAMPLES",
+    "alternative_evidence": null,
+    "universal_conformance_claim": false
+  },
+  {
+    "id": "OB-ACTION-ENUM",
+    "priority": "P1",
+    "kind": "OBSERVABLE OBLIGATION",
+    "parent_ids": [
+      "§12",
+      "§13"
+    ],
+    "clauses": [
+      "§12",
+      "§13"
+    ],
+    "sources": [
+      "S025"
+    ],
+    "source_locators": [
+      "§12",
+      "§13"
+    ],
+    "scope": "Unknown action type raises ContractError",
+    "preconditions": [
+      {
+        "case": "ND5B-ACTION-UNKNOWN",
+        "requires": "Structurally valid action with unknown enum"
+      }
+    ],
+    "operation": [
+      {
+        "case": "ND5B-ACTION-UNKNOWN",
+        "operation": "f5b:world_action"
+      }
+    ],
+    "oracle": [
+      {
+        "case": "ND5B-ACTION-UNKNOWN",
+        "kind": "throws",
+        "method": "Unknown enum must raise ContractError, not WAIT",
+        "independence": "MANUAL / MATHEMATICAL"
+      }
+    ],
+    "postconditions": [
+      {
+        "case": "ND5B-ACTION-UNKNOWN",
+        "exact_expected_ref": "cases-f5-b.json / ND5B-ACTION-UNKNOWN / expected"
+      }
+    ],
+    "case_ids": [
+      "ND5B-ACTION-UNKNOWN"
+    ],
+    "domain_coverage": "PARTIAL; finite explicit examples, no universal assertion",
+    "decision_if_cases_pass": "SATISFIED_WITH_EXECUTED_EXAMPLES",
+    "alternative_evidence": null,
+    "universal_conformance_claim": false
+  },
+  {
+    "id": "OB-LIFECYCLE-INITIAL",
+    "priority": "P1",
+    "kind": "OBSERVABLE OBLIGATION",
+    "parent_ids": [
+      "§9",
+      "§14",
+      "§11"
+    ],
+    "clauses": [
+      "§9",
+      "§14",
+      "§11.7"
+    ],
+    "sources": [
+      "S025",
+      "HINIT"
+    ],
+    "source_locators": [
+      "§9",
+      "§14",
+      "§11.7"
+    ],
+    "scope": "Recovered initial <= threshold boundary, one raw death, no resurrection",
+    "preconditions": [
+      {
+        "case": "ND5B-LIFECYCLE-ABOVE",
+        "requires": "Initial energy around negative threshold=-5; repeat lifecycle and optionally raise DEAD energy"
+      },
+      {
+        "case": "ND5B-LIFECYCLE-AT",
+        "requires": "Initial energy around negative threshold=-5; repeat lifecycle and optionally raise DEAD energy"
+      }
+    ],
+    "operation": [
+      {
+        "case": "ND5B-LIFECYCLE-ABOVE",
+        "operation": "f5b:lifecycle"
+      },
+      {
+        "case": "ND5B-LIFECYCLE-AT",
+        "operation": "f5b:lifecycle"
+      }
+    ],
+    "oracle": [
+      {
+        "case": "ND5B-LIFECYCLE-ABOVE",
+        "kind": "value",
+        "method": "Recovered initial death <= threshold, raw event schema, no duplicate or resurrection after external energy increase",
+        "independence": "MANUAL / MATHEMATICAL"
+      },
+      {
+        "case": "ND5B-LIFECYCLE-AT",
+        "kind": "value",
+        "method": "Recovered initial death <= threshold, raw event schema, no duplicate or resurrection after external energy increase",
+        "independence": "MANUAL / MATHEMATICAL"
+      }
+    ],
+    "postconditions": [
+      {
+        "case": "ND5B-LIFECYCLE-ABOVE",
+        "exact_expected_ref": "cases-f5-b.json / ND5B-LIFECYCLE-ABOVE / expected"
+      },
+      {
+        "case": "ND5B-LIFECYCLE-AT",
+        "exact_expected_ref": "cases-f5-b.json / ND5B-LIFECYCLE-AT / expected"
+      }
+    ],
+    "case_ids": [
+      "ND5B-LIFECYCLE-ABOVE",
+      "ND5B-LIFECYCLE-AT"
+    ],
+    "domain_coverage": "PARTIAL; finite explicit examples, no universal assertion",
+    "decision_if_cases_pass": "SATISFIED_WITH_EXECUTED_EXAMPLES",
+    "alternative_evidence": null,
+    "universal_conformance_claim": false
+  },
+  {
+    "id": "OB-AGENT-FAILURE",
+    "priority": "P1",
+    "kind": "OBSERVABLE OBLIGATION",
+    "parent_ids": [
+      "§20",
+      "§28"
+    ],
+    "clauses": [
+      "§20.6",
+      "§28.5"
+    ],
+    "sources": [
+      "S025"
+    ],
+    "source_locators": [
+      "§20.6",
+      "§28.5"
+    ],
+    "scope": "No invalid tick; FAILED AGENT_CONTRACT_ERROR with preserved committed prefix",
+    "preconditions": [
+      {
+        "case": "ND5B-AGENT-throw",
+        "requires": "One committed WAIT, then agent exception or structurally invalid action"
+      },
+      {
+        "case": "ND5B-AGENT-malformed",
+        "requires": "One committed WAIT, then agent exception or structurally invalid action"
+      }
+    ],
+    "operation": [
+      {
+        "case": "ND5B-AGENT-throw",
+        "operation": "f5b:experiment"
+      },
+      {
+        "case": "ND5B-AGENT-malformed",
+        "operation": "f5b:experiment"
+      }
+    ],
+    "oracle": [
+      {
+        "case": "ND5B-AGENT-throw",
+        "kind": "value",
+        "method": "Normative fail-stop before executing invalid tick, confirmed prefix retained; independent agent seed",
+        "independence": "MANUAL / MATHEMATICAL"
+      },
+      {
+        "case": "ND5B-AGENT-malformed",
+        "kind": "value",
+        "method": "Normative fail-stop before executing invalid tick, confirmed prefix retained; independent agent seed",
+        "independence": "MANUAL / MATHEMATICAL"
+      }
+    ],
+    "postconditions": [
+      {
+        "case": "ND5B-AGENT-throw",
+        "exact_expected_ref": "cases-f5-b.json / ND5B-AGENT-throw / expected"
+      },
+      {
+        "case": "ND5B-AGENT-malformed",
+        "exact_expected_ref": "cases-f5-b.json / ND5B-AGENT-malformed / expected"
+      }
+    ],
+    "case_ids": [
+      "ND5B-AGENT-throw",
+      "ND5B-AGENT-malformed"
+    ],
+    "domain_coverage": "PARTIAL; finite explicit examples, no universal assertion",
+    "decision_if_cases_pass": "SATISFIED_WITH_EXECUTED_EXAMPLES",
+    "alternative_evidence": null,
+    "universal_conformance_claim": false
+  },
+  {
+    "id": "OB-NO-AGENT-WAIT",
+    "priority": "P1",
+    "kind": "OBSERVABLE OBLIGATION",
+    "parent_ids": [
+      "§20",
+      "§27"
+    ],
+    "clauses": [
+      "§20.2",
+      "§27"
+    ],
+    "sources": [
+      "S025"
+    ],
+    "source_locators": [
+      "§20.2",
+      "§27"
+    ],
+    "scope": "WAIT and actual non-null ActionResult, null contexts in both steps",
+    "preconditions": [
+      {
+        "case": "ND5B-NO-AGENT",
+        "requires": "Two zero-cost ticks, no agent factory"
+      }
+    ],
+    "operation": [
+      {
+        "case": "ND5B-NO-AGENT",
+        "operation": "f5b:experiment"
+      }
+    ],
+    "oracle": [
+      {
+        "case": "ND5B-NO-AGENT",
+        "kind": "value",
+        "method": "Explicit WAIT/non-null result and null observation/feedback at each confirmed step",
+        "independence": "MANUAL / MATHEMATICAL"
+      }
+    ],
+    "postconditions": [
+      {
+        "case": "ND5B-NO-AGENT",
+        "exact_expected_ref": "cases-f5-b.json / ND5B-NO-AGENT / expected"
+      }
+    ],
+    "case_ids": [
+      "ND5B-NO-AGENT"
+    ],
+    "domain_coverage": "PARTIAL; finite explicit examples, no universal assertion",
+    "decision_if_cases_pass": "SATISFIED_WITH_EXECUTED_EXAMPLES",
+    "alternative_evidence": null,
+    "universal_conformance_claim": false
+  },
+  {
+    "id": "OB-INITIALIZATION-FAILURE",
+    "priority": "P1",
+    "kind": "OBSERVABLE OBLIGATION",
+    "parent_ids": [
+      "§11",
+      "§20"
+    ],
+    "clauses": [
+      "§11.3",
+      "§20.5"
+    ],
+    "sources": [
+      "S025"
+    ],
+    "source_locators": [
+      "§11.3",
+      "§20.5"
+    ],
+    "scope": "No FREE candidate returns InitializationFailure outside Trajectory",
+    "preconditions": [
+      {
+        "case": "ND5B-INIT-FAILURE",
+        "requires": "1x1 map with obstacle_density=1 has no possible FREE candidate"
+      }
+    ],
+    "operation": [
+      {
+        "case": "ND5B-INIT-FAILURE",
+        "operation": "f5b:experiment"
+      }
+    ],
+    "oracle": [
+      {
+        "case": "ND5B-INIT-FAILURE",
+        "kind": "value",
+        "method": "No candidates possible for every RNG output; InitializationFailure remains outside Trajectory",
+        "independence": "MANUAL / MATHEMATICAL"
+      }
+    ],
+    "postconditions": [
+      {
+        "case": "ND5B-INIT-FAILURE",
+        "exact_expected_ref": "cases-f5-b.json / ND5B-INIT-FAILURE / expected"
+      }
+    ],
+    "case_ids": [
+      "ND5B-INIT-FAILURE"
+    ],
+    "domain_coverage": "PARTIAL; finite explicit examples, no universal assertion",
+    "decision_if_cases_pass": "SATISFIED_WITH_EXECUTED_EXAMPLES",
+    "alternative_evidence": null,
+    "universal_conformance_claim": false
+  },
+  {
+    "id": "OB-RECORDER-OWNERSHIP",
+    "priority": "P0",
+    "kind": "OBSERVABLE OBLIGATION",
+    "parent_ids": [
+      "§21"
+    ],
+    "clauses": [
+      "§21"
+    ],
+    "sources": [
+      "S025"
+    ],
+    "source_locators": [
+      "§21"
+    ],
+    "scope": "Current owned-history policy only",
+    "preconditions": [
+      {
+        "case": "ER5B-RECORDER-OWNERSHIP",
+        "requires": "Current F4-C owned-history policy, one confirmed no-agent step"
+      }
+    ],
+    "operation": [
+      {
+        "case": "ER5B-RECORDER-OWNERSHIP",
+        "operation": "f5b:recorder_owned"
+      }
+    ],
+    "oracle": [
+      {
+        "case": "ER5B-RECORDER-OWNERSHIP",
+        "kind": "value",
+        "method": "Retained query and ConfirmedTickResult perturbations must not change recorder; explicit engineering policy F4C-P01",
+        "independence": "METAMORPHIC OWNERSHIP REGRESSION",
+        "policy_reference": "F5-A current API fixture and ACT/DYN/F4C policies in docs/IMPLEMENTATION_STATUS.md at b13d637dd405d363442803ad53821f5a6c6f4a62; not normative authority"
+      }
+    ],
+    "postconditions": [
+      {
+        "case": "ER5B-RECORDER-OWNERSHIP",
+        "exact_expected_ref": "cases-f5-b.json / ER5B-RECORDER-OWNERSHIP / expected"
+      }
+    ],
+    "case_ids": [
+      "ER5B-RECORDER-OWNERSHIP"
+    ],
+    "domain_coverage": "PARTIAL; finite explicit examples, no universal assertion",
+    "decision_if_cases_pass": "PARTIALLY_COVERED",
+    "alternative_evidence": "Engineering regression does not recover full historical Recorder contracts",
+    "universal_conformance_claim": false
+  },
+  {
+    "id": "OB-RESOURCE-AND-REGEN",
+    "priority": "P1",
+    "kind": "OBSERVABLE OBLIGATION",
+    "parent_ids": [
+      "§13",
+      "§15"
+    ],
+    "clauses": [
+      "§13",
+      "§15"
+    ],
+    "sources": [
+      "S025"
+    ],
+    "source_locators": [
+      "§13",
+      "§15"
+    ],
+    "scope": "Current resource entry energy and DYN-P01 binary regeneration",
+    "preconditions": [
+      {
+        "case": "ER5B-EFFECT-RESOURCE",
+        "requires": "Accepted current energy/entry and binary regeneration policies; missing full historical mechanics"
+      }
+    ],
+    "operation": [
+      {
+        "case": "ER5B-EFFECT-RESOURCE",
+        "operation": "f5b:effect_policy"
+      }
+    ],
+    "oracle": [
+      {
+        "case": "ER5B-EFFECT-RESOURCE",
+        "kind": "value",
+        "method": "Manual integer energy balance and DYN-P01 regeneration; explicit engineering regression, not historical conformance",
+        "independence": "MANUAL ENERGY BALANCE + APPROVED ENGINEERING POLICY",
+        "policy_reference": "F5-A current API fixture and ACT/DYN/F4C policies in docs/IMPLEMENTATION_STATUS.md at b13d637dd405d363442803ad53821f5a6c6f4a62; not normative authority"
+      }
+    ],
+    "postconditions": [
+      {
+        "case": "ER5B-EFFECT-RESOURCE",
+        "exact_expected_ref": "cases-f5-b.json / ER5B-EFFECT-RESOURCE / expected"
+      }
+    ],
+    "case_ids": [
+      "ER5B-EFFECT-RESOURCE"
+    ],
+    "domain_coverage": "PARTIAL; finite explicit examples, no universal assertion",
+    "decision_if_cases_pass": "PARTIALLY_COVERED",
+    "alternative_evidence": "Full historical physical action/regeneration clauses still not recovered as independent original text",
+    "universal_conformance_claim": false
+  },
+  {
+    "id": "OB-HAZARD",
+    "priority": "P1",
+    "kind": "OBSERVABLE OBLIGATION",
+    "parent_ids": [
+      "§13"
+    ],
+    "clauses": [
+      "§13"
+    ],
+    "sources": [
+      "S025"
+    ],
+    "source_locators": [
+      "§13"
+    ],
+    "scope": "Current static hazard energy balance",
+    "preconditions": [
+      {
+        "case": "ER5B-EFFECT-HAZARD",
+        "requires": "Accepted current energy/entry and binary regeneration policies; missing full historical mechanics"
+      }
+    ],
+    "operation": [
+      {
+        "case": "ER5B-EFFECT-HAZARD",
+        "operation": "f5b:effect_policy"
+      }
+    ],
+    "oracle": [
+      {
+        "case": "ER5B-EFFECT-HAZARD",
+        "kind": "value",
+        "method": "Manual integer energy balance and DYN-P01 regeneration; explicit engineering regression, not historical conformance",
+        "independence": "MANUAL ENERGY BALANCE + APPROVED ENGINEERING POLICY",
+        "policy_reference": "F5-A current API fixture and ACT/DYN/F4C policies in docs/IMPLEMENTATION_STATUS.md at b13d637dd405d363442803ad53821f5a6c6f4a62; not normative authority"
+      }
+    ],
+    "postconditions": [
+      {
+        "case": "ER5B-EFFECT-HAZARD",
+        "exact_expected_ref": "cases-f5-b.json / ER5B-EFFECT-HAZARD / expected"
+      }
+    ],
+    "case_ids": [
+      "ER5B-EFFECT-HAZARD"
+    ],
+    "domain_coverage": "PARTIAL; finite explicit examples, no universal assertion",
+    "decision_if_cases_pass": "PARTIALLY_COVERED",
+    "alternative_evidence": "Current compatible policy; not a recovered individual historical test",
+    "universal_conformance_claim": false
+  },
+  {
+    "id": "OB-RENDERER-READONLY",
+    "priority": "P2",
+    "kind": "OBSERVABLE OBLIGATION",
+    "parent_ids": [
+      "§29",
+      "§4"
+    ],
+    "clauses": [
+      "§29",
+      "§4.1"
+    ],
+    "sources": [
+      "S025"
+    ],
+    "source_locators": [
+      "§29",
+      "§4.1"
+    ],
+    "scope": "Read-only snapshot consumer",
+    "preconditions": [
+      "Requires missing source or alternative evidence"
+    ],
+    "operation": [],
+    "oracle": [],
+    "postconditions": [
+      "No runtime postcondition; alternative evidence/authorization remains required"
+    ],
+    "case_ids": [],
+    "domain_coverage": "PARTIAL; finite explicit examples, no universal assertion",
+    "decision_if_cases_pass": "PARTIALLY_COVERED",
+    "alternative_evidence": "Existing F4A-16 Chromium integration/purity reexecuted; no new canonical browser oracle",
+    "universal_conformance_claim": false
+  },
+  {
+    "id": "OB-OLD-CORPUS",
+    "priority": "P0",
+    "kind": "OBSERVABLE OBLIGATION",
+    "parent_ids": [
+      "§36",
+      "§37"
+    ],
+    "clauses": [
+      "§36",
+      "§37"
+    ],
+    "sources": [
+      "S025"
+    ],
+    "source_locators": [
+      "§36",
+      "§37"
+    ],
+    "scope": "Authentic individual T01–T280 definitions and execution",
+    "preconditions": [
+      "Requires missing source or alternative evidence"
+    ],
+    "operation": [],
+    "oracle": [],
+    "postconditions": [
+      "No runtime postcondition; alternative evidence/authorization remains required"
+    ],
+    "case_ids": [],
+    "domain_coverage": "PARTIAL; finite explicit examples, no universal assertion",
+    "decision_if_cases_pass": "DOCUMENTATION_BLOCKED",
+    "alternative_evidence": "Need original inputs/procedures/expected or an expressly approved acceptance amendment",
+    "universal_conformance_claim": false
+  },
+  {
+    "id": "OB-OLD-INVARIANTS",
+    "priority": "P0",
+    "kind": "OBSERVABLE OBLIGATION",
+    "parent_ids": [
+      "§31"
+    ],
+    "clauses": [
+      "§31"
+    ],
+    "sources": [
+      "S025"
+    ],
+    "source_locators": [
+      "§31"
+    ],
+    "scope": "I-01–I-66 incorporated by reference without complete literal source",
+    "preconditions": [
+      "Requires missing source or alternative evidence"
+    ],
+    "operation": [],
+    "oracle": [],
+    "postconditions": [
+      "No runtime postcondition; alternative evidence/authorization remains required"
+    ],
+    "case_ids": [],
+    "domain_coverage": "PARTIAL; finite explicit examples, no universal assertion",
+    "decision_if_cases_pass": "DOCUMENTATION_BLOCKED",
+    "alternative_evidence": "Verified historical file, not reverse engineering from current code",
+    "universal_conformance_claim": false
+  },
+  {
+    "id": "OB-HISTORICAL-MECHANICS",
+    "priority": "P1",
+    "kind": "OBSERVABLE OBLIGATION",
+    "parent_ids": [
+      "§13",
+      "§15",
+      "§18"
+    ],
+    "clauses": [
+      "§13",
+      "§15",
+      "§18"
+    ],
+    "sources": [
+      "S025"
+    ],
+    "source_locators": [
+      "§13",
+      "§15",
+      "§18"
+    ],
+    "scope": "Complete historical ActionResult/action/regeneration clauses beyond available fragments",
+    "preconditions": [
+      "Requires missing source or alternative evidence"
+    ],
+    "operation": [],
+    "oracle": [],
+    "postconditions": [
+      "No runtime postcondition; alternative evidence/authorization remains required"
+    ],
+    "case_ids": [],
+    "domain_coverage": "PARTIAL; finite explicit examples, no universal assertion",
+    "decision_if_cases_pass": "DOCUMENTATION_BLOCKED",
+    "alternative_evidence": "Recover source or explicitly decide remaining normative details; engineering policies do not become historical authority",
+    "universal_conformance_claim": false
+  },
+  {
+    "id": "OB-PENDING-VECTORS",
+    "priority": "P0",
+    "kind": "OBSERVABLE OBLIGATION",
+    "parent_ids": [
+      "§34"
+    ],
+    "clauses": [
+      "§34"
+    ],
+    "sources": [
+      "S025"
+    ],
+    "source_locators": [
+      "§34"
+    ],
+    "scope": "V2–V10 have no fixed reference bytes/hashes",
+    "preconditions": [
+      "Requires missing source or alternative evidence"
+    ],
+    "operation": [],
+    "oracle": [],
+    "postconditions": [
+      "No runtime postcondition; alternative evidence/authorization remains required"
+    ],
+    "case_ids": [],
+    "domain_coverage": "PARTIAL; finite explicit examples, no universal assertion",
+    "decision_if_cases_pass": "DOCUMENTATION_BLOCKED",
+    "alternative_evidence": "Authorized vector freezing with independent calculation and future cross-implementation comparison",
+    "universal_conformance_claim": false
+  },
+  {
+    "id": "OB-ARCHITECTURAL-PROHIBITIONS",
+    "priority": "P0",
+    "kind": "OBSERVABLE OBLIGATION",
+    "parent_ids": [
+      "§4"
+    ],
+    "clauses": [
+      "§4.1"
+    ],
+    "sources": [
+      "S025"
+    ],
+    "source_locators": [
+      "§4.1"
+    ],
+    "scope": "WORLD/AGENT/RECORDER/METRICS separation beyond tested examples",
+    "preconditions": [
+      "Requires missing source or alternative evidence"
+    ],
+    "operation": [],
+    "oracle": [],
+    "postconditions": [
+      "No runtime postcondition; alternative evidence/authorization remains required"
+    ],
+    "case_ids": [],
+    "domain_coverage": "PARTIAL; finite explicit examples, no universal assertion",
+    "decision_if_cases_pass": "NON_EXECUTABLE_ALTERNATIVE_EVIDENCE",
+    "alternative_evidence": "Static dependency/data-flow review with source hashes and capability boundary review; dynamic tests alone insufficient",
+    "universal_conformance_claim": false
+  },
+  {
+    "id": "OB-INDEPENDENT-INTEROPERABILITY",
+    "priority": "P0",
+    "kind": "OBSERVABLE OBLIGATION",
+    "parent_ids": [
+      "§35",
+      "§37"
+    ],
+    "clauses": [
+      "§35",
+      "§37"
+    ],
+    "sources": [
+      "S025"
+    ],
+    "source_locators": [
+      "§35",
+      "§37"
+    ],
+    "scope": "Hito C and comparison of independent implementations",
+    "preconditions": [
+      "Requires missing source or alternative evidence"
+    ],
+    "operation": [],
+    "oracle": [],
+    "postconditions": [
+      "No runtime postcondition; alternative evidence/authorization remains required"
+    ],
+    "case_ids": [],
+    "domain_coverage": "PARTIAL; finite explicit examples, no universal assertion",
+    "decision_if_cases_pass": "INDEPENDENT_IMPLEMENTATION_REQUIRED",
+    "alternative_evidence": "No second implementation authorized or executed in F5-B",
+    "universal_conformance_claim": false
+  },
+  {
+    "id": "BOUNDARY-CHECKPOINT-PROVENANCE",
+    "priority": "P0",
+    "kind": "EXPLICIT EPISTEMIC LIMITATION; NOT A NEW REQUIREMENT",
+    "parent_ids": [
+      "D-01-B"
+    ],
+    "clauses": [
+      "D-01-B"
+    ],
+    "sources": [
+      "S026"
+    ],
+    "source_locators": [
+      "D-01-B"
+    ],
+    "scope": "Checkpoint legitimacy is excluded from replay segment certification",
+    "preconditions": [
+      "Requires missing source or alternative evidence"
+    ],
+    "operation": [],
+    "oracle": [],
+    "postconditions": [
+      "No runtime postcondition; alternative evidence/authorization remains required"
+    ],
+    "case_ids": [],
+    "domain_coverage": "PARTIAL; finite explicit examples, no universal assertion",
+    "decision_if_cases_pass": "NON_EXECUTABLE_ALTERNATIVE_EVIDENCE",
+    "alternative_evidence": "External provenance evidence if a separate claim of historical legitimacy is made; not required for segment continuity",
+    "universal_conformance_claim": false
+  },
+  {
+    "id": "GOVERNANCE-ACCEPTANCE-BASIS",
+    "priority": "P0",
+    "kind": "DECISION PREPARATION; NO CURRENT RULE CHANGE",
+    "parent_ids": [
+      "§37"
+    ],
+    "clauses": [
+      "§37"
+    ],
+    "sources": [
+      "S025"
+    ],
+    "source_locators": [
+      "§37"
+    ],
+    "scope": "Whether a derived corpus may replace unavailable historical tests",
+    "preconditions": [
+      "Requires missing source or alternative evidence"
+    ],
+    "operation": [],
+    "oracle": [],
+    "postconditions": [
+      "No runtime postcondition; alternative evidence/authorization remains required"
+    ],
+    "case_ids": [],
+    "domain_coverage": "PARTIAL; finite explicit examples, no universal assertion",
+    "decision_if_cases_pass": "NON_EXECUTABLE_ALTERNATIVE_EVIDENCE",
+    "alternative_evidence": "Explicit owner approval of a separately versioned normative amendment; proposal only in F5-B",
+    "universal_conformance_claim": false
+  }
+]

@@ -1,0 +1,455 @@
+{
+  "kind": "ENGINEERING FAULT-INJECTION EVIDENCE",
+  "method": "Corrupt first returned field/byte or suppress thrown exception after real execution; no oracle given to adapter",
+  "oracle_scope": "Response sensitivity only; not a mutation score of all possible implementation defects",
+  "results": [
+    {
+      "id": "ER5B-COLLISION-ORIGIN",
+      "category": "ENGINEERING-REGRESSION",
+      "baseline": "PASS",
+      "corrupted_response": "FAIL",
+      "caught": true
+    },
+    {
+      "id": "ER5B-PREFIX-MOVE",
+      "category": "ENGINEERING-REGRESSION",
+      "baseline": "PASS",
+      "corrupted_response": "FAIL",
+      "caught": true
+    },
+    {
+      "id": "ER5B-PREFIX-WAIT",
+      "category": "ENGINEERING-REGRESSION",
+      "baseline": "PASS",
+      "corrupted_response": "FAIL",
+      "caught": true
+    },
+    {
+      "id": "ER5B-RECORDER-OWNERSHIP",
+      "category": "ENGINEERING-REGRESSION",
+      "baseline": "PASS",
+      "corrupted_response": "FAIL",
+      "caught": true
+    },
+    {
+      "id": "ND5B-AGENT-ISOLATION",
+      "category": "NORMATIVE-DERIVED",
+      "baseline": "PASS",
+      "corrupted_response": "FAIL",
+      "caught": true
+    },
+    {
+      "id": "ND5B-HASH-RNG-2",
+      "category": "NORMATIVE-DERIVED",
+      "baseline": "PASS",
+      "corrupted_response": "FAIL",
+      "caught": true
+    },
+    {
+      "id": "ND5B-HASH-RNG-4294967295",
+      "category": "NORMATIVE-DERIVED",
+      "baseline": "PASS",
+      "corrupted_response": "FAIL",
+      "caught": true
+    },
+    {
+      "id": "ND5B-REPLAY-COST-CONTEXT",
+      "category": "NORMATIVE-DERIVED",
+      "baseline": "PASS",
+      "corrupted_response": "FAIL",
+      "caught": true
+    },
+    {
+      "id": "ND5B-REPLAY-EVENT-ORDER",
+      "category": "NORMATIVE-DERIVED",
+      "baseline": "PASS",
+      "corrupted_response": "FAIL",
+      "caught": true
+    },
+    {
+      "id": "ND5B-REPLAY-EVENT-SEQUENCE",
+      "category": "NORMATIVE-DERIVED",
+      "baseline": "PASS",
+      "corrupted_response": "FAIL",
+      "caught": true
+    },
+    {
+      "id": "ND5B-REPLAY-FEEDBACK",
+      "category": "NORMATIVE-DERIVED",
+      "baseline": "PASS",
+      "corrupted_response": "FAIL",
+      "caught": true
+    },
+    {
+      "id": "ND5B-REPLAY-FLAGS-CONTEXT",
+      "category": "NORMATIVE-DERIVED",
+      "baseline": "PASS",
+      "corrupted_response": "FAIL",
+      "caught": true
+    },
+    {
+      "id": "ND5B-REPLAY-GENUINE-COLLISION",
+      "category": "NORMATIVE-DERIVED",
+      "baseline": "PASS",
+      "corrupted_response": "FAIL",
+      "caught": true
+    },
+    {
+      "id": "ND5B-REPLAY-INITIAL-ENERGY",
+      "category": "NORMATIVE-DERIVED",
+      "baseline": "PASS",
+      "corrupted_response": "FAIL",
+      "caught": true
+    },
+    {
+      "id": "ND5B-REPLAY-INITIAL-RNG",
+      "category": "NORMATIVE-DERIVED",
+      "baseline": "PASS",
+      "corrupted_response": "FAIL",
+      "caught": true
+    },
+    {
+      "id": "ND5B-REPLAY-METADATA",
+      "category": "NORMATIVE-DERIVED",
+      "baseline": "PASS",
+      "corrupted_response": "FAIL",
+      "caught": true
+    },
+    {
+      "id": "ND5B-REPLAY-MODE",
+      "category": "NORMATIVE-DERIVED",
+      "baseline": "PASS",
+      "corrupted_response": "FAIL",
+      "caught": true
+    },
+    {
+      "id": "ND5B-REPLAY-OBSERVATION",
+      "category": "NORMATIVE-DERIVED",
+      "baseline": "PASS",
+      "corrupted_response": "FAIL",
+      "caught": true
+    },
+    {
+      "id": "ND5B-REPLAY-REHASHED-STATE",
+      "category": "NORMATIVE-DERIVED",
+      "baseline": "PASS",
+      "corrupted_response": "FAIL",
+      "caught": true
+    },
+    {
+      "id": "ND5B-REPLAY-STORED-HASH",
+      "category": "NORMATIVE-DERIVED",
+      "baseline": "PASS",
+      "corrupted_response": "FAIL",
+      "caught": true
+    },
+    {
+      "id": "ND5B-REPLAY-TIME-GAP",
+      "category": "NORMATIVE-DERIVED",
+      "baseline": "PASS",
+      "corrupted_response": "FAIL",
+      "caught": true
+    },
+    {
+      "id": "ND5B-RNG-FLOAT",
+      "category": "NORMATIVE-DERIVED",
+      "baseline": "PASS",
+      "corrupted_response": "FAIL",
+      "caught": true
+    },
+    {
+      "id": "ND5B-RNG-REJECT",
+      "category": "NORMATIVE-DERIVED",
+      "baseline": "PASS",
+      "corrupted_response": "FAIL",
+      "caught": true
+    },
+    {
+      "id": "ND5B-RNG-RESTORE",
+      "category": "NORMATIVE-DERIVED",
+      "baseline": "PASS",
+      "corrupted_response": "FAIL",
+      "caught": true
+    },
+    {
+      "id": "ND5B-ROLLBACK-advance_dynamics",
+      "category": "NORMATIVE-DERIVED",
+      "baseline": "PASS",
+      "corrupted_response": "FAIL",
+      "caught": true
+    },
+    {
+      "id": "ND5B-ROLLBACK-apply_action",
+      "category": "NORMATIVE-DERIVED",
+      "baseline": "PASS",
+      "corrupted_response": "FAIL",
+      "caught": true
+    },
+    {
+      "id": "ND5B-ROLLBACK-resolve_lifecycle",
+      "category": "NORMATIVE-DERIVED",
+      "baseline": "PASS",
+      "corrupted_response": "FAIL",
+      "caught": true
+    },
+    {
+      "id": "ND5B-ROLLBACK-sync_rng_state",
+      "category": "NORMATIVE-DERIVED",
+      "baseline": "PASS",
+      "corrupted_response": "FAIL",
+      "caught": true
+    },
+    {
+      "id": "ND5B-ROLLBACK-validate",
+      "category": "NORMATIVE-DERIVED",
+      "baseline": "PASS",
+      "corrupted_response": "FAIL",
+      "caught": true
+    },
+    {
+      "id": "ND5B-SNAPSHOT",
+      "category": "NORMATIVE-DERIVED",
+      "baseline": "PASS",
+      "corrupted_response": "FAIL",
+      "caught": true
+    },
+    {
+      "id": "ND5B-TICK-UNCONFIRMED",
+      "category": "NORMATIVE-DERIVED",
+      "baseline": "PASS",
+      "corrupted_response": "FAIL",
+      "caught": true
+    },
+    {
+      "id": "ND5B-TIME-EQUIVALENT",
+      "category": "NORMATIVE-DERIVED",
+      "baseline": "PASS",
+      "corrupted_response": "FAIL",
+      "caught": true
+    },
+    {
+      "id": "ND5B-TIME-OVERFLOW",
+      "category": "NORMATIVE-DERIVED",
+      "baseline": "PASS",
+      "corrupted_response": "FAIL",
+      "caught": true
+    },
+    {
+      "id": "ND5B-TIME-UNSAFE",
+      "category": "NORMATIVE-DERIVED",
+      "baseline": "PASS",
+      "corrupted_response": "FAIL",
+      "caught": true
+    },
+    {
+      "id": "ND5B-WLS1-CELL-ORDER",
+      "category": "NORMATIVE-DERIVED",
+      "baseline": "PASS",
+      "corrupted_response": "FAIL",
+      "caught": true
+    },
+    {
+      "id": "ND5B-WLS1-MAX",
+      "category": "NORMATIVE-DERIVED",
+      "baseline": "PASS",
+      "corrupted_response": "FAIL",
+      "caught": true
+    },
+    {
+      "id": "ND5B-WLS1-NEGZERO",
+      "category": "NORMATIVE-DERIVED",
+      "baseline": "PASS",
+      "corrupted_response": "FAIL",
+      "caught": true
+    },
+    {
+      "id": "ND5B-WLS1-NUL",
+      "category": "NORMATIVE-DERIVED",
+      "baseline": "PASS",
+      "corrupted_response": "FAIL",
+      "caught": true
+    },
+    {
+      "id": "ND5B-WLS1-UTF8",
+      "category": "NORMATIVE-DERIVED",
+      "baseline": "PASS",
+      "corrupted_response": "FAIL",
+      "caught": true
+    },
+    {
+      "id": "ER5B-EFFECT-HAZARD",
+      "category": "ENGINEERING-REGRESSION",
+      "baseline": "PASS",
+      "corrupted_response": "FAIL",
+      "caught": true
+    },
+    {
+      "id": "ER5B-EFFECT-RESOURCE",
+      "category": "ENGINEERING-REGRESSION",
+      "baseline": "PASS",
+      "corrupted_response": "FAIL",
+      "caught": true
+    },
+    {
+      "id": "ND5B-ACTION-MOVE_E",
+      "category": "NORMATIVE-DERIVED",
+      "baseline": "PASS",
+      "corrupted_response": "FAIL",
+      "caught": true
+    },
+    {
+      "id": "ND5B-ACTION-MOVE_N",
+      "category": "NORMATIVE-DERIVED",
+      "baseline": "PASS",
+      "corrupted_response": "FAIL",
+      "caught": true
+    },
+    {
+      "id": "ND5B-ACTION-UNKNOWN",
+      "category": "NORMATIVE-DERIVED",
+      "baseline": "PASS",
+      "corrupted_response": "FAIL",
+      "caught": true
+    },
+    {
+      "id": "ND5B-ACTION-WAIT",
+      "category": "NORMATIVE-DERIVED",
+      "baseline": "PASS",
+      "corrupted_response": "FAIL",
+      "caught": true
+    },
+    {
+      "id": "ND5B-AGENT-malformed",
+      "category": "NORMATIVE-DERIVED",
+      "baseline": "PASS",
+      "corrupted_response": "FAIL",
+      "caught": true
+    },
+    {
+      "id": "ND5B-AGENT-throw",
+      "category": "NORMATIVE-DERIVED",
+      "baseline": "PASS",
+      "corrupted_response": "FAIL",
+      "caught": true
+    },
+    {
+      "id": "ND5B-CONFIG-FRACTION",
+      "category": "NORMATIVE-DERIVED",
+      "baseline": "PASS",
+      "corrupted_response": "FAIL",
+      "caught": true
+    },
+    {
+      "id": "ND5B-CONFIG-NAN",
+      "category": "NORMATIVE-DERIVED",
+      "baseline": "PASS",
+      "corrupted_response": "FAIL",
+      "caught": true
+    },
+    {
+      "id": "ND5B-CONFIG-NEGATIVE",
+      "category": "NORMATIVE-DERIVED",
+      "baseline": "PASS",
+      "corrupted_response": "FAIL",
+      "caught": true
+    },
+    {
+      "id": "ND5B-CONFIG-STRING",
+      "category": "NORMATIVE-DERIVED",
+      "baseline": "PASS",
+      "corrupted_response": "FAIL",
+      "caught": true
+    },
+    {
+      "id": "ND5B-CONFIG-SUM",
+      "category": "NORMATIVE-DERIVED",
+      "baseline": "PASS",
+      "corrupted_response": "FAIL",
+      "caught": true
+    },
+    {
+      "id": "ND5B-CONFIG-TOPOLOGY",
+      "category": "NORMATIVE-DERIVED",
+      "baseline": "PASS",
+      "corrupted_response": "FAIL",
+      "caught": true
+    },
+    {
+      "id": "ND5B-CONFIG-ZERO",
+      "category": "NORMATIVE-DERIVED",
+      "baseline": "PASS",
+      "corrupted_response": "FAIL",
+      "caught": true
+    },
+    {
+      "id": "ND5B-ENERGY-LOWER",
+      "category": "NORMATIVE-DERIVED",
+      "baseline": "PASS",
+      "corrupted_response": "FAIL",
+      "caught": true
+    },
+    {
+      "id": "ND5B-ENERGY-UPPER",
+      "category": "NORMATIVE-DERIVED",
+      "baseline": "PASS",
+      "corrupted_response": "FAIL",
+      "caught": true
+    },
+    {
+      "id": "ND5B-ENERGY-ZERO",
+      "category": "NORMATIVE-DERIVED",
+      "baseline": "PASS",
+      "corrupted_response": "FAIL",
+      "caught": true
+    },
+    {
+      "id": "ND5B-FEEDBACK-COERCE",
+      "category": "NORMATIVE-DERIVED",
+      "baseline": "PASS",
+      "corrupted_response": "FAIL",
+      "caught": true
+    },
+    {
+      "id": "ND5B-FEEDBACK-EXTRA",
+      "category": "NORMATIVE-DERIVED",
+      "baseline": "PASS",
+      "corrupted_response": "FAIL",
+      "caught": true
+    },
+    {
+      "id": "ND5B-INIT-FAILURE",
+      "category": "NORMATIVE-DERIVED",
+      "baseline": "PASS",
+      "corrupted_response": "FAIL",
+      "caught": true
+    },
+    {
+      "id": "ND5B-LIFECYCLE-ABOVE",
+      "category": "NORMATIVE-DERIVED",
+      "baseline": "PASS",
+      "corrupted_response": "FAIL",
+      "caught": true
+    },
+    {
+      "id": "ND5B-LIFECYCLE-AT",
+      "category": "NORMATIVE-DERIVED",
+      "baseline": "PASS",
+      "corrupted_response": "FAIL",
+      "caught": true
+    },
+    {
+      "id": "ND5B-NO-AGENT",
+      "category": "NORMATIVE-DERIVED",
+      "baseline": "PASS",
+      "corrupted_response": "FAIL",
+      "caught": true
+    },
+    {
+      "id": "ND5B-OBSERVATION",
+      "category": "NORMATIVE-DERIVED",
+      "baseline": "PASS",
+      "corrupted_response": "FAIL",
+      "caught": true
+    }
+  ]
+}

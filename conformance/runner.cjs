@@ -53,9 +53,10 @@ function summary(rows, field) {
     }
     return Object.fromEntries(Object.entries(result).sort(([a],[b])=>a.localeCompare(b,'en')));
 }
-async function run({root=path.resolve(__dirname,'..'), adapterPath=path.join(__dirname,'adapter.cjs'),select=null}={}) {
+async function run({root=path.resolve(__dirname,'..'), adapterPath=path.join(__dirname,'adapter.cjs'),select=null,caseFile='cases.json'}={}) {
+    if(path.basename(caseFile)!==caseFile || !caseFile.endsWith('.json'))throw Error('invalid case manifest name');
     const read = name=>JSON.parse(fs.readFileSync(path.join(root,'conformance',name),'utf8'));
-    const sources=read('sources.json'),cases=read('cases.json'),corpus=read('corpus.json');
+    const sources=read('sources.json'),cases=read(caseFile),corpus=read('corpus.json');
     for (const source of sources) {
         const bytes=fs.readFileSync(path.join(root,source.path));
         const actual=crypto.createHash('sha256').update(bytes).digest('hex');
@@ -75,16 +76,16 @@ async function run({root=path.resolve(__dirname,'..'), adapterPath=path.join(__d
     if(new Set(rows.map(r=>r.id)).size!==rows.length)throw Error('duplicate report identifier');
     const digest=name=>crypto.createHash('sha256').update(fs.readFileSync(path.join(root,'conformance',name))).digest('hex');
     return {format:'WORLD-LAB-CONFORMANCE-1',adapter:adapter.id,fixture_base:corpus.product_base,
-        case_manifest_sha256:digest('cases.json'),corpus_manifest_sha256:digest('corpus.json'),
+        case_manifest_sha256:digest(caseFile),corpus_manifest_sha256:digest('corpus.json'),
         canonical_conformance:'NOT ESTABLISHED',sources,summary_by_category:summary(rows,'category'),
         summary_by_clause:summary(rows,'clauses'),results:rows};
 }
 if(require.main===module) {
     (async()=>{
         const args=process.argv.slice(2),option=k=>{const i=args.indexOf(k);if(i<0)return null;if(!args[i+1])throw Error('missing '+k);return args[i+1];};
-        if(args.some((x,i)=>i%2===0&&!['--out','--adapter','--select'].includes(x)) || args.length%2)throw Error('invalid CLI options');
+        if(args.some((x,i)=>i%2===0&&!['--out','--adapter','--select','--cases'].includes(x)) || args.length%2)throw Error('invalid CLI options');
         const adapter=option('--adapter'),selection=option('--select');
-        const report=await run({...(adapter?{adapterPath:path.resolve(adapter)}:{}),select:selection?new Set(selection.split(',')):null});
+        const report=await run({...(adapter?{adapterPath:path.resolve(adapter)}:{}),...(option('--cases')?{caseFile:option('--cases')}:{}),select:selection?new Set(selection.split(',')):null});
         const output=JSON.stringify(report,null,2)+'\n',out=option('--out');
         if(out)fs.writeFileSync(out,output);else process.stdout.write(output);
         process.exitCode=report.results.some(r=>r.status==='FAIL')?1:0;

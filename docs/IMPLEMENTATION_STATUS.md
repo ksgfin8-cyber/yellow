@@ -4,7 +4,15 @@ Documento **informativo y operacional**. Consolidación DOC-02: **2026-11-10
 (America/Guayaquil)**. Rama documental `dev/doc-02-knowledge-consolidation`, creada
 sobre `origin/main`; aquel cambio no incorporaba código ni pruebas de F3-C.
 
-**Actualización vigente F5-A (2026-11-11, America/Guayaquil):
+**Actualización vigente F5-B (2026-11-11, America/Guayaquil): cobertura y
+preparación de decisión COMPLETED.** Base main PR #31
+`b13d637dd405d363442803ad53821f5a6c6f4a62`, rama
+`dev/f5-b-conformance-coverage`. Se conservan las 50 entradas F5-A; se añaden
+58 ND y seis ER. Corpus ampliado: 114 PASS, 0 FAIL, 289 BLOCKED, 0 UNTESTED.
+GO para revisar el incremento/expediente; **HOLD para resolver la base de aceptación**.
+§37 permanece intacto. [Cobertura, evidencia y decisión pendiente F5-B](#f5-b).
+
+**Corte previo F5-A (2026-11-11, America/Guayaquil):
 F5A-CONFORMANCE-INFRASTRUCTURE COMPLETED con límites documentales.** Base main
 posterior al PR #30 `14d59dad381c344b7213025c86ffa5e661f16fc2`, rama
 `dev/f5-a-conformance-harness`. Harness: 6 vectores recuperados, 39 casos derivados
@@ -139,7 +147,8 @@ replay completo. El alcance B no está completo en ninguna de las dos referencia
 
 | Necesidad | Fuente única para el detalle |
 |---|---|
-| Infraestructura vigente F5-A | [Corpus, runner, resultados y vacíos](#f5-a) |
+| Cobertura y expediente vigente F5-B | [Obligaciones atómicas, contrastes y propuesta pendiente](#f5-b) |
+| Infraestructura previa F5-A | [Corpus, runner, resultados y vacíos](#f5-a) |
 | Corrección previa F4-G | [F4G-001, cierre y regresión](#f4-g) |
 | Auditoría previa F4-F | [HOLD original, contraejemplo y preparación canónica](#f4-f) |
 | Enmienda e implementación F4-E | [Genealogía y evidencia previa](#f4-e) |
@@ -4763,3 +4772,199 @@ ni se declaran hitos B/C. Permanece la distinción entre reproducción interna,
 regresión entre versiones del mismo motor, contraste contra oráculo independiente
 y verdadera interoperabilidad. Tampoco se prueba la legitimidad histórica de
 checkpoints ni causalidad externa de fallos de agente a partir de su prefijo.
+
+
+<a id="f5-b"></a>
+## F5-B — cobertura y preparación de base de aceptación
+
+**COMPLETED como incremento de cobertura y expediente, no como conformidad global.**
+Base main PR #31 `b13d637dd405d363442803ad53821f5a6c6f4a62`;
+rama `dev/f5-b-conformance-coverage`. No se modifica WORLD/EXPERIMENT/RECORDER/
+REPLAY/AGENT, PRNG, WLS1, renderer ni especificaciones vigentes. No se ejecuta
+una segunda implementación, ni se declaran hitos B/C.
+
+### Recuperación final delimitada
+
+[recovery-f5-b.json](../conformance/recovery-f5-b.json) registra historial Git
+alcanzable después de fetch, documentos/fuentes y 27 órdenes accesibles con
+hashes/localizadores. El candidato histórico docs/specifications sigue siendo
+un blob de un byte LF. No se encontró un corpus original completo ni una nueva
+definición individual T auténtica. H034/HINIT conservan cláusulas recuperadas,
+no tests históricos completos. Persisten 248 referencias parciales y 32 IDs
+sin asignación; las 280 definiciones individuales están incompletas. V2–V10 están
+expresamente pendientes de fijación, no se inventan sus salidas.
+
+Hay referencias externas a v0.2.1/v0.2.4, pero no se recibió un archivo original
+adicional verificable en este incremento. No hay acceso a la Biblioteca de
+ChatGPT. La conclusión se limita a las fuentes consultadas, no a una imposibilidad
+mundial de recuperación. Solo se reabre la búsqueda al disponer de un archivo
+con procedencia verificable; no se repiten búsquedas sin fuente nueva ni se
+solicita una exportación cuya disponibilidad no consta.
+
+Los **289 BLOCKED originales permanecen idénticos**. No se los reclasifica ni se
+renombra ND/ER como T. El inventario corpus.json y el material F5-A no cambian.
+
+### Evidencia de cobertura, separada de gobernanza
+
+La ampliación mantiene categorías y oráculos. [cases-f5-b.json](../conformance/cases-f5-b.json)
+contiene las 50 entradas originales, idénticas, seguidas de 64 nuevas: **58
+NORMATIVE-DERIVED y seis ENGINEERING-REGRESSION**, con IDs ND5B/ER5B, fuente,
+cláusula, prioridad, precondición, operación, expectativa y procedimiento del
+oráculo. Su número resulta de los contratos/contrastes elegidos, no es una meta
+de PASS ni equivalencia científica con T01–T280.
+
+P0 amplía restauración/float/rechazo del PRNG; tick sin confirmación, rollback
+tras cinco fases, independencia de snapshot; continuidad frente a estados con
+hashes retenidos o recalculados, discontinuidad temporal, eventos tipados fuera
+de orden y secuencias no contiguas; cambios de costes/flags, Observation/Feedback,
+RNG/energía de origen, modo, metadatos y representaciones Number/BigInt;
+bytes WLS1/tags/UTF-8/binary64 y separación de hash WORLD/FULL por RNG.
+
+P1 contrasta dominios y negativos válidos de WorldConfig, redondeo binary64 ties-to-even y
+canonicalización de cero, flags de FeedbackConfig,
+fronteras Chebyshev/pureza/RNG de Observation, acciones frente a borde/obstáculo,
+tipo desconocido, lifecycle alrededor de umbral negativo y no resurrección,
+fallo del agente con prefijo preservado, WAIT sin agente e inicialización sin
+candidatos. P2 conserva la integración/pureza del consumidor en Chromium como
+regresión de ingeniería, sin simular un nuevo corpus canónico de web.
+
+Los prefijos completos MOVE/WAIT, el origen positivo de colisión y las políticas de recurso/hazard/
+regeneración/propiedad de registros se clasifican ER cuando dependen de precisión
+histórica incompleta o decisión de ingeniería. Sus expectativas son manuales y
+sus hashes independientes; esa calidad no cambia su autoridad. Los ND negativos
+usan los prefijos positivos compatibles como entradas explícitas y prueban una
+obligación de rechazo identificada. No recuperan el ActionResult histórico entero.
+
+[atomic-obligations-f5-b.json](../conformance/atomic-obligations-f5-b.json) añade
+**48 filas** sobre los padres de obligations.json, sin sobrescribirlos. Cada fila
+fija fuente/localizador, precondiciones, operación, postcondición/oráculo, casos y
+alternativa de evidencia. Se distinguen propiedades atómicas aun cuando compartan
+un caso (por ejemplo restaurar estado y restaurar RNG). La
+[matriz de preaceptación](CONFORMANCE_PREACCEPTANCE_F5-B.md) y su
+[JSON](../conformance/results/preacceptance-f5-b.json) vinculan resultados ejecutados:
+
+| Decisión | Filas | Interpretación |
+|---|---:|---|
+| SATISFIED_WITH_EXECUTED_EXAMPLES | 35 | Solo aserciones y precondiciones concretas ejecutadas |
+| PARTIALLY_COVERED | 5 | Políticas de ingeniería, metamorfismo o integración insuficientes para cobertura general |
+| DOCUMENTATION_BLOCKED | 4 | Corpus original, invariantes antiguos, mecánicas históricas incompletas, vectores pendientes |
+| REPRODUCIBLE_FAIL | 0 | No se reprodujo un defecto productivo nuevo en las entradas ejecutadas |
+| NON_EXECUTABLE_ALTERNATIVE_EVIDENCE | 3 | Prohibiciones arquitectónicas, límite de procedencia y decisión de aceptación |
+| INDEPENDENT_IMPLEMENTATION_REQUIRED | 1 | Interoperabilidad/Hito C, no autorizado ni ejecutado aquí |
+
+Todas las filas conservan domain_coverage=PARTIAL y universal_conformance_claim=false.
+Son decisiones de evidencia acotada, no cumplimiento universal de una sección.
+Las filas documentales no reemplazan ni descuentan los 289 tests/vectores bloqueados.
+
+El fixture [collision-f5-b.json](../conformance/collision-f5-b.json) fija una colisión
+real: energías binary64 1.8873007147162755 y 1.5414347304747777, time=8,
+WORLD FNV=1873394908 y FULL FNV=1720692783 para ambos estados válidos. Se obtuvo
+mediante búsqueda determinista acotada de mantisas SHA-256 y cálculo Buffer/BigInt
+independiente, sin cargar producción. Los builders reproducen solo sus dos índices
+fijados. El test de infraestructura verifica también los hashes productivos de
+ambos estados; el caso ND rechaza el estado equivocado aunque sus dos hashes sean
+correctos e iguales. Es un fixture derivado, no V2–V10 ni un defecto de FNV.
+
+### Independencia, contraste y preservación F5-A
+
+Las expectativas se fijan sin cargar yellow: BigInt/Buffer para matemáticas,
+bytes y UTF-8; fixtures manuales y relaciones metamórficas identificadas. Un caso
+de separación WORLD/AGENT varía los draws del RNG privado del agente manteniendo
+WAIT: es reproducción metamórfica dentro de un motor, no interoperabilidad ni
+prueba estática completa de ausencia de flujos prohibidos.
+
+[mutation-f5-b.cjs](../conformance/mutation-f5-b.cjs) ejecuta cada caso nuevo con
+el adaptador real y después corrompe un campo/byte o suprime su excepción.
+El [reporte](../conformance/results/f5-b-mutants.json) conserva **64 baseline PASS
+y 64 respuestas corruptas detectadas como FAIL**. Esto satisface el contraste de
+sensibilidad a respuesta incorrecta; no es un mutation score exhaustivo de código,
+no son 64 defectos productivos ni se agregan a los FAIL del corpus normativo.
+
+Durante la construcción se corrigió un enlace del adaptador al helper estático
+World._finite_energy_sum; los tres esperados matemáticos no cambiaron y no se
+modificó producción. Ese TypeError inicial fue de infraestructura, no un defecto
+normativo del motor. No se encontró un error de oráculo que exigiera revisar F5-A. Sus 50 entradas,
+expectativas/oráculos y su reporte original permanecen íntegros; el test F5B-INFRA-01
+los compara y ejecuta el reporte por defecto byte/estructura equivalente. La
+única ampliación del runner es `--cases` para seleccionar otro manifiesto bajo
+conformance/: comparación, aislamiento, categorías y comportamiento por defecto
+no cambian. El adaptador añade operaciones de prueba aisladas; no modifica archivos
+productivos. La documentación de uso está en [README-F5-B](../conformance/README-F5-B.md).
+
+### F5B-ACCEPTANCE-BASIS-REVIEW — preparación de decisión
+
+Naturaleza: **Methodological and Normative Acceptance-Governance Decision Preparation**.
+Su resultado es una propuesta, no una modificación de las hipótesis experimentales,
+reglas físicas ni teoría de agentes. Los avances de cobertura anteriores son
+resultados de validación separados de esta gobernanza.
+
+[CONFORMANCE_ACCEPTANCE_PROPOSAL.md](CONFORMANCE_ACCEPTANCE_PROPOSAL.md) entrega:
+A) recuperación auténtica y ejecución del corpus original, conservando §37;
+B) corpus sustituto de obligaciones actuales con IDs nuevos, únicamente mediante
+decisión normativa expresa posterior. Incluye justificación documental delimitada,
+inventario, vacíos, independencia de oráculos, suficiencia por obligación,
+exclusiones, revisión alternativa, comparación entre motores y tratamiento de
+fuentes históricas que aparezcan después. Contiene el texto exacto propuesto para
+§37, marcado **PROPOSED ONLY / NO APROBADO / NO VIGENTE**. No se aplica al archivo
+normativo ni aprueba B por el mero hecho de presentar el expediente.
+
+Ningún total arbitrario de pruebas sustituye 280. Se propone revisar cierre de
+fuentes/reglas, particiones de dominio, oráculos, evidencia adversarial y alternativas
+estáticas; las obligaciones no definidas deben recuperarse o precisarse expresamente,
+no aceptarse porque el motor actual las implemente de una manera compatible.
+Hito B requiere el criterio vigente o una enmienda aprobada y evidencias suficientes;
+Hito C conserva además la segunda implementación y condiciones/vectores de su revisión.
+
+### Ejecución reproducible y resultados separados
+
+Comandos desde /workspace/yellow, Node v24.22.1, Chromium 155.0.8059.79:
+
+```bash
+node conformance/build-f5-b.cjs
+node conformance/build-atomic-f5-b.cjs
+node conformance/runner.cjs --out /tmp/f5b-original50.json
+cmp conformance/results/f5-a.json /tmp/f5b-original50.json
+node conformance/runner.cjs --cases cases-f5-b.json --out conformance/results/f5-b.json
+node conformance/runner.cjs --cases cases-f5-b.json --out /tmp/f5b-repeat.json
+cmp conformance/results/f5-b.json /tmp/f5b-repeat.json
+node conformance/build-preacceptance-f5-b.cjs
+node conformance/mutation-f5-b.cjs conformance/results/f5-b-mutants.json
+node tests/f5-a.test.cjs
+node tests/f5-b.test.cjs
+# node tests/<archivo> para las 25 suites F1–F4-G.
+PLAYWRIGHT_MODULE=/opt/codex/runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/index.js \
+node tests/f4-a.test.cjs --browser
+node tests/f1-a-legacy.cjs
+git diff --check
+```
+
+| Categoría del corpus ampliado | PASS | FAIL | BLOCKED | UNTESTED |
+|---|---:|---:|---:|---:|
+| CANONICAL-RECOVERED | 6 | 0 | 0 | 0 |
+| NORMATIVE-DERIVED | 97 | 0 | 0 | 0 |
+| ENGINEERING-REGRESSION | 11 | 0 | 0 | 0 |
+| Sin definición ejecutable / category=null | 0 | 0 | 289 | 0 |
+
+403 entradas: 114 ejecutadas y 289 bloqueadas. El [reporte completo](../conformance/results/f5-b.json)
+es idéntico byte a byte en ejecuciones repetidas. Selección parcial marca los
+omitidos UNTESTED en lugar de PASS. Las pruebas de infraestructura dan **12 PASS
+F5-A + seis PASS F5-B**, sin omitidos/TODO; validan preservación, reproducción,
+sensibilidad, enlaces atómicos y selección de manifiesto sin traversal.
+
+Regresión F1–F4-G: **482 PASS / 0 FAIL**, mismos conteos de cada uno de los
+25 archivos; 476 casos actuales y seis caracterizaciones históricas v0.2.5,
+que no se cuentan como conformidad vigente. Integración EXPERIMENT→RECORDER→
+REPLAY→VALIDACIÓN/MATCH reejecutada en F3-F/G/H y F4E-11/14. Chromium **16 PASS**
+(15 repiten Node y un caso adicional real). Legacy **13 PASS / 9 FAIL**, exit1,
+mismos IDs/mensajes: T06/07/08/20/22 esperan Trajectory directa, T12/13/14 factories/
+enum retirados y T16 usa TOROIDAL/falla validación inicial. No se modifican sus
+expectativas. El [reporte de regresión](../conformance/results/regressions-f5-b.json)
+conserva resultados por archivo, comandos y causas. Git histórico y navegador
+localhost se ejecutaron con la excepción de sandbox autorizada; no se alteraron
+referencias para eludir la restricción.
+
+**GO para revisión del incremento y expediente; HOLD para resolver/declarar la
+base de aceptación canónica.** El siguiente paso recomendado es decidir A con
+archivos verificables o revisar/aprobar expresamente B y cerrar lagunas de autoridad
+antes de fijar su manifiesto. Se requiere orden posterior para modificar §37 o
+iniciar una segunda implementación. No se fusiona ni despliega este incremento.
