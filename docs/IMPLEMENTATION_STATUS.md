@@ -4,7 +4,14 @@ Documento **informativo y operacional**. Consolidación DOC-02: **2026-11-10
 (America/Guayaquil)**. Rama documental `dev/doc-02-knowledge-consolidation`, creada
 sobre `origin/main`; aquel cambio no incorporaba código ni pruebas de F3-C.
 
-**Actualización vigente F4-C (2026-11-11 UTC): COMPLETED en el cambio de
+**Actualización vigente F4-D (2026-11-11 UTC): revisión contractual COMPLETED;
+correcciones PROPOSED CHANGE, pendientes de aprobación e implementación.** Base
+main PR #26 `37a718c3680092f46b0d0ba79fc5920d25400a2a`, rama
+`dev/f4-d-replay-contract-closure`. Solo documentación: no se cambian norma, APIs,
+motor ni excepciones provisionales. Los conflictos A–D permanecen abiertos.
+[Paquete de decisión, aceptación y preconformidad F4-D](#f4-d).
+
+**Corte previo F4-C (2026-11-11 UTC): COMPLETED en el cambio de
 propiedad y registro incremental autorizado.** Base main PR #25
 `635b4a493aabcf35c85ea3c5a47aca174a29c671`, rama `dev/f4-c-recorder-linear`,
 pendiente de revisión/merge. F4C-P01 sustituye F3E-P01 y cierra F4B-P02:
@@ -103,7 +110,8 @@ replay completo. El alcance B no está completo en ninguna de las dos referencia
 
 | Necesidad | Fuente única para el detalle |
 |---|---|
-| Historial propio y registro incremental F4-C vigente | [Política, equivalencia, atomicidad y complejidad](#f4-c) |
+| Revisión contractual F4-D vigente | [Propuesta única pendiente y matriz de preconformidad](#f4-d) |
+| Historial propio y registro incremental F4-C | [Política, equivalencia, atomicidad y complejidad](#f4-c) |
 | Rendimiento RECORDER F4-B previo | [Optimización parcial, equivalencia y bloqueo](#f4-b) |
 | Integración web F4-A | [Carga real, resultados, renderer y Chromium](#f4-a) |
 | Estado validación F3-H | [Contraste exhaustivo, rendimiento y fronteras](#f3-h) |
@@ -3708,3 +3716,335 @@ Archivos de producción modificados: [recorder.js](../js/experiment/recorder.js)
 Se actualiza únicamente este informe operacional. No cambia norma, WORLD, PRNG,
 semillas, WLS1, EXPERIMENT, agentes, interfaz, renderer ni CSS. Listo para revisión
 del alcance F4-C; sin merge, despliegue ni inicio de otro incremento.
+
+
+<a id="f4-d"></a>
+## F4-D — paquete de correcciones contractuales; revisión COMPLETED
+
+Base main PR #26 `37a718c3680092f46b0d0ba79fc5920d25400a2a`.
+**COMPLETED como revisión**, no como cierre de conflictos ni conformidad.
+Único archivo cambiado: este informe. Ningún texto siguiente modifica la norma
+vigente: todo texto de reemplazo está marcado **PROPOSED CHANGE** y requiere
+aprobación del paquete D-01 antes de implementar. No se eliminan bloqueos actuales.
+
+### Autoridad y evidencia
+
+**NORMATIVE:** transcripción v0.2.5 §§11.7,18,20–26,31–37. §25.3 exige igualdad
+de *_used con solicitud; P0-6 exige final_state idéntico al origen si executed=0
+salvo INVALID; §25.3.1 exige continuidad; §25.3.2 define hints y precedencia;
+§22 exige tick Number seguro; §37 exige ejecutar T01–T280 y ausencia de críticos.
+**HISTORICAL:** fragmentos de §25 v0.2.4 transmitidos por el responsable y registrados
+en F3-G/H: expected_steps Number seguro no negativo; time≤max_ticks sin exigir
+cero; firma histórica validate_replay(original,rr,world_config); derivación terminal
+sin consultar original. No hay documento histórico completo independiente en el
+repositorio y no se afirma haberlo leído. La firma anterior recuperada de una
+versión previa no se atribuye automáticamente a cada cláusula v0.2.4.
+**ENGINEERING:** F3A-P01 uint64 Number/BigInt; F3C-P01 representación segura de eventos;
+F3H-P01 helper con contexto; F4C-P01 propiedad/checkpoints. No son nuevas cláusulas
+normativas. **PROPOSED CHANGE:** todas las precisiones D-01 que siguen.
+
+Se inspeccionaron replay.js (validación, motor y comparador), Recorder F4-C,
+EXPERIMENT, WORLD/validator inicial y las caracterizaciones F3-G/H. Se reejecutaron:
+`node tests/f3-g.test.cjs` y `node tests/f3-h.test.cjs`:27+23=**50 PASS/0 FAIL**.
+Las453 PASS previas pertenecen a F4-C; no se presentan como nueva ejecución F4-D.
+No se crean pruebas nuevas: las existentes ya aportan los contraejemplos focales.
+
+### Tabla de conflictos y cuestiones transversales vigentes
+
+| ID | Clasificación actual | Fuente y contraejemplo mínimo | Imposibilidad / comportamiento actual |
+|---|---|---|---|
+| A | CONTRACTUAL CONFLICT | §25.2 histórico contador seguro + §25.3 igualdad; expected_steps="x", max_ticks=3 | Un campo no puede ser entero seguro y valer "x"; F3G-16 mantiene excepción, no un INVALID ficticio |
+| B | CONTRACTUAL CONFLICT | §25.1 histórico time≤max; P0-7 §25.3.3/§11.7; snapshot ACTIVE,time=1,max=2,events=[] | Validador compartido y Recorder requieren origen0; F3G-17 rechaza invalid initial_events; §11.7 de la transcripción fija metadata tick0, no debe citarse falsamente como frase literal time=0 |
+| C | PENDING DECISION | §25.3.1 firma3; mismo snapshot, WAIT, costes1 y2 | Configuración no recuperable del snapshot; wrapper no vacío lanza world transition failed. Helper contextual funciona; F3H-15/23 |
+| D | PENDING DECISION | P0-3 §§20.2/22/27/32; una acción WAIT con agente vs sin agente | Mismo movimiento físico, StepRecords distintos por observation/feedback; comparador devuelve MISMATCH sin borrar campos, F3H-16 |
+| E | CONTRACTUAL CONFLICT de integración | §7/F3A uint64 vs §22 tick seguro; time=2^53−1 y siguiente tick=2^53 | WORLD puede confirmar; Recorder rechaza la representación. No se reduce max_ticks; F3F-18/F3E-11 |
+| F | RESOLVED en dominio soportado | P0-6, §25.3; expected_steps=0, origen0 | Estado final igual al inicial, eventos iniciales conservados, muerte prevalece sobre límite; F3G-11/F3H-19 |
+| G | EXPLICIT LIMITATION | §§23,25.7/25.8; trayectoria de1 WAIT detenida por error de agente con WORLD ACTIVE bajo límite | Replay reproduce prefijo, deriva INDETERMINATE; no puede probar el fallo de un agente ausente. MATCH terminal no autorizado; F3H-08 |
+| H | RESOLVED con límites explícitos | §25.3.2 y §5.4; DEAD y time=max simultáneos | ENTITY_DIED prevalece; hint=null permitido incluso terminal, no prueba terminación por agotamiento de acciones; F3H-05–08 |
+| I | EXPLICIT LIMITATION | §§20.6/26.5 vs coordinación replay | EXPERIMENT propaga fallo WORLD/Recorder y conserva prefijo sin retry; replay restaura WORLD/RNG/Recorder. No equivalen a rollback conjunto en EXPERIMENT; F3F-14/15, F3G-03–05/19/20, F4C-16 |
+
+No se demuestra un IMPLEMENTATION DEFECT nuevo: A/B/E son incompatibilidades
+contractuales, C/D requieren completar contratos y G/I son límites explícitos.
+Una implementación posterior que difiera de un contrato ya aprobado sí sería un
+defecto; no se reclasifican lagunas como bugs para cambiar APIs sin autoridad.
+
+### D-01 — propuesta única recomendada para aprobación
+
+Recomendar aprobar conjuntamente A–E siguientes, con F–I conservados. Es un paquete
+coherente de correcciones explícitas, no una autorización vigente. No introduce
+estados de replay, acciones ni motivos terminales nuevos. No hay defaults de modo
+o configuración. Alternativa global: limitar replay a origen0, Number seguro y
+modo observado; mantiene incompatibilidades históricas y no cierra el dominio
+anunciado. Se recomienda cobertura explícita del dominio, con cambios mínimos a
+los campos temporales existentes, sin agregar claves a ReplayResult/StepRecord.
+
+#### A/E — contadores inválidos y representación temporal
+
+**Alternativas:** (a) copiar cualquier parámetro inválido en *_used destruye el
+dominio cerrado y puede retener objetos mutables; (b) usar cero/otro número inventa
+un parámetro; (c) null explícito para parámetro sin representación válida y ampliar
+max/ticks válidos a uint64. Recomendada (c), como cambio de contrato, no sustituto
+actual. Un max_ticks grande válido no debe clasificarse como entrada inválida.
+
+**PROPOSED CHANGE — sustituir dominios en §§18,22,25.2 y compromisos §25.3:**
+
+> StepRecord.tick y RecordedEvent.tick tienen dominio matemático uint64. Se admiten
+> Number entero seguro no negativo o BigInt uint64 no negativo; comparaciones son
+> exactas por valor entero. No hay conversión con pérdida. Para salidas nuevas se
+> usa Number si el valor cabe exactamente en entero seguro, BigInt en otro caso.
+> WorldState.time conserva su representación válida; su igualdad con tick es
+> numérica exacta. sequence y expected_steps conservan Number seguro no negativo.
+> max_ticks_used representa uint64 con la misma regla de salida segura.
+> Solo en INVALID_REPLAY_INPUT cada *_used admite null. expected_steps_used es el
+> expected_steps recibido si es Number seguro≥0; en otro caso null. max_ticks_used
+> es el valor uint64 recibido, normalizado sin pérdida, si es válido; en otro caso
+> null. Ambos campos se evalúan independientemente del primer error.
+> Fuera de INVALID ambos son no nulos y equivalen exactamente a los parámetros
+> válidos. En INVALID, null significa exclusivamente que ese parámetro no pertenece
+> a su dominio; no significa cero ni parámetro omitido válido.
+
+| Parámetro recibido | expected_steps_used propuesto | max_ticks_used propuesto |
+|---|---|---|
+| Number seguro≥0, incluido0 | Mismo Number | Mismo Number |
+| BigInt uint64, incluido0n | null (no pertenece a expected_steps histórico) | Number exacto si ≤MAX_SAFE, BigInt si mayor |
+| Number inseguro, aun aparentemente entero | null | null (no reconstruir precisión perdida) |
+| Negativo, fracción, NaN, Infinity | null | null |
+| String, booleano, null, undefined/ausente, objeto, símbolo | null | null; sin coerción/retener referencias |
+| BigInt fuera de uint64 | null | null |
+
+Si otro campo es inválido y ambos contadores son válidos, ambos conservan sus
+valores; si ambos contadores son inválidos, ambos son null. Esquema de once claves
+ReplayResult intacto; cambian dominios/nulabilidad, por tanto es una ruptura pública
+que requiere aprobación. §25.3.2 compara max_ticks_used solo en estados no INVALID.
+§24/WLS1 ya codifica time uint64: no modificar bytes ni función hash. Replay de
+eventos grabados conserva su representación admitida, sin reenriquecimiento.
+
+**PROPOSED CHANGE — precedencia de §§25.1/25.3/26:**
+Validar en orden WORLD config → Feedback config → initial_state → initial_events
+→ estructura actions → expected_steps → max_ticks → time>max → execution_mode.
+Cada fallo usa el catálogo actual; modo ausente/desconocido emplea invalid action
+structure (ampliar explícitamente su definición, sin crear mensaje nuevo).
+No ejecutar transiciones ante entrada inválida. Calcular *_used independientemente
+con las funciones parciales anteriores. unused_actions=length(actions) si la lista
+es estructuralmente válida, incluso con tipos de acción desconocidos; si no,0.
+UNKNOWN_ACTION sigue siendo clasificación incremental tras entradas válidas.
+
+Validador INVALID: verificar forma, salidas vacías, contador nulo solo si parámetro
+inválido, valores exactos restantes, unused y primer diagnóstico del orden anterior.
+No invocar prueba de continuidad ni comparar final_state con origen en INVALID.
+Para los demás statuses validar contexto completo y aplicar P0-6 normalmente.
+
+Aceptación posterior A/E: matriz de cada clase anterior×error de otro campo;
+ambos inválidos; max_ticks=2^53/UINT64_MAX válidos; Number inseguro rechazado;
+tick MAX_SAFE→MAX_SAFE+1 exacto en WORLD/Recorder/replay, evento en ese tick,
+comparación/hints exactos y prevención de overflowUINT64_MAX. Verificación con
+WLS1 byte a byte, sin truncar uint64 ni ampliar sequence. Casos enormes deben
+usar segmentos/snapshots próximos al límite, nunca iterar2^53 pasos.
+
+#### B — replay desde un estado efectivo positivo
+
+**Alternativas:** (1) corregir §25.1 para exigir time=0: menos código pero pierde
+reanudación histórica; (2) admitir segmentos con origen explícito y eventos locales.
+Recomendada (2). No se pretende reconstruir eventos anteriores a partir de energía,
+lifecycle o RNG. No se trasladan ni reetiquetan eventos históricos automáticamente.
+
+**PROPOSED CHANGE — §25.1/§25.3.3 y precisiones §§18/21/23:**
+
+> Replay acepta WorldState efectivo válido con 0≤initial_state.time≤max_ticks.
+> validate_replay_initial_events(state,events) valida RecordedEvent[] del segmento.
+> Si time=0 conserva exactamente las reglas iniciales vigentes, incluida la muerte
+> inicial y secuencia0; convierte a WorldEvent solo para llamar al validador WORLD
+> existente como hace el adaptador actual. Si time>0 exige events=[] tanto ACTIVE
+> como DEAD: lifecycle ya forma parte del snapshot y no se emite otra muerte por
+> existir un estado DEAD. No se promete incluir el pasado del segmento.
+> §25.3.3 llama a este validador específico antes de ejecutar. §11.7 y el procedimiento
+> initialize_world no se modifican. El nuevo validador de replay falla con invalid
+> initial_events. No usar eventos con tick0 para fingir origen histórico positivo.
+> Recorder dispone de adopción privada de origen de replay sin generación ni
+> lifecycle: valida/copia estado y eventos conforme a esa regla, preservando reloj
+> y rng_state. finalize/verificación admiten ese origen solo en el contexto de
+> segmento de replay. Inicialización experimental normal sigue exigiendo origen0.
+> Secuencias son locales al segmento, globales entre sus ticks, contiguas desde0;
+> no son continuación de un contador de un episodio ausente. En origen0 con una
+> muerte inicial, esa muerte consume sequence0, como ahora.
+
+Primer paso en origen t ACTIVE: tick=t+1, observación en t si modo observado;
+reconstruir PRNG directamente desde rng_state, sin derive_seed, sorteos de mapa,
+sync extra ni avance previo. DEAD inicial o time=max no ejecuta pasos; muerte
+prevalece. expected_steps=0 devuelve OK con mismo estado efectivo incluso DEAD;
+el hint se deriva del estado/límite, no del número solicitado. Si se solicitan
+pasos y el origen es terminal, clasificar EARLY_TERMINATION o MAX_TICKS_REACHED
+antes de inspeccionar acciones. No renumerar ticks para hacerlos empezar en1.
+
+El alcance de igualdad/eventos es el segmento completo, nunca una trayectoria
+histórica previa no suministrada. No añadir campos a Trajectory: initial_state.time
+expresa el origen; documentar en §23 que puede representar un segmento. Comparación
+exhaustiva valida origen/eventos de segmento con las mismas reglas específicas.
+
+Aceptación B: t=1 ACTIVE dos pasos produce ticks2/3; t>0 DEAD sin eventos produce
+cero pasos sin muerte duplicada; eventos históricos no vacíos rechazados; empate
+muerte/límite; expected0; RNG efectivo restaurado distinto de semilla derivada;
+secuencias0..k dentro del segmento; equivalencia snapshot al executed0. Repetir
+casos cerca deMAX_SAFE/UINT64_MAX con A/E. Contrastar rollback F4-C sin perder origen.
+
+#### C/D — contexto explícito y modo físico/observacional
+
+**Alternativas C:** ampliar firma3 con parámetros separados, o unificar con el
+contexto ya obligatorio del validador. Recomendada firma contextual de dos argumentos.
+**Alternativas D:** inferir modo desde WAIT o borrar campos: inválidas por pérdida
+de información; introducir modo explícito es la mínima información ausente.
+
+**PROPOSED CHANGE — firmas públicas de §§25.1/25.3/25.3.1/25.7:**
+
+```text
+replay_trajectory(initial_state, initial_events, actions,
+                  world_config, feedback_config, expected_steps, max_ticks,
+                  execution_mode) -> ReplayResult
+validate_replay_continuity(rr, request_context) -> Valid | Invalid
+validate_ReplayResult(rr, request_context) -> Valid | Invalid
+validate_replay(original, rr, world_config, execution_mode) -> Match | Mismatch
+```
+
+request_context tiene exactamente ocho campos obligatorios:
+{world_config,feedback_config,initial_state,initial_events,actions,expected_steps,
+max_ticks,execution_mode}. Tipos/dominios son los de la solicitud corregida anterior;
+execution_mode∈{"WITH_AGENT","WITHOUT_AGENT"}, sin default ni inferencia desde WAIT,
+metadata o snapshots. execution_mode se añade también al contexto explícito del
+comparador; este construye el request_context desde original y el modo recibido.
+No se modifica ExperimentConfig ni Trajectory para inventar un campo histórico.
+El modo de una trayectoria sin pasos debe proporcionarlo el llamador; no se puede
+recuperar de una lista vacía. La documentación/API debe hacer visible ese requisito.
+
+Valid/Invalid se representa mediante booleanos, conforme a la decisión JS F3H-P02.
+El predicado de continuidad valida contexto, estructura y reproducción; ante entrada
+malformada devuelve false, sin consultar globales/defaults ni arrojar una falsa
+incompatibilidad para un replay válido. Delegar en el helper F3-H con contexto
+explícito, extendiendo su validación de origen/mode; no duplicar el motor físico.
+El predicado completo mantiene sus comprobaciones por status y llama a continuidad
+con ese mismo contexto. INVALID usa la rama A y no exige que todos sus parámetros
+sean válidos para poder validarlo.
+
+WITH_AGENT: no invocar agente; ejecutar las acciones suministradas y construir
+Observation/Feedback previos exactamente como el experimento observado.
+WITHOUT_AGENT: exigir que toda acción estructuralmente válida tenga type=WAIT;
+un tipo distinto invalida la solicitud con invalid action structure. Ejecutar
+WAIT real con ActionResult no nulo; registrar observation=feedback=null en cada
+paso. El modo conocido se comprueba sin inferirlo desde acciones. Para WITH_AGENT
+los tipos desconocidos continúan produciendo UNKNOWN_ACTION incremental.
+La comprobación de restricciones de modo ocurre tras validar el enum de modo,
+sin adelantarse al orden de errores anterior.
+
+Comparación siempre exhaustiva de todos los campos; si se pasa modo erróneo para
+un original no vacío, rechazarlo por inconsistencia de nulabilidad, no proyectarlo.
+Mismas acciones físicas entre modos pueden dar mismo WORLD/hash, pero no MATCH
+entre StepRecords diferentes. Un original vacío no prueba qué modo lo produjo:
+el contexto declarado fija qué ejecución vacía se verifica, sin inventar evidencia.
+
+Aceptación C/D: costesWAIT1/2 sobre mismo snapshot producen resultados distintos;
+contexto ausente/incorrecto false; las16 configuraciones Feedback; WAIT observado
+versus sin agente generan WORLD igual y registros distintos; replay no-agente
+produce MATCH completo con su original; mezcla de nulos rechazada; modo ausente,
+inválido o erróneo detectado, incluido modo desconocido en cero pasos. Conservar
+igualdad estructural de observaciones/eventos, no comparar solo hashes.
+
+### Transversales preservadas y pseudocódigo del paquete
+
+**PROPOSED CHANGE complementaria §25.7 (precisión de alcance, sin nuevos estados):**
+Una trayectoria AGENT_CONTRACT_ERROR permite validar/reproducir su prefijo mediante
+validate_ReplayResult con expected_steps=length(steps). Si el WORLD no es terminal,
+OK no significa terminación: hint=null y derive_termination_reason=INDETERMINATE.
+validate_replay sigue devolviendo MISMATCH para ese original completo, con diagnóstico
+de prefijo válido pero fallo de agente no reproducido. No atribuir a replay el
+fallo de un agente que no se ejecuta ni añadir AGENT_CONTRACT_ERROR a termination_hint.
+La capacidad de certificar esa causa externa queda EXPLICIT LIMITATION, no un
+bloqueo de la prueba del prefijo. Alternativa futura de certificación externa no
+forma parte de D-01.
+
+```text
+validar solicitud en orden A (incluidos modo y restricciones de modo)
+si inválida: INVALID vacío + contadores parciales A + primer error
+validar origen/eventos según B; adoptar estado/RNG efectivo sin inicializar
+si expected_steps == 0: OK con estado idéntico y hint terminal derivado
+por cada paso solicitado:
+    determinar terminación: muerte antes que límite
+    aplicar precedencias actuales de agotamiento y acción desconocida
+    preparar contexto observado o ambos nulos según execution_mode
+    ejecutar kernel y registrar, con checkpoints F4-C/WORLD/RNG
+    ante fallo restaurar prefijo y producir EXECUTION_ERROR como hoy
+exportar prefijo; validar estructura/continuidad con request_context completo
+```
+
+La validación de origen/eventos pertenece a la fase de solicitud en el orden A;
+no repetirla después de invalidar para cambiar el error prioritario. El ciclo
+EXPERIMENT conserva fail-stop y replay su rollback específico. No se propone una
+transacción conjunta nueva. Un hint válido no sustituye la prueba de continuidad;
+null nunca prueba por sí solo ausencia de terminación. Rechazar hints de límite
+cuando lifecycle=DEAD, incluso si se alcanza el límite.
+
+### Impacto técnico y plan posterior verificable
+
+| Orden | Componentes previstos (no editados aquí) | Criterio de salida |
+|---|---|---|
+| 1 | Aprobar D-01 y publicar revisión normativa/errata con textos anteriores en §§18,21–23,25.1–3,25.7; §26 precisa mensaje de modo | Decisión única sobre paquete completo; no atribuir autoridad a este informe |
+| 2 | recorder_tick/validate_RecordedEvent, validadores StepRecord y dominios *_used en replay | A/E: null solo en INVALID y uint64 exacto, bytes sin cambio |
+| 3 | Nuevo validador replay de origen/eventos y adopción privada Recorder; WORLD/init intactos | B: segmentos positivos y cero pasos coherentes, secuencias locales y rollback |
+| 4 | Contexto y firmas públicas C/D, helper F3-H y motor replay | Reproducción física única y proyección correcta por modo, sin defaults |
+| 5 | Comparador validate_replay, consumidores/tests de firmas afectadas, documentación API | MATCH observado/sin agente; prefijo de error externo explícitamente limitado |
+| 6 | Suites nuevas de aceptación A–E y regresión completa F1–F4-C, Chromium/legacy | Evidencia ejecutada de cada decisión; conservar negativos anteriores como caracterizaciones de versión |
+| 7 | Completar corpus/harness canónico y oráculos independientes | Solo entonces evaluar §37, sin reclasificar automáticamente pruebas locales |
+
+Archivos previstos: js/experiment/replay.js, recorder.js, contratos/validadores de
+StepRecord y RecordedEvent actualmente internos a esos módulos, pruebas F3-G/H/C/E
+y F4-C afectadas por firmas; consumidores externos deberán migrar. No es necesario
+editar WORLD, PRNG, WLS1 ni EXPERIMENT. Cambios públicos son incompatibles a propósito:
+firmas7→8,3→2,3→4 indicadas, contexto cerrado ampliado y dominios/null de contadores.
+No se recomienda conservar wrappers con defaults que oculten el contexto ausente.
+
+### Matriz de preconformidad: cobertura disponible y vacíos
+
+Estados de evidencia: **EJECUTADO F4-D** solo F3-G/H; **EJECUTADO PREVIO** es la
+corrida453 PASS de F4-C documentada, no repetida aquí; **PRESENTE NO REEJECUTADO**
+identifica el resto de suites locales en este incremento. Ningún conjunto equivale
+al harness canónico, que no está implementado íntegramente/disponible como tal.
+
+| Contrato / IDs canónicos según §36 | Evidencia local relacionada | Estado y brecha |
+|---|---|---|
+| Núcleo T01–05,13–17,23–27,38–41 | F1-A/B y F2-A–I | Presente, ejecutado previo, no reejecutado F4-D; correspondencia temática, no equivalencia individual sin contratos de cada T |
+| Experimental T06–11,20,28–30,42–43 | F3-A/B/E/F, F4-C | Igual situación; ciclo/terminación/rollback local comprobados previamente |
+| Integración T12,18,19,21,22,31–37,44–45 | F2-G/H/I, F3-F/H, F4-A/C | Pruebas locales y Chromium previos; no sustituyen integración canónica ni independientes |
+| Replay T46–60,81–92,105–202 | F3-G27/F3-H23, F4-C14–16/20 | 50 PASS reejecutados F4-D; A–E bloquean verificación del dominio completo; descripciones individuales históricas incompletas |
+| R-1/D-27–42 T203–204 | Pruebas locales de dominios/contratos F1-B/F3, sin vínculo recuperado por ID | Exigidos; no asignar equivalencia sin definición completa |
+| M/A T205–218; B1–8 T219–240; B9–13/V1–2 T241–255 | Familias F1–F4 relacionadas, sin corpus detallado de esos IDs | Exigidos; harness canónico no implementado como tal; no inventar aserciones |
+| v0.2.4 T256–265 | F3-C–H/F4-C aportan evidencia contractual parcial | Definiciones individuales pendientes; locales no son sustitutos |
+| T266/P0-1 | Xorshift uint32 F1-A | Ejecutado previo; verificar equivalencia formal con T266 antes de certificar |
+| T267/P0-2 | MAX_CELLS/config F1-B/F2-A | Ejecutado previo; T267 canónico pendiente |
+| T268–269/P0-3 | WAIT real/nulls F3-E/F, F2-I | Ejecutado previo; modo replay D pendiente |
+| T270/P0-4 | Fallos de agente F3-F | Ejecutado previo; no implica reproducir causalidad de fallo externo |
+| T271/P0-5 | Continuidad F3H-09–17/23 | Reejecutado; firma pública C y dominio B/D pendientes |
+| T272/P0-6 | F3G-11, F3H-19 | Reejecutado origen0; origen positivo pendiente B |
+| T273/P0-7 | F2-G, F3G-17/18 | Contrato inicial previo; negativo positivo reejecutado; B requiere texto aprobado |
+| T274/P0-8 | F3H-05–08/21 | Reejecutado; hints grandes dependen A/E |
+| T275/P1-1 | F3-C eventos vacíos y F3-G | Ejecutado previo; secuencia inicial0, sin max([]) |
+| T276/P1-2 | derive_seed F1-A | Ejecutado previo; no se cambia por replay |
+| T277/P1-3; T278/P1-4 | Energía F2-D/F3-A; bytes F3-D/D2 | Ejecutado previo; dominio binary64/vectores parciales, no todos los T |
+| T279/P1-5 y T280 auditoría global | Este registro y matriz son preparación | No ejecutados como tests canónicos; no satisfacen §37 |
+| Vectores T32–35,T54,T202 | F1-A/F3-D/D2; V1 recuperado | Evidencia local previa; V2–V10/oráculo independiente pendientes |
+| T61–80 y T93–104 | §36 no los asigna a los grupos de su tabla | 32 IDs sin ubicación en ese inventario: recuperar definiciones, no rellenar por suposición |
+
+Los rangos de replay se expanden como §36:105–116,117–132,133–143,144–153,
+154–167,168–175,176–202. La fila105–202 compacta esa unión sin añadir casos.
+Los rangos canónicos repetidos como vectores son etiquetas superpuestas, no tests
+adicionales. Los T01 etc. del runner legacy v0.1 no acreditan por coincidencia de
+nombre los T canónicos v0.2.5. Las453 PASS son casos locales, no453 conformidades.
+
+Aceptación integral requiere además corpus auténtico individual de T01–T280,
+harness ejecutable, oráculos esperados, vectores pendientes y comparación entre
+implementaciones independientes con misma entrada/bytes/eventos. Base Git previa
+es un oráculo de regresión de la misma familia, no evidencia de interoperabilidad.
+Conformance/Interoperability global permanecen UNTESTED; los conflictos continúan
+CONTRACTUAL CONFLICT/PENDING DECISION hasta aprobación, implementación y pruebas.
+
+Cierre F4-D: paquete D-01 completo, criterios A–E concretos, límites F–I explícitos.
+Pendiente una aprobación única del texto propuesto y una orden posterior para
+implementarlo. No se aplicó ninguna corrección ni nueva API, no se hizo merge,
+no se desplegó y no se inició otro incremento.
