@@ -241,8 +241,13 @@ class Recorder {
         return {observation: copied_observation, has_prior_action: feedback.has_prior_action, last_action_result: prior};
     }
     _prepare_step(confirmed, observation, feedback, action) {
-        // Pure staging wrapper; record_step adds WLS1 hashes before transactional publication.
+        // Standalone staging keeps its full prefix check (F3-C).
         this._validate_prepared(this._prepare_current());
+        return this._prepare_step_input(confirmed, observation, feedback, action);
+    }
+    _prepare_step_input(confirmed, observation, feedback, action) {
+        // record_step validates the entire candidate once before publication.
+        // Public nested history remains mutable: no persistent trust/cache is safe.
         recording_require(this.initial_state !== null && this._initial_lifecycle_recorded && this.initialization_failure === null);
         recording_require(has_exact_fields(confirmed, ["tick", "world_state", "action_result", "action_events", "lifecycle_events", "termination"]));
         const previous = this.steps.length === 0 ? this.initial_state : this.steps[this.steps.length - 1].world_state;
@@ -358,7 +363,7 @@ class Recorder {
     }
     record_step(confirmed, observation, feedback, action) {
         this._record(() => {
-            const input = this._prepare_step(confirmed, observation, feedback, action);
+            const input = this._prepare_step_input(confirmed, observation, feedback, action);
             const step = {tick: input.tick, world_state: input.snapshot, observation: input.context.observation,
                 feedback: input.context.feedback, action: input.context.action, action_result: input.context.action_result,
                 action_events: input.action_events, lifecycle_events: input.lifecycle_events,
