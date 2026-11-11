@@ -4,7 +4,14 @@ Documento **informativo y operacional**. Consolidación DOC-02: **2026-11-10
 (America/Guayaquil)**. Rama documental `dev/doc-02-knowledge-consolidation`, creada
 sobre `origin/main`; aquel cambio no incorporaba código ni pruebas de F3-C.
 
-**Actualización vigente F4-E (2026-11-11 UTC): autoridad v0.2.6 D-01 aprobada e
+**Actualización vigente F4-F (2026-11-11 UTC): auditoría COMPLETED;
+aceptación canónica HOLD por F4F-001 (P1).** Base main posterior al PR #28
+`20a89415e568b50926ff94bb39b7b1c8962f47b3`, rama
+`dev/f4-f-contractual-audit`. Solo pruebas nuevas e informe: ninguna corrección
+productiva ni cambio normativo. La conclusión local F4-E queda limitada por el
+contraejemplo de continuidad pública. [Inventario, hallazgo y evidencia F4-F](#f4-f).
+
+**Corte previo F4-E (2026-11-11 UTC): autoridad v0.2.6 D-01 aprobada e
 implementada; COMPLETED en aceptación local.** Base PR #27
 `3f70a9842a967b7fed157cd7db94e6313f590b6d`, rama
 `dev/f4-e-contractual-amendment`. La enmienda normativa se publicó primero,
@@ -117,7 +124,9 @@ replay completo. El alcance B no está completo en ninguna de las dos referencia
 
 | Necesidad | Fuente única para el detalle |
 |---|---|
-| Revisión contractual F4-D vigente | [Propuesta única pendiente y matriz de preconformidad](#f4-d) |
+| Auditoría contractual vigente F4-F | [HOLD, contraejemplo y preparación canónica](#f4-f) |
+| Enmienda e implementación F4-E | [Genealogía y evidencia previa](#f4-e) |
+| Revisión contractual previa F4-D | [Propuesta única pendiente y matriz de preconformidad](#f4-d) |
 | Historial propio y registro incremental F4-C | [Política, equivalencia, atomicidad y complejidad](#f4-c) |
 | Rendimiento RECORDER F4-B previo | [Optimización parcial, equivalencia y bloqueo](#f4-b) |
 | Integración web F4-A | [Carga real, resultados, renderer y Chromium](#f4-a) |
@@ -4225,3 +4234,195 @@ F4-D prepara esos trabajos; no se inicia su harness ni se declaran hitos B/C.
 
 F4-E COMPLETED en el alcance autorizado. Listo para revisión, sin merge ni
 publicación de despliegue y sin iniciar otro incremento.
+
+
+<a id="f4-f"></a>
+## F4-F — auditoría adversarial contractual v0.2.6
+
+### Dictamen, alcance y autoridad
+
+**Auditoría COMPLETED; aceptación integral HOLD.** Hallazgo reproducible
+F4F-001, P1 de implementación, pendiente de una orden de corrección productiva.
+No se modifica el motor, la norma ni las expectativas de pruebas anteriores.
+No se certifica conformidad global ni preparación incondicional para T01–T280.
+Base auditada: main PR #28, `20a89415e568b50926ff94bb39b7b1c8962f47b3`.
+Entregables: esta sección y `tests/f4-f.test.cjs`, en
+`dev/f4-f-contractual-audit`. No se inicia otro incremento.
+
+Autoridad aplicada: [v0.2.6 D-01](WORLD-LAB_v0.2.6_contractual_amendment_D-01.md)
+en sus sustituciones expresas; [v0.2.5](WORLD-LAB_v0.2.5_canonical_transcripcion.md)
+para lo heredado, incluidos pseudocódigo/invariantes; cláusulas históricas
+recuperadas solo donde están disponibles. Código, pruebas e informes son evidencia,
+no fuente para redefinir contratos. No se dispone de copias íntegras verificables
+de todas las versiones históricas: no se afirma haberlas leído completas.
+
+La enmienda identifica §§25.1/25.2/25.3/25.3.1/25.7, §23 y los campos temporales
+sustituidos; conserva A–E y las exclusiones de sequence/expected_steps. Se verificó
+que v0.2.5 permanece byte a byte igual a la base anterior a F4-E y que las dos
+fuentes normativas permanecen intactas en F4-F. La precedencia de solicitud inválida
+se aplica antes del despacho de acciones/terminales: la expresión de B «antes de
+inspeccionar acciones» se lee con la precedencia global explícita de la enmienda,
+no como autorización para ignorar errores estructurales. No se demuestra una
+contradicción textual adicional. El estado FROZEN/normativo no equivale a VERIFIED.
+Los enlaces relativos, anclas y referencias Git de los documentos se verificaron;
+no se certifica disponibilidad del contenido externo ausente.
+
+### Inventario contractual y de interfaces
+
+La inspección incluyó componentes que no cambiaron en F4-E. La evidencia siguiente
+es local y acotada; «sin defecto nuevo reproducido» no prueba corrección universal.
+
+| Contrato / interfaz | Inspección y riesgo examinado | Evidencia ejecutada / resultado |
+|---|---|---|
+| D-01 A, INVALID_REPLAY_INPUT; §§25.1–25.3 | `replay.js`: validación de solicitud, contadores independientes, esquema cerrado, precedencia, acciones dispersas | F4F-05/06: 144 combinaciones de dos contadores inválidos, errores simultáneos escalonados, límites válidos y cero llamadas al kernel; rama inválida validable con contexto inválido |
+| D-01 B, origen positivo y §23 | Reconstrucción WORLD/PRNG y adopción privada de RECORDER; no generación ni lifecycle inicial adicional | F4F-01/02/03/07/08/12: ACTIVE/DEAD, cero pasos, empate muerte/límite, prefijos, UNKNOWN_ACTION, EXECUTION_ERROR y rollback tras append confirmado |
+| D-01 C, continuidad pública | `replay.js:276–280`, `replay_context_values`, helper físico compartido | **F4F-001 P1:** el wrapper verifica claves pero omite dominios de metadatos; F4F-10 demuestra siete variantes y F4F-11 queda rojo |
+| D-01 C/D, firmas y contexto | replay8, continuidad2, validador completo2, comparación4; ocho campos sin defaults | F4E-12 y F4F-09; modo omitido/extra/inválido rechazado. Declaraciones válidas distintas son posibles para cero pasos: el registro vacío no prueba el modo histórico |
+| D-01 D, Observation/Feedback | `observation.js`, `feedback.js`, estructuras y copiadores; WAIT observado frente a WAIT sin agente | F4F-01 verifica Observation/Feedback completos contra expectativas manuales; F4E-11 ejecuta 16 combinaciones de flags y ambos modos sin proyectar campos al comparar |
+| D-01 E, uint64 y representación | `core/contracts.js`, `structures.js`, `world_state.js`: is_uint64/represent_uint64, copias y comparaciones exactas; índices/sequence siguen Number seguro | F4F-01/04/08 y F4E-02/03/07/09/16: Number seguro, BigInt pequeño/grande, rechazos, fronteras e incremento sin overflow |
+| WORLD, §§6–15/31 | Acciones, lifecycle y dinámica mantienen energía binary64, tiempo y RNG bajo sus responsabilidades | Suites F2-A–I/F3-A, F4F-01/03/08/12: energía/efectos y eventos predichos, muerte antes de límite, sin consumo aleatorio adicional |
+| Tick transaction, §26.5 | `tick_transaction.js`: incremento exacto, snapshot, sync y restauración | F3-A (40), F4E-13, F4F-08; rechazo en UINT64_MAX preserva estado y RNG; Confirmed.tick canónico aunque WorldState.time conserve BigInt pequeño |
+| EXPERIMENT / ExperimentConfig | `experiment.js`, `experiment_config.js`: límites, precedencia, modo observado y sin agente, frontera con RECORDER | F3-B/F3-F y F4E-11/14; integración EXPERIMENT→RECORDER→REPLAY→validación/MATCH en ambos modos. No se presupone que archivo sin cambios implique compatibilidad |
+| RECORDER / Trajectory, §§21–23 | `recorder.js`, `trajectory.js`: ticks, eventos, segmentos, secuencias seguras, checkpoint y propiedad de historial | F3-C/E, F4-C, F4E-09/13, F4F-03/07: secuencias locales 0..k, ticks absolutos, copias sin alias, rollback después de append |
+| WLS1 / FNV, §§24/34 | `hash_state.js`, `hash.js`: uint64 BE sin truncamiento, UTF-8, orden de celdas/entidades, binary64 y -0 | F3-D/D2, F4E-14 (referencia Git histórica), F4F-01/03/04: bytes y hash independientes, incluidos ID multibyte y valores subnormales |
+| Web / renderer | `main.js`, `renderer.js`: reloj representado como texto, consumidores de resultados/snapshots | F4-A con Chromium real: 16 PASS, agentes y modos, errores, renderizado y pureza; límite grande cubierto en núcleo, no se afirma simular astronómicos ticks en navegador |
+| Validadores/copiadores transversales | Esquemas cerrados, representaciones exactas, ausencia de coerciones; mutaciones con hash correcto aún deben fallar | F1-B, F2-I, F3-G/H, F4E y F4F-09/10; validador completo protege metadatos malformados, continuidad pública no |
+
+### Matriz de hallazgos
+
+| Campo | F4F-001 |
+|---|---|
+| Severidad | **P1 mayor**, error de implementación reproducido; no contradicción normativa |
+| Cláusula | v0.2.6 D-01 C/D, párrafo «El predicado de continuidad valida contexto, estructura y reproducción; ante entrada malformada devuelve false»; esquema ReplayResult §25.2/25.3 heredado |
+| Componente/localización | `js/experiment/replay.js`, `validate_replay_continuity`, líneas 276–280; guardia de estructura en 278 |
+| Evidencia | Replay de un WAIT real, origen manual time=7, configuración explícita y resultado inicialmente válido. Cambiar solo status a BOGUS deja claves exactas, records/eventos y física intactos; continuidad devuelve true. También ocurre con max_ticks_used=null, expected_steps_used="1", unused_actions=-1, termination_hint="BOGUS", unknown_action_index="bad" o error_message={} |
+| Esperado | Invalid/false ante cada entrada malformada; no certificar como válido un ReplayResult fuera de dominio |
+| Observado | true en las siete variantes; cada llamada alcanza exactamente una transición de prueba física. El validador completo devuelve false en todas ellas |
+| Impacto | Garantía pública de validación incumplida; un consumidor que use solo continuidad puede aceptar metadatos inválidos. No se demuestra aceptación por validate_ReplayResult ni alteración de la física/WORLD |
+| Corrección mínima propuesta | Antes de la prueba física, validar dominios/esquema del resultado con un helper estructural compartido con el validador completo, sin recursión entre ambos y sin duplicar el motor. Preservar reglas legales por status y termination_hint=null; no reutilizar ciegamente una guardia más restrictiva que P0-8 |
+| Prueba para cierre | F4F-11 debe pasar, las siete variantes de F4F-10 deben rechazar y conservarse replays válidos, hints nulos legales, errores válidos y un único recorrido físico. Adaptar entonces la caracterización del defecto mediante orden posterior; no hacerlo en esta auditoría |
+
+Reproducción: `node tests/f4-f.test.cjs`. F4F-10 es una caracterización que pasa
+porque demuestra el defecto; **no es evidencia de conformidad**. F4F-11 expresa la
+expectativa normativa y falla (`true !== false`). No se oculta con skip/TODO ni
+se modifica producción para ponerla verde. No se detectó otro P0/P1 reproducible
+en el alcance ejecutado. Hipótesis no reproducidas no se cuentan como hallazgos.
+
+### Oráculos adversariales, fronteras y aislamiento
+
+Los fixtures nuevos no se generan mediante initialize_world ni replay. Se suministra
+un mapa manual 2×1, entidad con ID UTF-8 `é😀`, RNG efectivo 0x12345678,
+configuración física/feedback completa, acciones explícitas y energía conocida.
+Los constructores/validadores actuales se usan para la representación, no para
+calcular los resultados esperados. Un oráculo externo al motor usa Buffer para
+WLS1, uint64 BE y binary64, y BigInt para FNV-1a módulo 2^32; no llama al serializador
+ni al hash productivo para producir la expectativa. Estados WAIT, costes,
+consumo de recurso/peligro, eventos y terminales se predicen directamente.
+Esto es independencia del oráculo frente al motor, no una segunda implementación
+completa de WORLD-LAB ni una certificación institucional externa.
+
+F4F-01 ejecuta dos pasos en cada modo desde 0, 7n, MAX_SAFE−1, MAX_SAFE,
+MAX_SAFE+1 y UINT64_MAX−2. Se comparan estados/mapas, tipos de tick, energía,
+Observation/Feedback y bytes/hash. F4F-08 llega a UINT64_MAX desde MAX−1 y
+comprueba rechazo sin mutación posterior. F4F-04 cruza tiempos 0/1/123456789/
+MAX_SAFE/MAX con energía -0, mínimo subnormal y π: 15 combinaciones, dos formatos
+hash/bytes cada una. No hay conversión BigInt→Number insegura en esos resultados.
+No se infiere compatibilidad para todo uint64 de estos pocos ejemplos.
+
+F4F-03 predice recurso disponible→agotado o peligro estático y secuencias
+operacionales 0/1/2 en ticks absolutos 8/9; modifica después un snapshot para
+comprobar aislamiento. F4F-07 inyecta un fallo después del segundo commit real de
+RECORDER y comprueba restauración al primer paso confirmado. F4F-08 prohíbe
+inicialización/generación y draws RNG; se observa una resolución lifecycle y un
+sync por paso, con RNG restaurado efectivo. F4F-09 perturba energía y recalcula
+hash con el oráculo independiente: la continuidad física completa sigue rechazando.
+La instrumentación cuenta llamadas reales para demostrar que las condiciones
+previstas se alcanzan; no sustituye las transiciones por resultados fabricados.
+
+### Ejecución y regresiones por archivo
+
+Entorno: 2026-11-11 UTC, `/workspace/yellow`, Node v24.22.1,
+Chromium 155.0.8059.79 y Playwright instalado. No se instalaron dependencias.
+Comandos ejecutados (la suite de auditoría tiene exit1 por el hallazgo abierto):
+
+```bash
+node tests/f4-f.test.cjs
+# Cada uno de los 24 archivos de la tabla se ejecutó como node tests/<archivo>.
+PLAYWRIGHT_MODULE=/opt/codex/runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/index.js \
+node tests/f4-a.test.cjs --browser
+node tests/f1-a-legacy.cjs
+git diff --check
+```
+
+| Suite F1–F4-E | PASS | FAIL |
+|---|---:|---:|
+| f1-a | 18 | 0 |
+| f1-b | 12 | 0 |
+| f2-a | 14 | 0 |
+| f2-b | 13 | 0 |
+| f2-c | 21 | 0 |
+| f2-d | 28 | 0 |
+| f2-e | 16 | 0 |
+| f2-f | 18 | 0 |
+| f2-g | 21 | 0 |
+| f2-h | 15 | 0 |
+| f2-i | 18 | 0 |
+| f3-a | 40 | 0 |
+| f3-b | 18 | 0 |
+| f3-c | 24 | 0 |
+| f3-d | 12 | 0 |
+| f3-d2 | 15 | 0 |
+| f3-e | 24 | 0 |
+| f3-f | 23 | 0 |
+| f3-g | 27 | 0 |
+| f3-h | 23 | 0 |
+| f4-a | 15 | 0 |
+| f4-b | 18 | 0 |
+| f4-c | 20 | 0 |
+| f4-e | 17 | 0 |
+| **Total regresión previa** | **470** | **0** |
+| **Nueva auditoría f4-f** | **11** | **1** |
+
+La regresión previa incluye **464 casos sobre código actual y seis
+caracterizaciones históricas fijadas a v0.2.5** (F3G-16/17, F3H-06/15/16/23).
+Con auditoría: 475 PASS actuales + seis PASS históricos + un FAIL actual abierto;
+482 casos en total. Los casos locales tienen matrices internas y no se renombran
+T01–T280. La suite adversarial termina exit1, sin omitidos/TODO. Las 24 suites
+anteriores terminan exit0; no hay regresión nueva por archivo anterior.
+
+Chromium: **16 PASS/0 FAIL** (15 repiten F4-A Node y uno adicional real de navegador).
+Integración EXPERIMENT→RECORDER→REPLAY→validación/MATCH ejecutada en F4E-11/14,
+además de las suites F3-F/G/H; comparación WLS1 con referencia Git en F4E-14 y
+F3-D/D2, oráculo nuevo en F4F-01/03/04. Subprocesos Git históricos y navegador
+localhost requirieron ejecución fuera del sandbox; no se reemplazaron las referencias
+por el código actual para eludir una restricción del entorno.
+
+Legacy: **13 PASS/9 FAIL**, exit1, sin alterar aserciones. T06/07/08/20/22 consumen
+Trajectory directa donde ahora existe ExperimentResult; T12/13/14 dependen de
+makeResource/EffectKind/makeHazard retirados; T16 intenta topología TOROIDAL y
+falla validación del estado inicial. No se atribuyen estos fallos a F4-F ni se
+confunden con T01–T280 canónicos. `git diff --check` y comprobación de referencias
+internas completados; solo se entregan los dos archivos autorizados.
+
+### Límites epistemológicos y preparación canónica
+
+- Reproducir un segmento demuestra continuidad desde el checkpoint suministrado;
+  no demuestra procedencia legítima de una trayectoria anterior no aportada.
+- Un prefijo reproducible no prueba causalidad externa de AGENT_CONTRACT_ERROR
+  ni de un fallo de ejecución; no se invoca el agente para fabricar esa evidencia.
+  La limitación no constituye por sí misma un error del motor.
+- Un registro vacío no identifica el modo histórico. Ambos modos declarados
+  válidos pueden aceptarse con cero pasos; un enum inválido u omisión se rechazan.
+- Las pruebas Git son regresión de una familia de implementación, no
+  interoperabilidad con una implementación independiente. Se conservaron las
+  fronteras de atomicidad de EXPERIMENT y las limitaciones documentales históricas.
+
+**Preparación para T01–T280: HOLD.** Primero se requiere corregir F4F-001 en una
+orden delimitada y superar su regresión y las anteriores. Además continúa pendiente
+el harness canónico individual, las fuentes de los identificadores ausentes
+T61–80/T93–104 (32 IDs), vectores V2–V10 y contraste independiente. La matriz de
+preconformidad F4-D sigue siendo un plan, no evidencia ejecutada de esos tests.
+Ningún resultado local ni ausencia de otros hallazgos autoriza conformidad global.
+
+F4-F termina como auditoría, sin merge, despliegue, cambios productivos ni inicio
+de otro incremento. La propuesta de corrección es informativa y no se ejecutó.
