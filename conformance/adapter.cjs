@@ -10,12 +10,13 @@ function createAdapter({root}) {
  const ctx=vm.createContext({});
  for(const f of FILES)vm.runInContext(fs.readFileSync(path.join(root,'js',f+'.js'),'utf8'),ctx,{filename:f});
  vm.runInContext('Math.random=()=>{throw Error("forbidden random source");};',ctx);
- const a=vm.runInContext('({Map,PRNG,derive_seed,fnv1a_bytes,World,WorldState,WorldConfig,FeedbackConfig,ExperimentConfig,Recorder,canonical_full_state_bytes,STATE_HASH_WORLD,STATE_HASH_FULL,canonicalize_binary64,determine_termination,execute_tick_transaction,replay_trajectory,validate_ReplayResult,validate_replay_continuity,validate_termination_hint})',ctx);
+ const a=vm.runInContext('({Map,PRNG,derive_seed,fnv1a_bytes,World,WorldState,WorldConfig,FeedbackConfig,ExperimentConfig,Recorder,canonical_full_state_bytes,STATE_HASH_WORLD,STATE_HASH_FULL,canonicalize_binary64,determine_termination,execute_tick,execute_tick_transaction,build_observation,build_feedback,run_experiment,run_without_agent,replay_trajectory,validate_ReplayResult,validate_replay_continuity,validate_termination_hint})',ctx);
  const state=s=>new a.WorldState(s.time,s.grid,new a.Map(s.entities),s.rng_state,s.config);
  const restore=s=>{const w=new a.World(new a.WorldConfig(s.config));w.state=state(s);w.experimental_entity_id=s.entities.keys().next().value;w.rng=new a.PRNG(s.rng_state);return w;};
  // Recreate cross-realm Maps; preserve every key, field and numeric representation.
  function realm(x){if(x instanceof Map)return new a.Map([...x].map(([k,v])=>[realm(k),realm(v)]));if(Array.isArray(x))return x.map(realm);if(x&&typeof x==='object')return Object.fromEntries(Object.entries(x).map(([k,v])=>[k,realm(v)]));return x;}
  return {execute(operation,input){
+  if(operation.startsWith('f5b:'))return require('./adapter-f5-b.cjs').execute({a,ctx,state,restore,realm,root},operation.slice(4),input);
   if(operation==='prng'){const r=new a.PRNG(input.seed);return {values:Array.from({length:input.draws},()=>r.next()),state:r.get_state()};}
   if(operation==='derive_seed')return a.derive_seed(input.seed,input.namespace);
   if(operation==='fnv')return a.fnv1a_bytes([...input.bytes]);

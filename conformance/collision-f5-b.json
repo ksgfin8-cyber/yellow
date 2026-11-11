@@ -1,0 +1,17 @@
+{
+  "kind": "NEW DERIVED FIXTURE, NOT V2–V10",
+  "a": {
+    "index": 1491,
+    "bits": "3ffe32623bf6c801",
+    "energy": 1.8873007147162755
+  },
+  "b": {
+    "index": 73773,
+    "bits": "3ff8a9b776c4ec86",
+    "energy": 1.5414347304747777
+  },
+  "time": "8",
+  "world": 1873394908,
+  "full": 1720692783,
+  "method": "Offline bounded 200000-sample deterministic SHA256 mantissa search, exponent 1023, independent Buffer/BigInt FNV. Frozen indices reproduced directly; no product loaded."
+}
