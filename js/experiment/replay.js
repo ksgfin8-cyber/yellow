@@ -11,6 +11,10 @@ function replay_world_from_state(initial_state, world_config) {
     return world;
 }
 function replay_confirmed_tick(world, recorder, action, feedback_config, max_ticks) {
+    return replay_tick_transaction(world, recorder, action, feedback_config, max_ticks, true);
+}
+// Internal bounded transition. Prefix export is requested explicitly, not on every engine tick.
+function replay_tick_transaction(world, recorder, action, feedback_config, max_ticks, export_prefix) {
     // Separate snapshots: the internal stream can differ from persisted rng_state
     // before the kernel's synchronization point. Preserve both exactly.
     let state_before, rng, rng_before, restore_rng, recorder_before;
@@ -19,34 +23,31 @@ function replay_confirmed_tick(world, recorder, action, feedback_config, max_tic
         rng = world.rng;
         rng_before = rng.get_state();
         restore_rng = PRNG.prototype.set_state.bind(rng);
-        recorder_before = Object.fromEntries(RECORD_TRANSACTION_FIELDS.map(key => [key, recorder[key]]));
+        recorder_before = recorder._checkpoint();
     } catch (error) { throw new ContractError("world transition failed"); }
     let phase = "world";
     try {
-        const previous = recorder.steps.length === 0 ? null : recorder.steps[recorder.steps.length - 1].action_result;
+        const previous = recorder._prior_action_result();
         const observation = build_observation(world, world.get_experimental_entity(), world.config.observation_radius);
         const feedback = build_feedback(observation, previous, feedback_config);
         const confirmed = execute_tick_transaction(world, action, max_ticks);
         phase = "recorder";
         recorder.record_step(confirmed, observation, feedback, action);
-        return {confirmed, prefix: replay_prefix_snapshot(world, recorder)};
+        return {confirmed, prefix: export_prefix ? replay_prefix_snapshot(world, recorder) : null};
     } catch (error) {
         world.state = state_before;
         world.rng = rng;
         restore_rng(rng_before);
-        for (const key of RECORD_TRANSACTION_FIELDS) recorder[key] = recorder_before[key];
+        recorder._restore_checkpoint(recorder_before);
         throw new ContractError(phase === "recorder" ? "recording failed" : "world transition failed");
     }
 }
 function replay_prefix_snapshot(world, recorder) {
     // Reuse Recorder's existing validation/copier without pretending that an
     // unfinished replay is a finalized Trajectory or an agent-contract failure.
-    return {
-        records: recorder.steps.map(step => recorder._copy_step(step)),
-        events: recorder.events.map(recorder_copy_event),
-        final_state: world.full_snapshot(),
-        executed: recorder.steps.length
-    };
+    const prefix = recorder._export_prefix();
+    prefix.final_state = world.full_snapshot();
+    return prefix;
 }
 const REPLAY_RESULT_FIELDS = Object.freeze(["status", "records", "events", "final_state", "executed",
     "unused_actions", "max_ticks_used", "expected_steps_used", "unknown_action_index", "error_message", "termination_hint"]);
@@ -177,9 +178,10 @@ function replay_trajectory(initial_state, initial_events, actions, world_config,
         if (termination !== null) { status = termination === "ENTITY_DIED" ? "EARLY_TERMINATION" : "MAX_TICKS_REACHED"; break; }
         if (i >= context.actions.length) { status = "INCOMPLETE_ACTION_SEQUENCE"; break; }
         if (!Object.hasOwn(ActionType, context.actions[i].type)) { status = "UNKNOWN_ACTION"; unknown_action_index = i; break; }
-        try { consistent = replay_confirmed_tick(world, recorder, context.actions[i], context.feedback_config, context.max_ticks).prefix; }
+        try { replay_tick_transaction(world, recorder, context.actions[i], context.feedback_config, context.max_ticks, false); }
         catch (error) { status = "EXECUTION_ERROR"; error_message = error.message; break; }
     }
+    if (recorder._history_length() > 0) consistent = recorder._export_prefix();
     const result = replay_result(status, consistent, context, error_message, unknown_action_index);
     if (!validate_ReplayResult_structure(result, context)) throw new ContractError("world transition failed");
     return result;

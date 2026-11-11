@@ -4,7 +4,16 @@ Documento **informativo y operacional**. Consolidación DOC-02: **2026-11-10
 (America/Guayaquil)**. Rama documental `dev/doc-02-knowledge-consolidation`, creada
 sobre `origin/main`; aquel cambio no incorporaba código ni pruebas de F3-C.
 
-**Actualización vigente F4-B (2026-11-10): optimización equivalente parcial;
+**Actualización vigente F4-C (2026-11-11 UTC): COMPLETED en el cambio de
+propiedad y registro incremental autorizado.** Base main PR #25
+`635b4a493aabcf35c85ea3c5a47aca174a29c671`, rama `dev/f4-c-recorder-linear`,
+pendiente de revisión/merge. F4C-P01 sustituye F3E-P01 y cierra F4B-P02:
+historial privado, snapshots independientes, append con rollback y validación
+incremental. 453 pruebas Node y un caso adicional de Chromium aprobados;
+trabajo de registro O(n) para WORLD/eventos acotados, acreditado por contadores.
+No constituye conformidad global. [Propiedad, compatibilidad y evidencia F4-C](#f4-c).
+
+**Corte previo F4-B (2026-11-10): optimización equivalente parcial;
 cierre PARTIAL.** Base main PR #24 `a096d5b3ac0ac4763a6dee03e2018f56b459bd9a`,
 rama `dev/f4-b-recorder-performance`, pendiente de revisión/merge. Se elimina una
 validación/copia redundante por record_step; se preservan detección de corrupción,
@@ -94,7 +103,8 @@ replay completo. El alcance B no está completo en ninguna de las dos referencia
 
 | Necesidad | Fuente única para el detalle |
 |---|---|
-| Rendimiento RECORDER F4-B vigente | [Optimización parcial, equivalencia y bloqueo](#f4-b) |
+| Historial propio y registro incremental F4-C vigente | [Política, equivalencia, atomicidad y complejidad](#f4-c) |
+| Rendimiento RECORDER F4-B previo | [Optimización parcial, equivalencia y bloqueo](#f4-b) |
 | Integración web F4-A | [Carga real, resultados, renderer y Chromium](#f4-a) |
 | Estado validación F3-H | [Contraste exhaustivo, rendimiento y fronteras](#f3-h) |
 | Cierre previo replay F3-G | [Motor parcial, ramas bloqueadas y pruebas](#f3-g) |
@@ -3350,3 +3360,351 @@ Solo cambian [recorder.js](../js/experiment/recorder.js),
 [tests/f4-b.test.cjs](../tests/f4-b.test.cjs) y este documento. Listo para revisar la
 optimización equivalente y decidir F4B-P02 por separado. No se presenta como F4-B
 COMPLETED. Sin merge, despliegue ni avance al siguiente incremento.
+
+
+<a id="f4-c"></a>
+## F4-C — propiedad exclusiva y publicación incremental de RECORDER
+
+**COMPLETED en el alcance de ingeniería autorizado, VERIFIED 2026-11-11 UTC.**
+Base main posterior al PR #25, `635b4a493aabcf35c85ea3c5a47aca174a29c671`,
+rama `dev/f4-c-recorder-linear`. No se fusiona ni despliega. No se amplía aceptación
+integral ni se resuelven las cuatro fronteras contractuales F3-G/H.
+
+### F4C-P01: autoridad y sustitución deliberada de F3E-P01
+
+**NORMATIVE/HISTORICAL:** se conservan los contratos ya documentados de
+§§18,21–24,31–34: métodos públicos de registro, StepRecord/Trajectory cerrados,
+eventos y orden, WLS1/FNV, representación numérica, nulabilidad y terminación.
+No se atribuye a las fuentes históricas el mecanismo nuevo de almacenamiento.
+La norma y los módulos WORLD/PRNG/semillas/WLS1/EXPERIMENT/agentes/web permanecen
+intactos. No se altera la semántica de replay ni los validadores F3-H.
+
+**ENGINEERING DECISION autorizada F4C-P01:** sustituye expresamente F3E-P01.
+RECORDER posee el historial en un WeakMap cerrado dentro de la misma clausura que
+RecordTransaction. Ese mapa y los buffers no se exportan. Las siete propiedades
+públicas siguen siendo legibles y enumerables, pero son accesores no configurables:
+steps/events/initial_state/initialization_failure entregan copias independientes;
+contador, flag y causa entregan escalares. Reemplazarlas lanza el error existente
+ContractError("recording failed"). Las escrituras en un snapshot, incluso mediante
+Map.set/delete/clear, no afectan al almacenamiento. No se usa Object.freeze(Map)
+como protección ni un sistema de observación de mutaciones.
+
+Las entradas se copian/validan y se adopta otra copia privada antes de publicar.
+Los valores entregados a hooks de validación/publicación también quedan separados
+de la copia adoptada. Un hook que retiene prepared o su paso no obtiene el objeto
+almacenado. El anterior estado/resultados usados por validadores son copias acotadas.
+El acceso por consulta no entrega aliases mutables del prefijo real.
+
+| Garantía / comportamiento | F4-B | F4-C autorizado |
+|---|---|---|
+| Escritura de recorder.steps/events y escalares | Propiedades escribibles | Sustitución explícitamente rechazada |
+| Mutación de un objeto obtenido de steps | Puede cambiar historial; siguiente registro detecta corrupción cubierta por el validador | Modifica solo un snapshot; el historial no cambia |
+| Identidad en lecturas repetidas | Referencias públicas estables hasta reemplazo de arrays; pasos antiguos compartidos | Snapshots nuevos e independientes |
+| Integridad en ingreso | Nuevo dato y prefijo completo | Nuevo dato, contexto anterior y continuidad; ambos protegidos por propiedad |
+| Integridad almacenada | Revalidación de objetos externamente mutables | Propiedad exclusiva sin referencias de escritura entregadas |
+| Corrupción interna inducida | Detección al registrar/finalizar | Detección exhaustiva en finalize o verificación explícita |
+| Resultado de finalize | Copia independiente y validada | Copia independiente y validada, mismo esquema/valores |
+
+### Puerta de compatibilidad realizada antes de implementar
+
+Se buscaron todos los accesos de producción y pruebas a las siete propiedades,
+RecordTransaction, _prepare_current y _validate_prepared. No hay consumidores de
+escritura adicionales en agentes, renderer, interfaz o EXPERIMENT.
+
+| Consumidor | Acceso anterior y clasificación | Tratamiento |
+|---|---|---|
+| EXPERIMENT F3-F | Solo métodos de registro, causa y finalize; lectura legítima | Sin cambio de archivo ni contrato |
+| Replay F3-G, tick | Lee steps.length/último ActionResult y guarda/restaura siete campos; dependencia de identidad/escritura | Último resultado copiado en O(1) para eventos acotados; checkpoint opaco y restore privados |
+| Replay, prefijo | Copia todos los registros/eventos después de cada tick; consulta obligatoria superlineal | Motor coordina ticks sin exportar arrays; exporta el prefijo al construir el resultado |
+| replay_confirmed_tick/prefix_snapshot | Helpers de ingeniería consultados explícitamente por tests | Se conserva su firma y salida con copia independiente bajo petición |
+| Validadores F3-H | Métodos puros sobre estructuras recibidas | Sin cambios; reproducción contextual y comparación exhaustiva continúan funcionando |
+| main/renderer | Consumen ExperimentResult/Trajectory, no buffers Recorder | Sin cambios; Chromium reejecutado |
+| Tests F3-C/F/G/H y demás regresiones | Lecturas/snapshots/fallos | Sin modificaciones |
+| Tests F3-E/F4-B ligados a F3E-P01 | Identidad de referencias, mutación externa y doble validación/copia | Actualización controlada detallada debajo; pruebas históricas preservadas en Git/base |
+
+No fue necesario modificar firmas normativas ni eliminar una garantía explícita
+recuperada de §21. Los cambios de mutabilidad e identidad tienen autorización
+expresa en esta orden, y no se presentan como equivalencia de esa política antigua.
+
+### Registro y protocolo privado
+
+Por tick se prepara únicamente el paso nuevo, sus eventos/contextos/copias y
+hashes. Se valida el estado anterior, el nuevo ConfirmedTickResult, continuidad,
+identidad, ActionResult, observación/feedback y secuencias. _validate_step se aplica
+solo al paso nuevo. No se reserializa un paso antiguo durante record_step.
+
+RecordTransaction conserva constructor(recorder), commit(prepare,validate) y el
+hook _publish(key,value); commit completo se usa para inicialización sin pasos.
+Añade _append para el delta interno cerrado {step,events,sequence_counter,
+termination_reason}, donde step=null corresponde al cambio de causa sin nuevo
+registro. El delta no es StepRecord/Trajectory ni una API normativa nueva.
+La adopción privada copia solo ese delta; steps/events se anexan a buffers propios.
+No se copian arrays crecientes al confirmar cada tick.
+
+El checkpoint guarda referencias privadas a buffers, longitudes, escalares y la
+identidad del último elemento del prefijo. Rollback restaura ranuras/longitudes;
+no toca pasos anteriores. También revierte el último escalar si falla la séptima
+publicación. Las secuencias no se consumen y el mismo confirmed puede reintentarse.
+No revierte WORLD desde RECORDER.
+
+Interfaces privadas acotadas de integración:
+
+- _checkpoint() devuelve un token vacío congelado, cuya información queda en otro
+  WeakMap privado, ligada al Recorder que lo creó. No entrega arrays ni snapshots.
+- _restore_checkpoint(token) rechaza tokens falsos/ajenos, restauraciones durante
+  una transacción y prefijos descartados. Si el buffer vuelve a crecer después de
+  rollback, la identidad de su extremo impide revivir un token de la rama anterior.
+- _history_length() y _prior_action_result() dan cantidad y copia del último
+  resultado sin consultar/copiar steps completo.
+- _last_state() devuelve copia del último estado o del inicial, coste por WORLD fijo.
+- _export_prefix() produce registros/eventos/estado final independientes cuando
+  se solicita un prefijo completo; no se invoca en cada tick del motor de replay.
+
+_prepare_current sigue disponible como snapshot completo independiente para
+consultas/verificación; no se usa en el camino normal de record_step.
+_validate_prepared sigue siendo exhaustivo. finalize obtiene un snapshot completo,
+lo verifica y entrega esos datos separados del almacenamiento; se hace una única
+validación histórica final. El cambio de causa se valida con el último estado,
+sin volver a recorrer todo el episodio. No se oculta trabajo en otra fase.
+
+Replay conserva los siete estados, los checkpoints WORLD/RNG independientes,
+los prefijos y el rollback incluso cuando record_step lanza después de devolver
+su propio commit. Usa replay_tick_transaction como helper interno; la firma de
+replay_trajectory y los wrappers anteriores no cambian. Para cero ticks o fallo
+inicial se conserva el snapshot inicial efectivo; para pasos confirmados la
+exportación final usa el historial privado ya confirmado, sin otro sorteo ni
+resolución de lifecycle. No se modifican las reglas terminales ni F3-H. Si la asignación de memoria para
+exportar el resultado final falla, no se fabrica un ReplayResult parcial; no se
+promete devolver datos cuya copia no pueda construirse.
+
+### Integridad y límites de atomicidad
+
+La transacción es síncrona: tras retorno o excepción, los consumidores reciben
+un historial completo o el prefijo anterior, respectivamente. Un WeakSet rechaza
+escrituras/checkpoints reentrantes mientras se prepara/publica. F4C-13 demuestra
+el rollback de una escritura anidada rechazada.
+
+No se declara aislamiento de lecturas reentrantes desde hooks instrumentados
+_publish: esos hooks de prueba pueden observar fases intermedias (como ya hacían
+F3-F/G), antes de que una excepción restaure el prefijo. Tampoco se promete
+atomicidad frente a reemplazar código confiable, modificar internamente buffers
+desde un depurador o escrituras concurrentes arbitrarias. No hay callback de
+consumidor en la implementación de publicación normal.
+
+La corrupción interna inducida se comprueba sin dar una puerta de escritura en
+producción. El cargador F4C de prueba puede insertar un método solo en su VM de
+ensayo para alcanzar el WeakMap privado. Ese método no existe en recorder.js real.
+Se alteran hashes, esquemas, mapas, eventos, contador y estado; finalize rechaza.
+Los copiadores verifican esquemas cerrados antes de reconstruir registros, para
+que una propiedad extra corrupta no se borre y parezca validada al copiarla.
+La validación no se sustituye por un checksum ni por una marca sobre datos
+externamente mutables.
+
+### Expectativas históricas actualizadas de forma controlada
+
+Antes de actualizar se ejecutaron las suites: F3-C/F/G/H pasaron; F3-E falló solo
+en F3E-15/18; F4-B caracterizó las dependencias de identidad/mutabilidad y su antiguo
+camino de validación/copia. Se conservan las versiones originales en el SHA base
+635b4a493aabcf35c85ea3c5a47aca174a29c671, no se borran del historial.
+
+| Prueba/helper actualizado | Motivo autorizado y nueva evidencia |
+|---|---|
+| F3E-15 | Una validación del nuevo paso, frente a >=2 por revisitar el anterior; fallo sigue alcanzando ese validador y preserva el prefijo |
+| F3E-18 | Mutación de snapshot externo queda aislada, finalize preserva el historial; corrupción interna se cubre en F4C-08 |
+| F4-B unchanged | Compara valores; identidad estricta de snapshots solo se conserva en la referencia histórica con propiedades de datos |
+| F4B-08 | Los hooks de copia/validación completa por tick se sustituyen por preparación/validación incremental; mismo fallo, hits, atomicidad y retry. La base usa los hooks originales |
+| F4B-10 | Se corrompe el lote nuevo provisional, no una copia histórica que ya no existe por tick; sigue rechazándose sin publicación |
+| F4B-11/12 | Rama actual acredita aislamiento/rechazo de sustitución; la base conserva mutación/detección e identidad originales |
+| F4B-13 | Una visita histórica por paso al finalizar, frente a más visitas antiguas; trabajo reducido sin confianza en aliases mutables |
+| F4B-17 | Para time0n se adopta el snapshot antes de registrar; el contador es readonly. Helpers de límites y agotamiento se conservan |
+
+Las demás aserciones/ficheros previos no se cambian. F4C-01 compara directamente la
+semántica antigua sobre scripts base: la corrupción pública provoca rechazo allí,
+mientras la misma escritura externa actual no cambia el historial. La equivalencia
+normativa se contrasta por separado con la referencia, sin suponer equivalencia
+de las políticas de ingeniería sustituidas.
+
+### Pruebas y evidencia funcional
+
+Suite local [tests/f4-c.test.cjs](../tests/f4-c.test.cjs), scripts de referencia
+obtenidos directamente de todo el commit base con git show. Igualdad estructural
+exacta de resultados y bytes WLS1 WORLD/FULL de todos los snapshots; se preservan
+Maps, binary64 y representaciones Number/BigInt. No se usa solo igualdad de hashes.
+
+| Casos | Evidencia ejecutada |
+|---|---|
+| F4C-01/02 | Cambio de política explícito; episodios0/1/4/100/500 y bytes completos equivalentes a F4-B |
+| F4C-03/04 | Agentes y Random con semilla,16 flags Feedback, recursos/peligros/regeneración, muerte inicial/posterior y fallo inicial |
+| F4C-05–07 | Snapshots, Maps, raíces readonly, datos de hooks y salidas finales sin aliases mutables internos |
+| F4C-08/09 | Corrupción interna detectada sin normalizar; token opaco ligado a propietario/prefijo, sin resurrección de ramas descartadas |
+| F4C-10–13 | Fallos en preparación/hash/validación/copia de adopción y cada publicación; retry y secuencias; escritura reentrante rechazada |
+| F4C-14–16 | EXPERIMENT→replay→validación MATCH; siete estados y errores iguales a F4-B; rollback WORLD/RNG/Recorder después de commit |
+| F4C-17/18 | Dominios Number/BigInt, secuencias y ausencia de acceso/mutación de WORLD/PRNG |
+| F4C-19/20 | Conteos lineales; cero visitas/copias de prefijo y cero consultas públicas obligatorias por tick; exportación replay única |
+
+Ejecución desde /workspace/yellow, Node v24.22.1:
+
+```bash
+node tests/f4-c.test.cjs
+node tests/f4-b.test.cjs
+node tests/f1-a-legacy.cjs
+git diff --check
+```
+
+Además se ejecutó node tests/<archivo> para cada suite F1–F4-A. Resultado final:
+23 suites, **453 PASS/0 FAIL/0 omitidas** (415 anteriores a F4-B,18 F4-B,20 F4-C).
+Las versiones originales de los dos archivos adaptados quedan en Git; no se
+cambian expectativas legacy. Los IDs F4C son locales, no T01–T280.
+
+```bash
+PLAYWRIGHT_MODULE=/opt/codex/runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/index.js \
+node tests/f4-a.test.cjs --browser
+```
+
+Chromium155.0.8059.79 real:16 PASS (15 Node repetidas y un caso adicional), sin
+pageerror/errores de consola/solicitudes fallidas. Wait/Random, errores, muerte
+inicial, coordenadas y aislamiento visual se preservan, sin cambios a UI/CSS.
+La referencia Git y Chromium se ejecutan fuera del sandbox por sus restricciones
+a subprocesos/localhost; no se altera el oráculo para evitar esas restricciones.
+
+Legacy ejecutada: **13 PASS/9 FAIL, exit1**, mismas causas F4-A/B:
+T06/07/08/20/22 esperan Trajectory directa; T12/13/14 usan makeResource/EffectKind/
+makeHazard eliminados; T16 espera TOROIDAL. No se introducen aliases ni se corrigen
+aserciones históricas para mejorar el total.
+
+
+### Complejidad y benchmarks
+
+Comandos ejecutados, separados de las pruebas funcionales:
+
+```bash
+node tests/f4-c.test.cjs --benchmark
+node tests/f4-c.test.cjs --benchmark --working-only
+node tests/f4-c.test.cjs --benchmark --sizes=10,100 --events
+node tests/f4-c.test.cjs --benchmark --working-only --sizes=500 --events
+```
+
+Referencia F4-B desde el SHA base; mismas configuraciones y entorno Node v24.22.1.
+Carga WAIT sin agente: WORLD1×1, radio0, semilla12345, energía10000, costeWAIT0;
+demás campos canónicos por defecto. Cada observación crea una VM nueva. Se ejecutó
+la serie pareada y se repitió la versión final tras endurecer los tokens de
+checkpoint. La tabla usa la referencia de la serie principal y esa repetición final,
+no medianas ni aislamiento de CPU. La serie principal completa también se resume
+abajo para no ocultar variación entre ejecuciones.
+
+Tiempos en ms. WORLD es execute_tick_transaction. Preparación incluye construcción
+y validación del candidato, con su hashing. Hashes mide por separado todas las
+llamadas WORLD/FULL, incluidas las de finalize, por lo que **se solapa** con otras
+columnas y no se suma otra vez. Commit excluye callbacks de preparación/validación
+e incluye copia privada de adopción, checkpoint y publicación. Finalización incluye
+su propia verificación y copia. Total mide EXPERIMENT completo, incluyendo setup,
+contextos y cambio de causa; excluye carga Git/VM. No se oculta el trabajo de la
+copia de propiedad: ahora pertenece a Commit y aparece en el total.
+
+| Ticks | Versión | WORLD | Prep.+valid. | Hashes (inclusivo) | Commit | finalize | Total |
+|---|---|---|---|---|---|---|---|
+| 10 | F4-B base | 8.966 | 32.926 | 24.639 | 0.320 | 5.588 | 57.336 |
+| 10 | F4-C final | 18.603 | 34.602 | 19.690 | 5.875 | 11.832 | 83.200 |
+| 100 | F4-B base | 69.215 | 1832.183 | 1315.399 | 2.326 | 47.715 | 1999.944 |
+| 100 | F4-C final | 126.188 | 292.574 | 154.890 | 30.111 | 96.111 | 561.995 |
+| 500 | F4-B base | 315.794 | 41550.074 | 29321.711 | 10.446 | 462.884 | 42549.729 |
+| 500 | F4-C final | 1390.894 | 2692.069 | 2090.581 | 362.167 | 1696.745 | 6263.305 |
+| 1000 | F4-B base | 831.647 | 209639.092 | 146785.930 | 21.509 | 458.495 | 211374.555 |
+| 1000 | F4-C final | 918.775 | 1696.973 | 1034.860 | 242.215 | 655.102 | 3601.416 |
+
+La versión final de500 ticks fue más lenta que la de1000 en esta repetición,
+con ralentización también en WORLD/finalize: los tiempos del entorno compartido
+son ruidosos y no se usan solos como prueba de complejidad. La serie pareada
+principal dio estos totales (ms):
+
+| Ticks | F4-B | F4-C |
+|---|---|---|
+| 10 | 57.336 | 40.004 |
+| 100 | 1999.944 | 272.536 |
+| 500 | 42549.729 | 2296.737 |
+| 1000 | 211374.555 | 2478.814 |
+
+Evidencia de trabajo, independiente del ruido temporal. Visitas antiguas y copias
+de prefijo se cuentan **durante record_step**, excluyendo finalize. Elementos
+publicados es la longitud total de los arrays de pasos entregados a _publish;
+en F4-B contienen el candidato completo y en F4-C solo el delta nuevo. Copias
+propias F4-C cuenta tanto adopción como salida final; no oculta la segunda copia.
+
+| Ticks | Versión | Visitas antiguas en registro | Entradas de prefijo copiadas | Elementos de pasos publicados | Hashes episodio | Visitas finalize |
+|---|---|---|---|---|---|---|
+| 10 | F4-B | 45 | 45 | 55 | 170 | 10 |
+| 10 | F4-C | 0 | 0 | 10 | 60 | 10 |
+| 100 | F4-B | 4950 | 4950 | 5050 | 10700 | 100 |
+| 100 | F4-C | 0 | 0 | 100 | 600 | 100 |
+| 500 | F4-B | 124750 | 124750 | 125250 | 253500 | 500 |
+| 500 | F4-C | 0 | 0 | 500 | 3000 | 500 |
+| 1000 | F4-B | 499500 | 499500 | 500500 | 1007000 | 1000 |
+| 1000 | F4-C | 0 | 0 | 1000 | 6000 | 1000 |
+
+F4C-19 instrumenta10/100/500 ticks con un evento por tick y acredita:
+
+- Cero visitas a pasos antiguos durante registro y cero copias de prefijo.
+- n pasos nuevos publicados y n eventos nuevos publicados; un delta por tick.
+- 2n copias privadas de pasos: n al adoptar y n al exportar al finalizar.
+- 5n copias de RecordedEvent para preparar/adoptar/exportar, sin recopia histórica.
+- 6n llamadas a hashes: dos al construir el paso, dos al validarlo, dos al verificarlo
+  en finalize. Solo se serializa el paso nuevo durante registro.
+- n visitas históricas en finalize y tres llamadas totales al validador completo:
+  dos para inicialización vacía y una única pasada histórica final.
+- Cero consultas a las propiedades públicas obligatorias durante EXPERIMENT;
+  replay también cumple cero y exporta su prefijo una vez (F4C-20).
+
+Por WORLD/radio fijos y eventos acotados, preparación y adopción cuestan O(S+K)
+por tick; append usa buffers propios con inserción amortizada O(1) por elemento.
+El registro total es O(n·(S+K)); para S/K fijos es O(n). La única verificación/copia
+final es O(n·(S+K)). Los contadores, el código y las pruebas respaldan esta afirmación;
+no se deduce únicamente de aceleración temporal. Consultas externas deliberadas
+que pidan todo el historial siguen costando O(n); no se trasladan al bucle obligatorio.
+
+
+Carga adicional MOVE observado en WORLD2×1, radio0, un ENTITY_MOVED por tick,
+mismos parámetros en ambas versiones. Se midieron también elementos de eventos
+enviados a publicación y llamadas a su copiador, no solo los arrays de pasos.
+
+| Ticks | Versión | Total ms | Registro ms | Eventos enviados a publicación | Copias RecordedEvent totales |
+|---|---|---|---|---|---|
+| 10 | F4-B | 76.126 | 45.510 | 55 | 95 |
+| 10 | F4-C | 49.542 | 23.901 | 10 | 50 |
+| 100 | F4-B | 4218.645 | 3863.074 | 5050 | 5450 |
+| 100 | F4-C | 723.546 | 352.116 | 100 | 500 |
+| 500 | F4-C | 2046.350 | 1090.478 | 500 | 2500 |
+
+En F4-B las copias de eventos son n(n−1)/2+5n para esta carga. En F4-C son5n:
+la eliminación del crecimiento cuadrático incluye pasos **y eventos**. El coste
+de nuevas listas/copias sigue contabilizado; los valores y secuencias se verifican
+contra la referencia. F4C-19/20 se reejecutaron después de añadir estos contadores:
+2 PASS/0 FAIL, además de la suite completa previamente descrita.
+
+### Cierre, riesgos y aceptación integral
+
+**VERIFIED:** propiedad efectiva por snapshots independientes, validación
+incremental, append/rollback, equivalencia de estructuras/bytes, dominios, siete
+estados replay, validación contextual y Chromium. No hay visitas/copias de prefijo
+por tick; el trabajo de registro bajo S/K acotados es lineal con una pasada final.
+**F4B-P02 cerrado por la autorización e implementación F4C-P01**, sin reescribir
+el informe histórico F4-B ni atribuirle una conformidad que entonces no tenía.
+
+La verificación histórica valida esquemas, contextos, secuencias, mapas y hashes;
+no reejecuta cada acción para demostrar continuidad física. Esa prueba de
+reproducción estructural conserva su lugar en F3-H. No se confunden ambas garantías.
+
+**UNTESTED / fuera de alcance:** conformidad global T01–T280, vectoresV2–V10 e
+interoperabilidad; otros navegadores/accesibilidad exhaustiva. Permanecen las
+cuatro fronteras F3-G/H, uint64 frente a StepRecord Number seguro y el rollback
+conjunto WORLD/Recorder fuera de replay. Consultar todo el historial en cada tick
+por decisión de un consumidor externo puede costar O(n²); no ocurre en los
+consumidores obligatorios migrados. No se promete aislamiento de hooks reentrantes
+que sustituyan el código de publicación.
+
+Archivos de producción modificados: [recorder.js](../js/experiment/recorder.js) y
+[replay.js](../js/experiment/replay.js). Pruebas: nueva
+[f4-c.test.cjs](../tests/f4-c.test.cjs), ajustes autorizados de
+[f3-e.test.cjs](../tests/f3-e.test.cjs) y [f4-b.test.cjs](../tests/f4-b.test.cjs).
+Se actualiza únicamente este informe operacional. No cambia norma, WORLD, PRNG,
+semillas, WLS1, EXPERIMENT, agentes, interfaz, renderer ni CSS. Listo para revisión
+del alcance F4-C; sin merge, despliegue ni inicio de otro incremento.
