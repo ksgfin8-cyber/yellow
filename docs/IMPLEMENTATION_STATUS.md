@@ -4,7 +4,16 @@ Documento **informativo y operacional**. Consolidación DOC-02: **2026-11-10
 (America/Guayaquil)**. Rama documental `dev/doc-02-knowledge-consolidation`, creada
 sobre `origin/main`; aquel cambio no incorporaba código ni pruebas de F3-C.
 
-**Actualización vigente F4-A (2026-11-10): integración web COMPLETED en su
+**Actualización vigente F4-B (2026-11-10): optimización equivalente parcial;
+cierre PARTIAL.** Base main PR #24 `a096d5b3ac0ac4763a6dee03e2018f56b459bd9a`,
+rama `dev/f4-b-recorder-performance`, pendiente de revisión/merge. Se elimina una
+validación/copia redundante por record_step; se preservan detección de corrupción,
+atomicidad, API, aliases previos y resultados. No se afirma crecimiento lineal:
+continúa bloqueada la decisión sobre propiedad/mutabilidad y publicación del
+historial. 433 pruebas Node aprobadas; regresión Chromium aprobada; legacy13 PASS/9 FAIL.
+[Equivalencia, perfil y decisión pendiente F4-B](#f4-b).
+
+**Corte previo F4-A (2026-11-10): integración web COMPLETED en su
 alcance local.** Base main PR #23 `1491d9213acf7fe1cb2b1e7531889e296b4a61ce`,
 rama `dev/f4-a-web-integration`, pendiente de revisión/merge. La web ejecuta
 EXPERIMENT y muestra ExperimentResult/estado final sin cambiar el motor.
@@ -85,7 +94,8 @@ replay completo. El alcance B no está completo en ninguna de las dos referencia
 
 | Necesidad | Fuente única para el detalle |
 |---|---|
-| Integración web F4-A vigente | [Carga real, resultados, renderer y Chromium](#f4-a) |
+| Rendimiento RECORDER F4-B vigente | [Optimización parcial, equivalencia y bloqueo](#f4-b) |
+| Integración web F4-A | [Carga real, resultados, renderer y Chromium](#f4-a) |
 | Estado validación F3-H | [Contraste exhaustivo, rendimiento y fronteras](#f3-h) |
 | Cierre previo replay F3-G | [Motor parcial, ramas bloqueadas y pruebas](#f3-g) |
 | Cierre previo EXPERIMENT F3-F | [Orquestación, resultados, fallos y rendimiento](#f3-f) |
@@ -3075,3 +3085,268 @@ la frontera uint64/StepRecord Number seguro, rollback conjunto WORLD/Recorder,
 coste de Recorder, vectoresV2–V10, T01–T280 e interoperabilidad no demostrada.
 La web está lista para revisión de su alcance; la aceptación integral conserva
 estas dependencias. No se avanza a otro incremento.
+
+
+<a id="f4-b"></a>
+## F4-B — optimización equivalente de RECORDER; cierre PARTIAL
+
+**PARTIAL, 2026-11-10.** Base `origin/main`, PR #24,
+`a096d5b3ac0ac4763a6dee03e2018f56b459bd9a`; rama
+`dev/f4-b-recorder-performance`. Se entrega una reducción equivalente del trabajo
+redundante. No se implementa ni se declara un registro de coste aproximadamente
+lineal. F4B-P02 permanece **BLOCKED por decisión técnica pendiente**, no por una
+contradicción normativa nueva ni por falta de fuentes históricas.
+
+### Autoridad y diagnóstico previo
+
+**NORMATIVE:** §§18,21–24,31–34 v0.2.5 se conservan, incluidos eventos crudos y
+su enriquecimiento, campos cerrados de StepRecord/Trajectory, WLS1/FNV, valores
+binary64, nulabilidad y orden. **HISTORICAL:** se consumen únicamente los fragmentos
+ya recuperados y documentados en F3-C/E/D2; no se afirma lectura histórica completa.
+
+**ENGINEERING DECISION vigente F3E-P01:** las propiedades públicas y sus registros
+anidados son mutables; registrar un nuevo paso detecta corrupción del prefijo
+mediante validación exhaustiva. RecordTransaction reemplaza sus siete ranuras y
+arrays, y restaura sus referencias al fallar. finalize valida y copia el historial
+completo. Estas garantías observables se mantienen, incluidas las referencias a
+arrays antiguos que no crecen tras futuras confirmaciones.
+
+Antes de modificar recorder.js se ejecutaron benchmarks de10/100 y500 ticks
+contra todos los scripts obtenidos del commit base con `git show`. Dos cargas:
+WORLD1×1, WAIT sin agente; WORLD2×1, agente alternando MOVE_E/MOVE_W con un evento
+por tick. Radio0, semilla12345, energía10000, costeWAIT0, demás campos canónicos.
+Cada fila usa una VM nueva. La fuente base es independiente del código optimizado;
+no se reconstruye una supuesta referencia copiando el algoritmo actual.
+
+Para100 ticks sin agente, record_step consumió3898,868ms de4069,398ms totales;
+se recorrieron10.200 registros en validaciones completas, con20.600 invocaciones
+a hashes. El tiempo acumulado dentro de hashes fue2766,416ms. Para500 ticks,
+record_step consumió86486,409ms de87277,227ms totales. El coste dominante fue
+revalidar/serializar el prefijo, no WORLD ni finalize. Las copias de eventos y los
+slices de arrays también acumulan trabajo cuadrático, aunque de menor coste.
+
+### Cambio exacto y garantías preservadas
+
+**F4B-P01 — ENGINEERING DECISION implementada y VERIFIED:** extraer la preparación
+de entradas en `_prepare_step_input`, reutilizada por el wrapper `_prepare_step`
+y record_step. El wrapper independiente conserva su validación de prefijo F3-C.
+record_step prepara sin esa validación/copia previa redundante; `_record` y
+RecordTransaction siguen validando exhaustivamente **todo el candidato** una vez
+antes de publicar. Se verifican tanto registros previos como el paso nuevo,
+contextos, secuencias, snapshots, mapas, hashes y concatenación global de eventos.
+
+No se quita la validación posterior ni se crea una marca de confianza. No se
+congela, encapsula ni sustituye por snapshots de lectura la historia pública.
+Las copias del prefijo y eventos que sirven a la publicación siguen presentes.
+La detección de corrupción sigue ocurriendo en la misma llamada pública antes de
+cualquier publicación; solo desaparece una visita interna previa a la preparación.
+Todos los errores públicos conservan ContractError("recording failed").
+
+RecordTransaction y su contrato público no cambian. Se conservan copias
+independientes, orden de eventos, secuencias globales, retry del mismo confirmed,
+rollback de siete ranuras/referencias y ausencia de rollback WORLD desde Recorder.
+finalize no se modifica: comprobación exhaustiva, copia profunda y causa real.
+No se mueve trabajo omitido a otra operación. No hay cambio a resultados válidos,
+esquemas, representación Number/BigInt, bytes, hashes ni API de comando undefined.
+
+### F4B-P02 — BLOCKED: propiedad del prefijo y coste lineal
+
+La orden F4-B §5.C exige «No aplicar una relajación silenciosa de garantías»
+y aislar como BLOCKED el cambio de una garantía técnica que requiera decisión.
+Este es el caso de F3E-P01 y de los aliases públicos descritos aquí; la optimización
+equivalente F4B-P01 sí se completa y verifica.
+
+En JavaScript los registros publicados siguen siendo objetos/arrays/Map mutables
+ordinarios. Un tercero puede modificar un campo de cualquier paso antiguo sin
+cambiar la referencia del array ni del registro. Sin instrumentar esas escrituras,
+una marca de «ya validado» no permite detectar el cambio: es necesario volver a
+inspeccionar el prefijo. Las pruebas F4B-11/12 acreditan que su corrupción continúa
+rechazándose al registrar y al finalizar, y que no cambió su mutabilidad.
+
+Segundo impedimento independiente: copiar arrays de longitud creciente y todos
+los eventos previos en cada publicación sigue sumando O(n²), aunque se omitiese
+la validación histórica. Cambiarlo por push en los mismos arrays haría crecer las
+referencias antiguas que hoy permanecen como prefijos. Los objetos de eventos
+globales también se copian entre confirmaciones. No se elimina ninguna de esas
+copias alterando silenciosamente la propiedad de sus referencias.
+
+Alternativas consideradas, **no autorizadas ni aplicadas** en F4-B:
+
+- Encapsular un log de propiedad exclusiva, con acceso explícito a snapshots y
+  registros protegidos de mutaciones externas. Cambiaría la posibilidad de escribir
+  directamente steps/events y sus objetos/Map anidados; no basta Object.freeze(Map).
+- Conservar estructuras mutables y diferir la validación exhaustiva a finalize o
+  una verificación explícita. Cambiaría la garantía de que el siguiente record_step
+  detecta corrupción antigua. No alcanza por sí sola coste lineal si persisten las
+  copias completas de arrays/eventos por tick.
+- Añadir seguimiento de todas las escrituras mediante envoltorios. Modifica las
+  superficies públicas y requiere resolver identidad, Map y métodos de WorldState;
+  no se introduce esa arquitectura en este incremento.
+
+**Propuesta mínima para una orden posterior:** autorizar conjuntamente una política
+explícita de propiedad/mutabilidad y un commit append sobre buffers propios con
+rollback por longitudes. Debe especificar si se permiten alias públicos que crezcan,
+si las escrituras externas se rechazan o afectan solo snapshots y cuándo se detecta
+corrupción previa. Después podrá validarse solo el elemento nuevo y su continuidad,
+con verificación completa al finalizar. Requiere pruebas de compatibilidad para
+consumidores/replay; no se aplica anticipadamente. Se conserva F3E-P01 hasta esa
+decisión. No se atribuye esta restricción de ingeniería a una cláusula normativa
+histórica inexistente.
+
+La validación heredada comprueba sus invariantes estructurales/contextuales y
+hashes, no reejecuta todas las acciones para acreditar continuidad física completa;
+esa responsabilidad de replay no se amplía ni se debilita aquí.
+
+### Pruebas de equivalencia, atomicidad e integración
+
+[tests/f4-b.test.cjs](../tests/f4-b.test.cjs) obtiene **todos los scripts de la
+referencia desde el SHA base**, no solo una función simulada. Se comparan resultados
+completos mediante igualdad estructural exacta y bytes WORLD/FULL de cada estado.
+Se conservan Maps, orden, binary64 y distinción Number/BigInt; no se usa JSON para
+igualar valores. Los hashes no sustituyen la igualdad estructural.
+
+| Casos locales | Evidencia ejecutada |
+|---|---|
+| F4B-01/02 | Referencia fijada; uno,5 y200 ticks sin agente; cada snapshot WLS1 WORLD/FULL |
+| F4B-03 | Agente real y16 combinaciones de flags, contexto de acción previa |
+| F4B-04 | RESOURCE consumido y regenerado, HAZARD, siete eventos ordenados y secuencias0–6 |
+| F4B-05/06 | Muerte inicial/posterior, límite0, inicialización fallida, fallo de agente con prefijo |
+| F4B-07 | finalize y entradas independientes, posiciones, Maps, eventos, snapshots |
+| F4B-08 | Fallos de snapshot, dos lotes de eventos, serialización, dos hashes, copia de candidato y dos validadores; mismas pruebas sobre base y rama; retry sin duplicar secuencias |
+| F4B-09 | Excepción después de cada una de las siete escrituras; se restauran valores y referencias |
+| F4B-10 | Confirmed/contexto inválidos y corrupción de copia provisional, sin publicación parcial |
+| F4B-11/12 | Once mutaciones externas, rechazo al siguiente registro/finalize, mutabilidad y aliases conservados |
+| F4B-13 | Menos validaciones/hashes/copias sin confiar permanentemente en un prefijo mutable |
+| F4B-14 | EXPERIMENT→replay→validación exhaustiva: MATCH y registros/eventos iguales, sobre base y rama |
+| F4B-15 | Replay restaura WORLD/RNG/Recorder ante fallo de publicación parcial y posterior al retorno de record_step |
+| F4B-16/17 | Sin acceso/mutación de WORLD/PRNG; time0n→1n sin pérdida, tick Number, límites seguros y agotamiento de secuencias |
+| F4B-18 | RandomAgent con semilla: trayectoria completa y snapshots RNG iguales a la base |
+
+Comandos ejecutados desde `/workspace/yellow`, Node v24.22.1:
+
+```bash
+node tests/f4-b.test.cjs
+node tests/f1-a-legacy.cjs
+git diff --check
+```
+
+Cada suite previa se ejecutó mediante `node tests/<archivo>`. Nueva suite:
+**18 PASS/0 FAIL**. Regresión F1–F4-A:21 suites,**415 PASS/0 FAIL**. Total:
+**433 PASS,0 FAIL,0 omitidas**, en22 suites Node. Ninguna prueba previa se modifica.
+Los IDs F4B son locales; no se presentan como T01–T280 ni conformance global.
+Los conteos por archivo de las21 suites previas son los mismos de [F4-A](#f4-a),
+reejecutados con el Recorder de esta rama. Además se ejecutó:
+
+```bash
+PLAYWRIGHT_MODULE=/opt/codex/runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/index.js \
+node tests/f4-a.test.cjs --browser
+```
+
+Resultado:16 PASS (15 Node repetidas y un caso real adicional), Chromium155.0.8059.79,
+sin pageerror, errores de consola ni solicitudes fallidas. Agentes, errores y
+renderizado puro/repetible siguen funcionando; no se modifica ningún archivo web.
+Esto no amplía la verificación a otros navegadores.
+
+El sandbox rechazó subprocesos Node→git con EPERM; la suite nueva y los benchmarks
+con referencia Git se ejecutaron fuera del sandbox. No se sustituyó la referencia
+por el código de trabajo para evitar ese error.
+
+Legacy:13 PASS/9 FAIL, exit1. T06/07/08/20/22 esperan Trajectory directa y fallan
+al leer length desde ExperimentResult; T12 makeResource, T13 EffectKind y T14
+makeHazard son interfaces históricas eliminadas; T16 conserva expectativa TOROIDAL
+incompatible con BOUNDED. Ninguna expectativa se cambia para mejorar el total.
+
+### Benchmarks instrumentados y coste que permanece
+
+Comandos ejecutados (separados de la suite unitaria):
+
+```bash
+node tests/f4-b.test.cjs --benchmark --baseline-only --sizes=10,100,500 --with-events
+node tests/f4-b.test.cjs --benchmark --working-only --sizes=10,100,500 --with-events
+node tests/f4-b.test.cjs --benchmark --sizes=1000
+```
+
+Tiempos en milisegundos, una observación por fila, mismo entorno Node v24.22.1 y
+misma configuración/semilla por carga. No son medianas ni garantías de plataforma;
+entorno compartido, sin aislamiento de CPU. Las envolturas de instrumentación
+son idénticas en ambas versiones. WORLD mide execute_tick_transaction; Registro
+mide record_step; Fin mide finalize. Hashes es tiempo inclusivo dentro de las otras
+operaciones: **no se suma de nuevo**. Total mide el ciclo real run_without_agent o
+run_experiment, incluidos setup, contexto, terminación y finalización; no incluye
+carga de fuentes Git/VM ni pruebas de igualdad posteriores.
+
+| Carga | Ticks | Versión | Total ms | WORLD ms | Registro ms | Fin ms | Hashes ms |
+|---|---|---|---|---|---|---|---|
+| WAIT sin agente | 10 | base | 93.735 | 13.326 | 60.951 | 7.814 | 44.766 |
+| WAIT sin agente | 10 | F4-B | 78.809 | 11.949 | 37.563 | 9.935 | 31.282 |
+| WAIT sin agente | 100 | base | 4069.398 | 71.502 | 3898.868 | 52.079 | 2766.416 |
+| WAIT sin agente | 100 | F4-B | 2415.763 | 85.421 | 2225.481 | 56.243 | 1571.862 |
+| WAIT sin agente | 500 | base | 87277.227 | 362.236 | 86486.409 | 224.474 | 60603.253 |
+| WAIT sin agente | 500 | F4-B | 52830.771 | 419.816 | 51888.010 | 267.887 | 36414.154 |
+| WAIT sin agente | 1000 | base | 369072.199 | 689.043 | 367541.775 | 446.960 | 256450.552 |
+| WAIT sin agente | 1000 | F4-B | 177031.692 | 679.459 | 175559.187 | 413.343 | 122697.884 |
+| MOVE observado | 10 | base | 136.462 | 25.110 | 92.624 | 8.207 | 52.224 |
+| MOVE observado | 10 | F4-B | 103.598 | 16.350 | 64.693 | 7.925 | 35.852 |
+| MOVE observado | 100 | base | 5156.786 | 91.120 | 4908.550 | 80.409 | 2759.000 |
+| MOVE observado | 100 | F4-B | 3451.222 | 103.537 | 3034.596 | 228.464 | 1753.417 |
+| MOVE observado | 500 | base | 122612.422 | 499.543 | 121474.246 | 300.899 | 66418.256 |
+| MOVE observado | 500 | F4-B | 77857.183 | 541.843 | 76481.745 | 373.634 | 41564.179 |
+
+Contadores del episodio completo: validaciones `_validate_prepared`, incluidos
+los dos registros iniciales, fijación de causa y finalize. Pasos visitados cuenta
+la longitud de cada candidato validado, no solo llamadas. Copias de pasos son
+entradas copiadas por slices; copias de eventos son registros globales copiados
+en `_prepare_current`, sin contar las nuevas listas del paso ni la copia final de
+salida. Las dos cargas tienen los mismos conteos salvo eventos (cero en WAIT).
+
+| Ticks | Versión | Validaciones completas | Pasos visitados | Hashes WORLD+FULL | Entradas de arrays copiadas | Eventos previos copiados (MOVE) |
+|---|---|---|---|---|---|---|
+| 10 | base | 24 | 120 | 260 | 110 | 110 |
+| 10 | F4-B | 14 | 75 | 170 | 65 | 65 |
+| 100 | base | 204 | 10200 | 20600 | 10100 | 10100 |
+| 100 | F4-B | 104 | 5250 | 10700 | 5150 | 5150 |
+| 500 | base | 1004 | 251000 | 503000 | 250500 | 250500 |
+| 500 | F4-B | 504 | 126250 | 253500 | 125750 | 125750 |
+| 1000 | base | 2004 | 1002000 | 2006000 | 1001000 | n/a (WAIT sin eventos) |
+| 1000 | F4-B | 1004 | 502500 | 1007000 | 501500 | n/a (WAIT sin eventos) |
+
+En 500 ticks sin agente, el total mejora 87277→52831 ms (aprox.1,65×) y el registro
+86486→51888 ms. Con MOVE observado, total 122612→77857 ms (aprox.1,57×). No se
+fija un porcentaje de aceleración como criterio normativo. La integridad, copia
+final y hashing del prefijo no se ocultan en otra fase.
+
+Para n ticks completos de estas cargas, las validaciones pasan de2n+4 a n+4 y
+las visitas a pasos de n²+2n a (n²+5n)/2. Las llamadas a hashes pasan de2n²+6n a
+n²+7n. Las entradas de arrays copiadas pasan de n²+n a (n²+3n)/2; con un evento
+por tick sucede lo mismo con las copias de eventos anteriores. Son conteos de
+trabajo observado y explican por qué **el coste sigue siendo cuadrático**, aunque
+se reduzca aproximadamente a la mitad en cargas largas. finalize sigue haciendo
+una sola validación exhaustiva y copia de O(n) para un WORLD fijo.
+
+La carga de 1000 ticks fue viable y se completó en ambas versiones. Total
+369072,199→177031,692ms (aprox.2,08×); record_step 367541,775→175559,187ms.
+WORLD 689,043→679,459ms y finalize 446,960→413,343ms: la mejora no se consigue
+trasladando trabajo a esas fases. El número de hashes es 2006000→1007000.
+Esta observación adicional no convierte la tendencia de conteos cuadráticos en
+lineal ni elimina F4B-P02. No se ejecutó 1000 con MOVE observado; los 500 ticks con
+eventos ya caracterizan las copias crecientes. Los tiempos inclusivos y el entorno
+compartido explican que las razones temporales no sean constantes.
+
+### Cierre y límites
+
+**VERIFIED:** reducción de trabajo redundante, equivalencia estructural/binaria
+contra base, atomicidad, corrupción detectable en la siguiente llamada/finalize,
+regresión, integración EXPERIMENT/replay/validación y web Chromium. Las 18 pruebas
+nuevas y las415 anteriores pasan; el caso Chromium adicional pasa. `git diff --check`
+sin errores. Norma, suites previas y componentes protegidos se preservan íntegros.
+
+**BLOCKED:** garantía/propiedad de historial para registro aproximadamente lineal
+(F4B-P02); no se cambia silenciosamente F3E-P01 ni la publicación por reemplazo.
+**UNTESTED:** conformance global T01–T280, vectoresV2–V10 e interoperabilidad;
+las cuatro fronteras F3-G/H y el límite uint64 frente a StepRecord Number seguro
+siguen abiertos. No se modifica replay ni se inicia aceptación integral.
+
+Solo cambian [recorder.js](../js/experiment/recorder.js),
+[tests/f4-b.test.cjs](../tests/f4-b.test.cjs) y este documento. Listo para revisar la
+optimización equivalente y decidir F4B-P02 por separado. No se presenta como F4-B
+COMPLETED. Sin merge, despliegue ni avance al siguiente incremento.
