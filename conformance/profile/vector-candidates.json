@@ -1,0 +1,586 @@
+{
+  "proposal_id": "WLS1-PV-F5C-1.0.0",
+  "approval": "NOT APPROVED; freeze before independent implementation comparison",
+  "historical_V2_V10_status": "UNCHANGED BLOCKED",
+  "vectors": [
+    {
+      "id": "PV-F5C-TIME32",
+      "status": "PROPOSED_ONLY_NOT_NORMATIVE",
+      "historical_id": null,
+      "sources": [
+        "S025",
+        "S026",
+        "H034"
+      ],
+      "normative_objective": "§34 uint64 crosses uint32 boundary",
+      "input_state": {
+        "time": 4294967296,
+        "grid": [
+          [
+            {
+              "traversal": "FREE",
+              "effect": null
+            }
+          ]
+        ],
+        "entities": {
+          "$type": "map",
+          "entries": [
+            [
+              "0987898",
+              {
+                "id": "0987898",
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "energy": 0.0,
+                "lifecycle": "ACTIVE"
+              }
+            ]
+          ]
+        },
+        "rng_state": 1
+      },
+      "preconditions": [
+        "Exactly one entity; ACTIVE on FREE; finite energy; uint64 time; nonzero uint32 RNG",
+        "Effective snapshot only, no initialize_world or provenance claim"
+      ],
+      "serialization_procedure": "Recovered §34 WORLD: WLS1,u64be time,u32be width/height,cells(y,x),entity_count,UTF8-sorted entity records; FULL appends u32be RNG; -0→+0 only",
+      "expected": {
+        "world_bytes": 55,
+        "full_bytes": 59,
+        "world_hex": "574c5331000000010000000000000001000000010000000000000100000007303938373839380000000000000000000000000000000000",
+        "full_hex": "574c533100000001000000000000000100000001000000000000010000000730393837383938000000000000000000000000000000000000000001",
+        "world_fnv32": 2484373196,
+        "full_fnv32": 3466144031
+      },
+      "calculation": {
+        "tool": "Python 3 stdlib struct/strict UTF-8/unbounded integer arithmetic",
+        "script": "conformance/profile/build_vectors.py",
+        "method": "Independent from DataView/Math.imul product and Node Buffer reference; no production module loaded"
+      },
+      "detects": "Truncation/endianness at 2^32",
+      "scope_limit": "New proposal fixture, not an authenticated historical V2–V10, no multi-entity dynamics or interoperability"
+    },
+    {
+      "id": "PV-F5C-TIME64",
+      "status": "PROPOSED_ONLY_NOT_NORMATIVE",
+      "historical_id": null,
+      "sources": [
+        "S025",
+        "S026",
+        "H034"
+      ],
+      "normative_objective": "D-01-E + §34 exact UINT64_MAX/uint32 RNG",
+      "input_state": {
+        "time": {
+          "$type": "bigint",
+          "value": "18446744073709551615"
+        },
+        "grid": [
+          [
+            {
+              "traversal": "FREE",
+              "effect": null
+            }
+          ]
+        ],
+        "entities": {
+          "$type": "map",
+          "entries": [
+            [
+              "0987898",
+              {
+                "id": "0987898",
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "energy": 10,
+                "lifecycle": "ACTIVE"
+              }
+            ]
+          ]
+        },
+        "rng_state": 4294967295
+      },
+      "preconditions": [
+        "Exactly one entity; ACTIVE on FREE; finite energy; uint64 time; nonzero uint32 RNG",
+        "Effective snapshot only, no initialize_world or provenance claim"
+      ],
+      "serialization_procedure": "Recovered §34 WORLD: WLS1,u64be time,u32be width/height,cells(y,x),entity_count,UTF8-sorted entity records; FULL appends u32be RNG; -0→+0 only",
+      "expected": {
+        "world_bytes": 55,
+        "full_bytes": 59,
+        "world_hex": "574c5331ffffffffffffffff00000001000000010000000000000100000007303938373839380000000000000000402400000000000000",
+        "full_hex": "574c5331ffffffffffffffff00000001000000010000000000000100000007303938373839380000000000000000402400000000000000ffffffff",
+        "world_fnv32": 3329253085,
+        "full_fnv32": 769056841
+      },
+      "calculation": {
+        "tool": "Python 3 stdlib struct/strict UTF-8/unbounded integer arithmetic",
+        "script": "conformance/profile/build_vectors.py",
+        "method": "Independent from DataView/Math.imul product and Node Buffer reference; no production module loaded"
+      },
+      "detects": "Lossy Number conversion or signed uint32",
+      "scope_limit": "New proposal fixture, not an authenticated historical V2–V10, no multi-entity dynamics or interoperability"
+    },
+    {
+      "id": "PV-F5C-CELLS",
+      "status": "PROPOSED_ONLY_NOT_NORMATIVE",
+      "historical_id": null,
+      "sources": [
+        "S025",
+        "S026",
+        "H034"
+      ],
+      "normative_objective": "§8 + §34.3–4 all cell tags, y then x",
+      "input_state": {
+        "time": 1,
+        "grid": [
+          [
+            {
+              "traversal": "FREE",
+              "effect": null
+            },
+            {
+              "traversal": "BLOCKED",
+              "effect": null
+            },
+            {
+              "traversal": "FREE",
+              "effect": {
+                "kind": "RESOURCE",
+                "stock": 0
+              }
+            }
+          ],
+          [
+            {
+              "traversal": "FREE",
+              "effect": {
+                "kind": "RESOURCE",
+                "stock": 1
+              }
+            },
+            {
+              "traversal": "FREE",
+              "effect": {
+                "kind": "HAZARD"
+              }
+            },
+            {
+              "traversal": "FREE",
+              "effect": null
+            }
+          ]
+        ],
+        "entities": {
+          "$type": "map",
+          "entries": [
+            [
+              "0987898",
+              {
+                "id": "0987898",
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "energy": 0.0,
+                "lifecycle": "ACTIVE"
+              }
+            ]
+          ]
+        },
+        "rng_state": 305419896
+      },
+      "preconditions": [
+        "Exactly one entity; ACTIVE on FREE; finite energy; uint64 time; nonzero uint32 RNG",
+        "Effective snapshot only, no initialize_world or provenance claim"
+      ],
+      "serialization_procedure": "Recovered §34 WORLD: WLS1,u64be time,u32be width/height,cells(y,x),entity_count,UTF8-sorted entity records; FULL appends u32be RNG; -0→+0 only",
+      "expected": {
+        "world_bytes": 70,
+        "full_bytes": 74,
+        "world_hex": "574c5331000000000000000100000003000000020000000100000001000001010002000000000000000100000007303938373839380000000000000000000000000000000000",
+        "full_hex": "574c533100000000000000010000000300000002000000010000000100000101000200000000000000010000000730393837383938000000000000000000000000000000000012345678",
+        "world_fnv32": 2947704137,
+        "full_fnv32": 3103862969
+      },
+      "calculation": {
+        "tool": "Python 3 stdlib struct/strict UTF-8/unbounded integer arithmetic",
+        "script": "conformance/profile/build_vectors.py",
+        "method": "Independent from DataView/Math.imul product and Node Buffer reference; no production module loaded"
+      },
+      "detects": "Column-major traversal, wrong tag/stock",
+      "scope_limit": "New proposal fixture, not an authenticated historical V2–V10, no multi-entity dynamics or interoperability"
+    },
+    {
+      "id": "PV-F5C-UTF8",
+      "status": "PROPOSED_ONLY_NOT_NORMATIVE",
+      "historical_id": null,
+      "sources": [
+        "S025",
+        "S026",
+        "H034"
+      ],
+      "normative_objective": "§9 + §34.5 UTF-8 byte length=6",
+      "input_state": {
+        "time": 7,
+        "grid": [
+          [
+            {
+              "traversal": "FREE",
+              "effect": null
+            }
+          ]
+        ],
+        "entities": {
+          "$type": "map",
+          "entries": [
+            [
+              "é😀",
+              {
+                "id": "é😀",
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "energy": 1.5,
+                "lifecycle": "ACTIVE"
+              }
+            ]
+          ]
+        },
+        "rng_state": 1
+      },
+      "preconditions": [
+        "Exactly one entity; ACTIVE on FREE; finite energy; uint64 time; nonzero uint32 RNG",
+        "Effective snapshot only, no initialize_world or provenance claim"
+      ],
+      "serialization_procedure": "Recovered §34 WORLD: WLS1,u64be time,u32be width/height,cells(y,x),entity_count,UTF8-sorted entity records; FULL appends u32be RNG; -0→+0 only",
+      "expected": {
+        "world_bytes": 54,
+        "full_bytes": 58,
+        "world_hex": "574c5331000000000000000700000001000000010000000000000100000006c3a9f09f988000000000000000003ff800000000000000",
+        "full_hex": "574c5331000000000000000700000001000000010000000000000100000006c3a9f09f988000000000000000003ff80000000000000000000001",
+        "world_fnv32": 2713803946,
+        "full_fnv32": 1641873117
+      },
+      "calculation": {
+        "tool": "Python 3 stdlib struct/strict UTF-8/unbounded integer arithmetic",
+        "script": "conformance/profile/build_vectors.py",
+        "method": "Independent from DataView/Math.imul product and Node Buffer reference; no production module loaded"
+      },
+      "detects": "UTF-16 length, surrogate encoding",
+      "scope_limit": "New proposal fixture, not an authenticated historical V2–V10, no multi-entity dynamics or interoperability"
+    },
+    {
+      "id": "PV-F5C-UNNORMALIZED",
+      "status": "PROPOSED_ONLY_NOT_NORMATIVE",
+      "historical_id": null,
+      "sources": [
+        "S025",
+        "S026",
+        "H034"
+      ],
+      "normative_objective": "§34.5 raw UTF-8, no normalization",
+      "input_state": {
+        "time": 0,
+        "grid": [
+          [
+            {
+              "traversal": "FREE",
+              "effect": null
+            }
+          ]
+        ],
+        "entities": {
+          "$type": "map",
+          "entries": [
+            [
+              "é",
+              {
+                "id": "é",
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "energy": 0.1,
+                "lifecycle": "ACTIVE"
+              }
+            ]
+          ]
+        },
+        "rng_state": 2
+      },
+      "preconditions": [
+        "Exactly one entity; ACTIVE on FREE; finite energy; uint64 time; nonzero uint32 RNG",
+        "Effective snapshot only, no initialize_world or provenance claim"
+      ],
+      "serialization_procedure": "Recovered §34 WORLD: WLS1,u64be time,u32be width/height,cells(y,x),entity_count,UTF8-sorted entity records; FULL appends u32be RNG; -0→+0 only",
+      "expected": {
+        "world_bytes": 51,
+        "full_bytes": 55,
+        "world_hex": "574c533100000000000000000000000100000001000000000000010000000365cc8100000000000000003fb999999999999a00",
+        "full_hex": "574c533100000000000000000000000100000001000000000000010000000365cc8100000000000000003fb999999999999a0000000002",
+        "world_fnv32": 3851403561,
+        "full_fnv32": 2686510995
+      },
+      "calculation": {
+        "tool": "Python 3 stdlib struct/strict UTF-8/unbounded integer arithmetic",
+        "script": "conformance/profile/build_vectors.py",
+        "method": "Independent from DataView/Math.imul product and Node Buffer reference; no production module loaded"
+      },
+      "detects": "Unicode normalization or arbitrary rounding",
+      "scope_limit": "New proposal fixture, not an authenticated historical V2–V10, no multi-entity dynamics or interoperability"
+    },
+    {
+      "id": "PV-F5C-ZERO",
+      "status": "PROPOSED_ONLY_NOT_NORMATIVE",
+      "historical_id": null,
+      "sources": [
+        "S025",
+        "S026",
+        "H034"
+      ],
+      "normative_objective": "§6.4 + §34.8 -0 canonicalization",
+      "input_state": {
+        "time": 0,
+        "grid": [
+          [
+            {
+              "traversal": "FREE",
+              "effect": null
+            }
+          ]
+        ],
+        "entities": {
+          "$type": "map",
+          "entries": [
+            [
+              "zero",
+              {
+                "id": "zero",
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "energy": {
+                  "$type": "binary64",
+                  "hex": "8000000000000000"
+                },
+                "lifecycle": "ACTIVE"
+              }
+            ]
+          ]
+        },
+        "rng_state": 1
+      },
+      "preconditions": [
+        "Exactly one entity; ACTIVE on FREE; finite energy; uint64 time; nonzero uint32 RNG",
+        "Effective snapshot only, no initialize_world or provenance claim"
+      ],
+      "serialization_procedure": "Recovered §34 WORLD: WLS1,u64be time,u32be width/height,cells(y,x),entity_count,UTF8-sorted entity records; FULL appends u32be RNG; -0→+0 only",
+      "expected": {
+        "world_bytes": 52,
+        "full_bytes": 56,
+        "world_hex": "574c53310000000000000000000000010000000100000000000001000000047a65726f0000000000000000000000000000000000",
+        "full_hex": "574c53310000000000000000000000010000000100000000000001000000047a65726f000000000000000000000000000000000000000001",
+        "world_fnv32": 2881369257,
+        "full_fnv32": 312677542
+      },
+      "calculation": {
+        "tool": "Python 3 stdlib struct/strict UTF-8/unbounded integer arithmetic",
+        "script": "conformance/profile/build_vectors.py",
+        "method": "Independent from DataView/Math.imul product and Node Buffer reference; no production module loaded"
+      },
+      "detects": "Preserved negative-zero sign in bytes",
+      "scope_limit": "New proposal fixture, not an authenticated historical V2–V10, no multi-entity dynamics or interoperability"
+    },
+    {
+      "id": "PV-F5C-SUBNORMAL",
+      "status": "PROPOSED_ONLY_NOT_NORMATIVE",
+      "historical_id": null,
+      "sources": [
+        "S025",
+        "S026",
+        "H034"
+      ],
+      "normative_objective": "§6.4 + §34 exact subnormal binary64",
+      "input_state": {
+        "time": 42,
+        "grid": [
+          [
+            {
+              "traversal": "FREE",
+              "effect": null
+            }
+          ]
+        ],
+        "entities": {
+          "$type": "map",
+          "entries": [
+            [
+              "subnormal",
+              {
+                "id": "subnormal",
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "energy": 5e-324,
+                "lifecycle": "ACTIVE"
+              }
+            ]
+          ]
+        },
+        "rng_state": 2147483648
+      },
+      "preconditions": [
+        "Exactly one entity; ACTIVE on FREE; finite energy; uint64 time; nonzero uint32 RNG",
+        "Effective snapshot only, no initialize_world or provenance claim"
+      ],
+      "serialization_procedure": "Recovered §34 WORLD: WLS1,u64be time,u32be width/height,cells(y,x),entity_count,UTF8-sorted entity records; FULL appends u32be RNG; -0→+0 only",
+      "expected": {
+        "world_bytes": 57,
+        "full_bytes": 61,
+        "world_hex": "574c5331000000000000002a000000010000000100000000000001000000097375626e6f726d616c0000000000000000000000000000000100",
+        "full_hex": "574c5331000000000000002a000000010000000100000000000001000000097375626e6f726d616c000000000000000000000000000000010080000000",
+        "world_fnv32": 73372182,
+        "full_fnv32": 3778258422
+      },
+      "calculation": {
+        "tool": "Python 3 stdlib struct/strict UTF-8/unbounded integer arithmetic",
+        "script": "conformance/profile/build_vectors.py",
+        "method": "Independent from DataView/Math.imul product and Node Buffer reference; no production module loaded"
+      },
+      "detects": "Flush-to-zero, non-binary64 serialization",
+      "scope_limit": "New proposal fixture, not an authenticated historical V2–V10, no multi-entity dynamics or interoperability"
+    },
+    {
+      "id": "PV-F5C-MAXFINITE",
+      "status": "PROPOSED_ONLY_NOT_NORMATIVE",
+      "historical_id": null,
+      "sources": [
+        "S025",
+        "S026",
+        "H034"
+      ],
+      "normative_objective": "§6.4 + D-01-E finite binary64 max and BigInt time",
+      "input_state": {
+        "time": {
+          "$type": "bigint",
+          "value": "9007199254740992"
+        },
+        "grid": [
+          [
+            {
+              "traversal": "FREE",
+              "effect": null
+            }
+          ]
+        ],
+        "entities": {
+          "$type": "map",
+          "entries": [
+            [
+              "max",
+              {
+                "id": "max",
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "energy": 1.7976931348623157e+308,
+                "lifecycle": "ACTIVE"
+              }
+            ]
+          ]
+        },
+        "rng_state": 4294967295
+      },
+      "preconditions": [
+        "Exactly one entity; ACTIVE on FREE; finite energy; uint64 time; nonzero uint32 RNG",
+        "Effective snapshot only, no initialize_world or provenance claim"
+      ],
+      "serialization_procedure": "Recovered §34 WORLD: WLS1,u64be time,u32be width/height,cells(y,x),entity_count,UTF8-sorted entity records; FULL appends u32be RNG; -0→+0 only",
+      "expected": {
+        "world_bytes": 51,
+        "full_bytes": 55,
+        "world_hex": "574c53310020000000000000000000010000000100000000000001000000036d617800000000000000007fefffffffffffff00",
+        "full_hex": "574c53310020000000000000000000010000000100000000000001000000036d617800000000000000007fefffffffffffff00ffffffff",
+        "world_fnv32": 750457074,
+        "full_fnv32": 1911402670
+      },
+      "calculation": {
+        "tool": "Python 3 stdlib struct/strict UTF-8/unbounded integer arithmetic",
+        "script": "conformance/profile/build_vectors.py",
+        "method": "Independent from DataView/Math.imul product and Node Buffer reference; no production module loaded"
+      },
+      "detects": "Infinity conversion, precision loss",
+      "scope_limit": "New proposal fixture, not an authenticated historical V2–V10, no multi-entity dynamics or interoperability"
+    },
+    {
+      "id": "PV-F5C-DEAD",
+      "status": "PROPOSED_ONLY_NOT_NORMATIVE",
+      "historical_id": null,
+      "sources": [
+        "S025",
+        "S026",
+        "H034"
+      ],
+      "normative_objective": "§9 + §34 lifecycle tag and signed finite energy",
+      "input_state": {
+        "time": 9,
+        "grid": [
+          [
+            {
+              "traversal": "FREE",
+              "effect": null
+            }
+          ]
+        ],
+        "entities": {
+          "$type": "map",
+          "entries": [
+            [
+              "dead",
+              {
+                "id": "dead",
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "energy": -7.25,
+                "lifecycle": "DEAD"
+              }
+            ]
+          ]
+        },
+        "rng_state": 3735928559
+      },
+      "preconditions": [
+        "Exactly one entity; ACTIVE on FREE; finite energy; uint64 time; nonzero uint32 RNG",
+        "Effective snapshot only, no initialize_world or provenance claim"
+      ],
+      "serialization_procedure": "Recovered §34 WORLD: WLS1,u64be time,u32be width/height,cells(y,x),entity_count,UTF8-sorted entity records; FULL appends u32be RNG; -0→+0 only",
+      "expected": {
+        "world_bytes": 52,
+        "full_bytes": 56,
+        "world_hex": "574c5331000000000000000900000001000000010000000000000100000004646561640000000000000000c01d00000000000001",
+        "full_hex": "574c5331000000000000000900000001000000010000000000000100000004646561640000000000000000c01d00000000000001deadbeef",
+        "world_fnv32": 4125464788,
+        "full_fnv32": 2312938222
+      },
+      "calculation": {
+        "tool": "Python 3 stdlib struct/strict UTF-8/unbounded integer arithmetic",
+        "script": "conformance/profile/build_vectors.py",
+        "method": "Independent from DataView/Math.imul product and Node Buffer reference; no production module loaded"
+      },
+      "detects": "Omitted lifecycle or unsigned energy",
+      "scope_limit": "New proposal fixture, not an authenticated historical V2–V10, no multi-entity dynamics or interoperability"
+    }
+  ]
+}

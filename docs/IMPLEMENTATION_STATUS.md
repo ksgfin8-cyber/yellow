@@ -4,7 +4,15 @@ Documento **informativo y operacional**. Consolidación DOC-02: **2026-11-10
 (America/Guayaquil)**. Rama documental `dev/doc-02-knowledge-consolidation`, creada
 sobre `origin/main`; aquel cambio no incorporaba código ni pruebas de F3-C.
 
-**Actualización vigente F5-B (2026-11-11, America/Guayaquil): cobertura y
+**Actualización vigente F5-C (2026-11-11, America/Guayaquil): expediente de
+preparación COMPLETED; recomendación normativa HOLD.** Base main PR #32
+`e7fada1a0e78ff711f056b53148e048102fd1c02`, rama
+`dev/f5-c-acceptance-profile`. Perfil `WL-ACCEPT-v026-CAND-1.0.0` **candidato no
+aprobado**: fuentes, inventario, suficiencia, arquitectura y nueve propuestas de
+vectores. No modifica §37 ni declara conformidad o hitos B/C.
+[Decisión, evidencia y dependencias F5-C](#f5-c).
+
+**Corte previo F5-B (2026-11-11, America/Guayaquil): cobertura y
 preparación de decisión COMPLETED.** Base main PR #31
 `b13d637dd405d363442803ad53821f5a6c6f4a62`, rama
 `dev/f5-b-conformance-coverage`. Se conservan las 50 entradas F5-A; se añaden
@@ -147,7 +155,8 @@ replay completo. El alcance B no está completo en ninguna de las dos referencia
 
 | Necesidad | Fuente única para el detalle |
 |---|---|
-| Cobertura y expediente vigente F5-B | [Obligaciones atómicas, contrastes y propuesta pendiente](#f5-b) |
+| Perfil candidato vigente F5-C | [Autoridad, suficiencia y puerta HOLD](#f5-c) |
+| Cobertura y expediente previo F5-B | [Obligaciones atómicas, contrastes y propuesta pendiente](#f5-b) |
 | Infraestructura previa F5-A | [Corpus, runner, resultados y vacíos](#f5-a) |
 | Corrección previa F4-G | [F4G-001, cierre y regresión](#f4-g) |
 | Auditoría previa F4-F | [HOLD original, contraejemplo y preparación canónica](#f4-f) |
@@ -4968,3 +4977,74 @@ base de aceptación canónica.** El siguiente paso recomendado es decidir A con
 archivos verificables o revisar/aprobar expresamente B y cerrar lagunas de autoridad
 antes de fijar su manifiesto. Se requiere orden posterior para modificar §37 o
 iniciar una segunda implementación. No se fusiona ni despliega este incremento.
+
+
+<a id="f5-c"></a>
+## F5-C — Perfil candidato de aceptación y preparación normativa
+
+**F5C-001 — ACCEPTANCE BASIS CANDIDATE PREPARATION.** Clasificación:
+**Methodological and Normative Acceptance-Governance Decision Preparation**.
+Expediente preparado para una decisión expresa; no es una aprobación normativa.
+[Informe y texto final propuesto de §37](ACCEPTANCE_PROFILE_F5-C.md),
+[manifiesto candidato](../conformance/acceptance-profile-candidate.json),
+[índice reproducible](../conformance/profile/README.md).
+
+Se indexa íntegramente el texto disponible: 141 fichas de cláusulas/fragmentos,
+572 unidades literales/referenciales (A=429, B=55, C=86, D=2), 515 marcadores
+obligatorios. **No son 515 obligaciones semánticas independientes**: hay alias,
+fragmentos y 66 identificadores opacos I01–I66 cuya definición no está disponible.
+No se afirma haber reconstruido el universo contractual histórico completo.
+Las clases A/B/C/D/E distinguen norma vigente, fragmento histórico incorporado,
+referencia incompleta, política técnica y precisión propuesta. La captura de
+mensajes anteriores del responsable conserva su procedencia y alcance; no es una
+copia del manuscrito histórico completo ni eleva las políticas a norma.
+
+[Revisión individual de los 114 casos](../conformance/profile/corpus-quality-review.json):
+58 ejemplos obligatorios definidos, 44 condicionales a precisiones y 12
+complementarios. Se conservan categorías, entradas, expectativas y oráculos.
+[Matriz de suficiencia](../conformance/profile/sufficiency-matrix.json):
+3 SATISFIED_BY_EVIDENCE (solo conjuntos finitos FNV, semillas y V1), 227 PARTIAL,
+97 BLOCKED_BY_UNRESOLVED_CONTRACT, 24 BLOCKED_BY_MISSING_TEST,
+162 REQUIRES_STATIC_REVIEW, 2 REQUIRES_INDEPENDENT_IMPLEMENTATION,
+0 VERIFIED_EXCEPTION sobre los marcadores obligatorios. Tres límites normativos
+reales de alcance se registran aparte: no dispensan obligaciones pendientes.
+No se promueven los 35 ejemplos satisfechos de F5-B a suficiencia completa.
+
+[Brechas y precisiones](../conformance/profile/contract-gaps.json): diez decisiones,
+nueve bloqueantes y una consolidación editorial no bloqueante (INIT-004, ya
+resuelta). G00 requiere fuente verificable o un anexo contractual completo
+expresamente aprobado; cerrar solo políticas conocidas no demuestra exhaustividad.
+Se recomienda **HOLD**, con alternativas, texto mínimo, efecto y pruebas por brecha.
+ActionResult, eventos, dinámica, interfaces, límites y políticas de representación
+mantienen su distinción de autoridad. D-01 prevalece en sus sustituciones expresas.
+
+[Revisión estática](../conformance/profile/architecture-review.json): nueve áreas,
+29 archivos citados con función, intervalo y SHA; cinco notas P2 por referencias
+obsoletas en comentarios de agentes. No se reprodujo una violación funcional P0/P1
+ni se corrigió producción. La inspección acotada no demuestra propiedades
+universales ni sustituye revisión independiente. La ausencia de Metrics no elimina
+su restricción condicional. Se preservan fail-stop de EXPERIMENT y restauración
+conjunta de replay, sin inventar una transacción global adicional.
+
+[Nueve vectores PV-F5C](../conformance/profile/vector-candidates.json), calculados
+con Python/struct/FNV y contrastados con el oráculo independiente Buffer/BigInt:
+bytes, estados y hashes exactos; PROPOSED ONLY, no V2–V10 históricos recuperados.
+Su fijación requeriría aprobación anterior a comparar implementaciones.
+No se inicia segunda implementación ni interoperabilidad.
+
+[Ejecuciones por archivo y comandos](../conformance/profile/regression-results.json):
+27 suites previas, 500 PASS/0 FAIL (494 aserciones actuales y seis de v0.2.5 fija);
+11 pruebas nuevas del perfil PASS. Navegador: 16 PASS, incluidos 15 casos Node
+repetidos y un caso adicional real en Chromium. F5-A completo: 50 PASS y 289 BLOCKED;
+F5-B completo: 114 PASS y 289 BLOCKED; ambos resultados idénticos byte a byte a sus
+reportes fijados. No sumar corpus superpuestos. Legacy: 13 PASS/9 FAIL conocidos
+por esquemas y constructores retirados, sin modificar sus aserciones.
+El validador comprueba fuentes, hashes, literales, referencias, obligatoriedad,
+fronteras de autoridad, nueve vectores y rechazo de suficiencia falsificada.
+
+**Límite de cierre:** F5-C deja un expediente para rechazar/aprobar la base, con
+recomendación HOLD por contenido obligatorio indeterminado. La propuesta final
+§37 identifica perfil/revisión, reglas de suficiencia, versionado, aprobación,
+suspensión y recuperación posterior de fuentes, pero no se aplica a la norma.
+Los 289 bloqueos permanecen y no cuentan como PASS. Sin merge, despliegue,
+conformidad global ni declaración de hitos B/C.
