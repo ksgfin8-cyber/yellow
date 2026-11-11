@@ -57,7 +57,8 @@ function saved(f) { return clone(Object.fromEntries(fields.map(key => [key, f.r[
 function unchanged(f, fn) {
     const before = saved(f), refs = fields.map(key => f.r[key]);
     fn(); assert.deepEqual(saved(f), before);
-    fields.forEach((key, i) => assert.equal(f.r[key], refs[i], 'rollback reference ' + key));
+    // F4C-P01 returns independent snapshots; original identity assertions remain for the base.
+    if (!Object.getOwnPropertyDescriptor(f.r,'steps').get) fields.forEach((key, i) => assert.equal(f.r[key], refs[i], 'rollback reference ' + key));
 }
 const fail = fn => assert.throws(fn, {name: 'ContractError', message: 'recording failed'});
 function equivalent(a, actual, b, expected) {
@@ -186,10 +187,11 @@ if (benchmark) {
                     const old = vm.runInContext(phase, a.ctx); a.ctx.injected = () => { hits++; throw Error(phase); };
                     vm.runInContext(phase + '=injected', a.ctx); restore = () => { a.ctx.injected = old; vm.runInContext(phase + '=injected', a.ctx); };
                 } else {
-                    const name = {'candidate-copy':'_prepare_current','history-validation':'_validate_prepared','step-validation':'_validate_step'}[phase];
+                    const snapshots=Boolean(Object.getOwnPropertyDescriptor(f.r,'steps').get);
+                    const name = {'candidate-copy':snapshots?'_prepare_step_input':'_prepare_current','history-validation':snapshots?'_validate_append':'_validate_prepared','step-validation':'_validate_step'}[phase];
                     restore = wrap(f.r, name, old => function(...args) {
                         const result = old.apply(this, args);
-                        if (phase === 'candidate-copy' || (phase === 'history-validation' ? args[0].steps.length === 2 : args[0].tick === 2)) { hits++; throw Error(phase); }
+                        if (phase === 'candidate-copy' || (phase === 'history-validation' ? (snapshots ? args[0].step?.tick === 2 : args[0].steps.length === 2) : args[0].tick === 2)) { hits++; throw Error(phase); }
                         return result;
                     });
                 }
@@ -216,8 +218,14 @@ if (benchmark) {
             const f = setup(); record(f, next(f, 'MOVE_E')); const i = next(f, 'MOVE_S'); mutate(i);
             unchanged(f, () => fail(() => record(f, i)));
         }
-        const f = setup(); record(f, next(f, 'MOVE_E')); const i = next(f, 'MOVE_S'), old = f.r._prepare_current;
-        f.r._prepare_current = function() { const p = old.call(this); p.events[0].position.x = 99; return p; };
+        const f = setup(); record(f, next(f, 'MOVE_E')); const i = next(f, 'MOVE_S');
+        if(Object.getOwnPropertyDescriptor(f.r,'steps').get) {
+            const old=f.r._validate_append;
+            f.r._validate_append=function(p){p.events[0].position.x=99;return old.call(this,p);};
+        } else {
+            const old=f.r._prepare_current;
+            f.r._prepare_current=function(){const p=old.call(this);p.events[0].position.x=99;return p;};
+        }
         unchanged(f, () => fail(() => record(f, i)));
     });
     test('F4B-11 external prefix corruption is still detected on the next record and on exhaustive finalize', () => {
@@ -228,7 +236,13 @@ if (benchmark) {
             r => r.events = r.events.slice(1), r => r.sequence_counter++, r => r._initial_lifecycle_recorded = 'true'];
         for (const version of ['working','base']) for (const corrupt of corruptions) {
             const a = load(version), f = setup(a, {}, 3); record(f, next(f, 'MOVE_E')); record(f, next(f, 'MOVE_S'));
-            const i = next(f, 'MOVE_N'); corrupt(f.r);
+            const i = next(f, 'MOVE_N');
+            if(Object.getOwnPropertyDescriptor(f.r,'steps').get) {
+                const before=saved(f), external=Object.fromEntries(fields.map(key=>[key,f.r[key]]));corrupt(external);
+                assert.deepEqual(saved(f),before);record(f,i);assert.equal(f.r.finalize().steps.length,3);
+                continue; // Original F3E-P01 detection semantics remain exercised by the pinned base below.
+            }
+            corrupt(f.r);
             unchanged(f, () => fail(() => record(f, i)));
             const g = setup(a, {}, 2); record(g, next(g, 'MOVE_E')); record(g, next(g, 'MOVE_S')); corrupt(g.r);
             unchanged(g, () => fail(() => g.r.finalize()));
@@ -238,13 +252,14 @@ if (benchmark) {
         const f = setup(), steps = f.r.steps, events = f.r.events; record(f, next(f, 'MOVE_E'));
         assert.notEqual(f.r.steps, steps); assert.notEqual(f.r.events, events);
         assert.equal(steps.length, 0); assert.equal(events.length, 0);
-        assert.equal(Object.getOwnPropertyDescriptor(f.r, 'steps').writable, true);
+        const snapshots=Boolean(Object.getOwnPropertyDescriptor(f.r,'steps').get);
+        if(snapshots) fail(()=>{f.r.steps=[];}); else assert.equal(Object.getOwnPropertyDescriptor(f.r, 'steps').writable, true);
         const prefix = f.r.steps, first = prefix[0], oldEvent = f.r.events[0]; record(f, next(f, 'MOVE_S'));
-        assert.equal(prefix.length, 1); assert.equal(f.r.steps[0], first); assert.equal(Object.isFrozen(first), false);
+        assert.equal(prefix.length, 1); if(snapshots) assert.notEqual(f.r.steps[0],first); else assert.equal(f.r.steps[0], first); assert.equal(Object.isFrozen(first), false);
         assert.notEqual(f.r.events[0], oldEvent);
         oldEvent.position.x = 99; assert.notEqual(f.r.events[0].position.x, 99);
         first.entity_states.get('0987898').energy++;
-        unchanged(f, () => fail(() => record(f, next(f, 'MOVE_N'))));
+        if(snapshots){record(f,next(f,'MOVE_N'));assert.equal(f.r.finalize().steps.length,3);}else unchanged(f, () => fail(() => record(f, next(f, 'MOVE_N'))));
     });
     test('F4B-13 work counts fall without trusting a previously validated mutable prefix', () => {
         const rows = [];
@@ -255,7 +270,7 @@ if (benchmark) {
         }
         assert.ok(rows[0].history_checks < rows[1].history_checks);
         assert.ok(rows[0].hashes < rows[1].hashes); assert.ok(rows[0].copied_steps < rows[1].copied_steps);
-        assert.ok(rows[0].history_steps > 8, 'remaining complete history checks are explicit, not a linearity claim');
+        assert.equal(rows[0].history_steps,8,'F4C: one exhaustive history validation at finalize');
     });
     test('F4B-14 EXPERIMENT -> replay -> exhaustive validation preserves MATCH and full data', () => {
         for (const version of ['working','base']) {
@@ -290,7 +305,8 @@ if (benchmark) {
     test('F4B-17 BigInt representation, safe tick boundary and sequence exhaustion stay exact', () => {
         const results = [];
         for (const version of ['working','base']) {
-            const a = load(version), f = setup(a, {}, 1n); f.w.state.time = 0n; f.r.initial_state.time = 0n;
+            const a = load(version), f = setup(a, {}, 1n); f.w.state.time = 0n;
+            if(Object.getOwnPropertyDescriptor(f.r,'steps').get){f.r=new a.Recorder(f.c);f.r.record_initial_state(f.w.full_snapshot());f.r.record_initial_lifecycle_from_world([]);}else f.r.initial_state.time = 0n;
             record(f,next(f,'MOVE_E')); const t = f.r.finalize(); assert.equal(t.steps[0].tick,1); assert.equal(t.steps[0].world_state.time,1n); results.push({a,t});
             assert.equal(a.recorder_sequence_after(Number.MAX_SAFE_INTEGER),9007199254740992n);
             assert.equal(a.recorder_tick(Number.MAX_SAFE_INTEGER),Number.MAX_SAFE_INTEGER);
@@ -298,8 +314,9 @@ if (benchmark) {
             const g = setup(a), i = next(g,'MOVE_E'), old = g.r._prepare_events;
             g.r._prepare_events = function(raw,tick,source) { return old.call(this,raw,tick,source,Number.MAX_SAFE_INTEGER); };
             unchanged(g, () => fail(() => record(g,i)));
-            const h = setup(a); h.r.sequence_counter = 9007199254740992n;
-            unchanged(h, () => fail(() => record(h,next(h,'MOVE_E'))));
+            const h = setup(a);
+            if(Object.getOwnPropertyDescriptor(h.r,'steps').get) unchanged(h,()=>fail(()=>{h.r.sequence_counter=9007199254740992n;}));
+            else {h.r.sequence_counter = 9007199254740992n;unchanged(h, () => fail(() => record(h,next(h,'MOVE_E'))));}
         }
         equivalent(results[0].a,results[0].t,results[1].a,results[1].t);
     });
