@@ -294,4 +294,3 @@ test('F4C-20 replay exports the growing prefix once, with no per-tick full query
     assert.equal(m.public_queries,0);assert.equal(m.owned_step_copies,40);assert.equal(a.validate_ReplayResult(rr,c),true);
 });
 }
-
