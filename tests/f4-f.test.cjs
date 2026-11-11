@@ -27,6 +27,14 @@ function oracle(state,full){const u32=n=>{const b=Buffer.alloc(4);b.writeUInt32B
 function expectedWait(state){const next=copy(state);next.time=typeof state.time==='bigint'?BigInt(state.time)+1n:canonical(BigInt(state.time)+1n);const e=next.entities.values().next().value;e.energy-=1;if(e.energy<=0)e.lifecycle='DEAD';return next;}
 function verifyBytes(a,state){for(const [full,name,hash] of [[false,'canonical_world_state_bytes','STATE_HASH_WORLD'],[true,'canonical_full_state_bytes','STATE_HASH_FULL']]){const x=oracle(state,full);assert.deepEqual(Buffer.from(a[name](state)),x.bytes);assert.equal(a[hash](state),x.hash);}}
 function watch(a){a.ctx.transitions=0;vm.runInContext('const auditTick=execute_tick_transaction;execute_tick_transaction=(...args)=>{transitions++;return auditTick(...args);};',a.ctx);return()=>a.ctx.transitions;}
+function validationWork(a){
+ a.ctx.auditWork={proofs:0,rebuilds:0,ticks:0};
+ vm.runInContext(`const auditProof=replay_continuity_proof,auditWorld=replay_world_from_state,auditTransition=execute_tick_transaction;
+ replay_continuity_proof=(...args)=>{auditWork.proofs++;return auditProof(...args);};
+ replay_world_from_state=(...args)=>{auditWork.rebuilds++;return auditWorld(...args);};
+ execute_tick_transaction=(...args)=>{auditWork.ticks++;return auditTransition(...args);};`,a.ctx);
+ return()=>copy(a.ctx.auditWork);
+}
 
 test('F4F-01 manual WAIT state, context and complete byte/hash oracle near temporal boundaries',()=>{
  for(const start of [0,7n,SAFE-1n,SAFE,SAFE+1n,MAX-2n])for(const mode of ['WITH_AGENT','WITHOUT_AGENT']){
@@ -101,14 +109,49 @@ test('F4F-09 closed context, declared modes at zero steps, wrong mode and semant
  const saved=r.records[0].state_hash_full;r.records[0].world_state.entities.get('é😀').energy++;
  // Recompute a correct hash independently: structural/physical mismatch must still fail.
  r.records[0].state_hash_world=oracle(r.records[0].world_state,false).hash;r.records[0].state_hash_full=oracle(r.records[0].world_state,true).hash;
- assert.equal(f.a.validate_ReplayResult(r,f.c),false);assert.notEqual(r.records[0].state_hash_full,saved);assert.deepEqual(copy(f.c),before.c);
+ assert.equal(f.a.validate_ReplayResult(r,f.c),false);assert.equal(f.a.validate_replay_continuity(r,f.c),false);assert.notEqual(r.records[0].state_hash_full,saved);assert.deepEqual(copy(f.c),before.c);
 });
 const corruptMetadata=[['status','BOGUS'],['max_ticks_used',null],['expected_steps_used','1'],['unused_actions',-1],['termination_hint','BOGUS'],['unknown_action_index','bad'],['error_message',{}]];
-test('F4F-10 reproduced P1 F4F-001: continuity accepts malformed ReplayResult metadata',()=>{
+// F4F-10 originally expected true on ce9082c (F4F-001); F4-G migrates
+// those seven counterexamples to normative rejection before physical work.
+test('F4F-10 regression F4F-001: continuity rejects malformed metadata before physical proof',()=>{
  const f=fixture(),r=replay(f),calls=watch(f.a);assert.equal(f.a.validate_replay_continuity(r,f.c),true);assert.equal(calls(),1);
- for(const [key,value] of corruptMetadata){const bad={...r,[key]:value},before=copy(bad);assert.equal(f.a.validate_ReplayResult(bad,f.c),false,key);const n=calls();assert.equal(f.a.validate_replay_continuity(bad,f.c),true,key);assert.equal(calls(),n+1,key+' reaches physical proof');assert.deepEqual(copy(bad),before);}
+ for(const [key,value] of corruptMetadata){const bad={...r,[key]:value},before=copy(bad),n=calls();assert.equal(f.a.validate_ReplayResult(bad,f.c),false,key);assert.equal(f.a.validate_replay_continuity(bad,f.c),false,key);assert.equal(calls(),n,key+' rejected before physical proof');assert.deepEqual(copy(bad),before);}
+ // F4-G contrasts: all seven statuses, each under a real request; UNKNOWN
+ // cannot be valid WITHOUT_AGENT because that mode requires WAIT exclusively.
+ const statuses=['OK','MAX_TICKS_REACHED','EARLY_TERMINATION','INCOMPLETE_ACTION_SEQUENCE','UNKNOWN_ACTION','INVALID_REPLAY_INPUT','EXECUTION_ERROR'];
+ for(const mode of ['WITH_AGENT','WITHOUT_AGENT'])for(const status of statuses){
+  if(status==='UNKNOWN_ACTION'&&mode==='WITHOUT_AGENT')continue;
+  const g=fixture(load(),7n,mode);g.c.expected_steps=2;g.c.actions=[{type:'WAIT'},{type:'WAIT'}];
+  if(status==='MAX_TICKS_REACHED')g.c.max_ticks=8n;
+  if(status==='EARLY_TERMINATION')g.c.initial_state.entities.get('é😀').energy=1;
+  if(status==='INCOMPLETE_ACTION_SEQUENCE')g.c.actions.pop();
+  if(status==='UNKNOWN_ACTION')g.c.actions[1]={type:'UNKNOWN'};
+  if(status==='INVALID_REPLAY_INPUT')g.c.max_ticks=-1;
+  const original=g.a.Recorder.prototype.record_step;let appends=0;
+  if(status==='EXECUTION_ERROR')g.a.Recorder.prototype.record_step=function(...args){original.apply(this,args);if(++appends===2)throw Error('late recording failure');};
+  const rr=replay(g);g.a.Recorder.prototype.record_step=original;assert.equal(rr.status,status);
+  const before=copy({rr,c:g.c}),work=validationWork(g.a),valid=status!=='INVALID_REPLAY_INPUT';
+  assert.equal(g.a.validate_replay_continuity(rr,g.c),valid,mode+' '+status);
+  assert.deepEqual(work(),{proofs:valid?1:0,rebuilds:valid?1:0,ticks:rr.executed});
+  assert.equal(g.a.validate_ReplayResult(rr,g.c),true,mode+' '+status+' complete validation');
+  assert.deepEqual(work(),{proofs:valid?2:0,rebuilds:valid?2:0,ticks:rr.executed*2});
+  assert.deepEqual(copy({rr,c:g.c}),before);
+ }
+ const g=fixture(),rr=replay(g),work=validationWork(g.a);
+ for(const key of Object.keys(g.c)){const bad={...g.c};delete bad[key];assert.equal(g.a.validate_replay_continuity(rr,bad),false,key);assert.equal(g.a.validate_ReplayResult(rr,bad),false,key);}
+ for(const c of [{...g.c,extra:1},{...g.c,execution_mode:'UNKNOWN'},{...g.c,world_config:{}},{...g.c,feedback_config:{}}]){
+  assert.equal(g.a.validate_replay_continuity(rr,c),false);assert.equal(g.a.validate_ReplayResult(rr,c),false);
+ }
+ // Both predicates must reject malformed metadata before even rebuilding WORLD.
+ for(const [key,value] of corruptMetadata){const bad={...rr,[key]:value};assert.equal(g.a.validate_replay_continuity(bad,g.c),false);assert.equal(g.a.validate_ReplayResult(bad,g.c),false);}
+ assert.deepEqual(work(),{proofs:0,rebuilds:0,ticks:0});
+ const late=fixture();late.c.expected_steps=2;late.c.actions.push({type:'WAIT'});
+ const two=replay(late),bad={...two,records:[two.records[0],{...two.records[1],action:null}]},before=copy(bad),lateWork=validationWork(late.a);
+ assert.equal(late.a.validate_replay_continuity(bad,late.c),false);assert.equal(late.a.validate_ReplayResult(bad,late.c),false);
+ assert.deepEqual(lateWork(),{proofs:0,rebuilds:0,ticks:0});assert.deepEqual(copy(bad),before);
 });
-// Intentionally red until an authorized production correction closes F4F-001.
+// Original normative expectation is unchanged in F4-G.
 test('F4F-11 desired regression for F4F-001: malformed RR must be Invalid',()=>{
  const f=fixture(),r=replay(f);assert.equal(f.a.validate_replay_continuity({...r,status:'BOGUS'},f.c),false);
 });
@@ -117,4 +160,16 @@ test('F4F-12 independently predicted death event wins against simultaneous time 
  const f=fixture(load(),7,'WITHOUT_AGENT',1);f.c.max_ticks=8;const r=replay(f);
  assert.equal(r.status,'OK');assert.equal(r.termination_hint,'ENTITY_DIED');assert.equal(r.final_state.entities.get('é😀').lifecycle,'DEAD');assert.equal(r.final_state.entities.get('é😀').energy,0);
  assert.deepEqual(copy(r.events),[{type:'ENTITY_DIED',entity_id:'é😀',position:{x:0,y:0},tick:8,source:'lifecycle',sequence:0}]);assert.equal(f.a.validate_ReplayResult(r,f.c),true);
+ // P0-8 permits null even at a terminal state: the structural guard must not
+ // reintroduce the stricter historical helper policy when reused by continuity.
+ for(const life of ['ACTIVE','DEAD'])for(const steps of [0,1])for(const mode of ['WITH_AGENT','WITHOUT_AGENT']){
+  const g=fixture(load(),MAX-BigInt(steps),mode,life==='DEAD'?1:10);g.c.expected_steps=steps;
+  if(steps===0&&life==='DEAD'){g.c.initial_state.entities.get('é😀').lifecycle='DEAD';g.c.initial_state.entities.get('é😀').energy=0;}
+  const rr=replay(g);assert.equal(rr.status,'OK');assert.equal(rr.termination_hint,life==='DEAD'?'ENTITY_DIED':'MAX_TICKS_REACHED');
+  const before=copy({rr,c:g.c}),work=validationWork(g.a);
+  for(const hint of [rr.termination_hint,null]){
+   const candidate={...rr,termination_hint:hint};assert.equal(g.a.validate_replay_continuity(candidate,g.c),true);assert.equal(g.a.validate_ReplayResult(candidate,g.c),true);
+  }
+  assert.deepEqual(work(),{proofs:4,rebuilds:4,ticks:steps*4});assert.deepEqual(copy({rr,c:g.c}),before);
+ }
 });

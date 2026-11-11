@@ -132,27 +132,23 @@ function validate_ReplayResult_structure(result, context) {
     if (!replay_counter_parameters(context.expected_steps, context.max_ticks)) return false;
     if (!has_exact_fields(result, REPLAY_RESULT_FIELDS) || !REPLAY_STATUSES.includes(result.status) ||
         !Array.isArray(result.records) || !Array.isArray(result.events) || !recorder_safe_number(result.executed) ||
-        result.records.length !== result.executed || !recorder_safe_number(result.unused_actions) ||
+        result.records.length !== result.executed || result.executed > context.expected_steps || !recorder_safe_number(result.unused_actions) ||
         !recorder_safe_number(result.expected_steps_used) || !is_uint64(result.max_ticks_used) ||
         result.expected_steps_used !== context.expected_steps || BigInt(result.max_ticks_used) !== BigInt(context.max_ticks)) return false;
-    if (result.status === "INVALID_REPLAY_INPUT") return result.final_state === null && result.executed === 0 &&
-        result.events.length === 0 && result.unknown_action_index === null && result.termination_hint === null &&
-        typeof result.error_message === "string" && result.error_message.length > 0 &&
-        result.unused_actions === (replay_valid_action_list(context.actions) ? context.actions.length : 0);
     if (!validate_WorldState(result.final_state, context.world_config) ||
         result.unused_actions !== Math.max(0, context.actions.length - result.executed) ||
         !replay_array_every(result.events, validate_RecordedEvent) ||
         !replay_array_every(result.records, step => replay_record_structure(step, context))) return false;
     if (result.status === "OK") return result.executed === context.expected_steps && result.unknown_action_index === null &&
-        result.error_message === null && result.termination_hint === replay_termination(result.final_state, context);
+        result.error_message === null && validate_termination_hint(result);
     if (result.termination_hint !== null) return false;
     if (result.status === "EXECUTION_ERROR") return result.unknown_action_index === null &&
-        typeof result.error_message === "string" && result.error_message.length > 0;
+        REPLAY_ERROR_CATALOG.includes(result.error_message);
     if (result.executed >= context.expected_steps || result.error_message !== null) return false;
-    if (result.status === "UNKNOWN_ACTION") return result.unknown_action_index === result.executed &&
+    if (result.status === "UNKNOWN_ACTION") return replay_termination(result.final_state, context) === null && result.unknown_action_index === result.executed &&
         result.executed < context.actions.length && !Object.hasOwn(ActionType, context.actions[result.executed].type);
     if (result.unknown_action_index !== null) return false;
-    if (result.status === "INCOMPLETE_ACTION_SEQUENCE") return result.executed === context.actions.length;
+    if (result.status === "INCOMPLETE_ACTION_SEQUENCE") return replay_termination(result.final_state, context) === null && result.executed === context.actions.length;
     return replay_termination(result.final_state, context) === (result.status === "EARLY_TERMINATION" ? "ENTITY_DIED" : "MAX_TICKS_REACHED");
 }
 function replay_trajectory(initial_state, initial_events, actions, world_config, feedback_config, expected_steps, max_ticks, execution_mode) {
@@ -275,7 +271,10 @@ function replay_continuity_proof(rr, context, trajectory_null_mode) {
 // D-01-C replaces the incomplete three-argument wrapper with explicit context.
 function validate_replay_continuity(rr, request_context) {
     try { const c=replay_context_values(request_context);
-        if(!has_exact_fields(rr,REPLAY_RESULT_FIELDS)||!Array.isArray(rr.records)||!Array.isArray(rr.events)||rr.executed!==rr.records.length)return false;
+        // INVALID has no reproducible prefix under a valid request context.
+        // Share schema/status checks with generation and the complete validator,
+        // before reconstructing WORLD or executing any physical transition.
+        if(rr?.status==="INVALID_REPLAY_INPUT" || !validate_ReplayResult_structure(rr,c))return false;
         return !!replay_continuity_proof(rr,c,c.execution_mode==="WITHOUT_AGENT");
     } catch { return false; }
 }
@@ -297,24 +296,7 @@ function validate_ReplayResult(rr, request_context) {
             try { replay_context_values(c); return false; }
             catch (error) { return validate_ReplayResult_structure(rr, c) && REPLAY_ERROR_CATALOG.includes(rr.error_message) && rr.error_message === error.message; }
         }
-        const context = replay_context_values(c);
-        if (!Array.isArray(rr.records) || !Array.isArray(rr.events) || !recorder_safe_number(rr.executed) ||
-            rr.executed !== rr.records.length || rr.executed > context.expected_steps ||
-            !recorder_safe_number(rr.unused_actions) || rr.unused_actions !== Math.max(0, context.actions.length - rr.executed) ||
-            !is_uint64(rr.max_ticks_used) || BigInt(rr.max_ticks_used) !== BigInt(context.max_ticks) ||
-            rr.expected_steps_used !== context.expected_steps || !recorder_safe_number(rr.expected_steps_used) ||
-            !validate_WorldState(rr.final_state, context.world_config) || !replay_array_every(rr.events, validate_RecordedEvent)) return false;
-        const proof = replay_continuity_proof(rr, context, context.execution_mode==="WITHOUT_AGENT");
-        if (!proof || !validate_termination_hint(rr)) return false;
-        if (rr.status === "OK") return rr.executed === context.expected_steps && rr.error_message === null && rr.unknown_action_index === null;
-        if (rr.termination_hint !== null) return false;
-        if (rr.status === "EXECUTION_ERROR") return rr.unknown_action_index === null && REPLAY_ERROR_CATALOG.includes(rr.error_message);
-        if (rr.executed >= context.expected_steps || rr.error_message !== null) return false;
-        if (rr.status === "UNKNOWN_ACTION") return proof.termination === null && rr.unknown_action_index === rr.executed &&
-            rr.executed < context.actions.length && !Object.hasOwn(ActionType, context.actions[rr.executed].type);
-        if (rr.unknown_action_index !== null) return false;
-        if (rr.status === "INCOMPLETE_ACTION_SEQUENCE") return proof.termination === null && rr.executed === context.actions.length;
-        return proof.termination === (rr.status === "EARLY_TERMINATION" ? "ENTITY_DIED" : "MAX_TICKS_REACHED");
+        return validate_replay_continuity(rr, c);
     } catch (error) { return false; }
 }
 function replay_original_context(original, world_config, execution_mode) {
