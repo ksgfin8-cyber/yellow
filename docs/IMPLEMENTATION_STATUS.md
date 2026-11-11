@@ -4,7 +4,14 @@ Documento **informativo y operacional**. Consolidación DOC-02: **2026-11-10
 (America/Guayaquil)**. Rama documental `dev/doc-02-knowledge-consolidation`, creada
 sobre `origin/main`; aquel cambio no incorporaba código ni pruebas de F3-C.
 
-**Actualización vigente F4-D (2026-11-11 UTC): revisión contractual COMPLETED;
+**Actualización vigente F4-E (2026-11-11 UTC): autoridad v0.2.6 D-01 aprobada e
+implementada; COMPLETED en aceptación local.** Base PR #27
+`3f70a9842a967b7fed157cd7db94e6313f590b6d`, rama
+`dev/f4-e-contractual-amendment`. La enmienda normativa se publicó primero,
+con genealogía y supersesión explícitas. v0.2.5 permanece inalterada; no se declaran
+conformidad global, interoperabilidad ni hitos B/C. [Evidencia y límites F4-E](#f4-e).
+
+**Corte previo F4-D (2026-11-11 UTC): revisión contractual COMPLETED;
 correcciones PROPOSED CHANGE, pendientes de aprobación e implementación.** Base
 main PR #26 `37a718c3680092f46b0d0ba79fc5920d25400a2a`, rama
 `dev/f4-d-replay-contract-closure`. Solo documentación: no se cambian norma, APIs,
@@ -4075,3 +4082,146 @@ Para cada fila, fuente histórica es fragmentaria como arriba; no se atribuyen a
 v0.2.1/2/3 textos no disponibles. Supersesión explícita de las propuestas F4-D y
 límites F3-G/H/F3C-P01 solo en lo enumerado. Decisiones previas quedan como historia.
 Fase I contractual terminada; implementación y evidencia empírica aún pendientes.
+
+
+### Implementación D-01 por fases y alcance de archivos
+
+Fase I: commit f27cff9, contrato v0.2.6 y genealogía antes de código. La búsqueda
+incluyó archivos Git históricos y, como contraste adicional, los textos adjuntos
+accesibles de este chat: contienen órdenes/fragmentos, no fuentes completas de
+v0.2.1/2/3/4. No se reconstruye su contenido. Las indicaciones del responsable
+sobre fuentes externas conservan su procedencia, sin fingir una lectura local.
+
+Fases II–IV: commit e8e4a98 y precisiones verificadas en los puntos siguientes.
+
+| Punto verificable | Implementación y razón |
+|---|---|
+| II-A | replay.js emite contadores parciales independientes en INVALID y valida su nulabilidad exacta; conserva once claves y precedencia |
+| II-E | recorder_tick y RecordedEvent/StepRecord admiten uint64; salida segura Number/BigInt; sequence y expected_steps siguen sin ampliarse |
+| II-E auditoría | WorldState.time y overflow del kernel ya eran uint64 exactos. represent_uint64 en core/contracts se usa solo para salidas de Observation y ConfirmedTickResult; no cambia reloj ni orden físico |
+| III-B | Recorder._adopt_replay_origin valida/copia origen y eventos específicos; flag privado de segmento incluido en checkpoint/restore. Inicialización normal y validador WORLD no se relajan |
+| IV-C | Contexto cerrado de ocho campos en predicados; firma de continuidad2, sin wrapper incompleto ni configuración inferida |
+| IV-D | Replay firma8 y comparador4; modo obligatorio, WITHOUT_AGENT solo WAIT real/nulls; WITH_AGENT produce contexto observado sin agente |
+| V | Pruebas nuevas, migración explícita de consumidores de test, corpus histórico conservado y regresión completa |
+
+La modificación adicional a js/interface/observation.js y
+js/experiment/tick_transaction.js está motivada exclusivamente por D-01-E:
+canonicalizar el campo emitido tick, preservando WorldState.time y los bytes.
+js/core/contracts.js centraliza esa representación con validación sin coerción.
+WORLD, PRNG, semillas, WLS1/hash_state, EXPERIMENT y web/renderer/CSS no se editan.
+Feedback/validadores uint64/copias existentes ya preservaban precisión; no se
+cambian por conveniencia. El reloj mostrado en web usa String y admite BigInt.
+
+La revisión normativa v0.2.6 precisa también §16 y §26.5 solo en representación
+de las salidas temporales. Son extensiones directas D-01-E, no otra mecánica.
+
+### Migración de firmas y expectativas
+
+Las llamadas actuales de fixtures en F3-G/H y F4-B/C pasan WITH_AGENT explícito;
+no existe adaptador de defaults en producción. Contextos usados por validación
+incluyen execution_mode y todas las configuraciones. F4-E cubre ambos modos.
+Los helpers observados de replay mantienen una elección WITH_AGENT explícita,
+no deducida desde acciones; el punto público requiere argumento de modo.
+
+F3G-16/17 y F3H-06/15/16/23 conservan sus expectativas antiguas como
+caracterizaciones etiquetadas historical v0.2.5, cargando todos los scripts de
+3f70a9842a967b7fed157cd7db94e6313f590b6d. Sus fallos provisionales no se borran del
+historial ni se confunden con el comportamiento normativo actual. F4-E contrasta
+sus reemplazos con resultados/contextos nuevos. Los demás casos usan código actual.
+
+F3-C admite ahora tick BigInt en RecordedEvent; su negativo se sustituye por
+BigInt negativo, no por relajación de sequence. F2F-10 y F3A-08 comprueban el tick
+seguro emitido como Number y conservan reloj BigInt. F4B-17/F4C-17 actualizan el
+rechazo antiguo de tick uint64 grande. La comparación con la base en F4B-17
+identifica explícitamente los dos campos Observation.tick/Feedback.observation.tick
+que pasan de0n a0: se compara íntegramente el resto y se prueban bytes WLS1 iguales.
+No se proyectan observaciones al comparar trayectorias en producción.
+
+### Pruebas F4-E y correspondencia con los25 requisitos de la orden
+
+Nueva suite tests/f4-e.test.cjs:17 casos locales, varios con matrices internas.
+No son T01–T280. La siguiente tabla permite comprobar que25 requisitos no se
+confunden con el número de funciones test registradas.
+
+| Requisitos de la orden | Casos/evidencia |
+|---|---|
+| 1–4 entradas, precedencia, uint64 válido y Number inseguro | Caso inicial, F4E-02/03/04; incluye null, undefined, booleanos, símbolos, objetos, fracciones, NaN/Infinity, BigInt esperado inválido y ambos contadores inválidos |
+| 5–7 límites, overflow, eventos/hash BigInt | Inicial y F4E-07/09/16; MAX_SAFE→siguiente, próximo UINT64_MAX→MAX, rechazo atómico enMAX; oráculo BufferBE/FNV BigInt independiente |
+| 8–12 segmentos ACTIVE/DEAD, cero, eventos locales, rechazo de historia | Inicial, F4E-05/06/07/17; tiempos absolutos, secuencias locales0, sin muerte fabricada |
+| 13–14 RNG y rollback | F4E-08/13 y regresión F4-C; no generación/draws extra y prefijo tras fallo posterior a append |
+| 15 contexto de configuración | F4E-10/15; costes/flags distintos no se infieren, contexto extra/ausente Invalid |
+| 16–19 WAIT observado/no-agente, MATCH, nulabilidad,16 flags | Inicial, F4E-11/16; comparación completa sin eliminar campos |
+| 20 firmas revisadas | F4E-12:8/4/2 y rechazo de modo no declarado, incluso cero pasos |
+| 21 regresión tiempo0 | F3-F y F4E-14; ciclo EXPERIMENT no editado |
+| 22 compatibilidad bytes | F4E-14 frente a base, suites F3-D/D2 y oráculo F4E-16 |
+| 23–25 estados/errores, pureza, no inferencias | F3-G/H migrados, F4E-02/03/04/10/12/15 |
+
+Se mantiene la limitación explícita AGENT_CONTRACT_ERROR: se reproduce/verifica
+el prefijo, no la causalidad de un agente que no se ejecuta. No se añade ese motivo
+a termination_hint ni se certifica MATCH completo para una causa externa.
+Un Replay Segment certifica continuidad desde el checkpoint suministrado, no su
+legitimidad histórica ni que proceda de initialize_world. Estas limitaciones no
+son contradicciones residuales A–E.
+
+
+### Resultado ejecutado, compatibilidad y cierre
+
+Ejecución final:24 suites F1–F4-E, **470 PASS/0 FAIL/0 omitidas**. De ese total,
+seis casos F3-G/H están etiquetados y fijados a fuentes v0.2.5 para conservar las
+caracterizaciones sustituidas;464 casos ejercitan código actual (con referencias
+independientes de regresión cuando procede). Nueva suite F4-E:17 PASS. No se
+convierten esos números en pruebas canónicas T01–T280.
+
+Comandos desde /workspace/yellow, Node v24.22.1:
+
+```bash
+node tests/f4-e.test.cjs
+# Se ejecutó también node tests/<archivo> para cada suite F1–F4-C.
+PLAYWRIGHT_MODULE=/opt/codex/runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/index.js \
+node tests/f4-a.test.cjs --browser
+node tests/f1-a-legacy.cjs
+git diff --check
+```
+
+Chromium155.0.8059.79:16 PASS, incluidos15 Node repetidos y un caso de navegador
+real adicional. Sin errores de scripts/requests/consola; ambos agentes, fallos,
+renderizado y pureza preservados. Legacy:13 PASS/9 FAIL, exit1: cinco consumidores
+esperan Trajectory directa (T06/07/08/20/22), factories/enum eliminados T12/13/14 y
+TOROIDAL T16. Ninguna aserción legacy se modifica. Subprocesos Git de referencias
+históricas y Chromium/localhost se ejecutaron fuera del sandbox; no se sustituyó
+el oráculo por código actual para evitar restricciones del entorno.
+
+| API / dato | Anterior | v0.2.6 actual |
+|---|---|---|
+| replay_trajectory |7 argumentos, contexto observado implícito |8, execution_mode obligatorio |
+| validate_replay_continuity |3 argumentos, no vacío bloqueado |2, contexto explícito y retorno booleano |
+| validate_replay |3 argumentos |4, modo obligatorio y comparación completa |
+| validate_ReplayResult |2, contexto insuficientemente explicitado |2, contexto cerrado de8 campos |
+| INVALID.*_used | Conflicto en parámetros inválidos | null solo por parámetro inválido; demás valores exactos |
+| max/ticks temporales | Registro acotado a Number seguro | uint64 exacto, salida Number seguro o BigInt grande |
+| Replay positivo | Excepción provisional | Segmento con eventos iniciales vacíos y secuencias locales |
+| Sin agente | Replay observado y MISMATCH | WAIT real/nulls y MATCH con modo declarado |
+
+Archivos afectados: nueva norma e informe; core/contracts (representación),
+recorder/replay (A–E), tick_transaction y observation (salidas temporales);
+fixtures/expectativas de f2-f, f3-a, f3-c, f3-g, f3-h, f4-b, f4-c y nueva f4-e.
+Quince archivos en total. Las fuentes de v0.2.5 y las decisiones anteriores se
+preservan, con supersesión añadida. WORLD, PRNG/semillas, WLS1, EXPERIMENT y web
+permanecen byte a byte intactos frente a la base. La revisión normativa precede
+el código y los puntos de verificación de las fases quedan identificados arriba.
+
+**VERIFIED local:** A–E, firmas, contextos/modos, representación/límites, segmentos,
+bytes previos, oráculo independiente FNV/Buffer, pureza, rollback y regresión.
+No hay contradicción residual demostrada en A–E. Secuencias y expected_steps no
+se amplían; los límites físicos/numéricos y F4-C siguen verificándose.
+**EXPLICIT LIMITATION:** procedencia histórica del checkpoint, causalidad externa
+de AGENT_CONTRACT_ERROR y rollback conjunto en EXPERIMENT no se certifican. La
+firma antigua no tiene wrapper de compatibilidad silencioso; consumidores externos
+necesitan migrar explícitamente a la revisión.
+**UNTESTED:** harness canónico individual T01–T280, vectoresV2–V10 pendientes y
+comparación entre implementaciones independientes. La comparación contra una base
+Git es regresión de la misma familia, no interoperabilidad completa. La matriz
+F4-D prepara esos trabajos; no se inicia su harness ni se declaran hitos B/C.
+
+F4-E COMPLETED en el alcance autorizado. Listo para revisión, sin merge ni
+publicación de despliegue y sin iniciar otro incremento.

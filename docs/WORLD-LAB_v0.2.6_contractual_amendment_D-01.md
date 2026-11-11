@@ -13,7 +13,7 @@ WORLD, acciones, dinámica, semillas, agentes, ciclo físico ni WLS1.
 | D-01-B | Extensión semántica controlada de replay | §25.1/25.3.3 y §§18/21/23 para segmentos |
 | D-01-C | Reparación de interfaz insuficiente | §25.3/25.3.1: contexto cerrado explícito |
 | D-01-D | Explicitación de contexto experimental | §25.1/25.7: modos y firmas |
-| D-01-E | Armonización y ampliación temporal | §§18/22/25: ticks/contadores uint64 |
+| D-01-E | Armonización y ampliación temporal | §§16/18/22/25/26.5: ticks/contadores uint64 |
 
 §11.7 e initialize_world no cambian. Secuencias e expected_steps siguen Number
 seguro. Se preservan independencia del agente, determinismo, único sync RNG,
@@ -230,3 +230,20 @@ cuando lifecycle=DEAD, incluso si se alcanza el límite.
 La orden F4-E aprueba estas sustituciones. Ninguna API anterior con argumentos
 implícitos se considera conforme a esta revisión. La conformidad global y los
 hitos B/C siguen UNTESTED hasta pruebas canónicas e interoperabilidad independiente.
+
+## Precisión D-01-E de las salidas de §16 y §26.5
+
+Observation.tick y ConfirmedTickResult.tick tienen dominio uint64 y se emiten como
+Number cuando son seguros, BigInt en otro caso. WorldState.time conserva su valor
+y representación válidos; la igualdad con esos ticks es numérica exacta. Los
+copiadores conservan valores admitidos sin pérdida; la canonicalización de salidas
+nuevas no autoriza cambiar bits binary64 ni bytes WLS1. Esta precisión sustituye
+únicamente la representación de esas salidas, no el orden del kernel, el reloj ni
+la sincronización RNG. Ningún índice, expected_steps o sequence se amplía.
+
+Orden completo de resultados tras validar solicitud: expected_steps=0 produce OK
+con el estado efectivo; en otro caso, por tick, DEAD prevalece sobre límite,
+seguido de agotamiento de acciones y tipo desconocido (solo WITH_AGENT). Se ejecuta
+entonces la acción. OK al completar expected_steps no implica terminación física.
+La validación temporal de UINT64_MAX rechaza cualquier confirmación que precisaría
+incrementarlo, antes de mutar o consumir RNG; el fallo usa world transition failed.

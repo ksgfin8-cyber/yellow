@@ -319,7 +319,12 @@ if (benchmark) {
             if(Object.getOwnPropertyDescriptor(h.r,'steps').get) unchanged(h,()=>fail(()=>{h.r.sequence_counter=9007199254740992n;}));
             else {h.r.sequence_counter = 9007199254740992n;unchanged(h, () => fail(() => record(h,next(h,'MOVE_E'))));}
         }
-        equivalent(results[0].a,results[0].t,results[1].a,results[1].t);
+        // D-01-E deliberately canonicalizes newly emitted safe Observation ticks.
+        const actual=clone(results[0].t),expected=clone(results[1].t);
+        assert.equal(actual.steps[0].observation.tick,0);assert.equal(expected.steps[0].observation.tick,0n);
+        expected.steps[0].observation.tick=0;expected.steps[0].feedback.observation.tick=0;
+        assert.deepEqual(actual,expected);
+        assert.ok(Buffer.from(results[0].a.canonical_full_state_bytes(results[0].t.steps[0].world_state)).equals(Buffer.from(results[1].a.canonical_full_state_bytes(results[1].t.steps[0].world_state))));
     });
     test('F4B-18 seeded RandomAgent preserves the entire trajectory and RNG snapshots against the base', () => {
         const a = load(), b = load('base');

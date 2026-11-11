@@ -1,5 +1,5 @@
-// F3-G: deterministic replay. Contractually unresolved input branches throw
-// rather than fabricating ReplayResult counters or weakening shared validation.
+// v0.2.6 D-01: explicit context/modes, exact temporal counters and replay segments.
+// WORLD initialization and the physical transition kernel remain unchanged.
 function validate_replay_initial_events(state, events) {
     if(BigInt(state.time)>0n) { if(!Array.isArray(events)||events.length!==0) throw new ContractError("invalid initial_events"); }
     else Recorder.prototype._validate_initial_recorded(state,events);
@@ -167,8 +167,7 @@ function replay_trajectory(initial_state, initial_events, actions, world_config,
         if (!validate_ReplayResult_structure(invalid, {actions, expected_steps, max_ticks})) throw new ContractError("world transition failed");
         return invalid;
     }
-    // A valid uint64 may exceed the safe Number representation required by the
-    // recovered result-counter contract. Do not silently reduce the WORLD limit.
+    // Both validated counter domains remain exact, including large uint64 limits.
     if (!replay_counter_parameters(expected_steps, max_ticks)) throw new ContractError("world transition failed");
     const world = replay_world_from_state(context.initial_state, context.world_config);
     let consistent = {records: [], events: context.initial_events.map(recorder_copy_event),
@@ -273,8 +272,7 @@ function replay_continuity_proof(rr, context, trajectory_null_mode) {
     if (!replay_values_equal(rr.final_state, world.state) || !replay_values_equal(rr.events, all_events)) return null;
     return {final_state: world.state, termination: determine_termination(world, context.max_ticks)};
 }
-// Published three-argument signature is retained. Physics/Feedback context is
-// unavailable here; nonempty standalone validation is explicitly PARTIAL.
+// D-01-C replaces the incomplete three-argument wrapper with explicit context.
 function validate_replay_continuity(rr, request_context) {
     try { const c=replay_context_values(request_context);
         if(!has_exact_fields(rr,REPLAY_RESULT_FIELDS)||!Array.isArray(rr.records)||!Array.isArray(rr.events)||rr.executed!==rr.records.length)return false;
@@ -293,7 +291,7 @@ function replay_context_values(context) {
 function validate_ReplayResult(rr, request_context) {
     try {
         const c = request_context;
-        if (!c ||
+        if (!has_exact_fields(c,["world_config","feedback_config","initial_state","initial_events","actions","expected_steps","max_ticks","execution_mode"]) ||
             !has_exact_fields(rr, REPLAY_RESULT_FIELDS) || !REPLAY_STATUSES.includes(rr.status)) return false;
         if (rr.status === "INVALID_REPLAY_INPUT") {
             try { replay_context_values(c); return false; }

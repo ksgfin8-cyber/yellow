@@ -265,7 +265,8 @@ class Recorder {
     _adopt_replay_origin(state, events) {
         this._record(() => {
             recording_require(histories.get(this).initial_state === null && state instanceof WorldState &&
-                validate_WorldState(state, this.experiment_config.world_config));
+                validate_WorldState(state, this.experiment_config.world_config) &&
+                BigInt(state.time) <= BigInt(this.experiment_config.max_ticks));
             if(BigInt(state.time)===0n) this._validate_initial_recorded(state,events);
             else recording_require(Array.isArray(events)&&events.length===0);
             const p=this._prepare_current(); segments.add(this);
