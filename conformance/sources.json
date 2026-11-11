@@ -1,0 +1,34 @@
+[
+  {
+    "id": "S025",
+    "path": "docs/WORLD-LAB_v0.2.5_canonical_transcripcion.md",
+    "sha256": "926d3246c18469d30088a1d67b7f3ffd23cf25340fc638a941e42a94985ad912",
+    "encoding": "utf8",
+    "original_sha256": "926d3246c18469d30088a1d67b7f3ffd23cf25340fc638a941e42a94985ad912",
+    "authority": "NORMATIVE v0.2.5, full available transcription"
+  },
+  {
+    "id": "S026",
+    "path": "docs/WORLD-LAB_v0.2.6_contractual_amendment_D-01.md",
+    "sha256": "4c6148028b45fee4a32d6379c84460e9829fdf98a1b79eed82853ff9eec7db03",
+    "encoding": "utf8",
+    "original_sha256": "4c6148028b45fee4a32d6379c84460e9829fdf98a1b79eed82853ff9eec7db03",
+    "authority": "NORMATIVE D-01, supersedes explicit clauses only"
+  },
+  {
+    "id": "H034",
+    "path": "conformance/sources/F3-D-2-recovered-order.b64",
+    "sha256": "42e0322220203cb1d39bcb685283a622d512c44f01283b390eb147671e17cf83",
+    "encoding": "base64",
+    "original_sha256": "47db32068e479861054f03e85123b1e927b7be17da94a41cca540143ae46cd40",
+    "authority": "Owner-recovered v0.2.4 §34 fragment in F3-D/2 order; not full historical manuscript"
+  },
+  {
+    "id": "HINIT",
+    "path": "conformance/sources/F2-G-recovered-order.b64",
+    "sha256": "28c68bc2e1858528f2e2bca6edda4efc4a9dde6c4b6ffc10ae5d1955121ba4e0",
+    "encoding": "base64",
+    "original_sha256": "285ecd4e11668543cba3254418b599f12d0a71c3351ee3a74e34ad8e89419df1",
+    "authority": "Owner-recovered initialization/events rules and authorized INIT-004 in F2-G order"
+  }
+]

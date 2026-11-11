@@ -1,0 +1,28 @@
+const fs=require('node:fs'),path=require('node:path');
+const cases=require('./cases.json'),corpus=require('./corpus.json');
+const spec=fs.readFileSync(path.join(__dirname,'../docs/WORLD-LAB_v0.2.5_canonical_transcripcion.md'),'utf8');
+const rows=[];
+function row(id,source,locator,text,related=[]) {
+ const direct=cases.filter(c=>c.clauses.includes(id));
+ rows.push({id,sources:[source],source_version:source==='S026'?'v0.2.6':'v0.2.5',locator,text,related_historical_tests:related,
+     executable_cases:direct.map(c=>c.id),coverage:direct.length?'PARTIAL; exact listed assertions only':'UNTESTED in new harness; no thematic coverage claim'});
+}
+for(const m of spec.matchAll(/^## (§\d+) — (.+)$/gm))row(m[1],'S025',m[1],m[2]);
+for(let i=1;i<=82;i++){
+ const id='I-'+String(i).padStart(2,'0'),m=spec.match(new RegExp('^'+id+'\\t(.+)$','m'));
+ row('§31/'+id,'S025','§31',m?m[1]:'SOURCE UNAVAILABLE; I-01–I-66 incorporated by reference without individual text');
+}
+for(const n of [...Array(8)].map((_,i)=>'P0-'+(i+1)).concat([...Array(5)].map((_,i)=>'P1-'+(i+1)))){
+ const linked=corpus.tests.filter(t=>t.source_locator.endsWith(' '+n));
+ rows.push({id:n,sources:['S025'],original_version:'v0.2.5',locator:'§36 / correction summary',text:'Explicit correction-to-clause mapping; historical test definition remains unavailable',
+  related_historical_tests:linked.map(t=>t.id),executable_cases:cases.filter(c=>linked.some(t=>t.clauses.some(x=>c.clauses.includes(x)))).map(c=>c.id),coverage:'PARTIAL relationship only; does not recover the historical test'});
+}
+for(const [prefix,first,last,group]of [['R',1,1,'R-1 / D-27–D-42'],['D',27,42,'R-1 / D-27–D-42'],['M',1,25,'M-1–M-25 / A-1–A-4'],['A',1,4,'M-1–M-25 / A-1–A-4'],['B',1,8,'B-1–B-8 (v0.2.2)'],['B',9,13,'B-9–B-13, V-1, V-2 (v0.2.3)'],['V',1,2,'B-9–B-13, V-1, V-2 (v0.2.3)']])for(let i=first;i<=last;i++){
+ rows.push({id:prefix+'-'+i,sources:['S025'],original_version:prefix==='B'?(i<=8?'v0.2.2':'v0.2.3'):prefix==='V'?'v0.2.3':'NOT SPECIFIED in available group label',locator:'§36 group '+group,text:'SOURCE UNAVAILABLE for individual correction definition',related_historical_tests:corpus.tests.filter(t=>t.groups.includes(group)).map(t=>t.id),executable_cases:[],coverage:'BLOCKED; grouped historical association is not a one-to-one assignment'});
+}
+for(const id of ['A','B','C','D','E'])row('D-01-'+id,'S026','D-01 '+id,'Current replacement; historical definitions remain separately inventoried');
+fs.writeFileSync(path.join(__dirname,'obligations.json'),JSON.stringify(rows,null,2)+'\n');
+let md=`# Matriz de conformidad F5-A\n\nDocumento informativo. Base ${corpus.product_base}.\nAutoridad: v0.2.6 D-01 sobre v0.2.5; fragmentos históricos con procedencia\nregistrada en sources.json. No confundir relaciones temáticas con cobertura completa.\n\nLa matriz es bidireccional: obligations.json → executable_cases → cases.json\n(cláusulas, fuente, entrada y oráculo) → results/f5-a.json. Cada T histórico\npermanece en corpus.json con sus campos ausentes explícitos; no se sustituye por\nun caso local de nombre similar. Todos los artefactos están en ../conformance/.\n\n## Secciones y obligaciones actuales\n\n| Obligación | Casos exactos del harness | Alcance |\n|---|---|---|\n`;
+for(const r of rows.filter(r=>/^§\d+$/.test(r.id)||r.id.startsWith('D-01-')))md+=`| ${r.id}: ${r.text} | ${r.executable_cases.join(', ')||'Ninguno'} | ${r.coverage} |\n`;
+md+='\nLas subcláusulas se trazan literalmente en cada caso y en el índice inverso\nsummary_by_clause del reporte; una sección sin casos directos puede tener\nsubcláusulas verificadas, pero nunca se considera completa por ello. Las 82 filas\nde invariantes y los grupos P0/P1/R/D/M/A/B/V- están en obligations.json, con\nfuentes ausentes y relaciones grupales identificadas explícitamente.\n\n## Sustituciones D-01\n\n| Contrato anterior | Contrato actual | Aceptación nueva |\n|---|---|---|\n| INVALID con contadores históricamente incompatibles | Contadores parciales independientes, null solo por parámetro inválido | ND-INVALID-BOTH/BIGMAX/BIGEXPECTED |\n| Ticks de registro Number seguro | Salidas uint64 exactas canónicas, sequence/expected sin ampliar | ND-UINT64; ER-REPLAY-UINT64; ND-HINT-NULL-* |\n| Origen replay positivo incompatible con validador time0 | Segmentos desde estado efectivo; eventos iniciales vacíos si time>0 | ND-SEGMENT-ZERO-*; ND-MODE-*; ER-REPLAY-* |\n| Firma pública continuidad sin contexto físico suficiente | Dos argumentos, contexto cerrado de ocho campos | ND-CONTEXT-*; ND-MODE-* |\n| Replay observado implícito | WITH_AGENT/WITHOUT_AGENT declarados | ND-MODE-*; ER-REPLAY-WITH_AGENT/WITHOUT_AGENT |\n| Guardado incompleto de metadatos (defecto F4F-001) | Estructura válida antes de reproducción | Siete ND-METADATA-* |\n\nLos seis casos históricos fijados a v0.2.5 en F3-G/H se conservan como\nENGINEERING-REGRESSION histórica; no deciden conformidad vigente. Ningún T271\no T273 se declara ejecutado por implementar estos casos nuevos.\n\n## Vacíos y límites\n\n280 definiciones T no están recuperadas íntegramente: 248 referencias parciales\ny 32 IDs sin asignación (T61–80/T93–104). V1 recuperado; V2–V10 no fijados.\nI-01–I-66 y definiciones individuales R/D/M/A/B/V- faltan. Los test canónicos\ncompletos permanecen BLOCKED, nunca PASS por coincidencia temática.\nLos casos ND demuestran solo las aserciones y entradas listadas. Los casos ER\nconservan políticas actuales de salida no totalmente recuperadas históricamente.\nProcedencia de checkpoints, causa externa de fallos y una segunda implementación\nno se certifican. No se declaran conformidad global ni hitos B/C.\n';
+fs.writeFileSync(path.join(__dirname,'../docs/CONFORMANCE_MATRIX.md'),md);

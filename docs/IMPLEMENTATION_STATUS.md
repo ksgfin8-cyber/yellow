@@ -4,7 +4,15 @@ Documento **informativo y operacional**. Consolidación DOC-02: **2026-11-10
 (America/Guayaquil)**. Rama documental `dev/doc-02-knowledge-consolidation`, creada
 sobre `origin/main`; aquel cambio no incorporaba código ni pruebas de F3-C.
 
-**Actualización vigente F4-G (2026-11-11, America/Guayaquil): corrección
+**Actualización vigente F5-A (2026-11-11, America/Guayaquil):
+F5A-CONFORMANCE-INFRASTRUCTURE COMPLETED con límites documentales.** Base main
+posterior al PR #30 `14d59dad381c344b7213025c86ffa5e661f16fc2`, rama
+`dev/f5-a-conformance-harness`. Harness: 6 vectores recuperados, 39 casos derivados
+y 5 regresiones PASS; 280 tests históricos y V2–V10 BLOCKED por falta de definición
+completa. No se declara conformidad canónica completa ni interoperabilidad.
+[Inventario, categorías, evidencia y continuidad F5-A](#f5-a).
+
+**Corte previo F4-G (2026-11-11, America/Guayaquil): corrección
 focalizada F4F-001 COMPLETED; GO para revisión de cierre.** Base main posterior al PR #29
 `ce9082c55b304cfaac924e7477bf9424c444f3ea`, rama
 `dev/f4-g-replay-validator-fix`. Se reutiliza la guardia estructural antes de la
@@ -131,7 +139,8 @@ replay completo. El alcance B no está completo en ninguna de las dos referencia
 
 | Necesidad | Fuente única para el detalle |
 |---|---|
-| Corrección vigente F4-G | [F4G-001, cierre y regresión](#f4-g) |
+| Infraestructura vigente F5-A | [Corpus, runner, resultados y vacíos](#f5-a) |
+| Corrección previa F4-G | [F4G-001, cierre y regresión](#f4-g) |
 | Auditoría previa F4-F | [HOLD original, contraejemplo y preparación canónica](#f4-f) |
 | Enmienda e implementación F4-E | [Genealogía y evidencia previa](#f4-e) |
 | Revisión contractual previa F4-D | [Propuesta única pendiente y matriz de preconformidad](#f4-d) |
@@ -4580,3 +4589,177 @@ WORLD, PRNG, RECORDER, EXPERIMENT, WLS1, web, fuentes normativas y todas las dem
 pruebas permanecen idénticos a la base. No se inicia T01–T280 ni otra funcionalidad.
 Las secciones históricas F4-E/F4-F conservan sus conclusiones de aquel momento;
 el estado vigente se establece aquí, sin borrar la evidencia roja anterior.
+
+
+<a id="f5-a"></a>
+## F5-A — F5A-CONFORMANCE-INFRASTRUCTURE
+
+**COMPLETED como infraestructura con limitaciones; conformidad canónica completa
+NO ESTABLECIDA.** Base main PR #30: `14d59dad381c344b7213025c86ffa5e661f16fc2`.
+Rama `dev/f5-a-conformance-harness`. Sin cambios productivos, especificaciones,
+pruebas previas, merge ni despliegue. Los registros históricos anteriores se
+conservan; esta sección establece el nuevo corte, sin reasignar sus categorías.
+
+### Recuperación documental y autenticidad
+
+Se buscaron fuentes en documentación actual, historial Git local alcanzable tras
+fetch y 26 órdenes adjuntas accesibles. El candidato histórico docs/specifications
+es un blob de un byte (solo LF), no un corpus recuperable. No se hallaron
+especificaciones individuales completas T01–T280. Se registran límites de búsqueda,
+objetos Git, títulos y SHA-256 en [recovery.json](../conformance/recovery.json).
+No se afirma haber leído documentos históricos íntegros ni conversaciones/ramas
+no disponibles. El código legacy con etiquetas T01–T22 no adquiere autoridad.
+
+[corpus.json](../conformance/corpus.json) contiene una fila por cada T01–T280:
+versión de origen cuando está expresamente fijada, fuente y localizador,
+cláusulas disponibles, entrada/procedimiento/esperado, recuperación,
+implementación, ejecución y evidencia. Hay **248 referencias parciales y 32 IDs
+sin asignación explícita** (T61–80/T93–104). Todas las definiciones individuales
+siguen incompletas y sus entradas/esperados ausentes son null, con ejecución
+BLOCKED. La tabla P0/P1→T266–T280 relaciona obligaciones, no recupera por sí sola
+las definiciones de esos tests. No se inventan identidades a partir de su tema.
+
+V1 sí se recupera como vector literal completo de 59 bytes desde la orden F3-D/2
+que transcribe §34 de v0.2.4; su estado se decodifica unívocamente del layout, sin
+inicialización ni resolver lifecycle. **V2–V10 siguen sin valores fijados** en
+§34.9: no se generan salidas del motor para rellenarlos. Los identificadores V-1 y
+V-2 del grupo de correcciones v0.2.3 no se confunden con WLS1 V1/V2.
+
+[sources.json](../conformance/sources.json) fija los SHA-256 de S025/S026 y de
+las capturas H034/HINIT. Estas últimas preservan exactamente órdenes del propietario
+con fragmentos recuperados, mediante base64 para conservar CRLF/espacios sin
+alterarlos. Se comprueba hash del archivo y del original decodificado; no son
+una autenticación independiente de todo v0.2.4. El original recuperado conserva
+su estado histórico UNTESTED aunque una envoltura nueva ejecute ahora su vector.
+
+### Categorías, trazabilidad y cobertura demostrada
+
+| Categoría del harness | PASS | FAIL | Alcance |
+|---|---:|---:|---|
+| CANONICAL-RECOVERED | 6 | 0 | FNV literal: vacío/a/foobar; dos derive_seed de §11.6; V1 byte por byte |
+| NORMATIVE-DERIVED | 39 | 0 | Nuevos IDs ND, cláusulas y oráculos explícitos; no son T recuperados |
+| ENGINEERING-REGRESSION | 5 | 0 | Tres proyecciones de replay según políticas actuales y dos casos de instrumentación de yellow; expectativas manuales y hashes independientes |
+| Entradas sin definición de test (category=null) | 0 | 0 | 289 BLOCKED: 280 T y nueve vectores no fijados; no son una cuarta categoría de pruebas |
+
+Total de entradas del reporte: **339 = 50 ejecutadas + 289 BLOCKED**.
+Ninguna ausencia de fuente recibe PASS. Las envolturas CR-* tienen IDs nuevos del
+runner y original_reference para la referencia literal del vector; no se renombran
+como T. La tabla Xorshift §10.6 disponible no fija expresamente su semilla: el
+contraste de semilla1 se deriva del algoritmo con oráculo BigInt, sin presentarlo
+como recuperación íntegra de aquella prueba histórica. Los nuevos hashes V1 se
+calculan con FNV independiente y se identifican ND, no hashes históricos fijados.
+
+La [matriz](CONFORMANCE_MATRIX.md) y
+[obligations.json](../conformance/obligations.json) recorren §§0–39, I-01–I-82,
+P0/P1 y los grupos R/D/M/A/B/V- disponibles. Cada regla tiene fuente, relación
+histórica conocida, casos exactos y cobertura parcial/UNTESTED/BLOCKED. I-01–I-66
+y las definiciones individuales R/D/M/A/B/V- no se reconstruyen del código.
+La dirección inversa está en [cases.json](../conformance/cases.json): norma,
+fuente, operación, entrada, expectativa y oráculo, enlazados al resultado por ID.
+summary_by_clause muestra las aserciones ejecutadas, no porcentajes de cobertura
+ni certificación de toda una sección por coincidencia temática.
+
+D-01 tiene casos explícitos para A (contadores parciales independientes), B
+(segmentos ACTIVE/DEAD positivos y cero pasos), C (contexto cerrado, validación
+previa de siete metadatos y F4F-001), D (modos observados y sin agente) y E
+(uint64/MAX, hints nulos y representación exacta). El caso ND-STRUCTURE-HASH
+modifica energía y recalcula correctamente el hash con oráculo independiente:
+ambos predicados siguen rechazando por inconsistencia física/estructural. No se
+ha debilitado la prueba hasta limitarla a hashes.
+
+### Runner, aislamiento y oráculos
+
+[runner.cjs](../conformance/runner.cjs) se ejecuta en Node sin index.html,
+renderer ni navegador. Crea un adaptador/VM fresco por caso, entrega una copia de
+entrada sin expectativa y compara estructuras completas y bytes. Admite PASS,
+FAIL, BLOCKED y UNTESTED; registra excepciones y causas, valida IDs únicos y
+rechaza oráculos ausentes. Las expectativas throws afirman solo nombre/mensaje
+que estén especificados; un diagnóstico no fijado se registra sin convertirlo en
+nuevo requisito. La selección parcial conserva los no seleccionados como UNTESTED.
+
+Los oráculos se construyen antes de ejecutar el motor: BigInt para PRNG/FNV;
+Buffer para UTF-8, BE uint64 y binary64/WLS1; estados manuales, tabla terminal,
+orden físico, eventos crudos/iniciales y rollback con fallo inyectado tras alterar
+estado y RNG. Tres ER explicitan su dependencia de políticas de ActionResult/
+proyección no recuperadas íntegramente; otros dos son instrumentación específica
+de yellow. Los ND de validación comparan resultados públicos, sin exigir a otro
+motor los nombres de helpers ni los contadores internos de esta implementación.
+Cambiar su calidad empírica
+no cambia su categoría por conveniencia.
+
+JSON wire conserva BigInt, Map, bytes, -0/NaN/Infinity y undefined sin coerción.
+Cada reporte incluye hashes del manifiesto de casos y corpus, fuentes, oráculo,
+entrada y salida. Dos ejecuciones completas produjeron archivos idénticos byte
+a byte; no contienen duraciones o marcas temporales variables. Exit0 significa
+que no hubo FAIL, **no** que los 289 BLOCKED estén conformes.
+
+[README del harness](../conformance/README.md) fija CLI, protocolo del adaptador,
+DTO y procedimiento formal de sustitución. Una futura implementación podrá
+recibir exactamente las mismas entradas y devolver observados, sin acceder a las
+expectativas ni modificarlas. F5-A no ejecuta una segunda implementación ni
+presenta regresión Git como interoperabilidad. fixture_base no identifica el
+commit de una futura implementación externa.
+
+### Ejecución y pruebas del sistema de prueba
+
+Entorno: Node v24.22.1, Chromium 155.0.8059.79. Comandos desde /workspace/yellow:
+
+```bash
+node conformance/build-corpus.cjs
+node conformance/build-trace.cjs
+node conformance/runner.cjs --out conformance/results/f5-a.json
+node conformance/runner.cjs --out /tmp/f5a-repeat.json
+cmp conformance/results/f5-a.json /tmp/f5a-repeat.json
+node tests/f5-a.test.cjs
+# node tests/<archivo> para las 25 suites anteriores F1–F4-G.
+PLAYWRIGHT_MODULE=/opt/codex/runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/index.js \
+node tests/f4-a.test.cjs --browser
+node tests/f1-a-legacy.cjs
+git diff --check
+```
+
+- Harness: **50 PASS / 0 FAIL / 289 BLOCKED / 0 UNTESTED** en ejecución completa.
+- Infraestructura nueva: **12 PASS**, exit0. Demuestra respuesta incorrecta,
+  excepción/causa inesperada, estructura alterada con hash igual, estados
+  BLOCKED/FAIL/UNTESTED distintos, ningún PASS sin ejecutar, duplicados,
+  oráculos ausentes, aislamiento, pureza de entrada, reproducibilidad,
+  procedencia/hash alterado y codec exacto. Ejecución seleccionada: un PASS,
+  49 UNTESTED y 289 BLOCKED.
+- Regresión de ingeniería F1–F4-G: **482 PASS / 0 FAIL**, 25 archivos, mismos
+  conteos por archivo; **476 actuales y seis caracterizaciones históricas**
+  v0.2.5 fijadas en Git (F3G-16/17, F3H-06/15/16/23). Las seis no acreditan
+  conformidad vigente. No existe una suite separada F4-G: sus contrastes están
+  incorporados en los 12 casos F4-F, sin omisiones/TODO.
+- Integración EXPERIMENT→RECORDER→REPLAY→VALIDACIÓN/MATCH en ambos modos:
+  ejecutada en F4E-11/14 y F3-F/G/H. Comparación WLS1 histórica F4E-14 y nuevos
+  oráculos independientes conservados.
+- Chromium: **16 PASS**, 15 repeticiones Node y un caso adicional de navegador.
+  Subprocesos Git históricos y servidor localhost/navegador usaron la ejecución
+  autorizada fuera del sandbox; no se sustituyeron sus referencias por el motor.
+- Legacy: **13 PASS / 9 FAIL**, exit1; mismos IDs/mensajes que F4-G.
+  T06/07/08/20/22 esperan Trajectory directa, T12/13/14 factories/enum retirados,
+  T16 usa TOROIDAL y falla estado inicial. Sus T locales no son tests canónicos.
+
+El [reporte completo](../conformance/results/f5-a.json) contiene cada entrada y
+el [reporte de regresiones](../conformance/results/regressions.json) conserva
+comandos/contexto, conteos por archivo y causas legacy. La lista de suites y sus
+huellas está en engineering-regressions.json. No se mezclan categorías para
+inflar una cifra de conformidad. No se reprodujo un defecto productivo nuevo en
+los casos ejecutados; esto no prueba ausencia universal de defectos.
+
+### Continuidad autorizable y límites de cierre
+
+**GO para infraestructura; conformidad canónica completa NO ESTABLECIDA.**
+Los 280 tests originales y V2–V10 mantienen el bloqueo documental. Para avanzar:
+obtener nuevas fuentes auténticas con entradas/procedimientos/esperados, o aprobar
+por orden separada un corpus sustituto derivado y versionado con IDs nuevos y
+oráculos publicados antes de contrastar otro motor. La propuesta formal está en
+README: enumerar lagunas, proponer casos nuevos, aprobación separada, congelar
+expectativas y comparar sin acomodarlas. Los ND de F5-A son evidencia parcial,
+no autorización para fingir T01–T280 recuperados ni reescribir §37.
+
+La interfaz para F5-B está preparada; no se inicia interoperabilidad independiente
+ni se declaran hitos B/C. Permanece la distinción entre reproducción interna,
+regresión entre versiones del mismo motor, contraste contra oráculo independiente
+y verdadera interoperabilidad. Tampoco se prueba la legitimidad histórica de
+checkpoints ni causalidad externa de fallos de agente a partir de su prefijo.

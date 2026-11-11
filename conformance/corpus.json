@@ -1,0 +1,6067 @@
+{
+  "product_base": "14d59dad381c344b7213025c86ffa5e661f16fc2",
+  "tests": [
+    {
+      "id": "T01",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Núcleo"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T01",
+      "supersession": null
+    },
+    {
+      "id": "T02",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Núcleo"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T02",
+      "supersession": null
+    },
+    {
+      "id": "T03",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Núcleo"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T03",
+      "supersession": null
+    },
+    {
+      "id": "T04",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Núcleo"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T04",
+      "supersession": null
+    },
+    {
+      "id": "T05",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Núcleo"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T05",
+      "supersession": null
+    },
+    {
+      "id": "T06",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Experimental"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T06",
+      "supersession": null
+    },
+    {
+      "id": "T07",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Experimental"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T07",
+      "supersession": null
+    },
+    {
+      "id": "T08",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Experimental"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T08",
+      "supersession": null
+    },
+    {
+      "id": "T09",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Experimental"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T09",
+      "supersession": null
+    },
+    {
+      "id": "T10",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Experimental"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T10",
+      "supersession": null
+    },
+    {
+      "id": "T11",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Experimental"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T11",
+      "supersession": null
+    },
+    {
+      "id": "T12",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Integración"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T12",
+      "supersession": null
+    },
+    {
+      "id": "T13",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Núcleo"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T13",
+      "supersession": null
+    },
+    {
+      "id": "T14",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Núcleo"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T14",
+      "supersession": null
+    },
+    {
+      "id": "T15",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Núcleo"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T15",
+      "supersession": null
+    },
+    {
+      "id": "T16",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Núcleo"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T16",
+      "supersession": null
+    },
+    {
+      "id": "T17",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Núcleo"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T17",
+      "supersession": null
+    },
+    {
+      "id": "T18",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Integración"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T18",
+      "supersession": null
+    },
+    {
+      "id": "T19",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Integración"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T19",
+      "supersession": null
+    },
+    {
+      "id": "T20",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Experimental"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T20",
+      "supersession": null
+    },
+    {
+      "id": "T21",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Integración"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T21",
+      "supersession": null
+    },
+    {
+      "id": "T22",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Integración"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T22",
+      "supersession": null
+    },
+    {
+      "id": "T23",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Núcleo"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T23",
+      "supersession": null
+    },
+    {
+      "id": "T24",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Núcleo"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T24",
+      "supersession": null
+    },
+    {
+      "id": "T25",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Núcleo"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T25",
+      "supersession": null
+    },
+    {
+      "id": "T26",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Núcleo"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T26",
+      "supersession": null
+    },
+    {
+      "id": "T27",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Núcleo"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T27",
+      "supersession": null
+    },
+    {
+      "id": "T28",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Experimental"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T28",
+      "supersession": null
+    },
+    {
+      "id": "T29",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Experimental"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T29",
+      "supersession": null
+    },
+    {
+      "id": "T30",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Experimental"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T30",
+      "supersession": null
+    },
+    {
+      "id": "T31",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Integración"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T31",
+      "supersession": null
+    },
+    {
+      "id": "T32",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Integración",
+        "Vectores"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T32",
+      "supersession": null
+    },
+    {
+      "id": "T33",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Integración",
+        "Vectores"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T33",
+      "supersession": null
+    },
+    {
+      "id": "T34",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Integración",
+        "Vectores"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T34",
+      "supersession": null
+    },
+    {
+      "id": "T35",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Integración",
+        "Vectores"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T35",
+      "supersession": null
+    },
+    {
+      "id": "T36",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Integración"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T36",
+      "supersession": null
+    },
+    {
+      "id": "T37",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Integración"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T37",
+      "supersession": null
+    },
+    {
+      "id": "T38",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Núcleo"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T38",
+      "supersession": null
+    },
+    {
+      "id": "T39",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Núcleo"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T39",
+      "supersession": null
+    },
+    {
+      "id": "T40",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Núcleo"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T40",
+      "supersession": null
+    },
+    {
+      "id": "T41",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Núcleo"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T41",
+      "supersession": null
+    },
+    {
+      "id": "T42",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Experimental"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T42",
+      "supersession": null
+    },
+    {
+      "id": "T43",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Experimental"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T43",
+      "supersession": null
+    },
+    {
+      "id": "T44",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Integración"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T44",
+      "supersession": null
+    },
+    {
+      "id": "T45",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Integración"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T45",
+      "supersession": null
+    },
+    {
+      "id": "T46",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T46",
+      "supersession": null
+    },
+    {
+      "id": "T47",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T47",
+      "supersession": null
+    },
+    {
+      "id": "T48",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T48",
+      "supersession": null
+    },
+    {
+      "id": "T49",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T49",
+      "supersession": null
+    },
+    {
+      "id": "T50",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T50",
+      "supersession": null
+    },
+    {
+      "id": "T51",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T51",
+      "supersession": null
+    },
+    {
+      "id": "T52",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T52",
+      "supersession": null
+    },
+    {
+      "id": "T53",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T53",
+      "supersession": null
+    },
+    {
+      "id": "T54",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay",
+        "Vectores"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T54",
+      "supersession": null
+    },
+    {
+      "id": "T55",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T55",
+      "supersession": null
+    },
+    {
+      "id": "T56",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T56",
+      "supersession": null
+    },
+    {
+      "id": "T57",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T57",
+      "supersession": null
+    },
+    {
+      "id": "T58",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T58",
+      "supersession": null
+    },
+    {
+      "id": "T59",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T59",
+      "supersession": null
+    },
+    {
+      "id": "T60",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T60",
+      "supersession": null
+    },
+    {
+      "id": "T61",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "SOURCE UNAVAILABLE; no explicit assignment in §36",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T61",
+      "supersession": null
+    },
+    {
+      "id": "T62",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "SOURCE UNAVAILABLE; no explicit assignment in §36",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T62",
+      "supersession": null
+    },
+    {
+      "id": "T63",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "SOURCE UNAVAILABLE; no explicit assignment in §36",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T63",
+      "supersession": null
+    },
+    {
+      "id": "T64",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "SOURCE UNAVAILABLE; no explicit assignment in §36",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T64",
+      "supersession": null
+    },
+    {
+      "id": "T65",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "SOURCE UNAVAILABLE; no explicit assignment in §36",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T65",
+      "supersession": null
+    },
+    {
+      "id": "T66",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "SOURCE UNAVAILABLE; no explicit assignment in §36",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T66",
+      "supersession": null
+    },
+    {
+      "id": "T67",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "SOURCE UNAVAILABLE; no explicit assignment in §36",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T67",
+      "supersession": null
+    },
+    {
+      "id": "T68",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "SOURCE UNAVAILABLE; no explicit assignment in §36",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T68",
+      "supersession": null
+    },
+    {
+      "id": "T69",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "SOURCE UNAVAILABLE; no explicit assignment in §36",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T69",
+      "supersession": null
+    },
+    {
+      "id": "T70",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "SOURCE UNAVAILABLE; no explicit assignment in §36",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T70",
+      "supersession": null
+    },
+    {
+      "id": "T71",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "SOURCE UNAVAILABLE; no explicit assignment in §36",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T71",
+      "supersession": null
+    },
+    {
+      "id": "T72",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "SOURCE UNAVAILABLE; no explicit assignment in §36",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T72",
+      "supersession": null
+    },
+    {
+      "id": "T73",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "SOURCE UNAVAILABLE; no explicit assignment in §36",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T73",
+      "supersession": null
+    },
+    {
+      "id": "T74",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "SOURCE UNAVAILABLE; no explicit assignment in §36",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T74",
+      "supersession": null
+    },
+    {
+      "id": "T75",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "SOURCE UNAVAILABLE; no explicit assignment in §36",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T75",
+      "supersession": null
+    },
+    {
+      "id": "T76",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "SOURCE UNAVAILABLE; no explicit assignment in §36",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T76",
+      "supersession": null
+    },
+    {
+      "id": "T77",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "SOURCE UNAVAILABLE; no explicit assignment in §36",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T77",
+      "supersession": null
+    },
+    {
+      "id": "T78",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "SOURCE UNAVAILABLE; no explicit assignment in §36",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T78",
+      "supersession": null
+    },
+    {
+      "id": "T79",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "SOURCE UNAVAILABLE; no explicit assignment in §36",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T79",
+      "supersession": null
+    },
+    {
+      "id": "T80",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "SOURCE UNAVAILABLE; no explicit assignment in §36",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T80",
+      "supersession": null
+    },
+    {
+      "id": "T81",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T81",
+      "supersession": null
+    },
+    {
+      "id": "T82",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T82",
+      "supersession": null
+    },
+    {
+      "id": "T83",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T83",
+      "supersession": null
+    },
+    {
+      "id": "T84",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T84",
+      "supersession": null
+    },
+    {
+      "id": "T85",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T85",
+      "supersession": null
+    },
+    {
+      "id": "T86",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T86",
+      "supersession": null
+    },
+    {
+      "id": "T87",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T87",
+      "supersession": null
+    },
+    {
+      "id": "T88",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T88",
+      "supersession": null
+    },
+    {
+      "id": "T89",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T89",
+      "supersession": null
+    },
+    {
+      "id": "T90",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T90",
+      "supersession": null
+    },
+    {
+      "id": "T91",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T91",
+      "supersession": null
+    },
+    {
+      "id": "T92",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T92",
+      "supersession": null
+    },
+    {
+      "id": "T93",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "SOURCE UNAVAILABLE; no explicit assignment in §36",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T93",
+      "supersession": null
+    },
+    {
+      "id": "T94",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "SOURCE UNAVAILABLE; no explicit assignment in §36",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T94",
+      "supersession": null
+    },
+    {
+      "id": "T95",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "SOURCE UNAVAILABLE; no explicit assignment in §36",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T95",
+      "supersession": null
+    },
+    {
+      "id": "T96",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "SOURCE UNAVAILABLE; no explicit assignment in §36",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T96",
+      "supersession": null
+    },
+    {
+      "id": "T97",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "SOURCE UNAVAILABLE; no explicit assignment in §36",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T97",
+      "supersession": null
+    },
+    {
+      "id": "T98",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "SOURCE UNAVAILABLE; no explicit assignment in §36",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T98",
+      "supersession": null
+    },
+    {
+      "id": "T99",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "SOURCE UNAVAILABLE; no explicit assignment in §36",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T99",
+      "supersession": null
+    },
+    {
+      "id": "T100",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "SOURCE UNAVAILABLE; no explicit assignment in §36",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T100",
+      "supersession": null
+    },
+    {
+      "id": "T101",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "SOURCE UNAVAILABLE; no explicit assignment in §36",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T101",
+      "supersession": null
+    },
+    {
+      "id": "T102",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "SOURCE UNAVAILABLE; no explicit assignment in §36",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T102",
+      "supersession": null
+    },
+    {
+      "id": "T103",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "SOURCE UNAVAILABLE; no explicit assignment in §36",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T103",
+      "supersession": null
+    },
+    {
+      "id": "T104",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "SOURCE UNAVAILABLE; no explicit assignment in §36",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T104",
+      "supersession": null
+    },
+    {
+      "id": "T105",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T105",
+      "supersession": null
+    },
+    {
+      "id": "T106",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T106",
+      "supersession": null
+    },
+    {
+      "id": "T107",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T107",
+      "supersession": null
+    },
+    {
+      "id": "T108",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T108",
+      "supersession": null
+    },
+    {
+      "id": "T109",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T109",
+      "supersession": null
+    },
+    {
+      "id": "T110",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T110",
+      "supersession": null
+    },
+    {
+      "id": "T111",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T111",
+      "supersession": null
+    },
+    {
+      "id": "T112",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T112",
+      "supersession": null
+    },
+    {
+      "id": "T113",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T113",
+      "supersession": null
+    },
+    {
+      "id": "T114",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T114",
+      "supersession": null
+    },
+    {
+      "id": "T115",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T115",
+      "supersession": null
+    },
+    {
+      "id": "T116",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T116",
+      "supersession": null
+    },
+    {
+      "id": "T117",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T117",
+      "supersession": null
+    },
+    {
+      "id": "T118",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T118",
+      "supersession": null
+    },
+    {
+      "id": "T119",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T119",
+      "supersession": null
+    },
+    {
+      "id": "T120",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T120",
+      "supersession": null
+    },
+    {
+      "id": "T121",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T121",
+      "supersession": null
+    },
+    {
+      "id": "T122",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T122",
+      "supersession": null
+    },
+    {
+      "id": "T123",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T123",
+      "supersession": null
+    },
+    {
+      "id": "T124",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T124",
+      "supersession": null
+    },
+    {
+      "id": "T125",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T125",
+      "supersession": null
+    },
+    {
+      "id": "T126",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T126",
+      "supersession": null
+    },
+    {
+      "id": "T127",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T127",
+      "supersession": null
+    },
+    {
+      "id": "T128",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T128",
+      "supersession": null
+    },
+    {
+      "id": "T129",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T129",
+      "supersession": null
+    },
+    {
+      "id": "T130",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T130",
+      "supersession": null
+    },
+    {
+      "id": "T131",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T131",
+      "supersession": null
+    },
+    {
+      "id": "T132",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T132",
+      "supersession": null
+    },
+    {
+      "id": "T133",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T133",
+      "supersession": null
+    },
+    {
+      "id": "T134",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T134",
+      "supersession": null
+    },
+    {
+      "id": "T135",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T135",
+      "supersession": null
+    },
+    {
+      "id": "T136",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T136",
+      "supersession": null
+    },
+    {
+      "id": "T137",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T137",
+      "supersession": null
+    },
+    {
+      "id": "T138",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T138",
+      "supersession": null
+    },
+    {
+      "id": "T139",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T139",
+      "supersession": null
+    },
+    {
+      "id": "T140",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T140",
+      "supersession": null
+    },
+    {
+      "id": "T141",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T141",
+      "supersession": null
+    },
+    {
+      "id": "T142",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T142",
+      "supersession": null
+    },
+    {
+      "id": "T143",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T143",
+      "supersession": null
+    },
+    {
+      "id": "T144",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T144",
+      "supersession": null
+    },
+    {
+      "id": "T145",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T145",
+      "supersession": null
+    },
+    {
+      "id": "T146",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T146",
+      "supersession": null
+    },
+    {
+      "id": "T147",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T147",
+      "supersession": null
+    },
+    {
+      "id": "T148",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T148",
+      "supersession": null
+    },
+    {
+      "id": "T149",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T149",
+      "supersession": null
+    },
+    {
+      "id": "T150",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T150",
+      "supersession": null
+    },
+    {
+      "id": "T151",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T151",
+      "supersession": null
+    },
+    {
+      "id": "T152",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T152",
+      "supersession": null
+    },
+    {
+      "id": "T153",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T153",
+      "supersession": null
+    },
+    {
+      "id": "T154",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T154",
+      "supersession": null
+    },
+    {
+      "id": "T155",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T155",
+      "supersession": null
+    },
+    {
+      "id": "T156",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T156",
+      "supersession": null
+    },
+    {
+      "id": "T157",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T157",
+      "supersession": null
+    },
+    {
+      "id": "T158",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T158",
+      "supersession": null
+    },
+    {
+      "id": "T159",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T159",
+      "supersession": null
+    },
+    {
+      "id": "T160",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T160",
+      "supersession": null
+    },
+    {
+      "id": "T161",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T161",
+      "supersession": null
+    },
+    {
+      "id": "T162",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T162",
+      "supersession": null
+    },
+    {
+      "id": "T163",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T163",
+      "supersession": null
+    },
+    {
+      "id": "T164",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T164",
+      "supersession": null
+    },
+    {
+      "id": "T165",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T165",
+      "supersession": null
+    },
+    {
+      "id": "T166",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T166",
+      "supersession": null
+    },
+    {
+      "id": "T167",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T167",
+      "supersession": null
+    },
+    {
+      "id": "T168",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T168",
+      "supersession": null
+    },
+    {
+      "id": "T169",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T169",
+      "supersession": null
+    },
+    {
+      "id": "T170",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T170",
+      "supersession": null
+    },
+    {
+      "id": "T171",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T171",
+      "supersession": null
+    },
+    {
+      "id": "T172",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T172",
+      "supersession": null
+    },
+    {
+      "id": "T173",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T173",
+      "supersession": null
+    },
+    {
+      "id": "T174",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T174",
+      "supersession": null
+    },
+    {
+      "id": "T175",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T175",
+      "supersession": null
+    },
+    {
+      "id": "T176",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T176",
+      "supersession": null
+    },
+    {
+      "id": "T177",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T177",
+      "supersession": null
+    },
+    {
+      "id": "T178",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T178",
+      "supersession": null
+    },
+    {
+      "id": "T179",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T179",
+      "supersession": null
+    },
+    {
+      "id": "T180",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T180",
+      "supersession": null
+    },
+    {
+      "id": "T181",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T181",
+      "supersession": null
+    },
+    {
+      "id": "T182",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T182",
+      "supersession": null
+    },
+    {
+      "id": "T183",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T183",
+      "supersession": null
+    },
+    {
+      "id": "T184",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T184",
+      "supersession": null
+    },
+    {
+      "id": "T185",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T185",
+      "supersession": null
+    },
+    {
+      "id": "T186",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T186",
+      "supersession": null
+    },
+    {
+      "id": "T187",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T187",
+      "supersession": null
+    },
+    {
+      "id": "T188",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T188",
+      "supersession": null
+    },
+    {
+      "id": "T189",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T189",
+      "supersession": null
+    },
+    {
+      "id": "T190",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T190",
+      "supersession": null
+    },
+    {
+      "id": "T191",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T191",
+      "supersession": null
+    },
+    {
+      "id": "T192",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T192",
+      "supersession": null
+    },
+    {
+      "id": "T193",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T193",
+      "supersession": null
+    },
+    {
+      "id": "T194",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T194",
+      "supersession": null
+    },
+    {
+      "id": "T195",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T195",
+      "supersession": null
+    },
+    {
+      "id": "T196",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T196",
+      "supersession": null
+    },
+    {
+      "id": "T197",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T197",
+      "supersession": null
+    },
+    {
+      "id": "T198",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T198",
+      "supersession": null
+    },
+    {
+      "id": "T199",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T199",
+      "supersession": null
+    },
+    {
+      "id": "T200",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T200",
+      "supersession": null
+    },
+    {
+      "id": "T201",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T201",
+      "supersession": null
+    },
+    {
+      "id": "T202",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "Replay",
+        "Vectores"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T202",
+      "supersession": null
+    },
+    {
+      "id": "T203",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "R-1 / D-27–D-42"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T203",
+      "supersession": null
+    },
+    {
+      "id": "T204",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "R-1 / D-27–D-42"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T204",
+      "supersession": null
+    },
+    {
+      "id": "T205",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "M-1–M-25 / A-1–A-4"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T205",
+      "supersession": null
+    },
+    {
+      "id": "T206",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "M-1–M-25 / A-1–A-4"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T206",
+      "supersession": null
+    },
+    {
+      "id": "T207",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "M-1–M-25 / A-1–A-4"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T207",
+      "supersession": null
+    },
+    {
+      "id": "T208",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "M-1–M-25 / A-1–A-4"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T208",
+      "supersession": null
+    },
+    {
+      "id": "T209",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "M-1–M-25 / A-1–A-4"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T209",
+      "supersession": null
+    },
+    {
+      "id": "T210",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "M-1–M-25 / A-1–A-4"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T210",
+      "supersession": null
+    },
+    {
+      "id": "T211",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "M-1–M-25 / A-1–A-4"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T211",
+      "supersession": null
+    },
+    {
+      "id": "T212",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "M-1–M-25 / A-1–A-4"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T212",
+      "supersession": null
+    },
+    {
+      "id": "T213",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "M-1–M-25 / A-1–A-4"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T213",
+      "supersession": null
+    },
+    {
+      "id": "T214",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "M-1–M-25 / A-1–A-4"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T214",
+      "supersession": null
+    },
+    {
+      "id": "T215",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "M-1–M-25 / A-1–A-4"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T215",
+      "supersession": null
+    },
+    {
+      "id": "T216",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "M-1–M-25 / A-1–A-4"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T216",
+      "supersession": null
+    },
+    {
+      "id": "T217",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "M-1–M-25 / A-1–A-4"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T217",
+      "supersession": null
+    },
+    {
+      "id": "T218",
+      "original_version": "NOT SPECIFIED in available inventory",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "M-1–M-25 / A-1–A-4"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T218",
+      "supersession": null
+    },
+    {
+      "id": "T219",
+      "original_version": "v0.2.2",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "B-1–B-8 (v0.2.2)"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T219",
+      "supersession": null
+    },
+    {
+      "id": "T220",
+      "original_version": "v0.2.2",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "B-1–B-8 (v0.2.2)"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T220",
+      "supersession": null
+    },
+    {
+      "id": "T221",
+      "original_version": "v0.2.2",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "B-1–B-8 (v0.2.2)"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T221",
+      "supersession": null
+    },
+    {
+      "id": "T222",
+      "original_version": "v0.2.2",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "B-1–B-8 (v0.2.2)"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T222",
+      "supersession": null
+    },
+    {
+      "id": "T223",
+      "original_version": "v0.2.2",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "B-1–B-8 (v0.2.2)"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T223",
+      "supersession": null
+    },
+    {
+      "id": "T224",
+      "original_version": "v0.2.2",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "B-1–B-8 (v0.2.2)"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T224",
+      "supersession": null
+    },
+    {
+      "id": "T225",
+      "original_version": "v0.2.2",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "B-1–B-8 (v0.2.2)"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T225",
+      "supersession": null
+    },
+    {
+      "id": "T226",
+      "original_version": "v0.2.2",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "B-1–B-8 (v0.2.2)"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T226",
+      "supersession": null
+    },
+    {
+      "id": "T227",
+      "original_version": "v0.2.2",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "B-1–B-8 (v0.2.2)"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T227",
+      "supersession": null
+    },
+    {
+      "id": "T228",
+      "original_version": "v0.2.2",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "B-1–B-8 (v0.2.2)"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T228",
+      "supersession": null
+    },
+    {
+      "id": "T229",
+      "original_version": "v0.2.2",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "B-1–B-8 (v0.2.2)"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T229",
+      "supersession": null
+    },
+    {
+      "id": "T230",
+      "original_version": "v0.2.2",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "B-1–B-8 (v0.2.2)"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T230",
+      "supersession": null
+    },
+    {
+      "id": "T231",
+      "original_version": "v0.2.2",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "B-1–B-8 (v0.2.2)"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T231",
+      "supersession": null
+    },
+    {
+      "id": "T232",
+      "original_version": "v0.2.2",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "B-1–B-8 (v0.2.2)"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T232",
+      "supersession": null
+    },
+    {
+      "id": "T233",
+      "original_version": "v0.2.2",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "B-1–B-8 (v0.2.2)"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T233",
+      "supersession": null
+    },
+    {
+      "id": "T234",
+      "original_version": "v0.2.2",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "B-1–B-8 (v0.2.2)"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T234",
+      "supersession": null
+    },
+    {
+      "id": "T235",
+      "original_version": "v0.2.2",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "B-1–B-8 (v0.2.2)"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T235",
+      "supersession": null
+    },
+    {
+      "id": "T236",
+      "original_version": "v0.2.2",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "B-1–B-8 (v0.2.2)"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T236",
+      "supersession": null
+    },
+    {
+      "id": "T237",
+      "original_version": "v0.2.2",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "B-1–B-8 (v0.2.2)"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T237",
+      "supersession": null
+    },
+    {
+      "id": "T238",
+      "original_version": "v0.2.2",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "B-1–B-8 (v0.2.2)"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T238",
+      "supersession": null
+    },
+    {
+      "id": "T239",
+      "original_version": "v0.2.2",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "B-1–B-8 (v0.2.2)"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T239",
+      "supersession": null
+    },
+    {
+      "id": "T240",
+      "original_version": "v0.2.2",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "B-1–B-8 (v0.2.2)"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T240",
+      "supersession": null
+    },
+    {
+      "id": "T241",
+      "original_version": "v0.2.3",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "B-9–B-13, V-1, V-2 (v0.2.3)"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T241",
+      "supersession": null
+    },
+    {
+      "id": "T242",
+      "original_version": "v0.2.3",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "B-9–B-13, V-1, V-2 (v0.2.3)"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T242",
+      "supersession": null
+    },
+    {
+      "id": "T243",
+      "original_version": "v0.2.3",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "B-9–B-13, V-1, V-2 (v0.2.3)"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T243",
+      "supersession": null
+    },
+    {
+      "id": "T244",
+      "original_version": "v0.2.3",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "B-9–B-13, V-1, V-2 (v0.2.3)"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T244",
+      "supersession": null
+    },
+    {
+      "id": "T245",
+      "original_version": "v0.2.3",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "B-9–B-13, V-1, V-2 (v0.2.3)"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T245",
+      "supersession": null
+    },
+    {
+      "id": "T246",
+      "original_version": "v0.2.3",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "B-9–B-13, V-1, V-2 (v0.2.3)"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T246",
+      "supersession": null
+    },
+    {
+      "id": "T247",
+      "original_version": "v0.2.3",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "B-9–B-13, V-1, V-2 (v0.2.3)"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T247",
+      "supersession": null
+    },
+    {
+      "id": "T248",
+      "original_version": "v0.2.3",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "B-9–B-13, V-1, V-2 (v0.2.3)"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T248",
+      "supersession": null
+    },
+    {
+      "id": "T249",
+      "original_version": "v0.2.3",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "B-9–B-13, V-1, V-2 (v0.2.3)"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T249",
+      "supersession": null
+    },
+    {
+      "id": "T250",
+      "original_version": "v0.2.3",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "B-9–B-13, V-1, V-2 (v0.2.3)"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T250",
+      "supersession": null
+    },
+    {
+      "id": "T251",
+      "original_version": "v0.2.3",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "B-9–B-13, V-1, V-2 (v0.2.3)"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T251",
+      "supersession": null
+    },
+    {
+      "id": "T252",
+      "original_version": "v0.2.3",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "B-9–B-13, V-1, V-2 (v0.2.3)"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T252",
+      "supersession": null
+    },
+    {
+      "id": "T253",
+      "original_version": "v0.2.3",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "B-9–B-13, V-1, V-2 (v0.2.3)"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T253",
+      "supersession": null
+    },
+    {
+      "id": "T254",
+      "original_version": "v0.2.3",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "B-9–B-13, V-1, V-2 (v0.2.3)"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T254",
+      "supersession": null
+    },
+    {
+      "id": "T255",
+      "original_version": "v0.2.3",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "B-9–B-13, V-1, V-2 (v0.2.3)"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T255",
+      "supersession": null
+    },
+    {
+      "id": "T256",
+      "original_version": "v0.2.4",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "v0.2.4"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T256",
+      "supersession": null
+    },
+    {
+      "id": "T257",
+      "original_version": "v0.2.4",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "v0.2.4"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T257",
+      "supersession": null
+    },
+    {
+      "id": "T258",
+      "original_version": "v0.2.4",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "v0.2.4"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T258",
+      "supersession": null
+    },
+    {
+      "id": "T259",
+      "original_version": "v0.2.4",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "v0.2.4"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T259",
+      "supersession": null
+    },
+    {
+      "id": "T260",
+      "original_version": "v0.2.4",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "v0.2.4"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T260",
+      "supersession": null
+    },
+    {
+      "id": "T261",
+      "original_version": "v0.2.4",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "v0.2.4"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T261",
+      "supersession": null
+    },
+    {
+      "id": "T262",
+      "original_version": "v0.2.4",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "v0.2.4"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T262",
+      "supersession": null
+    },
+    {
+      "id": "T263",
+      "original_version": "v0.2.4",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "v0.2.4"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T263",
+      "supersession": null
+    },
+    {
+      "id": "T264",
+      "original_version": "v0.2.4",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "v0.2.4"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T264",
+      "supersession": null
+    },
+    {
+      "id": "T265",
+      "original_version": "v0.2.4",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36",
+      "clauses": [],
+      "groups": [
+        "v0.2.4"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T265",
+      "supersession": null
+    },
+    {
+      "id": "T266",
+      "original_version": "v0.2.5",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36 / trazabilidad P0-1",
+      "clauses": [
+        "§10.1"
+      ],
+      "groups": [
+        "v0.2.5"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T266",
+      "supersession": null
+    },
+    {
+      "id": "T267",
+      "original_version": "v0.2.5",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36 / trazabilidad P0-2",
+      "clauses": [
+        "§6.1",
+        "§6.2",
+        "§35.6"
+      ],
+      "groups": [
+        "v0.2.5"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T267",
+      "supersession": null
+    },
+    {
+      "id": "T268",
+      "original_version": "v0.2.5",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36 / trazabilidad P0-3",
+      "clauses": [
+        "§20.2",
+        "§22",
+        "§27",
+        "§32"
+      ],
+      "groups": [
+        "v0.2.5"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T268",
+      "supersession": null
+    },
+    {
+      "id": "T269",
+      "original_version": "v0.2.5",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36 / trazabilidad P0-3",
+      "clauses": [
+        "§20.2",
+        "§22",
+        "§27",
+        "§32"
+      ],
+      "groups": [
+        "v0.2.5"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T269",
+      "supersession": null
+    },
+    {
+      "id": "T270",
+      "original_version": "v0.2.5",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36 / trazabilidad P0-4",
+      "clauses": [
+        "§20.6",
+        "§28.5"
+      ],
+      "groups": [
+        "v0.2.5"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T270",
+      "supersession": null
+    },
+    {
+      "id": "T271",
+      "original_version": "v0.2.5",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36 / trazabilidad P0-5",
+      "clauses": [
+        "§25.3.1"
+      ],
+      "groups": [
+        "v0.2.5"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T271",
+      "supersession": "D-01-C replaces public signature/context"
+    },
+    {
+      "id": "T272",
+      "original_version": "v0.2.5",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36 / trazabilidad P0-6",
+      "clauses": [
+        "§25.3"
+      ],
+      "groups": [
+        "v0.2.5"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T272",
+      "supersession": null
+    },
+    {
+      "id": "T273",
+      "original_version": "v0.2.5",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36 / trazabilidad P0-7",
+      "clauses": [
+        "§11.7",
+        "§25.3.3"
+      ],
+      "groups": [
+        "v0.2.5"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T273",
+      "supersession": "D-01-B replaces replay-origin event preconditions; initialize_world unchanged"
+    },
+    {
+      "id": "T274",
+      "original_version": "v0.2.5",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36 / trazabilidad P0-8",
+      "clauses": [
+        "§25.3.2"
+      ],
+      "groups": [
+        "v0.2.5"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T274",
+      "supersession": null
+    },
+    {
+      "id": "T275",
+      "original_version": "v0.2.5",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36 / trazabilidad P1-1",
+      "clauses": [
+        "§21.5"
+      ],
+      "groups": [
+        "v0.2.5"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T275",
+      "supersession": null
+    },
+    {
+      "id": "T276",
+      "original_version": "v0.2.5",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36 / trazabilidad P1-2",
+      "clauses": [
+        "§11.6"
+      ],
+      "groups": [
+        "v0.2.5"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T276",
+      "supersession": null
+    },
+    {
+      "id": "T277",
+      "original_version": "v0.2.5",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36 / trazabilidad P1-3",
+      "clauses": [
+        "§6.3",
+        "§13"
+      ],
+      "groups": [
+        "v0.2.5"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T277",
+      "supersession": null
+    },
+    {
+      "id": "T278",
+      "original_version": "v0.2.5",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36 / trazabilidad P1-4",
+      "clauses": [
+        "§6.4",
+        "§34"
+      ],
+      "groups": [
+        "v0.2.5"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T278",
+      "supersession": null
+    },
+    {
+      "id": "T279",
+      "original_version": "v0.2.5",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36 / trazabilidad P1-5",
+      "clauses": [
+        "§37",
+        "§36"
+      ],
+      "groups": [
+        "v0.2.5"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T279",
+      "supersession": null
+    },
+    {
+      "id": "T280",
+      "original_version": "v0.2.5",
+      "sources": [
+        "S025"
+      ],
+      "source_locator": "§36 / trazabilidad AUDIT",
+      "clauses": [
+        "§1–§39"
+      ],
+      "groups": [
+        "v0.2.5"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "PARTIAL REFERENCE; SOURCE UNAVAILABLE for individual input/procedure/expected",
+      "implementation": "NOT IMPLEMENTED as authenticated historical test",
+      "execution": "BLOCKED",
+      "executable_case": null,
+      "evidence": "conformance/results/f5-a.json#T280",
+      "supersession": null
+    }
+  ],
+  "vectors": [
+    {
+      "id": "V1",
+      "original_version": "v0.2.4 recovered fragment",
+      "sources": [
+        "S025",
+        "H034"
+      ],
+      "source_locator": "§34.9 / F3-D/2 literal 59 bytes",
+      "clauses": [
+        "§34.9"
+      ],
+      "input": "State decoded unambiguously from literal V1 and §34.1–8",
+      "procedure": "Serialize FULL and compare exactly 59 bytes",
+      "expected": "Literal bytes in CR-WLS1-V1",
+      "recovery": "RECOVERED LITERAL VECTOR + unambiguous input reconstruction",
+      "implementation": "CR-WLS1-V1",
+      "execution": "See execution report",
+      "executable_case": "CR-WLS1-V1"
+    },
+    {
+      "id": "V2",
+      "original_version": "v0.2.4 planned; v0.2.5 still pending",
+      "sources": [
+        "S025",
+        "H034"
+      ],
+      "source_locator": "§34.9 expressly pending",
+      "clauses": [
+        "§34.9"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "SOURCE UNAVAILABLE; no fixed bytes or reference hashes",
+      "implementation": "NOT IMPLEMENTED",
+      "execution": "BLOCKED",
+      "executable_case": null
+    },
+    {
+      "id": "V3",
+      "original_version": "v0.2.4 planned; v0.2.5 still pending",
+      "sources": [
+        "S025",
+        "H034"
+      ],
+      "source_locator": "§34.9 expressly pending",
+      "clauses": [
+        "§34.9"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "SOURCE UNAVAILABLE; no fixed bytes or reference hashes",
+      "implementation": "NOT IMPLEMENTED",
+      "execution": "BLOCKED",
+      "executable_case": null
+    },
+    {
+      "id": "V4",
+      "original_version": "v0.2.4 planned; v0.2.5 still pending",
+      "sources": [
+        "S025",
+        "H034"
+      ],
+      "source_locator": "§34.9 expressly pending",
+      "clauses": [
+        "§34.9"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "SOURCE UNAVAILABLE; no fixed bytes or reference hashes",
+      "implementation": "NOT IMPLEMENTED",
+      "execution": "BLOCKED",
+      "executable_case": null
+    },
+    {
+      "id": "V5",
+      "original_version": "v0.2.4 planned; v0.2.5 still pending",
+      "sources": [
+        "S025",
+        "H034"
+      ],
+      "source_locator": "§34.9 expressly pending",
+      "clauses": [
+        "§34.9"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "SOURCE UNAVAILABLE; no fixed bytes or reference hashes",
+      "implementation": "NOT IMPLEMENTED",
+      "execution": "BLOCKED",
+      "executable_case": null
+    },
+    {
+      "id": "V6",
+      "original_version": "v0.2.4 planned; v0.2.5 still pending",
+      "sources": [
+        "S025",
+        "H034"
+      ],
+      "source_locator": "§34.9 expressly pending",
+      "clauses": [
+        "§34.9"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "SOURCE UNAVAILABLE; no fixed bytes or reference hashes",
+      "implementation": "NOT IMPLEMENTED",
+      "execution": "BLOCKED",
+      "executable_case": null
+    },
+    {
+      "id": "V7",
+      "original_version": "v0.2.4 planned; v0.2.5 still pending",
+      "sources": [
+        "S025",
+        "H034"
+      ],
+      "source_locator": "§34.9 expressly pending",
+      "clauses": [
+        "§34.9"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "SOURCE UNAVAILABLE; no fixed bytes or reference hashes",
+      "implementation": "NOT IMPLEMENTED",
+      "execution": "BLOCKED",
+      "executable_case": null
+    },
+    {
+      "id": "V8",
+      "original_version": "v0.2.4 planned; v0.2.5 still pending",
+      "sources": [
+        "S025",
+        "H034"
+      ],
+      "source_locator": "§34.9 expressly pending",
+      "clauses": [
+        "§34.9"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "SOURCE UNAVAILABLE; no fixed bytes or reference hashes",
+      "implementation": "NOT IMPLEMENTED",
+      "execution": "BLOCKED",
+      "executable_case": null
+    },
+    {
+      "id": "V9",
+      "original_version": "v0.2.4 planned; v0.2.5 still pending",
+      "sources": [
+        "S025",
+        "H034"
+      ],
+      "source_locator": "§34.9 expressly pending",
+      "clauses": [
+        "§34.9"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "SOURCE UNAVAILABLE; no fixed bytes or reference hashes",
+      "implementation": "NOT IMPLEMENTED",
+      "execution": "BLOCKED",
+      "executable_case": null
+    },
+    {
+      "id": "V10",
+      "original_version": "v0.2.4 planned; v0.2.5 still pending",
+      "sources": [
+        "S025",
+        "H034"
+      ],
+      "source_locator": "§34.9 expressly pending",
+      "clauses": [
+        "§34.9"
+      ],
+      "input": null,
+      "procedure": null,
+      "expected": null,
+      "recovery": "SOURCE UNAVAILABLE; no fixed bytes or reference hashes",
+      "implementation": "NOT IMPLEMENTED",
+      "execution": "BLOCKED",
+      "executable_case": null
+    }
+  ],
+  "notes": [
+    "No T definition is manufactured from thematic mappings or local test names.",
+    "V-1/V-2 in the v0.2.3 test-group label are not presumed identical to WLS1 V1/V2.",
+    "Xorshift §10.6 gives outputs but does not explicitly state the input seed; the seed=1 case is NORMATIVE-DERIVED."
+  ]
+}
