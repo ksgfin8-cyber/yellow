@@ -22,8 +22,8 @@ function recorder_sequence_after(sequence) {
 }
 function recorder_tick(value) {
     // Explicit lossless boundary conversion, never a reduction of F3A-P01.
-    recording_require(is_uint64(value) && BigInt(value) <= RECORDER_MAX_SAFE);
-    return Number(value);
+    recording_require(is_uint64(value));
+    return represent_uint64(value);
 }
 function recorder_copy_event(event) {
     recording_require(validate_RecordedEvent(event));
@@ -33,7 +33,7 @@ function recorder_copy_event(event) {
 }
 function validate_RecordedEvent(event) {
     return has_exact_fields(event, ["type", "entity_id", "position", "tick", "source", "sequence"]) &&
-        recorder_safe_number(event.tick) && recorder_safe_number(event.sequence) &&
+        is_uint64(event.tick) && recorder_safe_number(event.sequence) &&
         (event.source === "action" ? ["ENTITY_MOVED", "RESOURCE_CONSUMED", "HAZARD_TRIGGERED"].includes(event.type) :
             event.source === "lifecycle" && event.type === "ENTITY_DIED") &&
         is_unicode_string(event.entity_id) && event.entity_id.length > 0 &&
@@ -50,6 +50,7 @@ function recorder_copy_failure(failure) {
 }
 // F4C-P01: closure-private history and opaque, owner-bound checkpoints.
 const {Recorder, RecordTransaction} = (() => {
+const segments = new WeakSet();
 const histories = new WeakMap(), checkpoints = new WeakMap(), transactions = new WeakMap(), active = new WeakSet();
 function copy_feedback(recorder, feedback, observation) {
         recording_require(has_exact_fields(feedback, ["observation", "has_prior_action", "last_action_result"]) &&
@@ -110,7 +111,7 @@ function copy_fields(recorder, value) {
 function capture(recorder) {
     const h = histories.get(recorder);
     return {values: Object.fromEntries(RECORD_TRANSACTION_FIELDS.map(key => [key, h[key]])),
-        steps_length: h.steps.length, events_length: h.events.length,
+        segment: segments.has(recorder), steps_length: h.steps.length, events_length: h.events.length,
         last_step: h.steps[h.steps.length - 1], last_event: h.events[h.events.length - 1]};
 }
 function restore(recorder, saved) {
@@ -120,6 +121,7 @@ function restore(recorder, saved) {
         (saved.events_length === 0 || saved.values.events[saved.events_length - 1] === saved.last_event));
     for (const key of RECORD_TRANSACTION_FIELDS) h[key] = saved.values[key];
     h.steps.length = saved.steps_length; h.events.length = saved.events_length;
+    if(saved.segment) segments.add(recorder); else segments.delete(recorder);
 }
 function commit(transaction, prepare, validate, append) {
     const recorder = transaction.recorder;
@@ -209,12 +211,12 @@ class Recorder {
         } else {
             const state = prepared.initial_state;
             recording_require(state instanceof WorldState && validate_WorldState(state, this.experiment_config.world_config) &&
-                (state.time === 0 || state.time === 0n));
+                ((state.time === 0 || state.time === 0n) || segments.has(this)));
             if (!prepared._initial_lifecycle_recorded) {
                 recording_require(prepared.steps.length === 0 && prepared.events.length === 0 && prepared.sequence_counter === 0);
             } else {
-                const initial_count = state.entities.values().next().value.lifecycle === "DEAD" ? 1 : 0;
-                this._validate_initial_recorded(state, prepared.events.slice(0, initial_count));
+                const initial_count = BigInt(state.time) === 0n && state.entities.values().next().value.lifecycle === "DEAD" ? 1 : 0;
+                if(BigInt(state.time) === 0n) this._validate_initial_recorded(state, prepared.events.slice(0, initial_count));
                 let sequence = BigInt(initial_count), previous = state;
                 const all = prepared.events.slice(0, initial_count);
                 for (let i = 0; i < prepared.steps.length; i++) {
@@ -236,7 +238,7 @@ class Recorder {
         const raw = [];
         for (let i = 0; i < events.length; i++) {
             const event = feedback_array_item(events, i);
-            recording_require(validate_RecordedEvent(event) && event.tick === 0 && event.source === "lifecycle" &&
+            recording_require(validate_RecordedEvent(event) && BigInt(event.tick) === 0n && event.source === "lifecycle" &&
                 (i === 0 ? event.sequence === 0 : event.sequence > events[i - 1].sequence));
             raw.push({type: event.type, entity_id: event.entity_id, position: event.position});
         }
@@ -258,6 +260,19 @@ class Recorder {
             const prepared = this._prepare_current();
             prepared.initial_state = world_state.full_snapshot();
             return prepared;
+        });
+    }
+    _adopt_replay_origin(state, events) {
+        this._record(() => {
+            recording_require(histories.get(this).initial_state === null && state instanceof WorldState &&
+                validate_WorldState(state, this.experiment_config.world_config) &&
+                BigInt(state.time) <= BigInt(this.experiment_config.max_ticks));
+            if(BigInt(state.time)===0n) this._validate_initial_recorded(state,events);
+            else recording_require(Array.isArray(events)&&events.length===0);
+            const p=this._prepare_current(); segments.add(this);
+            p.initial_state=state.copy();p.events=events.map(recorder_copy_event);
+            p.sequence_counter=events.length===0?0:recorder_sequence_after(events[events.length-1].sequence);
+            p._initial_lifecycle_recorded=true;return p;
         });
     }
     _prepare_events(raw, tick, source, start = histories.get(this).sequence_counter) {
@@ -370,7 +385,7 @@ class Recorder {
     }
     _events_equal(a, b) {
         return validate_RecordedEvent(a) && validate_RecordedEvent(b) && a.type === b.type &&
-            a.entity_id === b.entity_id && a.tick === b.tick && a.source === b.source && a.sequence === b.sequence &&
+            a.entity_id === b.entity_id && BigInt(a.tick) === BigInt(b.tick) && a.source === b.source && a.sequence === b.sequence &&
             a.position.x === b.position.x && a.position.y === b.position.y;
     }
     _validate_context(observation, feedback, action, previous, prior_result) {
@@ -391,7 +406,7 @@ class Recorder {
         }
     }
     _validate_step(step, previous, sequence, prior_result) {
-        recording_require(has_exact_fields(step, STEP_RECORD_FIELDS) && recorder_safe_number(step.tick) &&
+        recording_require(has_exact_fields(step, STEP_RECORD_FIELDS) && is_uint64(step.tick) &&
             step.world_state instanceof WorldState && validate_WorldState(step.world_state, this.experiment_config.world_config) &&
             BigInt(step.tick) === BigInt(previous.time) + 1n && BigInt(step.world_state.time) === BigInt(step.tick) &&
             BigInt(step.tick) <= BigInt(this.experiment_config.max_ticks) && this._termination(previous) === null);
@@ -415,7 +430,7 @@ class Recorder {
         for (const [source, list] of [["action", step.action_events], ["lifecycle", step.lifecycle_events]]) {
             for (let i = 0; i < list.length; i++) {
                 const event = feedback_array_item(list, i);
-                recording_require(validate_RecordedEvent(event) && event.tick === step.tick && event.source === source &&
+                recording_require(validate_RecordedEvent(event) && BigInt(event.tick) === BigInt(step.tick) && event.source === source &&
                     BigInt(event.sequence) === sequence && event.entity_id === entity.id &&
                     event.position.x === entity.position.x && event.position.y === entity.position.y);
                 sequence++;

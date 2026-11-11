@@ -276,9 +276,9 @@ if (benchmark) {
         for (const version of ['working','base']) {
             const a = load(version), t = a.run_experiment(config(a, {}, 5)).trajectory;
             const c = {world_config:t.experiment_config.world_config, feedback_config:t.experiment_config.feedback_config,
-                initial_state:t.initial_state, initial_events:t.events.filter(e => e.tick === 0), actions:t.steps.map(s => s.action), expected_steps:t.steps.length, max_ticks:t.experiment_config.max_ticks};
-            const rr = a.replay_trajectory(c.initial_state,c.initial_events,c.actions,c.world_config,c.feedback_config,c.expected_steps,c.max_ticks);
-            assert.equal(a.validate_ReplayResult(rr,c), true); assert.equal(a.validate_replay(t,rr,c.world_config).status, 'MATCH');
+                initial_state:t.initial_state, initial_events:t.events.filter(e => e.tick === 0), actions:t.steps.map(s => s.action), expected_steps:t.steps.length, max_ticks:t.experiment_config.max_ticks,execution_mode:'WITH_AGENT'};
+            const rr = a.replay_trajectory(c.initial_state,c.initial_events,c.actions,c.world_config,c.feedback_config,c.expected_steps,c.max_ticks,'WITH_AGENT');
+            assert.equal(a.validate_ReplayResult(rr,c), true); assert.equal(a.validate_replay(t,rr,c.world_config,'WITH_AGENT').status, 'MATCH');
             assert.deepEqual(clone(rr.records), clone(t.steps)); assert.deepEqual(clone(rr.events), clone(t.events));
         }
     });
@@ -310,7 +310,8 @@ if (benchmark) {
             record(f,next(f,'MOVE_E')); const t = f.r.finalize(); assert.equal(t.steps[0].tick,1); assert.equal(t.steps[0].world_state.time,1n); results.push({a,t});
             assert.equal(a.recorder_sequence_after(Number.MAX_SAFE_INTEGER),9007199254740992n);
             assert.equal(a.recorder_tick(Number.MAX_SAFE_INTEGER),Number.MAX_SAFE_INTEGER);
-            for (const value of [9007199254740992n,9007199254740992,-1,NaN,'1']) fail(() => a.recorder_tick(value));
+            if(version==='working')assert.equal(a.recorder_tick(9007199254740992n),9007199254740992n);else fail(()=>a.recorder_tick(9007199254740992n));
+            for (const value of [9007199254740992,-1,NaN,'1']) fail(() => a.recorder_tick(value));
             const g = setup(a), i = next(g,'MOVE_E'), old = g.r._prepare_events;
             g.r._prepare_events = function(raw,tick,source) { return old.call(this,raw,tick,source,Number.MAX_SAFE_INTEGER); };
             unchanged(g, () => fail(() => record(g,i)));
@@ -318,7 +319,12 @@ if (benchmark) {
             if(Object.getOwnPropertyDescriptor(h.r,'steps').get) unchanged(h,()=>fail(()=>{h.r.sequence_counter=9007199254740992n;}));
             else {h.r.sequence_counter = 9007199254740992n;unchanged(h, () => fail(() => record(h,next(h,'MOVE_E'))));}
         }
-        equivalent(results[0].a,results[0].t,results[1].a,results[1].t);
+        // D-01-E deliberately canonicalizes newly emitted safe Observation ticks.
+        const actual=clone(results[0].t),expected=clone(results[1].t);
+        assert.equal(actual.steps[0].observation.tick,0);assert.equal(expected.steps[0].observation.tick,0n);
+        expected.steps[0].observation.tick=0;expected.steps[0].feedback.observation.tick=0;
+        assert.deepEqual(actual,expected);
+        assert.ok(Buffer.from(results[0].a.canonical_full_state_bytes(results[0].t.steps[0].world_state)).equals(Buffer.from(results[1].a.canonical_full_state_bytes(results[1].t.steps[0].world_state))));
     });
     test('F4B-18 seeded RandomAgent preserves the entire trajectory and RNG snapshots against the base', () => {
         const a = load(), b = load('base');

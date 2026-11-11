@@ -145,7 +145,7 @@ function execute_tick_transaction(world, action, max_ticks) {
         assert_WorldState(world.state, world.config);
         tick_require(Object.is(world.state.time, next_time));
         const termination = determine_termination(world, max_ticks);
-        const result = {tick: world.state.time, world_state: world.full_snapshot(),
+        const result = {tick: represent_uint64(world.state.time), world_state: world.full_snapshot(),
             action_result: tick_copy_action_result(tick_result.action_result),
             action_events: tick_copy_events(tick_result.action_events),
             lifecycle_events: tick_copy_events(tick_result.lifecycle_events), termination};

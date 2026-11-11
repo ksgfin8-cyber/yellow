@@ -76,7 +76,7 @@ test('F3A-07: lifecycle precedes dynamics, which sees DEAD and depleted resource
     const r=api.execute_tick_transaction(w,EAST,10);assert.equal(calls,1);assert.equal(r.world_state.grid[1][2].effect.stock,1);assert.equal(r.lifecycle_events.length,1);
 });
 test('F3A-08: clock changes only after actual dynamics and before sync',()=>{
-    const {a,w,trace}=traceFixture();w.state.time=7n;const r=a.execute_tick_transaction(w,WAIT,10n);assert.deepEqual(trace.map(x=>x[1]),[7n,7n,7n,8n]);assert.equal(r.tick,8n);
+    const {a,w,trace}=traceFixture();w.state.time=7n;const r=a.execute_tick_transaction(w,WAIT,10n);assert.deepEqual(trace.map(x=>x[1]),[7n,7n,7n,8n]);assert.equal(r.tick,8);
 });
 test('F3A-09: sync occurs once and confirms real PRNG state, without extra draws',()=>{
     const w=fixture();w.rng.next();const current=w.rng.get_state();let calls=0;const sync=w.sync_rng_state;
