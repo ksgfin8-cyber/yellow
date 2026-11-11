@@ -4048,3 +4048,30 @@ Cierre F4-D: paquete D-01 completo, criterios A–E concretos, límites F–I ex
 Pendiente una aprobación única del texto propuesto y una orden posterior para
 implementarlo. No se aplicó ninguna corrección ni nueva API, no se hizo merge,
 no se desplegó y no se inició otro incremento.
+
+
+<a id="f4-e"></a>
+## F4-E — fase I normativa y genealogía
+
+Base PR #27 `3f70a9842a967b7fed157cd7db94e6313f590b6d`.
+Autoridad nueva: [v0.2.6 D-01](WORLD-LAB_v0.2.6_contractual_amendment_D-01.md),
+NORMATIVE CONTRACTUAL AMENDMENT aprobada por la orden F4-E; v0.2.5 no cambia.
+Antes de código se inspeccionaron árbol y nombres de documentos en todo Git.
+v0.2.1: SOURCE UNAVAILABLE en ese corpus; identificada por el responsable pero
+sin archivo íntegro local. v0.2.2 y v0.2.3: SOURCE UNAVAILABLE. v0.2.4 íntegra:
+SOURCE UNAVAILABLE; solo fragmentos transmitidos registrados en F3-G/H y otras
+fases. No se reconstruyen. Primera evidencia íntegra disponible: transcripción
+v0.2.5; primera evidencia de contraejemplos: F3-G/H, consolidada F4-D.
+
+| ID | Categoría | Regla sustituida / defecto | Nueva regla / compatibilidad | Aceptación requerida |
+|---|---|---|---|---|
+| A | Reparación contractual | §25 contador seguro e igual a parámetro inválido | null por parámetro inválido; rompe dominio anterior explícitamente | Matriz de tipos y precedencia |
+| B | Extensión semántica | §25 admite t>0 pero validación inicial/Recorder solo t0 | Segmentos sin pasado inventado, eventos vacíos y secuencias locales0 | ACTIVE/DEAD, RNG, reloj absoluto y rollback |
+| C | Reparación de interfaz | Firma3 no contiene configuración física | Firma2 contextual, sin defaults | Costes/config distintos, pureza |
+| D | Contexto experimental | WAIT no distingue modo observado/nulo | Modo obligatorio, firmas8/4; ruptura deliberada | MATCH sin agente,16 flags, modo ausente |
+| E | Armonización temporal | WORLD uint64 vs registro seguro | Ticks uint64 exactos; sequence/expected no se amplían | MAX_SAFE, siguiente y UINT64_MAX, WLS1 |
+
+Para cada fila, fuente histórica es fragmentaria como arriba; no se atribuyen a
+v0.2.1/2/3 textos no disponibles. Supersesión explícita de las propuestas F4-D y
+límites F3-G/H/F3C-P01 solo en lo enumerado. Decisiones previas quedan como historia.
+Fase I contractual terminada; implementación y evidencia empírica aún pendientes.
