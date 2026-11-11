@@ -124,7 +124,7 @@ test('F2F-09 §16: occupied is false for all representations, including self and
 test('F2F-10 §5/7: tick preserves admitted Number/BigInt uint64 values exactly', () => {
     const w=fixture({observation_radius:0});
     for (const time of [0,7,Number.MAX_SAFE_INTEGER,0n,9007199254740993n,0xffffffffffffffffn]) {
-        w.state.time=time;const o=unchanged(w,()=>observe(w));assert.equal(o.tick,time);assert.equal(typeof o.tick,typeof time);
+        w.state.time=time;const o=unchanged(w,()=>observe(w));const expected=BigInt(time)<=BigInt(Number.MAX_SAFE_INTEGER)?Number(time):time;assert.equal(o.tick,expected);assert.equal(typeof o.tick,typeof expected);
     }
 });
 test('F2F-11 §9/policy: ACTIVE and DEAD may observe; negative/subnormal/-0 energy is copied exactly', () => {

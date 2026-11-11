@@ -15,10 +15,10 @@ function replay_world_from_state(initial_state, world_config) {
     return world;
 }
 function replay_confirmed_tick(world, recorder, action, feedback_config, max_ticks) {
-    return replay_tick_transaction(world, recorder, action, feedback_config, max_ticks, true);
+    return replay_tick_transaction(world, recorder, action, feedback_config, max_ticks, true, "WITH_AGENT");
 }
 // Internal bounded transition. Prefix export is requested explicitly, not on every engine tick.
-function replay_tick_transaction(world, recorder, action, feedback_config, max_ticks, export_prefix, execution_mode = "WITH_AGENT") {
+function replay_tick_transaction(world, recorder, action, feedback_config, max_ticks, export_prefix, execution_mode) {
     // Separate snapshots: the internal stream can differ from persisted rng_state
     // before the kernel's synchronization point. Preserve both exactly.
     let state_before, rng, rng_before, restore_rng, recorder_before;
@@ -241,7 +241,7 @@ function derive_termination_reason(rr) {
 }
 // Private explicit-context proof: one kernel call per record, no Recorder prefix
 // revalidation and no configuration defaults/inference. Never trusts hashes alone.
-function replay_continuity_proof(rr, context, trajectory_null_mode = false) {
+function replay_continuity_proof(rr, context, trajectory_null_mode) {
     const world = replay_world_from_state(context.initial_state, context.world_config);
     const all_events = context.initial_events.slice();
     let sequence = BigInt(all_events.length), previous_result = null;

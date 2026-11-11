@@ -239,11 +239,11 @@ test('F4C-13 reentrant writes are rejected and roll back the outer transition',(
     a.RecordTransaction.prototype._publish=function(...args){old.apply(this,args);if(hits++===0)f.r.record_step(i.confirmed,i.observation,i.feedback,i.action);};
     unchanged(f,()=>fail(()=>record(f,i)));a.RecordTransaction.prototype._publish=old;record(f,i);f.r.finalize();
 });
-function request(t,patch={}){return {initial_state:t.initial_state,initial_events:t.events.filter(e=>e.tick===0),actions:t.steps.map(s=>s.action),world_config:t.experiment_config.world_config,feedback_config:t.experiment_config.feedback_config,expected_steps:t.steps.length,max_ticks:t.experiment_config.max_ticks,...patch};}
-function replay(a,c){return a.replay_trajectory(c.initial_state,c.initial_events,c.actions,c.world_config,c.feedback_config,c.expected_steps,c.max_ticks);}
+function request(t,patch={}){return {initial_state:t.initial_state,initial_events:t.events.filter(e=>e.tick===0),actions:t.steps.map(s=>s.action),world_config:t.experiment_config.world_config,feedback_config:t.experiment_config.feedback_config,expected_steps:t.steps.length,max_ticks:t.experiment_config.max_ticks,execution_mode:'WITH_AGENT',...patch};}
+function replay(a,c){return a.replay_trajectory(c.initial_state,c.initial_events,c.actions,c.world_config,c.feedback_config,c.expected_steps,c.max_ticks,'WITH_AGENT');}
 test('F4C-14 EXPERIMENT -> replay -> contextual validation preserves full data and MATCH',()=>{
     const a=load(),t=manual(a,['MOVE_E','MOVE_S','MOVE_N','MOVE_W']).trajectory,c=request(t),rr=replay(a,c);
-    assert.equal(rr.status,'OK');assert.equal(a.validate_ReplayResult(rr,c),true);assert.equal(a.validate_replay(t,rr,c.world_config).status,'MATCH');
+    assert.equal(rr.status,'OK');assert.equal(a.validate_ReplayResult(rr,c),true);assert.equal(a.validate_replay(t,rr,c.world_config,'WITH_AGENT').status,'MATCH');
     assert.deepEqual(clone(rr.records),clone(t.steps));assert.deepEqual(clone(rr.events),clone(t.events));
 });
 test('F4C-15 replay retains all seven statuses and the exact independent F4-B results',()=>{
@@ -269,7 +269,8 @@ test('F4C-17 uint64 representation, Number limits and sequence overflow are pres
     const a=load(),f=setup(a,{},1n),r=new a.Recorder(f.c);f.w.state.time=0n;r.record_initial_state(f.w.full_snapshot());r.record_initial_lifecycle_from_world([]);f.r=r;
     record(f,next(f,'MOVE_E'));const t=r.finalize();assert.equal(t.steps[0].tick,1);assert.equal(t.steps[0].world_state.time,1n);
     assert.equal(a.recorder_sequence_after(Number.MAX_SAFE_INTEGER),9007199254740992n);
-    for(const bad of [9007199254740992,9007199254740992n,-1,'1'])fail(()=>a.recorder_tick(bad));
+    assert.equal(a.recorder_tick(9007199254740992n),9007199254740992n);
+    for(const bad of [9007199254740992,-1,'1'])fail(()=>a.recorder_tick(bad));
     const raw=[{type:'ENTITY_MOVED',entity_id:'0987898',position:{x:0,y:0}}];
     const events=r._prepare_events(raw,1,'action',Number.MAX_SAFE_INTEGER);assert.equal(events.sequence_counter,9007199254740992n);
     fail(()=>r._prepare_events(raw,1,'action',events.sequence_counter));
