@@ -28,3 +28,9 @@ function is_uint64(value) {
     return (typeof value === "bigint" && value >= 0n && value <= 0xFFFFFFFFFFFFFFFFn) ||
         (Number.isSafeInteger(value) && value >= 0);
 }
+
+// v0.2.6 D-01-E: exact representation for newly emitted temporal values.
+function represent_uint64(value) {
+    if (!is_uint64(value)) throw new ContractError("invalid initial_state");
+    return BigInt(value) <= BigInt(Number.MAX_SAFE_INTEGER) ? Number(value) : BigInt(value);
+}

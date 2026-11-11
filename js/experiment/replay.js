@@ -1,5 +1,9 @@
 // F3-G: deterministic replay. Contractually unresolved input branches throw
 // rather than fabricating ReplayResult counters or weakening shared validation.
+function validate_replay_initial_events(state, events) {
+    if(BigInt(state.time)>0n) { if(!Array.isArray(events)||events.length!==0) throw new ContractError("invalid initial_events"); }
+    else Recorder.prototype._validate_initial_recorded(state,events);
+}
 function replay_world_from_state(initial_state, world_config) {
     const config = new WorldConfig(world_config);
     assert_WorldState(initial_state, config);
@@ -14,7 +18,7 @@ function replay_confirmed_tick(world, recorder, action, feedback_config, max_tic
     return replay_tick_transaction(world, recorder, action, feedback_config, max_ticks, true);
 }
 // Internal bounded transition. Prefix export is requested explicitly, not on every engine tick.
-function replay_tick_transaction(world, recorder, action, feedback_config, max_ticks, export_prefix) {
+function replay_tick_transaction(world, recorder, action, feedback_config, max_ticks, export_prefix, execution_mode = "WITH_AGENT") {
     // Separate snapshots: the internal stream can differ from persisted rng_state
     // before the kernel's synchronization point. Preserve both exactly.
     let state_before, rng, rng_before, restore_rng, recorder_before;
@@ -28,8 +32,8 @@ function replay_tick_transaction(world, recorder, action, feedback_config, max_t
     let phase = "world";
     try {
         const previous = recorder._prior_action_result();
-        const observation = build_observation(world, world.get_experimental_entity(), world.config.observation_radius);
-        const feedback = build_feedback(observation, previous, feedback_config);
+        const observation = execution_mode==="WITHOUT_AGENT"?null:build_observation(world, world.get_experimental_entity(), world.config.observation_radius);
+        const feedback = observation===null?null:build_feedback(observation, previous, feedback_config);
         const confirmed = execute_tick_transaction(world, action, max_ticks);
         phase = "recorder";
         recorder.record_step(confirmed, observation, feedback, action);
@@ -64,21 +68,23 @@ function replay_valid_action_list(actions) {
         return true;
     } catch (error) { return false; }
 }
-function replay_counter_parameters(expected_steps, max_ticks) {
-    return recorder_safe_number(expected_steps) && is_uint64(max_ticks) && BigInt(max_ticks) <= RECORDER_MAX_SAFE;
+function replay_counter_parameters(expected_steps, max_ticks, execution_mode) {
+    return recorder_safe_number(expected_steps) && is_uint64(max_ticks);
 }
-function validate_replay_inputs(initial_state, initial_events, actions, world_config, feedback_config, expected_steps, max_ticks) {
+function validate_replay_inputs(initial_state, initial_events, actions, world_config, feedback_config, expected_steps, max_ticks, execution_mode) {
     // Fixed validation order; unknown types remain structurally valid here.
     const config = new WorldConfig(world_config);
     const feedback = new FeedbackConfig(feedback_config);
     assert_WorldState(initial_state, config);
-    try { Recorder.prototype._validate_initial_recorded(initial_state, initial_events); }
+    try { validate_replay_initial_events(initial_state, initial_events); }
     catch (error) { throw new ContractError("invalid initial_events"); }
     if (!replay_valid_action_list(actions)) throw new ContractError("invalid action structure");
     replay_expected_steps(expected_steps);
     tick_max_ticks(max_ticks);
     if (BigInt(initial_state.time) > BigInt(max_ticks)) throw new ContractError("initial_state.time > max_ticks");
-    return {world_config: config, feedback_config: feedback,
+    if(!["WITH_AGENT","WITHOUT_AGENT"].includes(execution_mode) ||
+        (execution_mode==="WITHOUT_AGENT" && actions.some(a=>a.type!=="WAIT"))) throw new ContractError("invalid action structure");
+    return {execution_mode, world_config: config, feedback_config: feedback,
         initial_state: new WorldState(initial_state.time, initial_state.grid, initial_state.entities, initial_state.rng_state, config),
         initial_events: initial_events.map(recorder_copy_event), actions: actions.map(action => ({type: action.type})),
         expected_steps, max_ticks};
@@ -89,7 +95,7 @@ function replay_termination(state, context) {
 }
 function replay_result(status, prefix, context, error_message = null, unknown_action_index = null) {
     return {status, records: prefix.records, events: prefix.events, final_state: prefix.final_state, executed: prefix.executed,
-        unused_actions: Math.max(0, context.actions.length - prefix.executed), max_ticks_used: Number(context.max_ticks),
+        unused_actions: Math.max(0, context.actions.length - prefix.executed), max_ticks_used: recorder_tick(context.max_ticks),
         expected_steps_used: context.expected_steps, unknown_action_index, error_message,
         termination_hint: status === "OK" ? replay_termination(prefix.final_state, context) : null};
 }
@@ -101,7 +107,7 @@ function replay_array_every(array, predicate) {
     } catch (error) { return false; }
 }
 function replay_record_structure(step, context) {
-    if (!has_exact_fields(step, STEP_RECORD_FIELDS) || !recorder_safe_number(step.tick) ||
+    if (!has_exact_fields(step, STEP_RECORD_FIELDS) || !is_uint64(step.tick) ||
         !validate_WorldState(step.world_state, context.world_config) || !is_uint32(step.state_hash_world) ||
         !is_uint32(step.state_hash_full) || !validate_Action_structural(step.action) ||
         !tick_valid_action_result(step.action_result) ||
@@ -115,11 +121,19 @@ function replay_record_structure(step, context) {
     return true;
 }
 function validate_ReplayResult_structure(result, context) {
-    if (!context || !replay_counter_parameters(context.expected_steps, context.max_ticks)) return false;
+    if(!context) return false;
+    if(result?.status==="INVALID_REPLAY_INPUT") return has_exact_fields(result,REPLAY_RESULT_FIELDS) &&
+        result.final_state===null && result.executed===0 && Array.isArray(result.records)&&result.records.length===0 &&
+        Array.isArray(result.events)&&result.events.length===0 && result.unknown_action_index===null &&result.termination_hint===null &&
+        typeof result.error_message==="string" && result.error_message.length>0 &&
+        result.expected_steps_used===(recorder_safe_number(context.expected_steps)?context.expected_steps:null) &&
+        result.max_ticks_used===(is_uint64(context.max_ticks)?recorder_tick(context.max_ticks):null) &&
+        result.unused_actions===(replay_valid_action_list(context.actions)?context.actions.length:0);
+    if (!replay_counter_parameters(context.expected_steps, context.max_ticks)) return false;
     if (!has_exact_fields(result, REPLAY_RESULT_FIELDS) || !REPLAY_STATUSES.includes(result.status) ||
         !Array.isArray(result.records) || !Array.isArray(result.events) || !recorder_safe_number(result.executed) ||
         result.records.length !== result.executed || !recorder_safe_number(result.unused_actions) ||
-        !recorder_safe_number(result.expected_steps_used) || !recorder_safe_number(result.max_ticks_used) ||
+        !recorder_safe_number(result.expected_steps_used) || !is_uint64(result.max_ticks_used) ||
         result.expected_steps_used !== context.expected_steps || BigInt(result.max_ticks_used) !== BigInt(context.max_ticks)) return false;
     if (result.status === "INVALID_REPLAY_INPUT") return result.final_state === null && result.executed === 0 &&
         result.events.length === 0 && result.unknown_action_index === null && result.termination_hint === null &&
@@ -141,19 +155,14 @@ function validate_ReplayResult_structure(result, context) {
     if (result.status === "INCOMPLETE_ACTION_SEQUENCE") return result.executed === context.actions.length;
     return replay_termination(result.final_state, context) === (result.status === "EARLY_TERMINATION" ? "ENTITY_DIED" : "MAX_TICKS_REACHED");
 }
-function replay_trajectory(initial_state, initial_events, actions, world_config, feedback_config, expected_steps, max_ticks) {
+function replay_trajectory(initial_state, initial_events, actions, world_config, feedback_config, expected_steps, max_ticks, execution_mode) {
     let context;
     try {
-        context = validate_replay_inputs(initial_state, initial_events, actions, world_config, feedback_config, expected_steps, max_ticks);
+        context = validate_replay_inputs(initial_state, initial_events, actions, world_config, feedback_config, expected_steps, max_ticks, execution_mode);
     } catch (error) {
-        // Contractual conflict: counters cannot both be safe integers and equal
-        // invalid parameters. Nonzero initial time conflicts with shared P0-7.
-        if (!replay_counter_parameters(expected_steps, max_ticks) ||
-            (validate_WorldConfig(world_config) && validate_FeedbackConfig(feedback_config) &&
-                validate_WorldState(initial_state, world_config) && BigInt(initial_state.time) > 0n)) throw error;
         const invalid = {status: "INVALID_REPLAY_INPUT", records: [], events: [], final_state: null, executed: 0,
             unused_actions: replay_valid_action_list(actions) ? actions.length : 0,
-            max_ticks_used: Number(max_ticks), expected_steps_used: expected_steps,
+            max_ticks_used: is_uint64(max_ticks)?recorder_tick(max_ticks):null, expected_steps_used: recorder_safe_number(expected_steps)?expected_steps:null,
             unknown_action_index: null, error_message: error.message, termination_hint: null};
         if (!validate_ReplayResult_structure(invalid, {actions, expected_steps, max_ticks})) throw new ContractError("world transition failed");
         return invalid;
@@ -170,15 +179,14 @@ function replay_trajectory(initial_state, initial_events, actions, world_config,
         max_ticks: context.max_ticks, world_config: context.world_config, feedback_config: context.feedback_config}));
     let status = "OK", error_message = null, unknown_action_index = null;
     try {
-        recorder.record_initial_state(world.state);
-        recorder.record_initial_lifecycle_from_recorded(context.initial_events);
+        recorder._adopt_replay_origin(world.state,context.initial_events);
     } catch (error) { status = "EXECUTION_ERROR"; error_message = "recording failed"; }
     if (status === "OK") for (let i = 0; i < context.expected_steps; i++) {
         const termination = determine_termination(world, context.max_ticks);
         if (termination !== null) { status = termination === "ENTITY_DIED" ? "EARLY_TERMINATION" : "MAX_TICKS_REACHED"; break; }
         if (i >= context.actions.length) { status = "INCOMPLETE_ACTION_SEQUENCE"; break; }
         if (!Object.hasOwn(ActionType, context.actions[i].type)) { status = "UNKNOWN_ACTION"; unknown_action_index = i; break; }
-        try { replay_tick_transaction(world, recorder, context.actions[i], context.feedback_config, context.max_ticks, false); }
+        try { replay_tick_transaction(world, recorder, context.actions[i], context.feedback_config, context.max_ticks, false, context.execution_mode); }
         catch (error) { status = "EXECUTION_ERROR"; error_message = error.message; break; }
     }
     if (recorder._history_length() > 0) consistent = recorder._export_prefix();
@@ -218,7 +226,7 @@ function validate_termination_hint(rr) {
             !is_uint64(rr.final_state.time) || !(rr.final_state.entities instanceof Map) || rr.final_state.entities.size !== 1) return false;
         const entity = rr.final_state.entities.values().next().value;
         if (rr.termination_hint === "ENTITY_DIED") return entity.lifecycle === "DEAD";
-        return entity.lifecycle === "ACTIVE" && recorder_safe_number(rr.max_ticks_used) &&
+        return entity.lifecycle === "ACTIVE" && is_uint64(rr.max_ticks_used) &&
             BigInt(rr.final_state.time) >= BigInt(rr.max_ticks_used);
     } catch (error) { return false; }
 }
@@ -267,27 +275,27 @@ function replay_continuity_proof(rr, context, trajectory_null_mode = false) {
 }
 // Published three-argument signature is retained. Physics/Feedback context is
 // unavailable here; nonempty standalone validation is explicitly PARTIAL.
-function validate_replay_continuity(rr, initial_state, actions) {
-    if (!rr || !Array.isArray(rr.records) || !replay_valid_action_list(actions) ||
-        !has_exact_fields(initial_state, ["time", "grid", "entities", "rng_state"])) return false;
-    if (rr.records.length === 0) return true; // empty per-step invariant
-    throw new ContractError("world transition failed");
+function validate_replay_continuity(rr, request_context) {
+    try { const c=replay_context_values(request_context);
+        if(!has_exact_fields(rr,REPLAY_RESULT_FIELDS)||!Array.isArray(rr.records)||!Array.isArray(rr.events)||rr.executed!==rr.records.length)return false;
+        return !!replay_continuity_proof(rr,c,c.execution_mode==="WITHOUT_AGENT");
+    } catch { return false; }
 }
 const REPLAY_ERROR_CATALOG = Object.freeze(["invalid world_config", "invalid feedback_config", "invalid initial_state",
     "invalid initial_events", "invalid action structure", "invalid expected_steps", "invalid max_ticks",
     "initial_state.time > max_ticks", "invalid initial_position", "world transition failed", "recording failed",
     "rng zero state", "agent produced structurally invalid action"]);
 function replay_context_values(context) {
+    if(!has_exact_fields(context,["world_config","feedback_config","initial_state","initial_events","actions","expected_steps","max_ticks","execution_mode"])) throw new ContractError("invalid action structure");
     return validate_replay_inputs(context.initial_state, context.initial_events, context.actions,
-        context.world_config, context.feedback_config, context.expected_steps, context.max_ticks);
+        context.world_config, context.feedback_config, context.expected_steps, context.max_ticks, context.execution_mode);
 }
 function validate_ReplayResult(rr, request_context) {
     try {
         const c = request_context;
-        if (!c || !replay_counter_parameters(c.expected_steps, c.max_ticks) ||
+        if (!c ||
             !has_exact_fields(rr, REPLAY_RESULT_FIELDS) || !REPLAY_STATUSES.includes(rr.status)) return false;
         if (rr.status === "INVALID_REPLAY_INPUT") {
-            if (validate_WorldConfig(c.world_config) && validate_WorldState(c.initial_state, c.world_config) && BigInt(c.initial_state.time) > 0n) return false;
             try { replay_context_values(c); return false; }
             catch (error) { return validate_ReplayResult_structure(rr, c) && REPLAY_ERROR_CATALOG.includes(rr.error_message) && rr.error_message === error.message; }
         }
@@ -295,10 +303,10 @@ function validate_ReplayResult(rr, request_context) {
         if (!Array.isArray(rr.records) || !Array.isArray(rr.events) || !recorder_safe_number(rr.executed) ||
             rr.executed !== rr.records.length || rr.executed > context.expected_steps ||
             !recorder_safe_number(rr.unused_actions) || rr.unused_actions !== Math.max(0, context.actions.length - rr.executed) ||
-            !recorder_safe_number(rr.max_ticks_used) || BigInt(rr.max_ticks_used) !== BigInt(context.max_ticks) ||
+            !is_uint64(rr.max_ticks_used) || BigInt(rr.max_ticks_used) !== BigInt(context.max_ticks) ||
             rr.expected_steps_used !== context.expected_steps || !recorder_safe_number(rr.expected_steps_used) ||
             !validate_WorldState(rr.final_state, context.world_config) || !replay_array_every(rr.events, validate_RecordedEvent)) return false;
-        const proof = replay_continuity_proof(rr, context);
+        const proof = replay_continuity_proof(rr, context, context.execution_mode==="WITHOUT_AGENT");
         if (!proof || !validate_termination_hint(rr)) return false;
         if (rr.status === "OK") return rr.executed === context.expected_steps && rr.error_message === null && rr.unknown_action_index === null;
         if (rr.termination_hint !== null) return false;
@@ -311,7 +319,7 @@ function validate_ReplayResult(rr, request_context) {
         return proof.termination === (rr.status === "EARLY_TERMINATION" ? "ENTITY_DIED" : "MAX_TICKS_REACHED");
     } catch (error) { return false; }
 }
-function replay_original_context(original, world_config) {
+function replay_original_context(original, world_config, execution_mode) {
     if (!has_exact_fields(original, ["experiment_config", "initial_state", "steps", "events", "termination_reason", "metadata"]) ||
         !validate_ExperimentConfig(original.experiment_config) || !replay_values_equal(world_config, original.experiment_config.world_config) ||
         !Array.isArray(original.steps) || !Array.isArray(original.events) ||
@@ -319,21 +327,21 @@ function replay_original_context(original, world_config) {
     if (!validate_WorldState(original.initial_state, world_config)) return null;
     const count = original.initial_state.entities.values().next().value.lifecycle === "DEAD" ? 1 : 0;
     const context = replay_context_values({world_config, feedback_config: original.experiment_config.feedback_config,
-        initial_state: original.initial_state, initial_events: original.events.slice(0, count),
+        initial_state: original.initial_state, initial_events: BigInt(original.initial_state.time)===0n?original.events.slice(0, count):[], execution_mode,
         actions: original.steps.map(step => step.action), expected_steps: original.steps.length,
         max_ticks: original.experiment_config.max_ticks});
     const end = original.steps.length === 0 ? original.initial_state : original.steps[original.steps.length - 1].world_state;
-    const null_mode = original.steps.length > 0 && original.steps[0].observation === null;
+    const null_mode = execution_mode==="WITHOUT_AGENT";
     const proof = replay_continuity_proof({records: original.steps, events: original.events, final_state: end}, context, null_mode);
     if (!proof || (original.termination_reason === "AGENT_CONTRACT_ERROR" ? proof.termination !== null : original.termination_reason !== proof.termination)) return null;
     return context;
 }
-function validate_replay(original, rr, world_config) {
+function validate_replay(original, rr, world_config, execution_mode) {
     // JS envelope and reason strings are engineering diagnostics, not recovered
     // normative error-message categories. Metadata is deliberately opaque.
     const mismatch = reason => ({status: "MISMATCH", reason});
     try {
-        const context = replay_original_context(original, world_config);
+        const context = replay_original_context(original, world_config, execution_mode);
         if (!context) return mismatch("invalid original trajectory");
         if (!validate_ReplayResult(rr, context)) return mismatch("invalid ReplayResult");
         if (rr.status !== "OK") return mismatch("replay status is not OK");

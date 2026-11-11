@@ -49,7 +49,7 @@ function build_observation(world, entity, radius) {
         local_view.push(row);
     }
     return {
-        tick: world.state.time,
+        tick: represent_uint64(world.state.time),
         self: {id: entity.id, position: {x: entity.position.x, y: entity.position.y}, energy: entity.energy},
         local_view
     };
