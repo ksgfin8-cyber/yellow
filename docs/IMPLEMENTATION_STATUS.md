@@ -4,7 +4,16 @@ Documento **informativo y operacional**. Consolidación DOC-02: **2026-11-10
 (America/Guayaquil)**. Rama documental `dev/doc-02-knowledge-consolidation`, creada
 sobre `origin/main`; aquel cambio no incorporaba código ni pruebas de F3-C.
 
-**Actualización vigente F5-C (2026-11-11, America/Guayaquil): expediente de
+**Actualización vigente F5-D (2026-11-11, America/Guayaquil): expediente de
+reconciliación preparado; recuperación PARTIAL / EXTERNAL_SOURCE_REQUIRED.**
+Base main PR #33 `a3fb5b823bfdf74a981e9acf9e10bb30cc18b478`, rama
+`dev/f5-d-normative-reconciliation`. 65 familias contractuales:32 directamente
+determinadas,31 parciales y2 indeterminadas, sin afirmar universo histórico completo.
+Candidato A y propuestas B separados, ambos no normativos. **Puerta D: HOLD —
+INSUFFICIENT AUTHORITY**, pendiente de fuentes externas identificadas v0.2.4/v0.2.3.
+[Expediente, fuentes y decisión F5-D](#f5-d).
+
+**Corte previo F5-C (2026-11-11, America/Guayaquil): expediente de
 preparación COMPLETED; recomendación normativa HOLD.** Base main PR #32
 `e7fada1a0e78ff711f056b53148e048102fd1c02`, rama
 `dev/f5-c-acceptance-profile`. Perfil `WL-ACCEPT-v026-CAND-1.0.0` **candidato no
@@ -155,7 +164,8 @@ replay completo. El alcance B no está completo en ninguna de las dos referencia
 
 | Necesidad | Fuente única para el detalle |
 |---|---|
-| Perfil candidato vigente F5-C | [Autoridad, suficiencia y puerta HOLD](#f5-c) |
+| Reconciliación vigente F5-D | [Fuentes externas, contratos y candidato separado](#f5-d) |
+| Perfil candidato previo F5-C | [Autoridad, suficiencia y puerta HOLD](#f5-c) |
 | Cobertura y expediente previo F5-B | [Obligaciones atómicas, contrastes y propuesta pendiente](#f5-b) |
 | Infraestructura previa F5-A | [Corpus, runner, resultados y vacíos](#f5-a) |
 | Corrección previa F4-G | [F4G-001, cierre y regresión](#f4-g) |
@@ -5048,3 +5058,69 @@ recomendación HOLD por contenido obligatorio indeterminado. La propuesta final
 suspensión y recuperación posterior de fuentes, pero no se aplica a la norma.
 Los 289 bloqueos permanecen y no cuentan como PASS. Sin merge, despliegue,
 conformidad global ni declaración de hitos B/C.
+
+
+<a id="f5-d"></a>
+## F5-D — Requirements Baseline Recovery, Semantic Reconciliation & Consolidation
+
+**F5D-001, Normative Engineering / Requirements Recovery / Configuration Management.**
+Base origin/main posterior PR #33: `a3fb5b823bfdf74a981e9acf9e10bb30cc18b478`.
+Rama `dev/f5-d-normative-reconciliation`. Se preparan los ocho entregables en el
+[índice F5-D](f5-d/README.md), sin modificar producción, normas, corpus ni expectativas.
+[Informe de recuperación](f5-d/REQUIREMENTS_RECOVERY_REPORT.md): S025/S026 y
+fragmentos H034/HINIT/HINLINE verificados, capturas OWNER/ORDER con alcance y
+procedencia explícitos. No se obtuvo el manuscrito histórico íntegro ni se declara
+autenticación independiente de un original ausente.
+
+**EXTERNAL_SOURCE_REQUIRED:** el responsable identifica v0.2.4 de aproximadamente1300
+líneas con I54–I66, §25.9 y §36, no suministrado. v0.2.3 es pista concreta para
+I01–I53, sin contenido inferido. [Registro externo](f5-d/recovery.json) conserva66
+IDs opacos individualmente, hash histórico null y recuperación no agotada.
+La fuente identificada tiene prioridad sobre escoger una política nueva.
+
+[Registro semántico](f5-d/semantic-requirements.json):65 familias de contratos,
+interfaces o propiedades, no párrafos ni65 invariantes inventados.32 DETERMINED,
+31 PARTIALLY_DETERMINED y2 INDETERMINATE describen definición **directa**, no
+verificación ni cierre transitivo de dependencias. Las partes conocidas/desconocidas
+se mantienen por contrato. Las [572 trazas F5-C](f5-d/fragment-trace.json) son
+asociaciones de contexto, no prueba de suficiencia ni equivalencia entre fragmentos.
+[Reconciliación](f5-d/contract-reconciliation.json) separa norma/código/evidencia,
+32 reformulaciones de partes determinadas y33 familias con lagunas; conserva
+supersesión D-01 e INIT-004 sin reabrir contratos ya determinados.
+
+[Decisiones G00–G09](f5-d/UNRESOLVED_DECISIONS.md) registran alternativas, efectos,
+recomendaciones independientes del código y evidencia que las refutaría. G06 no
+requiere nueva selección semántica. Adaptaciones internas Map/clases/historial no
+se imponen como autoridad portable. El orden aritmético y delta sí pueden cambiar
+resultados observables; el contraste2^53 está documentado como deducción, no test
+nuevo. La variante failure_details general/rama de agente sigue ambigüedad, no
+contradicción imposible demostrada.
+
+[Producto A](f5-d/CONSOLIDATED_SPECIFICATION_CANDIDATE.md) integra únicamente partes
+sustentadas con marcas editoriales explícitas: **DRAFT / UNAPPROVED / NON-NORMATIVE**,
+aún no autocontenido completo. [Producto B](f5-d/NORMATIVE_CHANGE_PROPOSALS.md) separa
+opciones nuevas condicionadas a recuperación; no es autoridad provisional.
+No se asigna v0.2.7/v0.3.0, no se sustituye §37 ni se aprueba corpus alternativo.
+
+[Versionado y riesgos](f5-d/VERSIONING_DECISION_REPORT.md): **D. HOLD — INSUFFICIENT
+AUTHORITY OR UNRESOLVED CRITICAL CONTRADICTION**; la causa presente es autoridad
+insuficiente, no una contradicción crítica actual demostrada. Preferir recibir y
+reconciliar fuentes antes de elegir edición equivalente o revisión acotada. No hay
+justificación de nueva línea base mayor ni arquitectura nueva. No se ha demostrado
+una divergencia funcional contra contrato completamente determinado. OBS-P03 sí
+limita soporte de radio512 válido: capacidad/error operacional pendientes, sin
+recortar WorldConfig. P1 en aceptación/interoperabilidad; ningún P0 funcional nuevo.
+
+[Verificación](f5-d/VERIFICATION_REPORT.md):28 suites existentes,511PASS/0FAIL (505
+aserciones actuales y6 históricas fijas). F5-A50PASS y F5-B114PASS; cada corpus
+conserva289BLOCKED y bytes de reporte idénticos a archivo histórico. Legacy13PASS/
+9FAIL conocidos sin adaptar expectativas. Navegador no reejecutado en F5-D.
+Herramientas nuevas solo de integridad documental: fuentes/hashes, referencias,
+IDs, dependencias, trazabilidad bidireccional, desconocidos visibles y protección
+de baseline. No equivalen a auditoría formal de estándares ni a prueba universal.
+
+Para avanzar: copia íntegra verificable EXT-024, EXT-023 según referencias reales,
+reconciliación y cierre de cada contenido obligatorio; demostrar equivalencia o
+identificar sustituciones, revisar oráculos/expectativas y compatibilidad y recibir
+aprobación expresa. Núcleo computacional preservado salvo divergencia demostrada;
+cambios normativos/productivos y certificación siguen HOLD. Sin merge ni despliegue.

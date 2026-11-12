@@ -1,0 +1,768 @@
+{
+  "base": "a3fb5b823bfdf74a981e9acf9e10bb30cc18b478",
+  "recovery_status": "PARTIAL_EXTERNAL_SOURCE_REQUIRED",
+  "search_exhausted": false,
+  "local_attachment_inventory": [
+    {
+      "local_locator_at_review": "/workspace/attachments/1100537a-85ba-4631-a061-85166eccfe8a/Texto pegado.txt",
+      "sha256_at_ingestion": "4931764ac9ea591ca24d907690b14d89f290438bd8afde68399cd77cb5cf2db8",
+      "bytes": 9511,
+      "heading": "# WORLD-LAB — ORDEN EJECUTIVA F4-C",
+      "is_complete_external_v024_manuscript": false,
+      "classification": "Available pasted order/consultation, not the identified complete canonical manuscript"
+    },
+    {
+      "local_locator_at_review": "/workspace/attachments/133e2da4-2fe0-4a2b-8294-00ec5ea05723/Texto pegado.txt",
+      "sha256_at_ingestion": "8d0800b1193be5b47f00c59c06000219c1febe8eb8401da7893da32de9adbf1a",
+      "bytes": 9914,
+      "heading": "WORLD-LAB — ORDEN EJECUTIVA F5-C",
+      "is_complete_external_v024_manuscript": false,
+      "classification": "Available pasted order/consultation, not the identified complete canonical manuscript"
+    },
+    {
+      "local_locator_at_review": "/workspace/attachments/164628d6-0fdf-45fc-9e97-7fe7e79d6e98/Texto pegado.txt",
+      "sha256_at_ingestion": "39bdc48348914c0291493e66588a8e80980ee04c03854d3033edf57a924db102",
+      "bytes": 15180,
+      "heading": "# WORLD-LAB — ORDEN EJECUTIVA F4-E",
+      "is_complete_external_v024_manuscript": false,
+      "classification": "Available pasted order/consultation, not the identified complete canonical manuscript"
+    },
+    {
+      "local_locator_at_review": "/workspace/attachments/19744357-bb2b-4830-a999-537b7516091b/Texto pegado.txt",
+      "sha256_at_ingestion": "ee39a3e03ef7e141d0d303141e1b3d3c4eae62dd715176164e91736c520c0ba1",
+      "bytes": 7030,
+      "heading": "# WORLD-LAB — Independent Engineering Assessment",
+      "is_complete_external_v024_manuscript": false,
+      "classification": "Available pasted order/consultation, not the identified complete canonical manuscript"
+    },
+    {
+      "local_locator_at_review": "/workspace/attachments/317cb491-6f33-4dda-87f2-25d9cfa27057/Texto pegado.txt",
+      "sha256_at_ingestion": "0a0ece0ed1952e1bbec65136f3dfb6821bb707859ce44dac897d68980b3c3fe6",
+      "bytes": 8853,
+      "heading": "# WORLD-LAB — ORDEN EJECUTIVA F4-B",
+      "is_complete_external_v024_manuscript": false,
+      "classification": "Available pasted order/consultation, not the identified complete canonical manuscript"
+    },
+    {
+      "local_locator_at_review": "/workspace/attachments/36c9fed5-dac4-43d7-aa38-4b1f62d787d3/Texto pegado.txt",
+      "sha256_at_ingestion": "47db32068e479861054f03e85123b1e927b7be17da94a41cca540143ae46cd40",
+      "bytes": 6355,
+      "heading": "# WORLD-LAB — ORDEN EJECUTIVA F3-D/2",
+      "is_complete_external_v024_manuscript": false,
+      "classification": "Available pasted order/consultation, not the identified complete canonical manuscript"
+    },
+    {
+      "local_locator_at_review": "/workspace/attachments/3b19f64e-2b1f-4244-81aa-9bde3e8d4c0b/Texto pegado.txt",
+      "sha256_at_ingestion": "65a7477ead89368891194a7e35de509a632f0726fea5f251304360aee3dd8c20",
+      "bytes": 5804,
+      "heading": "# WORLD-LAB — ORDEN EJECUTIVA F4-A",
+      "is_complete_external_v024_manuscript": false,
+      "classification": "Available pasted order/consultation, not the identified complete canonical manuscript"
+    },
+    {
+      "local_locator_at_review": "/workspace/attachments/4b063bc6-6982-4213-aa11-840695791a79/Texto pegado.txt",
+      "sha256_at_ingestion": "e1d4b13491985abcced36f7bf985ad4c60ba2afb0859cb7a71e3693105310ce2",
+      "bytes": 8831,
+      "heading": "# WORLD-LAB — ORDEN EJECUTIVA F3-F",
+      "is_complete_external_v024_manuscript": false,
+      "classification": "Available pasted order/consultation, not the identified complete canonical manuscript"
+    },
+    {
+      "local_locator_at_review": "/workspace/attachments/4b26853d-3163-4d7c-853c-e7938bd65789/Texto pegado.txt",
+      "sha256_at_ingestion": "d16121df4bc9b271d9c2ee090a5f666a66858aadfc2d1e91660fcce360ef9f24",
+      "bytes": 5383,
+      "heading": "# WORLD-LAB — Orden de implementación F1-B",
+      "is_complete_external_v024_manuscript": false,
+      "classification": "Available pasted order/consultation, not the identified complete canonical manuscript"
+    },
+    {
+      "local_locator_at_review": "/workspace/attachments/4d47c454-aa69-4afa-aaab-a9fe3c02d9c9/Texto pegado.txt",
+      "sha256_at_ingestion": "3a62785ea15b3bd94b615b3b41cafe987c2cbcebd68e072111210db749956bb1",
+      "bytes": 8885,
+      "heading": "# WORLD-LAB — ORDEN EJECUTIVA F3-D",
+      "is_complete_external_v024_manuscript": false,
+      "classification": "Available pasted order/consultation, not the identified complete canonical manuscript"
+    },
+    {
+      "local_locator_at_review": "/workspace/attachments/50950020-e00b-40d6-86b0-3423257a495e/Texto pegado.txt",
+      "sha256_at_ingestion": "6ce5fcfb5bb8c00fb2c129fdc6c805dc31f6b748a539166c6d30df23ffed2a00",
+      "bytes": 16477,
+      "heading": "# WORLD-LAB — ORDEN DE IMPLEMENTACIÓN F2-C",
+      "is_complete_external_v024_manuscript": false,
+      "classification": "Available pasted order/consultation, not the identified complete canonical manuscript"
+    },
+    {
+      "local_locator_at_review": "/workspace/attachments/5c07d278-653c-442b-b36e-01ce650c7b77/Texto pegado.txt",
+      "sha256_at_ingestion": "223e006ec3e07d45861f4f9ec001df2c0eb20e32b6a7913f9aae382146ffbda4",
+      "bytes": 5906,
+      "heading": "# WORLD-LAB — ORDEN EJECUTIVA F4-G",
+      "is_complete_external_v024_manuscript": false,
+      "classification": "Available pasted order/consultation, not the identified complete canonical manuscript"
+    },
+    {
+      "local_locator_at_review": "/workspace/attachments/5d1e7ffb-4316-451a-b74c-672c13ee528c/Texto pegado.txt",
+      "sha256_at_ingestion": "a19af0ec66b3c050ea9d93435c39ae01f1d860ca2b606d0122856870a2d880a2",
+      "bytes": 7021,
+      "heading": "# WORLD-LAB — Orden DOC-02",
+      "is_complete_external_v024_manuscript": false,
+      "classification": "Available pasted order/consultation, not the identified complete canonical manuscript"
+    },
+    {
+      "local_locator_at_review": "/workspace/attachments/60205ef8-4fad-4dca-947b-0ee63818a538/Texto pegado.txt",
+      "sha256_at_ingestion": "285ecd4e11668543cba3254418b599f12d0a71c3351ee3a74e34ad8e89419df1",
+      "bytes": 6127,
+      "heading": "# WORLD-LAB — F2-G",
+      "is_complete_external_v024_manuscript": false,
+      "classification": "Available pasted order/consultation, not the identified complete canonical manuscript"
+    },
+    {
+      "local_locator_at_review": "/workspace/attachments/7de02c5f-ce05-4ed4-a0b2-dfb1efbd5e36/Texto pegado.txt",
+      "sha256_at_ingestion": "8a2ec5b88de9622d186959e34a23f84921518b1911c27a8a269bfef9bcf470fb",
+      "bytes": 5224,
+      "heading": "# WORLD-LAB — ORDEN F3-A",
+      "is_complete_external_v024_manuscript": false,
+      "classification": "Available pasted order/consultation, not the identified complete canonical manuscript"
+    },
+    {
+      "local_locator_at_review": "/workspace/attachments/8508b0d7-fcd6-4e86-aa92-db57b977ce55/Texto pegado.txt",
+      "sha256_at_ingestion": "630fb71b19d4bfa14d17f926e85e3adf39f09b8fc7dde12e6a7d900abe1d53a5",
+      "bytes": 8878,
+      "heading": "# WORLD-LAB — ORDEN EJECUTIVA F3-E",
+      "is_complete_external_v024_manuscript": false,
+      "classification": "Available pasted order/consultation, not the identified complete canonical manuscript"
+    },
+    {
+      "local_locator_at_review": "/workspace/attachments/925de035-f098-4760-b25a-a7282000bc0f/Texto pegado.txt",
+      "sha256_at_ingestion": "7863ab03eacd46ef0efbe8ce7a485be728b12d9764f974cb254d3856e4c5e069",
+      "bytes": 7513,
+      "heading": "# WORLD-LAB — ORDEN EJECUTIVA F4-D",
+      "is_complete_external_v024_manuscript": false,
+      "classification": "Available pasted order/consultation, not the identified complete canonical manuscript"
+    },
+    {
+      "local_locator_at_review": "/workspace/attachments/9ed5a698-9f86-400b-9080-471177113c38/Texto pegado.txt",
+      "sha256_at_ingestion": "60c55d6afc5104b88c8e35eb0d2661b7f9274be7db1bbe3e31e4aa3e01fb4da7",
+      "bytes": 16372,
+      "heading": "# WORLD-LAB — ORDEN DE TRABAJO DOC-01",
+      "is_complete_external_v024_manuscript": false,
+      "classification": "Available pasted order/consultation, not the identified complete canonical manuscript"
+    },
+    {
+      "local_locator_at_review": "/workspace/attachments/a5c1ff73-b16b-40e7-9af6-e92700cadadd/Texto pegado.txt",
+      "sha256_at_ingestion": "8aa5c43584f82297ddac3840ca43d7cf39a20208692bac1ea94602cf1a3d5b1b",
+      "bytes": 5169,
+      "heading": "# WORLD-LAB — ORDEN F3-B",
+      "is_complete_external_v024_manuscript": false,
+      "classification": "Available pasted order/consultation, not the identified complete canonical manuscript"
+    },
+    {
+      "local_locator_at_review": "/workspace/attachments/a6fb460a-c3f5-4ea4-9ab8-5a3e43b4f3f8/Texto pegado.txt",
+      "sha256_at_ingestion": "2e6cfe95b40c309c4c8d43d842506a8b3dadbfecf0ff247faa7529fef4059afc",
+      "bytes": 9110,
+      "heading": "# WORLD-LAB — ORDEN EJECUTIVA F5-A",
+      "is_complete_external_v024_manuscript": false,
+      "classification": "Available pasted order/consultation, not the identified complete canonical manuscript"
+    },
+    {
+      "local_locator_at_review": "/workspace/attachments/a71c26eb-6e4f-418e-b0be-f6521813fde1/Texto pegado.txt",
+      "sha256_at_ingestion": "873a8312aa2c8e1363caaf3832d075b19c94a9a45e932fe3b255ad3187605b92",
+      "bytes": 10723,
+      "heading": "# WORLD-LAB — ORDEN EJECUTIVA F5-B",
+      "is_complete_external_v024_manuscript": false,
+      "classification": "Available pasted order/consultation, not the identified complete canonical manuscript"
+    },
+    {
+      "local_locator_at_review": "/workspace/attachments/a852fd16-8cc0-458a-98bc-451623f173f1/Texto pegado.txt",
+      "sha256_at_ingestion": "db1834d5f97e21ee6373dcd6c280d77b44c7d274d8e350b7eaca557361db04d3",
+      "bytes": 17189,
+      "heading": "# WORLD-LAB — F5-D",
+      "is_complete_external_v024_manuscript": false,
+      "classification": "Available pasted order/consultation, not the identified complete canonical manuscript"
+    },
+    {
+      "local_locator_at_review": "/workspace/attachments/b60605c3-a0a4-4a04-80ea-b7a9fbe6b48f/Texto pegado.txt",
+      "sha256_at_ingestion": "6cb517860a8e779497bc69ce3b63b44c88b55fe6f5d003e1433613471b2d64db",
+      "bytes": 6029,
+      "heading": "# WORLD-LAB — ORDEN DE IMPLEMENTACIÓN F2-F",
+      "is_complete_external_v024_manuscript": false,
+      "classification": "Available pasted order/consultation, not the identified complete canonical manuscript"
+    },
+    {
+      "local_locator_at_review": "/workspace/attachments/b850075a-6cc0-4578-afa5-49972f981f48/Texto pegado.txt",
+      "sha256_at_ingestion": "17737b9831bb7c2f299ba0d59e424cde04a7acebeb296dac46c3038475f57a51",
+      "bytes": 5765,
+      "heading": "# WORLD-LAB — ORDEN F2-A",
+      "is_complete_external_v024_manuscript": false,
+      "classification": "Available pasted order/consultation, not the identified complete canonical manuscript"
+    },
+    {
+      "local_locator_at_review": "/workspace/attachments/cb7871c0-f35e-4951-8c6e-300f986b0b38/Texto pegado.txt",
+      "sha256_at_ingestion": "396ff3405fef57dc8d5f7e6fa0920ced5f8114f1b4f5659a79fee6068ca9cbcd",
+      "bytes": 7118,
+      "heading": "# WORLD-LAB — ORDEN EJECUTIVA F3-H",
+      "is_complete_external_v024_manuscript": false,
+      "classification": "Available pasted order/consultation, not the identified complete canonical manuscript"
+    },
+    {
+      "local_locator_at_review": "/workspace/attachments/d239523a-775b-439d-813a-dfc41c276670/Texto pegado.txt",
+      "sha256_at_ingestion": "c1042608dd990b6215a2b405f604c2275941301aea2a59aa573a1bda36b3b343",
+      "bytes": 9051,
+      "heading": "# WORLD-LAB — ORDEN EJECUTIVA F4-F",
+      "is_complete_external_v024_manuscript": false,
+      "classification": "Available pasted order/consultation, not the identified complete canonical manuscript"
+    },
+    {
+      "local_locator_at_review": "/workspace/attachments/d56c1b07-e936-4448-82e6-129f5f3f9cd0/Texto pegado.txt",
+      "sha256_at_ingestion": "7274a5084fdd4c8b813834d19abb846177e34704a96f4e8b6205566cfc3b83ad",
+      "bytes": 14556,
+      "heading": "# WORLD-LAB — ORDEN DE IMPLEMENTACIÓN F2-D",
+      "is_complete_external_v024_manuscript": false,
+      "classification": "Available pasted order/consultation, not the identified complete canonical manuscript"
+    },
+    {
+      "local_locator_at_review": "/workspace/attachments/d718167a-3ddc-4344-b94f-bb377eccb1a6/Texto pegado.txt",
+      "sha256_at_ingestion": "b3b5213711b1b45f6d664e1c3c72ddaa2a7e329ff5d9d0e3ce3a816c182f486c",
+      "bytes": 8748,
+      "heading": "# WORLD-LAB — ORDEN EJECUTIVA F3-G",
+      "is_complete_external_v024_manuscript": false,
+      "classification": "Available pasted order/consultation, not the identified complete canonical manuscript"
+    },
+    {
+      "local_locator_at_review": "/workspace/attachments/d8665fb3-e5ac-4029-9d0c-449c931a252d/Texto pegado.txt",
+      "sha256_at_ingestion": "cb4dd54a64aa553789d88b277923264fd32de630cc2e021eca7d619294c254bc",
+      "bytes": 8391,
+      "heading": "# WORLD-LAB — ORDEN F3-C",
+      "is_complete_external_v024_manuscript": false,
+      "classification": "Available pasted order/consultation, not the identified complete canonical manuscript"
+    },
+    {
+      "local_locator_at_review": "/workspace/attachments/d9ae1300-0f8b-46dc-ae52-3afc76272baf/Texto pegado.txt",
+      "sha256_at_ingestion": "6cb517860a8e779497bc69ce3b63b44c88b55fe6f5d003e1433613471b2d64db",
+      "bytes": 6029,
+      "heading": "# WORLD-LAB — ORDEN DE IMPLEMENTACIÓN F2-F",
+      "is_complete_external_v024_manuscript": false,
+      "classification": "Available pasted order/consultation, not the identified complete canonical manuscript"
+    }
+  ],
+  "tracked_historical_path_names": [
+    "docs/WORLD-LAB_v0.2.5_canonical_transcripcion.md"
+  ],
+  "source_boundary": "Only accessible current files, local Git refs and supplied attachments inspected. No access to owner archive, ChatGPT Library or all earlier conversations is claimed. A hash at ingestion does not authenticate an absent historic original.",
+  "external_sources": [
+    {
+      "id": "EXT-024",
+      "status": "EXTERNAL_SOURCE_REQUIRED",
+      "title": "WORLD-LAB v0.2.4 — Especificación canónica consolidada",
+      "identified_by": "Owner F5D-001 §2.2; copied order sources/F5D-001-order.b64",
+      "reported_approximate_lines": 1300,
+      "content_received": false,
+      "historical_hash": null,
+      "original_authentication": null,
+      "owner_reported_scope": [
+        "I54–I66",
+        "§25.9",
+        "§36"
+      ],
+      "reconciliation_targets": [
+        "WL-R-INVARIANTS-LEGACY",
+        "WL-R-REPLAY-INVARIANT",
+        "WL-R-CORPUS",
+        "WL-R-TERMS",
+        "WL-R-SCOPE",
+        "WL-R-REPRO",
+        "WL-R-NOLEARN",
+        "WL-R-AGENT",
+        "WL-R-ACTION-RESULT",
+        "WL-R-ACTION-ENERGY",
+        "WL-R-DYNAMICS",
+        "WL-R-OBS",
+        "WL-R-FEEDBACK",
+        "WL-R-EVENT-ACTION",
+        "WL-R-TICK-TRANSACTION"
+      ],
+      "scope_caution": "Only first three sections reported as present; other targets are questions to inspect when source arrives, not assertions of its contents.",
+      "required_delivery": "Provide unchanged complete copy plus provenance (version/title and origin/custody). Calculate ingestion hash then compare applicable clauses with S025/D-01 and scoped owner clarifications; do not infer an original historical hash."
+    },
+    {
+      "id": "EXT-023",
+      "status": "EXTERNAL_SOURCE_REQUIRED",
+      "title": "WORLD-LAB v0.2.3 canonical source (exact original metadata pending)",
+      "identified_by": "F5D-001 §2.2 concrete lead; S025 §36 references v0.2.3 changes",
+      "content_received": false,
+      "historical_hash": null,
+      "original_authentication": null,
+      "owner_reported_scope": [
+        "Potential I01–I53 definitions"
+      ],
+      "reconciliation_targets": [
+        "WL-R-INVARIANTS-LEGACY",
+        "WL-R-CORPUS"
+      ],
+      "scope_caution": "Do not assert that all I01–I53 are defined in this source before inspecting it."
+    }
+  ],
+  "opaque_references": [
+    {
+      "id": "I-01",
+      "status": "UNRESOLVED_REFERENCE",
+      "definition": null,
+      "source_requested": "EXT-023 then EXT-024 applicability check",
+      "requirement_id": "WL-R-INVARIANTS-LEGACY"
+    },
+    {
+      "id": "I-02",
+      "status": "UNRESOLVED_REFERENCE",
+      "definition": null,
+      "source_requested": "EXT-023 then EXT-024 applicability check",
+      "requirement_id": "WL-R-INVARIANTS-LEGACY"
+    },
+    {
+      "id": "I-03",
+      "status": "UNRESOLVED_REFERENCE",
+      "definition": null,
+      "source_requested": "EXT-023 then EXT-024 applicability check",
+      "requirement_id": "WL-R-INVARIANTS-LEGACY"
+    },
+    {
+      "id": "I-04",
+      "status": "UNRESOLVED_REFERENCE",
+      "definition": null,
+      "source_requested": "EXT-023 then EXT-024 applicability check",
+      "requirement_id": "WL-R-INVARIANTS-LEGACY"
+    },
+    {
+      "id": "I-05",
+      "status": "UNRESOLVED_REFERENCE",
+      "definition": null,
+      "source_requested": "EXT-023 then EXT-024 applicability check",
+      "requirement_id": "WL-R-INVARIANTS-LEGACY"
+    },
+    {
+      "id": "I-06",
+      "status": "UNRESOLVED_REFERENCE",
+      "definition": null,
+      "source_requested": "EXT-023 then EXT-024 applicability check",
+      "requirement_id": "WL-R-INVARIANTS-LEGACY"
+    },
+    {
+      "id": "I-07",
+      "status": "UNRESOLVED_REFERENCE",
+      "definition": null,
+      "source_requested": "EXT-023 then EXT-024 applicability check",
+      "requirement_id": "WL-R-INVARIANTS-LEGACY"
+    },
+    {
+      "id": "I-08",
+      "status": "UNRESOLVED_REFERENCE",
+      "definition": null,
+      "source_requested": "EXT-023 then EXT-024 applicability check",
+      "requirement_id": "WL-R-INVARIANTS-LEGACY"
+    },
+    {
+      "id": "I-09",
+      "status": "UNRESOLVED_REFERENCE",
+      "definition": null,
+      "source_requested": "EXT-023 then EXT-024 applicability check",
+      "requirement_id": "WL-R-INVARIANTS-LEGACY"
+    },
+    {
+      "id": "I-10",
+      "status": "UNRESOLVED_REFERENCE",
+      "definition": null,
+      "source_requested": "EXT-023 then EXT-024 applicability check",
+      "requirement_id": "WL-R-INVARIANTS-LEGACY"
+    },
+    {
+      "id": "I-11",
+      "status": "UNRESOLVED_REFERENCE",
+      "definition": null,
+      "source_requested": "EXT-023 then EXT-024 applicability check",
+      "requirement_id": "WL-R-INVARIANTS-LEGACY"
+    },
+    {
+      "id": "I-12",
+      "status": "UNRESOLVED_REFERENCE",
+      "definition": null,
+      "source_requested": "EXT-023 then EXT-024 applicability check",
+      "requirement_id": "WL-R-INVARIANTS-LEGACY"
+    },
+    {
+      "id": "I-13",
+      "status": "UNRESOLVED_REFERENCE",
+      "definition": null,
+      "source_requested": "EXT-023 then EXT-024 applicability check",
+      "requirement_id": "WL-R-INVARIANTS-LEGACY"
+    },
+    {
+      "id": "I-14",
+      "status": "UNRESOLVED_REFERENCE",
+      "definition": null,
+      "source_requested": "EXT-023 then EXT-024 applicability check",
+      "requirement_id": "WL-R-INVARIANTS-LEGACY"
+    },
+    {
+      "id": "I-15",
+      "status": "UNRESOLVED_REFERENCE",
+      "definition": null,
+      "source_requested": "EXT-023 then EXT-024 applicability check",
+      "requirement_id": "WL-R-INVARIANTS-LEGACY"
+    },
+    {
+      "id": "I-16",
+      "status": "UNRESOLVED_REFERENCE",
+      "definition": null,
+      "source_requested": "EXT-023 then EXT-024 applicability check",
+      "requirement_id": "WL-R-INVARIANTS-LEGACY"
+    },
+    {
+      "id": "I-17",
+      "status": "UNRESOLVED_REFERENCE",
+      "definition": null,
+      "source_requested": "EXT-023 then EXT-024 applicability check",
+      "requirement_id": "WL-R-INVARIANTS-LEGACY"
+    },
+    {
+      "id": "I-18",
+      "status": "UNRESOLVED_REFERENCE",
+      "definition": null,
+      "source_requested": "EXT-023 then EXT-024 applicability check",
+      "requirement_id": "WL-R-INVARIANTS-LEGACY"
+    },
+    {
+      "id": "I-19",
+      "status": "UNRESOLVED_REFERENCE",
+      "definition": null,
+      "source_requested": "EXT-023 then EXT-024 applicability check",
+      "requirement_id": "WL-R-INVARIANTS-LEGACY"
+    },
+    {
+      "id": "I-20",
+      "status": "UNRESOLVED_REFERENCE",
+      "definition": null,
+      "source_requested": "EXT-023 then EXT-024 applicability check",
+      "requirement_id": "WL-R-INVARIANTS-LEGACY"
+    },
+    {
+      "id": "I-21",
+      "status": "UNRESOLVED_REFERENCE",
+      "definition": null,
+      "source_requested": "EXT-023 then EXT-024 applicability check",
+      "requirement_id": "WL-R-INVARIANTS-LEGACY"
+    },
+    {
+      "id": "I-22",
+      "status": "UNRESOLVED_REFERENCE",
+      "definition": null,
+      "source_requested": "EXT-023 then EXT-024 applicability check",
+      "requirement_id": "WL-R-INVARIANTS-LEGACY"
+    },
+    {
+      "id": "I-23",
+      "status": "UNRESOLVED_REFERENCE",
+      "definition": null,
+      "source_requested": "EXT-023 then EXT-024 applicability check",
+      "requirement_id": "WL-R-INVARIANTS-LEGACY"
+    },
+    {
+      "id": "I-24",
+      "status": "UNRESOLVED_REFERENCE",
+      "definition": null,
+      "source_requested": "EXT-023 then EXT-024 applicability check",
+      "requirement_id": "WL-R-INVARIANTS-LEGACY"
+    },
+    {
+      "id": "I-25",
+      "status": "UNRESOLVED_REFERENCE",
+      "definition": null,
+      "source_requested": "EXT-023 then EXT-024 applicability check",
+      "requirement_id": "WL-R-INVARIANTS-LEGACY"
+    },
+    {
+      "id": "I-26",
+      "status": "UNRESOLVED_REFERENCE",
+      "definition": null,
+      "source_requested": "EXT-023 then EXT-024 applicability check",
+      "requirement_id": "WL-R-INVARIANTS-LEGACY"
+    },
+    {
+      "id": "I-27",
+      "status": "UNRESOLVED_REFERENCE",
+      "definition": null,
+      "source_requested": "EXT-023 then EXT-024 applicability check",
+      "requirement_id": "WL-R-INVARIANTS-LEGACY"
+    },
+    {
+      "id": "I-28",
+      "status": "UNRESOLVED_REFERENCE",
+      "definition": null,
+      "source_requested": "EXT-023 then EXT-024 applicability check",
+      "requirement_id": "WL-R-INVARIANTS-LEGACY"
+    },
+    {
+      "id": "I-29",
+      "status": "UNRESOLVED_REFERENCE",
+      "definition": null,
+      "source_requested": "EXT-023 then EXT-024 applicability check",
+      "requirement_id": "WL-R-INVARIANTS-LEGACY"
+    },
+    {
+      "id": "I-30",
+      "status": "UNRESOLVED_REFERENCE",
+      "definition": null,
+      "source_requested": "EXT-023 then EXT-024 applicability check",
+      "requirement_id": "WL-R-INVARIANTS-LEGACY"
+    },
+    {
+      "id": "I-31",
+      "status": "UNRESOLVED_REFERENCE",
+      "definition": null,
+      "source_requested": "EXT-023 then EXT-024 applicability check",
+      "requirement_id": "WL-R-INVARIANTS-LEGACY"
+    },
+    {
+      "id": "I-32",
+      "status": "UNRESOLVED_REFERENCE",
+      "definition": null,
+      "source_requested": "EXT-023 then EXT-024 applicability check",
+      "requirement_id": "WL-R-INVARIANTS-LEGACY"
+    },
+    {
+      "id": "I-33",
+      "status": "UNRESOLVED_REFERENCE",
+      "definition": null,
+      "source_requested": "EXT-023 then EXT-024 applicability check",
+      "requirement_id": "WL-R-INVARIANTS-LEGACY"
+    },
+    {
+      "id": "I-34",
+      "status": "UNRESOLVED_REFERENCE",
+      "definition": null,
+      "source_requested": "EXT-023 then EXT-024 applicability check",
+      "requirement_id": "WL-R-INVARIANTS-LEGACY"
+    },
+    {
+      "id": "I-35",
+      "status": "UNRESOLVED_REFERENCE",
+      "definition": null,
+      "source_requested": "EXT-023 then EXT-024 applicability check",
+      "requirement_id": "WL-R-INVARIANTS-LEGACY"
+    },
+    {
+      "id": "I-36",
+      "status": "UNRESOLVED_REFERENCE",
+      "definition": null,
+      "source_requested": "EXT-023 then EXT-024 applicability check",
+      "requirement_id": "WL-R-INVARIANTS-LEGACY"
+    },
+    {
+      "id": "I-37",
+      "status": "UNRESOLVED_REFERENCE",
+      "definition": null,
+      "source_requested": "EXT-023 then EXT-024 applicability check",
+      "requirement_id": "WL-R-INVARIANTS-LEGACY"
+    },
+    {
+      "id": "I-38",
+      "status": "UNRESOLVED_REFERENCE",
+      "definition": null,
+      "source_requested": "EXT-023 then EXT-024 applicability check",
+      "requirement_id": "WL-R-INVARIANTS-LEGACY"
+    },
+    {
+      "id": "I-39",
+      "status": "UNRESOLVED_REFERENCE",
+      "definition": null,
+      "source_requested": "EXT-023 then EXT-024 applicability check",
+      "requirement_id": "WL-R-INVARIANTS-LEGACY"
+    },
+    {
+      "id": "I-40",
+      "status": "UNRESOLVED_REFERENCE",
+      "definition": null,
+      "source_requested": "EXT-023 then EXT-024 applicability check",
+      "requirement_id": "WL-R-INVARIANTS-LEGACY"
+    },
+    {
+      "id": "I-41",
+      "status": "UNRESOLVED_REFERENCE",
+      "definition": null,
+      "source_requested": "EXT-023 then EXT-024 applicability check",
+      "requirement_id": "WL-R-INVARIANTS-LEGACY"
+    },
+    {
+      "id": "I-42",
+      "status": "UNRESOLVED_REFERENCE",
+      "definition": null,
+      "source_requested": "EXT-023 then EXT-024 applicability check",
+      "requirement_id": "WL-R-INVARIANTS-LEGACY"
+    },
+    {
+      "id": "I-43",
+      "status": "UNRESOLVED_REFERENCE",
+      "definition": null,
+      "source_requested": "EXT-023 then EXT-024 applicability check",
+      "requirement_id": "WL-R-INVARIANTS-LEGACY"
+    },
+    {
+      "id": "I-44",
+      "status": "UNRESOLVED_REFERENCE",
+      "definition": null,
+      "source_requested": "EXT-023 then EXT-024 applicability check",
+      "requirement_id": "WL-R-INVARIANTS-LEGACY"
+    },
+    {
+      "id": "I-45",
+      "status": "UNRESOLVED_REFERENCE",
+      "definition": null,
+      "source_requested": "EXT-023 then EXT-024 applicability check",
+      "requirement_id": "WL-R-INVARIANTS-LEGACY"
+    },
+    {
+      "id": "I-46",
+      "status": "UNRESOLVED_REFERENCE",
+      "definition": null,
+      "source_requested": "EXT-023 then EXT-024 applicability check",
+      "requirement_id": "WL-R-INVARIANTS-LEGACY"
+    },
+    {
+      "id": "I-47",
+      "status": "UNRESOLVED_REFERENCE",
+      "definition": null,
+      "source_requested": "EXT-023 then EXT-024 applicability check",
+      "requirement_id": "WL-R-INVARIANTS-LEGACY"
+    },
+    {
+      "id": "I-48",
+      "status": "UNRESOLVED_REFERENCE",
+      "definition": null,
+      "source_requested": "EXT-023 then EXT-024 applicability check",
+      "requirement_id": "WL-R-INVARIANTS-LEGACY"
+    },
+    {
+      "id": "I-49",
+      "status": "UNRESOLVED_REFERENCE",
+      "definition": null,
+      "source_requested": "EXT-023 then EXT-024 applicability check",
+      "requirement_id": "WL-R-INVARIANTS-LEGACY"
+    },
+    {
+      "id": "I-50",
+      "status": "UNRESOLVED_REFERENCE",
+      "definition": null,
+      "source_requested": "EXT-023 then EXT-024 applicability check",
+      "requirement_id": "WL-R-INVARIANTS-LEGACY"
+    },
+    {
+      "id": "I-51",
+      "status": "UNRESOLVED_REFERENCE",
+      "definition": null,
+      "source_requested": "EXT-023 then EXT-024 applicability check",
+      "requirement_id": "WL-R-INVARIANTS-LEGACY"
+    },
+    {
+      "id": "I-52",
+      "status": "UNRESOLVED_REFERENCE",
+      "definition": null,
+      "source_requested": "EXT-023 then EXT-024 applicability check",
+      "requirement_id": "WL-R-INVARIANTS-LEGACY"
+    },
+    {
+      "id": "I-53",
+      "status": "UNRESOLVED_REFERENCE",
+      "definition": null,
+      "source_requested": "EXT-023 then EXT-024 applicability check",
+      "requirement_id": "WL-R-INVARIANTS-LEGACY"
+    },
+    {
+      "id": "I-54",
+      "status": "UNRESOLVED_REFERENCE",
+      "definition": null,
+      "source_requested": "EXT-024",
+      "requirement_id": "WL-R-INVARIANTS-LEGACY"
+    },
+    {
+      "id": "I-55",
+      "status": "UNRESOLVED_REFERENCE",
+      "definition": null,
+      "source_requested": "EXT-024",
+      "requirement_id": "WL-R-INVARIANTS-LEGACY"
+    },
+    {
+      "id": "I-56",
+      "status": "UNRESOLVED_REFERENCE",
+      "definition": null,
+      "source_requested": "EXT-024",
+      "requirement_id": "WL-R-INVARIANTS-LEGACY"
+    },
+    {
+      "id": "I-57",
+      "status": "UNRESOLVED_REFERENCE",
+      "definition": null,
+      "source_requested": "EXT-024",
+      "requirement_id": "WL-R-INVARIANTS-LEGACY"
+    },
+    {
+      "id": "I-58",
+      "status": "UNRESOLVED_REFERENCE",
+      "definition": null,
+      "source_requested": "EXT-024",
+      "requirement_id": "WL-R-INVARIANTS-LEGACY"
+    },
+    {
+      "id": "I-59",
+      "status": "UNRESOLVED_REFERENCE",
+      "definition": null,
+      "source_requested": "EXT-024",
+      "requirement_id": "WL-R-INVARIANTS-LEGACY"
+    },
+    {
+      "id": "I-60",
+      "status": "UNRESOLVED_REFERENCE",
+      "definition": null,
+      "source_requested": "EXT-024",
+      "requirement_id": "WL-R-INVARIANTS-LEGACY"
+    },
+    {
+      "id": "I-61",
+      "status": "UNRESOLVED_REFERENCE",
+      "definition": null,
+      "source_requested": "EXT-024",
+      "requirement_id": "WL-R-INVARIANTS-LEGACY"
+    },
+    {
+      "id": "I-62",
+      "status": "UNRESOLVED_REFERENCE",
+      "definition": null,
+      "source_requested": "EXT-024",
+      "requirement_id": "WL-R-INVARIANTS-LEGACY"
+    },
+    {
+      "id": "I-63",
+      "status": "UNRESOLVED_REFERENCE",
+      "definition": null,
+      "source_requested": "EXT-024",
+      "requirement_id": "WL-R-INVARIANTS-LEGACY"
+    },
+    {
+      "id": "I-64",
+      "status": "UNRESOLVED_REFERENCE",
+      "definition": null,
+      "source_requested": "EXT-024",
+      "requirement_id": "WL-R-INVARIANTS-LEGACY"
+    },
+    {
+      "id": "I-65",
+      "status": "UNRESOLVED_REFERENCE",
+      "definition": null,
+      "source_requested": "EXT-024",
+      "requirement_id": "WL-R-INVARIANTS-LEGACY"
+    },
+    {
+      "id": "I-66",
+      "status": "UNRESOLVED_REFERENCE",
+      "definition": null,
+      "source_requested": "EXT-024",
+      "requirement_id": "WL-R-INVARIANTS-LEGACY"
+    }
+  ]
+}

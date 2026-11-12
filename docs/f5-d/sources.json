@@ -1,0 +1,56 @@
+[
+  {
+    "id": "S025",
+    "path": "docs/WORLD-LAB_v0.2.5_canonical_transcripcion.md",
+    "sha256": "926d3246c18469d30088a1d67b7f3ffd23cf25340fc638a941e42a94985ad912",
+    "encoding": "utf8",
+    "original_sha256": "926d3246c18469d30088a1d67b7f3ffd23cf25340fc638a941e42a94985ad912",
+    "authority": "NORMATIVE v0.2.5, full available transcription"
+  },
+  {
+    "id": "S026",
+    "path": "docs/WORLD-LAB_v0.2.6_contractual_amendment_D-01.md",
+    "sha256": "4c6148028b45fee4a32d6379c84460e9829fdf98a1b79eed82853ff9eec7db03",
+    "encoding": "utf8",
+    "original_sha256": "4c6148028b45fee4a32d6379c84460e9829fdf98a1b79eed82853ff9eec7db03",
+    "authority": "NORMATIVE D-01, supersedes explicit clauses only"
+  },
+  {
+    "id": "H034",
+    "path": "conformance/sources/F3-D-2-recovered-order.b64",
+    "sha256": "42e0322220203cb1d39bcb685283a622d512c44f01283b390eb147671e17cf83",
+    "encoding": "base64",
+    "original_sha256": "47db32068e479861054f03e85123b1e927b7be17da94a41cca540143ae46cd40",
+    "authority": "Owner-recovered v0.2.4 §34 fragment in F3-D/2 order; not full historical manuscript"
+  },
+  {
+    "id": "HINIT",
+    "path": "conformance/sources/F2-G-recovered-order.b64",
+    "sha256": "28c68bc2e1858528f2e2bca6edda4efc4a9dde6c4b6ffc10ae5d1955121ba4e0",
+    "encoding": "base64",
+    "original_sha256": "285ecd4e11668543cba3254418b599f12d0a71c3351ee3a74e34ad8e89419df1",
+    "authority": "Owner-recovered initialization/events rules and authorized INIT-004 in F2-G order"
+  },
+  {
+    "id": "HINLINE",
+    "path": "conformance/profile/owner-fragments.md",
+    "sha256": "034589089b093b99f0d39958a6f6b695757ccc79b6e04c40082f7a52b6e507b0",
+    "encoding": "utf8",
+    "authority": "Owner-transmitted recovered fragments; no original-manuscript authentication or historical-test recovery"
+  },
+  {
+    "id": "OWNER",
+    "path": "docs/f5-d/owner-clarifications.md",
+    "sha256": "675f9d68f3de3375fe579644af5c4ff5f1472525c54d5b9c93afeb52f0751e38",
+    "encoding": "utf8",
+    "authority": "Owner-attested scoped statements, not independent authentication of a historical manuscript"
+  },
+  {
+    "id": "ORDER",
+    "path": "docs/f5-d/sources/F5D-001-order.b64",
+    "sha256": "ef7a418daef4fb659668a1e90712e72d2a35ade49c9ae91f66bd3a3c9c0ff5c1",
+    "encoding": "base64",
+    "original_sha256": "db1834d5f97e21ee6373dcd6c280d77b44c7d274d8e350b7eaca557361db04d3",
+    "authority": "F5D-001 work authorization and external-source lead; not normative amendment"
+  }
+]
