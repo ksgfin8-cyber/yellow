@@ -1,0 +1,308 @@
+{
+  "base": "a3fb5b823bfdf74a981e9acf9e10bb30cc18b478",
+  "existing_unit_suites": [
+    {
+      "file": "tests/f1-a.test.cjs",
+      "command": "node tests/f1-a.test.cjs",
+      "source_sha256": "d1b2ae4a18745051accc912f29696fc9b3724df1d8285167f1dc50ec1319477a",
+      "exit": 0,
+      "pass": 18,
+      "fail": 0,
+      "historical_assertions_note": "Some F3G/F3H assertions run the fixed v0.2.5 baseline; not all assertions target current revision"
+    },
+    {
+      "file": "tests/f1-b.test.cjs",
+      "command": "node tests/f1-b.test.cjs",
+      "source_sha256": "55ccaf8e11397acfbad5e306f94746d565a6a611ee15891c5fc00bc4a77b578b",
+      "exit": 0,
+      "pass": 12,
+      "fail": 0,
+      "historical_assertions_note": "Some F3G/F3H assertions run the fixed v0.2.5 baseline; not all assertions target current revision"
+    },
+    {
+      "file": "tests/f2-a.test.cjs",
+      "command": "node tests/f2-a.test.cjs",
+      "source_sha256": "1ccae48a73048a8877b0c379dbc8d11f444def95f82b3901af2ad4c3ab689100",
+      "exit": 0,
+      "pass": 14,
+      "fail": 0,
+      "historical_assertions_note": "Some F3G/F3H assertions run the fixed v0.2.5 baseline; not all assertions target current revision"
+    },
+    {
+      "file": "tests/f2-b.test.cjs",
+      "command": "node tests/f2-b.test.cjs",
+      "source_sha256": "1de019c26cc74f9b9c072295c14a0e7e66204e0808d6285fb5b310a3f9f4368b",
+      "exit": 0,
+      "pass": 13,
+      "fail": 0,
+      "historical_assertions_note": "Some F3G/F3H assertions run the fixed v0.2.5 baseline; not all assertions target current revision"
+    },
+    {
+      "file": "tests/f2-c.test.cjs",
+      "command": "node tests/f2-c.test.cjs",
+      "source_sha256": "879be1bda767d7ad247c3484f0188c014722d763c30c61ccfe6b1fc550d62a9c",
+      "exit": 0,
+      "pass": 21,
+      "fail": 0,
+      "historical_assertions_note": "Some F3G/F3H assertions run the fixed v0.2.5 baseline; not all assertions target current revision"
+    },
+    {
+      "file": "tests/f2-d.test.cjs",
+      "command": "node tests/f2-d.test.cjs",
+      "source_sha256": "177aa69131caa0a5d59176b92828029bc698a737b0c23967c1d649814e02c721",
+      "exit": 0,
+      "pass": 28,
+      "fail": 0,
+      "historical_assertions_note": "Some F3G/F3H assertions run the fixed v0.2.5 baseline; not all assertions target current revision"
+    },
+    {
+      "file": "tests/f2-e.test.cjs",
+      "command": "node tests/f2-e.test.cjs",
+      "source_sha256": "e6d6895e0927ae81a28c0c42623cd7f9865c23bc46ff7520fba35fdfc6c94e50",
+      "exit": 0,
+      "pass": 16,
+      "fail": 0,
+      "historical_assertions_note": "Some F3G/F3H assertions run the fixed v0.2.5 baseline; not all assertions target current revision"
+    },
+    {
+      "file": "tests/f2-f.test.cjs",
+      "command": "node tests/f2-f.test.cjs",
+      "source_sha256": "25d066d54774365bab76c41cfc0c8230dc54b75bb07f9926ea605d5fd8526596",
+      "exit": 0,
+      "pass": 18,
+      "fail": 0,
+      "historical_assertions_note": "Some F3G/F3H assertions run the fixed v0.2.5 baseline; not all assertions target current revision"
+    },
+    {
+      "file": "tests/f2-g.test.cjs",
+      "command": "node tests/f2-g.test.cjs",
+      "source_sha256": "dba7c5d245038f8fa96aab85bfa9c12cd78a050df2e0e2ef7bc52943ddf9b545",
+      "exit": 0,
+      "pass": 21,
+      "fail": 0,
+      "historical_assertions_note": "Some F3G/F3H assertions run the fixed v0.2.5 baseline; not all assertions target current revision"
+    },
+    {
+      "file": "tests/f2-h.test.cjs",
+      "command": "node tests/f2-h.test.cjs",
+      "source_sha256": "45dd3a508268293ba81a89976e6604a4b0f20e470354ea94e59f562011a12331",
+      "exit": 0,
+      "pass": 15,
+      "fail": 0,
+      "historical_assertions_note": "Some F3G/F3H assertions run the fixed v0.2.5 baseline; not all assertions target current revision"
+    },
+    {
+      "file": "tests/f2-i.test.cjs",
+      "command": "node tests/f2-i.test.cjs",
+      "source_sha256": "19fa35454eb8b2c9a27eea837076fec54eafe0c114dbb55c3a6bf1ddb7d38574",
+      "exit": 0,
+      "pass": 18,
+      "fail": 0,
+      "historical_assertions_note": "Some F3G/F3H assertions run the fixed v0.2.5 baseline; not all assertions target current revision"
+    },
+    {
+      "file": "tests/f3-a.test.cjs",
+      "command": "node tests/f3-a.test.cjs",
+      "source_sha256": "9cf099f1f1cc7c58e18ba197168e4e9d4bed11fdb081b7c1fb5fe369e8767061",
+      "exit": 0,
+      "pass": 40,
+      "fail": 0,
+      "historical_assertions_note": "Some F3G/F3H assertions run the fixed v0.2.5 baseline; not all assertions target current revision"
+    },
+    {
+      "file": "tests/f3-b.test.cjs",
+      "command": "node tests/f3-b.test.cjs",
+      "source_sha256": "ca84eafc02d1d6bd4d6f55fcc7499159bd038f7d2372cd94a5aa2f4aeedb4675",
+      "exit": 0,
+      "pass": 18,
+      "fail": 0,
+      "historical_assertions_note": "Some F3G/F3H assertions run the fixed v0.2.5 baseline; not all assertions target current revision"
+    },
+    {
+      "file": "tests/f3-c.test.cjs",
+      "command": "node tests/f3-c.test.cjs",
+      "source_sha256": "6dc42028c1e6b025888e8d4c7bf9a3bed2c73f0efa32f4222751c531b1c46633",
+      "exit": 0,
+      "pass": 24,
+      "fail": 0,
+      "historical_assertions_note": "Some F3G/F3H assertions run the fixed v0.2.5 baseline; not all assertions target current revision"
+    },
+    {
+      "file": "tests/f3-d.test.cjs",
+      "command": "node tests/f3-d.test.cjs",
+      "source_sha256": "0e3982102736eb902ceac53dba7e6b7fe3df31b023474228fa7a6fd32bd9ace1",
+      "exit": 0,
+      "pass": 12,
+      "fail": 0,
+      "historical_assertions_note": "Some F3G/F3H assertions run the fixed v0.2.5 baseline; not all assertions target current revision"
+    },
+    {
+      "file": "tests/f3-d2.test.cjs",
+      "command": "node tests/f3-d2.test.cjs",
+      "source_sha256": "81567421bbbf7e5060571cced1ab7bf9a90fa2f1532c4144deab2c8d8af46989",
+      "exit": 0,
+      "pass": 15,
+      "fail": 0,
+      "historical_assertions_note": "Some F3G/F3H assertions run the fixed v0.2.5 baseline; not all assertions target current revision"
+    },
+    {
+      "file": "tests/f3-e.test.cjs",
+      "command": "node tests/f3-e.test.cjs",
+      "source_sha256": "b792b4111518f793c8b416a7e938e92e2cbb24969110e42f1b8d843259b728e0",
+      "exit": 0,
+      "pass": 24,
+      "fail": 0,
+      "historical_assertions_note": "Some F3G/F3H assertions run the fixed v0.2.5 baseline; not all assertions target current revision"
+    },
+    {
+      "file": "tests/f3-f.test.cjs",
+      "command": "node tests/f3-f.test.cjs",
+      "source_sha256": "adab2273e11f2045182d90d6f77f5709f391e7f0b3c639b01a2d070f98ab9037",
+      "exit": 0,
+      "pass": 23,
+      "fail": 0,
+      "historical_assertions_note": "Some F3G/F3H assertions run the fixed v0.2.5 baseline; not all assertions target current revision"
+    },
+    {
+      "file": "tests/f3-g.test.cjs",
+      "command": "node tests/f3-g.test.cjs",
+      "source_sha256": "bb9730fdf52999c8a49a7f4dcc3483c45503d6d6bc0e4e1cbfd64ae63b40b1f2",
+      "exit": 0,
+      "pass": 27,
+      "fail": 0,
+      "historical_assertions_note": "Some F3G/F3H assertions run the fixed v0.2.5 baseline; not all assertions target current revision"
+    },
+    {
+      "file": "tests/f3-h.test.cjs",
+      "command": "node tests/f3-h.test.cjs",
+      "source_sha256": "32d4feba645f27cda439b3db2f9f754add27c8f2e1af199ce5abb1b87588fd31",
+      "exit": 0,
+      "pass": 23,
+      "fail": 0,
+      "historical_assertions_note": "Some F3G/F3H assertions run the fixed v0.2.5 baseline; not all assertions target current revision"
+    },
+    {
+      "file": "tests/f4-a.test.cjs",
+      "command": "node tests/f4-a.test.cjs",
+      "source_sha256": "50f690a6c3607273257d261e410768880e5f211bf432c1931621ca1529a2a55e",
+      "exit": 0,
+      "pass": 15,
+      "fail": 0,
+      "historical_assertions_note": "Some F3G/F3H assertions run the fixed v0.2.5 baseline; not all assertions target current revision"
+    },
+    {
+      "file": "tests/f4-b.test.cjs",
+      "command": "node tests/f4-b.test.cjs",
+      "source_sha256": "51f2ca22ba6e211a0a680ce761deddb29fc569585ae35f13f6cc96e5612e9ce0",
+      "exit": 0,
+      "pass": 18,
+      "fail": 0,
+      "historical_assertions_note": "Some F3G/F3H assertions run the fixed v0.2.5 baseline; not all assertions target current revision"
+    },
+    {
+      "file": "tests/f4-c.test.cjs",
+      "command": "node tests/f4-c.test.cjs",
+      "source_sha256": "db1660d920e3a40ea8675415950bbccd0beb69fbf1bc686879211f4a304c2065",
+      "exit": 0,
+      "pass": 20,
+      "fail": 0,
+      "historical_assertions_note": "Some F3G/F3H assertions run the fixed v0.2.5 baseline; not all assertions target current revision"
+    },
+    {
+      "file": "tests/f4-e.test.cjs",
+      "command": "node tests/f4-e.test.cjs",
+      "source_sha256": "0503953c551dd7b4e1758349b8ec3d3708e93ee051b6975bb266978b6df24c5d",
+      "exit": 0,
+      "pass": 17,
+      "fail": 0,
+      "historical_assertions_note": "Some F3G/F3H assertions run the fixed v0.2.5 baseline; not all assertions target current revision"
+    },
+    {
+      "file": "tests/f4-f.test.cjs",
+      "command": "node tests/f4-f.test.cjs",
+      "source_sha256": "8f36e39e87cc8869057dab85cae1d4f82525e3ae5cf297b5f28c78562a9ffe0e",
+      "exit": 0,
+      "pass": 12,
+      "fail": 0,
+      "historical_assertions_note": "Some F3G/F3H assertions run the fixed v0.2.5 baseline; not all assertions target current revision"
+    },
+    {
+      "file": "tests/f5-a.test.cjs",
+      "command": "node tests/f5-a.test.cjs",
+      "source_sha256": "68ce99f3a7fe82a1eb4dad2212bd1b84f988c75dcc4653ebdbc337cc5c9e9941",
+      "exit": 0,
+      "pass": 12,
+      "fail": 0,
+      "historical_assertions_note": "Some F3G/F3H assertions run the fixed v0.2.5 baseline; not all assertions target current revision"
+    },
+    {
+      "file": "tests/f5-b.test.cjs",
+      "command": "node tests/f5-b.test.cjs",
+      "source_sha256": "630110aff7bd4726deb3bb7e4d8b56849dd1af7f8a4b3dce0ae50775d1aef576",
+      "exit": 0,
+      "pass": 6,
+      "fail": 0,
+      "historical_assertions_note": "Some F3G/F3H assertions run the fixed v0.2.5 baseline; not all assertions target current revision"
+    },
+    {
+      "file": "tests/f5-c.test.cjs",
+      "command": "node tests/f5-c.test.cjs",
+      "source_sha256": "7eb3b699f3773e9032038ae7ecee59fc8a15e563f6b1fcf8e2d1ac158a1f6189",
+      "exit": 0,
+      "pass": 11,
+      "fail": 0,
+      "historical_assertions_note": "Some F3G/F3H assertions run the fixed v0.2.5 baseline; not all assertions target current revision"
+    }
+  ],
+  "summary": {
+    "files": 28,
+    "pass": 511,
+    "fail": 0
+  },
+  "legacy": {
+    "mode": "current",
+    "tests": 22,
+    "pass": 13,
+    "fail": 9,
+    "command": "node tests/f1-a-legacy.cjs",
+    "exit": 1,
+    "failures": [
+      "T06 FAIL Cannot read properties of undefined (reading 'length')",
+      "T07 FAIL Cannot read properties of undefined (reading 'length')",
+      "T08 FAIL Cannot read properties of undefined (reading 'length')",
+      "T12 FAIL makeResource is not defined",
+      "T13 FAIL EffectKind is not defined",
+      "T14 FAIL makeHazard is not defined",
+      "T16 FAIL invalid initial_state",
+      "T20 FAIL Cannot read properties of undefined (reading 'length')",
+      "T22 FAIL Cannot read properties of undefined (reading 'length')"
+    ]
+  },
+  "corpora": [
+    {
+      "command": "node conformance/runner.cjs --cases cases.json",
+      "exit": 0,
+      "counts": {
+        "PASS": 50,
+        "BLOCKED": 289
+      },
+      "byte_identical_to": "conformance/results/f5-a.json",
+      "byte_identical": true,
+      "report_sha256": "db10137b77f3619008ca07e81bd150cd616ed0d89b019edd34db63b04a1ceae5"
+    },
+    {
+      "command": "node conformance/runner.cjs --cases cases-f5-b.json",
+      "exit": 0,
+      "counts": {
+        "PASS": 114,
+        "BLOCKED": 289
+      },
+      "byte_identical_to": "conformance/results/f5-b.json",
+      "byte_identical": true,
+      "report_sha256": "3d4f2638b2469d4799ba87b412124ddeaab1676df34d988df33420984faa0077"
+    }
+  ],
+  "new_product_tests_created": false,
+  "browser_reexecuted": false,
+  "not_a_global_conformance_claim": true
+}
