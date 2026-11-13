@@ -1,0 +1,114 @@
+[
+  {
+    "file": "tests/f1-a.test.cjs",
+    "exit": 0
+  },
+  {
+    "file": "tests/f1-b.test.cjs",
+    "exit": 0
+  },
+  {
+    "file": "tests/f2-a.test.cjs",
+    "exit": 0
+  },
+  {
+    "file": "tests/f2-b.test.cjs",
+    "exit": 0
+  },
+  {
+    "file": "tests/f2-c.test.cjs",
+    "exit": 0
+  },
+  {
+    "file": "tests/f2-d.test.cjs",
+    "exit": 0
+  },
+  {
+    "file": "tests/f2-e.test.cjs",
+    "exit": 0
+  },
+  {
+    "file": "tests/f2-f.test.cjs",
+    "exit": 0
+  },
+  {
+    "file": "tests/f2-g.test.cjs",
+    "exit": 0
+  },
+  {
+    "file": "tests/f2-h.test.cjs",
+    "exit": 0
+  },
+  {
+    "file": "tests/f2-i.test.cjs",
+    "exit": 0
+  },
+  {
+    "file": "tests/f3-a.test.cjs",
+    "exit": 0
+  },
+  {
+    "file": "tests/f3-b.test.cjs",
+    "exit": 0
+  },
+  {
+    "file": "tests/f3-c.test.cjs",
+    "exit": 0
+  },
+  {
+    "file": "tests/f3-d.test.cjs",
+    "exit": 0
+  },
+  {
+    "file": "tests/f3-d2.test.cjs",
+    "exit": 0
+  },
+  {
+    "file": "tests/f3-e.test.cjs",
+    "exit": 0
+  },
+  {
+    "file": "tests/f3-f.test.cjs",
+    "exit": 0
+  },
+  {
+    "file": "tests/f3-g.test.cjs",
+    "exit": 0
+  },
+  {
+    "file": "tests/f3-h.test.cjs",
+    "exit": 0
+  },
+  {
+    "file": "tests/f4-a.test.cjs",
+    "exit": 0
+  },
+  {
+    "file": "tests/f4-b.test.cjs",
+    "exit": 0
+  },
+  {
+    "file": "tests/f4-c.test.cjs",
+    "exit": 0
+  },
+  {
+    "file": "tests/f4-e.test.cjs",
+    "exit": 0
+  },
+  {
+    "file": "tests/f4-f.test.cjs",
+    "exit": 0
+  },
+  {
+    "file": "tests/f5-a.test.cjs",
+    "exit": 0
+  },
+  {
+    "file": "tests/f5-b.test.cjs",
+    "exit": 0
+  },
+  {
+    "file": "tests/f5-c.test.cjs",
+    "exit": 0
+  }
+]

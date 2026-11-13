@@ -1,0 +1,513 @@
+diff --git a/tests/f6-e-gate.cjs b/tests/f6-e-gate.cjs
+new file mode 100644
+index 0000000..328072e
+--- /dev/null
++++ b/tests/f6-e-gate.cjs
+@@ -0,0 +1,20 @@
++// Acceptance of a REAL preparation proposal, no campaign execution or final world generation.
++const assert=require('node:assert/strict'),fs=require('node:fs'),os=require('node:os'),path=require('node:path');
++const {verifyProposal,authorize}=require('../tools/p01/evaluation/gate.cjs'),{canonical}=require('../tools/p01/codec.cjs'),{sha}=require('../tools/p01/provenance.cjs');
++const [file]=process.argv.slice(2);if(!file)throw Error('usage: node tests/f6-e-gate.cjs <proposal>');
++const proposal=verifyProposal(file);assert.equal(proposal.body.evaluation_executed,false);assert.equal(proposal.body.scope.episodes,256);
++console.log('F6E-G01 actual frozen code, tests, Node binary, candidate and all smoke files match PASS');
++const dir=fs.mkdtempSync(path.join(os.tmpdir(),'p01-gate-rejections-'));
++try{
++ const f=path.join(dir,'altered.json');
++ for(const change of [p=>{p.body.scope.limits.timeout_ms=31000;},p=>{p.body.scope.seeds[0]=1000;},p=>{p.body.scope.agents.reverse();},p=>{p.body.scope.repetitions=1;},p=>{p.body.evaluation_executed=true;},p=>{p.body.runtime.node_binary_sha256='0'.repeat(64);}]){
++  const p=structuredClone(proposal);change(p);p.freeze_id=sha(canonical(p.body));fs.writeFileSync(f,JSON.stringify(p));assert.throws(()=>verifyProposal(f));
++ }
++ console.log('F6E-G02 rehashed budget/seed/order/repetition/runtime/Boolean changes rejected PASS');
++ for(const section of ['runner_files','evidence_files']){
++  const p=structuredClone(proposal);p.body[section][Object.keys(p.body[section])[0]]='0'.repeat(64);p.freeze_id=sha(canonical(p.body));fs.writeFileSync(f,JSON.stringify(p));assert.throws(()=>verifyProposal(f),/actual frozen file changed/);
++ }
++ console.log('F6E-G03 claimed code/evidence hashes checked against actual bytes PASS');
++ assert.throws(()=>authorize({proposalFile:file}),/explicit freeze pin/);
++ console.log('F6E-G04 intact proposal is insufficient without explicit pins and signed owner approval PASS');
++}finally{fs.rmSync(dir,{recursive:true,force:true});}
+diff --git a/tests/f6-e.test.cjs b/tests/f6-e.test.cjs
+new file mode 100644
+index 0000000..b1e28b4
+--- /dev/null
++++ b/tests/f6-e.test.cjs
+@@ -0,0 +1,121 @@
++// Preparation tests only. All cryptographic identities and metrics episodes below are synthetic.
++const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),os=require('node:os'),path=require('node:path'),crypto=require('node:crypto'),vm=require('node:vm'),cp=require('node:child_process');
++const profile=require('../tools/p01/evaluation/profile.cjs'),{plan,config}=require('../tools/p01/protocol.cjs');
++const {verifyReceipt,verifyProposal,DOMAIN}=require('../tools/p01/evaluation/gate.cjs'),{sha}=require('../tools/p01/provenance.cjs');
++const {compareCampaign}=require('../tools/p01/metrics.cjs'),{archiveFor,readArchive,pack}=require('../tools/p01/archive.cjs');
++function signedFixture(fn){
++ const dir=fs.mkdtempSync(path.join(os.tmpdir(),'p01-synthetic-approval-')),keys=crypto.generateKeyPairSync('ed25519'),id='a'.repeat(64);
++ const receipt={format:'WL-P01-AUTHORIZATION-1',decision:'AUTHORIZE_P01_FINAL_EVALUATION',freeze_id:id,reviewer:'SYNTHETIC TEST KEY',approval_reference:'TEST ONLY - NOT PROJECT AUTHORIZATION',campaign_id:'synthetic',output_directory:path.join(dir,'never-executed')};
++ const options={receiptFile:path.join(dir,'receipt.json'),signatureFile:path.join(dir,'signature'),keyFile:path.join(dir,'public.pem'),expectedFreezeId:id,trustedKeySha256:sha(keys.publicKey.export({format:'der',type:'spki'}))};
++ fs.writeFileSync(options.keyFile,keys.publicKey.export({format:'pem',type:'spki'}));
++ const sign=r=>{const b=Buffer.from(JSON.stringify(r));fs.writeFileSync(options.receiptFile,b);fs.writeFileSync(options.signatureFile,crypto.sign(null,Buffer.concat([Buffer.from(DOMAIN),b]),keys.privateKey));};sign(receipt);
++ try{fn({dir,id,receipt,options,sign});assert.ok(!fs.existsSync(receipt.output_directory));}finally{fs.rmSync(dir,{recursive:true,force:true});}
++}
++test('F6E-01 pure plan has exactly256 requests, final seeds only, four agents and two ordered repetitions',()=>{
++ const p=profile.executionPlan();assert.equal(p.length,256);assert.deepEqual(p.slice(0,3),[{seed:1001,agent:'wait',repetition:1},{seed:1001,agent:'wait',repetition:2},{seed:1001,agent:'random',repetition:1}]);assert.deepEqual(p.at(-1),{seed:1032,agent:'frontier_memory_v1',repetition:2});assert.equal(new Set(p.map(r=>`${r.seed}/${r.agent}/${r.repetition}`)).size,256);
++});
++test('F6E-02 final configuration exactly reuses preregistration without world generation',()=>{
++ for(const seed of [1001,1032])for(const agent of profile.AGENTS){const c=profile.config(seed,agent);assert.deepEqual(c,{...plan(),experiment_seed:seed,agent_type:agent});c.world_config.move_cost=900;assert.equal(profile.config(seed,agent).world_config.move_cost,1);}
++ assert.deepEqual(profile.LIMITS,{timeout_ms:30000,heap_mib:512});
++});
++test('F6E-03 final seed/type/domain and request overrides are rejected',()=>{
++ for(const seed of [0,1,4,1000,1033,1.5,'1001',1001n,NaN])assert.throws(()=>profile.config(seed,'wait'),/invalid seed/);
++ assert.throws(()=>profile.config(1001,'custom'),/invalid seed\/agent/);assert.throws(()=>profile.assertRequest({seed:1001,agent:'wait',max_ticks:1}),/invalid request/);
++});
++test('F6E-04 development entry remains closed to final seeds',()=>{
++ for(const seed of [1001,1032])assert.throws(()=>config(seed,'wait'),/not authorized/);
++});
++test('F6E-05 archive factory preserves the original codec and default guard',()=>{
++ const a=readArchive(path.resolve(__dirname,'../docs/f6-b/smoke/1-wait-1.wlx.gz'));
++ assert.deepEqual(archiveFor().pack(a),pack(a));const changed=structuredClone(a);changed.provenance.seeds.experiment=1001;
++ assert.throws(()=>archiveFor().validateArtifact(changed),/not authorized/);
++});
++test('F6E-06 explicit matching pins and detached Ed25519 receipt verify without executing',()=>signedFixture(({id,receipt,options})=>assert.deepEqual(verifyReceipt(id,options),receipt)));
++test('F6E-07 missing or different freeze pin cannot authorize',()=>signedFixture(({id,options})=>{
++ for(const expectedFreezeId of [undefined,'b'.repeat(64)])assert.throws(()=>verifyReceipt(id,{...options,expectedFreezeId}),/freeze pin/);
++}));
++test('F6E-08 arbitrary public key or absent out-of-band pin cannot authorize',()=>signedFixture(({id,options})=>{
++ for(const trustedKeySha256 of [undefined,'b'.repeat(64)])assert.throws(()=>verifyReceipt(id,{...options,trustedKeySha256}),/key pin/);
++}));
++test('F6E-09 altered receipt or signature fails verification',()=>signedFixture(({id,options,receipt})=>{
++ fs.writeFileSync(options.receiptFile,JSON.stringify({...receipt,output_directory:receipt.output_directory+'-changed'}));assert.throws(()=>verifyReceipt(id,options),/signature/);
++ fs.writeFileSync(options.receiptFile,JSON.stringify(receipt));fs.writeFileSync(options.signatureFile,Buffer.alloc(64));assert.throws(()=>verifyReceipt(id,options),/signature/);
++}));
++test('F6E-10 a signed Boolean, unknown field or wrong decision is still invalid',()=>signedFixture(({id,options,receipt,sign})=>{
++ for(const r of [{approved:true},{...receipt,approved:true},{...receipt,decision:'APPROVE_DEVELOPMENT'},{...receipt,freeze_id:'b'.repeat(64)}]){sign(r);assert.throws(()=>verifyReceipt(id,options),/receipt/);}
++}));
++test('F6E-11 output directory must be explicitly bound and absolute',()=>signedFixture(({id,options,receipt,sign})=>{
++ for(const output_directory of ['', 'relative/path']){sign({...receipt,output_directory});assert.throws(()=>verifyReceipt(id,options),/absolute output/);}
++}));
++test('F6E-12 production worker rejects authorization before even importing the runtime',()=>{
++ let callback,message,runtimeImports=0;const context={Buffer,process:{execArgv:['--max-old-space-size=512'],once:(_,fn)=>{callback=fn;},resourceUsage:()=>({userCPUTime:0,systemCPUTime:0,maxRSS:0}),send:(m,fn)=>{message=m;fn();},disconnect:()=>{}},require:name=>{
++  if(name==='./gate.cjs')return {authorize:()=>{throw Error('specific approval missing');}};
++  if(name==='./profile.cjs')return profile;
++  runtimeImports++;throw Error('runtime import forbidden in preparation');
++ }};
++ vm.runInNewContext(fs.readFileSync(path.resolve(__dirname,'../tools/p01/evaluation/worker.cjs'),'utf8'),context);
++ callback({seed:1001,agent:'wait',authorization:{}});assert.equal(runtimeImports,0);assert.equal(message.kind,'error');assert.match(message.diagnostic,/approval missing/);
++});
++test('F6E-13 unsigned campaign cannot create an output or start a worker',async()=>{
++ const {runCampaign}=require('../tools/p01/evaluation/controller.cjs');await assert.rejects(runCampaign({}),/signed authorization required/);
++});
++test('F6E-14 CLI accepts no Boolean, parameter override or abbreviated run',()=>{
++ const cli=path.resolve(__dirname,'../tools/p01/evaluation/cli.cjs');
++ for(const args of [['run','--approved','true'],['run','--max-ticks','1']]){const r=cp.spawnSync(process.execPath,[cli,...args],{encoding:'utf8'});assert.equal(r.status,1);assert.match(r.stderr,/no evaluation without specific owner approval/);}
++});
++test('F6E-15 proposal Boolean cannot replace a content identity',()=>{
++ const dir=fs.mkdtempSync(path.join(os.tmpdir(),'p01-invalid-freeze-'));try{const file=path.join(dir,'proposal.json');fs.writeFileSync(file,JSON.stringify({approved:true}));assert.throws(()=>verifyProposal(file),/freeze identity/);}finally{fs.rmSync(dir,{recursive:true,force:true});}
++});
++function toyEntries(){
++ // Hand-made arithmetic fixture, no engine, PRNG, world generation or agent invocation.
++ const result=count=>{const state=(t)=>({time:t,grid:[[{effect:null},{effect:{kind:'RESOURCE',stock:t&&count?0:1}},{effect:{kind:'RESOURCE',stock:t>1&&count>1?0:1}}]],entities:new Map([['e',{id:'e',position:{x:Math.min(t,count),y:0},energy:240-t+8*Math.min(t,count),lifecycle:'ACTIVE'}]])});return {status:'COMPLETED',failure_reason:null,trajectory:{initial_state:state(0),steps:[1,2].map(t=>({world_state:state(t),action_result:{validity:'VALID',reason:'NONE'}})),events:Array.from({length:count},(_,i)=>({type:'RESOURCE_CONSUMED',source:'action',position:{x:i+1,y:0}})),termination_reason:'MAX_TICKS_REACHED'}};};
++ return profile.executionPlan().map(r=>({...r,artifact:{provenance:{seeds:{experiment:r.seed},algorithm:{id:r.agent}},operational:{attempt_id:`synthetic-${r.seed}-${r.agent}-${r.repetition}`,operational_status:'RETURNED'},data:{result:result(r.agent==='random'?2:1)}},verification:{status:'COMPLETE_MATCH',initial_full_hex:'SYNTHETIC_NOT_REPLAY_EVIDENCE'}}));
++}
++test('F6E-16 synthetic32-pair metrics preserve negative-effect technical acceptance',()=>{
++ const a=compareCampaign(toyEntries(),'FINAL_EVALUATION');assert.equal(a.technical_status,'PASS');assert.equal(a.eligible_pairs,32);assert.equal(a.planned_attempts,256);assert.equal(a.distribution.mean,-1);assert.equal(a.final_hypothesis,'H_PLUS_NOT_SUPPORTED');assert.equal(a.evaluation_authorized,false);
++});
++test('F6E-17 synthetic missing/failed final attempt cannot be excluded to get a mean',()=>{
++ const x=toyEntries();x.pop();const a=compareCampaign(x,'FINAL_EVALUATION');assert.equal(a.technical_status,'NOT_EVALUABLE');assert.equal(a.distribution,null);
++});
++test('F6E-18 unrecognized analysis phase is rejected',()=>assert.throws(()=>compareCampaign([],'custom'),/invalid campaign phase/));
++function controllerSimulation({existing=false,drift=false,storageFailure=false,supervisorFailure=false}={}){
++ const dir=fs.mkdtempSync(path.join(os.tmpdir(),'p01-controller-simulation-')),output=path.join(dir,'output'),options={trustedKeySha256:'SYNTHETIC'};
++ for(const k of ['proposalFile','receiptFile','signatureFile','keyFile']){options[k]=path.join(dir,k);fs.writeFileSync(options[k],'synthetic fixture');}
++ if(existing)fs.mkdirSync(output);let calls=0,checks=0;
++ const mockFs={...fs,writeFileSync:(file,...rest)=>{if(storageFailure&&file.endsWith('.raw.gz'))throw Error('SIMULATED_STORAGE_FAILURE');return fs.writeFileSync(file,...rest);}};
++ const receipt={output_directory:output,campaign_id:'SYNTHETIC'},proposal={freeze_id:'synthetic',body:{scope:'SYNTHETIC - NO EPISODES'}};
++ const fakeArchive={createArtifact:()=>{if(calls===1)throw Error('SIMULATED_ARCHIVE_VALIDATION_ERROR');return {};},writeArchive:()=>({bytes:1,sha256:'synthetic'}),readArchive:()=>({}),verifyArtifact:()=>({status:'COMPLETE_MATCH'})};
++ const context={module:{exports:{}},__dirname:path.resolve(__dirname,'../tools/p01/evaluation'),require:name=>{
++  if(name==='node:fs')return mockFs;if(name==='./gate.cjs')return {authorize:()=>{checks++;if(drift&&checks>1)throw Error('SIMULATED_AUTHORIZATION_DRIFT');return {proposal,receipt};}};
++  if(name==='./profile.cjs')return {LIMITS:profile.LIMITS,executionPlan:()=>[{seed:1,agent:'wait',repetition:1},{seed:1,agent:'wait',repetition:2}]};
++  if(name==='../archive.cjs')return {archiveFor:()=>fakeArchive};
++  if(name==='../supervisor.cjs')return {runChild:async()=>{calls++;if(supervisorFailure)throw Error('SIMULATED_FORK_FAILURE');return {attempt_id:'synthetic-'+calls,operational_status:'TIMEOUT',result:null};}};
++  if(name==='../provenance.cjs')return {provenance:()=>({fixture:true}),sha,git:()=>''};
++  if(name==='../metrics.cjs')return {compareCampaign:()=>{throw Error('must not analyze a failed simulation as complete');}};
++  if(name==='../codec.cjs')return require('../tools/p01/codec.cjs');return require(name);
++ }};
++ vm.runInNewContext(fs.readFileSync(path.resolve(__dirname,'../tools/p01/evaluation/controller.cjs'),'utf8'),context);
++ return {dir,output,options,run:()=>context.module.exports.runCampaign(options),calls:()=>calls,clean:()=>fs.rmSync(dir,{recursive:true,force:true})};
++}
++test('F6E-19 simulated archive failure preserves raw return and does not lose subsequent attempts',async()=>{
++ const s=controllerSimulation();try{const r=await s.run();assert.equal(s.calls(),2);assert.equal(r.manifest.entries.length,2);assert.equal(r.analysis.technical_status,'NOT_EVALUABLE');
++  const zlib=require('node:zlib'),{decode}=require('../tools/p01/codec.cjs');const raw=decode(JSON.parse(zlib.gunzipSync(fs.readFileSync(path.join(s.output,'1-wait-1.raw.gz')))));
++  assert.equal(raw.format,'WL-P01-RAW-ATTEMPT-1');assert.equal(raw.execution.operational_status,'TIMEOUT');assert.equal(raw.execution.result,null);
++ }finally{s.clean();}
++});
++test('F6E-20 even an empty existing output forbids silent rerun before any worker',async()=>{
++ const s=controllerSimulation({existing:true});try{await assert.rejects(s.run(),/EEXIST/);assert.equal(s.calls(),0);}finally{s.clean();}
++});
++test('F6E-21 authorization drift stops new launches and remains recorded',async()=>{
++ const s=controllerSimulation({drift:true});try{const r=await s.run();assert.equal(s.calls(),0);assert.match(r.manifest.aborted,/DRIFT/);assert.equal(r.analysis.technical_status,'NOT_EVALUABLE');}finally{s.clean();}
++});
++test('F6E-22 raw storage failure stops further launches without manufacturing a result',async()=>{
++ const s=controllerSimulation({storageFailure:true});try{const r=await s.run();assert.equal(s.calls(),1);assert.match(r.manifest.aborted,/raw attempt storage failed/);assert.equal(r.analysis.technical_status,'NOT_EVALUABLE');}finally{s.clean();}
++});
++test('F6E-23 supervisor failure gets its own external diagnostic for each attempt',async()=>{
++ const s=controllerSimulation({supervisorFailure:true});try{const r=await s.run();assert.equal(s.calls(),2);const f=JSON.parse(fs.readFileSync(path.join(s.output,'1-wait-1.failure.json')));assert.equal(f.result,null);assert.match(f.error,/FORK_FAILURE/);assert.equal(r.analysis.technical_status,'NOT_EVALUABLE');}finally{s.clean();}
++});
++
++test('F6E-24 output inside checkout is rejected even with a valid test signature',()=>signedFixture(({id,options,receipt,sign})=>{
++ sign({...receipt,output_directory:path.resolve(__dirname,'../not-created')});assert.throws(()=>verifyReceipt(id,options),/outside repository/);
++}));
+diff --git a/tools/p01/archive.cjs b/tools/p01/archive.cjs
+index aa3035e..cd0088b 100644
+--- a/tools/p01/archive.cjs
++++ b/tools/p01/archive.cjs
+@@ -5 +5,4 @@ const {ENGINE_COMMIT,sha,provenance,parameters,assertSources}=require('./provena
+-const {assertRequest,config,AGENTS,LIMITS,PROTOCOL_PATH}=require('./protocol.cjs');
++const development=require('./protocol.cjs');
++const {AGENTS,LIMITS,PROTOCOL_PATH}=development;
++// Explicit operational scope; the default remains development-only.
++function archiveFor({assertRequest,config}=development){
+@@ -107 +110,3 @@ function verifyArtifact(a){
+-module.exports={FORMAT,canonical,payloadDigest,createArtifact,validateArtifact,pack,unpack,writeArchive,readArchive,verifyArtifact};
++return {FORMAT,canonical,payloadDigest,createArtifact,validateArtifact,pack,unpack,writeArchive,readArchive,verifyArtifact};
++}
++module.exports={...archiveFor(),archiveFor};
+diff --git a/tools/p01/evaluation/README.md b/tools/p01/evaluation/README.md
+new file mode 100644
+index 0000000..80e7060
+--- /dev/null
++++ b/tools/p01/evaluation/README.md
+@@ -0,0 +1,96 @@
++# P01 final evaluation — preparation only (F6-E E1/E2)
++
++No final episode is authorized by this delivery. Review the new freeze proposal,
++complete E2 diff, tests and development evidence before giving specific approval.
++Do not run `run` during preparation. The old development CLI/worker still reject
++1001–1032. Constructing a config or listing the 256 requests generates no world.
++
++The separate evaluator reuses F6-B runtime, supervisor, provenance, archive and
++metrics. Two frozen operational files require explicit refreezing:
++
++- `archive.cjs`: a local `archiveFor(profile)` closure, with unchanged default
++  development checks, transport/schema, validation and replay. No global patching.
++- `metrics.cjs`: an explicit final phase selects the 32 seed labels and scales
++  completeness to256 attempts. Counting, pairing, inclusion and statistical
++  definitions remain identical; `measure` is unchanged. Pure calculations do not
++  certify authorization. Synthetic tests are not experimental observations.
++
++No algorithm, protocol, motor, PRNG, physics, Recorder, Replay or WLS1 change.
++The previous candidate and all evidence stay intact. The replacement candidate
++requires a new clean-code development smoke and approval of its new identity.
++The evaluation proposal additionally binds the evaluator sources/tests, actual
++smoke bytes, Node binary/version/platform, and the old candidate SHA256.
++
++Preparation commands (no final episodes):
++
++```bash
++node tools/p01/evaluation/cli.cjs prepare docs/f6-e/P01-freeze-candidate.json docs/f6-e/smoke /tmp/P01-evaluation-freeze.json
++node tools/p01/evaluation/cli.cjs check /tmp/P01-evaluation-freeze.json
++node tests/f6-e-gate.cjs /tmp/P01-evaluation-freeze.json
++```
++
++`prepare` only works once evaluator sources/tests are committed and match the
++candidate code commit. Documentation may be added afterward without a self hash.
++`check` hashes every bound file and checks Git blobs and runtime identity. It does
++not issue approval or generate episodes. Candidate booleans remain false.
++
++## Specific approval, required before launch
++
++The project owner must approve **the exact freeze ID and reviewer public-key
++fingerprint**, through the external approval channel, after reviewing this delivery.
++No trusted signing key or production approval is created by F6-E preparation.
++Private keys must remain with the reviewer; never put them in this repository.
++A key read from the receipt or proposal is not its own trust anchor. At launch,
++pass the two approved pins explicitly, from the owner's approval, not by computing
++them from untrusted input and assuming approval. This authenticates possession of
++the approved key; it does not independently establish a person's civil identity.
++It does not defend against an operator rewriting the tool or lying about the pins.
++
++Receipt exact schema, signed as raw UTF-8 bytes with the prefix
++`WL-P01-AUTHORIZATION-1\n` (actual LF), using Ed25519:
++
++```json
++{
++  "format": "WL-P01-AUTHORIZATION-1",
++  "decision": "AUTHORIZE_P01_FINAL_EVALUATION",
++  "freeze_id": "<exact reviewed SHA256 identity>",
++  "reviewer": "<responsible reviewer>",
++  "approval_reference": "<specific approval message/record reference>",
++  "campaign_id": "<reviewed unique campaign ID>",
++  "output_directory": "<reviewed absolute NEW output directory>"
++}
++```
++
++Public-key fingerprint = SHA256 of the Ed25519 public key exported as DER SPKI.
++Signature file = raw64-byte signature, not base64 text. Unknown fields, Boolean
++approvals, a wrong key, missing pins, altered receipt, altered sources/evidence,
++wrong runtime or a different freeze identity fail closed. The output directory is
++signed and must not already exist, including an empty directory; no silent resume,
++replacement or rerun after inspecting outcomes. Parent directory must exist and resolve outside the repository, to preserve clean provenance.
++
++After **specific** authorization only, an operator may use:
++
++```bash
++node tools/p01/evaluation/cli.cjs preflight <proposal> <receipt> <signature> <public-key> <APPROVED_FREEZE_ID> <APPROVED_PUBLIC_KEY_SHA256>
++# RUN IS NOT AUTHORIZED BY THE PREPARATION ORDER
++node tools/p01/evaluation/cli.cjs run <proposal> <receipt> <signature> <public-key> <APPROVED_FREEZE_ID> <APPROVED_PUBLIC_KEY_SHA256>
++```
++
++No config/seed/budget override is accepted. The parent and every child verify the
++proposal and signature before any runtime execution. Worker heap must be512MiB;
++parent uses the existing30s supervisor. Source/authorization drift stops launching
++new episodes. Fixed order:1001–1032, wait/random/rule/frontier_memory_v1,1 then2.
++
++Each attempted execution logs START/FINISH and preserves an operational raw typed
++return **before** archive validation/replay. `*.raw.gz` uses the existing wire codec
++with format WL-P01-RAW-ATTEMPT-1; it is a recovery record, not a canonical trajectory.
++Failures before a return get a separate diagnostic record. A normal canonical
++archive reuses WL-P01-ARCHIVE-1 with the explicit evaluation profile. No timeout is
++converted into a WORLD event or fabricated ExperimentResult. Storage failure stops
++new launches; an abrupt controller/host loss may leave a START without FINISH and
++requires review, not an automatic retry. Authorization material is copied externally
++to canonical schemas. Provenance retains source hashes and host resource metadata.
++
++The prepared loop writes every attempted row; any failure makes the technical
++analysis NOT_EVALUABLE. A negative paired effect remains technically acceptable.
++This is readiness tooling, not an E3/E4/E5 result or independent interoperability.
+diff --git a/tools/p01/evaluation/audit.cjs b/tools/p01/evaluation/audit.cjs
+new file mode 100644
+index 0000000..655fa88
+--- /dev/null
++++ b/tools/p01/evaluation/audit.cjs
+@@ -0,0 +1,31 @@
++// Hash/structure reconciliation of existing DEVELOPMENT evidence; no episode generation.
++const fs=require('node:fs'),path=require('node:path');
++const {assertCandidate}=require('../freeze.cjs');
++const {readArchive,payloadDigest,verifyArtifact}=require('../archive.cjs');
++const {compareCampaign}=require('../metrics.cjs');
++const {sha,assertSources}=require('../provenance.cjs');
++const {canonical}=require('../codec.cjs');
++function auditSmoke(candidateFile,directory,{replay=false}={}){
++ const candidate=assertCandidate(candidateFile),bytes=name=>fs.readFileSync(path.join(directory,name));
++ const manifest=JSON.parse(bytes('campaign.json')),analysis=JSON.parse(bytes('analysis.json'));
++ for(const [file,key]of [['campaign.json','campaign_sha256'],['analysis.json','analysis_sha256']])
++  if(sha(bytes(file))!==candidate.smoke_evidence[key])throw Error('smoke evidence digest mismatch: '+file);
++ if(manifest.phase!=='DEVELOPMENT_SMOKE'||manifest.evaluation_executed!==false||manifest.evaluation_authorized!==false||canonical(manifest.source_snapshot)!==canonical(candidate.sources))throw Error('smoke scope/source mismatch');
++ const expected=[];for(const seed of candidate.development.seeds)for(const a of candidate.algorithms)for(const repetition of [1,2])expected.push([seed,a.id,repetition]);
++ if(canonical(manifest.entries.map(e=>[e.seed,e.agent,e.repetition]))!==canonical(expected))throw Error('smoke order/count mismatch');
++ const objects=[],hashes={'campaign.json':sha(bytes('campaign.json')),'analysis.json':sha(bytes('analysis.json')),'execution.jsonl':sha(bytes('execution.jsonl'))};
++ for(const e of manifest.entries){
++  if(e.file!==`${e.seed}-${e.agent}-${e.repetition}.wlx.gz`)throw Error('invalid smoke file');
++  const b=bytes(e.file);if(sha(b)!==e.sha256||b.length!==e.bytes)throw Error('actual smoke archive hash/length mismatch: '+e.file);
++  const a=readArchive(path.join(directory,e.file));assertSources(a.provenance);
++  if(a.provenance.implementation.commit!==candidate.implementation_commit||!a.provenance.implementation.working_tree_clean||a.provenance.seeds.experiment!==e.seed||a.provenance.algorithm.id!==e.agent||a.operational.attempt_id!==e.attempt_id||a.operational.operational_status!==e.operational_status||payloadDigest(a.data)!==e.payload_sha256||e.verification.payload_sha256!==e.payload_sha256)throw Error('smoke archive/provenance mismatch: '+e.file);
++  const verification=replay?verifyArtifact(a):e.verification;
++  if(replay&&canonical(verification)!==canonical(e.verification))throw Error('fresh smoke replay mismatch');
++  hashes[e.file]=sha(b);objects.push({seed:e.seed,agent:e.agent,repetition:e.repetition,artifact:a,verification});
++ }
++ if(canonical(compareCampaign(objects))!==canonical(analysis)||analysis.technical_status!=='PASS')throw Error('recovered smoke metrics differ');
++ const log=bytes('execution.jsonl').toString('utf8').trim().split('\n').map(JSON.parse);
++ if(log.length!==64||log.some((r,i)=>r.event!==(i%2?'FINISH':'START_REQUEST')||canonical([r.seed,r.agent,r.repetition])!==canonical(expected[Math.floor(i/2)])))throw Error('smoke execution log mismatch');
++ return {decision:'FREEZE_READY',scope:'P01 development evidence',candidate_sha256:sha(fs.readFileSync(candidateFile)),implementation_commit:candidate.implementation_commit,source_files:Object.keys(candidate.sources).length,test_files:Object.keys(candidate.acceptance_tests).length,archives_verified:32,recovered_metrics:'EXACT_MATCH',fresh_replays:replay?32:0,replay_evidence:replay?'REEXECUTED':'ARCHIVED_F6_B_PROOFS_BOUND_TO_ACTUAL_FILE_HASHES',evidence_hashes:hashes,evaluation_executed:false};
++}
++module.exports={auditSmoke};
+diff --git a/tools/p01/evaluation/cli.cjs b/tools/p01/evaluation/cli.cjs
+new file mode 100644
+index 0000000..b9fd7d1
+--- /dev/null
++++ b/tools/p01/evaluation/cli.cjs
+@@ -0,0 +1,17 @@
++#!/usr/bin/env node
++const fs=require('node:fs'),{buildProposal,verifyProposal,authorize}=require('./gate.cjs');
++async function main(args){
++ const [cmd,...a]=args;
++ if(cmd==='prepare'&&a.length===3){const p=buildProposal(a[0],a[1]);fs.writeFileSync(a[2],JSON.stringify(p,null,2)+'\n',{flag:'wx'});verifyProposal(a[2]);console.log(JSON.stringify({freeze_id:p.freeze_id,status:'REVIEW_REQUIRED',evaluation_executed:false}));return;}
++ if(cmd==='check'&&a.length===1){const p=verifyProposal(a[0]);console.log(JSON.stringify({freeze_id:p.freeze_id,status:'READY_FOR_AUTHORIZATION',evaluation_executed:false}));return;}
++ if(['preflight','run'].includes(cmd)&&a.length===6){
++  const [proposalFile,receiptFile,signatureFile,keyFile,expectedFreezeId,trustedKeySha256]=a,options={proposalFile,receiptFile,signatureFile,keyFile,expectedFreezeId,trustedKeySha256};
++  const accepted=authorize(options);
++  if(cmd==='preflight'){console.log(JSON.stringify({freeze_id:accepted.proposal.freeze_id,signature:'VALID',output_directory:accepted.receipt.output_directory,episodes_started:0}));return;}
++  const {runCampaign}=require('./controller.cjs'),r=await runCampaign(options,row=>console.log(JSON.stringify({seed:row.seed,agent:row.agent,repetition:row.repetition,status:row.operational_status})));
++  console.log(JSON.stringify({technical_status:r.analysis.technical_status,acceptance:'REVIEW_REQUIRED'}));if(r.analysis.technical_status!=='PASS')process.exitCode=1;return;
++ }
++ throw Error('usage: evaluation/cli.cjs prepare <candidate> <smoke-dir> <new-proposal> | check <proposal> | preflight|run <proposal> <receipt> <signature> <public-key> <approved-freeze-id> <approved-key-sha256>; no evaluation without specific owner approval');
++}
++if(require.main===module)main(process.argv.slice(2)).catch(e=>{console.error(String(e));process.exitCode=1;});
++module.exports={main};
+diff --git a/tools/p01/evaluation/controller.cjs b/tools/p01/evaluation/controller.cjs
+new file mode 100644
+index 0000000..883d9d3
+--- /dev/null
++++ b/tools/p01/evaluation/controller.cjs
+@@ -0,0 +1,43 @@
++const fs=require('node:fs'),path=require('node:path'),zlib=require('node:zlib');
++const {authorize}=require('./gate.cjs'),profile=require('./profile.cjs');
++const {archiveFor}=require('../archive.cjs'),archive=archiveFor(profile);
++const {runChild}=require('../supervisor.cjs'),{provenance,sha,git}=require('../provenance.cjs');
++const {encode}=require('../codec.cjs'),{compareCampaign}=require('../metrics.cjs');
++function json(file,value){fs.writeFileSync(file,JSON.stringify(value,null,2)+'\n',{flag:'wx'});}
++async function runCampaign(options,onProgress=()=>{}){
++ const initial=authorize(options);if(git('status','--porcelain')!=='')throw Error('evaluation requires clean checkout');
++ const directory=initial.receipt.output_directory;fs.mkdirSync(directory); // Exclusive, including empty existing directories: no silent rerun/resume.
++ const locked={...options};
++ for(const [key,name]of [['proposalFile','freeze.json'],['receiptFile','authorization.json'],['signatureFile','authorization.sig'],['keyFile','reviewer-public.pem']]){
++  locked[key]=path.join(directory,name);fs.copyFileSync(options[key],locked[key],fs.constants.COPYFILE_EXCL);
++ }
++ const log=event=>fs.appendFileSync(path.join(directory,'execution.jsonl'),JSON.stringify(event)+'\n');
++ const entries=[],objects=[],started_at=new Date().toISOString();let aborted=null;
++ for(const request of profile.executionPlan()){
++  try{authorize(locked);}catch(error){aborted=String(error);log({event:'AUTHORIZATION_ABORT',diagnostic:aborted,time:new Date().toISOString()});break;}
++  const {seed,agent,repetition}=request,key=`${seed}-${agent}-${repetition}`,row={...request,file:key+'.wlx.gz',raw_file:key+'.raw.gz'};
++  log({event:'START_REQUEST',...request,time:new Date().toISOString()});let raw=null,rawSaved=false;
++  try{
++   const source=provenance(seed,agent),execution=await runChild(path.join(__dirname,'worker.cjs'),{seed,agent,authorization:locked},profile.LIMITS);
++   // Preserve the actual return BEFORE archive/validation/replay can fail. This is not a canonical result schema.
++   raw={format:'WL-P01-RAW-ATTEMPT-1',freeze_id:initial.proposal.freeze_id,request,provenance:source,execution};
++   const bytes=zlib.gzipSync(JSON.stringify(encode(raw)));fs.writeFileSync(path.join(directory,row.raw_file),bytes,{flag:'wx'});row.raw_sha256=sha(bytes);rawSaved=true;
++   authorize(locked);
++   const artifact=archive.createArtifact({seed,agent},execution,source);
++   Object.assign(row,archive.writeArchive(path.join(directory,row.file),artifact));
++   const restored=archive.readArchive(path.join(directory,row.file)),verification=archive.verifyArtifact(restored);
++   Object.assign(row,{attempt_id:execution.attempt_id,operational_status:execution.operational_status,resources:execution.resources,verification});
++   objects.push({...request,artifact:restored,verification});
++  }catch(error){row.error=String(error);row.operational_status='PREPARATION_OR_VERIFICATION_ERROR';if(raw!==null&&!rawSaved)aborted='raw attempt storage failed: '+String(error);
++   if(raw===null)json(path.join(directory,key+'.failure.json'),{format:'WL-P01-ATTEMPT-FAILURE-1',request,error:String(error),result:null});
++  }
++  entries.push(row);log({event:'FINISH',...row,time:new Date().toISOString()});onProgress(row);if(aborted)break;
++ }
++ const analysis=aborted||entries.some(e=>e.error)?{phase:'FINAL_EVALUATION',technical_status:'NOT_EVALUABLE',final_hypothesis:'NOT_EVALUABLE',errors:entries.filter(e=>e.error),aborted}:compareCampaign(objects,'FINAL_EVALUATION');
++ analysis.evaluation_authorized=true;
++ const manifest={format:'WL-P01-EVALUATION-CAMPAIGN-1',freeze_id:initial.proposal.freeze_id,authorization_sha256:sha(fs.readFileSync(locked.receiptFile)),reviewer_key_sha256:options.trustedKeySha256,
++  campaign_id:initial.receipt.campaign_id,started_at,finished_at:new Date().toISOString(),scope:initial.proposal.body.scope,aborted,entries};
++ json(path.join(directory,'campaign.json'),manifest);json(path.join(directory,'analysis.json'),analysis);
++ return {manifest,analysis};
++}
++module.exports={runCampaign};
+diff --git a/tools/p01/evaluation/gate.cjs b/tools/p01/evaluation/gate.cjs
+new file mode 100644
+index 0000000..408372a
+--- /dev/null
++++ b/tools/p01/evaluation/gate.cjs
+@@ -0,0 +1,69 @@
++// Detached, explicitly pinned reviewer signature. No approval is shipped here.
++const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),cp=require('node:child_process');
++const {ROOT}=require('../runtime.cjs'),{sha,git}=require('../provenance.cjs');
++const {canonical,exact}=require('../codec.cjs'),{assertCandidate}=require('../freeze.cjs');
++const {auditSmoke}=require('./audit.cjs'),{SEEDS,AGENTS,LIMITS}=require('./profile.cjs');
++const BASE='d5478244465be235c4ee1e8368255e2bb383cb33',DOMAIN='WL-P01-AUTHORIZATION-1\n';
++function need(ok,message){if(!ok)throw Error('P01 gate: '+message);}
++function relative(file){const p=path.relative(ROOT,path.resolve(file));need(p&&!p.startsWith('..')&&!path.isAbsolute(p),'file must be inside repository');return p;}
++function read(file){return fs.readFileSync(path.resolve(ROOT,file));}
++function runnerFiles(){return [...fs.readdirSync(__dirname).filter(n=>n.endsWith('.cjs')||n==='README.md').map(n=>'tools/p01/evaluation/'+n),...fs.readdirSync(path.join(ROOT,'tests')).filter(n=>/^f6-e.*\.cjs$/.test(n)).map(n=>'tests/'+n)].sort();}
++function hashes(files){return Object.fromEntries(files.map(p=>[p,sha(read(p))]));}
++function scope(){return {seeds:[...SEEDS],agents:[...AGENTS],repetitions:2,episodes:256,order:'seed ascending; agent order; repetition1 then2',limits:LIMITS,configuration:'exact P01; no overrides'};}
++function runtimeIdentity(){return {node:process.version,platform:process.platform,arch:process.arch,node_binary_sha256:sha(fs.readFileSync(process.execPath))};}
++function buildProposal(candidateFile,smokeDirectory){
++ const audit=auditSmoke(candidateFile,smokeDirectory),candidate=assertCandidate(candidateFile);
++ const body={base_commit:BASE,code_commit:candidate.implementation_commit,engine_commit:candidate.engine_commit,
++  candidate:{file:relative(candidateFile),sha256:sha(fs.readFileSync(candidateFile))},
++  previous_candidate:{file:'docs/f6-b/P01-freeze-candidate.json',sha256:sha(read('docs/f6-b/P01-freeze-candidate.json'))},
++  runner_files:hashes(runnerFiles()),evidence_files:hashes(Object.keys(audit.evidence_hashes).map(n=>relative(path.join(smokeDirectory,n)))),
++  scope:scope(),runtime:runtimeIdentity(),authorization_policy:'Ed25519 receipt; freeze ID and reviewer public-key SHA256 pinned out of band by project owner',
++  status:'PREPARATION_ONLY',evaluation_executed:false};
++ for(const [f,h]of Object.entries(body.runner_files))need(sha(cp.execFileSync('git',['show',body.code_commit+':'+f],{cwd:ROOT}))===h,'uncommitted runner/test: '+f);
++ return {format:'WL-P01-EVALUATION-FREEZE-1',freeze_id:sha(canonical(body)),body};
++}
++function verifyProposal(file){
++ const p=JSON.parse(fs.readFileSync(file,'utf8'));
++ need(exact(p,['format','freeze_id','body'])&&p.format==='WL-P01-EVALUATION-FREEZE-1'&&p.freeze_id===sha(canonical(p.body)),'invalid freeze identity');
++ const b=p.body;need(exact(b,['base_commit','code_commit','engine_commit','candidate','previous_candidate','runner_files','evidence_files','scope','runtime','authorization_policy','status','evaluation_executed']),'invalid freeze fields');
++ need(b.base_commit===BASE&&/^[0-9a-f]{40}$/.test(b.code_commit)&&b.status==='PREPARATION_ONLY'&&b.evaluation_executed===false,'invalid freeze state');
++ need(canonical(b.scope)===canonical(scope())&&canonical(b.runtime)===canonical(runtimeIdentity()),'scope/runtime changed');
++ need(b.authorization_policy==='Ed25519 receipt; freeze ID and reviewer public-key SHA256 pinned out of band by project owner','authorization policy changed');
++ for(const item of [b.candidate,b.previous_candidate])need(exact(item,['file','sha256'])&&relative(path.join(ROOT,item.file))===item.file&&sha(read(item.file))===item.sha256,'candidate file changed');
++ need(b.previous_candidate.file==='docs/f6-b/P01-freeze-candidate.json'&&b.previous_candidate.sha256==='f503593e47ec59daf607d10c169f99aacfac722612d94f63543b6c093fe6d65a','previous candidate changed');
++ const candidate=assertCandidate(path.join(ROOT,b.candidate.file));
++ const previous=JSON.parse(read(b.previous_candidate.file));
++ for(const field of ['engine_commit','configuration','algorithms','protocol','definitions','limits','development','evaluation','operational_format'])need(canonical(candidate[field])===canonical(previous[field]),'scientific contract changed: '+field);
++ need(canonical(Object.keys(candidate.sources))===canonical(Object.keys(previous.sources)),'scientific source set changed');
++ for(const [f,h]of Object.entries(previous.sources))if(!['tools/p01/archive.cjs','tools/p01/metrics.cjs'].includes(f))need(candidate.sources[f]===h,'protected scientific source changed: '+f);
++ need(candidate.engine_commit===b.engine_commit&&candidate.implementation_commit===b.code_commit,'code/candidate identity mismatch');
++ need(canonical(Object.keys(b.runner_files))===canonical(runnerFiles()),'runner/test file set changed');
++ const evidenceDirectory=path.dirname(b.candidate.file)+'/smoke';
++ const manifest=JSON.parse(read(evidenceDirectory+'/campaign.json'));
++ const evidencePaths=['campaign.json','analysis.json','execution.jsonl',...manifest.entries.map(e=>e.file)].map(n=>evidenceDirectory+'/'+n).sort();
++ need(canonical(Object.keys(b.evidence_files).sort())===canonical(evidencePaths),'evidence file set changed');
++ for(const [f,h]of Object.entries({...b.runner_files,...b.evidence_files}))need(relative(path.join(ROOT,f))===f&&/^[0-9a-f]{64}$/.test(h)&&sha(read(f))===h,'actual frozen file changed: '+f);
++ need(sha(read(evidenceDirectory+'/campaign.json'))===candidate.smoke_evidence.campaign_sha256&&sha(read(evidenceDirectory+'/analysis.json'))===candidate.smoke_evidence.analysis_sha256,'candidate smoke binding changed');
++ for(const [f,h]of Object.entries(b.runner_files))need(sha(cp.execFileSync('git',['show',b.code_commit+':'+f],{cwd:ROOT}))===h,'runner not in frozen code commit: '+f);
++ return p;
++}
++function verifyReceipt(freezeId,{receiptFile,signatureFile,keyFile,expectedFreezeId,trustedKeySha256}){
++ need(/^[0-9a-f]{64}$/.test(expectedFreezeId??'')&&expectedFreezeId===freezeId,'explicit freeze pin required');
++ need(/^[0-9a-f]{64}$/.test(trustedKeySha256??''),'explicit reviewer key pin required');
++ const key=crypto.createPublicKey(fs.readFileSync(keyFile));need(key.asymmetricKeyType==='ed25519','Ed25519 reviewer key required');
++ need(sha(key.export({format:'der',type:'spki'}))===trustedKeySha256,'reviewer key pin mismatch');
++ const bytes=fs.readFileSync(receiptFile),receipt=JSON.parse(bytes);
++ need(exact(receipt,['format','decision','freeze_id','reviewer','approval_reference','campaign_id','output_directory'])&&receipt.format==='WL-P01-AUTHORIZATION-1'&&receipt.decision==='AUTHORIZE_P01_FINAL_EVALUATION'&&receipt.freeze_id===freezeId,'invalid authorization receipt');
++ need(['reviewer','approval_reference','campaign_id'].every(k=>typeof receipt[k]==='string'&&receipt[k].trim().length>0),'missing reviewer/reference/campaign');
++ need(typeof receipt.output_directory==='string'&&path.isAbsolute(receipt.output_directory)&&path.resolve(receipt.output_directory)===receipt.output_directory,'authorization must bind an absolute output directory');
++ const outputParent=fs.realpathSync(path.dirname(receipt.output_directory)),outside=path.relative(ROOT,outputParent);
++ need(outside==='..'||outside.startsWith('..'+path.sep)||path.isAbsolute(outside),'output must be outside repository');
++ need(crypto.verify(null,Buffer.concat([Buffer.from(DOMAIN),bytes]),key,fs.readFileSync(signatureFile)),'invalid reviewer signature');
++ return receipt;
++}
++function authorize(options){
++ need(options&&typeof options.proposalFile==='string','proposal and explicit signed authorization required');
++ const proposal=verifyProposal(options.proposalFile),receipt=verifyReceipt(proposal.freeze_id,options);
++ return {proposal,receipt};
++}
++module.exports={buildProposal,verifyProposal,verifyReceipt,authorize,runnerFiles,DOMAIN};
+diff --git a/tools/p01/evaluation/profile.cjs b/tools/p01/evaluation/profile.cjs
+new file mode 100644
+index 0000000..fb14c81
+--- /dev/null
++++ b/tools/p01/evaluation/profile.cjs
+@@ -0,0 +1,13 @@
++// Configuration construction is pure; permission to EXECUTE belongs to gate.cjs.
++const {plan,AGENTS,LIMITS}=require('../protocol.cjs');
++const SEEDS=Object.freeze(Array.from({length:32},(_,i)=>1001+i));
++function configuration(seed,agent){
++ if(!SEEDS.includes(seed)||!AGENTS.includes(agent))throw Error('P01 evaluation: invalid seed/agent');
++ return {...plan(),experiment_seed:seed,agent_type:agent};
++}
++function assertRequest(request){
++ if(!request||Object.keys(request).sort().join(',')!=='agent,seed')throw Error('P01 evaluation: invalid request');
++ configuration(request.seed,request.agent);return request;
++}
++function executionPlan(){return SEEDS.flatMap(seed=>AGENTS.flatMap(agent=>[1,2].map(repetition=>({seed,agent,repetition}))));}
++module.exports={SEEDS,AGENTS,LIMITS,config:configuration,assertRequest,executionPlan};
+diff --git a/tools/p01/evaluation/worker.cjs b/tools/p01/evaluation/worker.cjs
+new file mode 100644
+index 0000000..c1d9e9a
+--- /dev/null
++++ b/tools/p01/evaluation/worker.cjs
+@@ -0,0 +1,14 @@
++// Production entry: authorize before loading an experiment runtime or generating a world.
++const {authorize}=require('./gate.cjs'),profile=require('./profile.cjs');
++process.once('message',request=>{
++ const before=process.resourceUsage();let message;
++ try{
++  if(!request||Object.keys(request).sort().join(',')!=='agent,authorization,seed')throw Error('invalid evaluation worker request');
++  authorize(request.authorization);profile.assertRequest({seed:request.seed,agent:request.agent});
++  if(process.execArgv.length!==1||process.execArgv[0]!=='--max-old-space-size=512')throw Error('evaluation heap limit mismatch');
++  const {loadRuntime}=require('../runtime.cjs');
++  message={kind:'result',result:loadRuntime().run(profile.config(request.seed,request.agent))};
++ }catch(error){message={kind:'error',diagnostic:String(error)};}
++ const after=process.resourceUsage();message.resources={cpu_user_us:after.userCPUTime-before.userCPUTime,cpu_system_us:after.systemCPUTime-before.systemCPUTime,max_rss_kib:after.maxRSS};
++ process.send(message,()=>process.disconnect());
++});
+diff --git a/tools/p01/metrics.cjs b/tools/p01/metrics.cjs
+index 6eeaffe..5c29986 100644
+--- a/tools/p01/metrics.cjs
++++ b/tools/p01/metrics.cjs
+@@ -27 +27,3 @@ function measure(result){
+-function compareCampaign(entries){
++function compareCampaign(entries,phase='DEVELOPMENT_SMOKE'){
++ need(['DEVELOPMENT_SMOKE','FINAL_EVALUATION'].includes(phase),'invalid campaign phase');
++ const seeds=phase==='FINAL_EVALUATION'?Array.from({length:32},(_,i)=>1001+i):SEEDS;
+@@ -31 +33 @@ function compareCampaign(entries){
+-  need(SEEDS.includes(seed)&&AGENTS.includes(agent)&&[1,2].includes(repetition),'only development campaign authorized');
++  need(seeds.includes(seed)&&AGENTS.includes(agent)&&[1,2].includes(repetition),phase==='DEVELOPMENT_SMOKE'?'only development campaign authorized':'unexpected final campaign seed/agent/repetition');
+@@ -42 +44 @@ function compareCampaign(entries){
+- for(const seed of SEEDS){
++ for(const seed of seeds){
+@@ -65,2 +67,2 @@ function compareCampaign(entries){
+- return {phase:'DEVELOPMENT_SMOKE',evaluation_authorized:false,evaluation_executed:false,final_hypothesis:'NOT_EVALUATED',
+-  technical_status:technical,errors,attempts:entries.length,planned_attempts:32,excluded_scenarios:excluded,eligible_pairs:n,
++ return {phase,evaluation_authorized:false,evaluation_executed:phase==='FINAL_EVALUATION',final_hypothesis:phase==='FINAL_EVALUATION'?(technical==='PASS'?(sum>0?'H_PLUS_SUPPORTED':'H_PLUS_NOT_SUPPORTED'):'NOT_EVALUABLE'):'NOT_EVALUATED',
++  technical_status:technical,errors,attempts:entries.length,planned_attempts:seeds.length*8,excluded_scenarios:excluded,eligible_pairs:n,

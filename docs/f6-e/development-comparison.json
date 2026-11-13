@@ -1,0 +1,7 @@
+{
+  "old_candidate_sha256": "f503593e47ec59daf607d10c169f99aacfac722612d94f63543b6c093fe6d65a",
+  "new_candidate_sha256": "32804aeac7d26875132f80d449d7e5b061aa5099daf15c155501e7d23b68e988",
+  "paired_payloads_identical": 32,
+  "analysis_byte_identical": true,
+  "evaluation_episodes": 0
+}
