@@ -1,0 +1,47 @@
+{
+  "kind": "ENVIRONMENT_READINESS_ONLY",
+  "execution": {
+    "attempt_id": "36df86a6-83fb-4c92-bfa6-d3fbf2ca5843",
+    "started_at": "2026-11-13T23:18:05.120Z",
+    "finished_at": "2026-11-13T23:18:05.779Z",
+    "limits": {
+      "timeout_ms": 30000,
+      "heap_mib": 512
+    },
+    "operational_status": "RETURNED",
+    "exit_code": 0,
+    "signal": null,
+    "diagnostic": null,
+    "resources": {
+      "wall_ms": 659.009419,
+      "cpu_user_us": 37317,
+      "cpu_system_us": 13004,
+      "max_rss_kib": 150964,
+      "rss_source": "child resourceUsage"
+    },
+    "stdout": "",
+    "stderr": "",
+    "output_truncated": false,
+    "result": {
+      "kind": "OPERATIONAL_PROBE_ONLY_NO_EXPERIMENT",
+      "node": "v24.22.1",
+      "platform": "linux",
+      "arch": "x64",
+      "node_binary_sha256": "61ab14cd750fc24d5db53490ec5fc40f756e4b6e136b78cf7004265471d9bd1d",
+      "execArgv": [
+        "--max-old-space-size=512"
+      ],
+      "heap_size_limit": 738197504
+    }
+  },
+  "io": {
+    "parent_realpath": "/workspace/shared/world-lab",
+    "write_fsync_read_copy_sha256": "740d4368d348a888421f030ab691fb27b7c4e94f6d99d3a84186318998b054d3",
+    "copy_sha256": "740d4368d348a888421f030ab691fb27b7c4e94f6d99d3a84186318998b054d3",
+    "roundtrip": "PASS",
+    "temporary_probe_removed": true
+  },
+  "campaign_output_created": false,
+  "production_key_generated": false,
+  "evaluation_episodes": 0
+}

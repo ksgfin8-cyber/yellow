@@ -1,0 +1,9 @@
+{
+  "format": "WL-P01-AUTHORIZATION-1",
+  "decision": "AUTHORIZE_P01_FINAL_EVALUATION",
+  "freeze_id": "47155590f10358f6130a1f7eae261ec9ec1fc8035652c04dd23fcc9f92c63e7d",
+  "reviewer": "",
+  "approval_reference": "",
+  "campaign_id": "p01-final-20261113-01",
+  "output_directory": "/workspace/shared/world-lab/p01-final-20261113-01"
+}

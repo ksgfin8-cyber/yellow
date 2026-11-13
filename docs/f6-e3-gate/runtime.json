@@ -1,0 +1,39 @@
+{
+  "identity": "47155590f10358f6130a1f7eae261ec9ec1fc8035652c04dd23fcc9f92c63e7d",
+  "expected": {
+    "node": "v24.22.1",
+    "platform": "linux",
+    "arch": "x64",
+    "node_binary_sha256": "61ab14cd750fc24d5db53490ec5fc40f756e4b6e136b78cf7004265471d9bd1d"
+  },
+  "actual": {
+    "node": "v24.22.1",
+    "platform": "linux",
+    "arch": "x64",
+    "node_binary_sha256": "61ab14cd750fc24d5db53490ec5fc40f756e4b6e136b78cf7004265471d9bd1d"
+  },
+  "executable": "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+  "kernel": "6.18.57",
+  "limits": {
+    "timeout_ms": 30000,
+    "heap_mib": 512
+  },
+  "openssl": "OpenSSL 3.5.7",
+  "campaign_id": "p01-final-20261113-01",
+  "output_directory": "/workspace/shared/world-lab/p01-final-20261113-01",
+  "output_exists": false,
+  "parent_realpath": "/workspace/shared/world-lab",
+  "disk": {
+    "type": 2035054128,
+    "bsize": 4096,
+    "frsize": 4096,
+    "blocks": 16500619,
+    "bfree": 16491878,
+    "bavail": 15648922,
+    "files": 4194304,
+    "ffree": 4191796
+  },
+  "production_key_generated": false,
+  "proposed_public_key_fingerprint": null,
+  "evaluation_episodes": 0
+}
