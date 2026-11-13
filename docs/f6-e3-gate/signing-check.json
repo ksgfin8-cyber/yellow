@@ -1,0 +1,35 @@
+{
+  "kind": "SYNTHETIC_ONLY_NOT_OWNER_AUTHORIZATION",
+  "algorithm": "Ed25519",
+  "openssl_der_equals_node_spki": true,
+  "fingerprint_methods_match": true,
+  "prefix_matches_existing_gate": true,
+  "signature_bytes": 64,
+  "openssl_and_existing_gate_verify_synthetic_receipt": true,
+  "synthetic_freeze_id_differs_from_real": true,
+  "negative_real_preflights": [
+    {
+      "name": "missing authorization key",
+      "exit": 1,
+      "diagnostic": "Error: ENOENT: no such file or directory, open '/tmp/p01-synthetic-signing-only-7JwXwM/missing-key'",
+      "episodes_started": 0
+    },
+    {
+      "name": "untrusted key",
+      "exit": 1,
+      "diagnostic": "Error: P01 gate: reviewer key pin mismatch",
+      "episodes_started": 0
+    },
+    {
+      "name": "wrong receipt identity",
+      "exit": 1,
+      "diagnostic": "Error: P01 gate: invalid authorization receipt",
+      "episodes_started": 0
+    }
+  ],
+  "temporary_private_and_public_keys_removed": true,
+  "production_key_generated": false,
+  "proposed_public_key_fingerprint": null,
+  "command_run_invoked": false,
+  "evaluation_episodes": 0
+}

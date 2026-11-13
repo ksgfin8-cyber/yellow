@@ -1,0 +1,34 @@
+{
+  "recommendation": "READY_FOR_OWNER_APPROVAL",
+  "key_approval": "HOLD_OWNER_DECISION_REQUIRED",
+  "execution_E3": "HOLD_NOT_AUTHORIZED",
+  "base_commit": "2e8e84535667978dc03ac952f8fa51bc617c3cb8",
+  "freeze_id": "47155590f10358f6130a1f7eae261ec9ec1fc8035652c04dd23fcc9f92c63e7d",
+  "public_key_fingerprint": null,
+  "production_key_generated": false,
+  "campaign_id_proposed": "p01-final-20261113-01",
+  "output_directory_proposed": "/workspace/shared/world-lab/p01-final-20261113-01",
+  "campaign_directory_created": false,
+  "previous_files_byte_identical": 322,
+  "code_changes": false,
+  "restricted_preparation_tests": {
+    "pass": 23,
+    "fail": 0
+  },
+  "identity_gate_checks": 4,
+  "negative_preflight_checks": 3,
+  "procedural_deviation": {
+    "inherited_test": "F6E-14 in initial full suite",
+    "invalid_run_cli_invocations": 2,
+    "result": "usage rejected before authorize/controller/runtime",
+    "authorized_run_invocations": 0,
+    "evaluation_episodes": 0,
+    "corrective_action": "subsequent selection excludes F6E-14; no code changes"
+  },
+  "node_heap_observation": {
+    "max_old_space_size_mib": 512,
+    "v8_reported_heap_size_limit_mib": 704,
+    "strict_total_512mib_cap_verified": false
+  },
+  "evaluation_episodes": 0
+}
