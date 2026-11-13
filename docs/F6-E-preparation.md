@@ -178,3 +178,12 @@ node tests/f6-e-gate.cjs docs/f6-e/P01-evaluation-freeze.json
 E1 FREEZE_READY recomienda la revisión de congelación. No se emiten resultados
 OPERATIONAL_ACCEPTANCE/CONDITIONAL_ACCEPTANCE de campaña, hipótesis final, conformidad
 canónica ni interoperabilidad independiente. No merge, despliegue o E3–E5 ejecutados.
+
+## Publicación para revisión
+
+La rama se publicó con git push -u origin dev/f6-e-evaluation-preparation.
+La API de creación automática del PR devolvió
+`Post "https://api.github.com/graphql": Forbidden` (exit1).
+[Crear PR manualmente](https://github.com/ksgfin8-cyber/yellow/compare/main...dev/f6-e-evaluation-preparation?expand=1),
+con la [descripción preparada](f6-e/PR.md). El bloqueo afecta a abrir el PR,
+no a la rama ni a sus artefactos publicados. No se intentó otra autenticación.
