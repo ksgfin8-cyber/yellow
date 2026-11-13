@@ -10,7 +10,7 @@ Estados: **APPROVED**=decisión autorizada; **IMPLEMENTED**=mecanismo realizado 
 un alcance identificado; **VERIFIED**=resultado ejecutado y comprobado;
 **SUPERSEDED**=sustituida por otro ID explícito. Registrar por separado aprobación
 y ejecución. No asignar VERIFIED a una intención, ni cerrar un alcance permanente
-por una comprobación puntual. IDs estables: ED-001…ED-005; no reutilizarlos.
+por una comprobación puntual. IDs estables: ED-001…ED-006; no reutilizarlos.
 
 | ID / fecha | Problema y decisión aprobada | Justificación y evidencia | Ejecución / resultado verificable |
 |---|---|---|---|
@@ -19,6 +19,7 @@ por una comprobación puntual. IDs estables: ED-001…ED-005; no reutilizarlos.
 | ED-003 · 2026-11-13 · **APPROVED** | Continuar reconciliación normativa dirigida en paralelo al piloto, sin cambiar silenciosamente semántica | [Fuentes externas identificadas](f5-d/REQUIREMENTS_RECOVERY_REPORT.md), D-01 vigente y [condiciones de recepción](F6-A-readiness.md#g00) | G00 sigue **EXTERNAL_SOURCE_REQUIRED**. No se obtuvo ni cotejó el manuscrito completo; recuperación no agotada. Ninguna política técnica se convierte en norma. |
 | ED-004 · 2026-11-13 · **APPROVED** | Posponer nuevas mecánicas, mundos, múltiples entidades, WORLD que aprende, distribución y GUI extensa sin necesidad demostrada | Conservar alcance experimental acotado evita ampliar estados sin pregunta científica. [Dependencias F6-B](F6-A-readiness.md#f6-b) | **IMPLEMENTED en alcance F6-A:** entrega únicamente documental y verificación. No se creó framework, métrica productiva, adaptador ni arquitectura nueva. Aislamiento externo de una ejecución se propone por necesidad operacional, no como sistema distribuido. |
 | ED-005 · 2026-11-13 · **APPROVED** | Mantener declaraciones separadas de operación, conformidad e interoperabilidad, con adecuación científica transversal | [Tres niveles vigentes §0.4](WORLD-LAB_v0.2.5_canonical_transcripcion.md#04-tres-niveles-de-evidencia); [puertas F6-A](F6-A-readiness.md#gates) | **IMPLEMENTED documentalmente** en ED y P01; cierre operacional del piloto pendiente. Conformidad/Hitos B–C no declarados. Resolver norma es precondición de conformidad, no evidencia de cumplimiento del código. |
+| ED-006 · 2026-11-13 · **APPROVED preparación F6-E** | Separar evaluación y exigir autorización específica ligada a una identidad verificable; conservar candidato anterior y refijar cambios operacionales | Orden F6-E E1/E2; [auditoría, diff y puerta](F6-E-preparation.md). Implementación: recibo Ed25519, pins externos de freeze y clave; no nueva autoridad normativa | **IMPLEMENTED / VERIFIED solo en preparación:**24 tests nuevos,35 F6-B,32 smoke de desarrollo y4 comprobaciones de puerta. Dos archivos operacionales refijados; algoritmos/protocolo/motor intactos. **E3–E5 NOT EXECUTED; aprobación específica pendiente.** |
 
 La versión de un protocolo y sus expectativas debe fijarse antes de sus resultados.
 Si cambia la física o una interfaz observada, conservar los artefactos anteriores,

@@ -2,7 +2,10 @@
 const fs=require('node:fs'),zlib=require('node:zlib');
 const {loadRuntime}=require('./runtime.cjs');
 const {ENGINE_COMMIT,sha,provenance,parameters,assertSources}=require('./provenance.cjs');
-const {assertRequest,config,AGENTS,LIMITS,PROTOCOL_PATH}=require('./protocol.cjs');
+const development=require('./protocol.cjs');
+const {AGENTS,LIMITS,PROTOCOL_PATH}=development;
+// Explicit operational scope; the default remains development-only.
+function archiveFor({assertRequest,config}=development){
 const {check,exact,canonical,encode,decode}=require('./codec.cjs');
 const FORMAT='WL-P01-ARCHIVE-1',payloadDigest=data=>sha(canonical(data));
 function createArtifact(request,execution,capturedProvenance=null){
@@ -104,4 +107,6 @@ function verifyArtifact(a){
  for(let i=0;i<before.length;i++)for(const method of ['canonical_world_state_bytes','canonical_full_state_bytes'])check(Buffer.from(api[method](before[i])).equals(Buffer.from(api[method](after[i]))),'WLS1 byte mismatch');
  return {status:complete?'COMPLETE_MATCH':'PREFIX_MATCH_EXTERNAL_AGENT_CAUSE_UNVERIFIED',replay:true,states_verified:before.length,initial_full_hex:initialHex,payload_sha256:payloadDigest(a.data)};
 }
-module.exports={FORMAT,canonical,payloadDigest,createArtifact,validateArtifact,pack,unpack,writeArchive,readArchive,verifyArtifact};
+return {FORMAT,canonical,payloadDigest,createArtifact,validateArtifact,pack,unpack,writeArchive,readArchive,verifyArtifact};
+}
+module.exports={...archiveFor(),archiveFor};
