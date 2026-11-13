@@ -24,11 +24,13 @@ function measure(result){
   duration_ticks:duration<=BigInt(Number.MAX_SAFE_INTEGER)?Number(duration):duration,termination_reason:t.termination_reason,
   initial_resource_count:t.initial_state.grid.flat().filter(c=>c.effect?.kind==='RESOURCE'&&c.effect.stock===1).length};
 }
-function compareCampaign(entries){
+function compareCampaign(entries,phase='DEVELOPMENT_SMOKE'){
+ need(['DEVELOPMENT_SMOKE','FINAL_EVALUATION'].includes(phase),'invalid campaign phase');
+ const seeds=phase==='FINAL_EVALUATION'?Array.from({length:32},(_,i)=>1001+i):SEEDS;
  need(Array.isArray(entries),'expected campaign entries');const errors=[],groups=new Map(),attempts=new Set(),rows=[];
  for(const entry of entries){
   const {seed,agent,repetition,artifact,verification}=entry;
-  need(SEEDS.includes(seed)&&AGENTS.includes(agent)&&[1,2].includes(repetition),'only development campaign authorized');
+  need(seeds.includes(seed)&&AGENTS.includes(agent)&&[1,2].includes(repetition),phase==='DEVELOPMENT_SMOKE'?'only development campaign authorized':'unexpected final campaign seed/agent/repetition');
   need(artifact.provenance.seeds.experiment===seed&&artifact.provenance.algorithm.id===agent,'entry/provenance mismatch');
   const key=`${seed}/${agent}/${repetition}`;need(!groups.has(key),'duplicate campaign entry');groups.set(key,entry);
   need(!attempts.has(artifact.operational.attempt_id),'duplicate operational attempt');attempts.add(artifact.operational.attempt_id);
@@ -39,7 +41,7 @@ function compareCampaign(entries){
   if(metric?.kind==='EPISODE'&&(metric.experiment_status!=='COMPLETED'||Object.values(metric.consumptions_by_position).some(n=>n>1)))errors.push(key+': invalid/incomplete P01 episode');
  }
  const excluded=[],pairs=[],controls=[];
- for(const seed of SEEDS){
+ for(const seed of seeds){
   const batch=[];for(const agent of AGENTS)for(const repetition of [1,2]){
    const x=groups.get(`${seed}/${agent}/${repetition}`);if(!x)errors.push(`${seed}/${agent}/${repetition}: missing entry`);else batch.push(x);
   }
@@ -62,8 +64,8 @@ function compareCampaign(entries){
  }
  const differences=pairs.map(p=>p.difference),sum=differences.reduce((a,b)=>a+b,0),ordered=[...differences].sort((a,b)=>a-b),n=ordered.length;
  const technical=errors.length||!n?'NOT_EVALUABLE':'PASS';
- return {phase:'DEVELOPMENT_SMOKE',evaluation_authorized:false,evaluation_executed:false,final_hypothesis:'NOT_EVALUATED',
-  technical_status:technical,errors,attempts:entries.length,planned_attempts:32,excluded_scenarios:excluded,eligible_pairs:n,
+ return {phase,evaluation_authorized:false,evaluation_executed:phase==='FINAL_EVALUATION',final_hypothesis:phase==='FINAL_EVALUATION'?(technical==='PASS'?(sum>0?'H_PLUS_SUPPORTED':'H_PLUS_NOT_SUPPORTED'):'NOT_EVALUABLE'):'NOT_EVALUATED',
+  technical_status:technical,errors,attempts:entries.length,planned_attempts:seeds.length*8,excluded_scenarios:excluded,eligible_pairs:n,
   rows,pairs,descriptive_controls:controls,distribution:technical==='PASS'?{differences,sum,mean:sum/n,median:n%2?ordered[(n-1)/2]:(ordered[n/2-1]+ordered[n/2])/2,
    min:ordered[0],max:ordered[n-1],wins:differences.filter(x=>x>0).length,ties:differences.filter(x=>x===0).length,losses:differences.filter(x=>x<0).length}:null};
 }
