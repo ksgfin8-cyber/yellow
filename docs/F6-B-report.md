@@ -168,3 +168,15 @@ cualquier configuración. G00/fuentes históricas pendientes,289BLOCKED, restric
 conocidas de radio0 y observación grande continúan. No hay nueva norma ni interoperabilidad
 independiente demostrada. Evaluación final, merge y fases posteriores requieren revisión;
 no se iniciaron. Se preparó el PR contra main para revisión, sin autorización de merge.
+
+## Publicación y revisión
+
+Rama publicada mediante `git push -u origin dev/f6-b-p01-execution`.
+La creación automática con `gh pr create --repo ksgfin8-cyber/yellow --base main
+--head dev/f6-b-p01-execution --title ... --body-file /tmp/f6-b-pr.md` recibió
+`Post "https://api.github.com/graphql": Forbidden` (exit1). No se creó un PR
+por esa llamada ni se intentaron métodos alternativos de autenticación.
+[Crear PR manualmente](https://github.com/ksgfin8-cyber/yellow/compare/main...dev/f6-b-p01-execution?expand=1),
+con la [descripción preparada](f6-b/PR.md). La implementación, la evidencia y el candidato
+están publicados; la apertura del PR sigue pendiente por ese bloqueo de API.
+No se fusionó main ni se desplegó.
