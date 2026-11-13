@@ -21,3 +21,9 @@ test('F6B-CO03 archived episode verifies in a fresh Node process without origina
 test('F6B-CO04 manifest cannot inject a path or pretend evaluation was authorized',()=>{
  const dir=fs.mkdtempSync(path.join(os.tmpdir(),'p01-manifest-'));try{fs.writeFileSync(path.join(dir,'campaign.json'),JSON.stringify({format:'WL-P01-CAMPAIGN-1',phase:'EVALUATION',evaluation_executed:true}));assert.throws(()=>reloadSmoke(dir),/invalid development/);}finally{fs.rmSync(dir,{recursive:true,force:true});}
 });
+test('F6B-CO05 freeze checks the engine then rejects an unprepared checkout or missing evidence',()=>{
+ const {candidate}=require('../tools/p01/freeze.cjs');
+ const dir=fs.mkdtempSync(path.join(os.tmpdir(),'p01-no-smoke-'));
+ try{assert.throws(()=>candidate(dir),/clean implementation checkout|ENOENT/);assert.deepEqual(fs.readdirSync(dir),[]);}
+ finally{fs.rmSync(dir,{recursive:true,force:true});}
+});

@@ -26,4 +26,4 @@ function assertSources(p){
  for(const [file,hash]of Object.entries(actual))if(p.implementation.sources[file]!==hash)throw Error('archive: source mismatch: '+file);
  assertEngineUnchanged();
 }
-module.exports={ENGINE_COMMIT,sha,git,parameters,sourcePaths,snapshot,provenance,assertSources};
+module.exports={ENGINE_COMMIT,sha,git,parameters,sourcePaths,snapshot,assertEngineUnchanged,provenance,assertSources};
