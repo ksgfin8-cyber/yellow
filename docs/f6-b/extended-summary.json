@@ -1,0 +1,62 @@
+[
+  {
+    "command": [
+      "node",
+      "conformance/runner.cjs",
+      "--cases",
+      "cases.json",
+      "--out",
+      "/tmp/f6-b-f5-a.json"
+    ],
+    "exit": 0
+  },
+  {
+    "command": [
+      "node",
+      "conformance/runner.cjs",
+      "--cases",
+      "cases-f5-b.json",
+      "--out",
+      "/tmp/f6-b-f5-b.json"
+    ],
+    "exit": 0
+  },
+  {
+    "command": [
+      "node",
+      "conformance/mutation-f5-b.cjs",
+      "/tmp/f6-b-mutants.json"
+    ],
+    "exit": 0
+  },
+  {
+    "command": [
+      "node",
+      "conformance/profile/validate.cjs"
+    ],
+    "exit": 0
+  },
+  {
+    "command": [
+      "python",
+      "-B",
+      "docs/f5-d/validate.py"
+    ],
+    "exit": 1
+  },
+  {
+    "command": [
+      "node",
+      "tests/f4-a.test.cjs",
+      "--browser"
+    ],
+    "exit": 0
+  },
+  {
+    "command": [
+      "node",
+      "tests/f1-a-legacy.cjs"
+    ],
+    "exit": 1
+  }
+]

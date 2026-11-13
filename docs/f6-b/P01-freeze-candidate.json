@@ -1,0 +1,202 @@
+{
+  "format": "WL-P01-FREEZE-CANDIDATE-1",
+  "status": "CANDIDATE_REVIEW_REQUIRED",
+  "approved": false,
+  "evaluation_authorized": false,
+  "evaluation_executed": false,
+  "engine_commit": "59bd859bf102be546f3dfb3bb0200fde0b90233b",
+  "working_tree_clean": true,
+  "sources": {
+    "conformance/wire.cjs": "9cf0c28a6c5a7d285fb9db58e01262ec245c54e7a165e0b047678df8b6be18cc",
+    "docs/F6-A-pilot-protocol.md": "74491ffdf9dbbafa260e53cc21dbb63424e0785d930653e11301d911d119146c",
+    "index.html": "ce89ddfba938b0eaaf3aaa6f7f28a72a8bcabe5ec1879df6b12555ed22429ed8",
+    "js/agents/agent.js": "5f593b29539753f6f82c1417a7f3380c96cf1d0e542cd506ebe3347118f75cd1",
+    "js/agents/frontier_memory_agent.js": "0423363429d764c98b13a667388a07ea10a9230b84eb856d7ea22c13013cc1d3",
+    "js/agents/random_agent.js": "62d91dc38ca39cf9fafdb540256971c7530387b1f457d7a93dcbdef6414c3a3c",
+    "js/agents/registry.js": "5197d317006b9b001f2de492de00808c7d070aa6e8ae54a9817a0758e2cdb85f",
+    "js/agents/rule_agent.js": "e0512ab282c503f78c4272d1f12cf54836f69dc12a36b08886382f5b0c6aec80",
+    "js/agents/wait_agent.js": "e40b09ad92201b9727b25e1902bc8a45c108890c2c481de9a9743b195459d6d8",
+    "js/contracts/structures.js": "fba224b53c4a1fb1d8b940101d932a3674eaa634311bf8a60409fac44388c757",
+    "js/core/contracts.js": "fe520d19c3fb63ed6fd6658d2e6309c2d9fc06df2acc3f3334098bf9a9cba894",
+    "js/core/hash.js": "825f348e0e7be9e477cfa6b8554d925a5a724051c5234855aa261dda5d07b370",
+    "js/core/prng.js": "2881cb208796d3a19ca28482ff6805715d776eed5dbcd8ee90001d404e701cfe",
+    "js/core/seed.js": "1169cf301a44c33f335b2606ceb4961ad983f1754160320901b68006215dc355",
+    "js/experiment/experiment.js": "3cda35d8a8a5151dcfdceb6a1b0e89a75031bf6ebe238859e9886054cec599ad",
+    "js/experiment/experiment_config.js": "d3bcd273c83275a420157bfddbd04e2c94c4d78c0b4304e4af42d9379d40bda3",
+    "js/experiment/hash_state.js": "98c0370aa77fec06ea45a4bc5b12233083d8a724f3a05e271deb6f265d397bd6",
+    "js/experiment/recorder.js": "d9825f9dafc6ddff2537103dd95b3595b5bca06d9b4ed3ee8e52e862e94d0cdb",
+    "js/experiment/replay.js": "49229202c9290b74cc34d19773d6d2d7ad518d0e3c82878f285b7638cc62b580",
+    "js/experiment/tick_transaction.js": "a03384cc7f10900683f9acbe179b02f00d2ce62d3a6de03eefd5edefae16c227",
+    "js/experiment/trajectory.js": "3257419313a9b81828d134aa96b3cade8c9d9b39cb24d7607c93cb9cee5ce663",
+    "js/interface/action.js": "f6af2a6a451bd40831a2776da75f8e66e98e358aaf7427551befb933358bb577",
+    "js/interface/action_result.js": "f059ffd8fd770fd3e2b8d656f4d65528ff1a2253dc7ad82a9e7452307115ec18",
+    "js/interface/feedback.js": "c37d67a23af0549c23adc1cd54b62bd3f85c57713ef8c04a4d98a255869f424f",
+    "js/interface/observation.js": "db6373fc9a8e641a8cfcbea1a72b229a7d83ba3f501029edf4b7d13d1509d371",
+    "js/world/cells.js": "f18b91041c2ed4404ffce2794a1e38da429c6a72ab735d4b18c1c9b1504a24d3",
+    "js/world/entity.js": "807cc430ef6729f7632e4633c37fb2461639346f0cbb4ec1fee17a34a322c74a",
+    "js/world/world.js": "b63ce107b0a28b4a263dfe3724f960fb42b03f298d853f7023e1da49066abb56",
+    "js/world/world_config.js": "96ef813ee5fe693d002b259168944efb8b41ffb1c0442f2dd6e070b99d8eec54",
+    "js/world/world_state.js": "93a0da82a23280350babc82056b06697e6f3c0de4dfa060483d92adf20cf3ac5",
+    "tools/p01/archive.cjs": "eb26ee26cd248d2e010e5156b1e286d848e9910edf25d91e2e356ce6388c6b4a",
+    "tools/p01/cli.cjs": "c479dafcbab3e9591914e19e3c675819c88c77dd8c1d7b203105ab657f11544c",
+    "tools/p01/codec.cjs": "e69485c718ff667c8a90ec9bef2e58cf4e28bb78baa145f3dd8f7223bcf1f977",
+    "tools/p01/controller.cjs": "6ad235f3ca1b8d8a8fe1ff9b856ce1342f082bc450397788d0b40c6fc02ebde8",
+    "tools/p01/freeze.cjs": "300f764fb30b12162e370f9cfe42035ad89d5bf0e18116754d1997edba91d2a2",
+    "tools/p01/metrics.cjs": "29e1ea472c604847ad2b8e42ffbc1131bc58394176ebe0c06a7d73713d841beb",
+    "tools/p01/protocol.cjs": "1e85d3b50e81568c7ffdb80de597d850ed00d87c528dd682c32b39792e802887",
+    "tools/p01/provenance.cjs": "e37b5e37cbf6a87dcb5bb8280c5b4ddb38ad8ab0033734dfd615bedee9e034c1",
+    "tools/p01/runtime.cjs": "0e6ae8daaa43fabd95df53fcc00c13cb8c99bc9dfebbf42842bd8cc5f285fdcc",
+    "tools/p01/supervisor.cjs": "1c62f3f36b36d06c82051cf0fc0e28d775053ea4f94a67d2cadc1c50fd3c7b3a",
+    "tools/p01/worker.cjs": "30c9065037cd7ac0bc32e0c46cba9be3f67be62b381d3364deeaaa3b10659d38"
+  },
+  "protocol": {
+    "id": "P01",
+    "version": "1.0-proposed",
+    "file": "docs/F6-A-pilot-protocol.md",
+    "sha256": "74491ffdf9dbbafa260e53cc21dbb63424e0785d930653e11301d911d119146c"
+  },
+  "configuration": {
+    "max_ticks": 160,
+    "world_config": {
+      "width": 12,
+      "height": 12,
+      "topology": "BOUNDED",
+      "obstacle_density": 0.15,
+      "resource_density": 0.12,
+      "hazard_density": 0,
+      "initial_energy": 240,
+      "move_cost": 1,
+      "wait_cost": 1,
+      "resource_effect": 8,
+      "hazard_damage": 0,
+      "resource_regeneration": 0,
+      "death_threshold": 0,
+      "observation_radius": 1
+    },
+    "feedback_config": {
+      "expose_validity": true,
+      "expose_reason": true,
+      "expose_events": true,
+      "expose_energy_delta": true
+    }
+  },
+  "algorithms": [
+    {
+      "id": "wait",
+      "version": "baseline@59bd859bf102be546f3dfb3bb0200fde0b90233b",
+      "parameters": {}
+    },
+    {
+      "id": "random",
+      "version": "baseline@59bd859bf102be546f3dfb3bb0200fde0b90233b",
+      "parameters": {}
+    },
+    {
+      "id": "rule",
+      "version": "baseline@59bd859bf102be546f3dfb3bb0200fde0b90233b",
+      "parameters": {}
+    },
+    {
+      "id": "frontier_memory_v1",
+      "version": "1",
+      "parameters": {
+        "neighbors": [
+          "N",
+          "E",
+          "S",
+          "W"
+        ],
+        "target_tie": [
+          "distance",
+          "y",
+          "x"
+        ],
+        "regeneration_assumption": 0
+      }
+    }
+  ],
+  "development": {
+    "seeds": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "repetitions": 2,
+    "episodes": 32
+  },
+  "evaluation": {
+    "seeds": [
+      1001,
+      1002,
+      1003,
+      1004,
+      1005,
+      1006,
+      1007,
+      1008,
+      1009,
+      1010,
+      1011,
+      1012,
+      1013,
+      1014,
+      1015,
+      1016,
+      1017,
+      1018,
+      1019,
+      1020,
+      1021,
+      1022,
+      1023,
+      1024,
+      1025,
+      1026,
+      1027,
+      1028,
+      1029,
+      1030,
+      1031,
+      1032
+    ],
+    "repetitions": 2,
+    "execution_order": "seed ascending, wait/random/rule/frontier_memory_v1, repetition1 then2",
+    "execution_blocked": true
+  },
+  "operational_format": "WL-P01-ARCHIVE-1",
+  "limits": {
+    "timeout_ms": 30000,
+    "heap_mib": 512
+  },
+  "definitions": {
+    "primary": "RESOURCE_CONSUMED action events; paired FrontierMemory minus Random; sum differences>0 only after final evaluation authorization",
+    "repetitions": "determinism checks, not independent samples",
+    "inclusion": "exclude common initial-position failures only; no replacement",
+    "failures": "operational/agent/replay/nonmatching repetitions => NOT_EVALUABLE; do not discard failing cells",
+    "inference": "finite preregistered battery, no IID claim or p-values; Rule/Wait descriptive",
+    "comparison": "full canonical structures and WLS1 bytes; host metadata excluded"
+  },
+  "acceptance_tests": {
+    "tests/f6-b-agent.test.cjs": "0ebbdf80b2e1047c6101b9b3ef1e23b0adbbcb8cb4528a4778df1bed4435ccb6",
+    "tests/f6-b-archive.test.cjs": "7f6f64db73ec2fbca0e260de0bcbbed37e6ab0fa31d167da0994fc4accdecf37",
+    "tests/f6-b-controller.test.cjs": "e53676c1d7c874c0828de4d7ea8bb01229750d21fd2d3129468033e88d44bf6c",
+    "tests/f6-b-execution.test.cjs": "83bc199e59be67212aa154c0baee5502ba9439b7ae3968321087e75832aef23d",
+    "tests/f6-b-metrics.test.cjs": "773be30a7ddfc9ba677e79b79066d17d1c18e947ff31dbaae5034819b213f259",
+    "tests/f6-b-smoke.cjs": "3d0f8b3a2a5867379114874f7d6cd1e92e5cb7cc261bc061f3de11c6d6ab27eb",
+    "tests/fixtures/p01-crash.cjs": "e1d6ecbd5e10d11aa07392e08efdd84bc7499e13805c19c7382094af522e6024",
+    "tests/fixtures/p01-hang.cjs": "579996926bf91c70ea534b7e359c87378b03cf43039199e392d96f1367509a63"
+  },
+  "approvals_needed": [
+    "Review F6-B and this candidate before authorizing evaluation 1001–1032"
+  ],
+  "canonical_conformance": "NOT ESTABLISHED",
+  "interoperability": "NOT ESTABLISHED",
+  "implementation_commit": "95e918f72b1c4026fc1b8d5c681179878363ef89",
+  "smoke_evidence": {
+    "campaign_sha256": "51f3fb133f9689dee424b5004e6aa25ba5c11277273c9a923489209cd1b71a5a",
+    "analysis_sha256": "ed05da4c67d17a0207eae35058058ee963715f5c05312a12cdcc17f3ee5033cb",
+    "technical_status": "PASS",
+    "final_hypothesis": "NOT_EVALUATED"
+  }
+}
