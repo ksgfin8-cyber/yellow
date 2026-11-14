@@ -1,0 +1,64 @@
+{
+  "original_documents_byte_identical": 3,
+  "counts_rechecked_from_originals": true,
+  "export_members_rechecked": 1684,
+  "public_navigation_links_checked": [
+    {
+      "document": "RECOVERY.md",
+      "target": "E4-plan.md"
+    },
+    {
+      "document": "README.md",
+      "target": "E3-operational-report.md"
+    },
+    {
+      "document": "README.md",
+      "target": "E3-audit-report.md"
+    },
+    {
+      "document": "README.md",
+      "target": "E4-plan.md"
+    },
+    {
+      "document": "README.md",
+      "target": "E3-evidence-manifest.json"
+    },
+    {
+      "document": "README.md",
+      "target": "E3-closure-status.md"
+    },
+    {
+      "document": "README.md",
+      "target": "RECOVERY.md"
+    },
+    {
+      "document": "README.md",
+      "target": "../F6-A-pilot-protocol.md"
+    },
+    {
+      "document": "README.md",
+      "target": "../F6-B-report.md"
+    },
+    {
+      "document": "README.md",
+      "target": "../F6-E-preparation.md"
+    },
+    {
+      "document": "README.md",
+      "target": "../F6-F-report.md"
+    },
+    {
+      "document": "README.md",
+      "target": "../E3-operational-integration.md"
+    },
+    {
+      "document": "README.md",
+      "target": "../ENGINEERING_DECISIONS.md"
+    }
+  ],
+  "preserved_original_links": "HISTORICAL_WORKSPACE_REFERENCES_DECLARED_IN_README",
+  "no_private_keys_or_token_patterns_in_publication": true,
+  "no_experimental_payloads_in_publication": true,
+  "historical_inputs_unchanged": true,
+  "E4_executed": false
+}

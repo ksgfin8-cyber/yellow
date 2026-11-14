@@ -1,0 +1,32 @@
+{
+  "verdict": "E3_COMPLETE",
+  "audit_scope": "READ_ONLY_ARCHIVE_AND_LOG_AUDIT; NO_EPISODES; NO_NEW_REPLAY; NO_E4",
+  "freeze_id": "47155590f10358f6130a1f7eae261ec9ec1fc8035652c04dd23fcc9f92c63e7d",
+  "campaign_id": "p01-final-20261113-01",
+  "expected": 256,
+  "started": 256,
+  "finished": 256,
+  "failed": 0,
+  "unique_attempt_ids": 256,
+  "exact_order": true,
+  "archived_COMPLETE_MATCH_proofs": 256,
+  "recorded_steps": 40960,
+  "source_files": 519,
+  "indexes": 256,
+  "objects_verified": 774,
+  "copy_state": "COPY_VERIFIED",
+  "source_complete": true,
+  "blocking_conflicts": 0,
+  "append_only_log_versions": 255,
+  "watch_snapshots": 257,
+  "signature": "VALID",
+  "checkout": "CLEAN",
+  "inputs_unchanged": true,
+  "discrepancies": [],
+  "incidents": [
+    "Pre-execution sandbox check: spawnSync git EPERM, preserved and resolved before any episode.",
+    "Automatic start approval rejection resolved by explicit owner chat authorization before the single start."
+  ],
+  "external_backup": "NOT_CONFIRMED",
+  "E4": "PLAN_ONLY"
+}
