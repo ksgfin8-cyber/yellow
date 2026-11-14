@@ -1,0 +1,29 @@
+{
+  "scenario": "F6F-M11",
+  "snapshots": 3,
+  "closed_finishes": 32,
+  "interrupted_start_preserved": true,
+  "objects_verified": 37,
+  "restored_files": 35,
+  "source_removed_before_restore": true,
+  "all35_files_byte_identical": true,
+  "independent_distribution": {
+    "differences": [
+      8,
+      12,
+      14,
+      11
+    ],
+    "sum": 45,
+    "mean": 11.25,
+    "median": 11.5,
+    "min": 8,
+    "max": 14,
+    "wins": 4,
+    "ties": 0,
+    "losses": 0
+  },
+  "three_way_match": true,
+  "dependency_guard": "INDEPENDENT_NO_WORLD_NO_AGENT_NO_REPLAY_NO_METRICS_IMPORT",
+  "evaluation_episodes": 0
+}

@@ -1,0 +1,219 @@
+{
+  "file_count": 35,
+  "all_equal": true,
+  "source_bytes": 786951,
+  "package_bytes": 819455,
+  "latest_index": "00000001.94ffb7df14a61ae1229f3578d35c672447b837d6fa3ca1efda10fd97214dc89b.json",
+  "files": [
+    {
+      "file": "1-frontier_memory_v1-1.wlx.gz",
+      "bytes": 22602,
+      "source_sha256": "194ee13ba89ee8a59634d67ed17a8e3ea9b6438624922678c276387a2b41538a",
+      "restored_sha256": "194ee13ba89ee8a59634d67ed17a8e3ea9b6438624922678c276387a2b41538a"
+    },
+    {
+      "file": "1-frontier_memory_v1-2.wlx.gz",
+      "bytes": 22604,
+      "source_sha256": "797c355b266792db8c6e463fe84c34aadacfd804e215de8c7be76a1123cc1674",
+      "restored_sha256": "797c355b266792db8c6e463fe84c34aadacfd804e215de8c7be76a1123cc1674"
+    },
+    {
+      "file": "1-random-1.wlx.gz",
+      "bytes": 21898,
+      "source_sha256": "6c71b89eb463611d637bf66a9dff6c2e5a08d904ba6c4307a2e33bfdcac4209e",
+      "restored_sha256": "6c71b89eb463611d637bf66a9dff6c2e5a08d904ba6c4307a2e33bfdcac4209e"
+    },
+    {
+      "file": "1-random-2.wlx.gz",
+      "bytes": 21894,
+      "source_sha256": "1ceecdd9b0719bd2c78faa67a271fb4f46877155a6bf23f72054acf29f8fe427",
+      "restored_sha256": "1ceecdd9b0719bd2c78faa67a271fb4f46877155a6bf23f72054acf29f8fe427"
+    },
+    {
+      "file": "1-rule-1.wlx.gz",
+      "bytes": 17416,
+      "source_sha256": "eaed1ff83aa014db5b0a5cf218c1ad3827e93fdff6507cb101737e4da856737a",
+      "restored_sha256": "eaed1ff83aa014db5b0a5cf218c1ad3827e93fdff6507cb101737e4da856737a"
+    },
+    {
+      "file": "1-rule-2.wlx.gz",
+      "bytes": 17414,
+      "source_sha256": "93c395682e6419c6d8cc49602b003d7dd9b82882b4ed00f5581ce43b844ec21d",
+      "restored_sha256": "93c395682e6419c6d8cc49602b003d7dd9b82882b4ed00f5581ce43b844ec21d"
+    },
+    {
+      "file": "1-wait-1.wlx.gz",
+      "bytes": 17420,
+      "source_sha256": "1d7072258caa9dfbeecdf222b7fe44063bdb5e2393737cd22b74ee21c3ee4bc3",
+      "restored_sha256": "1d7072258caa9dfbeecdf222b7fe44063bdb5e2393737cd22b74ee21c3ee4bc3"
+    },
+    {
+      "file": "1-wait-2.wlx.gz",
+      "bytes": 17416,
+      "source_sha256": "8777ae5fc4baa5a2f6b650ac95aaed0197b11056e86378fde9e6875a3f314b4f",
+      "restored_sha256": "8777ae5fc4baa5a2f6b650ac95aaed0197b11056e86378fde9e6875a3f314b4f"
+    },
+    {
+      "file": "2-frontier_memory_v1-1.wlx.gz",
+      "bytes": 22640,
+      "source_sha256": "07ee24e82fe012c17a9d480ea9f8b503ec46d202cb5e8676e3efe94ff618e4b6",
+      "restored_sha256": "07ee24e82fe012c17a9d480ea9f8b503ec46d202cb5e8676e3efe94ff618e4b6"
+    },
+    {
+      "file": "2-frontier_memory_v1-2.wlx.gz",
+      "bytes": 22641,
+      "source_sha256": "114d979f245dde3f38069a6a1b22eb06d962e715bee1301b54d9c930a42373c1",
+      "restored_sha256": "114d979f245dde3f38069a6a1b22eb06d962e715bee1301b54d9c930a42373c1"
+    },
+    {
+      "file": "2-random-1.wlx.gz",
+      "bytes": 21787,
+      "source_sha256": "f7cf0efb8a7ac8c379e84d5fa8d8a21859c04295d96574da2bb9ae69ae05efd0",
+      "restored_sha256": "f7cf0efb8a7ac8c379e84d5fa8d8a21859c04295d96574da2bb9ae69ae05efd0"
+    },
+    {
+      "file": "2-random-2.wlx.gz",
+      "bytes": 21788,
+      "source_sha256": "927ef7db71a6546676f5b497db58b1473effe14b791213c77f96ea72d2346fcc",
+      "restored_sha256": "927ef7db71a6546676f5b497db58b1473effe14b791213c77f96ea72d2346fcc"
+    },
+    {
+      "file": "2-rule-1.wlx.gz",
+      "bytes": 17515,
+      "source_sha256": "45740eb02147353f746bfbb3e7b0065352d4d942a7145fe4cdc061242da54fa7",
+      "restored_sha256": "45740eb02147353f746bfbb3e7b0065352d4d942a7145fe4cdc061242da54fa7"
+    },
+    {
+      "file": "2-rule-2.wlx.gz",
+      "bytes": 17515,
+      "source_sha256": "94d78d0c38a26f7cd1cd1375c7ec1209722be34e4c9afdef62dafd5fa1bebe6d",
+      "restored_sha256": "94d78d0c38a26f7cd1cd1375c7ec1209722be34e4c9afdef62dafd5fa1bebe6d"
+    },
+    {
+      "file": "2-wait-1.wlx.gz",
+      "bytes": 17510,
+      "source_sha256": "7382d93ef8fb4fe2227ec435c77e0182284b26479bb4bf4a694e8d3bfa2a2864",
+      "restored_sha256": "7382d93ef8fb4fe2227ec435c77e0182284b26479bb4bf4a694e8d3bfa2a2864"
+    },
+    {
+      "file": "2-wait-2.wlx.gz",
+      "bytes": 17516,
+      "source_sha256": "5235e583aba5a00285dc05fa2e047017cfce2bdfb0324b92d7ed3d4e81c262f3",
+      "restored_sha256": "5235e583aba5a00285dc05fa2e047017cfce2bdfb0324b92d7ed3d4e81c262f3"
+    },
+    {
+      "file": "3-frontier_memory_v1-1.wlx.gz",
+      "bytes": 23543,
+      "source_sha256": "d2489045e27f49331b0afef666feff388f71dd99d811eea98bdcdd010cb1d83b",
+      "restored_sha256": "d2489045e27f49331b0afef666feff388f71dd99d811eea98bdcdd010cb1d83b"
+    },
+    {
+      "file": "3-frontier_memory_v1-2.wlx.gz",
+      "bytes": 23541,
+      "source_sha256": "c8bdbd7be078b67c5635621259c53e454d20d2f88c8e466a69b66807a60da7b4",
+      "restored_sha256": "c8bdbd7be078b67c5635621259c53e454d20d2f88c8e466a69b66807a60da7b4"
+    },
+    {
+      "file": "3-random-1.wlx.gz",
+      "bytes": 21843,
+      "source_sha256": "7db8c5e39ce440bceaeaa4ae5eb3f97f343cc1afe8dd97638ab49312c4b0cb53",
+      "restored_sha256": "7db8c5e39ce440bceaeaa4ae5eb3f97f343cc1afe8dd97638ab49312c4b0cb53"
+    },
+    {
+      "file": "3-random-2.wlx.gz",
+      "bytes": 21844,
+      "source_sha256": "e496424a8135876cfde0e0bffca22d24008526177e3ce4fe1e82f3eab05047e3",
+      "restored_sha256": "e496424a8135876cfde0e0bffca22d24008526177e3ce4fe1e82f3eab05047e3"
+    },
+    {
+      "file": "3-rule-1.wlx.gz",
+      "bytes": 17635,
+      "source_sha256": "a444a9349c3c4ca7c75ef7a4ebe566e427419a1617200182252cfecc877d26e3",
+      "restored_sha256": "a444a9349c3c4ca7c75ef7a4ebe566e427419a1617200182252cfecc877d26e3"
+    },
+    {
+      "file": "3-rule-2.wlx.gz",
+      "bytes": 17630,
+      "source_sha256": "59299ea7bdd276355b9fc8e167201a9c8f72fdfcab8e37451f4c006bedde6338",
+      "restored_sha256": "59299ea7bdd276355b9fc8e167201a9c8f72fdfcab8e37451f4c006bedde6338"
+    },
+    {
+      "file": "3-wait-1.wlx.gz",
+      "bytes": 17629,
+      "source_sha256": "e77291a334b8ed8b13157af0696fa68a3637ef8406e6c945c64b9ca226ac92ad",
+      "restored_sha256": "e77291a334b8ed8b13157af0696fa68a3637ef8406e6c945c64b9ca226ac92ad"
+    },
+    {
+      "file": "3-wait-2.wlx.gz",
+      "bytes": 17629,
+      "source_sha256": "be92f2611d0305701bf08e91245e75fda2514dcd794a39ef5e282ed456486851",
+      "restored_sha256": "be92f2611d0305701bf08e91245e75fda2514dcd794a39ef5e282ed456486851"
+    },
+    {
+      "file": "4-frontier_memory_v1-1.wlx.gz",
+      "bytes": 22354,
+      "source_sha256": "f19f49e7051bd990a1fa90ff4f518f43ea9f37f1205016364bec8767ccbe9b5a",
+      "restored_sha256": "f19f49e7051bd990a1fa90ff4f518f43ea9f37f1205016364bec8767ccbe9b5a"
+    },
+    {
+      "file": "4-frontier_memory_v1-2.wlx.gz",
+      "bytes": 22348,
+      "source_sha256": "a1f53e035fd5aac9c942624dc95a75e723dc5d09413a872399b7033355c0d64a",
+      "restored_sha256": "a1f53e035fd5aac9c942624dc95a75e723dc5d09413a872399b7033355c0d64a"
+    },
+    {
+      "file": "4-random-1.wlx.gz",
+      "bytes": 21685,
+      "source_sha256": "fe3cc768cc8ca7e425523cb2c7b286b04f1210459fa6b80d9d109d0588570114",
+      "restored_sha256": "fe3cc768cc8ca7e425523cb2c7b286b04f1210459fa6b80d9d109d0588570114"
+    },
+    {
+      "file": "4-random-2.wlx.gz",
+      "bytes": 21684,
+      "source_sha256": "63ef7539efdb27980b70acb3553c7cb21897d207f45c348b540599a77ae00290",
+      "restored_sha256": "63ef7539efdb27980b70acb3553c7cb21897d207f45c348b540599a77ae00290"
+    },
+    {
+      "file": "4-rule-1.wlx.gz",
+      "bytes": 17538,
+      "source_sha256": "afa191573837959860de0e47073f78782a2f1ba101c989c216d81a2db0a81afa",
+      "restored_sha256": "afa191573837959860de0e47073f78782a2f1ba101c989c216d81a2db0a81afa"
+    },
+    {
+      "file": "4-rule-2.wlx.gz",
+      "bytes": 17539,
+      "source_sha256": "0f3e1ef86dd57d203d0dac4ce49e71fa950f18b94c045a88e1cbf43386ff996f",
+      "restored_sha256": "0f3e1ef86dd57d203d0dac4ce49e71fa950f18b94c045a88e1cbf43386ff996f"
+    },
+    {
+      "file": "4-wait-1.wlx.gz",
+      "bytes": 17413,
+      "source_sha256": "24510d2c8b0a380843933ea15c24c2311f42defebca030ac1a6a67f8133a51e6",
+      "restored_sha256": "24510d2c8b0a380843933ea15c24c2311f42defebca030ac1a6a67f8133a51e6"
+    },
+    {
+      "file": "4-wait-2.wlx.gz",
+      "bytes": 17414,
+      "source_sha256": "76fcc6a8f94fbf5f1ca79abeacb07825607a3d2e21da2682048a7d48f1c45d83",
+      "restored_sha256": "76fcc6a8f94fbf5f1ca79abeacb07825607a3d2e21da2682048a7d48f1c45d83"
+    },
+    {
+      "file": "analysis.json",
+      "bytes": 21513,
+      "source_sha256": "ed05da4c67d17a0207eae35058058ee963715f5c05312a12cdcc17f3ee5033cb",
+      "restored_sha256": "ed05da4c67d17a0207eae35058058ee963715f5c05312a12cdcc17f3ee5033cb"
+    },
+    {
+      "file": "campaign.json",
+      "bytes": 67500,
+      "source_sha256": "faa971fe9bde5b0e792279b720ee25168dc0d5c5fdd3dd1189575bdb9c720070",
+      "restored_sha256": "faa971fe9bde5b0e792279b720ee25168dc0d5c5fdd3dd1189575bdb9c720070"
+    },
+    {
+      "file": "execution.jsonl",
+      "bytes": 61093,
+      "source_sha256": "7b4cccab747c367c774f0564e074287cd9626d29e72f70d7c8122cbdd9fd51f1",
+      "restored_sha256": "7b4cccab747c367c774f0564e074287cd9626d29e72f70d7c8122cbdd9fd51f1"
+    }
+  ]
+}

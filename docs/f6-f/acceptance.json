@@ -1,0 +1,61 @@
+{
+  "F6_F": "PASS",
+  "recommendation": "GO_FOR_F6_F_REVIEW_ONLY",
+  "base": "d107eaed709cfdd7be964b43c1bc9d697076a2e5",
+  "code_commit": "9c5ee8cbc37cf1048ab4905e80b0534e3312f383",
+  "protected_identity": "47155590f10358f6130a1f7eae261ec9ec1fc8035652c04dd23fcc9f92c63e7d",
+  "frozen_files_verified": 95,
+  "previous_files_byte_identical": 337,
+  "new_tests": {
+    "pass": 29,
+    "fail": 0
+  },
+  "pure_regressions": {
+    "pass": 8,
+    "fail": 0
+  },
+  "evaluation_worlds_or_episodes_generated": 0,
+  "evaluation_run_command_invocations": 0,
+  "production_keys_or_authorizations_created": 0,
+  "backup_destination_is_independent_durable_storage": false,
+  "incremental_restore": {
+    "scenario": "F6F-M11",
+    "snapshots": 3,
+    "closed_finishes": 32,
+    "interrupted_start_preserved": true,
+    "objects_verified": 37,
+    "restored_files": 35,
+    "source_removed_before_restore": true,
+    "all35_files_byte_identical": true,
+    "independent_distribution": {
+      "differences": [
+        8,
+        12,
+        14,
+        11
+      ],
+      "sum": 45,
+      "mean": 11.25,
+      "median": 11.5,
+      "min": 8,
+      "max": 14,
+      "wins": 4,
+      "ties": 0,
+      "losses": 0
+    },
+    "three_way_match": true,
+    "dependency_guard": "INDEPENDENT_NO_WORLD_NO_AGENT_NO_REPLAY_NO_METRICS_IMPORT",
+    "evaluation_episodes": 0
+  },
+  "full_package_verify": {
+    "format": "WL-EVIDENCE-COPY-1",
+    "state": "COPY_VERIFIED",
+    "preservation_state": "COPY_VERIFIED",
+    "preservation_errors": [],
+    "indexes": 1,
+    "objects_checked": 35,
+    "source_complete": true,
+    "final_manifest_present": true,
+    "errors": []
+  }
+}

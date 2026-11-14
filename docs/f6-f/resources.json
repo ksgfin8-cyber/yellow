@@ -1,0 +1,72 @@
+[
+  {
+    "operation": "snapshot",
+    "command": [
+      "node",
+      "tools/evidence/preserve.cjs",
+      "snapshot",
+      "/tmp/f6-f-release-source",
+      "/tmp/f6-f-package-final",
+      "--campaign",
+      "P01-development-F6F",
+      "--identity",
+      "47155590f10358f6130a1f7eae261ec9ec1fc8035652c04dd23fcc9f92c63e7d"
+    ],
+    "exit": 0,
+    "wall_seconds": 0.21111648799706018,
+    "cpu_user_seconds": 0.085575,
+    "cpu_system_seconds": 0.09254699999999999,
+    "max_rss_kib": 38736,
+    "stdout_stderr": "/tmp/f6-f-snapshot.log"
+  },
+  {
+    "operation": "watch",
+    "command": [
+      "node",
+      "tools/evidence/preserve.cjs",
+      "watch",
+      "/tmp/f6-f-release-source",
+      "/tmp/f6-f-package-final",
+      "--interval-ms",
+      "100",
+      "--passes",
+      "2"
+    ],
+    "exit": 0,
+    "wall_seconds": 0.2351660990025266,
+    "cpu_user_seconds": 0.114272,
+    "cpu_system_seconds": 0.039302,
+    "max_rss_kib": 42440,
+    "stdout_stderr": "/tmp/f6-f-watch.log"
+  },
+  {
+    "operation": "restore",
+    "command": [
+      "node",
+      "tools/evidence/verify.cjs",
+      "/tmp/f6-f-package-final",
+      "--restore",
+      "/tmp/f6-f-restored-final"
+    ],
+    "exit": 0,
+    "wall_seconds": 0.20912239099561702,
+    "cpu_user_seconds": 0.11237,
+    "cpu_system_seconds": 0.056577999999999996,
+    "max_rss_kib": 38424,
+    "stdout_stderr": "/tmp/f6-f-restore.log"
+  },
+  {
+    "operation": "oracle",
+    "command": [
+      "node",
+      "tools/evidence/p01-independent-metrics.cjs",
+      "/tmp/f6-f-restored-final"
+    ],
+    "exit": 0,
+    "wall_seconds": 9.321727039001416,
+    "cpu_user_seconds": 9.474812,
+    "cpu_system_seconds": 1.557985,
+    "max_rss_kib": 342600,
+    "stdout_stderr": "/tmp/f6-f-oracle.log"
+  }
+]
