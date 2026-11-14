@@ -1,0 +1,28 @@
+{
+  "status": "READY_FOR_SIGNED_PREFLIGHT",
+  "evaluation_final": "HOLD",
+  "actual_signed_preflight": "NOT_EXECUTED_MATERIALS_PENDING",
+  "owner_start_order": "REQUIRED_AFTER_PREFLIGHT",
+  "base_main": "73eb23b873ffd02e3ce2a96836445d3a4cd88d82",
+  "identity": "47155590f10358f6130a1f7eae261ec9ec1fc8035652c04dd23fcc9f92c63e7d",
+  "frozen_files_verified": 95,
+  "previous_files_byte_identical": 359,
+  "code_changes": false,
+  "runtime": {
+    "node": "v24.22.1",
+    "platform": "linux",
+    "arch": "x64",
+    "node_binary_sha256": "61ab14cd750fc24d5db53490ec5fc40f756e4b6e136b78cf7004265471d9bd1d"
+  },
+  "node_options_present": false,
+  "campaign_id": "p01-final-20261113-01",
+  "campaign_directory": "/workspace/shared/world-lab/p01-final-20261113-01",
+  "copy_directory": "/workspace/shared/world-lab/p01-final-20261113-01-evidence",
+  "paths_disjoint": true,
+  "campaign_directory_exists": false,
+  "real_external_storage_selected": false,
+  "external_export_rehearsal": "LOCAL_ONLY_CHECKSUM_UNPACK_VERIFY_PASS",
+  "new_worlds_or_episodes": 0,
+  "run_command_invocations": 0,
+  "real_keys_created": 0
+}

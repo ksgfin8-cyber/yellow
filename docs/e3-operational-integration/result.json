@@ -1,0 +1,41 @@
+{
+  "result": "PASS",
+  "fixture": "existing docs/f6-e/smoke bytes only",
+  "observer_pid_distinct_from_harness": true,
+  "source_not_created_by_waiter": true,
+  "observer_started_before_source": true,
+  "initial_partial_START_preserved": true,
+  "pending_START_and_first_FINISH_preserved": true,
+  "complete_finishes": 32,
+  "observer_stopped_cleanly": true,
+  "terminal_snapshot_idempotent": true,
+  "restored_files": 35,
+  "all35_bytes_equal": true,
+  "independent_distribution": {
+    "differences": [
+      8,
+      12,
+      14,
+      11
+    ],
+    "sum": 45,
+    "mean": 11.25,
+    "median": 11.5,
+    "min": 8,
+    "max": 14,
+    "wins": 4,
+    "ties": 0,
+    "losses": 0
+  },
+  "transport_archive_sha256": "f411b33a197a539b8fdfe3b4ac8bff83827671223a3e0b0ae44c49e5c1fd4303",
+  "transport_archive_bytes": 1041038,
+  "transport_verify": "COPY_VERIFIED",
+  "transport_source_complete": true,
+  "transport_scope": "local rehearsal; no external destination mounted",
+  "source_unchanged": true,
+  "new_worlds": 0,
+  "new_episodes": 0,
+  "evaluation_run_invocations": 0,
+  "production_keys": 0,
+  "live_campaign_path_created": false
+}
