@@ -1,0 +1,270 @@
+{
+  "format": "WL-P01-INDEPENDENT-METRICS-1",
+  "phase": "development",
+  "status": "EVALUABLE",
+  "planned_attempts": 32,
+  "observed_attempts": 32,
+  "eligible_pairs": 4,
+  "episodes": [
+    {
+      "seed": 1,
+      "agent": "wait",
+      "repetition": 1,
+      "count": 0
+    },
+    {
+      "seed": 1,
+      "agent": "wait",
+      "repetition": 2,
+      "count": 0
+    },
+    {
+      "seed": 1,
+      "agent": "random",
+      "repetition": 1,
+      "count": 2
+    },
+    {
+      "seed": 1,
+      "agent": "random",
+      "repetition": 2,
+      "count": 2
+    },
+    {
+      "seed": 1,
+      "agent": "rule",
+      "repetition": 1,
+      "count": 0
+    },
+    {
+      "seed": 1,
+      "agent": "rule",
+      "repetition": 2,
+      "count": 0
+    },
+    {
+      "seed": 1,
+      "agent": "frontier_memory_v1",
+      "repetition": 1,
+      "count": 10
+    },
+    {
+      "seed": 1,
+      "agent": "frontier_memory_v1",
+      "repetition": 2,
+      "count": 10
+    },
+    {
+      "seed": 2,
+      "agent": "wait",
+      "repetition": 1,
+      "count": 0
+    },
+    {
+      "seed": 2,
+      "agent": "wait",
+      "repetition": 2,
+      "count": 0
+    },
+    {
+      "seed": 2,
+      "agent": "random",
+      "repetition": 1,
+      "count": 2
+    },
+    {
+      "seed": 2,
+      "agent": "random",
+      "repetition": 2,
+      "count": 2
+    },
+    {
+      "seed": 2,
+      "agent": "rule",
+      "repetition": 1,
+      "count": 0
+    },
+    {
+      "seed": 2,
+      "agent": "rule",
+      "repetition": 2,
+      "count": 0
+    },
+    {
+      "seed": 2,
+      "agent": "frontier_memory_v1",
+      "repetition": 1,
+      "count": 14
+    },
+    {
+      "seed": 2,
+      "agent": "frontier_memory_v1",
+      "repetition": 2,
+      "count": 14
+    },
+    {
+      "seed": 3,
+      "agent": "wait",
+      "repetition": 1,
+      "count": 0
+    },
+    {
+      "seed": 3,
+      "agent": "wait",
+      "repetition": 2,
+      "count": 0
+    },
+    {
+      "seed": 3,
+      "agent": "random",
+      "repetition": 1,
+      "count": 3
+    },
+    {
+      "seed": 3,
+      "agent": "random",
+      "repetition": 2,
+      "count": 3
+    },
+    {
+      "seed": 3,
+      "agent": "rule",
+      "repetition": 1,
+      "count": 0
+    },
+    {
+      "seed": 3,
+      "agent": "rule",
+      "repetition": 2,
+      "count": 0
+    },
+    {
+      "seed": 3,
+      "agent": "frontier_memory_v1",
+      "repetition": 1,
+      "count": 17
+    },
+    {
+      "seed": 3,
+      "agent": "frontier_memory_v1",
+      "repetition": 2,
+      "count": 17
+    },
+    {
+      "seed": 4,
+      "agent": "wait",
+      "repetition": 1,
+      "count": 0
+    },
+    {
+      "seed": 4,
+      "agent": "wait",
+      "repetition": 2,
+      "count": 0
+    },
+    {
+      "seed": 4,
+      "agent": "random",
+      "repetition": 1,
+      "count": 2
+    },
+    {
+      "seed": 4,
+      "agent": "random",
+      "repetition": 2,
+      "count": 2
+    },
+    {
+      "seed": 4,
+      "agent": "rule",
+      "repetition": 1,
+      "count": 1
+    },
+    {
+      "seed": 4,
+      "agent": "rule",
+      "repetition": 2,
+      "count": 1
+    },
+    {
+      "seed": 4,
+      "agent": "frontier_memory_v1",
+      "repetition": 1,
+      "count": 13
+    },
+    {
+      "seed": 4,
+      "agent": "frontier_memory_v1",
+      "repetition": 2,
+      "count": 13
+    }
+  ],
+  "pairs": [
+    {
+      "seed": 1,
+      "frontier_memory_v1": 10,
+      "random": 2,
+      "difference": 8
+    },
+    {
+      "seed": 2,
+      "frontier_memory_v1": 14,
+      "random": 2,
+      "difference": 12
+    },
+    {
+      "seed": 3,
+      "frontier_memory_v1": 17,
+      "random": 3,
+      "difference": 14
+    },
+    {
+      "seed": 4,
+      "frontier_memory_v1": 13,
+      "random": 2,
+      "difference": 11
+    }
+  ],
+  "descriptive_controls": [
+    {
+      "seed": 1,
+      "wait": 0,
+      "rule": 0
+    },
+    {
+      "seed": 2,
+      "wait": 0,
+      "rule": 0
+    },
+    {
+      "seed": 3,
+      "wait": 0,
+      "rule": 0
+    },
+    {
+      "seed": 4,
+      "wait": 0,
+      "rule": 1
+    }
+  ],
+  "excluded_scenarios": [],
+  "errors": [],
+  "distribution": {
+    "differences": [
+      8,
+      12,
+      14,
+      11
+    ],
+    "sum": 45,
+    "mean": 11.25,
+    "median": 11.5,
+    "min": 8,
+    "max": 14,
+    "wins": 4,
+    "ties": 0,
+    "losses": 0
+  },
+  "final_hypothesis": "NOT_EVALUATED",
+  "verification_basis": "STRUCTURAL_VALIDATION_AND_ARCHIVED_REPLAY_PROOFS_BOUND_TO_FILE_AND_PAYLOAD_HASHES; NO_NEW_REPLAY"
+}
