@@ -1,0 +1,32 @@
+[
+  {
+    "file": "ACCEPTANCE_STATUS.json",
+    "bytes": 978,
+    "sha256": "2f81fdc64776cacb61e327b95ba24b41fab90135f5282f57b27931f1d9900cea"
+  },
+  {
+    "file": "DOCUMENTARY_CHECKS.json",
+    "bytes": 1056,
+    "sha256": "a0889cd2c23d331e969a2f3cce61068e68567cdd3b6e7afe0872a661c2b0c43b"
+  },
+  {
+    "file": "E5-evidence-manifest.json",
+    "bytes": 7634,
+    "sha256": "ed41a80a14b51080182b1e18efa60ff5139d807a4b55d95501192c0f3d792112"
+  },
+  {
+    "file": "ENGINEERING_DECISIONS-before-E5.md.b64",
+    "bytes": 6569,
+    "sha256": "e4416e7af3f035307118aa5508753e2acca963d7583284395ac94b097962249f"
+  },
+  {
+    "file": "FINAL_ACCEPTANCE_REPORT.md",
+    "bytes": 11647,
+    "sha256": "85d2349ec6495e357b24e5a1e926d8502541dd6059e56cbf44468871389eff36"
+  },
+  {
+    "file": "README.md",
+    "bytes": 1214,
+    "sha256": "d91dc539e305d01aceffbcf9bbb725563d204d639a1e62438d734d311ed6a23d"
+  }
+]
