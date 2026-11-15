@@ -1,0 +1,10 @@
+{
+  "started_at": "2026-11-15T00:45:25.625352+00:00",
+  "checkout": "6fcc698681514a90e1dcd28a0f926967b2304884",
+  "C2": "HOLD_EXTERNAL_BACKUP_PENDING",
+  "E4": "OWNER_AUTHORIZED",
+  "E5": "NOT_PERFORMED",
+  "new_E3_episodes_authorized": false,
+  "export_sha256": "8a1df2ac58fa2069afa4de52368097d79859b59e4b784e99a72966fa5690b7c7",
+  "plan_sha256": "0e278f2159c71c8037bc7111f50088cbc107b80bd6a7173eb4d5226967d8017f"
+}

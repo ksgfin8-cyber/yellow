@@ -1,0 +1,6366 @@
+{
+  "status": "PASS",
+  "rows": [
+    {
+      "seed": 1001,
+      "agent": "wait",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 19
+      }
+    },
+    {
+      "seed": 1001,
+      "agent": "wait",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 19
+      }
+    },
+    {
+      "seed": 1001,
+      "agent": "random",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 1,
+        "consumptions_by_position": {
+          "1,7": 1
+        },
+        "distinct_positions": 19,
+        "rejected_actions": {
+          "INVALID/BLOCKED_CELL": 4,
+          "INVALID/OUT_OF_BOUNDS": 19
+        },
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 19
+      }
+    },
+    {
+      "seed": 1001,
+      "agent": "random",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 1,
+        "consumptions_by_position": {
+          "1,7": 1
+        },
+        "distinct_positions": 19,
+        "rejected_actions": {
+          "INVALID/BLOCKED_CELL": 4,
+          "INVALID/OUT_OF_BOUNDS": 19
+        },
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 19
+      }
+    },
+    {
+      "seed": 1001,
+      "agent": "rule",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 19
+      }
+    },
+    {
+      "seed": 1001,
+      "agent": "rule",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 19
+      }
+    },
+    {
+      "seed": 1001,
+      "agent": "frontier_memory_v1",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 19,
+        "consumptions_by_position": {
+          "1,7": 1,
+          "10,10": 1,
+          "10,2": 1,
+          "10,9": 1,
+          "2,4": 1,
+          "2,5": 1,
+          "3,4": 1,
+          "4,1": 1,
+          "4,7": 1,
+          "5,0": 1,
+          "5,1": 1,
+          "5,2": 1,
+          "5,8": 1,
+          "6,11": 1,
+          "6,7": 1,
+          "7,10": 1,
+          "7,7": 1,
+          "9,6": 1,
+          "9,7": 1
+        },
+        "distinct_positions": 89,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 19
+      }
+    },
+    {
+      "seed": 1001,
+      "agent": "frontier_memory_v1",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 19,
+        "consumptions_by_position": {
+          "1,7": 1,
+          "10,10": 1,
+          "10,2": 1,
+          "10,9": 1,
+          "2,4": 1,
+          "2,5": 1,
+          "3,4": 1,
+          "4,1": 1,
+          "4,7": 1,
+          "5,0": 1,
+          "5,1": 1,
+          "5,2": 1,
+          "5,8": 1,
+          "6,11": 1,
+          "6,7": 1,
+          "7,10": 1,
+          "7,7": 1,
+          "9,6": 1,
+          "9,7": 1
+        },
+        "distinct_positions": 89,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 19
+      }
+    },
+    {
+      "seed": 1002,
+      "agent": "wait",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 18
+      }
+    },
+    {
+      "seed": 1002,
+      "agent": "wait",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 18
+      }
+    },
+    {
+      "seed": 1002,
+      "agent": "random",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 8,
+        "consumptions_by_position": {
+          "0,3": 1,
+          "1,0": 1,
+          "2,0": 1,
+          "3,1": 1,
+          "3,4": 1,
+          "4,5": 1,
+          "5,0": 1,
+          "5,2": 1
+        },
+        "distinct_positions": 45,
+        "rejected_actions": {
+          "INVALID/BLOCKED_CELL": 14,
+          "INVALID/OUT_OF_BOUNDS": 21
+        },
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 18
+      }
+    },
+    {
+      "seed": 1002,
+      "agent": "random",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 8,
+        "consumptions_by_position": {
+          "0,3": 1,
+          "1,0": 1,
+          "2,0": 1,
+          "3,1": 1,
+          "3,4": 1,
+          "4,5": 1,
+          "5,0": 1,
+          "5,2": 1
+        },
+        "distinct_positions": 45,
+        "rejected_actions": {
+          "INVALID/BLOCKED_CELL": 14,
+          "INVALID/OUT_OF_BOUNDS": 21
+        },
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 18
+      }
+    },
+    {
+      "seed": 1002,
+      "agent": "rule",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 18
+      }
+    },
+    {
+      "seed": 1002,
+      "agent": "rule",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 18
+      }
+    },
+    {
+      "seed": 1002,
+      "agent": "frontier_memory_v1",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 18,
+        "consumptions_by_position": {
+          "0,11": 1,
+          "0,3": 1,
+          "1,0": 1,
+          "1,3": 1,
+          "11,10": 1,
+          "2,0": 1,
+          "2,11": 1,
+          "3,1": 1,
+          "3,4": 1,
+          "4,10": 1,
+          "4,5": 1,
+          "5,0": 1,
+          "5,2": 1,
+          "5,7": 1,
+          "7,3": 1,
+          "8,2": 1,
+          "8,9": 1,
+          "9,3": 1
+        },
+        "distinct_positions": 90,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 18
+      }
+    },
+    {
+      "seed": 1002,
+      "agent": "frontier_memory_v1",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 18,
+        "consumptions_by_position": {
+          "0,11": 1,
+          "0,3": 1,
+          "1,0": 1,
+          "1,3": 1,
+          "11,10": 1,
+          "2,0": 1,
+          "2,11": 1,
+          "3,1": 1,
+          "3,4": 1,
+          "4,10": 1,
+          "4,5": 1,
+          "5,0": 1,
+          "5,2": 1,
+          "5,7": 1,
+          "7,3": 1,
+          "8,2": 1,
+          "8,9": 1,
+          "9,3": 1
+        },
+        "distinct_positions": 90,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 18
+      }
+    },
+    {
+      "seed": 1003,
+      "agent": "wait",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 14
+      }
+    },
+    {
+      "seed": 1003,
+      "agent": "wait",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 14
+      }
+    },
+    {
+      "seed": 1003,
+      "agent": "random",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 1,
+        "consumptions_by_position": {
+          "3,8": 1
+        },
+        "distinct_positions": 28,
+        "rejected_actions": {
+          "INVALID/BLOCKED_CELL": 17,
+          "INVALID/OUT_OF_BOUNDS": 8
+        },
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 14
+      }
+    },
+    {
+      "seed": 1003,
+      "agent": "random",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 1,
+        "consumptions_by_position": {
+          "3,8": 1
+        },
+        "distinct_positions": 28,
+        "rejected_actions": {
+          "INVALID/BLOCKED_CELL": 17,
+          "INVALID/OUT_OF_BOUNDS": 8
+        },
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 14
+      }
+    },
+    {
+      "seed": 1003,
+      "agent": "rule",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 14
+      }
+    },
+    {
+      "seed": 1003,
+      "agent": "rule",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 14
+      }
+    },
+    {
+      "seed": 1003,
+      "agent": "frontier_memory_v1",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 14,
+        "consumptions_by_position": {
+          "0,11": 1,
+          "10,0": 1,
+          "10,10": 1,
+          "10,2": 1,
+          "10,6": 1,
+          "11,7": 1,
+          "2,10": 1,
+          "3,8": 1,
+          "6,2": 1,
+          "6,4": 1,
+          "6,7": 1,
+          "7,10": 1,
+          "7,5": 1,
+          "9,3": 1
+        },
+        "distinct_positions": 79,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 14
+      }
+    },
+    {
+      "seed": 1003,
+      "agent": "frontier_memory_v1",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 14,
+        "consumptions_by_position": {
+          "0,11": 1,
+          "10,0": 1,
+          "10,10": 1,
+          "10,2": 1,
+          "10,6": 1,
+          "11,7": 1,
+          "2,10": 1,
+          "3,8": 1,
+          "6,2": 1,
+          "6,4": 1,
+          "6,7": 1,
+          "7,10": 1,
+          "7,5": 1,
+          "9,3": 1
+        },
+        "distinct_positions": 79,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 14
+      }
+    },
+    {
+      "seed": 1004,
+      "agent": "wait",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 9
+      }
+    },
+    {
+      "seed": 1004,
+      "agent": "wait",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 9
+      }
+    },
+    {
+      "seed": 1004,
+      "agent": "random",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 3,
+        "consumptions_by_position": {
+          "4,4": 1,
+          "6,0": 1,
+          "7,0": 1
+        },
+        "distinct_positions": 41,
+        "rejected_actions": {
+          "INVALID/BLOCKED_CELL": 8,
+          "INVALID/OUT_OF_BOUNDS": 16
+        },
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 9
+      }
+    },
+    {
+      "seed": 1004,
+      "agent": "random",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 3,
+        "consumptions_by_position": {
+          "4,4": 1,
+          "6,0": 1,
+          "7,0": 1
+        },
+        "distinct_positions": 41,
+        "rejected_actions": {
+          "INVALID/BLOCKED_CELL": 8,
+          "INVALID/OUT_OF_BOUNDS": 16
+        },
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 9
+      }
+    },
+    {
+      "seed": 1004,
+      "agent": "rule",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 9
+      }
+    },
+    {
+      "seed": 1004,
+      "agent": "rule",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 9
+      }
+    },
+    {
+      "seed": 1004,
+      "agent": "frontier_memory_v1",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 9,
+        "consumptions_by_position": {
+          "11,9": 1,
+          "3,7": 1,
+          "4,1": 1,
+          "4,4": 1,
+          "4,8": 1,
+          "6,0": 1,
+          "7,0": 1,
+          "8,9": 1,
+          "9,4": 1
+        },
+        "distinct_positions": 82,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 9
+      }
+    },
+    {
+      "seed": 1004,
+      "agent": "frontier_memory_v1",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 9,
+        "consumptions_by_position": {
+          "11,9": 1,
+          "3,7": 1,
+          "4,1": 1,
+          "4,4": 1,
+          "4,8": 1,
+          "6,0": 1,
+          "7,0": 1,
+          "8,9": 1,
+          "9,4": 1
+        },
+        "distinct_positions": 82,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 9
+      }
+    },
+    {
+      "seed": 1005,
+      "agent": "wait",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 8
+      }
+    },
+    {
+      "seed": 1005,
+      "agent": "wait",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 8
+      }
+    },
+    {
+      "seed": 1005,
+      "agent": "random",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 2,
+        "consumptions_by_position": {
+          "10,10": 1,
+          "10,7": 1
+        },
+        "distinct_positions": 42,
+        "rejected_actions": {
+          "INVALID/BLOCKED_CELL": 9,
+          "INVALID/OUT_OF_BOUNDS": 14
+        },
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 8
+      }
+    },
+    {
+      "seed": 1005,
+      "agent": "random",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 2,
+        "consumptions_by_position": {
+          "10,10": 1,
+          "10,7": 1
+        },
+        "distinct_positions": 42,
+        "rejected_actions": {
+          "INVALID/BLOCKED_CELL": 9,
+          "INVALID/OUT_OF_BOUNDS": 14
+        },
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 8
+      }
+    },
+    {
+      "seed": 1005,
+      "agent": "rule",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 1,
+        "consumptions_by_position": {
+          "10,7": 1
+        },
+        "distinct_positions": 2,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 8
+      }
+    },
+    {
+      "seed": 1005,
+      "agent": "rule",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 1,
+        "consumptions_by_position": {
+          "10,7": 1
+        },
+        "distinct_positions": 2,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 8
+      }
+    },
+    {
+      "seed": 1005,
+      "agent": "frontier_memory_v1",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 7,
+        "consumptions_by_position": {
+          "10,1": 1,
+          "10,10": 1,
+          "10,7": 1,
+          "3,2": 1,
+          "3,4": 1,
+          "6,5": 1,
+          "8,0": 1
+        },
+        "distinct_positions": 86,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 8
+      }
+    },
+    {
+      "seed": 1005,
+      "agent": "frontier_memory_v1",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 7,
+        "consumptions_by_position": {
+          "10,1": 1,
+          "10,10": 1,
+          "10,7": 1,
+          "3,2": 1,
+          "3,4": 1,
+          "6,5": 1,
+          "8,0": 1
+        },
+        "distinct_positions": 86,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 8
+      }
+    },
+    {
+      "seed": 1006,
+      "agent": "wait",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 14
+      }
+    },
+    {
+      "seed": 1006,
+      "agent": "wait",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 14
+      }
+    },
+    {
+      "seed": 1006,
+      "agent": "random",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 3,
+        "consumptions_by_position": {
+          "1,10": 1,
+          "3,6": 1,
+          "5,9": 1
+        },
+        "distinct_positions": 34,
+        "rejected_actions": {
+          "INVALID/BLOCKED_CELL": 9,
+          "INVALID/OUT_OF_BOUNDS": 10
+        },
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 14
+      }
+    },
+    {
+      "seed": 1006,
+      "agent": "random",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 3,
+        "consumptions_by_position": {
+          "1,10": 1,
+          "3,6": 1,
+          "5,9": 1
+        },
+        "distinct_positions": 34,
+        "rejected_actions": {
+          "INVALID/BLOCKED_CELL": 9,
+          "INVALID/OUT_OF_BOUNDS": 10
+        },
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 14
+      }
+    },
+    {
+      "seed": 1006,
+      "agent": "rule",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 1,
+        "consumptions_by_position": {
+          "5,9": 1
+        },
+        "distinct_positions": 2,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 14
+      }
+    },
+    {
+      "seed": 1006,
+      "agent": "rule",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 1,
+        "consumptions_by_position": {
+          "5,9": 1
+        },
+        "distinct_positions": 2,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 14
+      }
+    },
+    {
+      "seed": 1006,
+      "agent": "frontier_memory_v1",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 14,
+        "consumptions_by_position": {
+          "0,11": 1,
+          "1,10": 1,
+          "10,8": 1,
+          "11,0": 1,
+          "11,1": 1,
+          "11,4": 1,
+          "11,5": 1,
+          "2,0": 1,
+          "3,6": 1,
+          "5,9": 1,
+          "6,3": 1,
+          "7,10": 1,
+          "8,1": 1,
+          "8,5": 1
+        },
+        "distinct_positions": 76,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 14
+      }
+    },
+    {
+      "seed": 1006,
+      "agent": "frontier_memory_v1",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 14,
+        "consumptions_by_position": {
+          "0,11": 1,
+          "1,10": 1,
+          "10,8": 1,
+          "11,0": 1,
+          "11,1": 1,
+          "11,4": 1,
+          "11,5": 1,
+          "2,0": 1,
+          "3,6": 1,
+          "5,9": 1,
+          "6,3": 1,
+          "7,10": 1,
+          "8,1": 1,
+          "8,5": 1
+        },
+        "distinct_positions": 76,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 14
+      }
+    },
+    {
+      "seed": 1007,
+      "agent": "wait",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 14
+      }
+    },
+    {
+      "seed": 1007,
+      "agent": "wait",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 14
+      }
+    },
+    {
+      "seed": 1007,
+      "agent": "random",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 2,
+        "consumptions_by_position": {
+          "10,7": 1,
+          "11,6": 1
+        },
+        "distinct_positions": 15,
+        "rejected_actions": {
+          "INVALID/BLOCKED_CELL": 10,
+          "INVALID/OUT_OF_BOUNDS": 23
+        },
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 14
+      }
+    },
+    {
+      "seed": 1007,
+      "agent": "random",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 2,
+        "consumptions_by_position": {
+          "10,7": 1,
+          "11,6": 1
+        },
+        "distinct_positions": 15,
+        "rejected_actions": {
+          "INVALID/BLOCKED_CELL": 10,
+          "INVALID/OUT_OF_BOUNDS": 23
+        },
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 14
+      }
+    },
+    {
+      "seed": 1007,
+      "agent": "rule",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 14
+      }
+    },
+    {
+      "seed": 1007,
+      "agent": "rule",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 14
+      }
+    },
+    {
+      "seed": 1007,
+      "agent": "frontier_memory_v1",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 14,
+        "consumptions_by_position": {
+          "0,2": 1,
+          "0,9": 1,
+          "10,7": 1,
+          "11,2": 1,
+          "11,6": 1,
+          "2,1": 1,
+          "2,5": 1,
+          "4,10": 1,
+          "5,1": 1,
+          "5,5": 1,
+          "7,3": 1,
+          "7,6": 1,
+          "8,8": 1,
+          "9,0": 1
+        },
+        "distinct_positions": 85,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 14
+      }
+    },
+    {
+      "seed": 1007,
+      "agent": "frontier_memory_v1",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 14,
+        "consumptions_by_position": {
+          "0,2": 1,
+          "0,9": 1,
+          "10,7": 1,
+          "11,2": 1,
+          "11,6": 1,
+          "2,1": 1,
+          "2,5": 1,
+          "4,10": 1,
+          "5,1": 1,
+          "5,5": 1,
+          "7,3": 1,
+          "7,6": 1,
+          "8,8": 1,
+          "9,0": 1
+        },
+        "distinct_positions": 85,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 14
+      }
+    },
+    {
+      "seed": 1008,
+      "agent": "wait",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 16
+      }
+    },
+    {
+      "seed": 1008,
+      "agent": "wait",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 16
+      }
+    },
+    {
+      "seed": 1008,
+      "agent": "random",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 24,
+        "rejected_actions": {
+          "INVALID/BLOCKED_CELL": 21,
+          "INVALID/OUT_OF_BOUNDS": 21
+        },
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 16
+      }
+    },
+    {
+      "seed": 1008,
+      "agent": "random",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 24,
+        "rejected_actions": {
+          "INVALID/BLOCKED_CELL": 21,
+          "INVALID/OUT_OF_BOUNDS": 21
+        },
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 16
+      }
+    },
+    {
+      "seed": 1008,
+      "agent": "rule",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 16
+      }
+    },
+    {
+      "seed": 1008,
+      "agent": "rule",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 16
+      }
+    },
+    {
+      "seed": 1008,
+      "agent": "frontier_memory_v1",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 16,
+        "consumptions_by_position": {
+          "0,1": 1,
+          "0,4": 1,
+          "0,7": 1,
+          "0,9": 1,
+          "10,4": 1,
+          "10,5": 1,
+          "10,9": 1,
+          "11,6": 1,
+          "4,7": 1,
+          "5,2": 1,
+          "7,2": 1,
+          "7,5": 1,
+          "7,7": 1,
+          "8,3": 1,
+          "9,0": 1,
+          "9,5": 1
+        },
+        "distinct_positions": 79,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 16
+      }
+    },
+    {
+      "seed": 1008,
+      "agent": "frontier_memory_v1",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 16,
+        "consumptions_by_position": {
+          "0,1": 1,
+          "0,4": 1,
+          "0,7": 1,
+          "0,9": 1,
+          "10,4": 1,
+          "10,5": 1,
+          "10,9": 1,
+          "11,6": 1,
+          "4,7": 1,
+          "5,2": 1,
+          "7,2": 1,
+          "7,5": 1,
+          "7,7": 1,
+          "8,3": 1,
+          "9,0": 1,
+          "9,5": 1
+        },
+        "distinct_positions": 79,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 16
+      }
+    },
+    {
+      "seed": 1009,
+      "agent": "wait",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 12
+      }
+    },
+    {
+      "seed": 1009,
+      "agent": "wait",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 12
+      }
+    },
+    {
+      "seed": 1009,
+      "agent": "random",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 4,
+        "consumptions_by_position": {
+          "1,4": 1,
+          "1,5": 1,
+          "2,10": 1,
+          "6,11": 1
+        },
+        "distinct_positions": 31,
+        "rejected_actions": {
+          "INVALID/BLOCKED_CELL": 16,
+          "INVALID/OUT_OF_BOUNDS": 14
+        },
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 12
+      }
+    },
+    {
+      "seed": 1009,
+      "agent": "random",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 4,
+        "consumptions_by_position": {
+          "1,4": 1,
+          "1,5": 1,
+          "2,10": 1,
+          "6,11": 1
+        },
+        "distinct_positions": 31,
+        "rejected_actions": {
+          "INVALID/BLOCKED_CELL": 16,
+          "INVALID/OUT_OF_BOUNDS": 14
+        },
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 12
+      }
+    },
+    {
+      "seed": 1009,
+      "agent": "rule",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 12
+      }
+    },
+    {
+      "seed": 1009,
+      "agent": "rule",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 12
+      }
+    },
+    {
+      "seed": 1009,
+      "agent": "frontier_memory_v1",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 11,
+        "consumptions_by_position": {
+          "1,4": 1,
+          "1,5": 1,
+          "10,2": 1,
+          "2,10": 1,
+          "3,4": 1,
+          "3,6": 1,
+          "5,7": 1,
+          "6,11": 1,
+          "7,8": 1,
+          "8,6": 1,
+          "9,2": 1
+        },
+        "distinct_positions": 83,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 12
+      }
+    },
+    {
+      "seed": 1009,
+      "agent": "frontier_memory_v1",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 11,
+        "consumptions_by_position": {
+          "1,4": 1,
+          "1,5": 1,
+          "10,2": 1,
+          "2,10": 1,
+          "3,4": 1,
+          "3,6": 1,
+          "5,7": 1,
+          "6,11": 1,
+          "7,8": 1,
+          "8,6": 1,
+          "9,2": 1
+        },
+        "distinct_positions": 83,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 12
+      }
+    },
+    {
+      "seed": 1010,
+      "agent": "wait",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 9
+      }
+    },
+    {
+      "seed": 1010,
+      "agent": "wait",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 9
+      }
+    },
+    {
+      "seed": 1010,
+      "agent": "random",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 4,
+        "consumptions_by_position": {
+          "4,9": 1,
+          "7,7": 1,
+          "8,11": 1,
+          "8,7": 1
+        },
+        "distinct_positions": 27,
+        "rejected_actions": {
+          "INVALID/BLOCKED_CELL": 15,
+          "INVALID/OUT_OF_BOUNDS": 2
+        },
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 9
+      }
+    },
+    {
+      "seed": 1010,
+      "agent": "random",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 4,
+        "consumptions_by_position": {
+          "4,9": 1,
+          "7,7": 1,
+          "8,11": 1,
+          "8,7": 1
+        },
+        "distinct_positions": 27,
+        "rejected_actions": {
+          "INVALID/BLOCKED_CELL": 15,
+          "INVALID/OUT_OF_BOUNDS": 2
+        },
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 9
+      }
+    },
+    {
+      "seed": 1010,
+      "agent": "rule",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 9
+      }
+    },
+    {
+      "seed": 1010,
+      "agent": "rule",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 9
+      }
+    },
+    {
+      "seed": 1010,
+      "agent": "frontier_memory_v1",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 9,
+        "consumptions_by_position": {
+          "0,1": 1,
+          "10,0": 1,
+          "10,9": 1,
+          "4,9": 1,
+          "7,0": 1,
+          "7,7": 1,
+          "8,11": 1,
+          "8,7": 1,
+          "9,6": 1
+        },
+        "distinct_positions": 86,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 9
+      }
+    },
+    {
+      "seed": 1010,
+      "agent": "frontier_memory_v1",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 9,
+        "consumptions_by_position": {
+          "0,1": 1,
+          "10,0": 1,
+          "10,9": 1,
+          "4,9": 1,
+          "7,0": 1,
+          "7,7": 1,
+          "8,11": 1,
+          "8,7": 1,
+          "9,6": 1
+        },
+        "distinct_positions": 86,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 9
+      }
+    },
+    {
+      "seed": 1011,
+      "agent": "wait",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 16
+      }
+    },
+    {
+      "seed": 1011,
+      "agent": "wait",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 16
+      }
+    },
+    {
+      "seed": 1011,
+      "agent": "random",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 5,
+        "consumptions_by_position": {
+          "1,11": 1,
+          "2,8": 1,
+          "3,10": 1,
+          "4,8": 1,
+          "6,8": 1
+        },
+        "distinct_positions": 33,
+        "rejected_actions": {
+          "INVALID/BLOCKED_CELL": 13,
+          "INVALID/OUT_OF_BOUNDS": 9
+        },
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 16
+      }
+    },
+    {
+      "seed": 1011,
+      "agent": "random",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 5,
+        "consumptions_by_position": {
+          "1,11": 1,
+          "2,8": 1,
+          "3,10": 1,
+          "4,8": 1,
+          "6,8": 1
+        },
+        "distinct_positions": 33,
+        "rejected_actions": {
+          "INVALID/BLOCKED_CELL": 13,
+          "INVALID/OUT_OF_BOUNDS": 9
+        },
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 16
+      }
+    },
+    {
+      "seed": 1011,
+      "agent": "rule",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 16
+      }
+    },
+    {
+      "seed": 1011,
+      "agent": "rule",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 16
+      }
+    },
+    {
+      "seed": 1011,
+      "agent": "frontier_memory_v1",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 16,
+        "consumptions_by_position": {
+          "0,2": 1,
+          "0,4": 1,
+          "1,11": 1,
+          "1,4": 1,
+          "10,3": 1,
+          "10,8": 1,
+          "11,10": 1,
+          "2,8": 1,
+          "3,0": 1,
+          "3,10": 1,
+          "3,4": 1,
+          "4,8": 1,
+          "6,10": 1,
+          "6,3": 1,
+          "6,8": 1,
+          "7,0": 1
+        },
+        "distinct_positions": 84,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 16
+      }
+    },
+    {
+      "seed": 1011,
+      "agent": "frontier_memory_v1",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 16,
+        "consumptions_by_position": {
+          "0,2": 1,
+          "0,4": 1,
+          "1,11": 1,
+          "1,4": 1,
+          "10,3": 1,
+          "10,8": 1,
+          "11,10": 1,
+          "2,8": 1,
+          "3,0": 1,
+          "3,10": 1,
+          "3,4": 1,
+          "4,8": 1,
+          "6,10": 1,
+          "6,3": 1,
+          "6,8": 1,
+          "7,0": 1
+        },
+        "distinct_positions": 84,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 16
+      }
+    },
+    {
+      "seed": 1012,
+      "agent": "wait",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 15
+      }
+    },
+    {
+      "seed": 1012,
+      "agent": "wait",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 15
+      }
+    },
+    {
+      "seed": 1012,
+      "agent": "random",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 2,
+        "consumptions_by_position": {
+          "11,8": 1,
+          "11,9": 1
+        },
+        "distinct_positions": 28,
+        "rejected_actions": {
+          "INVALID/BLOCKED_CELL": 27,
+          "INVALID/OUT_OF_BOUNDS": 3
+        },
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 15
+      }
+    },
+    {
+      "seed": 1012,
+      "agent": "random",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 2,
+        "consumptions_by_position": {
+          "11,8": 1,
+          "11,9": 1
+        },
+        "distinct_positions": 28,
+        "rejected_actions": {
+          "INVALID/BLOCKED_CELL": 27,
+          "INVALID/OUT_OF_BOUNDS": 3
+        },
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 15
+      }
+    },
+    {
+      "seed": 1012,
+      "agent": "rule",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 15
+      }
+    },
+    {
+      "seed": 1012,
+      "agent": "rule",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 15
+      }
+    },
+    {
+      "seed": 1012,
+      "agent": "frontier_memory_v1",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 15,
+        "consumptions_by_position": {
+          "0,1": 1,
+          "0,6": 1,
+          "0,9": 1,
+          "1,7": 1,
+          "11,8": 1,
+          "11,9": 1,
+          "2,1": 1,
+          "2,9": 1,
+          "3,6": 1,
+          "4,11": 1,
+          "4,3": 1,
+          "5,0": 1,
+          "7,1": 1,
+          "7,11": 1,
+          "8,3": 1
+        },
+        "distinct_positions": 84,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 15
+      }
+    },
+    {
+      "seed": 1012,
+      "agent": "frontier_memory_v1",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 15,
+        "consumptions_by_position": {
+          "0,1": 1,
+          "0,6": 1,
+          "0,9": 1,
+          "1,7": 1,
+          "11,8": 1,
+          "11,9": 1,
+          "2,1": 1,
+          "2,9": 1,
+          "3,6": 1,
+          "4,11": 1,
+          "4,3": 1,
+          "5,0": 1,
+          "7,1": 1,
+          "7,11": 1,
+          "8,3": 1
+        },
+        "distinct_positions": 84,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 15
+      }
+    },
+    {
+      "seed": 1013,
+      "agent": "wait",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 16
+      }
+    },
+    {
+      "seed": 1013,
+      "agent": "wait",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 16
+      }
+    },
+    {
+      "seed": 1013,
+      "agent": "random",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 3,
+        "consumptions_by_position": {
+          "10,10": 1,
+          "4,11": 1,
+          "9,10": 1
+        },
+        "distinct_positions": 23,
+        "rejected_actions": {
+          "INVALID/BLOCKED_CELL": 20,
+          "INVALID/OUT_OF_BOUNDS": 22
+        },
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 16
+      }
+    },
+    {
+      "seed": 1013,
+      "agent": "random",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 3,
+        "consumptions_by_position": {
+          "10,10": 1,
+          "4,11": 1,
+          "9,10": 1
+        },
+        "distinct_positions": 23,
+        "rejected_actions": {
+          "INVALID/BLOCKED_CELL": 20,
+          "INVALID/OUT_OF_BOUNDS": 22
+        },
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 16
+      }
+    },
+    {
+      "seed": 1013,
+      "agent": "rule",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 16
+      }
+    },
+    {
+      "seed": 1013,
+      "agent": "rule",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 16
+      }
+    },
+    {
+      "seed": 1013,
+      "agent": "frontier_memory_v1",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 16,
+        "consumptions_by_position": {
+          "0,11": 1,
+          "0,8": 1,
+          "10,10": 1,
+          "2,8": 1,
+          "3,8": 1,
+          "3,9": 1,
+          "4,11": 1,
+          "4,5": 1,
+          "5,4": 1,
+          "6,2": 1,
+          "6,4": 1,
+          "7,6": 1,
+          "8,3": 1,
+          "9,10": 1,
+          "9,4": 1,
+          "9,6": 1
+        },
+        "distinct_positions": 84,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 16
+      }
+    },
+    {
+      "seed": 1013,
+      "agent": "frontier_memory_v1",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 16,
+        "consumptions_by_position": {
+          "0,11": 1,
+          "0,8": 1,
+          "10,10": 1,
+          "2,8": 1,
+          "3,8": 1,
+          "3,9": 1,
+          "4,11": 1,
+          "4,5": 1,
+          "5,4": 1,
+          "6,2": 1,
+          "6,4": 1,
+          "7,6": 1,
+          "8,3": 1,
+          "9,10": 1,
+          "9,4": 1,
+          "9,6": 1
+        },
+        "distinct_positions": 84,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 16
+      }
+    },
+    {
+      "seed": 1014,
+      "agent": "wait",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 15
+      }
+    },
+    {
+      "seed": 1014,
+      "agent": "wait",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 15
+      }
+    },
+    {
+      "seed": 1014,
+      "agent": "random",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 5,
+        "consumptions_by_position": {
+          "4,0": 1,
+          "5,3": 1,
+          "6,6": 1,
+          "7,5": 1,
+          "8,5": 1
+        },
+        "distinct_positions": 33,
+        "rejected_actions": {
+          "INVALID/BLOCKED_CELL": 5,
+          "INVALID/OUT_OF_BOUNDS": 7
+        },
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 15
+      }
+    },
+    {
+      "seed": 1014,
+      "agent": "random",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 5,
+        "consumptions_by_position": {
+          "4,0": 1,
+          "5,3": 1,
+          "6,6": 1,
+          "7,5": 1,
+          "8,5": 1
+        },
+        "distinct_positions": 33,
+        "rejected_actions": {
+          "INVALID/BLOCKED_CELL": 5,
+          "INVALID/OUT_OF_BOUNDS": 7
+        },
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 15
+      }
+    },
+    {
+      "seed": 1014,
+      "agent": "rule",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 1,
+        "consumptions_by_position": {
+          "4,0": 1
+        },
+        "distinct_positions": 2,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 15
+      }
+    },
+    {
+      "seed": 1014,
+      "agent": "rule",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 1,
+        "consumptions_by_position": {
+          "4,0": 1
+        },
+        "distinct_positions": 2,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 15
+      }
+    },
+    {
+      "seed": 1014,
+      "agent": "frontier_memory_v1",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 15,
+        "consumptions_by_position": {
+          "0,4": 1,
+          "1,4": 1,
+          "4,0": 1,
+          "5,3": 1,
+          "6,0": 1,
+          "6,2": 1,
+          "6,6": 1,
+          "7,1": 1,
+          "7,5": 1,
+          "7,9": 1,
+          "8,1": 1,
+          "8,11": 1,
+          "8,5": 1,
+          "9,0": 1,
+          "9,2": 1
+        },
+        "distinct_positions": 79,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 15
+      }
+    },
+    {
+      "seed": 1014,
+      "agent": "frontier_memory_v1",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 15,
+        "consumptions_by_position": {
+          "0,4": 1,
+          "1,4": 1,
+          "4,0": 1,
+          "5,3": 1,
+          "6,0": 1,
+          "6,2": 1,
+          "6,6": 1,
+          "7,1": 1,
+          "7,5": 1,
+          "7,9": 1,
+          "8,1": 1,
+          "8,11": 1,
+          "8,5": 1,
+          "9,0": 1,
+          "9,2": 1
+        },
+        "distinct_positions": 79,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 15
+      }
+    },
+    {
+      "seed": 1015,
+      "agent": "wait",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 12
+      }
+    },
+    {
+      "seed": 1015,
+      "agent": "wait",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 12
+      }
+    },
+    {
+      "seed": 1015,
+      "agent": "random",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 30,
+        "rejected_actions": {
+          "INVALID/BLOCKED_CELL": 12,
+          "INVALID/OUT_OF_BOUNDS": 16
+        },
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 12
+      }
+    },
+    {
+      "seed": 1015,
+      "agent": "random",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 30,
+        "rejected_actions": {
+          "INVALID/BLOCKED_CELL": 12,
+          "INVALID/OUT_OF_BOUNDS": 16
+        },
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 12
+      }
+    },
+    {
+      "seed": 1015,
+      "agent": "rule",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 12
+      }
+    },
+    {
+      "seed": 1015,
+      "agent": "rule",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 12
+      }
+    },
+    {
+      "seed": 1015,
+      "agent": "frontier_memory_v1",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 12,
+        "consumptions_by_position": {
+          "0,11": 1,
+          "0,7": 1,
+          "10,3": 1,
+          "11,2": 1,
+          "11,3": 1,
+          "2,6": 1,
+          "6,7": 1,
+          "7,11": 1,
+          "7,7": 1,
+          "9,5": 1,
+          "9,6": 1,
+          "9,8": 1
+        },
+        "distinct_positions": 93,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 12
+      }
+    },
+    {
+      "seed": 1015,
+      "agent": "frontier_memory_v1",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 12,
+        "consumptions_by_position": {
+          "0,11": 1,
+          "0,7": 1,
+          "10,3": 1,
+          "11,2": 1,
+          "11,3": 1,
+          "2,6": 1,
+          "6,7": 1,
+          "7,11": 1,
+          "7,7": 1,
+          "9,5": 1,
+          "9,6": 1,
+          "9,8": 1
+        },
+        "distinct_positions": 93,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 12
+      }
+    },
+    {
+      "seed": 1016,
+      "agent": "wait",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 18
+      }
+    },
+    {
+      "seed": 1016,
+      "agent": "wait",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 18
+      }
+    },
+    {
+      "seed": 1016,
+      "agent": "random",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 3,
+        "consumptions_by_position": {
+          "2,2": 1,
+          "4,1": 1,
+          "5,0": 1
+        },
+        "distinct_positions": 15,
+        "rejected_actions": {
+          "INVALID/BLOCKED_CELL": 13,
+          "INVALID/OUT_OF_BOUNDS": 17
+        },
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 18
+      }
+    },
+    {
+      "seed": 1016,
+      "agent": "random",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 3,
+        "consumptions_by_position": {
+          "2,2": 1,
+          "4,1": 1,
+          "5,0": 1
+        },
+        "distinct_positions": 15,
+        "rejected_actions": {
+          "INVALID/BLOCKED_CELL": 13,
+          "INVALID/OUT_OF_BOUNDS": 17
+        },
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 18
+      }
+    },
+    {
+      "seed": 1016,
+      "agent": "rule",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 18
+      }
+    },
+    {
+      "seed": 1016,
+      "agent": "rule",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 18
+      }
+    },
+    {
+      "seed": 1016,
+      "agent": "frontier_memory_v1",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 18,
+        "consumptions_by_position": {
+          "1,10": 1,
+          "10,0": 1,
+          "10,7": 1,
+          "11,3": 1,
+          "2,2": 1,
+          "3,9": 1,
+          "4,1": 1,
+          "5,0": 1,
+          "5,5": 1,
+          "5,7": 1,
+          "7,0": 1,
+          "7,3": 1,
+          "7,5": 1,
+          "7,8": 1,
+          "7,9": 1,
+          "9,0": 1,
+          "9,11": 1,
+          "9,3": 1
+        },
+        "distinct_positions": 85,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 18
+      }
+    },
+    {
+      "seed": 1016,
+      "agent": "frontier_memory_v1",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 18,
+        "consumptions_by_position": {
+          "1,10": 1,
+          "10,0": 1,
+          "10,7": 1,
+          "11,3": 1,
+          "2,2": 1,
+          "3,9": 1,
+          "4,1": 1,
+          "5,0": 1,
+          "5,5": 1,
+          "5,7": 1,
+          "7,0": 1,
+          "7,3": 1,
+          "7,5": 1,
+          "7,8": 1,
+          "7,9": 1,
+          "9,0": 1,
+          "9,11": 1,
+          "9,3": 1
+        },
+        "distinct_positions": 85,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 18
+      }
+    },
+    {
+      "seed": 1017,
+      "agent": "wait",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 23
+      }
+    },
+    {
+      "seed": 1017,
+      "agent": "wait",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 23
+      }
+    },
+    {
+      "seed": 1017,
+      "agent": "random",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 4,
+        "consumptions_by_position": {
+          "0,6": 1,
+          "1,11": 1,
+          "2,9": 1,
+          "3,9": 1
+        },
+        "distinct_positions": 25,
+        "rejected_actions": {
+          "INVALID/BLOCKED_CELL": 11,
+          "INVALID/OUT_OF_BOUNDS": 11
+        },
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 23
+      }
+    },
+    {
+      "seed": 1017,
+      "agent": "random",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 4,
+        "consumptions_by_position": {
+          "0,6": 1,
+          "1,11": 1,
+          "2,9": 1,
+          "3,9": 1
+        },
+        "distinct_positions": 25,
+        "rejected_actions": {
+          "INVALID/BLOCKED_CELL": 11,
+          "INVALID/OUT_OF_BOUNDS": 11
+        },
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 23
+      }
+    },
+    {
+      "seed": 1017,
+      "agent": "rule",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 23
+      }
+    },
+    {
+      "seed": 1017,
+      "agent": "rule",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 23
+      }
+    },
+    {
+      "seed": 1017,
+      "agent": "frontier_memory_v1",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 23,
+        "consumptions_by_position": {
+          "0,6": 1,
+          "1,11": 1,
+          "10,6": 1,
+          "10,9": 1,
+          "11,0": 1,
+          "11,11": 1,
+          "11,4": 1,
+          "2,0": 1,
+          "2,9": 1,
+          "3,2": 1,
+          "3,9": 1,
+          "4,1": 1,
+          "4,10": 1,
+          "4,5": 1,
+          "4,9": 1,
+          "6,0": 1,
+          "7,0": 1,
+          "7,11": 1,
+          "7,4": 1,
+          "7,8": 1,
+          "8,4": 1,
+          "9,11": 1,
+          "9,8": 1
+        },
+        "distinct_positions": 87,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 23
+      }
+    },
+    {
+      "seed": 1017,
+      "agent": "frontier_memory_v1",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 23,
+        "consumptions_by_position": {
+          "0,6": 1,
+          "1,11": 1,
+          "10,6": 1,
+          "10,9": 1,
+          "11,0": 1,
+          "11,11": 1,
+          "11,4": 1,
+          "2,0": 1,
+          "2,9": 1,
+          "3,2": 1,
+          "3,9": 1,
+          "4,1": 1,
+          "4,10": 1,
+          "4,5": 1,
+          "4,9": 1,
+          "6,0": 1,
+          "7,0": 1,
+          "7,11": 1,
+          "7,4": 1,
+          "7,8": 1,
+          "8,4": 1,
+          "9,11": 1,
+          "9,8": 1
+        },
+        "distinct_positions": 87,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 23
+      }
+    },
+    {
+      "seed": 1018,
+      "agent": "wait",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 13
+      }
+    },
+    {
+      "seed": 1018,
+      "agent": "wait",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 13
+      }
+    },
+    {
+      "seed": 1018,
+      "agent": "random",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 3,
+        "consumptions_by_position": {
+          "6,0": 1,
+          "9,4": 1,
+          "9,6": 1
+        },
+        "distinct_positions": 43,
+        "rejected_actions": {
+          "INVALID/BLOCKED_CELL": 19,
+          "INVALID/OUT_OF_BOUNDS": 3
+        },
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 13
+      }
+    },
+    {
+      "seed": 1018,
+      "agent": "random",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 3,
+        "consumptions_by_position": {
+          "6,0": 1,
+          "9,4": 1,
+          "9,6": 1
+        },
+        "distinct_positions": 43,
+        "rejected_actions": {
+          "INVALID/BLOCKED_CELL": 19,
+          "INVALID/OUT_OF_BOUNDS": 3
+        },
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 13
+      }
+    },
+    {
+      "seed": 1018,
+      "agent": "rule",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 13
+      }
+    },
+    {
+      "seed": 1018,
+      "agent": "rule",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 13
+      }
+    },
+    {
+      "seed": 1018,
+      "agent": "frontier_memory_v1",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 13,
+        "consumptions_by_position": {
+          "10,9": 1,
+          "11,1": 1,
+          "3,1": 1,
+          "3,2": 1,
+          "3,6": 1,
+          "4,11": 1,
+          "5,4": 1,
+          "5,9": 1,
+          "6,0": 1,
+          "8,10": 1,
+          "8,9": 1,
+          "9,4": 1,
+          "9,6": 1
+        },
+        "distinct_positions": 79,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 13
+      }
+    },
+    {
+      "seed": 1018,
+      "agent": "frontier_memory_v1",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 13,
+        "consumptions_by_position": {
+          "10,9": 1,
+          "11,1": 1,
+          "3,1": 1,
+          "3,2": 1,
+          "3,6": 1,
+          "4,11": 1,
+          "5,4": 1,
+          "5,9": 1,
+          "6,0": 1,
+          "8,10": 1,
+          "8,9": 1,
+          "9,4": 1,
+          "9,6": 1
+        },
+        "distinct_positions": 79,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 13
+      }
+    },
+    {
+      "seed": 1019,
+      "agent": "wait",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 16
+      }
+    },
+    {
+      "seed": 1019,
+      "agent": "wait",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 16
+      }
+    },
+    {
+      "seed": 1019,
+      "agent": "random",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 4,
+        "consumptions_by_position": {
+          "2,11": 1,
+          "3,11": 1,
+          "4,8": 1,
+          "6,11": 1
+        },
+        "distinct_positions": 29,
+        "rejected_actions": {
+          "INVALID/BLOCKED_CELL": 16,
+          "INVALID/OUT_OF_BOUNDS": 7
+        },
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 16
+      }
+    },
+    {
+      "seed": 1019,
+      "agent": "random",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 4,
+        "consumptions_by_position": {
+          "2,11": 1,
+          "3,11": 1,
+          "4,8": 1,
+          "6,11": 1
+        },
+        "distinct_positions": 29,
+        "rejected_actions": {
+          "INVALID/BLOCKED_CELL": 16,
+          "INVALID/OUT_OF_BOUNDS": 7
+        },
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 16
+      }
+    },
+    {
+      "seed": 1019,
+      "agent": "rule",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 1,
+        "consumptions_by_position": {
+          "1,7": 1
+        },
+        "distinct_positions": 2,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 16
+      }
+    },
+    {
+      "seed": 1019,
+      "agent": "rule",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 1,
+        "consumptions_by_position": {
+          "1,7": 1
+        },
+        "distinct_positions": 2,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 16
+      }
+    },
+    {
+      "seed": 1019,
+      "agent": "frontier_memory_v1",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 15,
+        "consumptions_by_position": {
+          "0,4": 1,
+          "0,5": 1,
+          "1,7": 1,
+          "10,5": 1,
+          "11,3": 1,
+          "2,11": 1,
+          "3,11": 1,
+          "4,3": 1,
+          "4,5": 1,
+          "4,6": 1,
+          "4,8": 1,
+          "5,6": 1,
+          "5,7": 1,
+          "6,11": 1,
+          "7,8": 1
+        },
+        "distinct_positions": 76,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 16
+      }
+    },
+    {
+      "seed": 1019,
+      "agent": "frontier_memory_v1",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 15,
+        "consumptions_by_position": {
+          "0,4": 1,
+          "0,5": 1,
+          "1,7": 1,
+          "10,5": 1,
+          "11,3": 1,
+          "2,11": 1,
+          "3,11": 1,
+          "4,3": 1,
+          "4,5": 1,
+          "4,6": 1,
+          "4,8": 1,
+          "5,6": 1,
+          "5,7": 1,
+          "6,11": 1,
+          "7,8": 1
+        },
+        "distinct_positions": 76,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 16
+      }
+    },
+    {
+      "seed": 1020,
+      "agent": "wait",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 8
+      }
+    },
+    {
+      "seed": 1020,
+      "agent": "wait",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 8
+      }
+    },
+    {
+      "seed": 1020,
+      "agent": "random",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 2,
+        "consumptions_by_position": {
+          "0,3": 1,
+          "1,3": 1
+        },
+        "distinct_positions": 13,
+        "rejected_actions": {
+          "INVALID/BLOCKED_CELL": 10,
+          "INVALID/OUT_OF_BOUNDS": 16
+        },
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 8
+      }
+    },
+    {
+      "seed": 1020,
+      "agent": "random",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 2,
+        "consumptions_by_position": {
+          "0,3": 1,
+          "1,3": 1
+        },
+        "distinct_positions": 13,
+        "rejected_actions": {
+          "INVALID/BLOCKED_CELL": 10,
+          "INVALID/OUT_OF_BOUNDS": 16
+        },
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 8
+      }
+    },
+    {
+      "seed": 1020,
+      "agent": "rule",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 2,
+        "consumptions_by_position": {
+          "0,3": 1,
+          "1,3": 1
+        },
+        "distinct_positions": 3,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 8
+      }
+    },
+    {
+      "seed": 1020,
+      "agent": "rule",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 2,
+        "consumptions_by_position": {
+          "0,3": 1,
+          "1,3": 1
+        },
+        "distinct_positions": 3,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 8
+      }
+    },
+    {
+      "seed": 1020,
+      "agent": "frontier_memory_v1",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 8,
+        "consumptions_by_position": {
+          "0,3": 1,
+          "1,3": 1,
+          "10,8": 1,
+          "11,9": 1,
+          "3,10": 1,
+          "4,9": 1,
+          "5,8": 1,
+          "9,11": 1
+        },
+        "distinct_positions": 83,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 8
+      }
+    },
+    {
+      "seed": 1020,
+      "agent": "frontier_memory_v1",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 8,
+        "consumptions_by_position": {
+          "0,3": 1,
+          "1,3": 1,
+          "10,8": 1,
+          "11,9": 1,
+          "3,10": 1,
+          "4,9": 1,
+          "5,8": 1,
+          "9,11": 1
+        },
+        "distinct_positions": 83,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 8
+      }
+    },
+    {
+      "seed": 1021,
+      "agent": "wait",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 13
+      }
+    },
+    {
+      "seed": 1021,
+      "agent": "wait",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 13
+      }
+    },
+    {
+      "seed": 1021,
+      "agent": "random",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 7,
+        "consumptions_by_position": {
+          "1,1": 1,
+          "1,5": 1,
+          "3,4": 1,
+          "6,3": 1,
+          "7,4": 1,
+          "8,3": 1,
+          "9,4": 1
+        },
+        "distinct_positions": 34,
+        "rejected_actions": {
+          "INVALID/BLOCKED_CELL": 8,
+          "INVALID/OUT_OF_BOUNDS": 17
+        },
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 13
+      }
+    },
+    {
+      "seed": 1021,
+      "agent": "random",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 7,
+        "consumptions_by_position": {
+          "1,1": 1,
+          "1,5": 1,
+          "3,4": 1,
+          "6,3": 1,
+          "7,4": 1,
+          "8,3": 1,
+          "9,4": 1
+        },
+        "distinct_positions": 34,
+        "rejected_actions": {
+          "INVALID/BLOCKED_CELL": 8,
+          "INVALID/OUT_OF_BOUNDS": 17
+        },
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 13
+      }
+    },
+    {
+      "seed": 1021,
+      "agent": "rule",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 13
+      }
+    },
+    {
+      "seed": 1021,
+      "agent": "rule",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 13
+      }
+    },
+    {
+      "seed": 1021,
+      "agent": "frontier_memory_v1",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 13,
+        "consumptions_by_position": {
+          "0,10": 1,
+          "1,1": 1,
+          "1,5": 1,
+          "10,10": 1,
+          "2,6": 1,
+          "3,4": 1,
+          "6,3": 1,
+          "6,5": 1,
+          "7,11": 1,
+          "7,4": 1,
+          "8,3": 1,
+          "8,9": 1,
+          "9,4": 1
+        },
+        "distinct_positions": 82,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 13
+      }
+    },
+    {
+      "seed": 1021,
+      "agent": "frontier_memory_v1",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 13,
+        "consumptions_by_position": {
+          "0,10": 1,
+          "1,1": 1,
+          "1,5": 1,
+          "10,10": 1,
+          "2,6": 1,
+          "3,4": 1,
+          "6,3": 1,
+          "6,5": 1,
+          "7,11": 1,
+          "7,4": 1,
+          "8,3": 1,
+          "8,9": 1,
+          "9,4": 1
+        },
+        "distinct_positions": 82,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 13
+      }
+    },
+    {
+      "seed": 1022,
+      "agent": "wait",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 19
+      }
+    },
+    {
+      "seed": 1022,
+      "agent": "wait",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 19
+      }
+    },
+    {
+      "seed": 1022,
+      "agent": "random",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 4,
+        "consumptions_by_position": {
+          "10,5": 1,
+          "7,5": 1,
+          "7,6": 1,
+          "9,11": 1
+        },
+        "distinct_positions": 26,
+        "rejected_actions": {
+          "INVALID/BLOCKED_CELL": 16,
+          "INVALID/OUT_OF_BOUNDS": 3
+        },
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 19
+      }
+    },
+    {
+      "seed": 1022,
+      "agent": "random",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 4,
+        "consumptions_by_position": {
+          "10,5": 1,
+          "7,5": 1,
+          "7,6": 1,
+          "9,11": 1
+        },
+        "distinct_positions": 26,
+        "rejected_actions": {
+          "INVALID/BLOCKED_CELL": 16,
+          "INVALID/OUT_OF_BOUNDS": 3
+        },
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 19
+      }
+    },
+    {
+      "seed": 1022,
+      "agent": "rule",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 1,
+        "consumptions_by_position": {
+          "9,11": 1
+        },
+        "distinct_positions": 2,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 19
+      }
+    },
+    {
+      "seed": 1022,
+      "agent": "rule",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 1,
+        "consumptions_by_position": {
+          "9,11": 1
+        },
+        "distinct_positions": 2,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 19
+      }
+    },
+    {
+      "seed": 1022,
+      "agent": "frontier_memory_v1",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 19,
+        "consumptions_by_position": {
+          "0,3": 1,
+          "1,11": 1,
+          "1,6": 1,
+          "10,5": 1,
+          "11,9": 1,
+          "2,3": 1,
+          "3,3": 1,
+          "3,9": 1,
+          "4,4": 1,
+          "4,6": 1,
+          "4,7": 1,
+          "5,4": 1,
+          "6,0": 1,
+          "6,3": 1,
+          "7,1": 1,
+          "7,5": 1,
+          "7,6": 1,
+          "8,0": 1,
+          "9,11": 1
+        },
+        "distinct_positions": 86,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 19
+      }
+    },
+    {
+      "seed": 1022,
+      "agent": "frontier_memory_v1",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 19,
+        "consumptions_by_position": {
+          "0,3": 1,
+          "1,11": 1,
+          "1,6": 1,
+          "10,5": 1,
+          "11,9": 1,
+          "2,3": 1,
+          "3,3": 1,
+          "3,9": 1,
+          "4,4": 1,
+          "4,6": 1,
+          "4,7": 1,
+          "5,4": 1,
+          "6,0": 1,
+          "6,3": 1,
+          "7,1": 1,
+          "7,5": 1,
+          "7,6": 1,
+          "8,0": 1,
+          "9,11": 1
+        },
+        "distinct_positions": 86,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 19
+      }
+    },
+    {
+      "seed": 1023,
+      "agent": "wait",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 22
+      }
+    },
+    {
+      "seed": 1023,
+      "agent": "wait",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 22
+      }
+    },
+    {
+      "seed": 1023,
+      "agent": "random",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 2,
+        "consumptions_by_position": {
+          "10,6": 1,
+          "9,1": 1
+        },
+        "distinct_positions": 22,
+        "rejected_actions": {
+          "INVALID/BLOCKED_CELL": 37,
+          "INVALID/OUT_OF_BOUNDS": 15
+        },
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 22
+      }
+    },
+    {
+      "seed": 1023,
+      "agent": "random",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 2,
+        "consumptions_by_position": {
+          "10,6": 1,
+          "9,1": 1
+        },
+        "distinct_positions": 22,
+        "rejected_actions": {
+          "INVALID/BLOCKED_CELL": 37,
+          "INVALID/OUT_OF_BOUNDS": 15
+        },
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 22
+      }
+    },
+    {
+      "seed": 1023,
+      "agent": "rule",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 22
+      }
+    },
+    {
+      "seed": 1023,
+      "agent": "rule",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 22
+      }
+    },
+    {
+      "seed": 1023,
+      "agent": "frontier_memory_v1",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 22,
+        "consumptions_by_position": {
+          "0,2": 1,
+          "0,6": 1,
+          "0,8": 1,
+          "1,8": 1,
+          "10,10": 1,
+          "10,6": 1,
+          "11,11": 1,
+          "3,11": 1,
+          "3,5": 1,
+          "4,1": 1,
+          "4,9": 1,
+          "5,10": 1,
+          "6,2": 1,
+          "6,7": 1,
+          "6,8": 1,
+          "7,1": 1,
+          "7,7": 1,
+          "7,8": 1,
+          "8,1": 1,
+          "8,10": 1,
+          "9,1": 1,
+          "9,7": 1
+        },
+        "distinct_positions": 89,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 22
+      }
+    },
+    {
+      "seed": 1023,
+      "agent": "frontier_memory_v1",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 22,
+        "consumptions_by_position": {
+          "0,2": 1,
+          "0,6": 1,
+          "0,8": 1,
+          "1,8": 1,
+          "10,10": 1,
+          "10,6": 1,
+          "11,11": 1,
+          "3,11": 1,
+          "3,5": 1,
+          "4,1": 1,
+          "4,9": 1,
+          "5,10": 1,
+          "6,2": 1,
+          "6,7": 1,
+          "6,8": 1,
+          "7,1": 1,
+          "7,7": 1,
+          "7,8": 1,
+          "8,1": 1,
+          "8,10": 1,
+          "9,1": 1,
+          "9,7": 1
+        },
+        "distinct_positions": 89,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 22
+      }
+    },
+    {
+      "seed": 1024,
+      "agent": "wait",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 17
+      }
+    },
+    {
+      "seed": 1024,
+      "agent": "wait",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 17
+      }
+    },
+    {
+      "seed": 1024,
+      "agent": "random",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 6,
+        "consumptions_by_position": {
+          "4,3": 1,
+          "4,4": 1,
+          "5,1": 1,
+          "5,3": 1,
+          "7,1": 1,
+          "7,3": 1
+        },
+        "distinct_positions": 27,
+        "rejected_actions": {
+          "INVALID/BLOCKED_CELL": 19,
+          "INVALID/OUT_OF_BOUNDS": 6
+        },
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 17
+      }
+    },
+    {
+      "seed": 1024,
+      "agent": "random",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 6,
+        "consumptions_by_position": {
+          "4,3": 1,
+          "4,4": 1,
+          "5,1": 1,
+          "5,3": 1,
+          "7,1": 1,
+          "7,3": 1
+        },
+        "distinct_positions": 27,
+        "rejected_actions": {
+          "INVALID/BLOCKED_CELL": 19,
+          "INVALID/OUT_OF_BOUNDS": 6
+        },
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 17
+      }
+    },
+    {
+      "seed": 1024,
+      "agent": "rule",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 17
+      }
+    },
+    {
+      "seed": 1024,
+      "agent": "rule",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 17
+      }
+    },
+    {
+      "seed": 1024,
+      "agent": "frontier_memory_v1",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 17,
+        "consumptions_by_position": {
+          "1,4": 1,
+          "1,5": 1,
+          "10,6": 1,
+          "11,0": 1,
+          "2,2": 1,
+          "4,3": 1,
+          "4,4": 1,
+          "5,1": 1,
+          "5,3": 1,
+          "5,6": 1,
+          "6,10": 1,
+          "6,11": 1,
+          "6,9": 1,
+          "7,1": 1,
+          "7,3": 1,
+          "8,9": 1,
+          "9,7": 1
+        },
+        "distinct_positions": 81,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 17
+      }
+    },
+    {
+      "seed": 1024,
+      "agent": "frontier_memory_v1",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 17,
+        "consumptions_by_position": {
+          "1,4": 1,
+          "1,5": 1,
+          "10,6": 1,
+          "11,0": 1,
+          "2,2": 1,
+          "4,3": 1,
+          "4,4": 1,
+          "5,1": 1,
+          "5,3": 1,
+          "5,6": 1,
+          "6,10": 1,
+          "6,11": 1,
+          "6,9": 1,
+          "7,1": 1,
+          "7,3": 1,
+          "8,9": 1,
+          "9,7": 1
+        },
+        "distinct_positions": 81,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 17
+      }
+    },
+    {
+      "seed": 1025,
+      "agent": "wait",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 12
+      }
+    },
+    {
+      "seed": 1025,
+      "agent": "wait",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 12
+      }
+    },
+    {
+      "seed": 1025,
+      "agent": "random",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 3,
+        "consumptions_by_position": {
+          "7,7": 1,
+          "9,10": 1,
+          "9,11": 1
+        },
+        "distinct_positions": 41,
+        "rejected_actions": {
+          "INVALID/BLOCKED_CELL": 11,
+          "INVALID/OUT_OF_BOUNDS": 7
+        },
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 12
+      }
+    },
+    {
+      "seed": 1025,
+      "agent": "random",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 3,
+        "consumptions_by_position": {
+          "7,7": 1,
+          "9,10": 1,
+          "9,11": 1
+        },
+        "distinct_positions": 41,
+        "rejected_actions": {
+          "INVALID/BLOCKED_CELL": 11,
+          "INVALID/OUT_OF_BOUNDS": 7
+        },
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 12
+      }
+    },
+    {
+      "seed": 1025,
+      "agent": "rule",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 12
+      }
+    },
+    {
+      "seed": 1025,
+      "agent": "rule",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 12
+      }
+    },
+    {
+      "seed": 1025,
+      "agent": "frontier_memory_v1",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 12,
+        "consumptions_by_position": {
+          "0,1": 1,
+          "1,3": 1,
+          "10,0": 1,
+          "10,2": 1,
+          "2,5": 1,
+          "3,4": 1,
+          "7,7": 1,
+          "8,3": 1,
+          "8,7": 1,
+          "9,10": 1,
+          "9,11": 1,
+          "9,5": 1
+        },
+        "distinct_positions": 79,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 12
+      }
+    },
+    {
+      "seed": 1025,
+      "agent": "frontier_memory_v1",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 12,
+        "consumptions_by_position": {
+          "0,1": 1,
+          "1,3": 1,
+          "10,0": 1,
+          "10,2": 1,
+          "2,5": 1,
+          "3,4": 1,
+          "7,7": 1,
+          "8,3": 1,
+          "8,7": 1,
+          "9,10": 1,
+          "9,11": 1,
+          "9,5": 1
+        },
+        "distinct_positions": 79,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 12
+      }
+    },
+    {
+      "seed": 1026,
+      "agent": "wait",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 18
+      }
+    },
+    {
+      "seed": 1026,
+      "agent": "wait",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 18
+      }
+    },
+    {
+      "seed": 1026,
+      "agent": "random",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 3,
+        "consumptions_by_position": {
+          "6,7": 1,
+          "6,8": 1,
+          "7,4": 1
+        },
+        "distinct_positions": 32,
+        "rejected_actions": {
+          "INVALID/BLOCKED_CELL": 16,
+          "INVALID/OUT_OF_BOUNDS": 21
+        },
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 18
+      }
+    },
+    {
+      "seed": 1026,
+      "agent": "random",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 3,
+        "consumptions_by_position": {
+          "6,7": 1,
+          "6,8": 1,
+          "7,4": 1
+        },
+        "distinct_positions": 32,
+        "rejected_actions": {
+          "INVALID/BLOCKED_CELL": 16,
+          "INVALID/OUT_OF_BOUNDS": 21
+        },
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 18
+      }
+    },
+    {
+      "seed": 1026,
+      "agent": "rule",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 18
+      }
+    },
+    {
+      "seed": 1026,
+      "agent": "rule",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 18
+      }
+    },
+    {
+      "seed": 1026,
+      "agent": "frontier_memory_v1",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 18,
+        "consumptions_by_position": {
+          "0,3": 1,
+          "1,11": 1,
+          "1,6": 1,
+          "1,7": 1,
+          "10,9": 1,
+          "11,5": 1,
+          "2,3": 1,
+          "3,9": 1,
+          "4,3": 1,
+          "4,4": 1,
+          "4,7": 1,
+          "5,9": 1,
+          "6,10": 1,
+          "6,7": 1,
+          "6,8": 1,
+          "7,4": 1,
+          "7,8": 1,
+          "8,7": 1
+        },
+        "distinct_positions": 85,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 18
+      }
+    },
+    {
+      "seed": 1026,
+      "agent": "frontier_memory_v1",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 18,
+        "consumptions_by_position": {
+          "0,3": 1,
+          "1,11": 1,
+          "1,6": 1,
+          "1,7": 1,
+          "10,9": 1,
+          "11,5": 1,
+          "2,3": 1,
+          "3,9": 1,
+          "4,3": 1,
+          "4,4": 1,
+          "4,7": 1,
+          "5,9": 1,
+          "6,10": 1,
+          "6,7": 1,
+          "6,8": 1,
+          "7,4": 1,
+          "7,8": 1,
+          "8,7": 1
+        },
+        "distinct_positions": 85,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 18
+      }
+    },
+    {
+      "seed": 1027,
+      "agent": "wait",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 13
+      }
+    },
+    {
+      "seed": 1027,
+      "agent": "wait",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 13
+      }
+    },
+    {
+      "seed": 1027,
+      "agent": "random",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 5,
+        "consumptions_by_position": {
+          "0,3": 1,
+          "0,4": 1,
+          "2,3": 1,
+          "2,7": 1,
+          "5,2": 1
+        },
+        "distinct_positions": 38,
+        "rejected_actions": {
+          "INVALID/BLOCKED_CELL": 11,
+          "INVALID/OUT_OF_BOUNDS": 10
+        },
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 13
+      }
+    },
+    {
+      "seed": 1027,
+      "agent": "random",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 5,
+        "consumptions_by_position": {
+          "0,3": 1,
+          "0,4": 1,
+          "2,3": 1,
+          "2,7": 1,
+          "5,2": 1
+        },
+        "distinct_positions": 38,
+        "rejected_actions": {
+          "INVALID/BLOCKED_CELL": 11,
+          "INVALID/OUT_OF_BOUNDS": 10
+        },
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 13
+      }
+    },
+    {
+      "seed": 1027,
+      "agent": "rule",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 1,
+        "consumptions_by_position": {
+          "2,7": 1
+        },
+        "distinct_positions": 2,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 13
+      }
+    },
+    {
+      "seed": 1027,
+      "agent": "rule",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 1,
+        "consumptions_by_position": {
+          "2,7": 1
+        },
+        "distinct_positions": 2,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 13
+      }
+    },
+    {
+      "seed": 1027,
+      "agent": "frontier_memory_v1",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 13,
+        "consumptions_by_position": {
+          "0,10": 1,
+          "0,3": 1,
+          "0,4": 1,
+          "11,1": 1,
+          "11,2": 1,
+          "11,6": 1,
+          "2,3": 1,
+          "2,7": 1,
+          "5,2": 1,
+          "6,5": 1,
+          "7,10": 1,
+          "7,2": 1,
+          "9,8": 1
+        },
+        "distinct_positions": 88,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 13
+      }
+    },
+    {
+      "seed": 1027,
+      "agent": "frontier_memory_v1",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 13,
+        "consumptions_by_position": {
+          "0,10": 1,
+          "0,3": 1,
+          "0,4": 1,
+          "11,1": 1,
+          "11,2": 1,
+          "11,6": 1,
+          "2,3": 1,
+          "2,7": 1,
+          "5,2": 1,
+          "6,5": 1,
+          "7,10": 1,
+          "7,2": 1,
+          "9,8": 1
+        },
+        "distinct_positions": 88,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 13
+      }
+    },
+    {
+      "seed": 1028,
+      "agent": "wait",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 8
+      }
+    },
+    {
+      "seed": 1028,
+      "agent": "wait",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 8
+      }
+    },
+    {
+      "seed": 1028,
+      "agent": "random",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 2,
+        "consumptions_by_position": {
+          "10,3": 1,
+          "7,5": 1
+        },
+        "distinct_positions": 38,
+        "rejected_actions": {
+          "INVALID/BLOCKED_CELL": 23,
+          "INVALID/OUT_OF_BOUNDS": 8
+        },
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 8
+      }
+    },
+    {
+      "seed": 1028,
+      "agent": "random",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 2,
+        "consumptions_by_position": {
+          "10,3": 1,
+          "7,5": 1
+        },
+        "distinct_positions": 38,
+        "rejected_actions": {
+          "INVALID/BLOCKED_CELL": 23,
+          "INVALID/OUT_OF_BOUNDS": 8
+        },
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 8
+      }
+    },
+    {
+      "seed": 1028,
+      "agent": "rule",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 8
+      }
+    },
+    {
+      "seed": 1028,
+      "agent": "rule",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 8
+      }
+    },
+    {
+      "seed": 1028,
+      "agent": "frontier_memory_v1",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 8,
+        "consumptions_by_position": {
+          "0,11": 1,
+          "0,9": 1,
+          "1,9": 1,
+          "10,3": 1,
+          "11,10": 1,
+          "3,7": 1,
+          "7,5": 1,
+          "9,8": 1
+        },
+        "distinct_positions": 78,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 8
+      }
+    },
+    {
+      "seed": 1028,
+      "agent": "frontier_memory_v1",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 8,
+        "consumptions_by_position": {
+          "0,11": 1,
+          "0,9": 1,
+          "1,9": 1,
+          "10,3": 1,
+          "11,10": 1,
+          "3,7": 1,
+          "7,5": 1,
+          "9,8": 1
+        },
+        "distinct_positions": 78,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 8
+      }
+    },
+    {
+      "seed": 1029,
+      "agent": "wait",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 14
+      }
+    },
+    {
+      "seed": 1029,
+      "agent": "wait",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 14
+      }
+    },
+    {
+      "seed": 1029,
+      "agent": "random",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 4,
+        "consumptions_by_position": {
+          "11,1": 1,
+          "9,4": 1,
+          "9,6": 1,
+          "9,7": 1
+        },
+        "distinct_positions": 39,
+        "rejected_actions": {
+          "INVALID/BLOCKED_CELL": 19,
+          "INVALID/OUT_OF_BOUNDS": 13
+        },
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 14
+      }
+    },
+    {
+      "seed": 1029,
+      "agent": "random",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 4,
+        "consumptions_by_position": {
+          "11,1": 1,
+          "9,4": 1,
+          "9,6": 1,
+          "9,7": 1
+        },
+        "distinct_positions": 39,
+        "rejected_actions": {
+          "INVALID/BLOCKED_CELL": 19,
+          "INVALID/OUT_OF_BOUNDS": 13
+        },
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 14
+      }
+    },
+    {
+      "seed": 1029,
+      "agent": "rule",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 14
+      }
+    },
+    {
+      "seed": 1029,
+      "agent": "rule",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 14
+      }
+    },
+    {
+      "seed": 1029,
+      "agent": "frontier_memory_v1",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 14,
+        "consumptions_by_position": {
+          "0,0": 1,
+          "0,6": 1,
+          "10,7": 1,
+          "10,8": 1,
+          "11,1": 1,
+          "2,10": 1,
+          "2,6": 1,
+          "3,7": 1,
+          "4,0": 1,
+          "4,1": 1,
+          "6,7": 1,
+          "9,4": 1,
+          "9,6": 1,
+          "9,7": 1
+        },
+        "distinct_positions": 82,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 14
+      }
+    },
+    {
+      "seed": 1029,
+      "agent": "frontier_memory_v1",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 14,
+        "consumptions_by_position": {
+          "0,0": 1,
+          "0,6": 1,
+          "10,7": 1,
+          "10,8": 1,
+          "11,1": 1,
+          "2,10": 1,
+          "2,6": 1,
+          "3,7": 1,
+          "4,0": 1,
+          "4,1": 1,
+          "6,7": 1,
+          "9,4": 1,
+          "9,6": 1,
+          "9,7": 1
+        },
+        "distinct_positions": 82,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 14
+      }
+    },
+    {
+      "seed": 1030,
+      "agent": "wait",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 17
+      }
+    },
+    {
+      "seed": 1030,
+      "agent": "wait",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 17
+      }
+    },
+    {
+      "seed": 1030,
+      "agent": "random",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 2,
+        "consumptions_by_position": {
+          "10,4": 1,
+          "8,0": 1
+        },
+        "distinct_positions": 38,
+        "rejected_actions": {
+          "INVALID/BLOCKED_CELL": 17,
+          "INVALID/OUT_OF_BOUNDS": 9
+        },
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 17
+      }
+    },
+    {
+      "seed": 1030,
+      "agent": "random",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 2,
+        "consumptions_by_position": {
+          "10,4": 1,
+          "8,0": 1
+        },
+        "distinct_positions": 38,
+        "rejected_actions": {
+          "INVALID/BLOCKED_CELL": 17,
+          "INVALID/OUT_OF_BOUNDS": 9
+        },
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 17
+      }
+    },
+    {
+      "seed": 1030,
+      "agent": "rule",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 17
+      }
+    },
+    {
+      "seed": 1030,
+      "agent": "rule",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 17
+      }
+    },
+    {
+      "seed": 1030,
+      "agent": "frontier_memory_v1",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 15,
+        "consumptions_by_position": {
+          "0,3": 1,
+          "0,5": 1,
+          "1,4": 1,
+          "1,5": 1,
+          "10,11": 1,
+          "10,4": 1,
+          "11,9": 1,
+          "3,4": 1,
+          "4,0": 1,
+          "4,11": 1,
+          "5,11": 1,
+          "6,4": 1,
+          "8,0": 1,
+          "9,10": 1,
+          "9,2": 1
+        },
+        "distinct_positions": 82,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 17
+      }
+    },
+    {
+      "seed": 1030,
+      "agent": "frontier_memory_v1",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 15,
+        "consumptions_by_position": {
+          "0,3": 1,
+          "0,5": 1,
+          "1,4": 1,
+          "1,5": 1,
+          "10,11": 1,
+          "10,4": 1,
+          "11,9": 1,
+          "3,4": 1,
+          "4,0": 1,
+          "4,11": 1,
+          "5,11": 1,
+          "6,4": 1,
+          "8,0": 1,
+          "9,10": 1,
+          "9,2": 1
+        },
+        "distinct_positions": 82,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 17
+      }
+    },
+    {
+      "seed": 1031,
+      "agent": "wait",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 18
+      }
+    },
+    {
+      "seed": 1031,
+      "agent": "wait",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 18
+      }
+    },
+    {
+      "seed": 1031,
+      "agent": "random",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 6,
+        "consumptions_by_position": {
+          "1,7": 1,
+          "2,9": 1,
+          "3,10": 1,
+          "4,7": 1,
+          "4,8": 1,
+          "4,9": 1
+        },
+        "distinct_positions": 35,
+        "rejected_actions": {
+          "INVALID/BLOCKED_CELL": 21,
+          "INVALID/OUT_OF_BOUNDS": 6
+        },
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 18
+      }
+    },
+    {
+      "seed": 1031,
+      "agent": "random",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 6,
+        "consumptions_by_position": {
+          "1,7": 1,
+          "2,9": 1,
+          "3,10": 1,
+          "4,7": 1,
+          "4,8": 1,
+          "4,9": 1
+        },
+        "distinct_positions": 35,
+        "rejected_actions": {
+          "INVALID/BLOCKED_CELL": 21,
+          "INVALID/OUT_OF_BOUNDS": 6
+        },
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 18
+      }
+    },
+    {
+      "seed": 1031,
+      "agent": "rule",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 2,
+        "consumptions_by_position": {
+          "9,8": 1,
+          "9,9": 1
+        },
+        "distinct_positions": 3,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 18
+      }
+    },
+    {
+      "seed": 1031,
+      "agent": "rule",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 2,
+        "consumptions_by_position": {
+          "9,8": 1,
+          "9,9": 1
+        },
+        "distinct_positions": 3,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 18
+      }
+    },
+    {
+      "seed": 1031,
+      "agent": "frontier_memory_v1",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 18,
+        "consumptions_by_position": {
+          "1,7": 1,
+          "10,4": 1,
+          "11,2": 1,
+          "11,7": 1,
+          "2,3": 1,
+          "2,9": 1,
+          "3,10": 1,
+          "3,2": 1,
+          "3,3": 1,
+          "3,6": 1,
+          "4,4": 1,
+          "4,7": 1,
+          "4,8": 1,
+          "4,9": 1,
+          "6,9": 1,
+          "8,1": 1,
+          "9,8": 1,
+          "9,9": 1
+        },
+        "distinct_positions": 81,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 18
+      }
+    },
+    {
+      "seed": 1031,
+      "agent": "frontier_memory_v1",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 18,
+        "consumptions_by_position": {
+          "1,7": 1,
+          "10,4": 1,
+          "11,2": 1,
+          "11,7": 1,
+          "2,3": 1,
+          "2,9": 1,
+          "3,10": 1,
+          "3,2": 1,
+          "3,3": 1,
+          "3,6": 1,
+          "4,4": 1,
+          "4,7": 1,
+          "4,8": 1,
+          "4,9": 1,
+          "6,9": 1,
+          "8,1": 1,
+          "9,8": 1,
+          "9,9": 1
+        },
+        "distinct_positions": 81,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 18
+      }
+    },
+    {
+      "seed": 1032,
+      "agent": "wait",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 14
+      }
+    },
+    {
+      "seed": 1032,
+      "agent": "wait",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 0,
+        "consumptions_by_position": {},
+        "distinct_positions": 1,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 14
+      }
+    },
+    {
+      "seed": 1032,
+      "agent": "random",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 4,
+        "consumptions_by_position": {
+          "0,1": 1,
+          "1,6": 1,
+          "2,0": 1,
+          "2,3": 1
+        },
+        "distinct_positions": 38,
+        "rejected_actions": {
+          "INVALID/BLOCKED_CELL": 13,
+          "INVALID/OUT_OF_BOUNDS": 17
+        },
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 14
+      }
+    },
+    {
+      "seed": 1032,
+      "agent": "random",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 4,
+        "consumptions_by_position": {
+          "0,1": 1,
+          "1,6": 1,
+          "2,0": 1,
+          "2,3": 1
+        },
+        "distinct_positions": 38,
+        "rejected_actions": {
+          "INVALID/BLOCKED_CELL": 13,
+          "INVALID/OUT_OF_BOUNDS": 17
+        },
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 14
+      }
+    },
+    {
+      "seed": 1032,
+      "agent": "rule",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 1,
+        "consumptions_by_position": {
+          "9,6": 1
+        },
+        "distinct_positions": 2,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 14
+      }
+    },
+    {
+      "seed": 1032,
+      "agent": "rule",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 1,
+        "consumptions_by_position": {
+          "9,6": 1
+        },
+        "distinct_positions": 2,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 14
+      }
+    },
+    {
+      "seed": 1032,
+      "agent": "frontier_memory_v1",
+      "repetition": 1,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 12,
+        "consumptions_by_position": {
+          "0,1": 1,
+          "1,6": 1,
+          "1,8": 1,
+          "10,9": 1,
+          "11,3": 1,
+          "2,0": 1,
+          "2,3": 1,
+          "3,10": 1,
+          "3,8": 1,
+          "8,9": 1,
+          "9,6": 1,
+          "9,8": 1
+        },
+        "distinct_positions": 82,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 14
+      }
+    },
+    {
+      "seed": 1032,
+      "agent": "frontier_memory_v1",
+      "repetition": 2,
+      "operational_status": "RETURNED",
+      "metric": {
+        "kind": "EPISODE",
+        "experiment_status": "COMPLETED",
+        "failure_reason": null,
+        "resources_consumed": 12,
+        "consumptions_by_position": {
+          "0,1": 1,
+          "1,6": 1,
+          "1,8": 1,
+          "10,9": 1,
+          "11,3": 1,
+          "2,0": 1,
+          "2,3": 1,
+          "3,10": 1,
+          "3,8": 1,
+          "8,9": 1,
+          "9,6": 1,
+          "9,8": 1
+        },
+        "distinct_positions": 82,
+        "rejected_actions": {},
+        "steps": 160,
+        "duration_ticks": 160,
+        "termination_reason": "MAX_TICKS_REACHED",
+        "initial_resource_count": 14
+      }
+    }
+  ],
+  "comparison": "EXACT_MATCH_ARCHIVED_ROWS; EXISTING_CONTROLLER_MEASURE; SEPARATE_FROM_INDEPENDENT_CALCULATION"
+}
