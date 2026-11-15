@@ -1,0 +1,82 @@
+{
+  "status": "PASS",
+  "restoration_byte_comparison": {
+    "status": "PASS",
+    "files": 519,
+    "source_vs_restored": "BYTE_IDENTICAL",
+    "hash_manifest": "ALL_MATCH",
+    "original_copy": "UNCHANGED",
+    "external_backup": "PENDING"
+  },
+  "restoration": {
+    "format": "WL-EVIDENCE-COPY-1",
+    "state": "COPY_VERIFIED",
+    "preservation_state": "COPY_VERIFIED",
+    "preservation_errors": [],
+    "indexes": 256,
+    "objects_checked": 774,
+    "source_complete": true,
+    "final_manifest_present": true,
+    "errors": [],
+    "scientific_acceptance": false,
+    "restored_files": 519,
+    "restoration": "VERIFIED_COMPLETE_EVIDENCE"
+  },
+  "copy_before": {
+    "format": "WL-EVIDENCE-COPY-1",
+    "state": "COPY_VERIFIED",
+    "preservation_state": "COPY_VERIFIED",
+    "preservation_errors": [],
+    "indexes": 256,
+    "objects_checked": 774,
+    "source_complete": true,
+    "final_manifest_present": true,
+    "errors": []
+  },
+  "copy_after": {
+    "format": "WL-EVIDENCE-COPY-1",
+    "state": "COPY_VERIFIED",
+    "preservation_state": "COPY_VERIFIED",
+    "preservation_errors": [],
+    "indexes": 256,
+    "objects_checked": 774,
+    "source_complete": true,
+    "final_manifest_present": true,
+    "errors": []
+  },
+  "restored_before": {
+    "format": "WL-EVIDENCE-COPY-1",
+    "state": "COPY_VERIFIED",
+    "preservation_state": "COPY_VERIFIED",
+    "preservation_errors": [],
+    "indexes": 256,
+    "objects_checked": 774,
+    "source_complete": true,
+    "final_manifest_present": true,
+    "errors": []
+  },
+  "restored_after": {
+    "format": "WL-EVIDENCE-COPY-1",
+    "state": "COPY_VERIFIED",
+    "preservation_state": "COPY_VERIFIED",
+    "preservation_errors": [],
+    "indexes": 256,
+    "objects_checked": 774,
+    "source_complete": true,
+    "final_manifest_present": true,
+    "errors": []
+  },
+  "historical_inventory_before_sha256": "f9ca193d7b909489320fc9a6dd69c3e682fc664ee16c175b78cfc938e5a12fc4",
+  "historical_inventory_after_sha256": "f9ca193d7b909489320fc9a6dd69c3e682fc664ee16c175b78cfc938e5a12fc4",
+  "gate_before": {
+    "freeze_id": "47155590f10358f6130a1f7eae261ec9ec1fc8035652c04dd23fcc9f92c63e7d",
+    "status": "READY_FOR_AUTHORIZATION",
+    "evaluation_executed": false
+  },
+  "gate_after": {
+    "freeze_id": "47155590f10358f6130a1f7eae261ec9ec1fc8035652c04dd23fcc9f92c63e7d",
+    "status": "READY_FOR_AUTHORIZATION",
+    "evaluation_executed": false
+  },
+  "C2": "HOLD_EXTERNAL_BACKUP_PENDING"
+}
