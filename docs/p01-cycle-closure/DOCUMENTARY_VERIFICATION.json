@@ -1,0 +1,718 @@
+{
+  "format": "WL-P01-CYCLE-DOCUMENTARY-VERIFICATION-1",
+  "base_commit": "5cdceeedb08b5e8a4f00d284cce499a459aa8c06",
+  "date": "2026-11-17T14:01:15.769321-05:00",
+  "scope": "READ_ONLY_RETROSPECTIVE_AUDIT_AND_DOCUMENT_SYNTAX; NO_E3_OR_E4_REEXECUTION",
+  "sources": [
+    {
+      "id": "S01",
+      "file": "docs/F6-A-pilot-protocol.md",
+      "commit": "5cdceeedb08b5e8a4f00d284cce499a459aa8c06",
+      "bytes": 12997,
+      "sha256": "74491ffdf9dbbafa260e53cc21dbb63424e0785d930653e11301d911d119146c",
+      "localizer": "Protocolo preregistrado; configuración, hipótesis y reglas de inclusión"
+    },
+    {
+      "id": "S02",
+      "file": "docs/f6-e/P01-evaluation-freeze.json",
+      "commit": "5cdceeedb08b5e8a4f00d284cce499a459aa8c06",
+      "bytes": 6848,
+      "sha256": "d4b8e4dcf4c7d60793ea050c496f174e408d5a08c1e8a6557d9aaf506e04caaa",
+      "localizer": "Identidad de congelación; fuentes, runner, smoke y runtime"
+    },
+    {
+      "id": "S03",
+      "file": "docs/p01-e3-final/E3-operational-report.md",
+      "commit": "5cdceeedb08b5e8a4f00d284cce499a459aa8c06",
+      "bytes": 4585,
+      "sha256": "72a8c85e9d0d07c288c227d27911204006db148ff8c0c28eda55b4239ee0196a",
+      "localizer": "Ejecución E3, conteos, tiempos y autorización"
+    },
+    {
+      "id": "S04",
+      "file": "docs/p01-e3-final/E3-audit-report.md",
+      "commit": "5cdceeedb08b5e8a4f00d284cce499a459aa8c06",
+      "bytes": 3514,
+      "sha256": "c681a2a68561421891dc8289b29f6099bbc42bf54435bc3bb1c767cdc96af9d2",
+      "localizer": "Auditoría de archivos; pruebas archivadas y copia"
+    },
+    {
+      "id": "S05",
+      "file": "docs/p01-e4/E4-report.md",
+      "commit": "5cdceeedb08b5e8a4f00d284cce499a459aa8c06",
+      "bytes": 9156,
+      "sha256": "9f560cdce1c6c6cff284f4838afc018d08f7b7beb06148ee6b1e4e03c837dfd7",
+      "localizer": "Restauración/replay E4 y resultado científico"
+    },
+    {
+      "id": "S06",
+      "file": "docs/p01-e4/independent-metrics.json",
+      "commit": "5cdceeedb08b5e8a4f00d284cce499a459aa8c06",
+      "bytes": 32117,
+      "sha256": "4af02eaaa1317e28400c5b27f980c0fe6727989f7fd4c9f545527cf6211451b6",
+      "localizer": "256 conteos, 32 pares, distribución y controles"
+    },
+    {
+      "id": "S07",
+      "file": "docs/p01-e4/independent-descriptors.json",
+      "commit": "5cdceeedb08b5e8a4f00d284cce499a459aa8c06",
+      "bytes": 211551,
+      "sha256": "3b5c30b81de7729b55d56a50587711d9c777c47062b0f1db9284f4b20c24b215",
+      "localizer": "Descriptores completos y 128 comparaciones de repetición"
+    },
+    {
+      "id": "S08",
+      "file": "docs/p01-e4/replay-results.json",
+      "commit": "5cdceeedb08b5e8a4f00d284cce499a459aa8c06",
+      "bytes": 109335,
+      "sha256": "33a253e755c14459c3ab1acd22625790e09b97074905ffc759a884570fa48cb9",
+      "localizer": "256 resultados de replay restaurado y hashes de prueba"
+    },
+    {
+      "id": "S09",
+      "file": "docs/p01-e5/FINAL_ACCEPTANCE_REPORT.md",
+      "commit": "5cdceeedb08b5e8a4f00d284cce499a459aa8c06",
+      "bytes": 11647,
+      "sha256": "85d2349ec6495e357b24e5a1e926d8502541dd6059e56cbf44468871389eff36",
+      "localizer": "Aceptación E5 y condición de liberación C2"
+    },
+    {
+      "id": "S10",
+      "file": "docs/p01-c2-closure/OWNER_RECEIPT.json",
+      "commit": "5cdceeedb08b5e8a4f00d284cce499a459aa8c06",
+      "bytes": 1872,
+      "sha256": "3eafb968102dc3cc559b44b4569b69e42a87e7343def081736acc01576adf520",
+      "localizer": "Declaración de recepción Windows y límites de evidencia"
+    },
+    {
+      "id": "S11",
+      "file": "docs/p01-c2-closure/CLOSURE_STATUS.json",
+      "commit": "5cdceeedb08b5e8a4f00d284cce499a459aa8c06",
+      "bytes": 1293,
+      "sha256": "ecb54110efbf95b5b7ea4e1ad4f0e7e5418d687bb3cbfdb1e8164cdc977397d0",
+      "localizer": "Cierre C2/P01 en su alcance; retención"
+    },
+    {
+      "id": "S12",
+      "file": "docs/F6-B-report.md",
+      "commit": "5cdceeedb08b5e8a4f00d284cce499a459aa8c06",
+      "bytes": 12856,
+      "sha256": "23df8111eb95af796f24c3383c64e5fabf0b915b914acaa21c92a904c9168aa5",
+      "localizer": "Desarrollo, smoke, fixtures y costes observados"
+    },
+    {
+      "id": "S13",
+      "file": "docs/F6-E-preparation.md",
+      "commit": "5cdceeedb08b5e8a4f00d284cce499a459aa8c06",
+      "bytes": 13660,
+      "sha256": "cb108587678f4f390cfbb47937c4187be64e80d40df0dcad59b2ae23afa21a7c",
+      "localizer": "Dependencias congeladas, cambio de revisión y comparabilidad"
+    },
+    {
+      "id": "S14",
+      "file": "docs/F6-F-report.md",
+      "commit": "5cdceeedb08b5e8a4f00d284cce499a459aa8c06",
+      "bytes": 11936,
+      "sha256": "972b0e4531369d336e6c5d67f5bc3fa09cb177e253b365a81c7f7d6b5e83955a",
+      "localizer": "Conservación y recuento independiente; límites de copia"
+    },
+    {
+      "id": "S15",
+      "file": "docs/ENGINEERING_DECISIONS.md",
+      "commit": "5cdceeedb08b5e8a4f00d284cce499a459aa8c06",
+      "bytes": 6443,
+      "sha256": "f885316b72217de401abd6c390f6a212e9f29db593754d1797bce07b36f3c18b",
+      "localizer": "Estados vigentes, autoridad y decisiones"
+    },
+    {
+      "id": "S16",
+      "file": "docs/ENGINEERING_LEARNINGS.md",
+      "commit": "5cdceeedb08b5e8a4f00d284cce499a459aa8c06",
+      "bytes": 7840,
+      "sha256": "3ce1e59ab9cb5013f58dd4bce00e0e8756ea8bce92ffea69f4bfad1a9fc41f58",
+      "localizer": "Aprendizajes observados y límites históricos"
+    },
+    {
+      "id": "S17",
+      "file": "docs/WORLD-LAB_v0.2.5_canonical_transcripcion.md",
+      "commit": "5cdceeedb08b5e8a4f00d284cce499a459aa8c06",
+      "bytes": 40468,
+      "sha256": "926d3246c18469d30088a1d67b7f3ffd23cf25340fc638a941e42a94985ad912",
+      "localizer": "§0 autoridad; §35 sesgos; referencias heredadas"
+    },
+    {
+      "id": "S18",
+      "file": "docs/WORLD-LAB_v0.2.6_contractual_amendment_D-01.md",
+      "commit": "5cdceeedb08b5e8a4f00d284cce499a459aa8c06",
+      "bytes": 16424,
+      "sha256": "4c6148028b45fee4a32d6379c84460e9829fdf98a1b79eed82853ff9eec7db03",
+      "localizer": "Sustituciones contractuales vigentes, alcance acotado"
+    },
+    {
+      "id": "S19",
+      "file": "docs/f5-d/UNRESOLVED_DECISIONS.md",
+      "commit": "5cdceeedb08b5e8a4f00d284cce499a459aa8c06",
+      "bytes": 18778,
+      "sha256": "1da8084a2501d3d70c90cae9c43bd6855434e77b653f021d36ec9b6f34469626",
+      "localizer": "G00 y fuentes históricas pendientes; no nueva auditoría"
+    },
+    {
+      "id": "S20",
+      "file": "docs/ACCEPTANCE_PROFILE_F5-C.md",
+      "commit": "5cdceeedb08b5e8a4f00d284cce499a459aa8c06",
+      "bytes": 15872,
+      "sha256": "6a0c29c7fa1f62a34ffeab9f967d770de85319ea749bbf50b08cc6c5dab08311",
+      "localizer": "Perfil candidato HOLD, sin aprobación de conformidad"
+    },
+    {
+      "id": "S21",
+      "file": "docs/p01-e4/verification/commands.jsonl",
+      "commit": "5cdceeedb08b5e8a4f00d284cce499a459aa8c06",
+      "bytes": 3393,
+      "sha256": "b268b73b1ec24e4a5662b104fe601712686fc2d54133a430e77add77a119c62f",
+      "localizer": "Doce comandos E4 realmente ejecutados"
+    },
+    {
+      "id": "S22",
+      "file": "docs/p01-e4/initial-world-WLS1-comparison.json",
+      "commit": "5cdceeedb08b5e8a4f00d284cce499a459aa8c06",
+      "bytes": 6034,
+      "sha256": "eec1ef66096eec1b79e0fda18d00d3055b974837329a279541a0ee499fdc2d6c",
+      "localizer": "32 grupos de iniciales y contadores WLS1"
+    },
+    {
+      "id": "S23",
+      "file": "docs/p01-e4/E4-evidence-manifest.json",
+      "commit": "5cdceeedb08b5e8a4f00d284cce499a459aa8c06",
+      "bytes": 9664,
+      "sha256": "c734cca38fb68dd7a141b64144001798f3d46519b8e545e234f94ccc7ce61a34",
+      "localizer": "Identidad del paquete de resultados E4 y procedencia"
+    },
+    {
+      "id": "S24",
+      "file": "docs/p01-e3-final/E3-evidence-manifest.json",
+      "commit": "5cdceeedb08b5e8a4f00d284cce499a459aa8c06",
+      "bytes": 99332,
+      "sha256": "8a230a8d5c1cfdded3088f2a10ec609566f97743aa48a273534320e30c94c896",
+      "localizer": "Identidad del paquete E3 y referencias primarias"
+    },
+    {
+      "id": "S25",
+      "file": "docs/p01-e4/paired-results.csv",
+      "commit": "5cdceeedb08b5e8a4f00d284cce499a459aa8c06",
+      "bytes": 581,
+      "sha256": "3946b86a4138077260a5b98c126250438e1a50e60a07f04b91908dabe22c2b00",
+      "localizer": "Tabla completa de pares/controles"
+    },
+    {
+      "id": "S26",
+      "file": "docs/p01-c2-closure/C2_CLOSURE_REPORT.md",
+      "commit": "5cdceeedb08b5e8a4f00d284cce499a459aa8c06",
+      "bytes": 8297,
+      "sha256": "89bac751373dc9c3d0dd5c4db185ba47d1c91bcbfd2859e92eadb5c1031828e4",
+      "localizer": "Condiciones de cierre y conservación de historia"
+    },
+    {
+      "id": "C01",
+      "file": "js/world/world.js",
+      "commit": "5cdceeedb08b5e8a4f00d284cce499a459aa8c06",
+      "bytes": 16949,
+      "sha256": "b63ce107b0a28b4a263dfe3724f960fb42b03f298d853f7023e1da49066abb56",
+      "localizer": "WORLD: generación, acciones, lifecycle, dinámica y snapshot"
+    },
+    {
+      "id": "C02",
+      "file": "js/experiment/tick_transaction.js",
+      "commit": "5cdceeedb08b5e8a4f00d284cce499a459aa8c06",
+      "bytes": 9238,
+      "sha256": "a03384cc7f10900683f9acbe179b02f00d2ce62d3a6de03eefd5edefae16c227",
+      "localizer": "Orden de transición, reloj, RNG y rollback WORLD"
+    },
+    {
+      "id": "C03",
+      "file": "js/experiment/experiment.js",
+      "commit": "5cdceeedb08b5e8a4f00d284cce499a459aa8c06",
+      "bytes": 4359,
+      "sha256": "3cda35d8a8a5151dcfdceb6a1b0e89a75031bf6ebe238859e9886054cec599ad",
+      "localizer": "Orquestación del agente y frontera fail-stop"
+    },
+    {
+      "id": "C04",
+      "file": "js/experiment/recorder.js",
+      "commit": "5cdceeedb08b5e8a4f00d284cce499a459aa8c06",
+      "bytes": 35006,
+      "sha256": "d9825f9dafc6ddff2537103dd95b3595b5bca06d9b4ed3ee8e52e862e94d0cdb",
+      "localizer": "Propiedad de historial, eventos y confirmación del registro"
+    },
+    {
+      "id": "C05",
+      "file": "js/experiment/replay.js",
+      "commit": "5cdceeedb08b5e8a4f00d284cce499a459aa8c06",
+      "bytes": 24989,
+      "sha256": "49229202c9290b74cc34d19773d6d2d7ad518d0e3c82878f285b7638cc62b580",
+      "localizer": "Reconstrucción y rollback WORLD/Recorder de replay"
+    },
+    {
+      "id": "C06",
+      "file": "js/experiment/hash_state.js",
+      "commit": "5cdceeedb08b5e8a4f00d284cce499a459aa8c06",
+      "bytes": 3686,
+      "sha256": "98c0370aa77fec06ea45a4bc5b12233083d8a724f3a05e271deb6f265d397bd6",
+      "localizer": "Bytes WLS1 WORLD/FULL y FNV-1a"
+    },
+    {
+      "id": "C07",
+      "file": "js/agents/frontier_memory_agent.js",
+      "commit": "5cdceeedb08b5e8a4f00d284cce499a459aa8c06",
+      "bytes": 2779,
+      "sha256": "0423363429d764c98b13a667388a07ea10a9230b84eb856d7ea22c13013cc1d3",
+      "localizer": "Memoria privada, BFS, candidatos y desempates"
+    },
+    {
+      "id": "C08",
+      "file": "js/agents/random_agent.js",
+      "commit": "5cdceeedb08b5e8a4f00d284cce499a459aa8c06",
+      "bytes": 563,
+      "sha256": "62d91dc38ca39cf9fafdb540256971c7530387b1f457d7a93dcbdef6414c3a3c",
+      "localizer": "PRNG propio y cinco acciones uniformes por next_int"
+    },
+    {
+      "id": "C09",
+      "file": "js/agents/rule_agent.js",
+      "commit": "5cdceeedb08b5e8a4f00d284cce499a459aa8c06",
+      "bytes": 924,
+      "sha256": "e0512ab282c503f78c4272d1f12cf54836f69dc12a36b08886382f5b0c6aec80",
+      "localizer": "Preferencia local RESOURCE, sin memoria de agotamiento"
+    },
+    {
+      "id": "C10",
+      "file": "js/agents/wait_agent.js",
+      "commit": "5cdceeedb08b5e8a4f00d284cce499a459aa8c06",
+      "bytes": 250,
+      "sha256": "e40b09ad92201b9727b25e1902bc8a45c108890c2c481de9a9743b195459d6d8",
+      "localizer": "Control WAIT"
+    },
+    {
+      "id": "C11",
+      "file": "tools/p01/runtime.cjs",
+      "commit": "5cdceeedb08b5e8a4f00d284cce499a459aa8c06",
+      "bytes": 1877,
+      "sha256": "0e6ae8daaa43fabd95df53fcc00c13cb8c99bc9dfebbf42842bd8cc5f285fdcc",
+      "localizer": "Carga classic scripts/VM y factoría operacional"
+    },
+    {
+      "id": "C12",
+      "file": "tools/p01/archive.cjs",
+      "commit": "5cdceeedb08b5e8a4f00d284cce499a459aa8c06",
+      "bytes": 10949,
+      "sha256": "dc23094e99b982b080f28f5c4e5a0fa83efd5cfc2a179f2b1cf44696d7c4d31b",
+      "localizer": "Contenedor, validación, recarga y verificador real"
+    },
+    {
+      "id": "C13",
+      "file": "tools/p01/evaluation/gate.cjs",
+      "commit": "5cdceeedb08b5e8a4f00d284cce499a459aa8c06",
+      "bytes": 7879,
+      "sha256": "c46ea77f0f8ed6ac806a8643562c9ac0928b9c117b1c49074458ae7cb1f5e967",
+      "localizer": "Pins, runtime y autorización; paths históricos"
+    },
+    {
+      "id": "C14",
+      "file": "tools/p01/evaluation/controller.cjs",
+      "commit": "5cdceeedb08b5e8a4f00d284cce499a459aa8c06",
+      "bytes": 4042,
+      "sha256": "dc76340ac20b6078593ebb49ab0474bc06cc4d2ae63dcd5f66e57ac67a770f39",
+      "localizer": "Secuencia, raw previo a validación y archivo de intentos"
+    },
+    {
+      "id": "C15",
+      "file": "tools/p01/supervisor.cjs",
+      "commit": "5cdceeedb08b5e8a4f00d284cce499a459aa8c06",
+      "bytes": 2529,
+      "sha256": "1c62f3f36b36d06c82051cf0fc0e28d775053ea4f94a67d2cadc1c50fd3c7b3a",
+      "localizer": "Proceso hijo, plazo/heap y diagnóstico limitado"
+    },
+    {
+      "id": "C16",
+      "file": "tools/p01/metrics.cjs",
+      "commit": "5cdceeedb08b5e8a4f00d284cce499a459aa8c06",
+      "bytes": 6430,
+      "sha256": "73caf90c3edaa24691f4d3d19f4f524b934997596afa5ccd094fbf5fd7fc5b87",
+      "localizer": "Definición original y análisis por semilla"
+    },
+    {
+      "id": "C17",
+      "file": "tools/evidence/p01-independent-metrics.cjs",
+      "commit": "5cdceeedb08b5e8a4f00d284cce499a459aa8c06",
+      "bytes": 9015,
+      "sha256": "15beba353774c100ffb9817fc594af97b1c7009bb3e15c7ddd5b91b93cb637aa",
+      "localizer": "Recuento independiente; no ejecuta replay"
+    },
+    {
+      "id": "C18",
+      "file": "tools/evidence/verify.cjs",
+      "commit": "5cdceeedb08b5e8a4f00d284cce499a459aa8c06",
+      "bytes": 2111,
+      "sha256": "d3e4df7c08ec7c10dd09a33fbbcd904289808c32cb386c17399a80ac0f8c8ab1",
+      "localizer": "Copia verificada y restauración exclusiva"
+    },
+    {
+      "id": "C19",
+      "file": "tools/evidence/io.cjs",
+      "commit": "5cdceeedb08b5e8a4f00d284cce499a459aa8c06",
+      "bytes": 7351,
+      "sha256": "1ec5ddd3f723275638c3625a29df5e2067a2964c22bfeb6b279df8af44e5f5c4",
+      "localizer": "Integridad de objetos/cadena, rutas y publicación"
+    },
+    {
+      "id": "C20",
+      "file": "tools/evidence/preserve.cjs",
+      "commit": "5cdceeedb08b5e8a4f00d284cce499a459aa8c06",
+      "bytes": 12538,
+      "sha256": "5dc82b1120511eafbbf579b2ec924bd661b520b9944487d01c19b5f834466f96",
+      "localizer": "Observación incremental, intentos y versiones"
+    },
+    {
+      "id": "C21",
+      "file": "tools/p01/provenance.cjs",
+      "commit": "5cdceeedb08b5e8a4f00d284cce499a459aa8c06",
+      "bytes": 2846,
+      "sha256": "e37b5e37cbf6a87dcb5bb8280c5b4ddb38ad8ab0033734dfd615bedee9e034c1",
+      "localizer": "Git histórico y hashes de fuentes"
+    },
+    {
+      "id": "C22",
+      "file": "conformance/wire.cjs",
+      "commit": "5cdceeedb08b5e8a4f00d284cce499a459aa8c06",
+      "bytes": 2359,
+      "sha256": "9cf0c28a6c5a7d285fb9db58e01262ec245c54e7a165e0b047678df8b6be18cc",
+      "localizer": "Map/BigInt/binary64/bytes con etiquetas"
+    },
+    {
+      "id": "C23",
+      "file": "tools/p01/evaluation/profile.cjs",
+      "commit": "5cdceeedb08b5e8a4f00d284cce499a459aa8c06",
+      "bytes": 825,
+      "sha256": "e98338cef1d685d543158a1473397f090deb6b16bed5089f44d137999d560f26",
+      "localizer": "Perfil final puro; orden 32×4×2"
+    },
+    {
+      "id": "C24",
+      "file": "tools/p01/codec.cjs",
+      "commit": "5cdceeedb08b5e8a4f00d284cce499a459aa8c06",
+      "bytes": 1544,
+      "sha256": "e69485c718ff667c8a90ec9bef2e58cf4e28bb78baa145f3dd8f7223bcf1f977",
+      "localizer": "Recodificación exacta y rechazo de pérdida"
+    }
+  ],
+  "code_files_compared_to_execution_commit": [
+    "js/world/world.js",
+    "js/experiment/tick_transaction.js",
+    "js/experiment/experiment.js",
+    "js/experiment/recorder.js",
+    "js/experiment/replay.js",
+    "js/experiment/hash_state.js",
+    "js/agents/frontier_memory_agent.js",
+    "js/agents/random_agent.js",
+    "js/agents/rule_agent.js",
+    "js/agents/wait_agent.js",
+    "tools/p01/runtime.cjs",
+    "tools/p01/archive.cjs",
+    "tools/p01/evaluation/gate.cjs",
+    "tools/p01/evaluation/controller.cjs",
+    "tools/p01/supervisor.cjs",
+    "tools/p01/metrics.cjs",
+    "tools/evidence/p01-independent-metrics.cjs",
+    "tools/evidence/verify.cjs",
+    "tools/evidence/io.cjs",
+    "tools/evidence/preserve.cjs",
+    "tools/p01/provenance.cjs",
+    "conformance/wire.cjs",
+    "tools/p01/evaluation/profile.cjs",
+    "tools/p01/codec.cjs"
+  ],
+  "execution_commit": "6fcc698681514a90e1dcd28a0f926967b2304884",
+  "frozen_bindings_checked_including_tests_and_candidates": 95,
+  "historical_report_entries_verified": 44,
+  "historical_files": [
+    "docs/p01-e3-final/E3-audit-report.md",
+    "docs/p01-e3-final/E3-closure-status.md",
+    "docs/p01-e3-final/E3-evidence-manifest.json",
+    "docs/p01-e3-final/E3-operational-report.md",
+    "docs/p01-e3-final/E4-plan.md",
+    "docs/p01-e3-final/README.md",
+    "docs/p01-e3-final/RECOVERY.md",
+    "docs/p01-e3-final/verification/C1-documentation-build.py",
+    "docs/p01-e3-final/verification/C1-publication-check.json",
+    "docs/p01-e3-final/verification/C1-read-only-check.cjs",
+    "docs/p01-e3-final/verification/C1-read-only-result.json",
+    "docs/p01-e4/E4-evidence-manifest.json",
+    "docs/p01-e4/E4-operational-result.json",
+    "docs/p01-e4/E4-report.md",
+    "docs/p01-e4/README.md",
+    "docs/p01-e4/controller-recount.json",
+    "docs/p01-e4/independent-descriptors.json",
+    "docs/p01-e4/independent-metrics.json",
+    "docs/p01-e4/initial-world-WLS1-comparison.json",
+    "docs/p01-e4/integrity-results.json",
+    "docs/p01-e4/paired-results.csv",
+    "docs/p01-e4/replay-results.json",
+    "docs/p01-e4/verification/README.md",
+    "docs/p01-e4/verification/commands.jsonl",
+    "docs/p01-e4/verification/execution-context.json",
+    "docs/p01-e4/verification/p01-e4-controller-recount.cjs",
+    "docs/p01-e4/verification/p01-e4-independent-descriptors.cjs",
+    "docs/p01-e4/verification/p01-e4-integrity-check.cjs",
+    "docs/p01-e4/verification/p01-e4-operation.py",
+    "docs/p01-e4/verification/p01-e4-restored-replay.cjs",
+    "docs/p01-e5/ACCEPTANCE_STATUS.json",
+    "docs/p01-e5/DOCUMENTARY_CHECKS.json",
+    "docs/p01-e5/E5-evidence-manifest.json",
+    "docs/p01-e5/ENGINEERING_DECISIONS-before-E5.md.b64",
+    "docs/p01-e5/FINAL_ACCEPTANCE_REPORT.md",
+    "docs/p01-e5/README.md",
+    "docs/p01-c2-closure/C2_CLOSURE_REPORT.md",
+    "docs/p01-c2-closure/CLOSURE_MANIFEST.json",
+    "docs/p01-c2-closure/CLOSURE_STATUS.json",
+    "docs/p01-c2-closure/DOCUMENTARY_CHECKS.json",
+    "docs/p01-c2-closure/ENGINEERING_DECISIONS-before-C2-closure.md.b64",
+    "docs/p01-c2-closure/OWNER_CONFIRMATION.md",
+    "docs/p01-c2-closure/OWNER_RECEIPT.json",
+    "docs/p01-c2-closure/README.md"
+  ],
+  "packages": [
+    {
+      "file": "P01-E3-audited-evidence.tar.gz",
+      "bytes": 36085889,
+      "sha256": "8a1df2ac58fa2069afa4de52368097d79859b59e4b784e99a72966fa5690b7c7",
+      "members": 1684,
+      "uncompressed_member_bytes": 173870512,
+      "no_extraction": true
+    },
+    {
+      "file": "P01-E4-scientific-validation.tar.gz",
+      "bytes": 309971,
+      "sha256": "47083b27d5875126ac3086fe8887adfdc813567673dec2e904a4e91bcf29db91",
+      "members": 47,
+      "uncompressed_member_bytes": 2142653,
+      "no_extraction": true
+    }
+  ],
+  "download_checks": [
+    {
+      "file": "P01-E3-audited-evidence.tar.gz",
+      "url": "https://raw.githubusercontent.com/ksgfin8-cyber/yellow/72f1640d0b9e90a5f430eccf675934c74a9dd977/P01-E3-audited-evidence.tar.gz",
+      "http_status": "200",
+      "bytes": 36085889,
+      "sha256": "8a1df2ac58fa2069afa4de52368097d79859b59e4b784e99a72966fa5690b7c7",
+      "verified_by": "CODEX_READ_ONLY_DOWNLOAD_NOT_EXTERNAL_LAB"
+    },
+    {
+      "file": "P01-E3-audited-evidence.tar.gz.sha256",
+      "url": "https://raw.githubusercontent.com/ksgfin8-cyber/yellow/72f1640d0b9e90a5f430eccf675934c74a9dd977/P01-E3-audited-evidence.tar.gz.sha256",
+      "http_status": "200",
+      "bytes": 97,
+      "sha256": "da7bbb55d4aaea5eb7f8de641781a28d78012e3212a9a983ce649a41e7a7e6c1",
+      "verified_by": "CODEX_READ_ONLY_DOWNLOAD_NOT_EXTERNAL_LAB"
+    },
+    {
+      "file": "P01-E4-scientific-validation.tar.gz",
+      "url": "https://raw.githubusercontent.com/ksgfin8-cyber/yellow/72f1640d0b9e90a5f430eccf675934c74a9dd977/P01-E4-scientific-validation.tar.gz",
+      "http_status": "200",
+      "bytes": 309971,
+      "sha256": "47083b27d5875126ac3086fe8887adfdc813567673dec2e904a4e91bcf29db91",
+      "verified_by": "CODEX_READ_ONLY_DOWNLOAD_NOT_EXTERNAL_LAB"
+    },
+    {
+      "file": "P01-E4-scientific-validation.tar.gz.sha256",
+      "url": "https://raw.githubusercontent.com/ksgfin8-cyber/yellow/72f1640d0b9e90a5f430eccf675934c74a9dd977/P01-E4-scientific-validation.tar.gz.sha256",
+      "http_status": "200",
+      "bytes": 102,
+      "sha256": "53451288e8dac7eb58334c1117649308eaef704e7bb30cab3121bee5c3bfdd7b",
+      "verified_by": "CODEX_READ_ONLY_DOWNLOAD_NOT_EXTERNAL_LAB"
+    }
+  ],
+  "methodological_primary_source_retrieval": [
+    {
+      "id": "M1",
+      "url": "https://nap.nationalacademies.org/catalog/25303/reproducibility-and-replicability-in-science",
+      "retrieval": "BLOCKED",
+      "curl_exit": 56,
+      "error": "CONNECT tunnel failed, response 403",
+      "full_text_consultation_claimed": false
+    },
+    {
+      "id": "M2",
+      "url": "https://www.go-fair.org/fair-principles/",
+      "retrieval": "BLOCKED",
+      "curl_exit": 56,
+      "error": "CONNECT tunnel failed, response 403",
+      "full_text_consultation_claimed": false
+    },
+    {
+      "id": "M3",
+      "url": "https://www.acm.org/publications/policies/artifact-review-and-badging-current",
+      "retrieval": "BLOCKED",
+      "curl_exit": 56,
+      "error": "CONNECT tunnel failed, response 403",
+      "full_text_consultation_claimed": false
+    }
+  ],
+  "reference_M4": "BIBLIOGRAPHIC_ORIENTATION_NOT_RETRIEVED",
+  "licence_files_found_in_tracked_tree": [],
+  "licence_search_scope": "tracked tree at base and explicit file/keyword inspection; no claim about private agreements",
+  "syntax_checks": [
+    {
+      "file": "P01_EXTERNAL_REPRODUCTION.md",
+      "block": 0,
+      "language": "powershell",
+      "status": "NOT_TESTED_POWERSHELL_PARSER_UNAVAILABLE"
+    },
+    {
+      "file": "P01_EXTERNAL_REPRODUCTION.md",
+      "block": 1,
+      "language": "bash",
+      "status": "PARSED_NOT_EXECUTED"
+    },
+    {
+      "file": "P01_EXTERNAL_REPRODUCTION.md",
+      "block": 2,
+      "language": "python",
+      "status": "PARSED_NOT_EXECUTED"
+    },
+    {
+      "file": "P01_EXTERNAL_REPRODUCTION.md",
+      "block": 3,
+      "language": "bash",
+      "status": "PARSED_NOT_EXECUTED"
+    },
+    {
+      "file": "P01_EXTERNAL_REPRODUCTION.md",
+      "block": 4,
+      "language": "bash",
+      "status": "PARSED_NOT_EXECUTED"
+    },
+    {
+      "file": "P01_EXTERNAL_REPRODUCTION.md",
+      "block": 4,
+      "language": "javascript-heredoc",
+      "status": "PARSED_NOT_EXECUTED"
+    },
+    {
+      "file": "P01_EXTERNAL_REPRODUCTION.md",
+      "block": 5,
+      "language": "bash",
+      "status": "PARSED_NOT_EXECUTED"
+    },
+    {
+      "file": "P01_EXTERNAL_REPRODUCTION.md",
+      "block": 6,
+      "language": "python",
+      "status": "PARSED_NOT_EXECUTED"
+    },
+    {
+      "file": "P01_EXTERNAL_REPRODUCTION.md",
+      "block": 7,
+      "language": "bash",
+      "status": "PARSED_NOT_EXECUTED"
+    },
+    {
+      "file": "P01_EXTERNAL_REPRODUCTION.md",
+      "block": 7,
+      "language": "javascript-heredoc",
+      "status": "PARSED_NOT_EXECUTED"
+    },
+    {
+      "file": "P01_EXTERNAL_REPRODUCTION.md",
+      "block": 8,
+      "language": "bash",
+      "status": "PARSED_NOT_EXECUTED"
+    },
+    {
+      "file": "P01_EXTERNAL_REPRODUCTION.md",
+      "block": 9,
+      "language": "python",
+      "status": "PARSED_NOT_EXECUTED"
+    },
+    {
+      "file": "P01_EXTERNAL_REPRODUCTION.md",
+      "block": 10,
+      "language": "bash",
+      "status": "PARSED_NOT_EXECUTED"
+    },
+    {
+      "file": "P01_EXTERNAL_REPRODUCTION.md",
+      "block": 11,
+      "language": "bash",
+      "status": "PARSED_NOT_EXECUTED"
+    },
+    {
+      "file": "P01_EXTERNAL_REPRODUCTION.md",
+      "block": 12,
+      "language": "python",
+      "status": "PARSED_NOT_EXECUTED"
+    }
+  ],
+  "local_links_checked": 156,
+  "ten_disciplines_ten_fields_each": true,
+  "ten_bias_controls_present": true,
+  "six_consistent_conditional_recommendations": true,
+  "new_infrastructure": false,
+  "new_experiments": 0,
+  "new_replays": 0,
+  "new_restorations": 0,
+  "new_metric_calculations_from_trajectories": 0,
+  "documentary_CSV_consistency": {
+    "rows": 32,
+    "sum_D": 356,
+    "mean_D": 11.125,
+    "wins": 32
+  },
+  "external_R2_complete": "NOT_ESTABLISHED",
+  "external_recipe_execution": "NOT_TESTED",
+  "PowerShell_example_execution": "NOT_TESTED",
+  "F6_N": "NOT_ESTABLISHED",
+  "independent_interoperability": "NOT_ESTABLISHED",
+  "OneDrive": "NOT_VERIFIED",
+  "status": "PASS_DOCUMENTARY_CHECKS_WITH_EXPLICIT_ACCESS_AND_EXECUTION_LIMITS",
+  "commands": [
+    {
+      "command": "python /tmp/p01-cycle-verify.py",
+      "operation": "hashes/read-only metadata, AST and syntax checks only"
+    },
+    {
+      "command": "bash -n <example>",
+      "operation": "parse only"
+    },
+    {
+      "command": "node --check <example.cjs>",
+      "operation": "parse only"
+    },
+    {
+      "command": "git diff --check",
+      "operation": "publication whitespace check before commit"
+    }
+  ],
+  "publication_documents": [
+    {
+      "file": "P01_EVIDENCE_MATRIX.md",
+      "bytes": 27256,
+      "sha256": "29987cedaa669f36d8e11424f20d040b11a290f42171176798726e6807beedf8"
+    },
+    {
+      "file": "P01_EXTERNAL_REPRODUCTION.md",
+      "bytes": 33365,
+      "sha256": "98151200bac903307df69dd0196541d3f0e7cb08a067d30ef74db3964eba1419"
+    },
+    {
+      "file": "P01_RESEARCH_CYCLE_CLOSURE.md",
+      "bytes": 38039,
+      "sha256": "6945429529619a45d5ebeb295d541ef0347761edb76bef763ce22f78fd7d70bc"
+    },
+    {
+      "file": "P01_RESEARCH_DECISION_BRIEF.md",
+      "bytes": 4842,
+      "sha256": "51968d1ab5e2bcca6959bcd02d8ed058d0dc4e63abef5e038b9eab61defae3c6"
+    }
+  ]
+}
