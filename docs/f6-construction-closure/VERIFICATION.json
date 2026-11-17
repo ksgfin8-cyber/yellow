@@ -1,0 +1,559 @@
+{
+  "format": "WL-F6-CONSTRUCTION-AUDIT-1",
+  "issued_at": "2026-11-17T14:48:04.289730-05:00",
+  "base_commit": "0ed485661241a571ba726cfb31a49541f40bd4fa",
+  "branch": "dev/f6-construction-closure-audit",
+  "scope": "DOCUMENTARY_RECONCILIATION_AND_EXISTING_FOCUSED_TECHNICAL_TESTS; NO_E3_E4_RERUN; NO_FINAL_CAMPAIGN",
+  "decision": "GO_CONSTRUCTION_CLOSURE_RECOMMENDED_FOR_OWNER_REVIEW",
+  "phase_statuses": {
+    "F6-A": "COMPLETE_DOCUMENTED",
+    "F6-B": "COMPLETE_VERIFIED",
+    "F6-C": "COMPLETE_VERIFIED",
+    "F6-D": "COMPLETE_VERIFIED",
+    "F6-E": "COMPLETE_DOCUMENTED",
+    "F6-N": "BLOCKED"
+  },
+  "runtime": {
+    "node": "v24.22.1",
+    "platform": "linux/x64",
+    "node_binary_sha256": "61ab14cd750fc24d5db53490ec5fc40f756e4b6e136b78cf7004265471d9bd1d",
+    "chromium": "Chromium 155.0.8059.79 built on Debian GNU/Linux 13 (trixie)",
+    "playwright_module": "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/index.js",
+    "browser_server": "loopback 127.0.0.1 only; closed by existing test"
+  },
+  "checks": [
+    {
+      "label": "f2-e",
+      "command": [
+        "node",
+        "tests/f2-e.test.cjs"
+      ],
+      "reason": "Recursos/regeneración positiva, hazards y atomicidad no ejercitados por P01.",
+      "started_utc": "2026-11-17T19:41:02.431091+00:00",
+      "ended_utc": "2026-11-17T19:41:02.620729+00:00",
+      "exit_code": 0,
+      "log": "checks.log.b64 (decoded section f2-e)",
+      "log_sha256": "cbecc4d92497db9366bd18d96d47f4f508687c410139207ed0f169c96f37f19e"
+    },
+    {
+      "label": "f2-h",
+      "command": [
+        "node",
+        "tests/f2-h.test.cjs"
+      ],
+      "reason": "Efectos operacionales y eventos de hazards/recurso, atomicidad.",
+      "started_utc": "2026-11-17T19:41:02.621182+00:00",
+      "ended_utc": "2026-11-17T19:41:02.756906+00:00",
+      "exit_code": 0,
+      "log": "checks.log.b64 (decoded section f2-h)",
+      "log_sha256": "ad53ada119ea0a543572f4d6c2b752681245861cdda0e6d29416e8952d1e4d64"
+    },
+    {
+      "label": "f3-f",
+      "command": [
+        "node",
+        "tests/f3-f.test.cjs"
+      ],
+      "reason": "Integración con/sin agente, reloj, lifecycle y fallos.",
+      "started_utc": "2026-11-17T19:41:02.757367+00:00",
+      "ended_utc": "2026-11-17T19:41:03.479232+00:00",
+      "exit_code": 0,
+      "log": "checks.log.b64 (decoded section f3-f)",
+      "log_sha256": "32796e04c1970edd758973c99c25ad10ef1619295c2f0a7be5a85ae87757b7de"
+    },
+    {
+      "label": "f4-a-browser",
+      "command": [
+        "node",
+        "tests/f4-a.test.cjs",
+        "--browser"
+      ],
+      "reason": "UI y renderer reales Chromium, además de fixtures DOM.",
+      "started_utc": "2026-11-17T19:41:03.479561+00:00",
+      "ended_utc": "2026-11-17T19:41:06.363106+00:00",
+      "exit_code": 0,
+      "log": "checks.log.b64 (decoded section f4-a-browser)",
+      "log_sha256": "f5a499f8f3d30a57de2a4a92dd6364f196abdc36f1437cd9af7b47b5cf1ae283"
+    },
+    {
+      "label": "f6-b-execution",
+      "command": [
+        "node",
+        "--test",
+        "tests/f6-b-execution.test.cjs"
+      ],
+      "reason": "Supervisor externo: bloqueo, proceso siguiente y guards; fixture de desarrollo seed1.",
+      "started_utc": "2026-11-17T19:41:06.363424+00:00",
+      "ended_utc": "2026-11-17T19:41:11.914228+00:00",
+      "exit_code": 0,
+      "log": "checks.log.b64 (decoded section f6-b-execution)",
+      "log_sha256": "063d6f767280b8d980d9d0ff486692dd650cb8d7a51ff077cebca81b5d12f432"
+    },
+    {
+      "label": "f6-b-metrics",
+      "command": [
+        "node",
+        "tests/f6-b-metrics.test.cjs"
+      ],
+      "reason": "Consumidor puro, fallos, incertidumbre y unidad de emparejamiento.",
+      "started_utc": "2026-11-17T19:41:11.917954+00:00",
+      "ended_utc": "2026-11-17T19:41:12.094673+00:00",
+      "exit_code": 0,
+      "log": "checks.log.b64 (decoded section f6-b-metrics)",
+      "log_sha256": "1c872002d9df7ff6be966b1d3bc1aabe982799144d023b50ff33bade186b5053"
+    },
+    {
+      "label": "legacy",
+      "command": [
+        "node",
+        "tests/f1-a-legacy.cjs"
+      ],
+      "reason": "Caracterización de las nueve incompatibilidades heredadas.",
+      "started_utc": "2026-11-17T19:41:12.095001+00:00",
+      "ended_utc": "2026-11-17T19:41:25.565653+00:00",
+      "exit_code": 1,
+      "log": "checks.log.b64 (decoded section legacy)",
+      "log_sha256": "892160fa042145bcab811890c54df69c358416e9558abe32b7a89cb361ca408a"
+    },
+    {
+      "label": "copy-verify",
+      "command": [
+        "node",
+        "tools/evidence/verify.cjs",
+        "/workspace/shared/world-lab/p01-final-20261113-01-evidence"
+      ],
+      "reason": "Integridad actual de copia conservada, sin restore ni replay.",
+      "started_utc": "2026-11-17T19:41:25.566015+00:00",
+      "ended_utc": "2026-11-17T19:41:27.772658+00:00",
+      "exit_code": 0,
+      "log": "checks.log.b64 (decoded section copy-verify)",
+      "log_sha256": "6601084caa8a1a8d3470158d54e8a328c40cda88d54db8a956c3d2d21c2d5108"
+    },
+    {
+      "label": "f6-b-agent",
+      "command": [
+        "node",
+        "tests/f6-b-agent.test.cjs"
+      ],
+      "reason": "Comprobar adaptador y algoritmo adicional contra compromiso F6-B, sin WORLD privilegiado.",
+      "started_utc": "2026-11-17T19:42:31.899798+00:00",
+      "ended_utc": "2026-11-17T19:42:32.093537+00:00",
+      "exit_code": 0,
+      "log": "checks.log.b64 (decoded section f6-b-agent)",
+      "log_sha256": "42dd3985d5511dfee0ee67e605507be94aa9713905d93fce21c23b1ab6e40850"
+    },
+    {
+      "label": "f6-b-archive",
+      "command": [
+        "node",
+        "tests/f6-b-archive.test.cjs"
+      ],
+      "reason": "Comprobar transporte tipado, recarga y replay técnico de fixture seed1; no E3/E4.",
+      "started_utc": "2026-11-17T19:42:32.093958+00:00",
+      "ended_utc": "2026-11-17T19:42:49.557297+00:00",
+      "exit_code": 0,
+      "log": "checks.log.b64 (decoded section f6-b-archive)",
+      "log_sha256": "47046f76dfebbc57bc1b9589bc6d6cd42e298f202447f1f02da10d38056bc97b"
+    }
+  ],
+  "current_counts": {
+    "f2-e": {
+      "pass": 16,
+      "fail": 0
+    },
+    "f2-h": {
+      "pass": 15,
+      "fail": 0
+    },
+    "f3-f": {
+      "pass": 23,
+      "fail": 0
+    },
+    "f4-a-browser": {
+      "pass": 16,
+      "fail": 0
+    },
+    "f6-b-execution": {
+      "pass": 5,
+      "fail": 0
+    },
+    "f6-b-metrics": {
+      "pass": 8,
+      "fail": 0
+    },
+    "legacy": {
+      "mode": "current",
+      "tests": 22,
+      "pass": 13,
+      "fail": 9
+    },
+    "f6-b-agent": {
+      "pass": 10,
+      "fail": 0
+    },
+    "f6-b-archive": {
+      "pass": 7,
+      "fail": 0
+    }
+  },
+  "modern_pass_total": 100,
+  "legacy_exit_1_is_preserved": true,
+  "historical_results_are_not_new_executions": true,
+  "freeze_check": {
+    "freeze_id": "47155590f10358f6130a1f7eae261ec9ec1fc8035652c04dd23fcc9f92c63e7d",
+    "status": "READY_FOR_AUTHORIZATION",
+    "evaluation_executed": false
+  },
+  "freeze_check_exit": 0,
+  "freeze_file_bindings": [
+    {
+      "category": "sources",
+      "count": 41,
+      "result": "MATCH"
+    },
+    {
+      "category": "acceptance_tests",
+      "count": 8,
+      "result": "MATCH"
+    },
+    {
+      "category": "runner_files",
+      "count": 9,
+      "result": "MATCH"
+    },
+    {
+      "category": "smoke_evidence_files",
+      "count": 35,
+      "result": "MATCH"
+    }
+  ],
+  "candidate_bindings_checked": 2,
+  "copy_verify": {
+    "format": "WL-EVIDENCE-COPY-1",
+    "state": "COPY_VERIFIED",
+    "preservation_state": "COPY_VERIFIED",
+    "preservation_errors": [],
+    "indexes": 256,
+    "objects_checked": 774,
+    "source_complete": true,
+    "final_manifest_present": true,
+    "errors": []
+  },
+  "publication_inventories": [
+    {
+      "inventory": "docs/p01-e3-final/PUBLICATION-SHA256.json",
+      "sha256": "bc21d1babc6b5aa3fe10b7c25a4423859873a931eff20c542e57eb90441195de",
+      "entries_verified": 11,
+      "result": "MATCH"
+    },
+    {
+      "inventory": "docs/p01-e4/PUBLICATION-SHA256.json",
+      "sha256": "4c7254ae370daf4de6383f4ab6f177053b81acd6506aaf0537996718e6418069",
+      "entries_verified": 19,
+      "result": "MATCH"
+    },
+    {
+      "inventory": "docs/p01-e5/PUBLICATION-SHA256.json",
+      "sha256": "88846f0a6a2f1efbd769626a90dfc0373acab1c846a286fa7f86977d185e4997",
+      "entries_verified": 6,
+      "result": "MATCH"
+    },
+    {
+      "inventory": "docs/p01-c2-closure/PUBLICATION-SHA256.json",
+      "sha256": "b57a254934c77f371441d644ccf4be478069a86d5f732f0a4bb52cca258e4a7f",
+      "entries_verified": 8,
+      "result": "MATCH"
+    }
+  ],
+  "packages": [
+    {
+      "file": "/workspace/shared/world-lab/p01-final-20261113-01-exports/P01-E3-audited-evidence.tar.gz",
+      "bytes": 36085889,
+      "sha256": "8a1df2ac58fa2069afa4de52368097d79859b59e4b784e99a72966fa5690b7c7"
+    },
+    {
+      "file": "/workspace/shared/world-lab/p01-final-20261113-01-e4-exports/P01-E4-scientific-validation.tar.gz",
+      "bytes": 309971,
+      "sha256": "47083b27d5875126ac3086fe8887adfdc813567673dec2e904a4e91bcf29db91"
+    }
+  ],
+  "documentary_counts_checked": {
+    "E4_replay_rows_exact_seed_agent_repetition_order": 256,
+    "all_MATCH_and_COMPLETE_MATCH": true,
+    "recorded_states_sum": 41216,
+    "equal_repetitions": 128,
+    "initial_world_structural_comparisons": 256,
+    "distinct_seeds": 32,
+    "descriptor_and_oracle_distribution_agree": true,
+    "mean_D": 11.125,
+    "eligible_pairs": 32,
+    "method": "Read existing JSON only; no replay or scientific metric recalculation executed"
+  },
+  "source_files": [
+    {
+      "file": "docs/F6-A-readiness.md",
+      "base_commit": "0ed485661241a571ba726cfb31a49541f40bd4fa",
+      "bytes": 14540,
+      "sha256": "a8b36d9359ca615ad92741ed0de74524963b057aac4e9bb010c14be7d6d731ca"
+    },
+    {
+      "file": "docs/F6-A-pilot-protocol.md",
+      "base_commit": "0ed485661241a571ba726cfb31a49541f40bd4fa",
+      "bytes": 12997,
+      "sha256": "74491ffdf9dbbafa260e53cc21dbb63424e0785d930653e11301d911d119146c"
+    },
+    {
+      "file": "docs/F6-B-report.md",
+      "base_commit": "0ed485661241a571ba726cfb31a49541f40bd4fa",
+      "bytes": 12856,
+      "sha256": "23df8111eb95af796f24c3383c64e5fabf0b915b914acaa21c92a904c9168aa5"
+    },
+    {
+      "file": "docs/F6-E-preparation.md",
+      "base_commit": "0ed485661241a571ba726cfb31a49541f40bd4fa",
+      "bytes": 13660,
+      "sha256": "cb108587678f4f390cfbb47937c4187be64e80d40df0dcad59b2ae23afa21a7c"
+    },
+    {
+      "file": "docs/F6-F-report.md",
+      "base_commit": "0ed485661241a571ba726cfb31a49541f40bd4fa",
+      "bytes": 11936,
+      "sha256": "972b0e4531369d336e6c5d67f5bc3fa09cb177e253b365a81c7f7d6b5e83955a"
+    },
+    {
+      "file": "docs/ENGINEERING_DECISIONS.md",
+      "base_commit": "0ed485661241a571ba726cfb31a49541f40bd4fa",
+      "bytes": 6443,
+      "sha256": "f885316b72217de401abd6c390f6a212e9f29db593754d1797bce07b36f3c18b"
+    },
+    {
+      "file": "docs/ENGINEERING_LEARNINGS.md",
+      "base_commit": "0ed485661241a571ba726cfb31a49541f40bd4fa",
+      "bytes": 7840,
+      "sha256": "3ce1e59ab9cb5013f58dd4bce00e0e8756ea8bce92ffea69f4bfad1a9fc41f58"
+    },
+    {
+      "file": "docs/ACCEPTANCE_PROFILE_F5-C.md",
+      "base_commit": "0ed485661241a571ba726cfb31a49541f40bd4fa",
+      "bytes": 15872,
+      "sha256": "6a0c29c7fa1f62a34ffeab9f967d770de85319ea749bbf50b08cc6c5dab08311"
+    },
+    {
+      "file": "docs/f5-d/UNRESOLVED_DECISIONS.md",
+      "base_commit": "0ed485661241a571ba726cfb31a49541f40bd4fa",
+      "bytes": 18778,
+      "sha256": "1da8084a2501d3d70c90cae9c43bd6855434e77b653f021d36ec9b6f34469626"
+    },
+    {
+      "file": "docs/f5-d/VERIFICATION_REPORT.md",
+      "base_commit": "0ed485661241a571ba726cfb31a49541f40bd4fa",
+      "bytes": 5059,
+      "sha256": "c1a92d7204d9b87800b74a6c5b8d16d563c1155d7d221413a3d871f89036ff70"
+    },
+    {
+      "file": "docs/f5-d/regression-results.json",
+      "base_commit": "0ed485661241a571ba726cfb31a49541f40bd4fa",
+      "bytes": 12172,
+      "sha256": "bdd383b6fa997b6a442066dff36ab1a3fc2ac6cf32e75203675d6fea3b8cfb31"
+    },
+    {
+      "file": "docs/WORLD-LAB_v0.2.5_canonical_transcripcion.md",
+      "base_commit": "0ed485661241a571ba726cfb31a49541f40bd4fa",
+      "bytes": 40468,
+      "sha256": "926d3246c18469d30088a1d67b7f3ffd23cf25340fc638a941e42a94985ad912"
+    },
+    {
+      "file": "docs/WORLD-LAB_v0.2.6_contractual_amendment_D-01.md",
+      "base_commit": "0ed485661241a571ba726cfb31a49541f40bd4fa",
+      "bytes": 16424,
+      "sha256": "4c6148028b45fee4a32d6379c84460e9829fdf98a1b79eed82853ff9eec7db03"
+    },
+    {
+      "file": "docs/p01-e3-final/E3-operational-report.md",
+      "base_commit": "0ed485661241a571ba726cfb31a49541f40bd4fa",
+      "bytes": 4585,
+      "sha256": "72a8c85e9d0d07c288c227d27911204006db148ff8c0c28eda55b4239ee0196a"
+    },
+    {
+      "file": "docs/p01-e3-final/E3-audit-report.md",
+      "base_commit": "0ed485661241a571ba726cfb31a49541f40bd4fa",
+      "bytes": 3514,
+      "sha256": "c681a2a68561421891dc8289b29f6099bbc42bf54435bc3bb1c767cdc96af9d2"
+    },
+    {
+      "file": "docs/p01-e3-final/E3-evidence-manifest.json",
+      "base_commit": "0ed485661241a571ba726cfb31a49541f40bd4fa",
+      "bytes": 99332,
+      "sha256": "8a230a8d5c1cfdded3088f2a10ec609566f97743aa48a273534320e30c94c896"
+    },
+    {
+      "file": "docs/p01-e4/E4-report.md",
+      "base_commit": "0ed485661241a571ba726cfb31a49541f40bd4fa",
+      "bytes": 9156,
+      "sha256": "9f560cdce1c6c6cff284f4838afc018d08f7b7beb06148ee6b1e4e03c837dfd7"
+    },
+    {
+      "file": "docs/p01-e4/replay-results.json",
+      "base_commit": "0ed485661241a571ba726cfb31a49541f40bd4fa",
+      "bytes": 109335,
+      "sha256": "33a253e755c14459c3ab1acd22625790e09b97074905ffc759a884570fa48cb9"
+    },
+    {
+      "file": "docs/p01-e4/independent-metrics.json",
+      "base_commit": "0ed485661241a571ba726cfb31a49541f40bd4fa",
+      "bytes": 32117,
+      "sha256": "4af02eaaa1317e28400c5b27f980c0fe6727989f7fd4c9f545527cf6211451b6"
+    },
+    {
+      "file": "docs/p01-e4/independent-descriptors.json",
+      "base_commit": "0ed485661241a571ba726cfb31a49541f40bd4fa",
+      "bytes": 211551,
+      "sha256": "3b5c30b81de7729b55d56a50587711d9c777c47062b0f1db9284f4b20c24b215"
+    },
+    {
+      "file": "docs/p01-e5/FINAL_ACCEPTANCE_REPORT.md",
+      "base_commit": "0ed485661241a571ba726cfb31a49541f40bd4fa",
+      "bytes": 11647,
+      "sha256": "85d2349ec6495e357b24e5a1e926d8502541dd6059e56cbf44468871389eff36"
+    },
+    {
+      "file": "docs/p01-c2-closure/CLOSURE_STATUS.json",
+      "base_commit": "0ed485661241a571ba726cfb31a49541f40bd4fa",
+      "bytes": 1293,
+      "sha256": "ecb54110efbf95b5b7ea4e1ad4f0e7e5418d687bb3cbfdb1e8164cdc977397d0"
+    },
+    {
+      "file": "docs/p01-c2-closure/OWNER_RECEIPT.json",
+      "base_commit": "0ed485661241a571ba726cfb31a49541f40bd4fa",
+      "bytes": 1872,
+      "sha256": "3eafb968102dc3cc559b44b4569b69e42a87e7343def081736acc01576adf520"
+    },
+    {
+      "file": "docs/p01-cycle-closure/P01_RESEARCH_CYCLE_CLOSURE.md",
+      "base_commit": "0ed485661241a571ba726cfb31a49541f40bd4fa",
+      "bytes": 38039,
+      "sha256": "6945429529619a45d5ebeb295d541ef0347761edb76bef763ce22f78fd7d70bc"
+    },
+    {
+      "file": "docs/p01-cycle-closure/P01_EVIDENCE_MATRIX.md",
+      "base_commit": "0ed485661241a571ba726cfb31a49541f40bd4fa",
+      "bytes": 27256,
+      "sha256": "29987cedaa669f36d8e11424f20d040b11a290f42171176798726e6807beedf8"
+    },
+    {
+      "file": "tests/f2-e.test.cjs",
+      "base_commit": "0ed485661241a571ba726cfb31a49541f40bd4fa",
+      "bytes": 11359,
+      "sha256": "e6d6895e0927ae81a28c0c42623cd7f9865c23bc46ff7520fba35fdfc6c94e50"
+    },
+    {
+      "file": "tests/f2-h.test.cjs",
+      "base_commit": "0ed485661241a571ba726cfb31a49541f40bd4fa",
+      "bytes": 11060,
+      "sha256": "45dd3a508268293ba81a89976e6604a4b0f20e470354ea94e59f562011a12331"
+    },
+    {
+      "file": "tests/f3-f.test.cjs",
+      "base_commit": "0ed485661241a571ba726cfb31a49541f40bd4fa",
+      "bytes": 15100,
+      "sha256": "adab2273e11f2045182d90d6f77f5709f391e7f0b3c639b01a2d070f98ab9037"
+    },
+    {
+      "file": "tests/f6-b-execution.test.cjs",
+      "base_commit": "0ed485661241a571ba726cfb31a49541f40bd4fa",
+      "bytes": 2101,
+      "sha256": "83bc199e59be67212aa154c0baee5502ba9439b7ae3968321087e75832aef23d"
+    },
+    {
+      "file": "tests/f6-b-metrics.test.cjs",
+      "base_commit": "0ed485661241a571ba726cfb31a49541f40bd4fa",
+      "bytes": 5162,
+      "sha256": "773be30a7ddfc9ba677e79b79066d17d1c18e947ff31dbaae5034819b213f259"
+    },
+    {
+      "file": "tests/f1-a-legacy.cjs",
+      "base_commit": "0ed485661241a571ba726cfb31a49541f40bd4fa",
+      "bytes": 1596,
+      "sha256": "3eeff0c64b6d5309d2e56cbf9dd23e3013ad4412d3d3a0b98494af6341202290"
+    },
+    {
+      "file": "tests/f6-b-agent.test.cjs",
+      "base_commit": "0ed485661241a571ba726cfb31a49541f40bd4fa",
+      "bytes": 4180,
+      "sha256": "0ebbdf80b2e1047c6101b9b3ef1e23b0adbbcb8cb4528a4778df1bed4435ccb6"
+    },
+    {
+      "file": "tests/f6-b-archive.test.cjs",
+      "base_commit": "0ed485661241a571ba726cfb31a49541f40bd4fa",
+      "bytes": 4079,
+      "sha256": "7f6f64db73ec2fbca0e260de0bcbbed37e6ab0fa31d167da0994fc4accdecf37"
+    },
+    {
+      "file": "tests/f4-a.test.cjs",
+      "base_commit": "0ed485661241a571ba726cfb31a49541f40bd4fa",
+      "bytes": 18577,
+      "sha256": "50f690a6c3607273257d261e410768880e5f211bf432c1931621ca1529a2a55e"
+    }
+  ],
+  "code_continuity": {
+    "execution_commit": "6fcc698681514a90e1dcd28a0f926967b2304884",
+    "paths": [
+      "js",
+      "tools",
+      "tests",
+      "conformance",
+      "index.html",
+      "css"
+    ],
+    "different_paths": [],
+    "engine_baseline": "59bd859bf102be546f3dfb3bb0200fde0b90233b",
+    "different_engine_paths": [],
+    "method": "git diff --name-only with explicit revisions"
+  },
+  "preservation": {
+    "tracked_files_before": 420,
+    "changed_original_files": [
+      "docs/IMPLEMENTATION_STATUS.md"
+    ],
+    "status_old_bytes": 368585,
+    "status_old_sha256": "5df02d53239b718caaadf15372ba82be028c1897ea95a213aa359e6d0b9f433c",
+    "status_original_suffix_byte_identical": true,
+    "other_original_tracked_files_unchanged": true,
+    "transfer_branch": "transfer/p01-c2-evidence-20261117",
+    "transfer_branch_tip": "72b97e29e168eb46cc6cf62d881e82d4b04335c0",
+    "originals_not_deleted_or_regenerated": true,
+    "external_copy": "OWNER_REPORTED_WINDOWS_LOCAL_COPY; no new recipient inspection",
+    "OneDrive": "NOT_VERIFIED"
+  },
+  "logs": {
+    "file": "checks.log.b64",
+    "decoded_bytes": 14517,
+    "decoded_sha256": "86622873b0c0bbf747c8d19f46a2bd122767e804a1945f0386b01a9d18419d1b"
+  },
+  "order": {
+    "file": "order.txt.b64",
+    "decoded_bytes": 14066,
+    "decoded_sha256": "d9501b156ac212772fb6899fdcd57eca3bd45da8aa552275817c18084f044257"
+  },
+  "documentary_incidents": [
+    "Initial helper queried an absent local origin/transfer ref and stopped; remote fetch refspec tracks main only. git ls-remote then confirmed the transfer branch without modifying it. No tests or experiments repeated."
+  ],
+  "claims_not_made": [
+    "global normative conformance",
+    "independent interoperability",
+    "external laboratory execution",
+    "new E3/E4 verification",
+    "automatic milestone closure"
+  ],
+  "documentary_checks": {
+    "local_link_targets_checked": 25,
+    "missing_targets": 0,
+    "order_original_bytes_preserved": true,
+    "log_decoded_sha_matches": true,
+    "new_material_private_key_and_common_token_pattern_matches": 0,
+    "historical_status_exact_suffix": true,
+    "git_diff_check": "PASS",
+    "source_of_results": "Local read-only documentary assertions; no normative or scientific reexecution",
+    "secret_scan_limit": "Static patterns, manual inspection of new documents and source logs; no private material or experimental packages added"
+  }
+}

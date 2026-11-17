@@ -1,3 +1,19 @@
+# Estado vigente — reconciliación F6 y cierre de construcción
+
+**2026-11-17 (America/Guayaquil). Auditoría: GO_CONSTRUCTION_CLOSURE recomendado para revisión del propietario**, en el alcance operacional de referencia P01, modo autónomo y demo web existente. No es cierre automático ni conformidad global.
+
+F6-A/E `COMPLETE_DOCUMENTED`; F6-B/C/D `COMPLETE_VERIFIED` dentro del alcance y métodos declarados. C/D se implementaron principalmente en B/E/F: no son fases faltantes por su nombre. **F6-N BLOCKED; reconciliación, conformidad e interoperabilidad independiente NOT_ESTABLISHED.** Persisten fuentes G00 y 289BLOCKED históricos; perfil F5-C no aprobado.
+
+E3/E4 PASS y aceptación E5 acotada conservados. C2 `VERIFIED_EXTERNAL_BACKUP` según confirmación del propietario de hashes locales Windows, cierre documental integrado por PR #44; OneDrive `NOT_VERIFIED`. La auditoría actual ejecutó100 pruebas focalizadas PASS, legacy13PASS/9FAIL conocidos, verificó la copia774objetos y hashes originales; no repitió E3/E4 ni lanzó campaña final. Límites de Observation grande/Rule radio0 siguen explícitos.
+
+[Dictamen, alcance y mínima decisión](f6-construction-closure/READINESS_REPORT.md) · [Matriz F6](f6-construction-closure/PHASE_RECONCILIATION.md) · [Componentes y pendientes](f6-construction-closure/COMPONENTS_AND_FINDINGS.md) · [Evidencia actual](f6-construction-closure/VERIFICATION.json).
+
+---
+
+## Cortes históricos íntegros
+
+El texto que sigue se conserva byte a byte del documento anterior. Sus expresiones «vigente», «pendiente» y sus conteos describen cada corte, no sustituyen el resumen posterior de arriba.
+
 # Estado de implementación de WORLD-LAB
 
 Documento **informativo y operacional**. Consolidación DOC-02: **2026-11-10
