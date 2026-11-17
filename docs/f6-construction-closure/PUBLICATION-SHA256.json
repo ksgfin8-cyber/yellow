@@ -1,0 +1,32 @@
+[
+  {
+    "file": "COMPONENTS_AND_FINDINGS.md",
+    "bytes": 12461,
+    "sha256": "391ff13d79410755f4b43be58700714d8d23bef7d5d3177183a3b05d6c8b718f"
+  },
+  {
+    "file": "PHASE_RECONCILIATION.md",
+    "bytes": 10900,
+    "sha256": "d7e497a2e9906d484db54e76781a8e85c744dd682570f720f5f2224a02414a7f"
+  },
+  {
+    "file": "READINESS_REPORT.md",
+    "bytes": 10160,
+    "sha256": "19042d3ec2e9b782080570b460c7f03e4de57ca96dcec6a791e74a6a6c32f577"
+  },
+  {
+    "file": "VERIFICATION.json",
+    "bytes": 19889,
+    "sha256": "c1176ff9c426c3e0a24a0c0bd5724d03171254a2dfb5404cf70414908d42f58c"
+  },
+  {
+    "file": "checks.log.b64",
+    "bytes": 19611,
+    "sha256": "09b678a0b90709f4f379b47ca8487cae074eeb656d7ba9fc6ca634c5419a7601"
+  },
+  {
+    "file": "order.txt.b64",
+    "bytes": 19003,
+    "sha256": "a1f47e73a154d1bf7fc70d3572b7d8647d9e1aad41d08c4101ba919f4a7fd9ba"
+  }
+]
