@@ -1,0 +1,37 @@
+[
+  {
+    "file": "COMPLEXITY_MODELS.md",
+    "bytes": 11711,
+    "sha256": "bd8e9551be46b3d1c59d301073b8c9e12bc122a8e10cf8f502b0c951d74b22bb"
+  },
+  {
+    "file": "QUESTIONS_AND_EVIDENCE.md",
+    "bytes": 6531,
+    "sha256": "0bd853227c0a21ce124516ab760c4f450d9a3594014a6c34dd9e995422ad4d63"
+  },
+  {
+    "file": "RC1_C_PROPOSAL.md",
+    "bytes": 12145,
+    "sha256": "4163e70dad3c192c93449b2768545df9c4fbe8b529463c3e18c4ee6f3ab023c7"
+  },
+  {
+    "file": "REPORT.md",
+    "bytes": 10560,
+    "sha256": "d1b05d88bdef54a0e46c7f39b46fb184115a02464123160713438f6f36aac83b"
+  },
+  {
+    "file": "REVIEW_EVIDENCE.json",
+    "bytes": 24679,
+    "sha256": "4fc16c9ed781271e87fa2314b124fcf001e1c4059dff14e09ded1b1b4a847206"
+  },
+  {
+    "file": "function-models.json",
+    "bytes": 79463,
+    "sha256": "1df8b7118afcc6fcadf632ab31a9f042d995f28c75e1b0fb6ab468b143ab75e2"
+  },
+  {
+    "file": "order.txt.b64",
+    "bytes": 14740,
+    "sha256": "f4e90ac93ddf04efc8c6c1c63c39537328e469ddf3129fe9582dff374c80a352"
+  }
+]
