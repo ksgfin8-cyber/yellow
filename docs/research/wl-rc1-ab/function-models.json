@@ -1,0 +1,1053 @@
+{
+  "format": "WL-RC1-FUNCTION-MODELS-1",
+  "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+  "shared_assumptions": "COMPLEXITY_MODELS.md",
+  "models": [
+    {
+      "id": "M01",
+      "classification": "SD_CONDITIONAL_STATIC_DEDUCTION; NOT_BENCHMARKED",
+      "sources": [
+        {
+          "file": "js/contracts/structures.js",
+          "symbol_locator": "function validate_WorldState(",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "fba224b53c4a1fb1d8b940101d932a3674eaa634311bf8a60409fac44388c757",
+          "line": 31,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/js/contracts/structures.js#L31"
+        },
+        {
+          "file": "js/world/world_config.js",
+          "symbol_locator": "function validate_WorldConfig(",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "96ef813ee5fe693d002b259168944efb8b41ffb1c0442f2dd6e070b99d8eec54",
+          "line": 9,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/js/world/world_config.js#L9"
+        }
+      ],
+      "contract_and_domain": "Closed valid WorldState and WorldConfig, N<=2^20, one entity, nonzero uint32 RNG; invalid inputs may short-circuit.",
+      "independent_input_variables": "N,L; scalar config field count fixed.",
+      "data_structures": "Grid rows, Cell/effect records, Map of size1, temporary UTF8 byte array.",
+      "loops_recursion_copies_allocations": "Nested y/x validates every Cell; entity validation encodes ID; WorldConfig checks a fixed field set and BigInt product.",
+      "time_model": "Valid state Θ(N+L)=Θ(S). Config alone O(1) in fixed-width domain.",
+      "reachable_space_model": "O(L) peak temporary UTF8/descriptors; no grid copy.",
+      "best_worst_amortized_cases": "Best invalid record may return O(1); worst valid visits N cells and whole ID; no amortization required.",
+      "runtime_assumptions": "Shared cost assumptions in COMPLEXITY_MODELS.md: fixed-width words; small closed ordinary records; Map/Set expected O(1); array append amortized O(1); sort, GC, JIT, I/O and native allocation are not guaranteed by ECMAScript. Specific caveats below.",
+      "resource_exhaustion_conditions": "Long IDs allocate encoding; invalid/adversarial objects excluded from valid-input bound.",
+      "contrast_experiment_proposed_not_run": "P1/P2/P3 validate identical-structure empty grids, fixed L; vary L separately only if a later protocol authorizes it.",
+      "uncertainties_preventing_unconditional_bound": "Actual descriptor/UTF8 allocation constants and runtime representation not measured."
+    },
+    {
+      "id": "M02",
+      "classification": "SD_CONDITIONAL_STATIC_DEDUCTION; NOT_BENCHMARKED",
+      "sources": [
+        {
+          "file": "js/world/world_state.js",
+          "symbol_locator": "    constructor(time, grid, entities, rng_state, config) {",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "93a0da82a23280350babc82056b06697e6f3c0de4dfa060483d92adf20cf3ac5",
+          "line": 5,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/js/world/world_state.js#L5"
+        },
+        {
+          "file": "js/world/world_state.js",
+          "symbol_locator": "    copy() {",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "93a0da82a23280350babc82056b06697e6f3c0de4dfa060483d92adf20cf3ac5",
+          "line": 20,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/js/world/world_state.js#L20"
+        },
+        {
+          "file": "js/world/world_state.js",
+          "symbol_locator": "    full_snapshot() {",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "93a0da82a23280350babc82056b06697e6f3c0de4dfa060483d92adf20cf3ac5",
+          "line": 28,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/js/world/world_state.js#L28"
+        }
+      ],
+      "contract_and_domain": "Structurally valid state; copy preserves fields and independence, no simulation.",
+      "independent_input_variables": "N,L.",
+      "data_structures": "New grid/rows/Cell/effects/Map/EntityState/position.",
+      "loops_recursion_copies_allocations": "copy validates, constructor validates again then grid.map(row.map(...)); each Cell/EntityState validates and copies; full_snapshot delegates.",
+      "time_model": "Θ(S) work per call, constant repeated full scans.",
+      "reachable_space_model": "O(S) upper bound; Ω(N) fresh cells/row slots; immutable ID string may share storage.",
+      "best_worst_amortized_cases": "Valid best/worst scan all N; invalid state may fail early; cumulative allocation grows with number of copies.",
+      "runtime_assumptions": "Shared cost assumptions in COMPLEXITY_MODELS.md: fixed-width words; small closed ordinary records; Map/Set expected O(1); array append amortized O(1); sort, GC, JIT, I/O and native allocation are not guaranteed by ECMAScript. Specific caveats below.",
+      "resource_exhaustion_conditions": "Several snapshots simultaneously live; row/record overhead and GC unknown.",
+      "contrast_experiment_proposed_not_run": "Measure public full_snapshot separately from validate; record outputs and equality before timing use.",
+      "uncertainties_preventing_unconditional_bound": "No exact JS heap bytes inferred from object count; constructor/private config work constant."
+    },
+    {
+      "id": "M03",
+      "classification": "SD_CONDITIONAL_STATIC_DEDUCTION; NOT_BENCHMARKED",
+      "sources": [
+        {
+          "file": "js/world/world.js",
+          "symbol_locator": "    _generate_grid(rng = this.rng) {",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "b63ce107b0a28b4a263dfe3724f960fb42b03f298d853f7023e1da49066abb56",
+          "line": 45,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/js/world/world.js#L45"
+        }
+      ],
+      "contract_and_domain": "Validated config and PRNG; canonical row-major generator.",
+      "independent_input_variables": "N,b blocked cells.",
+      "data_structures": "Grid of rows and Cell records/effects.",
+      "loops_recursion_copies_allocations": "Two nested loops; one float for blocked, two for free; one Cell per position.",
+      "time_model": "Θ(N); exact next_float count=2N-b.",
+      "reachable_space_model": "Θ(N) output records; no candidate array here.",
+      "best_worst_amortized_cases": "All blocked/free have same order Θ(N), different constant RNG/effects work.",
+      "runtime_assumptions": "Shared cost assumptions in COMPLEXITY_MODELS.md: fixed-width words; small closed ordinary records; Map/Set expected O(1); array append amortized O(1); sort, GC, JIT, I/O and native allocation are not guaranteed by ECMAScript. Specific caveats below.",
+      "resource_exhaustion_conditions": "Allocation of N cells may fail despite valid config; finite MAX_CELLS.",
+      "contrast_experiment_proposed_not_run": "Compare fixed N with controlled b using later instrumented RNG only in approved fixtures, not frozen sources.",
+      "uncertainties_preventing_unconditional_bound": "RNG scalar primitive assumed constant; no timing measured."
+    },
+    {
+      "id": "M04",
+      "classification": "SD_CONDITIONAL_STATIC_DEDUCTION; NOT_BENCHMARKED",
+      "sources": [
+        {
+          "file": "js/world/world.js",
+          "symbol_locator": "    _choose_initial_position(grid, rng = this.rng) {",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "b63ce107b0a28b4a263dfe3724f960fb42b03f298d853f7023e1da49066abb56",
+          "line": 75,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/js/world/world.js#L75"
+        },
+        {
+          "file": "js/core/prng.js",
+          "symbol_locator": "    next_int(a, b) {",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "2881cb208796d3a19ca28482ff6805715d776eed5dbcd8ee90001d404e701cfe",
+          "line": 30,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/js/core/prng.js#L30"
+        }
+      ],
+      "contract_and_domain": "Valid generated grid; candidates FREE with null effect; no candidates raises InitializationError.",
+      "independent_input_variables": "N,k,κ rejection draws.",
+      "data_structures": "Candidate array of k positions; uint32 rejection sampler.",
+      "loops_recursion_copies_allocations": "Complete grid validation/filter scan; next_int while(true) may call next κ times.",
+      "time_model": "Θ(N+κ) with candidates; Θ(N) if no candidate. next_int itself Θ(κ).",
+      "reachable_space_model": "O(k) positions; scalar rejection state.",
+      "best_worst_amortized_cases": "k=0 deterministic failure after full scan; κ>=1. No deterministic worst/expected κ bound established from this inspection.",
+      "runtime_assumptions": "Shared cost assumptions in COMPLEXITY_MODELS.md: fixed-width words; small closed ordinary records; Map/Set expected O(1); array append amortized O(1); sort, GC, JIT, I/O and native allocation are not guaranteed by ECMAScript. Specific caveats below.",
+      "resource_exhaustion_conditions": "Candidate allocations; no-candidate failure is expected and distinct from capacity.",
+      "contrast_experiment_proposed_not_run": "Count candidate traversal and API/extraction calls in future fixtures without changing stream.",
+      "uncertainties_preventing_unconditional_bound": "No IID uniform assumption for deterministic nonzero Xorshift; periodicity proof not supplied. Preserve κ."
+    },
+    {
+      "id": "M05",
+      "classification": "SD_CONDITIONAL_STATIC_DEDUCTION; NOT_BENCHMARKED",
+      "sources": [
+        {
+          "file": "js/world/world.js",
+          "symbol_locator": "function initialize_world(config, seed) {",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "b63ce107b0a28b4a263dfe3724f960fb42b03f298d853f7023e1da49066abb56",
+          "line": 378,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/js/world/world.js#L378"
+        },
+        {
+          "file": "js/world/world.js",
+          "symbol_locator": "function prepare_world_before_lifecycle(config, seed) {",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "b63ce107b0a28b4a263dfe3724f960fb42b03f298d853f7023e1da49066abb56",
+          "line": 290,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/js/world/world.js#L290"
+        },
+        {
+          "file": "js/world/world.js",
+          "symbol_locator": "function prepare_world_through_lifecycle(config, seed) {",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "b63ce107b0a28b4a263dfe3724f960fb42b03f298d853f7023e1da49066abb56",
+          "line": 343,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/js/world/world.js#L343"
+        },
+        {
+          "file": "js/world/world.js",
+          "symbol_locator": "    initialize(seed) {",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "b63ce107b0a28b4a263dfe3724f960fb42b03f298d853f7023e1da49066abb56",
+          "line": 26,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/js/world/world.js#L26"
+        }
+      ],
+      "contract_and_domain": "Single initialization route; entity ID fixed 0987898, one lifecycle resolution/sync; adapter adopts detached state.",
+      "independent_input_variables": "N,κ; L=7 here.",
+      "data_structures": "Grid,candidate list,WorldState copies,Map1,PRNG.",
+      "loops_recursion_copies_allocations": "Generate, verify resources, choose, construct state, validate, lifecycle, snapshot; adapter copy adds another fixed number of scans.",
+      "time_model": "Θ(N+κ) successful route; no-candidate Θ(N).",
+      "reachable_space_model": "O(N) peak live grids/positions/copies, constant number of full copies.",
+      "best_worst_amortized_cases": "Early config/seed rejection O(1); valid full path scans all cells; no caching.",
+      "runtime_assumptions": "Shared cost assumptions in COMPLEXITY_MODELS.md: fixed-width words; small closed ordinary records; Map/Set expected O(1); array append amortized O(1); sort, GC, JIT, I/O and native allocation are not guaranteed by ECMAScript. Specific caveats below.",
+      "resource_exhaustion_conditions": "Grid and snapshots coexist; failure before publication not a memory guarantee.",
+      "contrast_experiment_proposed_not_run": "Separate initialization from repeated tick measurements; preserve seed and initial bytes.",
+      "uncertainties_preventing_unconditional_bound": "No timing of cold VM or GC included in this kernel model."
+    },
+    {
+      "id": "M06",
+      "classification": "SD_CONDITIONAL_STATIC_DEDUCTION; NOT_BENCHMARKED",
+      "sources": [
+        {
+          "file": "js/world/world.js",
+          "symbol_locator": "    apply_action(action) {",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "b63ce107b0a28b4a263dfe3724f960fb42b03f298d853f7023e1da49066abb56",
+          "line": 198,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/js/world/world.js#L198"
+        },
+        {
+          "file": "js/world/world.js",
+          "symbol_locator": "    _action_type(action) {",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "b63ce107b0a28b4a263dfe3724f960fb42b03f298d853f7023e1da49066abb56",
+          "line": 154,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/js/world/world.js#L154"
+        }
+      ],
+      "contract_and_domain": "Five known actions; BOUNDED/energy/events contracts and documented engineering policies, no clock/lifecycle/RNG changes.",
+      "independent_input_variables": "N,L; at most2 action events on WORLD route.",
+      "data_structures": "Active entity, target cell, changes list of bounded size, new events.",
+      "loops_recursion_copies_allocations": "Full state validation via _action_type, repeated by MOVE helpers; local checks/arithmetic/effect staging and constant changes loop.",
+      "time_model": "Θ(S) on valid WORLD, even failed/invalid action result after state validation; physical local work O(1).",
+      "reachable_space_model": "O(L+1) temporary encoding and bounded changes/events, not a state snapshot.",
+      "best_worst_amortized_cases": "WAIT fewer scans than MOVE; asymptotic same valid path. Malformed WORLD can fail early.",
+      "runtime_assumptions": "Shared cost assumptions in COMPLEXITY_MODELS.md: fixed-width words; small closed ordinary records; Map/Set expected O(1); array append amortized O(1); sort, GC, JIT, I/O and native allocation are not guaranteed by ECMAScript. Specific caveats below.",
+      "resource_exhaustion_conditions": "Unbounded ID encoding cost; arithmetic rejects nonfinite before commit; external memory overhead unknown.",
+      "contrast_experiment_proposed_not_run": "Measure WAIT/MOVE/blocked/resource/hazard as separate future fixtures, identical state sizes.",
+      "uncertainties_preventing_unconditional_bound": "No claim to have recovered every historical action clause; no policy change authorized."
+    },
+    {
+      "id": "M07",
+      "classification": "SD_CONDITIONAL_STATIC_DEDUCTION; NOT_BENCHMARKED",
+      "sources": [
+        {
+          "file": "js/world/world.js",
+          "symbol_locator": "    resolve_lifecycle() {",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "b63ce107b0a28b4a263dfe3724f960fb42b03f298d853f7023e1da49066abb56",
+          "line": 103,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/js/world/world.js#L103"
+        }
+      ],
+      "contract_and_domain": "ACTIVE/DEAD explicit; emit at most one raw death event, no resurrection.",
+      "independent_input_variables": "N,L.",
+      "data_structures": "Map1 entity and optional event.",
+      "loops_recursion_copies_allocations": "Full assert_WorldState then local lifecycle/energy check.",
+      "time_model": "Θ(S) for valid state, regardless of whether event emitted.",
+      "reachable_space_model": "O(L+1) temporary/output.",
+      "best_worst_amortized_cases": "ACTIVE alive and already DEAD still validate full state.",
+      "runtime_assumptions": "Shared cost assumptions in COMPLEXITY_MODELS.md: fixed-width words; small closed ordinary records; Map/Set expected O(1); array append amortized O(1); sort, GC, JIT, I/O and native allocation are not guaranteed by ECMAScript. Specific caveats below.",
+      "resource_exhaustion_conditions": "Same validation/encoding limits; no whole-grid output.",
+      "contrast_experiment_proposed_not_run": "Compare valid alive/death/dead at fixed N, outside benchmark P01 evidence.",
+      "uncertainties_preventing_unconditional_bound": "Energy/threshold scalars fixed-width; temporal sequencing unchanged."
+    },
+    {
+      "id": "M08",
+      "classification": "SD_CONDITIONAL_STATIC_DEDUCTION; NOT_BENCHMARKED",
+      "sources": [
+        {
+          "file": "js/world/world.js",
+          "symbol_locator": "    advance_dynamics() {",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "b63ce107b0a28b4a263dfe3724f960fb42b03f298d853f7023e1da49066abb56",
+          "line": 122,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/js/world/world.js#L122"
+        },
+        {
+          "file": "js/world/world.js",
+          "symbol_locator": "    regenerate_resources() {",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "b63ce107b0a28b4a263dfe3724f960fb42b03f298d853f7023e1da49066abb56",
+          "line": 126,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/js/world/world.js#L126"
+        }
+      ],
+      "contract_and_domain": "No clock/entity/lifecycle/events/RNG changes; resource stock binary, documented regeneration policy.",
+      "independent_input_variables": "N,L,g depleted resources, regeneration rate.",
+      "data_structures": "Grid and staged list of [effect,stock].",
+      "loops_recursion_copies_allocations": "Validate full state; rate0 returns; positive rate scans every cell, stages g then commits g writes.",
+      "time_model": "Θ(S) at rate0 and Θ(S+N+g)=Θ(S) at positive rate.",
+      "reachable_space_model": "O(L+g) additional, g<=N.",
+      "best_worst_amortized_cases": "No resources/full resources still scan at positive rate; zero rate skips update scan only.",
+      "runtime_assumptions": "Shared cost assumptions in COMPLEXITY_MODELS.md: fixed-width words; small closed ordinary records; Map/Set expected O(1); array append amortized O(1); sort, GC, JIT, I/O and native allocation are not guaranteed by ECMAScript. Specific caveats below.",
+      "resource_exhaustion_conditions": "Stage list g can grow to N; no global EXPERIMENT transaction introduced.",
+      "contrast_experiment_proposed_not_run": "Separate validator cost and rate0/full/depleted workloads in future controlled fixtures.",
+      "uncertainties_preventing_unconditional_bound": "Formula is engineering policy with normative historical gaps; profiling cannot settle authority."
+    },
+    {
+      "id": "M09",
+      "classification": "SD_CONDITIONAL_STATIC_DEDUCTION; NOT_BENCHMARKED",
+      "sources": [
+        {
+          "file": "js/interface/observation.js",
+          "symbol_locator": "function build_observation(world, entity, radius) {",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "db6373fc9a8e641a8cfcbea1a72b229a7d83ba3f501029edf4b7d13d1509d371",
+          "line": 14,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/js/interface/observation.js#L14"
+        }
+      ],
+      "contract_and_domain": "Pure closed Observation, Chebyshev/OUT_OF_BOUNDS; guard64MiB estimated construction budget.",
+      "independent_input_variables": "N,L,r,Q independently of occupied map overlap.",
+      "data_structures": "Fresh Q records and s rows; UTF8 validation temporary.",
+      "loops_recursion_copies_allocations": "Validate whole WORLD/entity, BigInt planning, then s² iterations including out-of-bounds.",
+      "time_model": "Accepted valid input Θ(S+Q). Guard rejection after valid WORLD Θ(S), not O(1) in N.",
+      "reachable_space_model": "O(Q+L); Q fresh output records. Estimate64Q+8s is not measured heap.",
+      "best_worst_amortized_cases": "Guard admits r<=511 by exact inequality; memory can fail sooner. Invalid state/radius has earlier failures.",
+      "runtime_assumptions": "Shared cost assumptions in COMPLEXITY_MODELS.md: fixed-width words; small closed ordinary records; Map/Set expected O(1); array append amortized O(1); sort, GC, JIT, I/O and native allocation are not guaranteed by ECMAScript. Specific caveats below.",
+      "resource_exhaustion_conditions": "Output+Feedback+history and native/GC overhead can exceed estimate; no near-limit allocations now.",
+      "contrast_experiment_proposed_not_run": "P2/P4/P5/P6 isolate Q; analytical boundary511/512 only, separate authorization for actual boundary allocations.",
+      "uncertainties_preventing_unconditional_bound": "Runtime record size unknown; guard admissibility CC-04 remains unresolved; no truncation permitted."
+    },
+    {
+      "id": "M10",
+      "classification": "SD_CONDITIONAL_STATIC_DEDUCTION; NOT_BENCHMARKED",
+      "sources": [
+        {
+          "file": "js/interface/feedback.js",
+          "symbol_locator": "function feedback_copy_observation(observation) {",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "c37d67a23af0549c23adc1cd54b62bd3f85c57713ef8c04a4d98a255869f424f",
+          "line": 39,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/js/interface/feedback.js#L39"
+        },
+        {
+          "file": "js/interface/feedback.js",
+          "symbol_locator": "function feedback_project_action(result, config) {",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "c37d67a23af0549c23adc1cd54b62bd3f85c57713ef8c04a4d98a255869f424f",
+          "line": 64,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/js/interface/feedback.js#L64"
+        },
+        {
+          "file": "js/interface/feedback.js",
+          "symbol_locator": "function build_feedback(observation, last_action_result, feedback_config) {",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "c37d67a23af0549c23adc1cd54b62bd3f85c57713ef8c04a4d98a255869f424f",
+          "line": 87,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/js/interface/feedback.js#L87"
+        }
+      ],
+      "contract_and_domain": "Closed flags and Feedback; validate inputs, no mutations; disabled fields cannot leak value.",
+      "independent_input_variables": "Q,L,e prior events (<=2 on normal WORLD route, variable for structural input).",
+      "data_structures": "New view rows/cells/self/prior result and allowed event copies.",
+      "loops_recursion_copies_allocations": "Loop Q for observation; loop all e events even if hidden; validate encodes IDs; fixed four flags.",
+      "time_model": "O(Q+(e+1)L+e); Θ(Q) for bounded IDs/events. No whole-grid validation here.",
+      "reachable_space_model": "O(Q+e+L) output/temporary upper bound.",
+      "best_worst_amortized_cases": "No prior action omits event loop; hidden events still validated, copied list remains empty.",
+      "runtime_assumptions": "Shared cost assumptions in COMPLEXITY_MODELS.md: fixed-width words; small closed ordinary records; Map/Set expected O(1); array append amortized O(1); sort, GC, JIT, I/O and native allocation are not guaranteed by ECMAScript. Specific caveats below.",
+      "resource_exhaustion_conditions": "Q duplicates Observation; ID validation temporary; no radius guard in copier itself.",
+      "contrast_experiment_proposed_not_run": "Compare all flags at fixed Q with manual valid prior action; measure public function not private mutation.",
+      "uncertainties_preventing_unconditional_bound": "External valid structural arrays can be larger than canonical action event bound; retain e."
+    },
+    {
+      "id": "M11",
+      "classification": "SD_CONDITIONAL_STATIC_DEDUCTION; NOT_BENCHMARKED",
+      "sources": [
+        {
+          "file": "js/experiment/tick_transaction.js",
+          "symbol_locator": "function execute_tick(world, action) {",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "a03384cc7f10900683f9acbe179b02f00d2ce62d3a6de03eefd5edefae16c227",
+          "line": 70,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/js/experiment/tick_transaction.js#L70"
+        },
+        {
+          "file": "js/experiment/tick_transaction.js",
+          "symbol_locator": "function execute_tick_transaction(world, action, max_ticks) {",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "a03384cc7f10900683f9acbe179b02f00d2ce62d3a6de03eefd5edefae16c227",
+          "line": 119,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/js/experiment/tick_transaction.js#L119"
+        },
+        {
+          "file": "js/experiment/tick_transaction.js",
+          "symbol_locator": "function validate_ConfirmedTickResult(result, world, expected_termination) {",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "a03384cc7f10900683f9acbe179b02f00d2ce62d3a6de03eefd5edefae16c227",
+          "line": 105,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/js/experiment/tick_transaction.js#L105"
+        }
+      ],
+      "contract_and_domain": "Action→lifecycle→dynamics; transaction adds exact clock/sync/snapshots and rollback; no observation/agent.",
+      "independent_input_variables": "N,L; scalar uint64 clock and bounded WORLD events.",
+      "data_structures": "Rollback snapshot,active state,confirmed snapshot, event copies.",
+      "loops_recursion_copies_allocations": "Constant number full validations/copies/scans; result comparison loops grid; catch restores saved state/RNG.",
+      "time_model": "Θ(S) successful tick/transaction under native methods; no T-history factor. determine_termination also validates WORLD.",
+      "reachable_space_model": "O(S) additional live state copies, bounded event lists.",
+      "best_worst_amortized_cases": "Terminal/config rejection before mutation; failure after work restores snapshots; arbitrary injected hooks outside model.",
+      "runtime_assumptions": "Shared cost assumptions in COMPLEXITY_MODELS.md: fixed-width words; small closed ordinary records; Map/Set expected O(1); array append amortized O(1); sort, GC, JIT, I/O and native allocation are not guaranteed by ECMAScript. Specific caveats below.",
+      "resource_exhaustion_conditions": "Multiple complete snapshots plus active state; actual RSS depends on GC and heap.",
+      "contrast_experiment_proposed_not_run": "Time execute_tick_transaction with valid fixed traces, separate observation/recording and setup.",
+      "uncertainties_preventing_unconditional_bound": "No global rollback with Recorder in EXPERIMENT; no unconditional wall bound under injected/runtime failures."
+    },
+    {
+      "id": "M12",
+      "classification": "SD_CONDITIONAL_STATIC_DEDUCTION; NOT_BENCHMARKED",
+      "sources": [
+        {
+          "file": "js/experiment/recorder.js",
+          "symbol_locator": "    record_step(confirmed, observation, feedback, action) {",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "d9825f9dafc6ddff2537103dd95b3595b5bca06d9b4ed3ee8e52e862e94d0cdb",
+          "line": 467,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/js/experiment/recorder.js#L467"
+        },
+        {
+          "file": "js/experiment/recorder.js",
+          "symbol_locator": "    _prepare_step_input(confirmed, observation, feedback, action) {",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "d9825f9dafc6ddff2537103dd95b3595b5bca06d9b4ed3ee8e52e862e94d0cdb",
+          "line": 342,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/js/experiment/recorder.js#L342"
+        },
+        {
+          "file": "js/experiment/recorder.js",
+          "symbol_locator": "function commit(transaction, prepare, validate, append) {",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "d9825f9dafc6ddff2537103dd95b3595b5bca06d9b4ed3ee8e52e862e94d0cdb",
+          "line": 126,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/js/experiment/recorder.js#L126"
+        }
+      ],
+      "contract_and_domain": "Owned incremental append of confirmed step; raw→recorded enrichment, independent contexts/snapshot, WLS1 hashes.",
+      "independent_input_variables": "N,Q,L,i existing prefix,e bounded world events.",
+      "data_structures": "Private history arrays, prior snapshot/result, staged step+owned copy/events.",
+      "loops_recursion_copies_allocations": "Reads previous state; copies new state/context; generates two hashes and revalidates new step; capture is shallow; appends no prefix export.",
+      "time_model": "O(D) per step for bounded events, amortized arrays; no factor i in ordinary record_step path.",
+      "reachable_space_model": "O(D) new step/temporary upper bound; retained prefix O(S+iD+E_iL).",
+      "best_worst_amortized_cases": "Append vs nonappend initialization distinct; _prepare_step standalone is not used by record_step.",
+      "runtime_assumptions": "Shared cost assumptions in COMPLEXITY_MODELS.md: fixed-width words; small closed ordinary records; Map/Set expected O(1); array append amortized O(1); sort, GC, JIT, I/O and native allocation are not guaranteed by ECMAScript. Specific caveats below.",
+      "resource_exhaustion_conditions": "Retains every recorded snapshot/context; hash materializes full bytes repeatedly.",
+      "contrast_experiment_proposed_not_run": "Compare cumulative append with T at fixed N/Q; do not poll getter during measurement.",
+      "uncertainties_preventing_unconditional_bound": "Private ownership relied on; sort/Map/arrays and GC assumptions; actual copied bytes and constants unknown."
+    },
+    {
+      "id": "M13",
+      "classification": "SD_CONDITIONAL_STATIC_DEDUCTION; NOT_BENCHMARKED",
+      "sources": [
+        {
+          "file": "js/experiment/recorder.js",
+          "symbol_locator": "    finalize() {",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "d9825f9dafc6ddff2537103dd95b3595b5bca06d9b4ed3ee8e52e862e94d0cdb",
+          "line": 485,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/js/experiment/recorder.js#L485"
+        },
+        {
+          "file": "js/experiment/recorder.js",
+          "symbol_locator": "    _validate_prepared(prepared) {",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "d9825f9dafc6ddff2537103dd95b3595b5bca06d9b4ed3ee8e52e862e94d0cdb",
+          "line": 198,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/js/experiment/recorder.js#L198"
+        },
+        {
+          "file": "js/experiment/recorder.js",
+          "symbol_locator": "    _prepare_current() {",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "d9825f9dafc6ddff2537103dd95b3595b5bca06d9b4ed3ee8e52e862e94d0cdb",
+          "line": 174,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/js/experiment/recorder.js#L174"
+        }
+      ],
+      "contract_and_domain": "Finalize detached trajectory only after exhaustive validation; no execution of action/lifecycle.",
+      "independent_input_variables": "T,N,Q,L,E.",
+      "data_structures": "Full copied prefix, global events list, Trajectory wrapper.",
+      "loops_recursion_copies_allocations": "copy_fields maps all steps; validation loops all records, contexts/hashes/states, events; no nested full prefix per step.",
+      "time_model": "O(Z+T*B) = O(Z) when state byte size B=O(S), bounded records; valid full prefix requires linear traversal.",
+      "reachable_space_model": "O(Z) extra output/copies plus retained history; mutable independence preserved.",
+      "best_worst_amortized_cases": "Invalid prefix can fail early after preparation copy; T=0 still copies/validates initial state.",
+      "runtime_assumptions": "Shared cost assumptions in COMPLEXITY_MODELS.md: fixed-width words; small closed ordinary records; Map/Set expected O(1); array append amortized O(1); sort, GC, JIT, I/O and native allocation are not guaranteed by ECMAScript. Specific caveats below.",
+      "resource_exhaustion_conditions": "Full second history at finalization; heap may exceed worker budget before output.",
+      "contrast_experiment_proposed_not_run": "Measure finalize separately on prepared lengths4/16; prefix creation recorded outside timed boundary.",
+      "uncertainties_preventing_unconditional_bound": "Metadata wrapper is constant here; actual sharing of immutable strings/GC not inferred."
+    },
+    {
+      "id": "M14",
+      "classification": "SD_CONDITIONAL_STATIC_DEDUCTION; NOT_BENCHMARKED",
+      "sources": [
+        {
+          "file": "js/experiment/recorder.js",
+          "symbol_locator": "function public_value(recorder, key) {",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "d9825f9dafc6ddff2537103dd95b3595b5bca06d9b4ed3ee8e52e862e94d0cdb",
+          "line": 95,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/js/experiment/recorder.js#L95"
+        },
+        {
+          "file": "js/experiment/recorder.js",
+          "symbol_locator": "    _export_prefix() {",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "d9825f9dafc6ddff2537103dd95b3595b5bca06d9b4ed3ee8e52e862e94d0cdb",
+          "line": 189,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/js/experiment/recorder.js#L189"
+        },
+        {
+          "file": "js/experiment/recorder.js",
+          "symbol_locator": "    _prepare_step(confirmed, observation, feedback, action) {",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "d9825f9dafc6ddff2537103dd95b3595b5bca06d9b4ed3ee8e52e862e94d0cdb",
+          "line": 337,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/js/experiment/recorder.js#L337"
+        }
+      ],
+      "contract_and_domain": "Public getters/export give independent values; standalone staging preserves full-prefix check.",
+      "independent_input_variables": "i,N,Q,L,E_i.",
+      "data_structures": "Mapped copies of steps/events/state and prior feedback.",
+      "loops_recursion_copies_allocations": "steps getter/export/copy_fields traverse whole prefix; _prepare_step invokes full copy+validation before new input.",
+      "time_model": "Each full prefix O(S+iD+E_iL); repeated at every tick accumulates O(T²D) for bounded IDs/events.",
+      "reachable_space_model": "One export O(Z_i); retaining all prefixes O(T²D), only last O(TD) reachable.",
+      "best_worst_amortized_cases": "initial_state getter O(S), events getter O(E_iL), scalar getters O(1); not all getters share full-prefix cost.",
+      "runtime_assumptions": "Shared cost assumptions in COMPLEXITY_MODELS.md: fixed-width words; small closed ordinary records; Map/Set expected O(1); array append amortized O(1); sort, GC, JIT, I/O and native allocation are not guaranteed by ECMAScript. Specific caveats below.",
+      "resource_exhaustion_conditions": "Consumer polling can allocate quadratic cumulative volume without a Recorder append regression.",
+      "contrast_experiment_proposed_not_run": "Contrast append-only vs one final export vs per-tick export under approved small T.",
+      "uncertainties_preventing_unconditional_bound": "GC may retain unreachable prefixes; do not treat cumulative allocations as live heap."
+    },
+    {
+      "id": "M15",
+      "classification": "SD_CONDITIONAL_STATIC_DEDUCTION; NOT_BENCHMARKED",
+      "sources": [
+        {
+          "file": "js/experiment/hash_state.js",
+          "symbol_locator": "function serialize_world_state(state, include_rng = false) {",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "98c0370aa77fec06ea45a4bc5b12233083d8a724f3a05e271deb6f265d397bd6",
+          "line": 33,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/js/experiment/hash_state.js#L33"
+        },
+        {
+          "file": "js/experiment/hash_state.js",
+          "symbol_locator": "function STATE_HASH_WORLD(state) {",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "98c0370aa77fec06ea45a4bc5b12233083d8a724f3a05e271deb6f265d397bd6",
+          "line": 74,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/js/experiment/hash_state.js#L74"
+        },
+        {
+          "file": "js/experiment/hash_state.js",
+          "symbol_locator": "function STATE_HASH_FULL(state) {",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "98c0370aa77fec06ea45a4bc5b12233083d8a724f3a05e271deb6f265d397bd6",
+          "line": 77,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/js/experiment/hash_state.js#L77"
+        },
+        {
+          "file": "js/core/hash.js",
+          "symbol_locator": "function fnv1a_bytes(bytes) {",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "825f348e0e7be9e477cfa6b8554d925a5a724051c5234855aa261dda5d07b370",
+          "line": 17,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/js/core/hash.js#L17"
+        }
+      ],
+      "contract_and_domain": "WLS1/FNV state encoding; one entity, UTF8, binary64/-0, exact uint64 time, optionaluint32 RNG.",
+      "independent_input_variables": "N,L,B; entity cardinality fixed1.",
+      "data_structures": "UTF8 array, Uint8Array,DataView; FNV scalar accumulator.",
+      "loops_recursion_copies_allocations": "Validate grid twice in validation pipeline; encode ID, allocate B and row-major writes; hash visits B descriptors/bytes.",
+      "time_model": "Θ(S+B)=Θ(S); fnv1a_bytes Θ(B). Entity sorting constant for Map.size1.",
+      "reachable_space_model": "O(B+L) additional; hashing existing bytes alone O(1) auxiliary.",
+      "best_worst_amortized_cases": "B_WORLD=45+3N+L; FULL+4; valid always writes/reads all bytes.",
+      "runtime_assumptions": "Shared cost assumptions in COMPLEXITY_MODELS.md: fixed-width words; small closed ordinary records; Map/Set expected O(1); array append amortized O(1); sort, GC, JIT, I/O and native allocation are not guaranteed by ECMAScript. Specific caveats below.",
+      "resource_exhaustion_conditions": "Uint8Array/native buffer cap and ID allocation; no incremental cache.",
+      "contrast_experiment_proposed_not_run": "Compare exact output length to formula; later measure serialize vs hash on retained bytes separately.",
+      "uncertainties_preventing_unconditional_bound": "Object allocation/constants and native buffer zeroing timing unknown; no independent interoperable engine claimed."
+    },
+    {
+      "id": "M16",
+      "classification": "SD_CONDITIONAL_STATIC_DEDUCTION; NOT_BENCHMARKED",
+      "sources": [
+        {
+          "file": "js/experiment/replay.js",
+          "symbol_locator": "function replay_trajectory(initial_state, initial_events, actions, world_config, feedback_config, expected_steps, max_ticks, execution_mode) {",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "49229202c9290b74cc34d19773d6d2d7ad518d0e3c82878f285b7638cc62b580",
+          "line": 154,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/js/experiment/replay.js#L154"
+        },
+        {
+          "file": "js/experiment/replay.js",
+          "symbol_locator": "function replay_tick_transaction(world, recorder, action, feedback_config, max_ticks, export_prefix, execution_mode) {",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "49229202c9290b74cc34d19773d6d2d7ad518d0e3c82878f285b7638cc62b580",
+          "line": 21,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/js/experiment/replay.js#L21"
+        }
+      ],
+      "contract_and_domain": "D-01 context/mode and exact counters; reconstruct WORLD/RNG without agent/seed generation; checkpoints/rollback.",
+      "independent_input_variables": "a actions supplied,T executed,N,Q,L,E.",
+      "data_structures": "Copied action list, active WORLD, Recorder history, one final exported prefix.",
+      "loops_recursion_copies_allocations": "Validate/copy whole actions list; loop T transitions with export_prefix=false; export once and validate structure.",
+      "time_model": "O(a+S+TD+EL); no per-tick prefix copy in this loop.",
+      "reachable_space_model": "O(a+Z) reachable/output with constant rollback snapshots.",
+      "best_worst_amortized_cases": "Early terminal/unknown/incomplete may execute fewer T; still input validation scans a.",
+      "runtime_assumptions": "Shared cost assumptions in COMPLEXITY_MODELS.md: fixed-width words; small closed ordinary records; Map/Set expected O(1); array append amortized O(1); sort, GC, JIT, I/O and native allocation are not guaranteed by ECMAScript. Specific caveats below.",
+      "resource_exhaustion_conditions": "Full replay history and input coexist; failure checkpoints do not bound RSS.",
+      "contrast_experiment_proposed_not_run": "Fixed action arrays and lengths; compare replay_trajectory vs public prefix helper without agents.",
+      "uncertainties_preventing_unconditional_bound": "No new replay of E3/E4; bounds exclude hostile/cyclic objects and runtimeGC."
+    },
+    {
+      "id": "M17",
+      "classification": "SD_CONDITIONAL_STATIC_DEDUCTION; NOT_BENCHMARKED",
+      "sources": [
+        {
+          "file": "js/experiment/replay.js",
+          "symbol_locator": "function replay_confirmed_tick(world, recorder, action, feedback_config, max_ticks) {",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "49229202c9290b74cc34d19773d6d2d7ad518d0e3c82878f285b7638cc62b580",
+          "line": 17,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/js/experiment/replay.js#L17"
+        },
+        {
+          "file": "js/experiment/replay.js",
+          "symbol_locator": "function replay_prefix_snapshot(world, recorder) {",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "49229202c9290b74cc34d19773d6d2d7ad518d0e3c82878f285b7638cc62b580",
+          "line": 49,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/js/experiment/replay.js#L49"
+        }
+      ],
+      "contract_and_domain": "Helper explicitly exports complete prefix after one confirmed/recorded tick.",
+      "independent_input_variables": "i,N,Q,L,E_i.",
+      "data_structures": "Current history and independent prefix snapshot.",
+      "loops_recursion_copies_allocations": "Calls replay_tick_transaction(...true...) then _export_prefix and full_snapshot.",
+      "time_model": "Per call O(S+iD+E_iL); T successive calls O(T²D) for bounded IDs/events.",
+      "reachable_space_model": "Latest prefix O(Z_i); all retained prefixes O(T²D).",
+      "best_worst_amortized_cases": "Not used with true export flag inside replay_trajectory; workload choice matters.",
+      "runtime_assumptions": "Shared cost assumptions in COMPLEXITY_MODELS.md: fixed-width words; small closed ordinary records; Map/Set expected O(1); array append amortized O(1); sort, GC, JIT, I/O and native allocation are not guaranteed by ECMAScript. Specific caveats below.",
+      "resource_exhaustion_conditions": "Repeated snapshots/prefixes large allocation churn; not a correctness defect demonstrated.",
+      "contrast_experiment_proposed_not_run": "Compare per-tick prefix vs end-only export on technical fixtures after gate.",
+      "uncertainties_preventing_unconditional_bound": "No permission to change API/aliases or eliminate required independence."
+    },
+    {
+      "id": "M18",
+      "classification": "SD_CONDITIONAL_STATIC_DEDUCTION; NOT_BENCHMARKED",
+      "sources": [
+        {
+          "file": "js/experiment/replay.js",
+          "symbol_locator": "function replay_continuity_proof(rr, context, trajectory_null_mode) {",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "49229202c9290b74cc34d19773d6d2d7ad518d0e3c82878f285b7638cc62b580",
+          "line": 239,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/js/experiment/replay.js#L239"
+        },
+        {
+          "file": "js/experiment/replay.js",
+          "symbol_locator": "function validate_ReplayResult(rr, request_context) {",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "49229202c9290b74cc34d19773d6d2d7ad518d0e3c82878f285b7638cc62b580",
+          "line": 290,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/js/experiment/replay.js#L290"
+        },
+        {
+          "file": "js/experiment/replay.js",
+          "symbol_locator": "function validate_replay(original, rr, world_config, execution_mode) {",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "49229202c9290b74cc34d19773d6d2d7ad518d0e3c82878f285b7638cc62b580",
+          "line": 319,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/js/experiment/replay.js#L319"
+        }
+      ],
+      "contract_and_domain": "Validate replay schema/context and physical continuity; compare original and result exhaustively.",
+      "independent_input_variables": "T,N,Q,L,E,a.",
+      "data_structures": "Reconstructed WORLD, event accumulator, context and temporary confirmed states; no Recorder history in proof.",
+      "loops_recursion_copies_allocations": "Each proof loops T with one kernel, builds expected observation/feedback, hashes and compares states/events; validate_replay proves original and validates rr.",
+      "time_model": "Proof O(a+S+TD+EL) including context handling; validate_replay successful adds two proofs plus whole-record equality, same order.",
+      "reachable_space_model": "Proof O(S+Q+E*L+a) upper reachable bound, allocation volume O(TD+EL); caller retains original/rr separately.",
+      "best_worst_amortized_cases": "Mismatch may stop early; structural valid result still requires full successful proof.",
+      "runtime_assumptions": "Shared cost assumptions in COMPLEXITY_MODELS.md: fixed-width words; small closed ordinary records; Map/Set expected O(1); array append amortized O(1); sort, GC, JIT, I/O and native allocation are not guaranteed by ECMAScript. Specific caveats below.",
+      "resource_exhaustion_conditions": "Frequent temporary snapshots/native bytes despite no new Recorder history.",
+      "contrast_experiment_proposed_not_run": "Stage validation separately from generation, count call-tree kernels and check equal outputs in future instrument validation.",
+      "uncertainties_preventing_unconditional_bound": "RNG/time/state equality is same-engine verification, not interoperability or normative completeness."
+    },
+    {
+      "id": "M19",
+      "classification": "SD_CONDITIONAL_STATIC_DEDUCTION; NOT_BENCHMARKED",
+      "sources": [
+        {
+          "file": "tools/p01/archive.cjs",
+          "symbol_locator": "function pack(a){",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "dc23094e99b982b080f28f5c4e5a0fa83efd5cfc2a179f2b1cf44696d7c4d31b",
+          "line": 73,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/tools/p01/archive.cjs#L73"
+        },
+        {
+          "file": "tools/p01/archive.cjs",
+          "symbol_locator": "function unpack(bytes){",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "dc23094e99b982b080f28f5c4e5a0fa83efd5cfc2a179f2b1cf44696d7c4d31b",
+          "line": 74,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/tools/p01/archive.cjs#L74"
+        },
+        {
+          "file": "tools/p01/codec.cjs",
+          "symbol_locator": "function decode(encoded){",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "e69485c718ff667c8a90ec9bef2e58cf4e28bb78baa145f3dd8f7223bcf1f977",
+          "line": 20,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/tools/p01/codec.cjs#L20"
+        },
+        {
+          "file": "conformance/wire.cjs",
+          "symbol_locator": "function encode(value) {",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "9cf0c28a6c5a7d285fb9db58e01262ec245c54e7a165e0b047678df8b6be18cc",
+          "line": 3,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/conformance/wire.cjs#L3"
+        }
+      ],
+      "contract_and_domain": "WL-P01-ARCHIVE-1 typed operational transport of acyclic data, not WLS1; source/profile checks.",
+      "independent_input_variables": "Z,U,C,d,key arities,F/runtimeV.",
+      "data_structures": "Recursive typed tree, JSON strings,Buffers,gzip and decoded object graph.",
+      "loops_recursion_copies_allocations": "pack validates, recursively encode/sortkeys, JSON stringify body twice, gzip9. unpack gunzip, parse,restringify/checksum, inspect/decode/reencode, validate.",
+      "time_model": "O(Z+U+Ckeys+V+G_enc(U)) pack; O(Z+U+Ckeys+V+G_dec(C,U)) unpack; not deriving zlib wall from source.",
+      "reachable_space_model": "O(Z+U+C+V_mem), several representations coexist; recursion depthO(d).",
+      "best_worst_amortized_cases": "Invalid frame/checksum can fail earlier; pack has no symmetric U64MiB precheck; unpack caps decompressed output64MiB.",
+      "runtime_assumptions": "Shared cost assumptions in COMPLEXITY_MODELS.md: fixed-width words; small closed ordinary records; Map/Set expected O(1); array append amortized O(1); sort, GC, JIT, I/O and native allocation are not guaranteed by ECMAScript. Specific caveats below.",
+      "resource_exhaustion_conditions": "Large JSON/depth can exhaust memory/stack; readArchive first reads entire compressed file; maxOutputLength is not a heap budget.",
+      "contrast_experiment_proposed_not_run": "Later measure each stage/representation bytes using small frozen RC1 inputs, preserve all failures.",
+      "uncertainties_preventing_unconditional_bound": "Compression ratio,sort implementation,string sharing,parse/native buffers not guaranteed; cyclic input outside model."
+    },
+    {
+      "id": "M20",
+      "classification": "SD_CONDITIONAL_STATIC_DEDUCTION; NOT_BENCHMARKED",
+      "sources": [
+        {
+          "file": "tools/p01/archive.cjs",
+          "symbol_locator": "function verifyArtifact(a){",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "dc23094e99b982b080f28f5c4e5a0fa83efd5cfc2a179f2b1cf44696d7c4d31b",
+          "line": 87,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/tools/p01/archive.cjs#L87"
+        },
+        {
+          "file": "tools/p01/archive.cjs",
+          "symbol_locator": "function validateArtifact(a){",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "dc23094e99b982b080f28f5c4e5a0fa83efd5cfc2a179f2b1cf44696d7c4d31b",
+          "line": 18,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/tools/p01/archive.cjs#L18"
+        }
+      ],
+      "contract_and_domain": "Validate provenance/config/structure, reproduce initialization and action sequence, compare full states/bytes.",
+      "independent_input_variables": "T,N,Q,L,a,Z,F,V,κ.",
+      "data_structures": "Artifact/realm clones, VM contexts, regenerated initial state,replay records, WLS1 buffers.",
+      "loops_recursion_copies_allocations": "Loads runtime during validation and proof; initialization; replay T + explicit validateRR T + validate_replay original T/result T for COMPLETED; final4(T+1) serializations.",
+      "time_model": "O(V+F+N+κ+TD+Z); successful COMPLETED contains exactly4T kernel calls on normal branch. Non-COMPLETED differs.",
+      "reachable_space_model": "O(Z+V_mem+S+Q) upper with multiple copies/contexts; not worker-only RAM.",
+      "best_worst_amortized_cases": "Initialization failure rechecked independently; external agent failure prefix is not complete replay proof.",
+      "runtime_assumptions": "Shared cost assumptions in COMPLEXITY_MODELS.md: fixed-width words; small closed ordinary records; Map/Set expected O(1); array append amortized O(1); sort, GC, JIT, I/O and native allocation are not guaranteed by ECMAScript. Specific caveats below.",
+      "resource_exhaustion_conditions": "VM/source/Git repeated; unrestricted controller work outside worker timeout, can consume large RAM.",
+      "contrast_experiment_proposed_not_run": "Measure end-to-end verification separate from single replay and statebyte loop; do not label four passes as four studies.",
+      "uncertainties_preventing_unconditional_bound": "No independent engine; source/P01 profile rigidity means generalized RC1 entry requires own approved instrument."
+    },
+    {
+      "id": "M21",
+      "classification": "SD_CONDITIONAL_STATIC_DEDUCTION; NOT_BENCHMARKED",
+      "sources": [
+        {
+          "file": "tools/p01/metrics.cjs",
+          "symbol_locator": "function measure(result){",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "73caf90c3edaa24691f4d3d19f4f524b934997596afa5ccd094fbf5fd7fc5b87",
+          "line": 7,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/tools/p01/metrics.cjs#L7"
+        }
+      ],
+      "contract_and_domain": "Pure consumer of effective trajectory, no WORLD/RNG/clock/file access.",
+      "independent_input_variables": "T,E,N,distinct visited positions u,consumed positions c.",
+      "data_structures": "Sets/Maps; initial grid.flat/filter temporary arrays; sorted output entries.",
+      "loops_recursion_copies_allocations": "Scan states only for position, scan events, full initial resource grid, sort byPosition/rejections.",
+      "time_model": "O(T+E+N+Csort(c)+Csort(rejectionCategories)); not Θ(TN) because it does not validate/copy every step grid.",
+      "reachable_space_model": "O(N+u+c+categories) peak; u<=T+1 and c<=N for fixed grid.",
+      "best_worst_amortized_cases": "Initialization failure returns bounded fields O(1); no event consumption still scans initial N.",
+      "runtime_assumptions": "Shared cost assumptions in COMPLEXITY_MODELS.md: fixed-width words; small closed ordinary records; Map/Set expected O(1); array append amortized O(1); sort, GC, JIT, I/O and native allocation are not guaranteed by ECMAScript. Specific caveats below.",
+      "resource_exhaustion_conditions": "flat/filter allocate linear arrays; full trajectory must already exist at caller.",
+      "contrast_experiment_proposed_not_run": "Manual fixtures isolate consumer from archive decode and validation; compare with independent counter.",
+      "uncertainties_preventing_unconditional_bound": "Set/Map/sort costs conditional; purity does not imply zero allocation or cheap load."
+    },
+    {
+      "id": "M22",
+      "classification": "SD_CONDITIONAL_STATIC_DEDUCTION; NOT_BENCHMARKED",
+      "sources": [
+        {
+          "file": "tools/p01/metrics.cjs",
+          "symbol_locator": "function compareCampaign(entries,phase=",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "73caf90c3edaa24691f4d3d19f4f524b934997596afa5ccd094fbf5fd7fc5b87",
+          "line": 27,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/tools/p01/metrics.cjs#L27"
+        }
+      ],
+      "contract_and_domain": "Two fixed P01 scopes: development32/final256; all attempts/errors included, paired comparisons/repetitions.",
+      "independent_input_variables": "P,Z_i,N_i,T_i,E_i,numberseeds.",
+      "data_structures": "Lookup/attempt Sets, rows,pairs,controls; canonical JSON strings of whole payloads.",
+      "loops_recursion_copies_allocations": "measure each entry; validate expected groups; canonicalize pairs of full artifact.data; compare initial states; recompute several scalar metrics; sort differences.",
+      "time_model": "O(Σ(Z_i+Ckeys_i+T_i+E_i+N_i+Csort(c_i))) plus pair sort; canonical repetition comparison can dominate scalar count.",
+      "reachable_space_model": "O(P+Σ metric-output sizes+max U_i) additional; caller already holds ΣZ_i.",
+      "best_worst_amortized_cases": "Missing/failure recorded, no valid aggregate if not evaluable; seed sets/agents are fixed constants in implemented API.",
+      "runtime_assumptions": "Shared cost assumptions in COMPLEXITY_MODELS.md: fixed-width words; small closed ordinary records; Map/Set expected O(1); array append amortized O(1); sort, GC, JIT, I/O and native allocation are not guaranteed by ECMAScript. Specific caveats below.",
+      "resource_exhaustion_conditions": "Whole payload stringification and all entries retained by controller; no streaming guarantee.",
+      "contrast_experiment_proposed_not_run": "Keep data load outside pure metric stage; compare full compareCampaign vs measure/count only.",
+      "uncertainties_preventing_unconditional_bound": "Cannot vary P arbitrarily without new authorized profile; no IID claim for seed battery."
+    },
+    {
+      "id": "M23",
+      "classification": "SD_CONDITIONAL_STATIC_DEDUCTION; NOT_BENCHMARKED",
+      "sources": [
+        {
+          "file": "tools/evidence/p01-independent-metrics.cjs",
+          "symbol_locator": "function countResources(trajectory){",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "15beba353774c100ffb9817fc594af97b1c7009bb3e15c7ddd5b91b93cb637aa",
+          "line": 4,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/tools/evidence/p01-independent-metrics.cjs#L4"
+        },
+        {
+          "file": "tools/evidence/p01-independent-metrics.cjs",
+          "symbol_locator": "function summary(entries,",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "15beba353774c100ffb9817fc594af97b1c7009bb3e15c7ddd5b91b93cb637aa",
+          "line": 8,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/tools/evidence/p01-independent-metrics.cjs#L8"
+        },
+        {
+          "file": "tools/evidence/p01-independent-metrics.cjs",
+          "symbol_locator": "function recoveredEntries(packageRoot){",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "15beba353774c100ffb9817fc594af97b1c7009bb3e15c7ddd5b91b93cb637aa",
+          "line": 50,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/tools/evidence/p01-independent-metrics.cjs#L50"
+        },
+        {
+          "file": "tools/evidence/p01-independent-metrics.cjs",
+          "symbol_locator": "function calculate(packageRoot){",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "15beba353774c100ffb9817fc594af97b1c7009bb3e15c7ddd5b91b93cb637aa",
+          "line": 81,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/tools/evidence/p01-independent-metrics.cjs#L81"
+        }
+      ],
+      "contract_and_domain": "Independent resource counter, structural/archived-proof validation, no new agents/replay.",
+      "independent_input_variables": "E,P,Z_i,U_i,I,K,objectbytes,log A.",
+      "data_structures": "filter arrays, lookups, full decoded entries, canonical strings and frequency map.",
+      "loops_recursion_copies_allocations": "countResources filterE; summary canonical repetitions plus counts; recoveredEntries io.verify, parseLog, per-row find scans log and decode/validate; calculate wraps errors.",
+      "time_model": "count Θ(E); summary O(ΣZ_i+ΣE_i+Ckeys+pair sort); recovery adds M25/M26, O(P*A) lookup and decode/VM/I/O costs.",
+      "reachable_space_model": "count O(E) filter; summary additionalO(P+maxU_i+events); recovery retainsΣZ_i and index memoryI.",
+      "best_worst_amortized_cases": "Bad package returns NOT_EVALUABLE, no fabricated metrics; skipped invalid rows remain errors.",
+      "runtime_assumptions": "Shared cost assumptions in COMPLEXITY_MODELS.md: fixed-width words; small closed ordinary records; Map/Set expected O(1); array append amortized O(1); sort, GC, JIT, I/O and native allocation are not guaranteed by ECMAScript. Specific caveats below.",
+      "resource_exhaustion_conditions": "Oracle can have high RSS due to validation/transport, not just counting; all decoded entries retained.",
+      "contrast_experiment_proposed_not_run": "Contrast pure count, summary and recovery layers separately; no repeat E4 to benchmark.",
+      "uncertainties_preventing_unconditional_bound": "Independence of metrics not transport/engine independence; archives bind to frozen source hashes."
+    },
+    {
+      "id": "M24",
+      "classification": "SD_CONDITIONAL_STATIC_DEDUCTION; NOT_BENCHMARKED",
+      "sources": [
+        {
+          "file": "tools/p01/supervisor.cjs",
+          "symbol_locator": "function runChild(worker,request,",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "1c62f3f36b36d06c82051cf0fc0e28d775053ea4f94a67d2cadc1c50fd3c7b3a",
+          "line": 3,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/tools/p01/supervisor.cjs#L3"
+        },
+        {
+          "file": "tools/p01/controller.cjs",
+          "symbol_locator": "async function runEpisode(request,file){",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "6ad235f3ca1b8d8a8fe1ff9b856ce1342f082bc450397788d0b40c6fc02ebde8",
+          "line": 9,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/tools/p01/controller.cjs#L9"
+        },
+        {
+          "file": "tools/p01/controller.cjs",
+          "symbol_locator": "async function runSmoke(directory,onProgress=",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "6ad235f3ca1b8d8a8fe1ff9b856ce1342f082bc450397788d0b40c6fc02ebde8",
+          "line": 18,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/tools/p01/controller.cjs#L18"
+        },
+        {
+          "file": "tools/p01/evaluation/controller.cjs",
+          "symbol_locator": "async function runCampaign(options,onProgress=",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "dc76340ac20b6078593ebb49ab0474bc06cc4d2ae63dcd5f66e57ac67a770f39",
+          "line": 7,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/tools/p01/evaluation/controller.cjs#L7"
+        },
+        {
+          "file": "tools/p01/runtime.cjs",
+          "symbol_locator": "function loadRuntime() {",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "0e6ae8daaa43fabd95df53fcc00c13cb8c99bc9dfebbf42842bd8cc5f285fdcc",
+          "line": 8,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/tools/p01/runtime.cjs#L8"
+        },
+        {
+          "file": "tools/p01/evaluation/gate.cjs",
+          "symbol_locator": "function runtimeIdentity(){",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "c46ea77f0f8ed6ac806a8643562c9ac0928b9c117b1c49074458ae7cb1f5e967",
+          "line": 13,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/tools/p01/evaluation/gate.cjs#L13"
+        },
+        {
+          "file": "tools/p01/evaluation/gate.cjs",
+          "symbol_locator": "function verifyProposal(file){",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "c46ea77f0f8ed6ac806a8643562c9ac0928b9c117b1c49074458ae7cb1f5e967",
+          "line": 25,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/tools/p01/evaluation/gate.cjs#L25"
+        }
+      ],
+      "contract_and_domain": "Process limits external to WORLD; P01 controllers fixed profile; final run requires specific signed authorization, not reusable RC1 permission.",
+      "independent_input_variables": "P,T,N,Q,Z_i,F including Node executable bytes,sourcebytes,logstreambytes,deadline/monitor interval.",
+      "data_structures": "Child IPC advanced payload, stdout/stderr strings capped65536 chars, parent entries/objects arrays, VM realms.",
+      "loops_recursion_copies_allocations": "Fork/load/gate, run kernel, structuredClone+realm/IPC; archive/reload/verify; retain objects across P; source checks/Git per attempt. Each verifyProposal calls runtimeIdentity, reading/hashing the complete Node executable; F includes its bytes. Monitor /proc every25ms.",
+      "time_model": "Sum per-attempt startup/gate/worker/IPC/archive/verification/analysis. Timeout30s is scheduled for worker; no deterministic bound on total wall or controller stages.",
+      "reachable_space_model": "Parent O(ΣZ_i+maxU_i+F) upper; child heap cap512MiB P01, not RSS; concurrent native/process memory outside cap.",
+      "best_worst_amortized_cases": "TIMEOUT records missing result; killed-process RSS sampled lower bound. Early guard failure not an episode.",
+      "runtime_assumptions": "Shared cost assumptions in COMPLEXITY_MODELS.md: fixed-width words; small closed ordinary records; Map/Set expected O(1); array append amortized O(1); sort, GC, JIT, I/O and native allocation are not guaranteed by ECMAScript. Specific caveats below.",
+      "resource_exhaustion_conditions": "Parent accumulation, native IPC, multiple VMs, source reads/child Git processes; event-loop blocking delays timers.",
+      "contrast_experiment_proposed_not_run": "Future RC1 external runner reuses safe supervisor concepts with new limits/context, no P01 run; separate per-process resources and aggregate samples.",
+      "uncertainties_preventing_unconditional_bound": "process.resourceUsage windows differ, scheduler/GC/IPC unknown; worker heap is not total campaign RAM or exact operational deadline."
+    },
+    {
+      "id": "M25",
+      "classification": "SD_CONDITIONAL_STATIC_DEDUCTION; NOT_BENCHMARKED",
+      "sources": [
+        {
+          "file": "tools/evidence/preserve.cjs",
+          "symbol_locator": "function parseLog(bytes){",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "5dc82b1120511eafbbf579b2ec924bd661b520b9944487d01c19b5f834466f96",
+          "line": 6,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/tools/evidence/preserve.cjs#L6"
+        },
+        {
+          "file": "tools/evidence/preserve.cjs",
+          "symbol_locator": "function session(source,destination,",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "5dc82b1120511eafbbf579b2ec924bd661b520b9944487d01c19b5f834466f96",
+          "line": 21,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/tools/evidence/preserve.cjs#L21"
+        },
+        {
+          "file": "tools/evidence/preserve.cjs",
+          "symbol_locator": "async function watch(source,destination,",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "5dc82b1120511eafbbf579b2ec924bd661b520b9944487d01c19b5f834466f96",
+          "line": 95,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/tools/evidence/preserve.cjs#L95"
+        }
+      ],
+      "contract_and_domain": "Safe preservation of completed attempts, read-only source, append log versions retained, disjoint paths.",
+      "independent_input_variables": "A_j,R_j,J,logbytes_j,I,K,currentversions.",
+      "data_structures": "Attempt array,observed map of buffers,cloned metadata,versions/conflicts,index snapshots.",
+      "loops_recursion_copies_allocations": "parse every full log; FINISH.find scans existing attempts; snapshot rereads completed files, hashes/publishes full blobs, clones metadata and loads chain; watch repeats.",
+      "time_model": "Sequential valid parse does A(A+1)/2 comparisons. Per-watch lower work ΣR_j+ΣA_j² plus metadata/verify/load/publish; do not claim this exhausts all cost.",
+      "reachable_space_model": "At least current observed buffers R_j plus metadata/index historyI and version lists. Disk log versions Σ|log_j| and full index metadataI.",
+      "best_worst_amortized_cases": "No change avoids new index but still reads/checks; one snapshot per growing attempt can give quadratic log storage/cubic search work under stated fixed-row assumptions.",
+      "runtime_assumptions": "Shared cost assumptions in COMPLEXITY_MODELS.md: fixed-width words; small closed ordinary records; Map/Set expected O(1); array append amortized O(1); sort, GC, JIT, I/O and native allocation are not guaranteed by ECMAScript. Specific caveats below.",
+      "resource_exhaustion_conditions": "Per-file64MiB, full files in memory, accumulating logs/indices; timer not hard snapshot deadline.",
+      "contrast_experiment_proposed_not_run": "Use synthetic small logs/packages in D validation, varying A and snapshot frequency independently; never watch P01 again for this study.",
+      "uncertainties_preventing_unconditional_bound": "Filesystem/cache latency unknown; changing row sizes/observation schedule changes exponents; dedup only unchanged blobs."
+    },
+    {
+      "id": "M26",
+      "classification": "SD_CONDITIONAL_STATIC_DEDUCTION; NOT_BENCHMARKED",
+      "sources": [
+        {
+          "file": "tools/evidence/io.cjs",
+          "symbol_locator": "function stableRead(root,file,",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "1ec5ddd3f723275638c3625a29df5e2067a2964c22bfeb6b279df8af44e5f5c4",
+          "line": 14,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/tools/evidence/io.cjs#L14"
+        },
+        {
+          "file": "tools/evidence/io.cjs",
+          "symbol_locator": "function load(root){",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "1ec5ddd3f723275638c3625a29df5e2067a2964c22bfeb6b279df8af44e5f5c4",
+          "line": 46,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/tools/evidence/io.cjs#L46"
+        },
+        {
+          "file": "tools/evidence/io.cjs",
+          "symbol_locator": "function verify(root){",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "1ec5ddd3f723275638c3625a29df5e2067a2964c22bfeb6b279df8af44e5f5c4",
+          "line": 56,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/tools/evidence/io.cjs#L56"
+        }
+      ],
+      "contract_and_domain": "Safe bounded read, chain/metadata/hash verification, no scientific transitions.",
+      "independent_input_variables": "I,K,J,B_unique,R_restored,maxfile,attempts<=5.",
+      "data_structures": "All parsed snapshots,seen-map of objects,one buffer per active read.",
+      "loops_recursion_copies_allocations": "load sorts index filenames and parses all; iterates version references; verify deduplicates object reads but traverses all references, optionally materialized files.",
+      "time_model": "O(I+K+B_unique+R_restored+Csort(J)) byte/record work plus I/O; stableRead O(filebytes) each bounded retry.",
+      "reachable_space_model": "O(I+unique-object-metadata+maxfile) upper; load retains chain, not streaming.",
+      "best_worst_amortized_cases": "Invalid chain early reject; no published index error; valid duplicates reduce blob reads not metadata traversal.",
+      "runtime_assumptions": "Shared cost assumptions in COMPLEXITY_MODELS.md: fixed-width words; small closed ordinary records; Map/Set expected O(1); array append amortized O(1); sort, GC, JIT, I/O and native allocation are not guaranteed by ECMAScript. Specific caveats below.",
+      "resource_exhaustion_conditions": "All historical index JSON lives at once, per-file64MiB; disk latency/fsync outside bound.",
+      "contrast_experiment_proposed_not_run": "Separate package latest filebytes from cumulative index/object/version counts in future validation.",
+      "uncertainties_preventing_unconditional_bound": "JSON allocations/crypto/native buffers and OS cache unknown; integrity does not authenticate rewritten entire history."
+    },
+    {
+      "id": "M27",
+      "classification": "SD_CONDITIONAL_STATIC_DEDUCTION; NOT_BENCHMARKED",
+      "sources": [
+        {
+          "file": "tools/evidence/verify.cjs",
+          "symbol_locator": "function restore(root,destination){",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "d3e4df7c08ec7c10dd09a33fbbcd904289808c32cb386c17399a80ac0f8c8ab1",
+          "line": 3,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/tools/evidence/verify.cjs#L3"
+        }
+      ],
+      "contract_and_domain": "New disjoint destination only; verify source, copy objects/indexes/latest files, verify destination.",
+      "independent_input_variables": "I,K,J,B_unique,R_latest,maxfile.",
+      "data_structures": "Source parsed chain,copy Set, buffers; destination files and indices.",
+      "loops_recursion_copies_allocations": "First io.verify, loop all references with object dedup; publish objects/indices/latest files; final verify.",
+      "time_model": "O(I+K+B_unique+R_latest+Csort(J)) constant passes plus publish/fsync/I/O; no simulation/replay.",
+      "reachable_space_model": "O(I+object-metadata+maxfile) upper; disk adds copies of evidence plus latest materialized files.",
+      "best_worst_amortized_cases": "Corruption refuses restore; destination existing fails; complete/partial source labels remain distinct.",
+      "runtime_assumptions": "Shared cost assumptions in COMPLEXITY_MODELS.md: fixed-width words; small closed ordinary records; Map/Set expected O(1); array append amortized O(1); sort, GC, JIT, I/O and native allocation are not guaranteed by ECMAScript. Specific caveats below.",
+      "resource_exhaustion_conditions": "Disk capacity,fsync and OS hardlink support; no guarantee against whole-host loss.",
+      "contrast_experiment_proposed_not_run": "Future technical package restore only, byte equality and original unchanged; no E4 rerun.",
+      "uncertainties_preventing_unconditional_bound": "No wall bound from filesystem calls; external storage durability requires separate evidence."
+    },
+    {
+      "id": "M28",
+      "classification": "SD_CONDITIONAL_STATIC_DEDUCTION; NOT_BENCHMARKED",
+      "sources": [
+        {
+          "file": "js/agents/frontier_memory_agent.js",
+          "symbol_locator": "    step(feedback) {",
+          "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+          "sha256": "0423363429d764c98b13a667388a07ea10a9230b84eb856d7ea22c13013cc1d3",
+          "line": 11,
+          "url": "https://github.com/ksgfin8-cyber/yellow/blob/030ec332c753d85b266492db1dbb6400ba61c18f/js/agents/frontier_memory_agent.js#L11"
+        }
+      ],
+      "contract_and_domain": "P01 agent only Feedback/private memory; BFS N/E/S/W and deterministic candidate tie order.",
+      "independent_input_variables": "Q,T,known cells k_known,reached traversable v<=N on real WORLD observation.",
+      "data_structures": "Known/visited/consumed Map/Set, BFS queue indexed by i, reached map,candidate arrays.",
+      "loops_recursion_copies_allocations": "Update Q cells, BFS degree4, classify reached, sort chosen resources/frontiers; no queue.shift.",
+      "time_model": "O(Q+v+Csort(v)) expected-map model; under usual sort O(Q+v log v).",
+      "reachable_space_model": "O(k_known+v+Q); k_known<=min(TQ,(w+2r)(h+2r)) on valid real observations, includes OUT_OF_BOUNDS.",
+      "best_worst_amortized_cases": "No reachable candidate returns WAIT after traversal; reset clears memory. Empty views not valid input here.",
+      "runtime_assumptions": "Shared cost assumptions in COMPLEXITY_MODELS.md: fixed-width words; small closed ordinary records; Map/Set expected O(1); array append amortized O(1); sort, GC, JIT, I/O and native allocation are not guaranteed by ECMAScript. Specific caveats below.",
+      "resource_exhaustion_conditions": "Agent memory beyond N due to out-of-bounds labels; sorting/BFS allocations per step.",
+      "contrast_experiment_proposed_not_run": "Later compare policy cost separately from engine and fixed WAIT trace; no privileged inputs.",
+      "uncertainties_preventing_unconditional_bound": "No claim of optimality/learning or memory-only causal effect; sort/maps and unseen exploration patterns affect constants."
+    }
+  ],
+  "instrumentation_implemented": false,
+  "experiments_executed": 0
+}

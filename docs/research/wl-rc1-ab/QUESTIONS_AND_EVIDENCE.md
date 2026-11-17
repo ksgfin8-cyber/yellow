@@ -1,0 +1,32 @@
+# Preguntas y mediciones: disponible frente a faltante
+
+Revisión de todos los enlaces de código: `030ec332c753d85b266492db1dbb6400ba61c18f`. SD=modelo estático condicionado; VT-H=prueba histórica; EO-H=observación empírica histórica; H=hipótesis. Identificadores M remiten a [catálogo](function-models.json). No son tests canónicos.
+
+| Pregunta | Componentes | Variables | Método propuesto | Evidencia disponible | Incertidumbre | Relevancia para decisiones |
+|---|---|---|---|---|---|---|
+| Q1: motor/observaciones | WORLD, validación, snapshot, tick, Observation/Feedback | N=wh, forma w/h, Q=(2r+1)^2, L, efectos/regen, modo | SD de bucles/copias; después microbench aislado con control de coste del reloj y perfiles acotados | M01–M11; VT-H F2/F3 y auditoría F6 (100 locales, sin repetir aquí) | Constantes, JIT/GC, guard y heap real; no equivalencia entre radio válido y soporte operacional | Priorizar solo si mapas/contextos limitan una pregunta científica; no quitar validaciones por conjetura |
+| Q2: registro/serialización/replay | Recorder, WLS1/FNV, replay/archivo, preservación | N,Q,T, L, a acciones suministradas, B bytes WLS1, U JSON, C gzip, índices J/I/K | SD incremental frente a prefijos; medidas separadas de append/finalize/getters/validación completa, restore | M12–M20/M25–M27; E4 histórico256 replay/41.216estados; archivo recuperado | Coste de capas y duplicación de representaciones; ratio gzip/depth/OS; independencia limitada | Uso de APIs adecuadas, almacenamiento y verificación explícitos antes de cambiar arquitectura |
+| Q3: coste de campañas | Runtime, agente, supervisor, controlador, gate, IPC, archivo, métricas, observador | P intentos, políticas, T,N,Q, F fuentes, host/concurrencia, bytes, fallos | Descomposición por etapa/proceso; bloques y comparación observador encendido/apagado en futura investigación RC1 | M20–M27/M28; smoke F6-B/F6-F y cronología E3 (históricos) | Muestreo RSS, timer y carga compartida; presupuesto worker no cubre controlador; censura | Presupuesto completo y mecanismo de parada, no extrapolar solo tiempo de step |
+| Q4: adaptación entre investigaciones | Protocolo, factorías/configs, guards/freeze, archivo/métricas y publicación | Horas humanas, commits/rutas tocadas, retrabajo, defectos, cambios requeridos vs accidentales | Registro longitudinal de cambios comparables, alcance y experiencia; estudio futuro separado | Genealogía B→E: dos módulos refijados y ejecutor separado; una sola línea P01 | No hay unidad/contrafactual comparable ni costes humanos completos | Elegir interfaz/extensión solo ante recurrencia/coste demostrado. Q4 no puede darse por respondida en este bloque |
+
+## Inventario de medidas y pruebas ya existentes
+
+| Fuente fijada (histórica) | Qué contiene | Uso legítimo ahora | Lo que falta |
+|---|---|---|---|
+| [F6-B-report](../../F6-B-report.md#coste-observado-y-presupuesto) y [campaign.json](../../f6-b/smoke/campaign.json),32episodios de desarrollo | Worker wall/CPU/RSS, archivo bytes/tiempo, verificación y total; controlador wall375,312s, CPU283,376s, máxRSS293,8MiB; perfil12×12/r1/T160 | Antecedente para proponer presupuesto, no benchmark RC1 ni medidas del algoritmo solo | Barrido N/Q/T, cold/warm, GC, bytes no comprimidos, asignaciones, picos simultáneos, perturbación |
+| [F6-F-report](../../F6-F-report.md#coste-y-límites) y [resources.json](../../f6-f/resources.json) | Snapshot0,211s, watch0,235s, restore0,209s, oracle9,322s; oráculo máxRSS334,6MiB | EO-H del smoke local y concurrencia declarada; archivo de comandos disponible | Repeticiones/intervalos por escala y efecto causal del observador; no extrapolar a E3 por factor8 |
+| [E3 operacional](../../p01-e3-final/E3-operational-report.md) |256 completos/0fallidos y256 COMPLETE_MATCH; timestamps UTC18:39:18,947–19:45:22,940 (13:39–14:45 Guayaquil); datos recursos por worker en expediente | EO-H de una campaña fijada; conservación y orden documentados | Perfil por función/GC/pausas; CPU total final por etapa y picos conjuntos; no reconstruir medidas ausentes |
+| [E4](../../p01-e4/E4-report.md), [replay-results](../../p01-e4/replay-results.json) |519 archivos restaurados,256 MATCH,82.432 contrastes WLS1, descriptores y pares concordantes | VT-H de preservación/reproducción/calculadores en P01; datos originales no se vuelven a ejecutar | Escalado y portabilidad de ejecución externa; no constituye rendimiento de otro motor |
+| [Auditoría F6](../../f6-construction-closure/VERIFICATION.json) y suites existentes |100 comprobaciones focalizadas PASS; legacy13/9; hashes/copias y límites documentados | VT-H; identifica invariantes que el instrumento posterior debe preservar | Calibración instrumental, potencia/resolución de medición; no inferir asintótica de PASS |
+| [F5-D/G00](../../f5-d/UNRESOLVED_DECISIONS.md) | Autoridad incompleta/perfil no aprobado;289BLOCKED históricos | Separar F6-N de RC1; no reinterpretar rendimiento como conformidad | Fuentes auténticas y aceptación normativa; no se resuelve con mediciones |
+| [C2](../../p01-c2-closure/C2_CLOSURE_REPORT.md) | Originales transferidos; hashes externos Windows según propietario | Evidencia documental de recepción; OneDrive no verificado | Durabilidad futura/otros respaldos no comprobados; no medirlos por suponer sincronización |
+
+Las cifras EO-H se citan del corte y contexto originales, no se recalculan como resultados nuevos. RSS máximo de cada proceso no se suma para inventar un pico simultáneo. Las repeticiones P01 comprueban determinismo, no son repeticiones diseñadas para estimar ruido temporal. El cociente CPU/wall puede superar1 por hilos y ventanas distintas; no es anomalía automáticamente.
+
+## Estado de las propiedades
+
+- **SD demostrable dentro del modelo:** Q registros por Observation aceptada; bytes WLS1 exactos; número de recorridos/búsquedas y coste condicionado a primitivas. Pruebas de derivación en COMPLEXITY_MODELS, sin medición de heap.
+- **VT-H:** integración/atomicidad/proyecciones/replay y fixtures locales con sus límites; no se repitieron en RC1-A/B.
+- **EO-H:** tiempos, recursos y resultados de los expedientes fijados; no extrapolación fuera de P01.
+- **H pendiente:** dominancia cuantitativa de copias/verificación; crecimiento RSS; saturación; ahorro por cambiar API/instrumento y adaptación Q4.
+- **RE/DE:** medir primero y decidir después; no hay recomendación de reescritura, relajación de contratos ni optimización ya aprobada.

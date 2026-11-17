@@ -1,0 +1,557 @@
+{
+  "format": "WL-RC1-AB-REVIEW-1",
+  "issued_at": "2026-11-17T16:14:59.598955-05:00",
+  "baseline": {
+    "main_commit": "030ec332c753d85b266492db1dbb6400ba61c18f",
+    "PR47_closure_ancestor": true,
+    "branch": "research/wl-rc1-ab-characterization"
+  },
+  "scope": {
+    "A": "DELIVERED_FOR_GATE_1_REVIEW",
+    "B": "DELIVERED_FOR_GATE_1_REVIEW",
+    "GATE_1": "OWNER_ACCEPTANCE_PENDING",
+    "C": "PROPOSAL_ONLY",
+    "D": "NOT_IMPLEMENTED",
+    "E": "HOLD_NOT_AUTHORIZED",
+    "new_benchmarks": 0,
+    "new_scientific_campaigns": 0,
+    "new_worlds_or_episodes": 0,
+    "E3_E4_reexecutions": 0,
+    "new_functional_tests": 0
+  },
+  "classification": "New evidence is documentary integrity, source inspection and scalar arithmetic; runtime properties remain conditional models, historical tests/measurements are not new executions.",
+  "function_model_checks": {
+    "models": 28,
+    "source_symbol_locators": 71,
+    "required_fields_present": [
+      "id",
+      "classification",
+      "sources",
+      "contract_and_domain",
+      "independent_input_variables",
+      "data_structures",
+      "loops_recursion_copies_allocations",
+      "time_model",
+      "reachable_space_model",
+      "best_worst_amortized_cases",
+      "runtime_assumptions",
+      "resource_exhaustion_conditions",
+      "contrast_experiment_proposed_not_run",
+      "uncertainties_preventing_unconditional_bound"
+    ],
+    "source_sha_and_lines_match_baseline": true
+  },
+  "scalar_checks": {
+    "CC04_budget_bytes": 67108864,
+    "r511_estimate": 66986040,
+    "r512_estimate": 67248200,
+    "derived_max_guard_radius": 511,
+    "no_large_views_allocated": true,
+    "P01_WLS1_world_bytes_derived_not_measured": 484,
+    "P01_WLS1_full_bytes_derived_not_measured": 488,
+    "sum_searches_A16": 136,
+    "pilot_proposed_process_cap": 48,
+    "pilot_proposed_child_window_seconds": 480,
+    "pilot_executed": false
+  },
+  "static_call_tree": {
+    "verifyArtifact_COMPLETED_normal_branch": [
+      "replay_trajectory -> T kernel transitions",
+      "validate_ReplayResult -> validate_replay_continuity -> proof -> T",
+      "validate_replay -> replay_original_context -> proof -> T",
+      "validate_replay -> validate_ReplayResult -> continuity -> proof -> T"
+    ],
+    "not_empirically_instrumented": true
+  },
+  "historical_inventory_checks": {
+    "F6B_development_entries": 32,
+    "F6B_controller_resources_as_recorded": {
+      "wall_ms": 375311.761807,
+      "cpu_user_us": 276984113,
+      "cpu_system_us": 6391885,
+      "max_rss_kib": 300848
+    },
+    "F6F_resource_rows": 4,
+    "method": "Read published JSON; no historical numerical output regenerated"
+  },
+  "sources": [
+    {
+      "file": "conformance/wire.cjs",
+      "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+      "bytes": 2359,
+      "sha256": "9cf0c28a6c5a7d285fb9db58e01262ec245c54e7a165e0b047678df8b6be18cc",
+      "review_method": "Selective static code/document review; no claim of full unavailable historical manuscript recovery"
+    },
+    {
+      "file": "docs/ACCEPTANCE_PROFILE_F5-C.md",
+      "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+      "bytes": 15872,
+      "sha256": "6a0c29c7fa1f62a34ffeab9f967d770de85319ea749bbf50b08cc6c5dab08311",
+      "review_method": "Selective static code/document review; no claim of full unavailable historical manuscript recovery"
+    },
+    {
+      "file": "docs/CONSTRUCTION_CLOSURE.md",
+      "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+      "bytes": 3451,
+      "sha256": "d215be1026eccf84c72428d858dbb2100ca234b19bbda67d48a22509d1e9c00e",
+      "review_method": "Selective static code/document review; no claim of full unavailable historical manuscript recovery"
+    },
+    {
+      "file": "docs/ENGINEERING_DECISIONS.md",
+      "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+      "bytes": 6443,
+      "sha256": "f885316b72217de401abd6c390f6a212e9f29db593754d1797bce07b36f3c18b",
+      "review_method": "Selective static code/document review; no claim of full unavailable historical manuscript recovery"
+    },
+    {
+      "file": "docs/F6-A-pilot-protocol.md",
+      "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+      "bytes": 12997,
+      "sha256": "74491ffdf9dbbafa260e53cc21dbb63424e0785d930653e11301d911d119146c",
+      "review_method": "Selective static code/document review; no claim of full unavailable historical manuscript recovery"
+    },
+    {
+      "file": "docs/F6-A-readiness.md",
+      "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+      "bytes": 14540,
+      "sha256": "a8b36d9359ca615ad92741ed0de74524963b057aac4e9bb010c14be7d6d731ca",
+      "review_method": "Selective static code/document review; no claim of full unavailable historical manuscript recovery"
+    },
+    {
+      "file": "docs/F6-B-report.md",
+      "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+      "bytes": 12856,
+      "sha256": "23df8111eb95af796f24c3383c64e5fabf0b915b914acaa21c92a904c9168aa5",
+      "review_method": "Selective static code/document review; no claim of full unavailable historical manuscript recovery"
+    },
+    {
+      "file": "docs/F6-F-report.md",
+      "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+      "bytes": 11936,
+      "sha256": "972b0e4531369d336e6c5d67f5bc3fa09cb177e253b365a81c7f7d6b5e83955a",
+      "review_method": "Selective static code/document review; no claim of full unavailable historical manuscript recovery"
+    },
+    {
+      "file": "docs/IMPLEMENTATION_STATUS.md",
+      "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+      "bytes": 370756,
+      "sha256": "77bcf273ba53d45aa8d271983839885642198ac471e2b41d45cd38b742b7787d",
+      "review_method": "Selective static code/document review; no claim of full unavailable historical manuscript recovery"
+    },
+    {
+      "file": "docs/WORLD-LAB_v0.2.5_canonical_transcripcion.md",
+      "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+      "bytes": 40468,
+      "sha256": "926d3246c18469d30088a1d67b7f3ffd23cf25340fc638a941e42a94985ad912",
+      "review_method": "Selective static code/document review; no claim of full unavailable historical manuscript recovery"
+    },
+    {
+      "file": "docs/WORLD-LAB_v0.2.6_contractual_amendment_D-01.md",
+      "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+      "bytes": 16424,
+      "sha256": "4c6148028b45fee4a32d6379c84460e9829fdf98a1b79eed82853ff9eec7db03",
+      "review_method": "Selective static code/document review; no claim of full unavailable historical manuscript recovery"
+    },
+    {
+      "file": "docs/f5-d/UNRESOLVED_DECISIONS.md",
+      "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+      "bytes": 18778,
+      "sha256": "1da8084a2501d3d70c90cae9c43bd6855434e77b653f021d36ec9b6f34469626",
+      "review_method": "Selective static code/document review; no claim of full unavailable historical manuscript recovery"
+    },
+    {
+      "file": "docs/f6-b/smoke/campaign.json",
+      "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+      "bytes": 67496,
+      "sha256": "51f3fb133f9689dee424b5004e6aa25ba5c11277273c9a923489209cd1b71a5a",
+      "review_method": "Selective static code/document review; no claim of full unavailable historical manuscript recovery"
+    },
+    {
+      "file": "docs/f6-construction-closure/COMPONENTS_AND_FINDINGS.md",
+      "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+      "bytes": 12461,
+      "sha256": "391ff13d79410755f4b43be58700714d8d23bef7d5d3177183a3b05d6c8b718f",
+      "review_method": "Selective static code/document review; no claim of full unavailable historical manuscript recovery"
+    },
+    {
+      "file": "docs/f6-construction-closure/PHASE_RECONCILIATION.md",
+      "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+      "bytes": 10900,
+      "sha256": "d7e497a2e9906d484db54e76781a8e85c744dd682570f720f5f2224a02414a7f",
+      "review_method": "Selective static code/document review; no claim of full unavailable historical manuscript recovery"
+    },
+    {
+      "file": "docs/f6-construction-closure/READINESS_REPORT.md",
+      "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+      "bytes": 10160,
+      "sha256": "19042d3ec2e9b782080570b460c7f03e4de57ca96dcec6a791e74a6a6c32f577",
+      "review_method": "Selective static code/document review; no claim of full unavailable historical manuscript recovery"
+    },
+    {
+      "file": "docs/f6-construction-closure/VERIFICATION.json",
+      "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+      "bytes": 19889,
+      "sha256": "c1176ff9c426c3e0a24a0c0bd5724d03171254a2dfb5404cf70414908d42f58c",
+      "review_method": "Selective static code/document review; no claim of full unavailable historical manuscript recovery"
+    },
+    {
+      "file": "docs/f6-f/resources.json",
+      "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+      "bytes": 1759,
+      "sha256": "1335ee967d2784a9b4caeca0832645f3c36260fa31f9202624e7f92aff9c9bb4",
+      "review_method": "Selective static code/document review; no claim of full unavailable historical manuscript recovery"
+    },
+    {
+      "file": "docs/p01-c2-closure/C2_CLOSURE_REPORT.md",
+      "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+      "bytes": 8297,
+      "sha256": "89bac751373dc9c3d0dd5c4db185ba47d1c91bcbfd2859e92eadb5c1031828e4",
+      "review_method": "Selective static code/document review; no claim of full unavailable historical manuscript recovery"
+    },
+    {
+      "file": "docs/p01-e3-final/E3-operational-report.md",
+      "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+      "bytes": 4585,
+      "sha256": "72a8c85e9d0d07c288c227d27911204006db148ff8c0c28eda55b4239ee0196a",
+      "review_method": "Selective static code/document review; no claim of full unavailable historical manuscript recovery"
+    },
+    {
+      "file": "docs/p01-e4/E4-report.md",
+      "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+      "bytes": 9156,
+      "sha256": "9f560cdce1c6c6cff284f4838afc018d08f7b7beb06148ee6b1e4e03c837dfd7",
+      "review_method": "Selective static code/document review; no claim of full unavailable historical manuscript recovery"
+    },
+    {
+      "file": "docs/p01-e4/replay-results.json",
+      "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+      "bytes": 109335,
+      "sha256": "33a253e755c14459c3ab1acd22625790e09b97074905ffc759a884570fa48cb9",
+      "review_method": "Selective static code/document review; no claim of full unavailable historical manuscript recovery"
+    },
+    {
+      "file": "js/agents/frontier_memory_agent.js",
+      "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+      "bytes": 2779,
+      "sha256": "0423363429d764c98b13a667388a07ea10a9230b84eb856d7ea22c13013cc1d3",
+      "review_method": "Selective static code/document review; no claim of full unavailable historical manuscript recovery"
+    },
+    {
+      "file": "js/contracts/structures.js",
+      "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+      "bytes": 3417,
+      "sha256": "fba224b53c4a1fb1d8b940101d932a3674eaa634311bf8a60409fac44388c757",
+      "review_method": "Selective static code/document review; no claim of full unavailable historical manuscript recovery"
+    },
+    {
+      "file": "js/core/contracts.js",
+      "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+      "bytes": 1422,
+      "sha256": "fe520d19c3fb63ed6fd6658d2e6309c2d9fc06df2acc3f3334098bf9a9cba894",
+      "review_method": "Selective static code/document review; no claim of full unavailable historical manuscript recovery"
+    },
+    {
+      "file": "js/core/hash.js",
+      "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+      "bytes": 2665,
+      "sha256": "825f348e0e7be9e477cfa6b8554d925a5a724051c5234855aa261dda5d07b370",
+      "review_method": "Selective static code/document review; no claim of full unavailable historical manuscript recovery"
+    },
+    {
+      "file": "js/core/prng.js",
+      "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+      "bytes": 1733,
+      "sha256": "2881cb208796d3a19ca28482ff6805715d776eed5dbcd8ee90001d404e701cfe",
+      "review_method": "Selective static code/document review; no claim of full unavailable historical manuscript recovery"
+    },
+    {
+      "file": "js/experiment/experiment.js",
+      "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+      "bytes": 4359,
+      "sha256": "3cda35d8a8a5151dcfdceb6a1b0e89a75031bf6ebe238859e9886054cec599ad",
+      "review_method": "Selective static code/document review; no claim of full unavailable historical manuscript recovery"
+    },
+    {
+      "file": "js/experiment/experiment_config.js",
+      "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+      "bytes": 1920,
+      "sha256": "d3bcd273c83275a420157bfddbd04e2c94c4d78c0b4304e4af42d9379d40bda3",
+      "review_method": "Selective static code/document review; no claim of full unavailable historical manuscript recovery"
+    },
+    {
+      "file": "js/experiment/hash_state.js",
+      "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+      "bytes": 3686,
+      "sha256": "98c0370aa77fec06ea45a4bc5b12233083d8a724f3a05e271deb6f265d397bd6",
+      "review_method": "Selective static code/document review; no claim of full unavailable historical manuscript recovery"
+    },
+    {
+      "file": "js/experiment/recorder.js",
+      "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+      "bytes": 35006,
+      "sha256": "d9825f9dafc6ddff2537103dd95b3595b5bca06d9b4ed3ee8e52e862e94d0cdb",
+      "review_method": "Selective static code/document review; no claim of full unavailable historical manuscript recovery"
+    },
+    {
+      "file": "js/experiment/replay.js",
+      "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+      "bytes": 24989,
+      "sha256": "49229202c9290b74cc34d19773d6d2d7ad518d0e3c82878f285b7638cc62b580",
+      "review_method": "Selective static code/document review; no claim of full unavailable historical manuscript recovery"
+    },
+    {
+      "file": "js/experiment/tick_transaction.js",
+      "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+      "bytes": 9238,
+      "sha256": "a03384cc7f10900683f9acbe179b02f00d2ce62d3a6de03eefd5edefae16c227",
+      "review_method": "Selective static code/document review; no claim of full unavailable historical manuscript recovery"
+    },
+    {
+      "file": "js/experiment/trajectory.js",
+      "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+      "bytes": 479,
+      "sha256": "3257419313a9b81828d134aa96b3cade8c9d9b39cb24d7607c93cb9cee5ce663",
+      "review_method": "Selective static code/document review; no claim of full unavailable historical manuscript recovery"
+    },
+    {
+      "file": "js/interface/feedback.js",
+      "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+      "bytes": 4837,
+      "sha256": "c37d67a23af0549c23adc1cd54b62bd3f85c57713ef8c04a4d98a255869f424f",
+      "review_method": "Selective static code/document review; no claim of full unavailable historical manuscript recovery"
+    },
+    {
+      "file": "js/interface/observation.js",
+      "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+      "bytes": 2462,
+      "sha256": "db6373fc9a8e641a8cfcbea1a72b229a7d83ba3f501029edf4b7d13d1509d371",
+      "review_method": "Selective static code/document review; no claim of full unavailable historical manuscript recovery"
+    },
+    {
+      "file": "js/world/entity.js",
+      "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+      "bytes": 769,
+      "sha256": "807cc430ef6729f7632e4633c37fb2461639346f0cbb4ec1fee17a34a322c74a",
+      "review_method": "Selective static code/document review; no claim of full unavailable historical manuscript recovery"
+    },
+    {
+      "file": "js/world/world.js",
+      "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+      "bytes": 16949,
+      "sha256": "b63ce107b0a28b4a263dfe3724f960fb42b03f298d853f7023e1da49066abb56",
+      "review_method": "Selective static code/document review; no claim of full unavailable historical manuscript recovery"
+    },
+    {
+      "file": "js/world/world_config.js",
+      "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+      "bytes": 2056,
+      "sha256": "96ef813ee5fe693d002b259168944efb8b41ffb1c0442f2dd6e070b99d8eec54",
+      "review_method": "Selective static code/document review; no claim of full unavailable historical manuscript recovery"
+    },
+    {
+      "file": "js/world/world_state.js",
+      "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+      "bytes": 1154,
+      "sha256": "93a0da82a23280350babc82056b06697e6f3c0de4dfa060483d92adf20cf3ac5",
+      "review_method": "Selective static code/document review; no claim of full unavailable historical manuscript recovery"
+    },
+    {
+      "file": "tools/evidence/io.cjs",
+      "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+      "bytes": 7351,
+      "sha256": "1ec5ddd3f723275638c3625a29df5e2067a2964c22bfeb6b279df8af44e5f5c4",
+      "review_method": "Selective static code/document review; no claim of full unavailable historical manuscript recovery"
+    },
+    {
+      "file": "tools/evidence/p01-independent-metrics.cjs",
+      "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+      "bytes": 9015,
+      "sha256": "15beba353774c100ffb9817fc594af97b1c7009bb3e15c7ddd5b91b93cb637aa",
+      "review_method": "Selective static code/document review; no claim of full unavailable historical manuscript recovery"
+    },
+    {
+      "file": "tools/evidence/preserve.cjs",
+      "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+      "bytes": 12538,
+      "sha256": "5dc82b1120511eafbbf579b2ec924bd661b520b9944487d01c19b5f834466f96",
+      "review_method": "Selective static code/document review; no claim of full unavailable historical manuscript recovery"
+    },
+    {
+      "file": "tools/evidence/verify.cjs",
+      "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+      "bytes": 2111,
+      "sha256": "d3e4df7c08ec7c10dd09a33fbbcd904289808c32cb386c17399a80ac0f8c8ab1",
+      "review_method": "Selective static code/document review; no claim of full unavailable historical manuscript recovery"
+    },
+    {
+      "file": "tools/p01/archive.cjs",
+      "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+      "bytes": 10949,
+      "sha256": "dc23094e99b982b080f28f5c4e5a0fa83efd5cfc2a179f2b1cf44696d7c4d31b",
+      "review_method": "Selective static code/document review; no claim of full unavailable historical manuscript recovery"
+    },
+    {
+      "file": "tools/p01/codec.cjs",
+      "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+      "bytes": 1544,
+      "sha256": "e69485c718ff667c8a90ec9bef2e58cf4e28bb78baa145f3dd8f7223bcf1f977",
+      "review_method": "Selective static code/document review; no claim of full unavailable historical manuscript recovery"
+    },
+    {
+      "file": "tools/p01/controller.cjs",
+      "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+      "bytes": 5773,
+      "sha256": "6ad235f3ca1b8d8a8fe1ff9b856ce1342f082bc450397788d0b40c6fc02ebde8",
+      "review_method": "Selective static code/document review; no claim of full unavailable historical manuscript recovery"
+    },
+    {
+      "file": "tools/p01/evaluation/controller.cjs",
+      "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+      "bytes": 4042,
+      "sha256": "dc76340ac20b6078593ebb49ab0474bc06cc4d2ae63dcd5f66e57ac67a770f39",
+      "review_method": "Selective static code/document review; no claim of full unavailable historical manuscript recovery"
+    },
+    {
+      "file": "tools/p01/evaluation/gate.cjs",
+      "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+      "bytes": 7879,
+      "sha256": "c46ea77f0f8ed6ac806a8643562c9ac0928b9c117b1c49074458ae7cb1f5e967",
+      "review_method": "Selective static code/document review; no claim of full unavailable historical manuscript recovery"
+    },
+    {
+      "file": "tools/p01/evaluation/worker.cjs",
+      "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+      "bytes": 1067,
+      "sha256": "8bfeac3f59334a44ddb4b1d5b7a46b2635c299c39e0a2b008c4df0de57ed063a",
+      "review_method": "Selective static code/document review; no claim of full unavailable historical manuscript recovery"
+    },
+    {
+      "file": "tools/p01/metrics.cjs",
+      "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+      "bytes": 6430,
+      "sha256": "73caf90c3edaa24691f4d3d19f4f524b934997596afa5ccd094fbf5fd7fc5b87",
+      "review_method": "Selective static code/document review; no claim of full unavailable historical manuscript recovery"
+    },
+    {
+      "file": "tools/p01/provenance.cjs",
+      "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+      "bytes": 2846,
+      "sha256": "e37b5e37cbf6a87dcb5bb8280c5b4ddb38ad8ab0033734dfd615bedee9e034c1",
+      "review_method": "Selective static code/document review; no claim of full unavailable historical manuscript recovery"
+    },
+    {
+      "file": "tools/p01/runtime.cjs",
+      "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+      "bytes": 1877,
+      "sha256": "0e6ae8daaa43fabd95df53fcc00c13cb8c99bc9dfebbf42842bd8cc5f285fdcc",
+      "review_method": "Selective static code/document review; no claim of full unavailable historical manuscript recovery"
+    },
+    {
+      "file": "tools/p01/supervisor.cjs",
+      "revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+      "bytes": 2529,
+      "sha256": "1c62f3f36b36d06c82051cf0fc0e28d775053ea4f94a67d2cadc1c50fd3c7b3a",
+      "review_method": "Selective static code/document review; no claim of full unavailable historical manuscript recovery"
+    }
+  ],
+  "link_targets": [
+    {
+      "from": "REPORT.md",
+      "target": "../../CONSTRUCTION_CLOSURE.md"
+    },
+    {
+      "from": "REPORT.md",
+      "target": "REVIEW_EVIDENCE.json"
+    },
+    {
+      "from": "REPORT.md",
+      "target": "order.txt.b64"
+    },
+    {
+      "from": "REPORT.md",
+      "target": "COMPLEXITY_MODELS.md"
+    },
+    {
+      "from": "REPORT.md",
+      "target": "function-models.json"
+    },
+    {
+      "from": "REPORT.md",
+      "target": "QUESTIONS_AND_EVIDENCE.md"
+    },
+    {
+      "from": "REPORT.md",
+      "target": "RC1_C_PROPOSAL.md"
+    },
+    {
+      "from": "QUESTIONS_AND_EVIDENCE.md",
+      "target": "function-models.json"
+    },
+    {
+      "from": "QUESTIONS_AND_EVIDENCE.md",
+      "target": "../../F6-B-report.md#coste-observado-y-presupuesto"
+    },
+    {
+      "from": "QUESTIONS_AND_EVIDENCE.md",
+      "target": "../../f6-b/smoke/campaign.json"
+    },
+    {
+      "from": "QUESTIONS_AND_EVIDENCE.md",
+      "target": "../../F6-F-report.md#coste-y-límites"
+    },
+    {
+      "from": "QUESTIONS_AND_EVIDENCE.md",
+      "target": "../../f6-f/resources.json"
+    },
+    {
+      "from": "QUESTIONS_AND_EVIDENCE.md",
+      "target": "../../p01-e3-final/E3-operational-report.md"
+    },
+    {
+      "from": "QUESTIONS_AND_EVIDENCE.md",
+      "target": "../../p01-e4/E4-report.md"
+    },
+    {
+      "from": "QUESTIONS_AND_EVIDENCE.md",
+      "target": "../../p01-e4/replay-results.json"
+    },
+    {
+      "from": "QUESTIONS_AND_EVIDENCE.md",
+      "target": "../../f6-construction-closure/VERIFICATION.json"
+    },
+    {
+      "from": "QUESTIONS_AND_EVIDENCE.md",
+      "target": "../../f5-d/UNRESOLVED_DECISIONS.md"
+    },
+    {
+      "from": "QUESTIONS_AND_EVIDENCE.md",
+      "target": "../../p01-c2-closure/C2_CLOSURE_REPORT.md"
+    },
+    {
+      "from": "COMPLEXITY_MODELS.md",
+      "target": "function-models.json"
+    }
+  ],
+  "preservation": {
+    "original_tracked_files": 428,
+    "different_original_tracked_paths": [],
+    "existing_executive_status_unchanged": true,
+    "construction_closure_unchanged": true,
+    "P01_and_norms_and_tests_unchanged": true,
+    "transfer_branch_and_originals_not_modified_or_deleted": true,
+    "new_files_scope": "docs/research/wl-rc1-ab only"
+  },
+  "execution_commands": [
+    "git fetch origin",
+    "git log -3 origin/main --format=%H %P %s",
+    "git switch -c research/wl-rc1-ab-characterization origin/main",
+    "cat/sed/rg static source/document inspection; no Node runtime/engine imports",
+    "python /tmp/wl-rc1-model-catalog.py (documentation-only catalog construction)",
+    "python /tmp/wl-rc1-review.py (source/shape/hash/link/scalar documentary assertions)",
+    "git diff --check"
+  ],
+  "incidents": [
+    "Initial attachment download reported workspace not ready; waited for selected environment then read original successfully. No experimental operation attempted."
+  ],
+  "independence_limit": "Single-agent analysis of six perspectives, not independent engine/laboratory review; no formal standards compliance assessment."
+}
