@@ -1,0 +1,34 @@
+{
+  "status": "PASS",
+  "scope": "DOCUMENTARY_ONLY_NO_NEW_E3_OR_E4",
+  "E3_and_E4_publication_checksums": "ALL_MATCH",
+  "protocol_sha256": "74491ffdf9dbbafa260e53cc21dbb63424e0785d930653e11301d911d119146c",
+  "published_replay_rows": 256,
+  "published_replay_mismatches": 0,
+  "published_repetition_pairs": 128,
+  "published_initial_worlds": 32,
+  "paired_CSV_rows_checked": 32,
+  "CSV_differences_match_published_distribution": true,
+  "sum_D": 356,
+  "mean_D": 11.125,
+  "wins": 32,
+  "excluded_scenarios": 0,
+  "engineering_states_changed": [
+    "ED-002",
+    "ED-005",
+    "ED-006"
+  ],
+  "unchanged_engineering_states": [
+    "ED-001",
+    "ED-003",
+    "ED-004"
+  ],
+  "no_new_experimental_execution": true,
+  "C2": "HOLD_EXTERNAL_BACKUP_PENDING",
+  "source_files_unchanged": 33,
+  "previous_ED_snapshot_byte_identical": true,
+  "approved_decision_columns_unchanged": true,
+  "public_link_targets_checked": 35,
+  "private_key_and_credential_pattern_scan": "NO_FINDINGS",
+  "production_tests": "NOT_RUN_DOCUMENTARY_SCOPE; NO_E3_OR_E4_REEXECUTION"
+}
