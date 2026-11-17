@@ -1,0 +1,57 @@
+{
+  "format": "WL-P01-C2-TRANSFER-1",
+  "created_at": "2026-11-17T12:26:19.067301-05:00",
+  "branch": "transfer/p01-c2-evidence-20261117",
+  "mechanism": "exclusive parentless Git transfer branch; regular Git blobs, no LFS",
+  "owner_authorization": "explicit C2 closure order 2026-11-17 authorizes priority B after proxy failure",
+  "main_before": "afe902f47adc1ffb4e3e2b51c49e8391f462f8db",
+  "main_modified_by_transfer": false,
+  "release_attempt": "NOT_PUBLISHED; api.github.com and uploads.github.com CONNECT tunnel failed, response 403",
+  "files": [
+    {
+      "file": "P01-E3-audited-evidence.tar.gz",
+      "bytes": 36085889,
+      "sha256": "8a1df2ac58fa2069afa4de52368097d79859b59e4b784e99a72966fa5690b7c7",
+      "archive_members": 1684,
+      "compressed_payloads_scanned": 1056,
+      "private_key_or_credential_findings": 0,
+      "git_blob": "262a4aa3a6eb55d412ea9345b1a5ea027eb22b62",
+      "download_url": "https://raw.githubusercontent.com/ksgfin8-cyber/yellow/refs/heads/transfer/p01-c2-evidence-20261117/P01-E3-audited-evidence.tar.gz"
+    },
+    {
+      "file": "P01-E3-audited-evidence.tar.gz.sha256",
+      "bytes": 97,
+      "sha256": "da7bbb55d4aaea5eb7f8de641781a28d78012e3212a9a983ce649a41e7a7e6c1",
+      "archive_members": null,
+      "compressed_payloads_scanned": null,
+      "private_key_or_credential_findings": 0,
+      "git_blob": "4933ce753850f89cf593ae762674e830dbba216a",
+      "download_url": "https://raw.githubusercontent.com/ksgfin8-cyber/yellow/refs/heads/transfer/p01-c2-evidence-20261117/P01-E3-audited-evidence.tar.gz.sha256"
+    },
+    {
+      "file": "P01-E4-scientific-validation.tar.gz",
+      "bytes": 309971,
+      "sha256": "47083b27d5875126ac3086fe8887adfdc813567673dec2e904a4e91bcf29db91",
+      "archive_members": 47,
+      "compressed_payloads_scanned": 0,
+      "private_key_or_credential_findings": 0,
+      "git_blob": "ed8cddabe2e0bed5e61335b1c87a6418d6d51080",
+      "download_url": "https://raw.githubusercontent.com/ksgfin8-cyber/yellow/refs/heads/transfer/p01-c2-evidence-20261117/P01-E4-scientific-validation.tar.gz"
+    },
+    {
+      "file": "P01-E4-scientific-validation.tar.gz.sha256",
+      "bytes": 102,
+      "sha256": "53451288e8dac7eb58334c1117649308eaef704e7bb30cab3121bee5c3bfdd7b",
+      "archive_members": null,
+      "compressed_payloads_scanned": null,
+      "private_key_or_credential_findings": 0,
+      "git_blob": "4e23da3d82f2f0ae608c5267ccc61257a10da71c",
+      "download_url": "https://raw.githubusercontent.com/ksgfin8-cyber/yellow/refs/heads/transfer/p01-c2-evidence-20261117/P01-E4-scientific-validation.tar.gz.sha256"
+    }
+  ],
+  "private_key_or_credential_scan": "NO_FINDINGS in original archives, including embedded gzip payloads",
+  "C2": "HOLD_EXTERNAL_BACKUP_PENDING",
+  "owner_download_confirmation": "PENDING",
+  "E3_E4_reexecuted": false,
+  "retention": "Do not delete branch until owner confirms both packages downloaded to independent storage and SHA-256 matches. Git objects may remain retained in GitHub caches/backups even after branch deletion."
+}
