@@ -1,0 +1,42 @@
+[
+  {
+    "file": "C2_CLOSURE_REPORT.md",
+    "bytes": 8297,
+    "sha256": "89bac751373dc9c3d0dd5c4db185ba47d1c91bcbfd2859e92eadb5c1031828e4"
+  },
+  {
+    "file": "CLOSURE_MANIFEST.json",
+    "bytes": 10104,
+    "sha256": "74e7632ed14e6f4c4b43c15061db4e3748d866eb1cc8d27dd981380d399d83f4"
+  },
+  {
+    "file": "CLOSURE_STATUS.json",
+    "bytes": 1293,
+    "sha256": "ecb54110efbf95b5b7ea4e1ad4f0e7e5418d687bb3cbfdb1e8164cdc977397d0"
+  },
+  {
+    "file": "DOCUMENTARY_CHECKS.json",
+    "bytes": 899,
+    "sha256": "0c2ca9aa7efe4bfbeb88b2223b4c0908bfcb7da83223ec765ade6c80e717c96d"
+  },
+  {
+    "file": "ENGINEERING_DECISIONS-before-C2-closure.md.b64",
+    "bytes": 7625,
+    "sha256": "f47783a66b35c0cae947f249c0cb06d08c0a08a46b0a833b064d68915c17774c"
+  },
+  {
+    "file": "OWNER_CONFIRMATION.md",
+    "bytes": 1203,
+    "sha256": "ead750b01e2259d2fd64dc181ff7027ef70d256349efee5e0b4adc0e20124864"
+  },
+  {
+    "file": "OWNER_RECEIPT.json",
+    "bytes": 1872,
+    "sha256": "3eafb968102dc3cc559b44b4569b69e42a87e7343def081736acc01576adf520"
+  },
+  {
+    "file": "README.md",
+    "bytes": 1112,
+    "sha256": "134f78e47d298835159ba95e34aa82c56e5a576a61a2e4e2675ae424889dddd9"
+  }
+]

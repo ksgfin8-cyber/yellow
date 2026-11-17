@@ -1,0 +1,39 @@
+{
+  "format": "WL-P01-C2-OWNER-RECEIPT-1",
+  "recorded_at": "2026-11-17T13:02:49.583429-05:00",
+  "source": "EXPLICIT_OWNER_MESSAGE_IN_THIS_CHAT",
+  "source_is_owner_report": true,
+  "machine_platform_reported": "Windows personal computer, outside Codex workspace",
+  "storage_scope": "LOCAL_RECEIVED_COPY",
+  "exact_local_path_reported": null,
+  "local_execution_timestamp_reported": null,
+  "method_reported": "PowerShell Get-FileHash -Algorithm SHA256",
+  "reported_console_output": "EXITO: E3 y E4 descargados y verificados correctamente",
+  "four_transfer_files_reported_downloaded": true,
+  "packages": [
+    {
+      "file": "P01-E3-audited-evidence.tar.gz",
+      "expected_sha256": "8a1df2ac58fa2069afa4de52368097d79859b59e4b784e99a72966fa5690b7c7",
+      "owner_reported_sha256": "8a1df2ac58fa2069afa4de52368097d79859b59e4b784e99a72966fa5690b7c7",
+      "owner_reported_match": true,
+      "original_bytes_reference": 36085889
+    },
+    {
+      "file": "P01-E4-scientific-validation.tar.gz",
+      "expected_sha256": "47083b27d5875126ac3086fe8887adfdc813567673dec2e904a4e91bcf29db91",
+      "owner_reported_sha256": "47083b27d5875126ac3086fe8887adfdc813567673dec2e904a4e91bcf29db91",
+      "owner_reported_match": true,
+      "original_bytes_reference": 309971
+    }
+  ],
+  "checksum_files_reported_downloaded": [
+    "P01-E3-audited-evidence.tar.gz.sha256",
+    "P01-E4-scientific-validation.tar.gz.sha256"
+  ],
+  "checksum_files_external_hash_verification_reported": false,
+  "computer_independently_inspected_by_Codex": false,
+  "PowerShell_output_independently_captured_by_Codex": false,
+  "cryptographically_signed_receipt": false,
+  "OneDrive_synchronization": "NOT_VERIFIED",
+  "scope_limit": "Owner attestation of local download and SHA-256 verification. No remote cloud synchronization, redundancy, periodic backup or universal recoverability claim."
+}
