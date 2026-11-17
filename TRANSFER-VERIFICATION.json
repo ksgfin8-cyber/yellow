@@ -1,0 +1,90 @@
+{
+  "format": "WL-P01-C2-TRANSFER-VERIFICATION-1",
+  "verified_at": "2026-11-17T12:28:33.064120-05:00",
+  "mechanism": "temporary exclusive Git branch, regular binary blobs, no Git LFS",
+  "artifact_commit": "72f1640d0b9e90a5f430eccf675934c74a9dd977",
+  "branch": "transfer/p01-c2-evidence-20261117",
+  "https_downloads": [
+    {
+      "file": "P01-E3-audited-evidence.tar.gz",
+      "url": "https://raw.githubusercontent.com/ksgfin8-cyber/yellow/72f1640d0b9e90a5f430eccf675934c74a9dd977/P01-E3-audited-evidence.tar.gz",
+      "http_status": "200",
+      "bytes": 36085889,
+      "sha256": "8a1df2ac58fa2069afa4de52368097d79859b59e4b784e99a72966fa5690b7c7",
+      "matches_original": true
+    },
+    {
+      "file": "P01-E3-audited-evidence.tar.gz.sha256",
+      "url": "https://raw.githubusercontent.com/ksgfin8-cyber/yellow/72f1640d0b9e90a5f430eccf675934c74a9dd977/P01-E3-audited-evidence.tar.gz.sha256",
+      "http_status": "200",
+      "bytes": 97,
+      "sha256": "da7bbb55d4aaea5eb7f8de641781a28d78012e3212a9a983ce649a41e7a7e6c1",
+      "matches_original": true
+    },
+    {
+      "file": "P01-E4-scientific-validation.tar.gz",
+      "url": "https://raw.githubusercontent.com/ksgfin8-cyber/yellow/72f1640d0b9e90a5f430eccf675934c74a9dd977/P01-E4-scientific-validation.tar.gz",
+      "http_status": "200",
+      "bytes": 309971,
+      "sha256": "47083b27d5875126ac3086fe8887adfdc813567673dec2e904a4e91bcf29db91",
+      "matches_original": true
+    },
+    {
+      "file": "P01-E4-scientific-validation.tar.gz.sha256",
+      "url": "https://raw.githubusercontent.com/ksgfin8-cyber/yellow/72f1640d0b9e90a5f430eccf675934c74a9dd977/P01-E4-scientific-validation.tar.gz.sha256",
+      "http_status": "200",
+      "bytes": 102,
+      "sha256": "53451288e8dac7eb58334c1117649308eaef704e7bb30cab3121bee5c3bfdd7b",
+      "matches_original": true
+    }
+  ],
+  "fresh_git_clone": {
+    "files_verified": 4,
+    "all_files_byte_identical": true,
+    "main_before_and_after": "afe902f47adc1ffb4e3e2b51c49e8391f462f8db",
+    "scientific_checkout": "UNCHANGED"
+  },
+  "original_security_scan": [
+    {
+      "file": "P01-E3-audited-evidence.tar.gz",
+      "path": "/workspace/shared/world-lab/p01-final-20261113-01-exports/P01-E3-audited-evidence.tar.gz",
+      "bytes": 36085889,
+      "sha256": "8a1df2ac58fa2069afa4de52368097d79859b59e4b784e99a72966fa5690b7c7",
+      "archive_members": 1684,
+      "compressed_payloads_scanned": 1056,
+      "private_key_or_credential_findings": 0
+    },
+    {
+      "file": "P01-E3-audited-evidence.tar.gz.sha256",
+      "path": "/workspace/shared/world-lab/p01-final-20261113-01-exports/P01-E3-audited-evidence.tar.gz.sha256",
+      "bytes": 97,
+      "sha256": "da7bbb55d4aaea5eb7f8de641781a28d78012e3212a9a983ce649a41e7a7e6c1",
+      "archive_members": null,
+      "compressed_payloads_scanned": null,
+      "private_key_or_credential_findings": 0
+    },
+    {
+      "file": "P01-E4-scientific-validation.tar.gz",
+      "path": "/workspace/shared/world-lab/p01-final-20261113-01-e4-exports/P01-E4-scientific-validation.tar.gz",
+      "bytes": 309971,
+      "sha256": "47083b27d5875126ac3086fe8887adfdc813567673dec2e904a4e91bcf29db91",
+      "archive_members": 47,
+      "compressed_payloads_scanned": 0,
+      "private_key_or_credential_findings": 0
+    },
+    {
+      "file": "P01-E4-scientific-validation.tar.gz.sha256",
+      "path": "/workspace/shared/world-lab/p01-final-20261113-01-e4-exports/P01-E4-scientific-validation.tar.gz.sha256",
+      "bytes": 102,
+      "sha256": "53451288e8dac7eb58334c1117649308eaef704e7bb30cab3121bee5c3bfdd7b",
+      "archive_members": null,
+      "compressed_payloads_scanned": null,
+      "private_key_or_credential_findings": 0
+    }
+  ],
+  "C2": "HOLD_EXTERNAL_BACKUP_PENDING",
+  "owner_external_receipt_and_SHA256_confirmation": "PENDING",
+  "release_proxy_error": "curl: (56) CONNECT tunnel failed, response 403",
+  "no_new_E3_or_E4_execution": true,
+  "retention": "Keep transfer branch until owner confirms receipt and matching hashes of both packages. Git objects may remain retained even after branch deletion."
+}

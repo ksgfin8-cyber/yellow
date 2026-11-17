@@ -15,8 +15,12 @@ C2 sigue HOLD_EXTERNAL_BACKUP_PENDING hasta que el propietario confirme recepci�
 
 Descargar por enlace directo guardando como archivo, sin abrir y volver a guardar como texto. Los scripts download-and-verify.ps1 y TRANSFER-MANIFEST.json contienen URLs, nombres, tamaños y hashes originales.
 
-Alternativa si el navegador no permite raw: `git clone --depth 1 --single-branch --branch transfer/p01-c2-evidence-20261117 https://github.com/ksgfin8-cyber/yellow.git P01-C2-received`, entrar en esa carpeta y ejecutar `powershell -ExecutionPolicy Bypass -File .\download-and-verify.ps1 -VerifyOnly`. El clone descarga blobs regulares, no punteros LFS. El script solo descarga/verifica estos cuatro archivos y no ejecuta simulaciones.
+Alternativa si el navegador no permite raw: `git clone --depth 1 --single-branch --branch transfer/p01-c2-evidence-20261117 https://github.com/ksgfin8-cyber/yellow.git P01-C2-received`, entrar en esa carpeta y ejecutar `.\download-and-verify.ps1 -VerifyOnly`. El clone descarga blobs regulares, no punteros LFS. El script solo descarga/verifica estos cuatro archivos y no ejecuta simulaciones.
 
 Conservar el resultado Get-FileHash y confirmar al propietario lógico de este chat que ambos paquetes se recibieron fuera del workspace. No borrar la rama hasta esa confirmación. Los objetos Git pueden permanecer retenidos incluso después de eliminarla; no se promete borrado completo del servidor.
 
 El paquete E3 incluye los datos y los materiales públicos previamente auditados; el paquete E4 es de resultados y requiere E3 para recuperar las entradas. No hay claves privadas. No se publicaron nuevas claves o credenciales.
+
+## Verificación técnica posterior a la carga
+
+Los cuatro enlaces HTTPS devolvieron 200 y sus bytes/SHA-256 coincidieron con los originales. Una clonación remota nueva recuperó los cuatro archivos sin punteros LFS. Véase TRANSFER-VERIFICATION.json. Estas comprobaciones se hicieron desde el entorno de trabajo: **no equivalen a confirmación de recepción por el propietario en su computadora**. Los enlaces inmutables de ese registro fijan el commit de los archivos originales.
