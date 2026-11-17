@@ -1,12 +1,14 @@
-# Estado vigente — reconciliación F6 y cierre de construcción
+# Estado vigente — construcción operacional cerrada
 
-**2026-11-17 (America/Guayaquil). Auditoría: GO_CONSTRUCTION_CLOSURE recomendado para revisión del propietario**, en el alcance operacional de referencia P01, modo autónomo y demo web existente. No es cierre automático ni conformidad global.
+**2026-11-17 (America/Guayaquil). `CONSTRUCTION_CLOSED_WITHIN_APPROVED_OPERATIONAL_SCOPE`**, por aprobación expresa del propietario del dictamen F6 integrado mediante PR #46. Alcance: infraestructura operacional descrita en READINESS_REPORT, incluyendo P01, modo autónomo y demo web existente, con sus límites expresos. [Registro de aprobación y cierre](CONSTRUCTION_CLOSURE.md).
 
-F6-A/E `COMPLETE_DOCUMENTED`; F6-B/C/D `COMPLETE_VERIFIED` dentro del alcance y métodos declarados. C/D se implementaron principalmente en B/E/F: no son fases faltantes por su nombre. **F6-N BLOCKED; reconciliación, conformidad e interoperabilidad independiente NOT_ESTABLISHED.** Persisten fuentes G00 y 289BLOCKED históricos; perfil F5-C no aprobado.
+F6-A–F6-E concluidas en sus respectivos alcances documentados: A/E `COMPLETE_DOCUMENTED`; B/C/D `COMPLETE_VERIFIED`, conservando sus niveles de evidencia. C/D se implementaron principalmente en B/E/F. **F6-N BLOCKED; reconciliación normativa, conformidad global e interoperabilidad independiente NOT_ESTABLISHED.** G00 y los 289BLOCKED históricos permanecen pendientes; perfil F5-C no aprobado. No se declaran Hito B ni Hito C. CC-04/CC-05 conservan sus límites, sin presentarlos como resueltos.
 
-E3/E4 PASS y aceptación E5 acotada conservados. C2 `VERIFIED_EXTERNAL_BACKUP` según confirmación del propietario de hashes locales Windows, cierre documental integrado por PR #44; OneDrive `NOT_VERIFIED`. La auditoría actual ejecutó100 pruebas focalizadas PASS, legacy13PASS/9FAIL conocidos, verificó la copia774objetos y hashes originales; no repitió E3/E4 ni lanzó campaña final. Límites de Observation grande/Rule radio0 siguen explícitos.
+E3/E4 PASS y aceptación E5 acotada conservados. C2 `VERIFIED_EXTERNAL_BACKUP` según confirmación del propietario de hashes locales Windows; OneDrive `NOT_VERIFIED`. La auditoría F6 previa registró100 pruebas focalizadas PASS, legacy13PASS/9FAIL conocidos e integridad de copia/originales; esos resultados son históricos, no nuevas ejecuciones en este cierre.
 
-[Dictamen, alcance y mínima decisión](f6-construction-closure/READINESS_REPORT.md) · [Matriz F6](f6-construction-closure/PHASE_RECONCILIATION.md) · [Componentes y pendientes](f6-construction-closure/COMPONENTS_AND_FINDINGS.md) · [Evidencia actual](f6-construction-closure/VERIFICATION.json).
+Se detiene la construcción de esta versión. Nuevas investigaciones, mejoras de infraestructura y conformidad normativa son líneas diferenciadas que requieren sus propias autorizaciones. No se ejecutan campañas ni se alteran código, normas o evidencias; se conservan los originales y la rama de transferencia.
+
+[Informe de alcance y dictamen original](f6-construction-closure/READINESS_REPORT.md) · [Matriz F6](f6-construction-closure/PHASE_RECONCILIATION.md) · [Componentes y pendientes](f6-construction-closure/COMPONENTS_AND_FINDINGS.md) · [Evidencia de la auditoría previa](f6-construction-closure/VERIFICATION.json).
 
 ---
 
