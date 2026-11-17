@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "scope": "DOCUMENTARY_CLOSURE_ONLY",
+  "base_commit": "afe902f47adc1ffb4e3e2b51c49e8391f462f8db",
+  "published_source_files_checked": 40,
+  "original_packages_hash_and_size_match": true,
+  "checksum_files_match": true,
+  "transfer_branch_still_exists": "transfer/p01-c2-evidence-20261117",
+  "transfer_tip_verified": "72b97e29e168eb46cc6cf62d881e82d4b04335c0",
+  "owner_reported_hashes_match_expected": true,
+  "owner_machine_accessed_by_Codex": false,
+  "OneDrive_checked": false,
+  "E3_E4_reexecuted": false,
+  "historical_E3_E4_E5_documents_changed": false,
+  "retention_action": "NONE; PRESERVED",
+  "previous_ED_snapshot_matches_base": true,
+  "only_supported_execution_state_cells_changed": true,
+  "public_link_targets_checked": 35,
+  "private_material_scan": "NO_FINDINGS",
+  "historical_sources_unchanged": true,
+  "tests": "DOCUMENTARY_CHECKS_ONLY; NO_E3_E4_RUN"
+}
