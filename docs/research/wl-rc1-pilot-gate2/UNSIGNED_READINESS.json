@@ -1,0 +1,69 @@
+{
+  "format": "WL-RC1-GATE2-UNSIGNED-READINESS-1",
+  "issued_at_utc": "2026-11-17T22:47:28.409Z",
+  "kind": "READ_ONLY_INDEPENDENT_CHECKS_NOT_SIGNED_PREFLIGHT",
+  "base_commit": "8ea64018f633319ef59f0ada8a76dd4e1d648fce",
+  "PR49_implementation_commit": "4d23724268e3a01f23c6774dc1e6994f0598dcde",
+  "freeze_id": "466e1dc53f6d5f6f0fe144d85e7f65643b01244acabee5b8caaa25dd34df15ac",
+  "identity": "MATCH",
+  "subject_bindings_checked": 61,
+  "instrument_bindings_checked": 13,
+  "runtime": {
+    "node": "v24.22.1",
+    "v8": "13.6.233.17-node.58",
+    "platform": "linux",
+    "arch": "x64",
+    "node_sha256": "61ab14cd750fc24d5db53490ec5fc40f756e4b6e136b78cf7004265471d9bd1d"
+  },
+  "actual_controller_flags": [
+    "--max-old-space-size=512"
+  ],
+  "NODE_OPTIONS_empty": true,
+  "output_directory": "/workspace/shared/world-lab/wl-rc1/pilot-rc1-cd-v1",
+  "output_directory_exists": false,
+  "parent_realpath": "/workspace/shared/world-lab/wl-rc1",
+  "parent_is_directory": true,
+  "parent_writable": true,
+  "linux_proc_available": true,
+  "aggregate_rss_observed_bytes": 161157120,
+  "aggregate_rss_pids": [
+    32051
+  ],
+  "free_disk_observed_bytes": 63519449088,
+  "total_memory_observed_bytes": 35743748096,
+  "limits": {
+    "child_ms": 10000,
+    "total_ms": 720000,
+    "heap_mib": 256,
+    "rss_bytes": 1073741824,
+    "artifact_bytes": 134217728,
+    "max_processes": 48,
+    "sample_ms": 25,
+    "reserve_bytes": 1048576
+  },
+  "resource_snapshot_checks": {
+    "rss_below_threshold": true,
+    "disk_at_least_artifact_cap": true
+  },
+  "RC1_input_directory_entries": [],
+  "dependencies": {
+    "RC1_approved_public_key_and_pin": "NOT_SUPPLIED",
+    "RC1_signed_receipt": "NOT_SUPPLIED",
+    "RC1_signature": "NOT_SUPPLIED",
+    "real_signed_preflight": "NOT_EXECUTED",
+    "specific_start_after_preflight": "PENDING"
+  },
+  "pilot_status": "PILOT_BLOCKED",
+  "workers_started": 0,
+  "conditions_started": 0,
+  "expected_conditions": 48,
+  "conditions_not_executed": 48,
+  "scientific_results": "NOT_AVAILABLE_NO_PILOT",
+  "RC1_E": "HOLD_NOT_AUTHORIZED",
+  "P01_E3_E4": "NOT_EXECUTED_OR_MODIFIED",
+  "limitations": [
+    "Resource observations are one instantaneous snapshot, not a reservation or signed preflight.",
+    "Previously tested guardian controls not reexecuted; no test keys or production keys created.",
+    "No inference of failed conditions/censorship without a started pilot."
+  ]
+}
