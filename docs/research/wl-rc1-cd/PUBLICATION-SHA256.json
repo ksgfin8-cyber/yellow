@@ -1,0 +1,77 @@
+[
+  {
+    "file": "PILOT-CANDIDATE.json",
+    "bytes": 21767,
+    "sha256": "eca68624b81fd326a0f7b51f2ae70be9a415f480e845e39cfe82391d41053a6e"
+  },
+  {
+    "file": "PILOT_REQUEST.md",
+    "bytes": 6536,
+    "sha256": "ccf597b61c42b86f3d98a23078679d13d07d522f84df0dd9259466868472a7c1"
+  },
+  {
+    "file": "PROTOCOL.md",
+    "bytes": 12639,
+    "sha256": "9da886fb3b0025a116eb8dcb2a686506a64f3bb09c74fb9cd1a6d5eb014952d6"
+  },
+  {
+    "file": "REVIEW.json",
+    "bytes": 7864,
+    "sha256": "ee8faf9d395d46c96a156e98227089ae996451a74eb7d39596aea916170707ac"
+  },
+  {
+    "file": "VALIDATION_REPORT.md",
+    "bytes": 9136,
+    "sha256": "3fe83af5a8bd43d5e2157543df0596b5195006acf845b53f2e01c0780de63e2d"
+  },
+  {
+    "file": "authorization.template.json",
+    "bytes": 346,
+    "sha256": "69a13db329008c32d4dc74d2d39c11d9a09aecf287506a06d60852bb89988510"
+  },
+  {
+    "file": "conditions.json",
+    "bytes": 47790,
+    "sha256": "de93d9e3ad703ee41f34357badbaf7b78db0a29d8497f63c14009c2c4da0dab1"
+  },
+  {
+    "file": "order.txt.b64",
+    "bytes": 10318,
+    "sha256": "6cf839d0371b71fe472df605be9c9f8172a714eabb20fb9c25eab381e82f01e5"
+  },
+  {
+    "file": "tests-01.log.b64",
+    "bytes": 2610,
+    "sha256": "4db33d079d2b0fd507d935d23b704f67d37116c8be8f72e3246755950c0f5ec0"
+  },
+  {
+    "file": "tests-02.log.b64",
+    "bytes": 2764,
+    "sha256": "5679bece11725fe658a234a487015dcaaef17922d1ee66fcfdb31c39bbe7ccf9"
+  },
+  {
+    "file": "tests-03.log.b64",
+    "bytes": 2764,
+    "sha256": "3d21871c75f8e20aa48a9a7d664596ef78cdebaae51bfe49a14c898e40d0a983"
+  },
+  {
+    "file": "tests-04.log.b64",
+    "bytes": 2760,
+    "sha256": "4ae6f7e54963228a7d2b020d124a232610c83da0f65e51765be41391546ebda1"
+  },
+  {
+    "file": "tests-05.log.b64",
+    "bytes": 2760,
+    "sha256": "a3557a8aa132100a654c0fdc66965a5471b7f941911b0ce4524f772cddf4781d"
+  },
+  {
+    "file": "validation-fixtures.tar.gz",
+    "bytes": 29966,
+    "sha256": "b3f48967586b19d44f4a8a9d5a917984eac84370a414b831406669c84d419c26"
+  },
+  {
+    "file": "validation-fixtures.tar.gz.sha256",
+    "bytes": 93,
+    "sha256": "ee6c2e8ca2677bac118437403523c1ea33a4776e76f09a8fe31a41f0b6367a86"
+  }
+]

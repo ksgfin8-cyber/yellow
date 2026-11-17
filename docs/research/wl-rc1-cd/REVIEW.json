@@ -1,0 +1,241 @@
+{
+  "format": "WL-RC1-CD-REVIEW-1",
+  "issued_at": "2026-11-17T17:28:14.318378-05:00",
+  "base_commit": "c1e80c5249002fccaf8508ee9d9397d6bbeb1b7c",
+  "model_revision": "030ec332c753d85b266492db1dbb6400ba61c18f",
+  "subject_code_diff_between_model_and_base": [],
+  "freeze_id": "466e1dc53f6d5f6f0fe144d85e7f65643b01244acabee5b8caaa25dd34df15ac",
+  "candidate_check": {
+    "freeze_id": "466e1dc53f6d5f6f0fe144d85e7f65643b01244acabee5b8caaa25dd34df15ac",
+    "status": "READY_FOR_GATE_2_REVIEW",
+    "pilot_executed": false
+  },
+  "state": "READY_FOR_GATE_2_REVIEW",
+  "pilot": "HOLD_OWNER_APPROVAL_REQUIRED",
+  "RC1_E": "NOT_AUTHORIZED",
+  "final_test_command": "node --test tests/wl-rc1-cd.test.cjs",
+  "final_tests": {
+    "tests": 14,
+    "pass": 14,
+    "fail": 0,
+    "exit": 0
+  },
+  "development_test_iterations": [
+    {
+      "file": "tests-01.log.b64",
+      "raw_sha256": "e08239a20371ef7cb0ad3e130f0d6e701e0ff78dd65866e375dc15663c66c0e8",
+      "pass": 13,
+      "note": "separate development iteration; do not sum as unique tests or scientific replications"
+    },
+    {
+      "file": "tests-02.log.b64",
+      "raw_sha256": "cd47790d0656b2435c26ac72f8186dd4ee6e2201029ce11b706f0070dd26de91",
+      "pass": 14,
+      "note": "separate development iteration; do not sum as unique tests or scientific replications"
+    },
+    {
+      "file": "tests-03.log.b64",
+      "raw_sha256": "dbf919f634a50c4677da60aca5f4d4879090c6de7a6607111814e329c8f73443",
+      "pass": 14,
+      "note": "separate development iteration; do not sum as unique tests or scientific replications"
+    },
+    {
+      "file": "tests-04.log.b64",
+      "raw_sha256": "6edc679ec1ddc04881e0935384e09852d49e9280d16291be1ef340ad0ca14b91",
+      "pass": 14,
+      "note": "separate development iteration; do not sum as unique tests or scientific replications"
+    },
+    {
+      "file": "tests-05.log.b64",
+      "raw_sha256": "df9bbf3a26d9d673bcd66127e016d8ccebfbf29b98e2848096da084bfe95cae9",
+      "pass": 14,
+      "note": "separate development iteration; do not sum as unique tests or scientific replications"
+    }
+  ],
+  "measurement_scope": {
+    "final_fixture_workers": 2,
+    "final_fixture_profile": {
+      "width": 2,
+      "height": 2,
+      "radius": 1,
+      "ticks": 2
+    },
+    "final_samples": 128,
+    "total_development_fixture_workers": 10,
+    "total_development_samples": 640,
+    "P1_P8_workers_started": 0,
+    "final_campaigns_started": 0,
+    "E3_E4_reexecutions": 0,
+    "near_capacity_observation_tests": 0,
+    "production_keys_generated": 0,
+    "preflight_tests": "ephemeral Ed25519 signatures only; episodes_started=0"
+  },
+  "units_and_resolution": {
+    "clock_median_ns": [
+      97,
+      114
+    ],
+    "empty_median_ns": [
+      118,
+      152
+    ],
+    "sample_resolution_flags": [
+      0,
+      0
+    ],
+    "not_P1_P8_resolution_certification": true
+  },
+  "perturbation": {
+    "paired_fixture_wrapper_delta_range_ns": [
+      -10363894,
+      1983071
+    ],
+    "P1_P8_under_10_percent": "NOT_ESTABLISHED"
+  },
+  "semantic_test_method": "Full structural comparisons of decoded before/after witnesses, outputs,actions/events,time,RNG,WLS1 bytes; repeated restored-input witnesses equal, not merely digests",
+  "recovery": {
+    "original_historical_local_path": "/tmp/wl-rc1-tests-VCYMMF/calibration-pair",
+    "independent_new_local_copy": "/tmp/wl-rc1-cd-recovery-final",
+    "results": {
+      "state": "VERIFIED",
+      "format": "WL-RC1-ARCHIVE-1",
+      "package_status": "COMPLETE",
+      "samples": 128,
+      "errors": 0,
+      "witnesses": 15,
+      "scientific_acceptance": false,
+      "freeze_id": "466e1dc53f6d5f6f0fe144d85e7f65643b01244acabee5b8caaa25dd34df15ac"
+    },
+    "external_backup": "NOT_ESTABLISHED",
+    "fixture_archive": {
+      "file": "validation-fixtures.tar.gz",
+      "bytes": 29966,
+      "sha256": "b3f48967586b19d44f4a8a9d5a917984eac84370a414b831406669c84d419c26",
+      "private_key_scan_matches": 0
+    }
+  },
+  "limits": {
+    "child_ms": 10000,
+    "total_ms": 720000,
+    "heap_mib": 256,
+    "rss_bytes": 1073741824,
+    "artifact_bytes": 134217728,
+    "max_processes": 48,
+    "sample_ms": 25,
+    "reserve_bytes": 1048576
+  },
+  "conditions": {
+    "profiles": 8,
+    "blocks": 3,
+    "modalities": 2,
+    "maximum_workers": 48,
+    "operations": 16,
+    "operation_required_fields": [
+      "objective",
+      "experimental_unit",
+      "input_variables",
+      "fixed_configuration",
+      "responses",
+      "exact_procedure",
+      "experimental_control",
+      "warmup",
+      "cold_warm_separation",
+      "repetitions_and_justification",
+      "failures_and_censorship",
+      "analysis",
+      "acceptance",
+      "interpretation_limits"
+    ]
+  },
+  "source_bindings": {
+    "subject_files": 61,
+    "instrument_files": 13,
+    "all_bytes_match": true
+  },
+  "preservation": {
+    "old_tracked_files": 436,
+    "old_tracked_paths_changed": [],
+    "P01_norms_tests_history_and_construction_closure": "UNCHANGED",
+    "transfer_branch_and_originals": "NOT_MODIFIED_OR_DELETED"
+  },
+  "links_checked": [
+    {
+      "document": "docs/research/wl-rc1-cd/PROTOCOL.md",
+      "target": "../wl-rc1-ab/COMPLEXITY_MODELS.md"
+    },
+    {
+      "document": "docs/research/wl-rc1-cd/PROTOCOL.md",
+      "target": "conditions.json"
+    },
+    {
+      "document": "docs/research/wl-rc1-cd/VALIDATION_REPORT.md",
+      "target": "PROTOCOL.md"
+    },
+    {
+      "document": "docs/research/wl-rc1-cd/VALIDATION_REPORT.md",
+      "target": "conditions.json"
+    },
+    {
+      "document": "docs/research/wl-rc1-cd/VALIDATION_REPORT.md",
+      "target": "PILOT-CANDIDATE.json"
+    },
+    {
+      "document": "docs/research/wl-rc1-cd/VALIDATION_REPORT.md",
+      "target": "PILOT_REQUEST.md"
+    },
+    {
+      "document": "docs/research/wl-rc1-cd/VALIDATION_REPORT.md",
+      "target": "../../../tools/research/wl-rc1/README.md"
+    },
+    {
+      "document": "docs/research/wl-rc1-cd/VALIDATION_REPORT.md",
+      "target": "tests-05.log.b64"
+    },
+    {
+      "document": "docs/research/wl-rc1-cd/VALIDATION_REPORT.md",
+      "target": "PILOT_REQUEST.md"
+    },
+    {
+      "document": "docs/research/wl-rc1-cd/VALIDATION_REPORT.md",
+      "target": "validation-fixtures.tar.gz"
+    },
+    {
+      "document": "docs/research/wl-rc1-cd/VALIDATION_REPORT.md",
+      "target": "validation-fixtures.tar.gz.sha256"
+    },
+    {
+      "document": "docs/research/wl-rc1-cd/VALIDATION_REPORT.md",
+      "target": "REVIEW.json"
+    },
+    {
+      "document": "docs/research/wl-rc1-cd/VALIDATION_REPORT.md",
+      "target": "PUBLICATION-SHA256.json"
+    },
+    {
+      "document": "tools/research/wl-rc1/README.md",
+      "target": "../../../docs/research/wl-rc1-cd/PROTOCOL.md"
+    },
+    {
+      "document": "tools/research/wl-rc1/README.md",
+      "target": "../../../docs/research/wl-rc1-cd/conditions.json"
+    },
+    {
+      "document": "tools/research/wl-rc1/README.md",
+      "target": "../../../docs/research/wl-rc1-cd/PILOT_REQUEST.md"
+    },
+    {
+      "document": "tools/research/wl-rc1/README.md",
+      "target": "../../../docs/research/wl-rc1-cd/VALIDATION_REPORT.md"
+    }
+  ],
+  "limitations": [
+    "Nominal deadlines and sampled RSS are not hard physical limits.",
+    "P1-P8 completion within10s NOT_ESTABLISHED; no budget expansion or retry authorized.",
+    "FIRST_MEASURED is not virgin API cold; preparation and other operations warm shared code.",
+    "No direct GC events observed, no forced GC.",
+    "Transport roundtrip is not full P01 archive/provenance gate; Q3 coverage partial.",
+    "No approved real RC1 key/receipt or pilot start authorization.",
+    "No global normative conformity/independent interoperability claim.",
+    "Source checks assume quiescent files during load/execution; no atomic filesystem snapshot; post-run candidate check required operationally."
+  ]
+}

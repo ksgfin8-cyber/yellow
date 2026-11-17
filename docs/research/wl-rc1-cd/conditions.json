@@ -1,0 +1,1327 @@
+{
+  "format": "WL-RC1-CONDITIONS-1",
+  "protocol_version": "1.0.0",
+  "subject_commit": "c1e80c5249002fccaf8508ee9d9397d6bbeb1b7c",
+  "profiles": [
+    {
+      "id": "P1",
+      "width": 8,
+      "height": 8,
+      "radius": 1,
+      "ticks": 4,
+      "N": 64,
+      "Q": 9,
+      "world_config": {
+        "width": 8,
+        "height": 8,
+        "topology": "BOUNDED",
+        "obstacle_density": 0,
+        "resource_density": 0,
+        "hazard_density": 0,
+        "initial_energy": 240,
+        "move_cost": 1,
+        "wait_cost": 1,
+        "resource_effect": 8,
+        "hazard_damage": 0,
+        "resource_regeneration": 0,
+        "death_threshold": 0,
+        "observation_radius": 1
+      }
+    },
+    {
+      "id": "P2",
+      "width": 16,
+      "height": 16,
+      "radius": 1,
+      "ticks": 4,
+      "N": 256,
+      "Q": 9,
+      "world_config": {
+        "width": 16,
+        "height": 16,
+        "topology": "BOUNDED",
+        "obstacle_density": 0,
+        "resource_density": 0,
+        "hazard_density": 0,
+        "initial_energy": 240,
+        "move_cost": 1,
+        "wait_cost": 1,
+        "resource_effect": 8,
+        "hazard_damage": 0,
+        "resource_regeneration": 0,
+        "death_threshold": 0,
+        "observation_radius": 1
+      }
+    },
+    {
+      "id": "P3",
+      "width": 32,
+      "height": 32,
+      "radius": 1,
+      "ticks": 4,
+      "N": 1024,
+      "Q": 9,
+      "world_config": {
+        "width": 32,
+        "height": 32,
+        "topology": "BOUNDED",
+        "obstacle_density": 0,
+        "resource_density": 0,
+        "hazard_density": 0,
+        "initial_energy": 240,
+        "move_cost": 1,
+        "wait_cost": 1,
+        "resource_effect": 8,
+        "hazard_damage": 0,
+        "resource_regeneration": 0,
+        "death_threshold": 0,
+        "observation_radius": 1
+      }
+    },
+    {
+      "id": "P4",
+      "width": 16,
+      "height": 16,
+      "radius": 0,
+      "ticks": 4,
+      "N": 256,
+      "Q": 1,
+      "world_config": {
+        "width": 16,
+        "height": 16,
+        "topology": "BOUNDED",
+        "obstacle_density": 0,
+        "resource_density": 0,
+        "hazard_density": 0,
+        "initial_energy": 240,
+        "move_cost": 1,
+        "wait_cost": 1,
+        "resource_effect": 8,
+        "hazard_damage": 0,
+        "resource_regeneration": 0,
+        "death_threshold": 0,
+        "observation_radius": 0
+      }
+    },
+    {
+      "id": "P5",
+      "width": 16,
+      "height": 16,
+      "radius": 4,
+      "ticks": 4,
+      "N": 256,
+      "Q": 81,
+      "world_config": {
+        "width": 16,
+        "height": 16,
+        "topology": "BOUNDED",
+        "obstacle_density": 0,
+        "resource_density": 0,
+        "hazard_density": 0,
+        "initial_energy": 240,
+        "move_cost": 1,
+        "wait_cost": 1,
+        "resource_effect": 8,
+        "hazard_damage": 0,
+        "resource_regeneration": 0,
+        "death_threshold": 0,
+        "observation_radius": 4
+      }
+    },
+    {
+      "id": "P6",
+      "width": 16,
+      "height": 16,
+      "radius": 16,
+      "ticks": 4,
+      "N": 256,
+      "Q": 1089,
+      "world_config": {
+        "width": 16,
+        "height": 16,
+        "topology": "BOUNDED",
+        "obstacle_density": 0,
+        "resource_density": 0,
+        "hazard_density": 0,
+        "initial_energy": 240,
+        "move_cost": 1,
+        "wait_cost": 1,
+        "resource_effect": 8,
+        "hazard_damage": 0,
+        "resource_regeneration": 0,
+        "death_threshold": 0,
+        "observation_radius": 16
+      }
+    },
+    {
+      "id": "P7",
+      "width": 16,
+      "height": 16,
+      "radius": 1,
+      "ticks": 16,
+      "N": 256,
+      "Q": 9,
+      "world_config": {
+        "width": 16,
+        "height": 16,
+        "topology": "BOUNDED",
+        "obstacle_density": 0,
+        "resource_density": 0,
+        "hazard_density": 0,
+        "initial_energy": 240,
+        "move_cost": 1,
+        "wait_cost": 1,
+        "resource_effect": 8,
+        "hazard_damage": 0,
+        "resource_regeneration": 0,
+        "death_threshold": 0,
+        "observation_radius": 1
+      }
+    },
+    {
+      "id": "P8",
+      "width": 4,
+      "height": 64,
+      "radius": 1,
+      "ticks": 4,
+      "N": 256,
+      "Q": 9,
+      "world_config": {
+        "width": 4,
+        "height": 64,
+        "topology": "BOUNDED",
+        "obstacle_density": 0,
+        "resource_density": 0,
+        "hazard_density": 0,
+        "initial_energy": 240,
+        "move_cost": 1,
+        "wait_cost": 1,
+        "resource_effect": 8,
+        "hazard_damage": 0,
+        "resource_regeneration": 0,
+        "death_threshold": 0,
+        "observation_radius": 1
+      }
+    }
+  ],
+  "operations": [
+    {
+      "id": "validate_state",
+      "api": "validate_WorldState",
+      "objective": "Validez estructural pública",
+      "experimental_unit": "One fresh process per profile/block/modality; internal calls dependent",
+      "input_variables": "N,L",
+      "fixed_configuration": "worldConfig(profile); WAIT trace, flags all true; conditions bound below",
+      "responses": [
+        "api_ns",
+        "wrapper_ns",
+        "prep_ns",
+        "cpu_us(DETAILED only)",
+        "memory_before/after(DETAILED only)",
+        "full semantic witness",
+        "error/stage/censorship",
+        "process counters and bytes"
+      ],
+      "exact_procedure": "fixture inicial nuevo; new fixture for every call; one invoke bracketed by timers; complete witness/transport outside timer.",
+      "experimental_control": "Identical seed/config/trace/restored input in paired MINIMAL/DETAILED; no internal decomposition by subtraction",
+      "warmup": "3 prefixed calls, retained, never counted as independent replicas",
+      "cold_warm_separation": "FIRST_MEASURED after preparation, not virgin API cold; process load/total separately; WARM after warm-up",
+      "repetitions_and_justification": "1 FIRST_MEASURED +3 WARMUP +5 WARM per process;3 process blocks per modality for pilot viability/resolution, not population precision",
+      "failures_and_censorship": "Preserve operation error stage; external stop aborts session without retry; partial/no manifest explicit",
+      "analysis": "Process warm median/range, paired modality differences, raw rows; resolution flags; no power-law proof or causal primitive attribution",
+      "acceptance": "D01-D08 and preserved semantics/units/identity; report insufficient resolution/perturbation, not exclude slow outcomes",
+      "interpretation_limits": "Aggregate stated API only; runtime/GC/shared preparation exposure; pilot is not definitive RC1-E"
+    },
+    {
+      "id": "snapshot",
+      "api": "World.full_snapshot",
+      "objective": "Copia independiente",
+      "experimental_unit": "One fresh process per profile/block/modality; internal calls dependent",
+      "input_variables": "N,L",
+      "fixed_configuration": "worldConfig(profile); WAIT trace, flags all true; conditions bound below",
+      "responses": [
+        "api_ns",
+        "wrapper_ns",
+        "prep_ns",
+        "cpu_us(DETAILED only)",
+        "memory_before/after(DETAILED only)",
+        "full semantic witness",
+        "error/stage/censorship",
+        "process counters and bytes"
+      ],
+      "exact_procedure": "fixture inicial nuevo; new fixture for every call; one invoke bracketed by timers; complete witness/transport outside timer.",
+      "experimental_control": "Identical seed/config/trace/restored input in paired MINIMAL/DETAILED; no internal decomposition by subtraction",
+      "warmup": "3 prefixed calls, retained, never counted as independent replicas",
+      "cold_warm_separation": "FIRST_MEASURED after preparation, not virgin API cold; process load/total separately; WARM after warm-up",
+      "repetitions_and_justification": "1 FIRST_MEASURED +3 WARMUP +5 WARM per process;3 process blocks per modality for pilot viability/resolution, not population precision",
+      "failures_and_censorship": "Preserve operation error stage; external stop aborts session without retry; partial/no manifest explicit",
+      "analysis": "Process warm median/range, paired modality differences, raw rows; resolution flags; no power-law proof or causal primitive attribution",
+      "acceptance": "D01-D08 and preserved semantics/units/identity; report insufficient resolution/perturbation, not exclude slow outcomes",
+      "interpretation_limits": "Aggregate stated API only; runtime/GC/shared preparation exposure; pilot is not definitive RC1-E"
+    },
+    {
+      "id": "initialize",
+      "api": "initialize_world",
+      "objective": "Generación/selección/lifecycle/snapshot",
+      "experimental_unit": "One fresh process per profile/block/modality; internal calls dependent",
+      "input_variables": "N,seed",
+      "fixed_configuration": "worldConfig(profile); WAIT trace, flags all true; conditions bound below",
+      "responses": [
+        "api_ns",
+        "wrapper_ns",
+        "prep_ns",
+        "cpu_us(DETAILED only)",
+        "memory_before/after(DETAILED only)",
+        "full semantic witness",
+        "error/stage/censorship",
+        "process counters and bytes"
+      ],
+      "exact_procedure": "WorldConfig validada, misma seed; witness mundo control independiente; new fixture for every call; one invoke bracketed by timers; complete witness/transport outside timer.",
+      "experimental_control": "Identical seed/config/trace/restored input in paired MINIMAL/DETAILED; no internal decomposition by subtraction",
+      "warmup": "3 prefixed calls, retained, never counted as independent replicas",
+      "cold_warm_separation": "FIRST_MEASURED after preparation, not virgin API cold; process load/total separately; WARM after warm-up",
+      "repetitions_and_justification": "1 FIRST_MEASURED +3 WARMUP +5 WARM per process;3 process blocks per modality for pilot viability/resolution, not population precision",
+      "failures_and_censorship": "Preserve operation error stage; external stop aborts session without retry; partial/no manifest explicit",
+      "analysis": "Process warm median/range, paired modality differences, raw rows; resolution flags; no power-law proof or causal primitive attribution",
+      "acceptance": "D01-D08 and preserved semantics/units/identity; report insufficient resolution/perturbation, not exclude slow outcomes",
+      "interpretation_limits": "Aggregate stated API only; runtime/GC/shared preparation exposure; pilot is not definitive RC1-E"
+    },
+    {
+      "id": "action",
+      "api": "World.apply_action",
+      "objective": "WAIT válido, coste agregado",
+      "experimental_unit": "One fresh process per profile/block/modality; internal calls dependent",
+      "input_variables": "N",
+      "fixed_configuration": "worldConfig(profile); WAIT trace, flags all true; conditions bound below",
+      "responses": [
+        "api_ns",
+        "wrapper_ns",
+        "prep_ns",
+        "cpu_us(DETAILED only)",
+        "memory_before/after(DETAILED only)",
+        "full semantic witness",
+        "error/stage/censorship",
+        "process counters and bytes"
+      ],
+      "exact_procedure": "fixture inicial nuevo, acción WAIT; new fixture for every call; one invoke bracketed by timers; complete witness/transport outside timer.",
+      "experimental_control": "Identical seed/config/trace/restored input in paired MINIMAL/DETAILED; no internal decomposition by subtraction",
+      "warmup": "3 prefixed calls, retained, never counted as independent replicas",
+      "cold_warm_separation": "FIRST_MEASURED after preparation, not virgin API cold; process load/total separately; WARM after warm-up",
+      "repetitions_and_justification": "1 FIRST_MEASURED +3 WARMUP +5 WARM per process;3 process blocks per modality for pilot viability/resolution, not population precision",
+      "failures_and_censorship": "Preserve operation error stage; external stop aborts session without retry; partial/no manifest explicit",
+      "analysis": "Process warm median/range, paired modality differences, raw rows; resolution flags; no power-law proof or causal primitive attribution",
+      "acceptance": "D01-D08 and preserved semantics/units/identity; report insufficient resolution/perturbation, not exclude slow outcomes",
+      "interpretation_limits": "Aggregate stated API only; runtime/GC/shared preparation exposure; pilot is not definitive RC1-E"
+    },
+    {
+      "id": "dynamics",
+      "api": "World.advance_dynamics",
+      "objective": "Dinámica con regeneración0 y validación",
+      "experimental_unit": "One fresh process per profile/block/modality; internal calls dependent",
+      "input_variables": "N",
+      "fixed_configuration": "worldConfig(profile); WAIT trace, flags all true; conditions bound below",
+      "responses": [
+        "api_ns",
+        "wrapper_ns",
+        "prep_ns",
+        "cpu_us(DETAILED only)",
+        "memory_before/after(DETAILED only)",
+        "full semantic witness",
+        "error/stage/censorship",
+        "process counters and bytes"
+      ],
+      "exact_procedure": "fixture inicial nuevo; new fixture for every call; one invoke bracketed by timers; complete witness/transport outside timer.",
+      "experimental_control": "Identical seed/config/trace/restored input in paired MINIMAL/DETAILED; no internal decomposition by subtraction",
+      "warmup": "3 prefixed calls, retained, never counted as independent replicas",
+      "cold_warm_separation": "FIRST_MEASURED after preparation, not virgin API cold; process load/total separately; WARM after warm-up",
+      "repetitions_and_justification": "1 FIRST_MEASURED +3 WARMUP +5 WARM per process;3 process blocks per modality for pilot viability/resolution, not population precision",
+      "failures_and_censorship": "Preserve operation error stage; external stop aborts session without retry; partial/no manifest explicit",
+      "analysis": "Process warm median/range, paired modality differences, raw rows; resolution flags; no power-law proof or causal primitive attribution",
+      "acceptance": "D01-D08 and preserved semantics/units/identity; report insufficient resolution/perturbation, not exclude slow outcomes",
+      "interpretation_limits": "Aggregate stated API only; runtime/GC/shared preparation exposure; pilot is not definitive RC1-E"
+    },
+    {
+      "id": "observation",
+      "api": "build_observation",
+      "objective": "Ventana Chebyshev agregada",
+      "experimental_unit": "One fresh process per profile/block/modality; internal calls dependent",
+      "input_variables": "N,Q",
+      "fixed_configuration": "worldConfig(profile); WAIT trace, flags all true; conditions bound below",
+      "responses": [
+        "api_ns",
+        "wrapper_ns",
+        "prep_ns",
+        "cpu_us(DETAILED only)",
+        "memory_before/after(DETAILED only)",
+        "full semantic witness",
+        "error/stage/censorship",
+        "process counters and bytes"
+      ],
+      "exact_procedure": "fixture inicial nuevo, radio del perfil; new fixture for every call; one invoke bracketed by timers; complete witness/transport outside timer.",
+      "experimental_control": "Identical seed/config/trace/restored input in paired MINIMAL/DETAILED; no internal decomposition by subtraction",
+      "warmup": "3 prefixed calls, retained, never counted as independent replicas",
+      "cold_warm_separation": "FIRST_MEASURED after preparation, not virgin API cold; process load/total separately; WARM after warm-up",
+      "repetitions_and_justification": "1 FIRST_MEASURED +3 WARMUP +5 WARM per process;3 process blocks per modality for pilot viability/resolution, not population precision",
+      "failures_and_censorship": "Preserve operation error stage; external stop aborts session without retry; partial/no manifest explicit",
+      "analysis": "Process warm median/range, paired modality differences, raw rows; resolution flags; no power-law proof or causal primitive attribution",
+      "acceptance": "D01-D08 and preserved semantics/units/identity; report insufficient resolution/perturbation, not exclude slow outcomes",
+      "interpretation_limits": "Aggregate stated API only; runtime/GC/shared preparation exposure; pilot is not definitive RC1-E"
+    },
+    {
+      "id": "feedback",
+      "api": "build_feedback",
+      "objective": "Proyección/copia de contexto sin acción previa",
+      "experimental_unit": "One fresh process per profile/block/modality; internal calls dependent",
+      "input_variables": "Q",
+      "fixed_configuration": "worldConfig(profile); WAIT trace, flags all true; conditions bound below",
+      "responses": [
+        "api_ns",
+        "wrapper_ns",
+        "prep_ns",
+        "cpu_us(DETAILED only)",
+        "memory_before/after(DETAILED only)",
+        "full semantic witness",
+        "error/stage/censorship",
+        "process counters and bytes"
+      ],
+      "exact_procedure": "Observation y FeedbackConfig preparados antes de invoke; new fixture for every call; one invoke bracketed by timers; complete witness/transport outside timer.",
+      "experimental_control": "Identical seed/config/trace/restored input in paired MINIMAL/DETAILED; no internal decomposition by subtraction",
+      "warmup": "3 prefixed calls, retained, never counted as independent replicas",
+      "cold_warm_separation": "FIRST_MEASURED after preparation, not virgin API cold; process load/total separately; WARM after warm-up",
+      "repetitions_and_justification": "1 FIRST_MEASURED +3 WARMUP +5 WARM per process;3 process blocks per modality for pilot viability/resolution, not population precision",
+      "failures_and_censorship": "Preserve operation error stage; external stop aborts session without retry; partial/no manifest explicit",
+      "analysis": "Process warm median/range, paired modality differences, raw rows; resolution flags; no power-law proof or causal primitive attribution",
+      "acceptance": "D01-D08 and preserved semantics/units/identity; report insufficient resolution/perturbation, not exclude slow outcomes",
+      "interpretation_limits": "Aggregate stated API only; runtime/GC/shared preparation exposure; pilot is not definitive RC1-E"
+    },
+    {
+      "id": "tick",
+      "api": "execute_tick_transaction",
+      "objective": "Confirmación atómica agregada",
+      "experimental_unit": "One fresh process per profile/block/modality; internal calls dependent",
+      "input_variables": "N",
+      "fixed_configuration": "worldConfig(profile); WAIT trace, flags all true; conditions bound below",
+      "responses": [
+        "api_ns",
+        "wrapper_ns",
+        "prep_ns",
+        "cpu_us(DETAILED only)",
+        "memory_before/after(DETAILED only)",
+        "full semantic witness",
+        "error/stage/censorship",
+        "process counters and bytes"
+      ],
+      "exact_procedure": "fixture inicial nuevo, WAIT, límiteT; new fixture for every call; one invoke bracketed by timers; complete witness/transport outside timer.",
+      "experimental_control": "Identical seed/config/trace/restored input in paired MINIMAL/DETAILED; no internal decomposition by subtraction",
+      "warmup": "3 prefixed calls, retained, never counted as independent replicas",
+      "cold_warm_separation": "FIRST_MEASURED after preparation, not virgin API cold; process load/total separately; WARM after warm-up",
+      "repetitions_and_justification": "1 FIRST_MEASURED +3 WARMUP +5 WARM per process;3 process blocks per modality for pilot viability/resolution, not population precision",
+      "failures_and_censorship": "Preserve operation error stage; external stop aborts session without retry; partial/no manifest explicit",
+      "analysis": "Process warm median/range, paired modality differences, raw rows; resolution flags; no power-law proof or causal primitive attribution",
+      "acceptance": "D01-D08 and preserved semantics/units/identity; report insufficient resolution/perturbation, not exclude slow outcomes",
+      "interpretation_limits": "Aggregate stated API only; runtime/GC/shared preparation exposure; pilot is not definitive RC1-E"
+    },
+    {
+      "id": "record_append",
+      "api": "Recorder.record_step",
+      "objective": "Append del último paso",
+      "experimental_unit": "One fresh process per profile/block/modality; internal calls dependent",
+      "input_variables": "N,Q,T",
+      "fixed_configuration": "worldConfig(profile); WAIT trace, flags all true; conditions bound below",
+      "responses": [
+        "api_ns",
+        "wrapper_ns",
+        "prep_ns",
+        "cpu_us(DETAILED only)",
+        "memory_before/after(DETAILED only)",
+        "full semantic witness",
+        "error/stage/censorship",
+        "process counters and bytes"
+      ],
+      "exact_procedure": "Recorder/prefijoT-1 + contexto y tickT confirmados en preparación; new fixture for every call; one invoke bracketed by timers; complete witness/transport outside timer.",
+      "experimental_control": "Identical seed/config/trace/restored input in paired MINIMAL/DETAILED; no internal decomposition by subtraction",
+      "warmup": "3 prefixed calls, retained, never counted as independent replicas",
+      "cold_warm_separation": "FIRST_MEASURED after preparation, not virgin API cold; process load/total separately; WARM after warm-up",
+      "repetitions_and_justification": "1 FIRST_MEASURED +3 WARMUP +5 WARM per process;3 process blocks per modality for pilot viability/resolution, not population precision",
+      "failures_and_censorship": "Preserve operation error stage; external stop aborts session without retry; partial/no manifest explicit",
+      "analysis": "Process warm median/range, paired modality differences, raw rows; resolution flags; no power-law proof or causal primitive attribution",
+      "acceptance": "D01-D08 and preserved semantics/units/identity; report insufficient resolution/perturbation, not exclude slow outcomes",
+      "interpretation_limits": "Aggregate stated API only; runtime/GC/shared preparation exposure; pilot is not definitive RC1-E"
+    },
+    {
+      "id": "finalize",
+      "api": "Recorder.finalize",
+      "objective": "Validación/exportación final",
+      "experimental_unit": "One fresh process per profile/block/modality; internal calls dependent",
+      "input_variables": "N,Q,T",
+      "fixed_configuration": "worldConfig(profile); WAIT trace, flags all true; conditions bound below",
+      "responses": [
+        "api_ns",
+        "wrapper_ns",
+        "prep_ns",
+        "cpu_us(DETAILED only)",
+        "memory_before/after(DETAILED only)",
+        "full semantic witness",
+        "error/stage/censorship",
+        "process counters and bytes"
+      ],
+      "exact_procedure": "Recorder conT pasos y motivo terminal preparado; new fixture for every call; one invoke bracketed by timers; complete witness/transport outside timer.",
+      "experimental_control": "Identical seed/config/trace/restored input in paired MINIMAL/DETAILED; no internal decomposition by subtraction",
+      "warmup": "3 prefixed calls, retained, never counted as independent replicas",
+      "cold_warm_separation": "FIRST_MEASURED after preparation, not virgin API cold; process load/total separately; WARM after warm-up",
+      "repetitions_and_justification": "1 FIRST_MEASURED +3 WARMUP +5 WARM per process;3 process blocks per modality for pilot viability/resolution, not population precision",
+      "failures_and_censorship": "Preserve operation error stage; external stop aborts session without retry; partial/no manifest explicit",
+      "analysis": "Process warm median/range, paired modality differences, raw rows; resolution flags; no power-law proof or causal primitive attribution",
+      "acceptance": "D01-D08 and preserved semantics/units/identity; report insufficient resolution/perturbation, not exclude slow outcomes",
+      "interpretation_limits": "Aggregate stated API only; runtime/GC/shared preparation exposure; pilot is not definitive RC1-E"
+    },
+    {
+      "id": "history_getter",
+      "api": "Recorder.steps getter",
+      "objective": "Exportación completa de un prefijo",
+      "experimental_unit": "One fresh process per profile/block/modality; internal calls dependent",
+      "input_variables": "N,Q,T",
+      "fixed_configuration": "worldConfig(profile); WAIT trace, flags all true; conditions bound below",
+      "responses": [
+        "api_ns",
+        "wrapper_ns",
+        "prep_ns",
+        "cpu_us(DETAILED only)",
+        "memory_before/after(DETAILED only)",
+        "full semantic witness",
+        "error/stage/censorship",
+        "process counters and bytes"
+      ],
+      "exact_procedure": "Recorder conT pasos, una lectura, no T lecturas; new fixture for every call; one invoke bracketed by timers; complete witness/transport outside timer.",
+      "experimental_control": "Identical seed/config/trace/restored input in paired MINIMAL/DETAILED; no internal decomposition by subtraction",
+      "warmup": "3 prefixed calls, retained, never counted as independent replicas",
+      "cold_warm_separation": "FIRST_MEASURED after preparation, not virgin API cold; process load/total separately; WARM after warm-up",
+      "repetitions_and_justification": "1 FIRST_MEASURED +3 WARMUP +5 WARM per process;3 process blocks per modality for pilot viability/resolution, not population precision",
+      "failures_and_censorship": "Preserve operation error stage; external stop aborts session without retry; partial/no manifest explicit",
+      "analysis": "Process warm median/range, paired modality differences, raw rows; resolution flags; no power-law proof or causal primitive attribution",
+      "acceptance": "D01-D08 and preserved semantics/units/identity; report insufficient resolution/perturbation, not exclude slow outcomes",
+      "interpretation_limits": "Aggregate stated API only; runtime/GC/shared preparation exposure; pilot is not definitive RC1-E"
+    },
+    {
+      "id": "wls1",
+      "api": "canonical_full_state_bytes",
+      "objective": "Serialización FULL agregada",
+      "experimental_unit": "One fresh process per profile/block/modality; internal calls dependent",
+      "input_variables": "N,L",
+      "fixed_configuration": "worldConfig(profile); WAIT trace, flags all true; conditions bound below",
+      "responses": [
+        "api_ns",
+        "wrapper_ns",
+        "prep_ns",
+        "cpu_us(DETAILED only)",
+        "memory_before/after(DETAILED only)",
+        "full semantic witness",
+        "error/stage/censorship",
+        "process counters and bytes"
+      ],
+      "exact_procedure": "fixture inicial nuevo; new fixture for every call; one invoke bracketed by timers; complete witness/transport outside timer.",
+      "experimental_control": "Identical seed/config/trace/restored input in paired MINIMAL/DETAILED; no internal decomposition by subtraction",
+      "warmup": "3 prefixed calls, retained, never counted as independent replicas",
+      "cold_warm_separation": "FIRST_MEASURED after preparation, not virgin API cold; process load/total separately; WARM after warm-up",
+      "repetitions_and_justification": "1 FIRST_MEASURED +3 WARMUP +5 WARM per process;3 process blocks per modality for pilot viability/resolution, not population precision",
+      "failures_and_censorship": "Preserve operation error stage; external stop aborts session without retry; partial/no manifest explicit",
+      "analysis": "Process warm median/range, paired modality differences, raw rows; resolution flags; no power-law proof or causal primitive attribution",
+      "acceptance": "D01-D08 and preserved semantics/units/identity; report insufficient resolution/perturbation, not exclude slow outcomes",
+      "interpretation_limits": "Aggregate stated API only; runtime/GC/shared preparation exposure; pilot is not definitive RC1-E"
+    },
+    {
+      "id": "replay",
+      "api": "replay_trajectory",
+      "objective": "Replay completo de traza WAIT",
+      "experimental_unit": "One fresh process per profile/block/modality; internal calls dependent",
+      "input_variables": "N,Q,T",
+      "fixed_configuration": "worldConfig(profile); WAIT trace, flags all true; conditions bound below",
+      "responses": [
+        "api_ns",
+        "wrapper_ns",
+        "prep_ns",
+        "cpu_us(DETAILED only)",
+        "memory_before/after(DETAILED only)",
+        "full semantic witness",
+        "error/stage/censorship",
+        "process counters and bytes"
+      ],
+      "exact_procedure": "Trajectory real deT pasos preparada; contexto WITH_AGENT; new fixture for every call; one invoke bracketed by timers; complete witness/transport outside timer.",
+      "experimental_control": "Identical seed/config/trace/restored input in paired MINIMAL/DETAILED; no internal decomposition by subtraction",
+      "warmup": "3 prefixed calls, retained, never counted as independent replicas",
+      "cold_warm_separation": "FIRST_MEASURED after preparation, not virgin API cold; process load/total separately; WARM after warm-up",
+      "repetitions_and_justification": "1 FIRST_MEASURED +3 WARMUP +5 WARM per process;3 process blocks per modality for pilot viability/resolution, not population precision",
+      "failures_and_censorship": "Preserve operation error stage; external stop aborts session without retry; partial/no manifest explicit",
+      "analysis": "Process warm median/range, paired modality differences, raw rows; resolution flags; no power-law proof or causal primitive attribution",
+      "acceptance": "D01-D08 and preserved semantics/units/identity; report insufficient resolution/perturbation, not exclude slow outcomes",
+      "interpretation_limits": "Aggregate stated API only; runtime/GC/shared preparation exposure; pilot is not definitive RC1-E"
+    },
+    {
+      "id": "validate_replay",
+      "api": "validate_replay",
+      "objective": "Verificación original/ReplayResult",
+      "experimental_unit": "One fresh process per profile/block/modality; internal calls dependent",
+      "input_variables": "N,Q,T",
+      "fixed_configuration": "worldConfig(profile); WAIT trace, flags all true; conditions bound below",
+      "responses": [
+        "api_ns",
+        "wrapper_ns",
+        "prep_ns",
+        "cpu_us(DETAILED only)",
+        "memory_before/after(DETAILED only)",
+        "full semantic witness",
+        "error/stage/censorship",
+        "process counters and bytes"
+      ],
+      "exact_procedure": "Trajectory y ReplayResult reales preparados fuera de ventana; new fixture for every call; one invoke bracketed by timers; complete witness/transport outside timer.",
+      "experimental_control": "Identical seed/config/trace/restored input in paired MINIMAL/DETAILED; no internal decomposition by subtraction",
+      "warmup": "3 prefixed calls, retained, never counted as independent replicas",
+      "cold_warm_separation": "FIRST_MEASURED after preparation, not virgin API cold; process load/total separately; WARM after warm-up",
+      "repetitions_and_justification": "1 FIRST_MEASURED +3 WARMUP +5 WARM per process;3 process blocks per modality for pilot viability/resolution, not population precision",
+      "failures_and_censorship": "Preserve operation error stage; external stop aborts session without retry; partial/no manifest explicit",
+      "analysis": "Process warm median/range, paired modality differences, raw rows; resolution flags; no power-law proof or causal primitive attribution",
+      "acceptance": "D01-D08 and preserved semantics/units/identity; report insufficient resolution/perturbation, not exclude slow outcomes",
+      "interpretation_limits": "Aggregate stated API only; runtime/GC/shared preparation exposure; pilot is not definitive RC1-E"
+    },
+    {
+      "id": "transport_roundtrip",
+      "api": "codec.encode/JSON/gzip9/gunzip/codec.decode",
+      "objective": "Transporte tipado RC1 agregado; no archivo P01",
+      "experimental_unit": "One fresh process per profile/block/modality; internal calls dependent",
+      "input_variables": "N,Q,T,U,C",
+      "fixed_configuration": "worldConfig(profile); WAIT trace, flags all true; conditions bound below",
+      "responses": [
+        "api_ns",
+        "wrapper_ns",
+        "prep_ns",
+        "cpu_us(DETAILED only)",
+        "memory_before/after(DETAILED only)",
+        "full semantic witness",
+        "error/stage/censorship",
+        "process counters and bytes"
+      ],
+      "exact_procedure": "Trajectory host structuredClone preparada; new fixture for every call; one invoke bracketed by timers; complete witness/transport outside timer.",
+      "experimental_control": "Identical seed/config/trace/restored input in paired MINIMAL/DETAILED; no internal decomposition by subtraction",
+      "warmup": "3 prefixed calls, retained, never counted as independent replicas",
+      "cold_warm_separation": "FIRST_MEASURED after preparation, not virgin API cold; process load/total separately; WARM after warm-up",
+      "repetitions_and_justification": "1 FIRST_MEASURED +3 WARMUP +5 WARM per process;3 process blocks per modality for pilot viability/resolution, not population precision",
+      "failures_and_censorship": "Preserve operation error stage; external stop aborts session without retry; partial/no manifest explicit",
+      "analysis": "Process warm median/range, paired modality differences, raw rows; resolution flags; no power-law proof or causal primitive attribution",
+      "acceptance": "D01-D08 and preserved semantics/units/identity; report insufficient resolution/perturbation, not exclude slow outcomes",
+      "interpretation_limits": "Aggregate stated API only; runtime/GC/shared preparation exposure; pilot is not definitive RC1-E"
+    },
+    {
+      "id": "metrics",
+      "api": "tools/p01/metrics.measure",
+      "objective": "Consumidor puro de Trajectory",
+      "experimental_unit": "One fresh process per profile/block/modality; internal calls dependent",
+      "input_variables": "N,T,E",
+      "fixed_configuration": "worldConfig(profile); WAIT trace, flags all true; conditions bound below",
+      "responses": [
+        "api_ns",
+        "wrapper_ns",
+        "prep_ns",
+        "cpu_us(DETAILED only)",
+        "memory_before/after(DETAILED only)",
+        "full semantic witness",
+        "error/stage/censorship",
+        "process counters and bytes"
+      ],
+      "exact_procedure": "ExperimentResult de trayectoria preparada sin ejecutar agente; new fixture for every call; one invoke bracketed by timers; complete witness/transport outside timer.",
+      "experimental_control": "Identical seed/config/trace/restored input in paired MINIMAL/DETAILED; no internal decomposition by subtraction",
+      "warmup": "3 prefixed calls, retained, never counted as independent replicas",
+      "cold_warm_separation": "FIRST_MEASURED after preparation, not virgin API cold; process load/total separately; WARM after warm-up",
+      "repetitions_and_justification": "1 FIRST_MEASURED +3 WARMUP +5 WARM per process;3 process blocks per modality for pilot viability/resolution, not population precision",
+      "failures_and_censorship": "Preserve operation error stage; external stop aborts session without retry; partial/no manifest explicit",
+      "analysis": "Process warm median/range, paired modality differences, raw rows; resolution flags; no power-law proof or causal primitive attribution",
+      "acceptance": "D01-D08 and preserved semantics/units/identity; report insufficient resolution/perturbation, not exclude slow outcomes",
+      "interpretation_limits": "Aggregate stated API only; runtime/GC/shared preparation exposure; pilot is not definitive RC1-E"
+    }
+  ],
+  "conditions": [
+    {
+      "profile": {
+        "id": "P1",
+        "width": 8,
+        "height": 8,
+        "radius": 1,
+        "ticks": 4
+      },
+      "block": 1,
+      "seed": 20001,
+      "mode": "MINIMAL",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P1",
+        "width": 8,
+        "height": 8,
+        "radius": 1,
+        "ticks": 4
+      },
+      "block": 1,
+      "seed": 20001,
+      "mode": "DETAILED",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P2",
+        "width": 16,
+        "height": 16,
+        "radius": 1,
+        "ticks": 4
+      },
+      "block": 1,
+      "seed": 20001,
+      "mode": "MINIMAL",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P2",
+        "width": 16,
+        "height": 16,
+        "radius": 1,
+        "ticks": 4
+      },
+      "block": 1,
+      "seed": 20001,
+      "mode": "DETAILED",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P3",
+        "width": 32,
+        "height": 32,
+        "radius": 1,
+        "ticks": 4
+      },
+      "block": 1,
+      "seed": 20001,
+      "mode": "MINIMAL",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P3",
+        "width": 32,
+        "height": 32,
+        "radius": 1,
+        "ticks": 4
+      },
+      "block": 1,
+      "seed": 20001,
+      "mode": "DETAILED",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P4",
+        "width": 16,
+        "height": 16,
+        "radius": 0,
+        "ticks": 4
+      },
+      "block": 1,
+      "seed": 20001,
+      "mode": "MINIMAL",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P4",
+        "width": 16,
+        "height": 16,
+        "radius": 0,
+        "ticks": 4
+      },
+      "block": 1,
+      "seed": 20001,
+      "mode": "DETAILED",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P5",
+        "width": 16,
+        "height": 16,
+        "radius": 4,
+        "ticks": 4
+      },
+      "block": 1,
+      "seed": 20001,
+      "mode": "MINIMAL",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P5",
+        "width": 16,
+        "height": 16,
+        "radius": 4,
+        "ticks": 4
+      },
+      "block": 1,
+      "seed": 20001,
+      "mode": "DETAILED",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P6",
+        "width": 16,
+        "height": 16,
+        "radius": 16,
+        "ticks": 4
+      },
+      "block": 1,
+      "seed": 20001,
+      "mode": "MINIMAL",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P6",
+        "width": 16,
+        "height": 16,
+        "radius": 16,
+        "ticks": 4
+      },
+      "block": 1,
+      "seed": 20001,
+      "mode": "DETAILED",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P7",
+        "width": 16,
+        "height": 16,
+        "radius": 1,
+        "ticks": 16
+      },
+      "block": 1,
+      "seed": 20001,
+      "mode": "MINIMAL",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P7",
+        "width": 16,
+        "height": 16,
+        "radius": 1,
+        "ticks": 16
+      },
+      "block": 1,
+      "seed": 20001,
+      "mode": "DETAILED",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P8",
+        "width": 4,
+        "height": 64,
+        "radius": 1,
+        "ticks": 4
+      },
+      "block": 1,
+      "seed": 20001,
+      "mode": "MINIMAL",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P8",
+        "width": 4,
+        "height": 64,
+        "radius": 1,
+        "ticks": 4
+      },
+      "block": 1,
+      "seed": 20001,
+      "mode": "DETAILED",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P8",
+        "width": 4,
+        "height": 64,
+        "radius": 1,
+        "ticks": 4
+      },
+      "block": 2,
+      "seed": 20002,
+      "mode": "DETAILED",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P8",
+        "width": 4,
+        "height": 64,
+        "radius": 1,
+        "ticks": 4
+      },
+      "block": 2,
+      "seed": 20002,
+      "mode": "MINIMAL",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P7",
+        "width": 16,
+        "height": 16,
+        "radius": 1,
+        "ticks": 16
+      },
+      "block": 2,
+      "seed": 20002,
+      "mode": "DETAILED",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P7",
+        "width": 16,
+        "height": 16,
+        "radius": 1,
+        "ticks": 16
+      },
+      "block": 2,
+      "seed": 20002,
+      "mode": "MINIMAL",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P6",
+        "width": 16,
+        "height": 16,
+        "radius": 16,
+        "ticks": 4
+      },
+      "block": 2,
+      "seed": 20002,
+      "mode": "DETAILED",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P6",
+        "width": 16,
+        "height": 16,
+        "radius": 16,
+        "ticks": 4
+      },
+      "block": 2,
+      "seed": 20002,
+      "mode": "MINIMAL",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P5",
+        "width": 16,
+        "height": 16,
+        "radius": 4,
+        "ticks": 4
+      },
+      "block": 2,
+      "seed": 20002,
+      "mode": "DETAILED",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P5",
+        "width": 16,
+        "height": 16,
+        "radius": 4,
+        "ticks": 4
+      },
+      "block": 2,
+      "seed": 20002,
+      "mode": "MINIMAL",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P4",
+        "width": 16,
+        "height": 16,
+        "radius": 0,
+        "ticks": 4
+      },
+      "block": 2,
+      "seed": 20002,
+      "mode": "DETAILED",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P4",
+        "width": 16,
+        "height": 16,
+        "radius": 0,
+        "ticks": 4
+      },
+      "block": 2,
+      "seed": 20002,
+      "mode": "MINIMAL",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P3",
+        "width": 32,
+        "height": 32,
+        "radius": 1,
+        "ticks": 4
+      },
+      "block": 2,
+      "seed": 20002,
+      "mode": "DETAILED",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P3",
+        "width": 32,
+        "height": 32,
+        "radius": 1,
+        "ticks": 4
+      },
+      "block": 2,
+      "seed": 20002,
+      "mode": "MINIMAL",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P2",
+        "width": 16,
+        "height": 16,
+        "radius": 1,
+        "ticks": 4
+      },
+      "block": 2,
+      "seed": 20002,
+      "mode": "DETAILED",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P2",
+        "width": 16,
+        "height": 16,
+        "radius": 1,
+        "ticks": 4
+      },
+      "block": 2,
+      "seed": 20002,
+      "mode": "MINIMAL",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P1",
+        "width": 8,
+        "height": 8,
+        "radius": 1,
+        "ticks": 4
+      },
+      "block": 2,
+      "seed": 20002,
+      "mode": "DETAILED",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P1",
+        "width": 8,
+        "height": 8,
+        "radius": 1,
+        "ticks": 4
+      },
+      "block": 2,
+      "seed": 20002,
+      "mode": "MINIMAL",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P2",
+        "width": 16,
+        "height": 16,
+        "radius": 1,
+        "ticks": 4
+      },
+      "block": 3,
+      "seed": 20003,
+      "mode": "MINIMAL",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P2",
+        "width": 16,
+        "height": 16,
+        "radius": 1,
+        "ticks": 4
+      },
+      "block": 3,
+      "seed": 20003,
+      "mode": "DETAILED",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P3",
+        "width": 32,
+        "height": 32,
+        "radius": 1,
+        "ticks": 4
+      },
+      "block": 3,
+      "seed": 20003,
+      "mode": "MINIMAL",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P3",
+        "width": 32,
+        "height": 32,
+        "radius": 1,
+        "ticks": 4
+      },
+      "block": 3,
+      "seed": 20003,
+      "mode": "DETAILED",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P4",
+        "width": 16,
+        "height": 16,
+        "radius": 0,
+        "ticks": 4
+      },
+      "block": 3,
+      "seed": 20003,
+      "mode": "MINIMAL",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P4",
+        "width": 16,
+        "height": 16,
+        "radius": 0,
+        "ticks": 4
+      },
+      "block": 3,
+      "seed": 20003,
+      "mode": "DETAILED",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P5",
+        "width": 16,
+        "height": 16,
+        "radius": 4,
+        "ticks": 4
+      },
+      "block": 3,
+      "seed": 20003,
+      "mode": "MINIMAL",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P5",
+        "width": 16,
+        "height": 16,
+        "radius": 4,
+        "ticks": 4
+      },
+      "block": 3,
+      "seed": 20003,
+      "mode": "DETAILED",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P6",
+        "width": 16,
+        "height": 16,
+        "radius": 16,
+        "ticks": 4
+      },
+      "block": 3,
+      "seed": 20003,
+      "mode": "MINIMAL",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P6",
+        "width": 16,
+        "height": 16,
+        "radius": 16,
+        "ticks": 4
+      },
+      "block": 3,
+      "seed": 20003,
+      "mode": "DETAILED",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P7",
+        "width": 16,
+        "height": 16,
+        "radius": 1,
+        "ticks": 16
+      },
+      "block": 3,
+      "seed": 20003,
+      "mode": "MINIMAL",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P7",
+        "width": 16,
+        "height": 16,
+        "radius": 1,
+        "ticks": 16
+      },
+      "block": 3,
+      "seed": 20003,
+      "mode": "DETAILED",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P8",
+        "width": 4,
+        "height": 64,
+        "radius": 1,
+        "ticks": 4
+      },
+      "block": 3,
+      "seed": 20003,
+      "mode": "MINIMAL",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P8",
+        "width": 4,
+        "height": 64,
+        "radius": 1,
+        "ticks": 4
+      },
+      "block": 3,
+      "seed": 20003,
+      "mode": "DETAILED",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P1",
+        "width": 8,
+        "height": 8,
+        "radius": 1,
+        "ticks": 4
+      },
+      "block": 3,
+      "seed": 20003,
+      "mode": "MINIMAL",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P1",
+        "width": 8,
+        "height": 8,
+        "radius": 1,
+        "ticks": 4
+      },
+      "block": 3,
+      "seed": 20003,
+      "mode": "DETAILED",
+      "warmup": 3,
+      "samples": 5
+    }
+  ],
+  "limits": {
+    "child_ms": 10000,
+    "total_ms": 720000,
+    "heap_mib": 256,
+    "rss_bytes": 1073741824,
+    "artifact_bytes": 134217728,
+    "max_processes": 48,
+    "sample_ms": 25,
+    "reserve_bytes": 1048576
+  },
+  "approval": "PILOT_HOLD_OWNER_APPROVAL_REQUIRED",
+  "final_campaign": "NOT_AUTHORIZED"
+}
