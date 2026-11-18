@@ -1,0 +1,20 @@
+✔ CAL-01 plan only: 24 unique ordered cells, modes and checkpoints balanced; unchanged physical profiles (61.780621ms)
+✔ CAL-02 new identity checks every baseline file, binds own protocol; R1 candidate remains valid (3050.703362ms)
+✔ CAL-03 ephemeral calibration receipt verifies/preflights without workers; old domains, altered scope/destination and key rejected (3305.712348ms)
+✔ CAL-04 tiny direct operations: both modes/checkpoint policies preserve full R1 structures, WLS1 and RNG (717.390124ms)
+{"fixture_package":"/tmp/r1-cal-preparation-mE5sDf/tiny","identity":"6763348852b6b4a133a3e6326e8e774d25b6244703457282035d41601b66fa90","samples":16,"kind":"TINY_ONLY_NOT_CALIBRATION","balances":[{"ns":{"preparation":"9603612","api":"9079470","execution_envelope":"85818","witnesses":"10020010","ipc":"670464","process":"938198240","journal_io":"0","residual_unattributed":"95222109"},"proportions":{"preparation":0.0090354644953557,"api":0.008542330617026927,"execution_envelope":0.00008074102661190762,"witnesses":0.009427228484252493,"ipc":0.0006307995020429983,"process":0.88269464521528,"journal_io":0,"residual_unattributed":0.08958879065943005},"inconsistent_negative_residual":false,"causal_decomposition":false},{"ns":{"preparation":"8640903","api":"7098597","execution_envelope":"132418","witnesses":"11662833","ipc":"889445","process":"717114606","journal_io":"87167137","residual_unattributed":"89481890"},"proportions":{"preparation":0.009370003298970019,"api":0.007697560927146003,"execution_envelope":0.00014359113819967798,"witnesses":0.012646917073983634,"ipc":0.000964494403449777,"process":0.7776231516497275,"journal_io":0.09452210738296352,"residual_unattributed":0.09703217412555984},"inconsistent_negative_residual":false,"causal_decomposition":false},{"ns":{"preparation":"6565412","api":"7153465","execution_envelope":"721631","witnesses":"5017247","ipc":"438331","process":"706793014","journal_io":"0","residual_unattributed":"66028524"},"proportions":{"preparation":0.00828215722878895,"api":0.00902397623494744,"execution_envelope":0.0009103254149424588,"witnesses":0.006329173022145399,"ipc":0.0005529472118813394,"process":0.8916075442268708,"journal_io":0,"residual_unattributed":0.08329387666042354},"inconsistent_negative_residual":false,"causal_decomposition":false},{"ns":{"preparation":"6568856","api":"5254944","execution_envelope":"564641","witnesses":"6946935","ipc":"545681","process":"672293667","journal_io":"53420484","residual_unattributed":"66257583"},"proportions":{"preparation":0.00809119100509442,"api":0.0064727793736192255,"execution_envelope":0.0006954967775678929,"witnesses":0.008556889964550236,"ipc":0.0006721427899851859,"process":0.828097993198868,"journal_io":0.06580070253155045,"residual_unattributed":0.0816128043587646},"inconsistent_negative_residual":false,"causal_decomposition":false}]}
+✔ CAL-05 four tiny workers, not P1-P8: full witnesses agree; IPC/time balance/recovery and corruption detected (4054.261516ms)
+✔ CAL-06 predefined estimators and no overlapping API/EXECUTE accounting, partials reject primary balance (1.271321ms)
+✔ CAL-07 historical R1 incomplete-unit validation is late; calibration stops before following unit (268.383621ms)
+✔ CAL-09 calibration controller preserves timeout/checkpoint and RSS stops without starting the next unit (555.516242ms)
+Preparation evidence retained: /tmp/r1-cal-preparation-mE5sDf
+✔ CAL-10 guardian kills a blocked calibration controller during data verification; no success envelope fabricated (967.290327ms)
+✔ CAL-08 no CLI pilot/final entry; future run without signature refuses before creating a destination (5.5915ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 13130.521609

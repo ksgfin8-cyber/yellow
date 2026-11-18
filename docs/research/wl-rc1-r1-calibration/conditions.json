@@ -1,0 +1,436 @@
+{
+  "format": "R1-CALIBRATION-PLAN-1",
+  "cells": [
+    {
+      "profile": {
+        "id": "P1",
+        "width": 8,
+        "height": 8,
+        "radius": 1,
+        "ticks": 4
+      },
+      "operation": "tick",
+      "rationale": "low-cost reference"
+    },
+    {
+      "profile": {
+        "id": "P3",
+        "width": 32,
+        "height": 32,
+        "radius": 1,
+        "ticks": 4
+      },
+      "operation": "observation",
+      "rationale": "spatial growth"
+    },
+    {
+      "profile": {
+        "id": "P7",
+        "width": 16,
+        "height": 16,
+        "radius": 1,
+        "ticks": 16
+      },
+      "operation": "record_append",
+      "rationale": "long horizon and registration"
+    }
+  ],
+  "conditions": [
+    {
+      "profile": {
+        "id": "P1",
+        "width": 8,
+        "height": 8,
+        "radius": 1,
+        "ticks": 4
+      },
+      "operation": "tick",
+      "block": 1,
+      "seed": 22001,
+      "mode": "MINIMAL",
+      "journal_policy": "OFF",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P1",
+        "width": 8,
+        "height": 8,
+        "radius": 1,
+        "ticks": 4
+      },
+      "operation": "tick",
+      "block": 1,
+      "seed": 22001,
+      "mode": "MINIMAL",
+      "journal_policy": "SYNC",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P1",
+        "width": 8,
+        "height": 8,
+        "radius": 1,
+        "ticks": 4
+      },
+      "operation": "tick",
+      "block": 1,
+      "seed": 22001,
+      "mode": "DETAILED",
+      "journal_policy": "OFF",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P1",
+        "width": 8,
+        "height": 8,
+        "radius": 1,
+        "ticks": 4
+      },
+      "operation": "tick",
+      "block": 1,
+      "seed": 22001,
+      "mode": "DETAILED",
+      "journal_policy": "SYNC",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P1",
+        "width": 8,
+        "height": 8,
+        "radius": 1,
+        "ticks": 4
+      },
+      "operation": "tick",
+      "block": 2,
+      "seed": 22002,
+      "mode": "DETAILED",
+      "journal_policy": "SYNC",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P1",
+        "width": 8,
+        "height": 8,
+        "radius": 1,
+        "ticks": 4
+      },
+      "operation": "tick",
+      "block": 2,
+      "seed": 22002,
+      "mode": "DETAILED",
+      "journal_policy": "OFF",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P1",
+        "width": 8,
+        "height": 8,
+        "radius": 1,
+        "ticks": 4
+      },
+      "operation": "tick",
+      "block": 2,
+      "seed": 22002,
+      "mode": "MINIMAL",
+      "journal_policy": "SYNC",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P1",
+        "width": 8,
+        "height": 8,
+        "radius": 1,
+        "ticks": 4
+      },
+      "operation": "tick",
+      "block": 2,
+      "seed": 22002,
+      "mode": "MINIMAL",
+      "journal_policy": "OFF",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P3",
+        "width": 32,
+        "height": 32,
+        "radius": 1,
+        "ticks": 4
+      },
+      "operation": "observation",
+      "block": 1,
+      "seed": 22001,
+      "mode": "MINIMAL",
+      "journal_policy": "OFF",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P3",
+        "width": 32,
+        "height": 32,
+        "radius": 1,
+        "ticks": 4
+      },
+      "operation": "observation",
+      "block": 1,
+      "seed": 22001,
+      "mode": "MINIMAL",
+      "journal_policy": "SYNC",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P3",
+        "width": 32,
+        "height": 32,
+        "radius": 1,
+        "ticks": 4
+      },
+      "operation": "observation",
+      "block": 1,
+      "seed": 22001,
+      "mode": "DETAILED",
+      "journal_policy": "OFF",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P3",
+        "width": 32,
+        "height": 32,
+        "radius": 1,
+        "ticks": 4
+      },
+      "operation": "observation",
+      "block": 1,
+      "seed": 22001,
+      "mode": "DETAILED",
+      "journal_policy": "SYNC",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P3",
+        "width": 32,
+        "height": 32,
+        "radius": 1,
+        "ticks": 4
+      },
+      "operation": "observation",
+      "block": 2,
+      "seed": 22002,
+      "mode": "DETAILED",
+      "journal_policy": "SYNC",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P3",
+        "width": 32,
+        "height": 32,
+        "radius": 1,
+        "ticks": 4
+      },
+      "operation": "observation",
+      "block": 2,
+      "seed": 22002,
+      "mode": "DETAILED",
+      "journal_policy": "OFF",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P3",
+        "width": 32,
+        "height": 32,
+        "radius": 1,
+        "ticks": 4
+      },
+      "operation": "observation",
+      "block": 2,
+      "seed": 22002,
+      "mode": "MINIMAL",
+      "journal_policy": "SYNC",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P3",
+        "width": 32,
+        "height": 32,
+        "radius": 1,
+        "ticks": 4
+      },
+      "operation": "observation",
+      "block": 2,
+      "seed": 22002,
+      "mode": "MINIMAL",
+      "journal_policy": "OFF",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P7",
+        "width": 16,
+        "height": 16,
+        "radius": 1,
+        "ticks": 16
+      },
+      "operation": "record_append",
+      "block": 1,
+      "seed": 22001,
+      "mode": "MINIMAL",
+      "journal_policy": "OFF",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P7",
+        "width": 16,
+        "height": 16,
+        "radius": 1,
+        "ticks": 16
+      },
+      "operation": "record_append",
+      "block": 1,
+      "seed": 22001,
+      "mode": "MINIMAL",
+      "journal_policy": "SYNC",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P7",
+        "width": 16,
+        "height": 16,
+        "radius": 1,
+        "ticks": 16
+      },
+      "operation": "record_append",
+      "block": 1,
+      "seed": 22001,
+      "mode": "DETAILED",
+      "journal_policy": "OFF",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P7",
+        "width": 16,
+        "height": 16,
+        "radius": 1,
+        "ticks": 16
+      },
+      "operation": "record_append",
+      "block": 1,
+      "seed": 22001,
+      "mode": "DETAILED",
+      "journal_policy": "SYNC",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P7",
+        "width": 16,
+        "height": 16,
+        "radius": 1,
+        "ticks": 16
+      },
+      "operation": "record_append",
+      "block": 2,
+      "seed": 22002,
+      "mode": "DETAILED",
+      "journal_policy": "SYNC",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P7",
+        "width": 16,
+        "height": 16,
+        "radius": 1,
+        "ticks": 16
+      },
+      "operation": "record_append",
+      "block": 2,
+      "seed": 22002,
+      "mode": "DETAILED",
+      "journal_policy": "OFF",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P7",
+        "width": 16,
+        "height": 16,
+        "radius": 1,
+        "ticks": 16
+      },
+      "operation": "record_append",
+      "block": 2,
+      "seed": 22002,
+      "mode": "MINIMAL",
+      "journal_policy": "SYNC",
+      "warmup": 3,
+      "samples": 5
+    },
+    {
+      "profile": {
+        "id": "P7",
+        "width": 16,
+        "height": 16,
+        "radius": 1,
+        "ticks": 16
+      },
+      "operation": "record_append",
+      "block": 2,
+      "seed": 22002,
+      "mode": "MINIMAL",
+      "journal_policy": "OFF",
+      "warmup": 3,
+      "samples": 5
+    }
+  ],
+  "limits": {
+    "child_ms": 30000,
+    "total_ms": 900000,
+    "heap_mib": 256,
+    "rss_bytes": 1073741824,
+    "artifact_bytes": 67108864,
+    "max_processes": 24,
+    "sample_ms": 25,
+    "reserve_bytes": 1048576
+  },
+  "destination": "/workspace/shared/world-lab/wl-rc1/calibration-r1-v1",
+  "campaign": "WL-RC1-R1-CALIBRATION-1"
+}

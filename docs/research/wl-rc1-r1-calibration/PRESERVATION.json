@@ -1,0 +1,39 @@
+{
+  "format": "R1-CAL-PREPARATION-INTEGRITY-1",
+  "checked_at": "2026-11-18T18:12:34.876849-05:00",
+  "base": "89865a7a56ccb9d507a669ffcb900abebadf3e95",
+  "unchanged_baseline_files": 520,
+  "different_baseline_files": [],
+  "parent_R1_identity": "e42a86ff8adcac7a05ccd5c41878b4775d06040aaa5056021ddd8a026efa3721",
+  "calibration_identity": "6763348852b6b4a133a3e6326e8e774d25b6244703457282035d41601b66fa90",
+  "fixture_candidate_identical": true,
+  "v1_original_and_restored": [
+    {
+      "role": "source",
+      "historical_path": "/workspace/shared/world-lab/wl-rc1/pilot-rc1-cd-v1",
+      "files": 36,
+      "different": []
+    },
+    {
+      "role": "restored",
+      "historical_path": "/workspace/shared/world-lab/wl-rc1/pilot-rc1-cd-v1-restored",
+      "files": 36,
+      "different": []
+    }
+  ],
+  "archives_preserved": {
+    "docs/research/wl-rc1-pilot-v1/WL-RC1-pilot-v1-evidence.tar.gz": "04d6c0db808d73fdfca4e856df0a5f0b5d12d0f808ebd0c327d6c3f2718faa34",
+    "docs/research/wl-rc1-r1/R1-validation-evidence.tar.gz": "dd2c524e3a547200107dd2e6c4253b0ed97a2e0e98a0ecc823f902325337088e"
+  },
+  "preparation_export": {
+    "file": "PREPARATION_EVIDENCE.tar.gz",
+    "bytes": 43069,
+    "sha256": "89b5a2b28bae34f987134f08084bd161dfd32930db4e115c750ca0d0e49fdee7",
+    "no_private_key_or_token_patterns": true,
+    "ephemeral_authorization_files_excluded": true
+  },
+  "calibration_destination_absent": true,
+  "P1_P8_calibration_not_executed": true,
+  "pilot_128_not_executed": true,
+  "RC1_E_not_executed": true
+}

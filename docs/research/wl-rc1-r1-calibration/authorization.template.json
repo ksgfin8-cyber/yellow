@@ -1,0 +1,8 @@
+{
+  "format": "WL-RC1-R1-CALIBRATION-AUTHORIZATION-1",
+  "decision": "AUTHORIZE_CALIBRATION_24_ONLY",
+  "freeze_id": "<APPROVED_CALIBRATION_FREEZE_ID>",
+  "campaign_id": "WL-RC1-R1-CALIBRATION-1",
+  "output_directory": "/workspace/shared/world-lab/wl-rc1/calibration-r1-v1",
+  "owner_reference": "<OWNER_APPROVAL_REFERENCE>"
+}
