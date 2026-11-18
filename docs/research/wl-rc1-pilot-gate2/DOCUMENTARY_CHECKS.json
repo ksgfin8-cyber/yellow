@@ -1,0 +1,52 @@
+{
+  "format": "WL-RC1-GATE2-DOCUMENTARY-CHECKS-1",
+  "issued_at": "2026-11-17T17:50:24.613756-05:00",
+  "base_commit": "8ea64018f633319ef59f0ada8a76dd4e1d648fce",
+  "branch": "research/wl-rc1-pilot-gate2-readiness",
+  "freeze_id": "466e1dc53f6d5f6f0fe144d85e7f65643b01244acabee5b8caaa25dd34df15ac",
+  "old_tracked_files_unchanged": 464,
+  "frozen_CD_publication_entries_verified": 15,
+  "receipt_fields_match_template_except_owner_reference": true,
+  "receipt_state": "UNSIGNED_DRAFT_NOT_VALID_AUTHORIZATION",
+  "owner_order_original_bytes": 5396,
+  "owner_order_sha256": "c12b3c12760cbf0f3d9118df4b229f0588706cd16e710c0df9ceb9c3d154ea1e",
+  "public_receipt_bytes": 345,
+  "public_receipt_sha256": "618795cdac11938526a638c321074a9fbda646183031e038380d2c4fc4ccac70",
+  "signer_helper": "JavaScript syntax-only node --check; no helper signing/generation commands executed in Codex",
+  "powershell": "Instructions supplied, not executed on Windows by Codex",
+  "link_targets": [
+    {
+      "file": "GATE2_STATUS.md",
+      "target": "owner-order.txt.b64"
+    },
+    {
+      "file": "GATE2_STATUS.md",
+      "target": "UNSIGNED_READINESS.json"
+    },
+    {
+      "file": "GATE2_STATUS.md",
+      "target": "authorization.json"
+    },
+    {
+      "file": "GATE2_STATUS.md",
+      "target": "SIGNER_STEPS.md"
+    },
+    {
+      "file": "GATE2_STATUS.md",
+      "target": "DOCUMENTARY_CHECKS.json"
+    },
+    {
+      "file": "GATE2_STATUS.md",
+      "target": "PUBLICATION-SHA256.json"
+    }
+  ],
+  "new_material_private_key_and_common_token_pattern_matches": 0,
+  "signed_preflight_executed": false,
+  "pilot_started": false,
+  "workers_started": 0,
+  "conditions_not_executed": 48,
+  "new_keys_or_test_signatures_created": 0,
+  "scope": "Documentary blockage record and unsigned independent readiness snapshot; no new scientific measurements, guardian tests, world runtime or experiments",
+  "transfer_and_originals": "No mutations or deletions; remote retention verified separately",
+  "git_diff_check": "PASS"
+}

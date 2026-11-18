@@ -1,0 +1,32 @@
+[
+  {
+    "file": "DOCUMENTARY_CHECKS.json",
+    "bytes": 2010,
+    "sha256": "66f4d70774d17dd60fbdfc235909f99036da51925cc31e0397c7022f574cecd3"
+  },
+  {
+    "file": "GATE2_STATUS.md",
+    "bytes": 5679,
+    "sha256": "70d9e0c38674d7d6859c3dd7ebc393721855c75dcec38bc5fcc8b9e7080a282a"
+  },
+  {
+    "file": "SIGNER_STEPS.md",
+    "bytes": 5941,
+    "sha256": "8655c4753f1e65ee5de4c07bb1388b6b47723a0162ef280bd13a75abe4c045ec"
+  },
+  {
+    "file": "UNSIGNED_READINESS.json",
+    "bytes": 2413,
+    "sha256": "98281364c0a878e1b363398ccc083820fee8921317ae81a215f9a225ff4e80ff"
+  },
+  {
+    "file": "authorization.json",
+    "bytes": 345,
+    "sha256": "618795cdac11938526a638c321074a9fbda646183031e038380d2c4fc4ccac70"
+  },
+  {
+    "file": "owner-order.txt.b64",
+    "bytes": 7291,
+    "sha256": "c3eb505bcdf2ccad25fc792a49628f2e0c7c196a8661879dd1792e34cfae5064"
+  }
+]

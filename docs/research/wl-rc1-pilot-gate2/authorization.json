@@ -1,0 +1,8 @@
+{
+  "format": "WL-RC1-PILOT-AUTHORIZATION-1",
+  "decision": "AUTHORIZE_RC1_PILOT_ONLY",
+  "freeze_id": "466e1dc53f6d5f6f0fe144d85e7f65643b01244acabee5b8caaa25dd34df15ac",
+  "campaign_id": "wl-rc1-pilot-v1",
+  "output_directory": "/workspace/shared/world-lab/wl-rc1/pilot-rc1-cd-v1",
+  "owner_reference": "WL-RC1-GATE2-OWNER-APPROVAL-20261117"
+}
