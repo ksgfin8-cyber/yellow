@@ -1,0 +1,11 @@
+'use strict';
+const fs=require('node:fs'),{JOURNAL_CAP}=require('./plan.cjs');
+function journal(file,cap=JOURNAL_CAP){const fd=fs.openSync(file,'wx',0o600);let bytes=0,sequence=0,io_ns=0n;function event(row){const data=Buffer.from(JSON.stringify({format:'WL-RC1-R1-STAGE-1',sequence:sequence++,...row,monotonic_ns:String(process.hrtime.bigint())})+'\n');if(bytes+data.length>cap)throw Error('JOURNAL_LIMIT');const ioStart=process.hrtime.bigint();fs.writeSync(fd,data);fs.fsyncSync(fd);io_ns+=process.hrtime.bigint()-ioStart;bytes+=data.length;}
+ function begin(stage,call){const t=process.hrtime.bigint();event({type:'BEGIN',stage,call});return t;}
+ function end(stage,call,start,work_ns){const elapsed=String(process.hrtime.bigint()-start);event({type:'END',stage,call,elapsed_ns:elapsed,work_ns});return elapsed;}
+ function sync(stage,call,fn){const start=begin(stage,call);try{const work=process.hrtime.bigint(),value=fn(),ns=String(process.hrtime.bigint()-work);end(stage,call,start,ns);return {value,ns};}catch(e){event({type:'ERROR',stage,call,error:String(e)});throw e;}}
+ async function asyncStage(stage,call,fn){const start=begin(stage,call);try{const work=process.hrtime.bigint(),value=await fn(),ns=String(process.hrtime.bigint()-work);end(stage,call,start,ns);return {value,ns};}catch(e){event({type:'ERROR',stage,call,error:String(e)});throw e;}}
+ return {event,sync,asyncStage,stats:()=>({bytes,io_ns:String(io_ns),events:sequence}),close:()=>fs.closeSync(fd)};
+}
+function inspect(file){const text=fs.readFileSync(file,'utf8'),lines=text.split('\n'),tail=lines.pop();let open=null,events=[],errors=0;for(const line of lines){if(!line)continue;const r=JSON.parse(line);if(r.sequence!==events.length||r.format!=='WL-RC1-R1-STAGE-1')throw Error('invalid stage sequence');if(r.type==='BEGIN'){if(open)throw Error('nested stage');open=r;}else if(r.type==='END'||r.type==='ERROR'){if(!open||r.stage!==open.stage||r.call!==open.call)throw Error('stage mismatch');if(r.type==='ERROR')errors++;open=null;}else throw Error('unknown journal event');events.push(r);}return {events:events.length,partial_trailing_bytes:Buffer.byteLength(tail),last_open_stage:open,errors,complete:!open&&!tail&&!errors,uncertainty:'Checkpoint interval,not precise CPU location or causal attribution.'};}
+module.exports={journal,inspect};

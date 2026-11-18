@@ -1,0 +1,27 @@
+{
+  "original_v1_gate": {
+    "freeze_id": "466e1dc53f6d5f6f0fe144d85e7f65643b01244acabee5b8caaa25dd34df15ac",
+    "status": "READY_FOR_GATE_2_REVIEW",
+    "pilot_executed": false
+  },
+  "R1_gate": {
+    "freeze_id": "e42a86ff8adcac7a05ccd5c41878b4775d06040aaa5056021ddd8a026efa3721",
+    "status": "READY_FOR_R1_GATE_REVIEW",
+    "pilot_started": false
+  },
+  "restored_fixture": {
+    "state": "VERIFIED",
+    "package_status": "COMPLETE",
+    "samples": 8,
+    "errors": 0,
+    "journals": 2,
+    "open_stages": [],
+    "freeze_id": "e42a86ff8adcac7a05ccd5c41878b4775d06040aaa5056021ddd8a026efa3721",
+    "scientific_acceptance": false
+  },
+  "interpretation": "Check-command booleans describe actions performed by those invocations, not historical absence of the v1 pilot. v1 remains PILOT_PARTIAL.",
+  "syntax_files_checked": 10,
+  "local_markdown_links_valid": true,
+  "base_matches_fetched_origin_main": true,
+  "normative_conformity_claimed": false
+}

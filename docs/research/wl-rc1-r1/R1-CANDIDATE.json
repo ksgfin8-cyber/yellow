@@ -1,0 +1,2067 @@
+{
+  "freeze_id": "e42a86ff8adcac7a05ccd5c41878b4775d06040aaa5056021ddd8a026efa3721",
+  "body": {
+    "format": "WL-RC1-R1-CANDIDATE-1",
+    "base_commit": "aab268dde2f20299234c6b407ce6ba9f54438076",
+    "protected_files": {
+      "conformance/wire.cjs": "9cf0c28a6c5a7d285fb9db58e01262ec245c54e7a165e0b047678df8b6be18cc",
+      "docs/WORLD-LAB_v0.2.5_canonical_transcripcion.md": "926d3246c18469d30088a1d67b7f3ffd23cf25340fc638a941e42a94985ad912",
+      "docs/WORLD-LAB_v0.2.6_contractual_amendment_D-01.md": "4c6148028b45fee4a32d6379c84460e9829fdf98a1b79eed82853ff9eec7db03",
+      "docs/research/wl-rc1-cd/PILOT-CANDIDATE.json": "eca68624b81fd326a0f7b51f2ae70be9a415f480e845e39cfe82391d41053a6e",
+      "docs/research/wl-rc1-cd/PILOT_REQUEST.md": "ccf597b61c42b86f3d98a23078679d13d07d522f84df0dd9259466868472a7c1",
+      "docs/research/wl-rc1-cd/PROTOCOL.md": "9da886fb3b0025a116eb8dcb2a686506a64f3bb09c74fb9cd1a6d5eb014952d6",
+      "docs/research/wl-rc1-cd/PUBLICATION-SHA256.json": "7ae1f62273e81e40cdc8a97c8239edc1bc6484e241ce46ceddd996e02eb072a9",
+      "docs/research/wl-rc1-cd/REVIEW.json": "ee8faf9d395d46c96a156e98227089ae996451a74eb7d39596aea916170707ac",
+      "docs/research/wl-rc1-cd/VALIDATION_REPORT.md": "3fe83af5a8bd43d5e2157543df0596b5195006acf845b53f2e01c0780de63e2d",
+      "docs/research/wl-rc1-cd/authorization.template.json": "69a13db329008c32d4dc74d2d39c11d9a09aecf287506a06d60852bb89988510",
+      "docs/research/wl-rc1-cd/conditions.json": "de93d9e3ad703ee41f34357badbaf7b78db0a29d8497f63c14009c2c4da0dab1",
+      "docs/research/wl-rc1-cd/order.txt.b64": "6cf839d0371b71fe472df605be9c9f8172a714eabb20fb9c25eab381e82f01e5",
+      "docs/research/wl-rc1-cd/tests-01.log.b64": "4db33d079d2b0fd507d935d23b704f67d37116c8be8f72e3246755950c0f5ec0",
+      "docs/research/wl-rc1-cd/tests-02.log.b64": "5679bece11725fe658a234a487015dcaaef17922d1ee66fcfdb31c39bbe7ccf9",
+      "docs/research/wl-rc1-cd/tests-03.log.b64": "3d21871c75f8e20aa48a9a7d664596ef78cdebaae51bfe49a14c898e40d0a983",
+      "docs/research/wl-rc1-cd/tests-04.log.b64": "4ae6f7e54963228a7d2b020d124a232610c83da0f65e51765be41391546ebda1",
+      "docs/research/wl-rc1-cd/tests-05.log.b64": "a3557a8aa132100a654c0fdc66965a5471b7f941911b0ce4524f772cddf4781d",
+      "docs/research/wl-rc1-cd/validation-fixtures.tar.gz": "b3f48967586b19d44f4a8a9d5a917984eac84370a414b831406669c84d419c26",
+      "docs/research/wl-rc1-cd/validation-fixtures.tar.gz.sha256": "ee6c2e8ca2677bac118437403523c1ea33a4776e76f09a8fe31a41f0b6367a86",
+      "docs/research/wl-rc1-pilot-v1/EVIDENCE_MANIFEST.json": "d99fe8bcd24242bc68fe10bb15cc7580efcee30bd2622c573199603bc433a64e",
+      "docs/research/wl-rc1-pilot-v1/OWNER_START_APPROVAL.md": "c530e27a9cd60bffc8e7bb28902e0c78982fcd53802aef85873c4dfbc540c386",
+      "docs/research/wl-rc1-pilot-v1/PILOT_REPORT.md": "7c6bde34511e13edc9bc4e60a22724356f7bf71b3c2d8b65e6602e4170342c70",
+      "docs/research/wl-rc1-pilot-v1/POSTCHECKS.json": "b43f2c2cd1218b7de9531c0b38954c21b0a406b8933225dcf7c9ac4a80a19189",
+      "docs/research/wl-rc1-pilot-v1/PUBLICATION-SHA256.json": "7c1a64e7fff983e41f1abf760ad7e8715ad7979171feb910ffe55762c48d59a7",
+      "docs/research/wl-rc1-pilot-v1/PUBLICATION_REVIEW.json": "62f41e361c64290bdc94b133e2e8c83f63a22914deb9c4f67d73adadcac44f77",
+      "docs/research/wl-rc1-pilot-v1/RECOVERY.md": "4344f0f29af1d76f1ed935dfee7685533dc91fa07ba7c65c580f3be1191b988c",
+      "docs/research/wl-rc1-pilot-v1/WL-RC1-pilot-v1-evidence.tar.gz": "04d6c0db808d73fdfca4e856df0a5f0b5d12d0f808ebd0c327d6c3f2718faa34",
+      "docs/research/wl-rc1-pilot-v1/WL-RC1-pilot-v1-evidence.tar.gz.sha256": "27051a25ea34ae992f4ebb8e91d3bc1ae4f1483802b54dd6d0e4a36d5a2cf3c8",
+      "docs/research/wl-rc1-pilot-v1/analysis-summary.json": "1fde88a1020ebd3499b107b058286156dcedfe242cb3a02a8a2ecf15f369b44c",
+      "docs/research/wl-rc1-pilot-v1/analyze.cjs": "9144f5a6b36bda1c5729ed539684db6aabec37fe3c8db054fff863bb59f1100e",
+      "docs/research/wl-rc1-pilot-v1/check-after.json": "6cf4aae7d404411e05783a7281b47e616c459cb0595c7c3f49c286ea536c86c5",
+      "docs/research/wl-rc1-pilot-v1/condition-coverage.json": "57f35be37d10f6d551a0a6ff130e2853693e2413c2cda298ba28219b4157ba4e",
+      "docs/research/wl-rc1-pilot-v1/exit-record.json": "2763149bb0568bfb1d3b59799d21a81afb6ae567e0cbd474fac03d4fc1dda35a",
+      "docs/research/wl-rc1-pilot-v1/operation-summaries.json": "a3db5f4163623f7233b2e086a6676f502bb35e6715a905ed8b8d5266853cb412",
+      "docs/research/wl-rc1-pilot-v1/paired-perturbation.json": "155b8ced46fb22db8648fd717011cb1fb240da55cc7b1e42b628f31495a2ec09",
+      "docs/research/wl-rc1-pilot-v1/preflight-before-start.json": "fccb3bf4bad477986f13d549e29eeacfd6aa7050e45a278eec2f99f854690033",
+      "docs/research/wl-rc1-pilot-v1/processes.json": "aaa286095a69fcd6348b944c03f81fc1bbda0cac549cbd86fc9ebb3ad962f88d",
+      "docs/research/wl-rc1-pilot-v1/samples.csv": "093293128c757122900bc9cce159890f6cd6bcc0d0cc0fdb08ee7e3cd1b6c591",
+      "docs/research/wl-rc1-pilot-v1/source-integrity.json": "91b6e805a4abaf8944c45637a43e1e8c2fd1b8bdcaa897a456073683d27ac294",
+      "docs/research/wl-rc1-pilot-v1/start-record.json": "7fe0408f67889664479ebf0331267317b55fabef099ff5fd26d81ea65f31fdea",
+      "docs/research/wl-rc1-pilot-v1/verify-original.json": "c4cdaeddcedb11c936612a5bb148e356424043fdee677beb2e85fbfa04c38db0",
+      "docs/research/wl-rc1-pilot-v1/verify_results.py": "e98c2e3ce60d3f904183d472eceefaaa989b9989f7b34f2c39de810c0a03747d",
+      "index.html": "ce89ddfba938b0eaaf3aaa6f7f28a72a8bcabe5ec1879df6b12555ed22429ed8",
+      "js/agents/agent.js": "5f593b29539753f6f82c1417a7f3380c96cf1d0e542cd506ebe3347118f75cd1",
+      "js/agents/frontier_memory_agent.js": "0423363429d764c98b13a667388a07ea10a9230b84eb856d7ea22c13013cc1d3",
+      "js/agents/random_agent.js": "62d91dc38ca39cf9fafdb540256971c7530387b1f457d7a93dcbdef6414c3a3c",
+      "js/agents/registry.js": "5197d317006b9b001f2de492de00808c7d070aa6e8ae54a9817a0758e2cdb85f",
+      "js/agents/rule_agent.js": "e0512ab282c503f78c4272d1f12cf54836f69dc12a36b08886382f5b0c6aec80",
+      "js/agents/wait_agent.js": "e40b09ad92201b9727b25e1902bc8a45c108890c2c481de9a9743b195459d6d8",
+      "js/contracts/structures.js": "fba224b53c4a1fb1d8b940101d932a3674eaa634311bf8a60409fac44388c757",
+      "js/core/contracts.js": "fe520d19c3fb63ed6fd6658d2e6309c2d9fc06df2acc3f3334098bf9a9cba894",
+      "js/core/hash.js": "825f348e0e7be9e477cfa6b8554d925a5a724051c5234855aa261dda5d07b370",
+      "js/core/prng.js": "2881cb208796d3a19ca28482ff6805715d776eed5dbcd8ee90001d404e701cfe",
+      "js/core/seed.js": "1169cf301a44c33f335b2606ceb4961ad983f1754160320901b68006215dc355",
+      "js/experiment/experiment.js": "3cda35d8a8a5151dcfdceb6a1b0e89a75031bf6ebe238859e9886054cec599ad",
+      "js/experiment/experiment_config.js": "d3bcd273c83275a420157bfddbd04e2c94c4d78c0b4304e4af42d9379d40bda3",
+      "js/experiment/hash_state.js": "98c0370aa77fec06ea45a4bc5b12233083d8a724f3a05e271deb6f265d397bd6",
+      "js/experiment/recorder.js": "d9825f9dafc6ddff2537103dd95b3595b5bca06d9b4ed3ee8e52e862e94d0cdb",
+      "js/experiment/replay.js": "49229202c9290b74cc34d19773d6d2d7ad518d0e3c82878f285b7638cc62b580",
+      "js/experiment/tick_transaction.js": "a03384cc7f10900683f9acbe179b02f00d2ce62d3a6de03eefd5edefae16c227",
+      "js/experiment/trajectory.js": "3257419313a9b81828d134aa96b3cade8c9d9b39cb24d7607c93cb9cee5ce663",
+      "js/interface/action.js": "f6af2a6a451bd40831a2776da75f8e66e98e358aaf7427551befb933358bb577",
+      "js/interface/action_result.js": "f059ffd8fd770fd3e2b8d656f4d65528ff1a2253dc7ad82a9e7452307115ec18",
+      "js/interface/feedback.js": "c37d67a23af0549c23adc1cd54b62bd3f85c57713ef8c04a4d98a255869f424f",
+      "js/interface/observation.js": "db6373fc9a8e641a8cfcbea1a72b229a7d83ba3f501029edf4b7d13d1509d371",
+      "js/main.js": "e94aefc3e0f452bfbe8ceaddfcfb906296cbbc2e6eac339e94d227804404e8b7",
+      "js/tests/tests.js": "832096f8c29924cfb5f3a31317c21e5b95034832a57af796af1866ce56a6dfe1",
+      "js/visualization/renderer.js": "dd9cf87a51b47021213034df756f18fe0eea58d0568bbd50a561c21cc2a6c0d2",
+      "js/world/cells.js": "f18b91041c2ed4404ffce2794a1e38da429c6a72ab735d4b18c1c9b1504a24d3",
+      "js/world/entity.js": "807cc430ef6729f7632e4633c37fb2461639346f0cbb4ec1fee17a34a322c74a",
+      "js/world/world.js": "b63ce107b0a28b4a263dfe3724f960fb42b03f298d853f7023e1da49066abb56",
+      "js/world/world_config.js": "96ef813ee5fe693d002b259168944efb8b41ffb1c0442f2dd6e070b99d8eec54",
+      "js/world/world_state.js": "93a0da82a23280350babc82056b06697e6f3c0de4dfa060483d92adf20cf3ac5",
+      "tools/p01/README.md": "1bb834bfe32284b6eaa5b76138fdbc29c3e614b8047ef9a6dc877c11d1329ef9",
+      "tools/p01/archive.cjs": "dc23094e99b982b080f28f5c4e5a0fa83efd5cfc2a179f2b1cf44696d7c4d31b",
+      "tools/p01/cli.cjs": "c479dafcbab3e9591914e19e3c675819c88c77dd8c1d7b203105ab657f11544c",
+      "tools/p01/codec.cjs": "e69485c718ff667c8a90ec9bef2e58cf4e28bb78baa145f3dd8f7223bcf1f977",
+      "tools/p01/controller.cjs": "6ad235f3ca1b8d8a8fe1ff9b856ce1342f082bc450397788d0b40c6fc02ebde8",
+      "tools/p01/evaluation/README.md": "8a781319378ea1a61446f24241a9322b75d36d2790ec67062da4b2b39dd9d3fd",
+      "tools/p01/evaluation/audit.cjs": "b9981ea95ba5f42cb956ce0ca755547a970c855d3a346e44958d94544d27c380",
+      "tools/p01/evaluation/cli.cjs": "9770f7a818e0a04be0fb0e5920e653474a5f7d8f9e276fc58018e6d79e03f425",
+      "tools/p01/evaluation/controller.cjs": "dc76340ac20b6078593ebb49ab0474bc06cc4d2ae63dcd5f66e57ac67a770f39",
+      "tools/p01/evaluation/gate.cjs": "c46ea77f0f8ed6ac806a8643562c9ac0928b9c117b1c49074458ae7cb1f5e967",
+      "tools/p01/evaluation/profile.cjs": "e98338cef1d685d543158a1473397f090deb6b16bed5089f44d137999d560f26",
+      "tools/p01/evaluation/worker.cjs": "8bfeac3f59334a44ddb4b1d5b7a46b2635c299c39e0a2b008c4df0de57ed063a",
+      "tools/p01/freeze.cjs": "300f764fb30b12162e370f9cfe42035ad89d5bf0e18116754d1997edba91d2a2",
+      "tools/p01/metrics.cjs": "73caf90c3edaa24691f4d3d19f4f524b934997596afa5ccd094fbf5fd7fc5b87",
+      "tools/p01/protocol.cjs": "1e85d3b50e81568c7ffdb80de597d850ed00d87c528dd682c32b39792e802887",
+      "tools/p01/provenance.cjs": "e37b5e37cbf6a87dcb5bb8280c5b4ddb38ad8ab0033734dfd615bedee9e034c1",
+      "tools/p01/runtime.cjs": "0e6ae8daaa43fabd95df53fcc00c13cb8c99bc9dfebbf42842bd8cc5f285fdcc",
+      "tools/p01/supervisor.cjs": "1c62f3f36b36d06c82051cf0fc0e28d775053ea4f94a67d2cadc1c50fd3c7b3a",
+      "tools/p01/worker.cjs": "30c9065037cd7ac0bc32e0c46cba9be3f67be62b381d3364deeaaa3b10659d38",
+      "tools/research/wl-rc1/README.md": "62f22a757c69ad5cd2876418e1e73ef32144daa53a69936ae04653ca9b673205",
+      "tools/research/wl-rc1/cli.cjs": "5eeb3c2d9751be7be3d3dc7b977a66ef59efe74276ee3566992b4af6da801856",
+      "tools/research/wl-rc1/conditions.cjs": "fa46e5d6aca79f13f721f3fdae5fed6e4c7ada972ce560a6440ecb88b3fdd712",
+      "tools/research/wl-rc1/guardian.cjs": "12b524660bffecb07a5e262f198b92aa7608fb1eb15824639297dce42ffcde5c",
+      "tools/research/wl-rc1/identity.cjs": "b66f3ae8ff998bda906d0f03f66dbef5d07bfc220bd32772d461b2d53f69f722",
+      "tools/research/wl-rc1/operations.cjs": "eceef3064d792edc5d583332c4633b375f18fd33936e0be493e97f6dac7d3191",
+      "tools/research/wl-rc1/runner.cjs": "388d3bc4789d34f17b2137386511866895320003efc919bf9366dc82bb1b9eff",
+      "tools/research/wl-rc1/storage.cjs": "48300257297f5c34ef23db9025cb9be1b1054ff215012f38b65e049bf91c480a",
+      "tools/research/wl-rc1/worker.cjs": "bf484edecfadafbee24ab18b97bed13223a12f1a55f4daf54275d80401ed8d58"
+    },
+    "instrument_files": {
+      "tools/research/wl-rc1-r1/cli.cjs": "583f4f9105489c0c0e92772918241bbebb88c00574edf754a28ec2c4946e0d48",
+      "tools/research/wl-rc1-r1/estimators.cjs": "9f3f1b07054cd1b8c7bb254beafa55d4d0df0817c89eb7fc060d5dfe53d1a0eb",
+      "tools/research/wl-rc1-r1/identity.cjs": "4ae7cc09017da5b31a6a18a0b54f43ae54a755e991218fa58e33172c86d930b7",
+      "tools/research/wl-rc1-r1/journal.cjs": "c71c1acac934916d66251daf88fae40a08936a35da38e4e433f958e2b7cd2216",
+      "tools/research/wl-rc1-r1/plan.cjs": "8281eb1c5e49a34846b0f918461a1b7b382695aa1fbb58c5878a3fc17ab5ea5c",
+      "tools/research/wl-rc1-r1/session.cjs": "0e4386550009423b4f0ac8090a1a1e0caf74479c0fb0de7f73ac57498170bad1",
+      "tools/research/wl-rc1-r1/worker.cjs": "a6fd8193997584a3bc0ba2a3eea0d4afe3d553651daad8dcd8cb967b2ee8b9ba",
+      "tests/wl-rc1-r1.test.cjs": "9ed8175d1bbd03459480d2d6f3dbcef476c00343259dcdd09a7c48686d810c3a",
+      "tests/fixtures/wl-rc1-r1/blocked-controller.cjs": "fdcc9b4a9f6f66a2fc39bfd18671ad05dafe9a7d2ad617a733a6677013104df0",
+      "tests/fixtures/wl-rc1-r1/control.cjs": "786ac4335fdf36aef8eb300561261c1c9fb5bdbe0509b733b0589d122a92be1a",
+      "docs/research/wl-rc1-r1/PROTOCOL.md": "7fac24eb56f10a8978ddf3fe6efafd264d54dac12d42ba62d6d7a004080ce839",
+      "docs/research/wl-rc1-r1/conditions.json": "60d4b1592f566c35ac10370499faf92193e6659cb2cd676248b17775e533fc15",
+      "docs/research/wl-rc1-r1/AUDIT_AND_DECISION.md": "f9d3fa64cde8db3c5757c4a32e2aac36459b1ddafa06f96be8f5e6d2b5554c0d",
+      "docs/research/wl-rc1-r1/DESIGN_SELECTION.json": "a0e1513e431b38e2ea3c908d8b333cd6d7cd7582f8f7f55c8eade0c08d973de4"
+    },
+    "runtime": {
+      "node": "v24.22.1",
+      "v8": "13.6.233.17-node.58",
+      "platform": "linux",
+      "arch": "x64",
+      "node_sha256": "61ab14cd750fc24d5db53490ec5fc40f756e4b6e136b78cf7004265471d9bd1d"
+    },
+    "conditions": [
+      {
+        "profile": {
+          "id": "P1",
+          "width": 8,
+          "height": 8,
+          "radius": 1,
+          "ticks": 4
+        },
+        "operation": "tick",
+        "block": 1,
+        "seed": 21001,
+        "mode": "MINIMAL",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P1",
+          "width": 8,
+          "height": 8,
+          "radius": 1,
+          "ticks": 4
+        },
+        "operation": "tick",
+        "block": 1,
+        "seed": 21001,
+        "mode": "DETAILED",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P1",
+          "width": 8,
+          "height": 8,
+          "radius": 1,
+          "ticks": 4
+        },
+        "operation": "observation",
+        "block": 1,
+        "seed": 21001,
+        "mode": "MINIMAL",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P1",
+          "width": 8,
+          "height": 8,
+          "radius": 1,
+          "ticks": 4
+        },
+        "operation": "observation",
+        "block": 1,
+        "seed": 21001,
+        "mode": "DETAILED",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P1",
+          "width": 8,
+          "height": 8,
+          "radius": 1,
+          "ticks": 4
+        },
+        "operation": "record_append",
+        "block": 1,
+        "seed": 21001,
+        "mode": "MINIMAL",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P1",
+          "width": 8,
+          "height": 8,
+          "radius": 1,
+          "ticks": 4
+        },
+        "operation": "record_append",
+        "block": 1,
+        "seed": 21001,
+        "mode": "DETAILED",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P1",
+          "width": 8,
+          "height": 8,
+          "radius": 1,
+          "ticks": 4
+        },
+        "operation": "replay",
+        "block": 1,
+        "seed": 21001,
+        "mode": "MINIMAL",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P1",
+          "width": 8,
+          "height": 8,
+          "radius": 1,
+          "ticks": 4
+        },
+        "operation": "replay",
+        "block": 1,
+        "seed": 21001,
+        "mode": "DETAILED",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P2",
+          "width": 16,
+          "height": 16,
+          "radius": 1,
+          "ticks": 4
+        },
+        "operation": "tick",
+        "block": 1,
+        "seed": 21001,
+        "mode": "MINIMAL",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P2",
+          "width": 16,
+          "height": 16,
+          "radius": 1,
+          "ticks": 4
+        },
+        "operation": "tick",
+        "block": 1,
+        "seed": 21001,
+        "mode": "DETAILED",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P2",
+          "width": 16,
+          "height": 16,
+          "radius": 1,
+          "ticks": 4
+        },
+        "operation": "observation",
+        "block": 1,
+        "seed": 21001,
+        "mode": "MINIMAL",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P2",
+          "width": 16,
+          "height": 16,
+          "radius": 1,
+          "ticks": 4
+        },
+        "operation": "observation",
+        "block": 1,
+        "seed": 21001,
+        "mode": "DETAILED",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P2",
+          "width": 16,
+          "height": 16,
+          "radius": 1,
+          "ticks": 4
+        },
+        "operation": "record_append",
+        "block": 1,
+        "seed": 21001,
+        "mode": "MINIMAL",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P2",
+          "width": 16,
+          "height": 16,
+          "radius": 1,
+          "ticks": 4
+        },
+        "operation": "record_append",
+        "block": 1,
+        "seed": 21001,
+        "mode": "DETAILED",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P2",
+          "width": 16,
+          "height": 16,
+          "radius": 1,
+          "ticks": 4
+        },
+        "operation": "replay",
+        "block": 1,
+        "seed": 21001,
+        "mode": "MINIMAL",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P2",
+          "width": 16,
+          "height": 16,
+          "radius": 1,
+          "ticks": 4
+        },
+        "operation": "replay",
+        "block": 1,
+        "seed": 21001,
+        "mode": "DETAILED",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P3",
+          "width": 32,
+          "height": 32,
+          "radius": 1,
+          "ticks": 4
+        },
+        "operation": "tick",
+        "block": 1,
+        "seed": 21001,
+        "mode": "MINIMAL",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P3",
+          "width": 32,
+          "height": 32,
+          "radius": 1,
+          "ticks": 4
+        },
+        "operation": "tick",
+        "block": 1,
+        "seed": 21001,
+        "mode": "DETAILED",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P3",
+          "width": 32,
+          "height": 32,
+          "radius": 1,
+          "ticks": 4
+        },
+        "operation": "observation",
+        "block": 1,
+        "seed": 21001,
+        "mode": "MINIMAL",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P3",
+          "width": 32,
+          "height": 32,
+          "radius": 1,
+          "ticks": 4
+        },
+        "operation": "observation",
+        "block": 1,
+        "seed": 21001,
+        "mode": "DETAILED",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P3",
+          "width": 32,
+          "height": 32,
+          "radius": 1,
+          "ticks": 4
+        },
+        "operation": "record_append",
+        "block": 1,
+        "seed": 21001,
+        "mode": "MINIMAL",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P3",
+          "width": 32,
+          "height": 32,
+          "radius": 1,
+          "ticks": 4
+        },
+        "operation": "record_append",
+        "block": 1,
+        "seed": 21001,
+        "mode": "DETAILED",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P3",
+          "width": 32,
+          "height": 32,
+          "radius": 1,
+          "ticks": 4
+        },
+        "operation": "replay",
+        "block": 1,
+        "seed": 21001,
+        "mode": "MINIMAL",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P3",
+          "width": 32,
+          "height": 32,
+          "radius": 1,
+          "ticks": 4
+        },
+        "operation": "replay",
+        "block": 1,
+        "seed": 21001,
+        "mode": "DETAILED",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P4",
+          "width": 16,
+          "height": 16,
+          "radius": 0,
+          "ticks": 4
+        },
+        "operation": "tick",
+        "block": 1,
+        "seed": 21001,
+        "mode": "MINIMAL",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P4",
+          "width": 16,
+          "height": 16,
+          "radius": 0,
+          "ticks": 4
+        },
+        "operation": "tick",
+        "block": 1,
+        "seed": 21001,
+        "mode": "DETAILED",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P4",
+          "width": 16,
+          "height": 16,
+          "radius": 0,
+          "ticks": 4
+        },
+        "operation": "observation",
+        "block": 1,
+        "seed": 21001,
+        "mode": "MINIMAL",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P4",
+          "width": 16,
+          "height": 16,
+          "radius": 0,
+          "ticks": 4
+        },
+        "operation": "observation",
+        "block": 1,
+        "seed": 21001,
+        "mode": "DETAILED",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P4",
+          "width": 16,
+          "height": 16,
+          "radius": 0,
+          "ticks": 4
+        },
+        "operation": "record_append",
+        "block": 1,
+        "seed": 21001,
+        "mode": "MINIMAL",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P4",
+          "width": 16,
+          "height": 16,
+          "radius": 0,
+          "ticks": 4
+        },
+        "operation": "record_append",
+        "block": 1,
+        "seed": 21001,
+        "mode": "DETAILED",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P4",
+          "width": 16,
+          "height": 16,
+          "radius": 0,
+          "ticks": 4
+        },
+        "operation": "replay",
+        "block": 1,
+        "seed": 21001,
+        "mode": "MINIMAL",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P4",
+          "width": 16,
+          "height": 16,
+          "radius": 0,
+          "ticks": 4
+        },
+        "operation": "replay",
+        "block": 1,
+        "seed": 21001,
+        "mode": "DETAILED",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P5",
+          "width": 16,
+          "height": 16,
+          "radius": 4,
+          "ticks": 4
+        },
+        "operation": "tick",
+        "block": 1,
+        "seed": 21001,
+        "mode": "MINIMAL",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P5",
+          "width": 16,
+          "height": 16,
+          "radius": 4,
+          "ticks": 4
+        },
+        "operation": "tick",
+        "block": 1,
+        "seed": 21001,
+        "mode": "DETAILED",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P5",
+          "width": 16,
+          "height": 16,
+          "radius": 4,
+          "ticks": 4
+        },
+        "operation": "observation",
+        "block": 1,
+        "seed": 21001,
+        "mode": "MINIMAL",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P5",
+          "width": 16,
+          "height": 16,
+          "radius": 4,
+          "ticks": 4
+        },
+        "operation": "observation",
+        "block": 1,
+        "seed": 21001,
+        "mode": "DETAILED",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P5",
+          "width": 16,
+          "height": 16,
+          "radius": 4,
+          "ticks": 4
+        },
+        "operation": "record_append",
+        "block": 1,
+        "seed": 21001,
+        "mode": "MINIMAL",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P5",
+          "width": 16,
+          "height": 16,
+          "radius": 4,
+          "ticks": 4
+        },
+        "operation": "record_append",
+        "block": 1,
+        "seed": 21001,
+        "mode": "DETAILED",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P5",
+          "width": 16,
+          "height": 16,
+          "radius": 4,
+          "ticks": 4
+        },
+        "operation": "replay",
+        "block": 1,
+        "seed": 21001,
+        "mode": "MINIMAL",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P5",
+          "width": 16,
+          "height": 16,
+          "radius": 4,
+          "ticks": 4
+        },
+        "operation": "replay",
+        "block": 1,
+        "seed": 21001,
+        "mode": "DETAILED",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P6",
+          "width": 16,
+          "height": 16,
+          "radius": 16,
+          "ticks": 4
+        },
+        "operation": "tick",
+        "block": 1,
+        "seed": 21001,
+        "mode": "MINIMAL",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P6",
+          "width": 16,
+          "height": 16,
+          "radius": 16,
+          "ticks": 4
+        },
+        "operation": "tick",
+        "block": 1,
+        "seed": 21001,
+        "mode": "DETAILED",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P6",
+          "width": 16,
+          "height": 16,
+          "radius": 16,
+          "ticks": 4
+        },
+        "operation": "observation",
+        "block": 1,
+        "seed": 21001,
+        "mode": "MINIMAL",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P6",
+          "width": 16,
+          "height": 16,
+          "radius": 16,
+          "ticks": 4
+        },
+        "operation": "observation",
+        "block": 1,
+        "seed": 21001,
+        "mode": "DETAILED",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P6",
+          "width": 16,
+          "height": 16,
+          "radius": 16,
+          "ticks": 4
+        },
+        "operation": "record_append",
+        "block": 1,
+        "seed": 21001,
+        "mode": "MINIMAL",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P6",
+          "width": 16,
+          "height": 16,
+          "radius": 16,
+          "ticks": 4
+        },
+        "operation": "record_append",
+        "block": 1,
+        "seed": 21001,
+        "mode": "DETAILED",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P6",
+          "width": 16,
+          "height": 16,
+          "radius": 16,
+          "ticks": 4
+        },
+        "operation": "replay",
+        "block": 1,
+        "seed": 21001,
+        "mode": "MINIMAL",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P6",
+          "width": 16,
+          "height": 16,
+          "radius": 16,
+          "ticks": 4
+        },
+        "operation": "replay",
+        "block": 1,
+        "seed": 21001,
+        "mode": "DETAILED",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P7",
+          "width": 16,
+          "height": 16,
+          "radius": 1,
+          "ticks": 16
+        },
+        "operation": "tick",
+        "block": 1,
+        "seed": 21001,
+        "mode": "MINIMAL",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P7",
+          "width": 16,
+          "height": 16,
+          "radius": 1,
+          "ticks": 16
+        },
+        "operation": "tick",
+        "block": 1,
+        "seed": 21001,
+        "mode": "DETAILED",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P7",
+          "width": 16,
+          "height": 16,
+          "radius": 1,
+          "ticks": 16
+        },
+        "operation": "observation",
+        "block": 1,
+        "seed": 21001,
+        "mode": "MINIMAL",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P7",
+          "width": 16,
+          "height": 16,
+          "radius": 1,
+          "ticks": 16
+        },
+        "operation": "observation",
+        "block": 1,
+        "seed": 21001,
+        "mode": "DETAILED",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P7",
+          "width": 16,
+          "height": 16,
+          "radius": 1,
+          "ticks": 16
+        },
+        "operation": "record_append",
+        "block": 1,
+        "seed": 21001,
+        "mode": "MINIMAL",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P7",
+          "width": 16,
+          "height": 16,
+          "radius": 1,
+          "ticks": 16
+        },
+        "operation": "record_append",
+        "block": 1,
+        "seed": 21001,
+        "mode": "DETAILED",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P7",
+          "width": 16,
+          "height": 16,
+          "radius": 1,
+          "ticks": 16
+        },
+        "operation": "replay",
+        "block": 1,
+        "seed": 21001,
+        "mode": "MINIMAL",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P7",
+          "width": 16,
+          "height": 16,
+          "radius": 1,
+          "ticks": 16
+        },
+        "operation": "replay",
+        "block": 1,
+        "seed": 21001,
+        "mode": "DETAILED",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P8",
+          "width": 4,
+          "height": 64,
+          "radius": 1,
+          "ticks": 4
+        },
+        "operation": "tick",
+        "block": 1,
+        "seed": 21001,
+        "mode": "MINIMAL",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P8",
+          "width": 4,
+          "height": 64,
+          "radius": 1,
+          "ticks": 4
+        },
+        "operation": "tick",
+        "block": 1,
+        "seed": 21001,
+        "mode": "DETAILED",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P8",
+          "width": 4,
+          "height": 64,
+          "radius": 1,
+          "ticks": 4
+        },
+        "operation": "observation",
+        "block": 1,
+        "seed": 21001,
+        "mode": "MINIMAL",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P8",
+          "width": 4,
+          "height": 64,
+          "radius": 1,
+          "ticks": 4
+        },
+        "operation": "observation",
+        "block": 1,
+        "seed": 21001,
+        "mode": "DETAILED",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P8",
+          "width": 4,
+          "height": 64,
+          "radius": 1,
+          "ticks": 4
+        },
+        "operation": "record_append",
+        "block": 1,
+        "seed": 21001,
+        "mode": "MINIMAL",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P8",
+          "width": 4,
+          "height": 64,
+          "radius": 1,
+          "ticks": 4
+        },
+        "operation": "record_append",
+        "block": 1,
+        "seed": 21001,
+        "mode": "DETAILED",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P8",
+          "width": 4,
+          "height": 64,
+          "radius": 1,
+          "ticks": 4
+        },
+        "operation": "replay",
+        "block": 1,
+        "seed": 21001,
+        "mode": "MINIMAL",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P8",
+          "width": 4,
+          "height": 64,
+          "radius": 1,
+          "ticks": 4
+        },
+        "operation": "replay",
+        "block": 1,
+        "seed": 21001,
+        "mode": "DETAILED",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P8",
+          "width": 4,
+          "height": 64,
+          "radius": 1,
+          "ticks": 4
+        },
+        "operation": "replay",
+        "block": 2,
+        "seed": 21002,
+        "mode": "DETAILED",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P8",
+          "width": 4,
+          "height": 64,
+          "radius": 1,
+          "ticks": 4
+        },
+        "operation": "replay",
+        "block": 2,
+        "seed": 21002,
+        "mode": "MINIMAL",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P8",
+          "width": 4,
+          "height": 64,
+          "radius": 1,
+          "ticks": 4
+        },
+        "operation": "record_append",
+        "block": 2,
+        "seed": 21002,
+        "mode": "DETAILED",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P8",
+          "width": 4,
+          "height": 64,
+          "radius": 1,
+          "ticks": 4
+        },
+        "operation": "record_append",
+        "block": 2,
+        "seed": 21002,
+        "mode": "MINIMAL",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P8",
+          "width": 4,
+          "height": 64,
+          "radius": 1,
+          "ticks": 4
+        },
+        "operation": "observation",
+        "block": 2,
+        "seed": 21002,
+        "mode": "DETAILED",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P8",
+          "width": 4,
+          "height": 64,
+          "radius": 1,
+          "ticks": 4
+        },
+        "operation": "observation",
+        "block": 2,
+        "seed": 21002,
+        "mode": "MINIMAL",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P8",
+          "width": 4,
+          "height": 64,
+          "radius": 1,
+          "ticks": 4
+        },
+        "operation": "tick",
+        "block": 2,
+        "seed": 21002,
+        "mode": "DETAILED",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P8",
+          "width": 4,
+          "height": 64,
+          "radius": 1,
+          "ticks": 4
+        },
+        "operation": "tick",
+        "block": 2,
+        "seed": 21002,
+        "mode": "MINIMAL",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P7",
+          "width": 16,
+          "height": 16,
+          "radius": 1,
+          "ticks": 16
+        },
+        "operation": "replay",
+        "block": 2,
+        "seed": 21002,
+        "mode": "DETAILED",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P7",
+          "width": 16,
+          "height": 16,
+          "radius": 1,
+          "ticks": 16
+        },
+        "operation": "replay",
+        "block": 2,
+        "seed": 21002,
+        "mode": "MINIMAL",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P7",
+          "width": 16,
+          "height": 16,
+          "radius": 1,
+          "ticks": 16
+        },
+        "operation": "record_append",
+        "block": 2,
+        "seed": 21002,
+        "mode": "DETAILED",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P7",
+          "width": 16,
+          "height": 16,
+          "radius": 1,
+          "ticks": 16
+        },
+        "operation": "record_append",
+        "block": 2,
+        "seed": 21002,
+        "mode": "MINIMAL",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P7",
+          "width": 16,
+          "height": 16,
+          "radius": 1,
+          "ticks": 16
+        },
+        "operation": "observation",
+        "block": 2,
+        "seed": 21002,
+        "mode": "DETAILED",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P7",
+          "width": 16,
+          "height": 16,
+          "radius": 1,
+          "ticks": 16
+        },
+        "operation": "observation",
+        "block": 2,
+        "seed": 21002,
+        "mode": "MINIMAL",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P7",
+          "width": 16,
+          "height": 16,
+          "radius": 1,
+          "ticks": 16
+        },
+        "operation": "tick",
+        "block": 2,
+        "seed": 21002,
+        "mode": "DETAILED",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P7",
+          "width": 16,
+          "height": 16,
+          "radius": 1,
+          "ticks": 16
+        },
+        "operation": "tick",
+        "block": 2,
+        "seed": 21002,
+        "mode": "MINIMAL",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P6",
+          "width": 16,
+          "height": 16,
+          "radius": 16,
+          "ticks": 4
+        },
+        "operation": "replay",
+        "block": 2,
+        "seed": 21002,
+        "mode": "DETAILED",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P6",
+          "width": 16,
+          "height": 16,
+          "radius": 16,
+          "ticks": 4
+        },
+        "operation": "replay",
+        "block": 2,
+        "seed": 21002,
+        "mode": "MINIMAL",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P6",
+          "width": 16,
+          "height": 16,
+          "radius": 16,
+          "ticks": 4
+        },
+        "operation": "record_append",
+        "block": 2,
+        "seed": 21002,
+        "mode": "DETAILED",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P6",
+          "width": 16,
+          "height": 16,
+          "radius": 16,
+          "ticks": 4
+        },
+        "operation": "record_append",
+        "block": 2,
+        "seed": 21002,
+        "mode": "MINIMAL",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P6",
+          "width": 16,
+          "height": 16,
+          "radius": 16,
+          "ticks": 4
+        },
+        "operation": "observation",
+        "block": 2,
+        "seed": 21002,
+        "mode": "DETAILED",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P6",
+          "width": 16,
+          "height": 16,
+          "radius": 16,
+          "ticks": 4
+        },
+        "operation": "observation",
+        "block": 2,
+        "seed": 21002,
+        "mode": "MINIMAL",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P6",
+          "width": 16,
+          "height": 16,
+          "radius": 16,
+          "ticks": 4
+        },
+        "operation": "tick",
+        "block": 2,
+        "seed": 21002,
+        "mode": "DETAILED",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P6",
+          "width": 16,
+          "height": 16,
+          "radius": 16,
+          "ticks": 4
+        },
+        "operation": "tick",
+        "block": 2,
+        "seed": 21002,
+        "mode": "MINIMAL",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P5",
+          "width": 16,
+          "height": 16,
+          "radius": 4,
+          "ticks": 4
+        },
+        "operation": "replay",
+        "block": 2,
+        "seed": 21002,
+        "mode": "DETAILED",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P5",
+          "width": 16,
+          "height": 16,
+          "radius": 4,
+          "ticks": 4
+        },
+        "operation": "replay",
+        "block": 2,
+        "seed": 21002,
+        "mode": "MINIMAL",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P5",
+          "width": 16,
+          "height": 16,
+          "radius": 4,
+          "ticks": 4
+        },
+        "operation": "record_append",
+        "block": 2,
+        "seed": 21002,
+        "mode": "DETAILED",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P5",
+          "width": 16,
+          "height": 16,
+          "radius": 4,
+          "ticks": 4
+        },
+        "operation": "record_append",
+        "block": 2,
+        "seed": 21002,
+        "mode": "MINIMAL",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P5",
+          "width": 16,
+          "height": 16,
+          "radius": 4,
+          "ticks": 4
+        },
+        "operation": "observation",
+        "block": 2,
+        "seed": 21002,
+        "mode": "DETAILED",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P5",
+          "width": 16,
+          "height": 16,
+          "radius": 4,
+          "ticks": 4
+        },
+        "operation": "observation",
+        "block": 2,
+        "seed": 21002,
+        "mode": "MINIMAL",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P5",
+          "width": 16,
+          "height": 16,
+          "radius": 4,
+          "ticks": 4
+        },
+        "operation": "tick",
+        "block": 2,
+        "seed": 21002,
+        "mode": "DETAILED",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P5",
+          "width": 16,
+          "height": 16,
+          "radius": 4,
+          "ticks": 4
+        },
+        "operation": "tick",
+        "block": 2,
+        "seed": 21002,
+        "mode": "MINIMAL",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P4",
+          "width": 16,
+          "height": 16,
+          "radius": 0,
+          "ticks": 4
+        },
+        "operation": "replay",
+        "block": 2,
+        "seed": 21002,
+        "mode": "DETAILED",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P4",
+          "width": 16,
+          "height": 16,
+          "radius": 0,
+          "ticks": 4
+        },
+        "operation": "replay",
+        "block": 2,
+        "seed": 21002,
+        "mode": "MINIMAL",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P4",
+          "width": 16,
+          "height": 16,
+          "radius": 0,
+          "ticks": 4
+        },
+        "operation": "record_append",
+        "block": 2,
+        "seed": 21002,
+        "mode": "DETAILED",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P4",
+          "width": 16,
+          "height": 16,
+          "radius": 0,
+          "ticks": 4
+        },
+        "operation": "record_append",
+        "block": 2,
+        "seed": 21002,
+        "mode": "MINIMAL",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P4",
+          "width": 16,
+          "height": 16,
+          "radius": 0,
+          "ticks": 4
+        },
+        "operation": "observation",
+        "block": 2,
+        "seed": 21002,
+        "mode": "DETAILED",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P4",
+          "width": 16,
+          "height": 16,
+          "radius": 0,
+          "ticks": 4
+        },
+        "operation": "observation",
+        "block": 2,
+        "seed": 21002,
+        "mode": "MINIMAL",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P4",
+          "width": 16,
+          "height": 16,
+          "radius": 0,
+          "ticks": 4
+        },
+        "operation": "tick",
+        "block": 2,
+        "seed": 21002,
+        "mode": "DETAILED",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P4",
+          "width": 16,
+          "height": 16,
+          "radius": 0,
+          "ticks": 4
+        },
+        "operation": "tick",
+        "block": 2,
+        "seed": 21002,
+        "mode": "MINIMAL",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P3",
+          "width": 32,
+          "height": 32,
+          "radius": 1,
+          "ticks": 4
+        },
+        "operation": "replay",
+        "block": 2,
+        "seed": 21002,
+        "mode": "DETAILED",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P3",
+          "width": 32,
+          "height": 32,
+          "radius": 1,
+          "ticks": 4
+        },
+        "operation": "replay",
+        "block": 2,
+        "seed": 21002,
+        "mode": "MINIMAL",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P3",
+          "width": 32,
+          "height": 32,
+          "radius": 1,
+          "ticks": 4
+        },
+        "operation": "record_append",
+        "block": 2,
+        "seed": 21002,
+        "mode": "DETAILED",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P3",
+          "width": 32,
+          "height": 32,
+          "radius": 1,
+          "ticks": 4
+        },
+        "operation": "record_append",
+        "block": 2,
+        "seed": 21002,
+        "mode": "MINIMAL",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P3",
+          "width": 32,
+          "height": 32,
+          "radius": 1,
+          "ticks": 4
+        },
+        "operation": "observation",
+        "block": 2,
+        "seed": 21002,
+        "mode": "DETAILED",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P3",
+          "width": 32,
+          "height": 32,
+          "radius": 1,
+          "ticks": 4
+        },
+        "operation": "observation",
+        "block": 2,
+        "seed": 21002,
+        "mode": "MINIMAL",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P3",
+          "width": 32,
+          "height": 32,
+          "radius": 1,
+          "ticks": 4
+        },
+        "operation": "tick",
+        "block": 2,
+        "seed": 21002,
+        "mode": "DETAILED",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P3",
+          "width": 32,
+          "height": 32,
+          "radius": 1,
+          "ticks": 4
+        },
+        "operation": "tick",
+        "block": 2,
+        "seed": 21002,
+        "mode": "MINIMAL",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P2",
+          "width": 16,
+          "height": 16,
+          "radius": 1,
+          "ticks": 4
+        },
+        "operation": "replay",
+        "block": 2,
+        "seed": 21002,
+        "mode": "DETAILED",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P2",
+          "width": 16,
+          "height": 16,
+          "radius": 1,
+          "ticks": 4
+        },
+        "operation": "replay",
+        "block": 2,
+        "seed": 21002,
+        "mode": "MINIMAL",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P2",
+          "width": 16,
+          "height": 16,
+          "radius": 1,
+          "ticks": 4
+        },
+        "operation": "record_append",
+        "block": 2,
+        "seed": 21002,
+        "mode": "DETAILED",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P2",
+          "width": 16,
+          "height": 16,
+          "radius": 1,
+          "ticks": 4
+        },
+        "operation": "record_append",
+        "block": 2,
+        "seed": 21002,
+        "mode": "MINIMAL",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P2",
+          "width": 16,
+          "height": 16,
+          "radius": 1,
+          "ticks": 4
+        },
+        "operation": "observation",
+        "block": 2,
+        "seed": 21002,
+        "mode": "DETAILED",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P2",
+          "width": 16,
+          "height": 16,
+          "radius": 1,
+          "ticks": 4
+        },
+        "operation": "observation",
+        "block": 2,
+        "seed": 21002,
+        "mode": "MINIMAL",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P2",
+          "width": 16,
+          "height": 16,
+          "radius": 1,
+          "ticks": 4
+        },
+        "operation": "tick",
+        "block": 2,
+        "seed": 21002,
+        "mode": "DETAILED",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P2",
+          "width": 16,
+          "height": 16,
+          "radius": 1,
+          "ticks": 4
+        },
+        "operation": "tick",
+        "block": 2,
+        "seed": 21002,
+        "mode": "MINIMAL",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P1",
+          "width": 8,
+          "height": 8,
+          "radius": 1,
+          "ticks": 4
+        },
+        "operation": "replay",
+        "block": 2,
+        "seed": 21002,
+        "mode": "DETAILED",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P1",
+          "width": 8,
+          "height": 8,
+          "radius": 1,
+          "ticks": 4
+        },
+        "operation": "replay",
+        "block": 2,
+        "seed": 21002,
+        "mode": "MINIMAL",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P1",
+          "width": 8,
+          "height": 8,
+          "radius": 1,
+          "ticks": 4
+        },
+        "operation": "record_append",
+        "block": 2,
+        "seed": 21002,
+        "mode": "DETAILED",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P1",
+          "width": 8,
+          "height": 8,
+          "radius": 1,
+          "ticks": 4
+        },
+        "operation": "record_append",
+        "block": 2,
+        "seed": 21002,
+        "mode": "MINIMAL",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P1",
+          "width": 8,
+          "height": 8,
+          "radius": 1,
+          "ticks": 4
+        },
+        "operation": "observation",
+        "block": 2,
+        "seed": 21002,
+        "mode": "DETAILED",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P1",
+          "width": 8,
+          "height": 8,
+          "radius": 1,
+          "ticks": 4
+        },
+        "operation": "observation",
+        "block": 2,
+        "seed": 21002,
+        "mode": "MINIMAL",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P1",
+          "width": 8,
+          "height": 8,
+          "radius": 1,
+          "ticks": 4
+        },
+        "operation": "tick",
+        "block": 2,
+        "seed": 21002,
+        "mode": "DETAILED",
+        "warmup": 3,
+        "samples": 5
+      },
+      {
+        "profile": {
+          "id": "P1",
+          "width": 8,
+          "height": 8,
+          "radius": 1,
+          "ticks": 4
+        },
+        "operation": "tick",
+        "block": 2,
+        "seed": 21002,
+        "mode": "MINIMAL",
+        "warmup": 3,
+        "samples": 5
+      }
+    ],
+    "limits": {
+      "child_ms": 30000,
+      "total_ms": 4500000,
+      "heap_mib": 256,
+      "rss_bytes": 1073741824,
+      "artifact_bytes": 134217728,
+      "max_processes": 128,
+      "sample_ms": 25,
+      "reserve_bytes": 1048576
+    },
+    "journal_cap": 262144,
+    "root_reserve": 1048576
+  }
+}

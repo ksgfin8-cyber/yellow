@@ -1,0 +1,40 @@
+✔ R1-01 selection precedes implementation, plan128 balances AB/BA and retains8profiles/4explicit operations (524.632407ms)
+✔ R1-02 new identity rejects old candidate; old frozen v1 identity still verifies (4901.219616ms)
+✔ R1-03 old receipt/domain cannot authorize R1; ephemeral new-domain signature verifies without launching (3084.317264ms)
+✔ R1-04 all4selected operations restore independent inputs and full structural state/results/time/RNG/WLS1 agree (90.968424ms)
+{"validation_package":"/tmp/wl-rc1-r1-tests-s1b7tg/pair","samples":8,"kind":"R1_VALIDATION_ONLY_2x2_T2_NOT_P1_P8","paired_wrapper_delta_ns":[331068,85212,814263,306428],"interpretation":"mechanism only; no R1 pilot perturbation estimate"}
+✔ R1-05 two tiny single-operation workers preserve full witnesses and stage windows; recovery copy and corruption detection (5007.087727ms)
+✔ R1-06 estimators fixed before new data:process medians/ABBA,not5replicas; censored blocks rejected (1.161511ms)
+✔ R1-07 fsynced journal bounds enforce no silent truncation and localize open/error phase (4.742369ms)
+✔ R1-08 external stop localizes PREPARE vs EXECUTE checkpoint and preserves partial record,without retry (503.102367ms)
+✔ R1-09 immediate instrumental error aborts worker and prevents a following unit (114.708163ms)
+✔ R1-10 watchdog remains active during data sealing/verification even if controller blocks (1873.350475ms)
+R1 validation artifacts retained: /tmp/wl-rc1-r1-tests-s1b7tg
+✔ R1-11 RSS stop applies to root/descendants; journal cap plus primary/root allocations respect128MiB (81.800562ms)
+✔ R1-12 no final campaign or v1 retry entry; R1 plan only enumerated and pilot authorization not used (3.245238ms)
+✖ R1-13 a done message without the required samples never produces a complete accepted R1 unit (116.488997ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 12
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 16416.348632
+
+✖ failing tests:
+
+test at tests/wl-rc1-r1.test.cjs:24:1
+✖ R1-13 a done message without the required samples never produces a complete accepted R1 unit (116.488997ms)
+  AssertionError [ERR_ASSERTION]: The "string" argument must be of type string. Received type object (null)
+      at TestContext.<anonymous> (/workspace/yellow/tests/wl-rc1-r1.test.cjs:24:387)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: null,
+    expected: /incomplete samples/,
+    operator: 'match',
+    diff: 'simple'
+  }

@@ -1,0 +1,11 @@
+{
+  "event": "DESIGN_SELECTED_BEFORE_IMPLEMENTATION",
+  "selected_alternative": "B_PARTITION_BY_OPERATION_NO_MUTABLE_PREPARATION_REUSE",
+  "issued_at": "2026-11-18T17:28:46.533837-05:00",
+  "base_commit": "aab268dde2f20299234c6b407ce6ba9f54438076",
+  "decision_file": "docs/research/wl-rc1-r1/AUDIT_AND_DECISION.md",
+  "decision_sha256_at_selection": "f9d3fa64cde8db3c5757c4a32e2aac36459b1ddafa06f96be8f5e6d2b5554c0d",
+  "R1_instrument_directory_absent_when_recorded": true,
+  "pilot_v1_data_unchanged": true,
+  "new_pilot_authorized": false
+}
