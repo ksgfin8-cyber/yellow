@@ -1,0 +1,18 @@
+✔ CAL-01 plan only: 24 unique ordered cells, modes and checkpoints balanced; unchanged physical profiles (53.044207ms)
+✔ CAL-02 new identity checks every baseline file, binds own protocol; R1 candidate remains valid (4102.99336ms)
+✔ CAL-03 ephemeral calibration receipt verifies/preflights without workers; old domains, altered scope/destination and key rejected (2438.905096ms)
+✔ CAL-04 tiny direct operations: both modes/checkpoint policies preserve full R1 structures, WLS1 and RNG (373.763119ms)
+{"fixture_package":"/tmp/r1-cal-preparation-Wnu7Dk/tiny","identity":"a585f300c8b3c32c9f87b5e3e7400dc7320e0751c75c20e5b26f7cd4aea8bc85","samples":16,"kind":"TINY_ONLY_NOT_CALIBRATION","balances":[{"ns":{"preparation":"10639418","api":"6066268","execution_envelope":"234198","witnesses":"7570447","ipc":"493497","process":"1818311135","journal_io":"0","residual_unattributed":"118628395"},"proportions":{"preparation":0.005422897636986725,"api":0.0030919689782399925,"execution_envelope":0.00011937041864385975,"witnesses":0.0038586470751720858,"ipc":0.0002515347846245009,"process":0.9267908411247824,"journal_io":0,"residual_unattributed":0.060464739981550476},"inconsistent_negative_residual":false,"causal_decomposition":false},{"ns":{"preparation":"12554667","api":"11818540","execution_envelope":"130632","witnesses":"6928567","ipc":"523454","process":"1518774968","journal_io":"108294224","residual_unattributed":"202910651"},"proportions":{"preparation":0.006742803728276754,"api":0.0063474479709249125,"execution_envelope":0.00007015924330229142,"witnesses":0.003721163404749428,"ipc":0.0002811343050979672,"process":0.8156967856370709,"journal_io":0.05816217167193984,"residual_unattributed":0.10897833403863785},"inconsistent_negative_residual":false,"causal_decomposition":false},{"ns":{"preparation":"7523537","api":"6044595","execution_envelope":"443205","witnesses":"4644704","ipc":"596956","process":"740327428","journal_io":"0","residual_unattributed":"87748979"},"proportions":{"preparation":0.008879117099540665,"api":0.007133701452428293,"execution_envelope":0.000523061040851121,"witnesses":0.005481580101048871,"ipc":0.0007045146753811933,"process":0.8737185615241555,"journal_io":0,"residual_unattributed":0.10355946410659438},"inconsistent_negative_residual":false,"causal_decomposition":false},{"ns":{"preparation":"14143519","api":"9474875","execution_envelope":"635610","witnesses":"9206231","ipc":"537963","process":"1187032233","journal_io":"117580238","residual_unattributed":"167789607"},"proportions":{"preparation":0.009388951413070506,"api":0.00628974592673269,"execution_envelope":0.00042193964653787676,"witnesses":0.006111410855848781,"ipc":0.00035711822984291593,"process":0.7879925753545202,"journal_io":0.07805378150368847,"residual_unattributed":0.11138447706975858},"inconsistent_negative_residual":false,"causal_decomposition":false}]}
+✔ CAL-05 four tiny workers, not P1-P8: full witnesses agree; IPC/time balance/recovery and corruption detected (6512.937987ms)
+✔ CAL-06 predefined estimators and no overlapping API/EXECUTE accounting, partials reject primary balance (1.467007ms)
+Preparation evidence retained: /tmp/r1-cal-preparation-Wnu7Dk
+✔ CAL-07 historical R1 incomplete-unit validation is late; calibration stops before following unit (263.959879ms)
+✔ CAL-08 no CLI pilot/final entry; future run without signature refuses before creating a destination (2.281058ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 13956.322774

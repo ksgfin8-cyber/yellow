@@ -1,0 +1,51 @@
+{
+  "syntax_files": 9,
+  "syntax": "PASS",
+  "local_markdown_links": "PASS",
+  "new_suite": {
+    "tests": 10,
+    "pass": 10,
+    "fail": 0,
+    "log": "validation/preparation-02.log"
+  },
+  "unchanged_R1_suite": {
+    "tests": 13,
+    "pass": 13,
+    "fail": 0,
+    "log": "validation/r1-regression.log"
+  },
+  "v1_original_read_only_verify": {
+    "state": "VERIFIED",
+    "format": "WL-RC1-ARCHIVE-1",
+    "package_status": "PARTIAL",
+    "samples": 385,
+    "errors": 0,
+    "witnesses": 26,
+    "scientific_acceptance": false,
+    "freeze_id": "466e1dc53f6d5f6f0fe144d85e7f65643b01244acabee5b8caaa25dd34df15ac"
+  },
+  "v1_restored_read_only_verify": {
+    "state": "VERIFIED",
+    "format": "WL-RC1-ARCHIVE-1",
+    "package_status": "PARTIAL",
+    "samples": 385,
+    "errors": 0,
+    "witnesses": 26,
+    "scientific_acceptance": false,
+    "freeze_id": "466e1dc53f6d5f6f0fe144d85e7f65643b01244acabee5b8caaa25dd34df15ac"
+  },
+  "restored_tiny_read_only_verify": {
+    "state": "VERIFIED",
+    "package_status": "COMPLETE",
+    "samples": 16,
+    "errors": 0,
+    "journals": 2,
+    "open_stages": [],
+    "freeze_id": "6763348852b6b4a133a3e6326e8e774d25b6244703457282035d41601b66fa90",
+    "scientific_acceptance": false,
+    "calibration_protocol_valid": true,
+    "measured_samples": 16,
+    "P1_P8_executed": false,
+    "recommendation_128": "NOT_ESTABLISHED"
+  }
+}
