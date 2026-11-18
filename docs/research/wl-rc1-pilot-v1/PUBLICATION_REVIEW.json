@@ -1,0 +1,72 @@
+{
+  "format": "WL-RC1-PILOT-PUBLICATION-REVIEW-1",
+  "issued_at": "2026-11-18T17:06:10.259302-05:00",
+  "base_commit": "21e0dd5d0ad680140192f0db240ffce31031a85c",
+  "branch": "research/wl-rc1-pilot-v1-results",
+  "source_files_unchanged": 36,
+  "prior_repository_files_unchanged": 471,
+  "original_vs_restored_manifest": "MATCH",
+  "frozen_identity_after": "MATCH",
+  "pilot_runs": 1,
+  "automatic_retries": 0,
+  "source_code_or_protocol_modified": false,
+  "raw_samples": 385,
+  "archive_members_compared_byte_for_byte_to_originals": 69,
+  "export_sha256": "04d6c0db808d73fdfca4e856df0a5f0b5d12d0f808ebd0c327d6c3f2718faa34",
+  "export_bytes": 163975,
+  "repository_copy_export_identical": true,
+  "public_links_checked": [
+    {
+      "file": "PILOT_REPORT.md",
+      "target": "OWNER_START_APPROVAL.md"
+    },
+    {
+      "file": "PILOT_REPORT.md",
+      "target": "preflight-before-start.json"
+    },
+    {
+      "file": "PILOT_REPORT.md",
+      "target": "start-record.json"
+    },
+    {
+      "file": "PILOT_REPORT.md",
+      "target": "exit-record.json"
+    },
+    {
+      "file": "PILOT_REPORT.md",
+      "target": "condition-coverage.json"
+    },
+    {
+      "file": "PILOT_REPORT.md",
+      "target": "paired-perturbation.json"
+    },
+    {
+      "file": "PILOT_REPORT.md",
+      "target": "EVIDENCE_MANIFEST.json"
+    },
+    {
+      "file": "PILOT_REPORT.md",
+      "target": "RECOVERY.md"
+    },
+    {
+      "file": "RECOVERY.md",
+      "target": "WL-RC1-pilot-v1-evidence.tar.gz"
+    },
+    {
+      "file": "RECOVERY.md",
+      "target": "WL-RC1-pilot-v1-evidence.tar.gz.sha256"
+    }
+  ],
+  "verification_scripts": [
+    "analyze.cjs",
+    "verify_results.py"
+  ],
+  "methods": "Existing JSON/wire only; same Node analyzer reproduction plus separate Python recount; no new physical transitions/agents/replay. JS syntax checked.",
+  "early_analysis_baseline_count_note": "First pass included43self-baselines; published final count342nontrivial repeats; original source samples unchanged; first analysis/script retained in evidence export.",
+  "old_tests_not_reexecuted": true,
+  "P01_E3_E4_not_executed": true,
+  "RC1_E": "HOLD_NO_GO",
+  "private_material_in_public_export": false,
+  "external_backup": "NOT_ESTABLISHED",
+  "git_diff_check": "PASS"
+}

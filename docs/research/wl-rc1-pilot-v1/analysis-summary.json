@@ -1,0 +1,71 @@
+{
+  "format": "WL-RC1-PILOT-ANALYSIS-1",
+  "freeze_id": "466e1dc53f6d5f6f0fe144d85e7f65643b01244acabee5b8caaa25dd34df15ac",
+  "verdict": "PILOT_PARTIAL",
+  "verification": {
+    "state": "VERIFIED",
+    "format": "WL-RC1-ARCHIVE-1",
+    "package_status": "PARTIAL",
+    "samples": 385,
+    "errors": 0,
+    "witnesses": 26,
+    "scientific_acceptance": false,
+    "freeze_id": "466e1dc53f6d5f6f0fe144d85e7f65643b01244acabee5b8caaa25dd34df15ac"
+  },
+  "expected_workers": 48,
+  "started_workers": 3,
+  "complete_workers": 2,
+  "timeout_censored_workers": 1,
+  "other_failed_workers": 0,
+  "not_executed_workers": 45,
+  "successful_raw_samples": 385,
+  "expected_samples_if48complete": 6912,
+  "resolution_flags": 0,
+  "full_structural_mode_pairs": 144,
+  "restored_input_and_output_comparisons_excluding_group_baselines": 342,
+  "unique_decoded_witnesses": 26,
+  "process_pairs": 1,
+  "paired_operations": 16,
+  "operations_above_10_percent_flag": [
+    "validate_state",
+    "action",
+    "observation",
+    "feedback",
+    "tick",
+    "history_getter",
+    "wls1",
+    "replay",
+    "validate_replay",
+    "transport_roundtrip",
+    "metrics"
+  ],
+  "guard_stop": {
+    "type": "STOP",
+    "reason": "CHILD_TIMEOUT",
+    "observed": {
+      "elapsed_ms": 10018.376707
+    },
+    "active": {
+      "pid": 6032,
+      "started_ns": "4081270483804"
+    },
+    "max_rss_bytes": 501096448,
+    "monotonic_ns": "4091290131120"
+  },
+  "source_files": 36,
+  "source_bytes": 266344,
+  "RC1_E_recommendation": "NO_GO_REVISE_MEASUREMENT_DESIGN_AND_BUDGET_FIRST",
+  "signature_and_key_pin": "VALID",
+  "approved_key_pin": "3e65dff25d532c34504a2ddd317f85d8f66b0ba066277ffe634463380f521b5e",
+  "analysis_rule_precision": "Protocol did not fully specify normalization; both index-paired median difference and ratio of process medians are disclosed. Absolute10percent is a conservative diagnostic,not a new confirmatory success criterion.",
+  "interpretation": [
+    "All comparisons use existing recorded outputs, not new WORLD/agent/replay runs.",
+    "One paired process block for P1 only;5warm calls are dependent submeasurements,not5independent replicas.",
+    "10percent flag uses absolute median of index-paired WARM wrapper differences divided by MINIMAL WARM wrapper median; ratio of separate medians also reported.",
+    "Signed differences are observed deviations,not identified causal instrumentation overhead.",
+    "Timeout censors a whole process; interrupted per-call stage not recorded and cannot be localized reliably.",
+    "Clock/empty flags certify only this detector threshold on available calls,not accuracy or GC/JIT stability.",
+    "Memory peak is sampled aggregate; per-worker CPU/RSS unavailable after killed worker has no done record.",
+    "Integrity VERIFIED does not imply complete or scientifically adequate campaign."
+  ]
+}

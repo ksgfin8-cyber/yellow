@@ -1,0 +1,19 @@
+{
+  "started_at_utc": "2026-11-18T21:50:26.584890+00:00",
+  "command": [
+    "node",
+    "--max-old-space-size=512",
+    "tools/research/wl-rc1/cli.cjs",
+    "run-pilot",
+    "docs/research/wl-rc1-cd/PILOT-CANDIDATE.json",
+    "/workspace/shared/world-lab/wl-rc1/authorization-public-20261118/authorization.json",
+    "/workspace/shared/world-lab/wl-rc1/authorization-public-20261118/authorization.sig",
+    "/workspace/shared/world-lab/wl-rc1/authorization-public-20261118/public.pem",
+    "466e1dc53f6d5f6f0fe144d85e7f65643b01244acabee5b8caaa25dd34df15ac",
+    "3e65dff25d532c34504a2ddd317f85d8f66b0ba066277ffe634463380f521b5e"
+  ],
+  "base_commit": "21e0dd5d0ad680140192f0db240ffce31031a85c",
+  "owner_order": "owner-start-approval.md",
+  "attempt": 1,
+  "automatic_retries": false
+}

@@ -1,0 +1,19 @@
+{
+  "signature": "VALID",
+  "freeze_id": "466e1dc53f6d5f6f0fe144d85e7f65643b01244acabee5b8caaa25dd34df15ac",
+  "output_directory": "/workspace/shared/world-lab/wl-rc1/pilot-rc1-cd-v1",
+  "episodes_started": 0,
+  "pilot_started": false,
+  "current_aggregate_rss_bytes": 162852864,
+  "available_disk_bytes": 63519211520,
+  "limits": {
+    "child_ms": 10000,
+    "total_ms": 720000,
+    "heap_mib": 256,
+    "rss_bytes": 1073741824,
+    "artifact_bytes": 134217728,
+    "max_processes": 48,
+    "sample_ms": 25,
+    "reserve_bytes": 1048576
+  }
+}
