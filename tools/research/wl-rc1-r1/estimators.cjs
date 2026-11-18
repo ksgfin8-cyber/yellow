@@ -1,0 +1,6 @@
+'use strict';
+const assert=require('node:assert/strict');
+const median=a=>{assert.ok(a.length);const b=[...a].sort((x,y)=>x-y);return b.length%2?b[(b.length-1)/2]:(b[b.length/2-1]+b[b.length/2])/2;};
+function paired(a,b){assert.equal(a.length,5);assert.equal(b.length,5);assert.ok(a.every(x=>Number.isFinite(x)&&x>0)&&b.every(x=>Number.isFinite(x)&&x>0));const M=median(a),D=median(b);return {minimal_median_ns:M,detailed_median_ns:D,ratio_of_process_medians_percent:100*(D/M-1),median_index_paired_difference_percent:100*median(b.map((x,i)=>x-a[i]))/M,diagnostic_exceeds_10_percent:Math.abs(100*(D/M-1))>10,independent_process_pairs:1,dependent_calls_per_process:5,causal_effect_established:false};}
+function balanced(blocks){assert.equal(blocks.length,2);assert.deepEqual(blocks.map(b=>b.order),['AB','BA']);return {paired_process_blocks:2,median_ratio_percent:median(blocks.map(b=>b.estimate.ratio_of_process_medians_percent)),range_ratio_percent:[Math.min(...blocks.map(b=>b.estimate.ratio_of_process_medians_percent)),Math.max(...blocks.map(b=>b.estimate.ratio_of_process_medians_percent))],any_block_diagnostic_exceeds_10_percent:blocks.some(b=>b.estimate.diagnostic_exceeds_10_percent),population_confidence_interval:null,order_effect_identified:false};}
+module.exports={median,paired,balanced};

@@ -1,0 +1,38 @@
+{
+  "format": "WL-RC1-R1-PRESERVATION-1",
+  "checked_at": "2026-11-18T17:46:56.906445-05:00",
+  "base": "aab268dde2f20299234c6b407ce6ba9f54438076",
+  "tracked_baseline_files": 494,
+  "different_baseline_files": [],
+  "selection_sha256_matches": true,
+  "pilot_v1_archive": {
+    "bytes": 163975,
+    "sha256": "04d6c0db808d73fdfca4e856df0a5f0b5d12d0f808ebd0c327d6c3f2718faa34"
+  },
+  "pilot_v1_source_and_restore": [
+    {
+      "role": "source",
+      "historical_workspace_path": "/workspace/shared/world-lab/wl-rc1/pilot-rc1-cd-v1",
+      "files": 36,
+      "different": []
+    },
+    {
+      "role": "restored",
+      "historical_workspace_path": "/workspace/shared/world-lab/wl-rc1/pilot-rc1-cd-v1-restored",
+      "files": 36,
+      "different": []
+    }
+  ],
+  "R1_identity": "e42a86ff8adcac7a05ccd5c41878b4775d06040aaa5056021ddd8a026efa3721",
+  "final_validation_candidate_matches": true,
+  "validation_export": {
+    "file": "R1-validation-evidence.tar.gz",
+    "bytes": 22390,
+    "sha256": "dd2c524e3a547200107dd2e6c4253b0ed97a2e0e98a0ecc823f902325337088e",
+    "no_private_key_or_token_pattern_found": true,
+    "excluded_ephemeral_authorization_files": true
+  },
+  "no_pilot_started": true,
+  "pilot_v1_replay_not_reexecuted": true,
+  "tiny_fixture_replay_exercised_in_semantic_tests": true
+}

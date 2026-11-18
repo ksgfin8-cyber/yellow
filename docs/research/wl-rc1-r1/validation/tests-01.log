@@ -1,0 +1,22 @@
+✔ R1-01 selection precedes implementation, plan128 balances AB/BA and retains8profiles/4explicit operations (530.250125ms)
+✔ R1-02 new identity rejects old candidate; old frozen v1 identity still verifies (3335.198223ms)
+✔ R1-03 old receipt/domain cannot authorize R1; ephemeral new-domain signature verifies without launching (3337.068426ms)
+✔ R1-04 all4selected operations restore independent inputs and full structural state/results/time/RNG/WLS1 agree (93.545274ms)
+{"validation_package":"/tmp/wl-rc1-r1-tests-R9zLTW/pair","samples":8,"kind":"R1_VALIDATION_ONLY_2x2_T2_NOT_P1_P8","paired_wrapper_delta_ns":[282018,113446,267738,186486],"interpretation":"mechanism only; no R1 pilot perturbation estimate"}
+✔ R1-05 two tiny single-operation workers preserve full witnesses and stage windows; recovery copy and corruption detection (5172.851321ms)
+✔ R1-06 estimators fixed before new data:process medians/ABBA,not5replicas; censored blocks rejected (1.317355ms)
+✔ R1-07 fsynced journal bounds enforce no silent truncation and localize open/error phase (5.541998ms)
+✔ R1-08 external stop localizes PREPARE vs EXECUTE checkpoint and preserves partial record,without retry (521.002353ms)
+✔ R1-09 immediate instrumental error aborts worker and prevents a following unit (117.290502ms)
+✔ R1-10 watchdog remains active during data sealing/verification even if controller blocks (1856.305822ms)
+R1 validation artifacts retained: /tmp/wl-rc1-r1-tests-R9zLTW
+✔ R1-11 RSS stop applies to root/descendants; journal cap plus primary/root allocations respect128MiB (76.552825ms)
+✔ R1-12 no final campaign or v1 retry entry; R1 plan only enumerated and pilot authorization not used (1.716981ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 15180.191799
