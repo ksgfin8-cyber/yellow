@@ -1,0 +1,10 @@
+{
+  "state": "VERIFIED",
+  "format": "WL-RC1-ARCHIVE-1",
+  "package_status": "PARTIAL",
+  "samples": 385,
+  "errors": 0,
+  "witnesses": 26,
+  "scientific_acceptance": false,
+  "freeze_id": "466e1dc53f6d5f6f0fe144d85e7f65643b01244acabee5b8caaa25dd34df15ac"
+}

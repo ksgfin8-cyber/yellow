@@ -1,0 +1,51 @@
+{
+  "format": "WL-RC1-PILOT-POSTCHECK-1",
+  "issued_at": "2026-11-18T17:03:23.978952-05:00",
+  "single_start": true,
+  "automatic_retries": 0,
+  "measuring_processes_sequential_nonoverlapping": true,
+  "recorded_worker_and_controller_pids_no_longer_present": [
+    5646,
+    5722,
+    5853,
+    6032
+  ],
+  "frozen_check_after": {
+    "freeze_id": "466e1dc53f6d5f6f0fe144d85e7f65643b01244acabee5b8caaa25dd34df15ac",
+    "status": "READY_FOR_GATE_2_REVIEW",
+    "pilot_executed": false
+  },
+  "original_archive_verification": {
+    "state": "VERIFIED",
+    "format": "WL-RC1-ARCHIVE-1",
+    "package_status": "PARTIAL",
+    "samples": 385,
+    "errors": 0,
+    "witnesses": 26,
+    "scientific_acceptance": false,
+    "freeze_id": "466e1dc53f6d5f6f0fe144d85e7f65643b01244acabee5b8caaa25dd34df15ac"
+  },
+  "reproduction_and_independent_recount": {
+    "reproduced_analysis_files": 7,
+    "method": "same Node consumer in another process on original vs restored inputs; byte-identical derived JSON/CSV",
+    "new_physical_execution": false,
+    "independent_recount": {
+      "method": "independent Python recount of existing raw JSON/wire; no new engine/agent/replay",
+      "manifest_sha_entries_checked": 35,
+      "workers_started": 3,
+      "complete": 2,
+      "timeout_censored": 1,
+      "not_executed": 45,
+      "samples": 385,
+      "wire_structural_pairs_equal": 144,
+      "paired_metrics_recounted": 16,
+      "diagnostic_flags": 11,
+      "result": "PASS"
+    }
+  },
+  "source_snapshot_byte_integrity": true,
+  "old_repo_tracked_files_unchanged": 471,
+  "no_source_code_or_protocol_changes": true,
+  "no_P01_E3_E4_runs": true,
+  "final_RC1_E_started": false
+}

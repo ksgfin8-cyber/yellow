@@ -1,0 +1,38 @@
+{
+  "format": "WL-RC1-PILOT-EVIDENCE-1",
+  "issued_at": "2026-11-18T17:04:35.645002-05:00",
+  "base_commit": "21e0dd5d0ad680140192f0db240ffce31031a85c",
+  "execution_commit": "21e0dd5d0ad680140192f0db240ffce31031a85c",
+  "branch": "research/wl-rc1-pilot-v1-results",
+  "freeze_id": "466e1dc53f6d5f6f0fe144d85e7f65643b01244acabee5b8caaa25dd34df15ac",
+  "verdict": "PILOT_PARTIAL",
+  "RC1_E": "HOLD_NO_GO",
+  "export": {
+    "file": "WL-RC1-pilot-v1-evidence.tar.gz",
+    "bytes": 163975,
+    "sha256": "04d6c0db808d73fdfca4e856df0a5f0b5d12d0f808ebd0c327d6c3f2718faa34",
+    "regular_files": 69,
+    "private_key_and_common_token_pattern_matches": 0,
+    "same_bytes_in_workspace_and_git_publication": true
+  },
+  "paths_historical_local_not_public_urls": {
+    "source": "/workspace/shared/world-lab/wl-rc1/pilot-rc1-cd-v1",
+    "ops": "/workspace/shared/world-lab/wl-rc1/pilot-rc1-cd-v1-ops",
+    "restored": "/workspace/shared/world-lab/wl-rc1/pilot-rc1-cd-v1-restored",
+    "analysis": "/workspace/shared/world-lab/wl-rc1/pilot-rc1-cd-v1-analysis-verified",
+    "export": "/workspace/shared/world-lab/wl-rc1/pilot-rc1-cd-v1-exports/WL-RC1-pilot-v1-evidence.tar.gz"
+  },
+  "source_manifest_sha256": "480030c4397f53eda5de111af56566176a1f3e9043fd6b9cc0d09202e6d67044",
+  "source_file_inventory": "source-integrity.json",
+  "signature_and_approved_pin": "VALID",
+  "public_authorization_only_in_export": true,
+  "private_key_created_requested_or_available": false,
+  "source_and_restored_files_identical": 36,
+  "postchecks": "POSTCHECKS.json",
+  "full_raw_samples_in_archive": 385,
+  "external_backup_receipt": "NOT_ESTABLISHED",
+  "automatic_retries": 0,
+  "worktree_prior_files_modified": [],
+  "normative_conformity": "NOT_ESTABLISHED",
+  "independent_engine_interoperability": "NOT_ESTABLISHED"
+}

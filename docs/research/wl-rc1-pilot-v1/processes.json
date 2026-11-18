@@ -1,0 +1,198 @@
+[
+  {
+    "index": 0,
+    "condition": {
+      "profile": {
+        "id": "P1",
+        "width": 8,
+        "height": 8,
+        "radius": 1,
+        "ticks": 4
+      },
+      "block": 1,
+      "seed": 20001,
+      "mode": "MINIMAL",
+      "warmup": 3,
+      "samples": 5
+    },
+    "status": "COMPLETE",
+    "censored": false,
+    "wall_ns": "7132890893",
+    "load_ns": "11460411",
+    "clock_median_ns": 99,
+    "empty_median_ns": 120,
+    "recorded_samples": 144,
+    "expected_samples": 144,
+    "last_confirmed_sample": {
+      "operation": "metrics",
+      "phase": "WARM",
+      "sample": 5
+    },
+    "done_present": true,
+    "worker_CPU_window_done": {
+      "user": 5004341,
+      "system": 0
+    },
+    "worker_lifetime_resourceUsage": {
+      "userCPUTime": 5706231,
+      "systemCPUTime": 1432016,
+      "maxRSS": 288692,
+      "sharedMemorySize": 0,
+      "unsharedDataSize": 0,
+      "unsharedStackSize": 0,
+      "minorPageFault": 133390,
+      "majorPageFault": 0,
+      "swappedOut": 0,
+      "fsRead": 0,
+      "fsWrite": 0,
+      "ipcSent": 0,
+      "ipcReceived": 0,
+      "signalsCount": 0,
+      "voluntaryContextSwitches": 2214,
+      "involuntaryContextSwitches": 117
+    },
+    "resourceUsage_maxRSS_unit": "KiB on this Linux runtime",
+    "environment": {
+      "os_release": "6.18.57",
+      "execArgv": [
+        "--max-old-space-size=256"
+      ],
+      "cpu": "INTEL(R) XEON(R) PLATINUM 8573C",
+      "total_memory_bytes": 35743748096,
+      "loadavg": [
+        0.08,
+        0.03,
+        0.01
+      ],
+      "pid": 5722
+    },
+    "gc": "NOT_OBSERVED; no forced GC; GC may occur inside or outside API windows",
+    "observed_api_ns_sum": 960590464,
+    "observed_prep_ns_sum": 3137709354,
+    "observed_wrapper_ns_sum": 960926204
+  },
+  {
+    "index": 1,
+    "condition": {
+      "profile": {
+        "id": "P1",
+        "width": 8,
+        "height": 8,
+        "radius": 1,
+        "ticks": 4
+      },
+      "block": 1,
+      "seed": 20001,
+      "mode": "DETAILED",
+      "warmup": 3,
+      "samples": 5
+    },
+    "status": "COMPLETE",
+    "censored": false,
+    "wall_ns": "9395222498",
+    "load_ns": "13089817",
+    "clock_median_ns": 155,
+    "empty_median_ns": 193,
+    "recorded_samples": 144,
+    "expected_samples": 144,
+    "last_confirmed_sample": {
+      "operation": "metrics",
+      "phase": "WARM",
+      "sample": 5
+    },
+    "done_present": true,
+    "worker_CPU_window_done": {
+      "user": 7701139,
+      "system": 652349
+    },
+    "worker_lifetime_resourceUsage": {
+      "userCPUTime": 8085444,
+      "systemCPUTime": 1105319,
+      "maxRSS": 289056,
+      "sharedMemorySize": 0,
+      "unsharedDataSize": 0,
+      "unsharedStackSize": 0,
+      "minorPageFault": 133795,
+      "majorPageFault": 0,
+      "swappedOut": 0,
+      "fsRead": 0,
+      "fsWrite": 0,
+      "ipcSent": 0,
+      "ipcReceived": 0,
+      "signalsCount": 0,
+      "voluntaryContextSwitches": 2083,
+      "involuntaryContextSwitches": 249
+    },
+    "resourceUsage_maxRSS_unit": "KiB on this Linux runtime",
+    "environment": {
+      "os_release": "6.18.57",
+      "execArgv": [
+        "--max-old-space-size=256"
+      ],
+      "cpu": "INTEL(R) XEON(R) PLATINUM 8573C",
+      "total_memory_bytes": 35743748096,
+      "loadavg": [
+        0.22,
+        0.06,
+        0.02
+      ],
+      "pid": 5853
+    },
+    "gc": "NOT_OBSERVED; no forced GC; GC may occur inside or outside API windows",
+    "observed_api_ns_sum": 1941777669,
+    "observed_prep_ns_sum": 5389668920,
+    "observed_wrapper_ns_sum": 1956386755
+  },
+  {
+    "index": 2,
+    "condition": {
+      "profile": {
+        "id": "P2",
+        "width": 16,
+        "height": 16,
+        "radius": 1,
+        "ticks": 4
+      },
+      "block": 1,
+      "seed": 20001,
+      "mode": "MINIMAL",
+      "warmup": 3,
+      "samples": 5
+    },
+    "status": "CHILD_TIMEOUT",
+    "censored": true,
+    "wall_ns": "10041487866",
+    "load_ns": "27476032",
+    "clock_median_ns": 97,
+    "empty_median_ns": 117,
+    "recorded_samples": 97,
+    "expected_samples": 144,
+    "last_confirmed_sample": {
+      "operation": "history_getter",
+      "phase": "WARM",
+      "sample": 3
+    },
+    "done_present": false,
+    "worker_CPU_window_done": null,
+    "worker_lifetime_resourceUsage": null,
+    "resourceUsage_maxRSS_unit": "KiB on this Linux runtime",
+    "environment": {
+      "os_release": "6.18.57",
+      "execArgv": [
+        "--max-old-space-size=256"
+      ],
+      "cpu": "INTEL(R) XEON(R) PLATINUM 8573C",
+      "total_memory_bytes": 35743748096,
+      "loadavg": [
+        0.66,
+        0.16,
+        0.05
+      ],
+      "pid": 6032
+    },
+    "gc": "NOT_OBSERVED; no forced GC; GC may occur inside or outside API windows",
+    "observed_api_ns_sum": 811473601,
+    "observed_prep_ns_sum": 4944267703,
+    "observed_wrapper_ns_sum": 812017545
+  }
+]
