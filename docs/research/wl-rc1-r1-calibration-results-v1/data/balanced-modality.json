@@ -1,0 +1,488 @@
+[
+  {
+    "profile": "P1",
+    "operation": "tick",
+    "journal_policy": "OFF",
+    "blocks": [
+      {
+        "profile": "P1",
+        "operation": "tick",
+        "block": 1,
+        "journal_policy": "OFF",
+        "order": "AB",
+        "wrapper": {
+          "minimal_median_ns": 2750776,
+          "detailed_median_ns": 2434253,
+          "ratio_of_process_medians_percent": -11.506680296759896,
+          "median_index_paired_difference_percent": -9.58046020468406,
+          "diagnostic_exceeds_10_percent": true,
+          "independent_process_pairs": 1,
+          "dependent_calls_per_process": 5,
+          "causal_effect_established": false
+        },
+        "api": {
+          "minimal_median_ns": 2746094,
+          "detailed_median_ns": 2296033,
+          "ratio_of_process_medians_percent": -16.38913307410452,
+          "median_index_paired_difference_percent": -12.408242398111645,
+          "diagnostic_exceeds_10_percent": true,
+          "independent_process_pairs": 1,
+          "dependent_calls_per_process": 5,
+          "causal_effect_established": false
+        }
+      },
+      {
+        "profile": "P1",
+        "operation": "tick",
+        "block": 2,
+        "journal_policy": "OFF",
+        "order": "BA",
+        "wrapper": {
+          "minimal_median_ns": 2294487,
+          "detailed_median_ns": 2753531,
+          "ratio_of_process_medians_percent": 20.00638922774458,
+          "median_index_paired_difference_percent": 11.234406645145516,
+          "diagnostic_exceeds_10_percent": true,
+          "independent_process_pairs": 1,
+          "dependent_calls_per_process": 5,
+          "causal_effect_established": false
+        },
+        "api": {
+          "minimal_median_ns": 2289658,
+          "detailed_median_ns": 2382013,
+          "ratio_of_process_medians_percent": 4.033571826010696,
+          "median_index_paired_difference_percent": -3.392559063405976,
+          "diagnostic_exceeds_10_percent": false,
+          "independent_process_pairs": 1,
+          "dependent_calls_per_process": 5,
+          "causal_effect_established": false
+        }
+      }
+    ],
+    "paired_process_blocks": 2,
+    "median_ratio_percent": 4.2498544654923425,
+    "range_ratio_percent": [
+      -11.506680296759896,
+      20.00638922774458
+    ],
+    "any_block_diagnostic_exceeds_10_percent": true,
+    "population_confidence_interval": null,
+    "order_effect_identified": false,
+    "api": {
+      "paired_process_blocks": 2,
+      "median_ratio_percent": -6.177780624046912,
+      "range_ratio_percent": [
+        -16.38913307410452,
+        4.033571826010696
+      ],
+      "any_block_diagnostic_exceeds_10_percent": true,
+      "population_confidence_interval": null,
+      "order_effect_identified": false
+    }
+  },
+  {
+    "profile": "P1",
+    "operation": "tick",
+    "journal_policy": "SYNC",
+    "blocks": [
+      {
+        "profile": "P1",
+        "operation": "tick",
+        "block": 1,
+        "journal_policy": "SYNC",
+        "order": "AB",
+        "wrapper": {
+          "minimal_median_ns": 2353454,
+          "detailed_median_ns": 2784425,
+          "ratio_of_process_medians_percent": 18.312276339371824,
+          "median_index_paired_difference_percent": 16.957204177349546,
+          "diagnostic_exceeds_10_percent": true,
+          "independent_process_pairs": 1,
+          "dependent_calls_per_process": 5,
+          "causal_effect_established": false
+        },
+        "api": {
+          "minimal_median_ns": 2348296,
+          "detailed_median_ns": 2619945,
+          "ratio_of_process_medians_percent": 11.567919887441791,
+          "median_index_paired_difference_percent": 13.883258328592307,
+          "diagnostic_exceeds_10_percent": true,
+          "independent_process_pairs": 1,
+          "dependent_calls_per_process": 5,
+          "causal_effect_established": false
+        }
+      },
+      {
+        "profile": "P1",
+        "operation": "tick",
+        "block": 2,
+        "journal_policy": "SYNC",
+        "order": "BA",
+        "wrapper": {
+          "minimal_median_ns": 2696864,
+          "detailed_median_ns": 2699223,
+          "ratio_of_process_medians_percent": 0.08747196744069985,
+          "median_index_paired_difference_percent": 3.737748733343617,
+          "diagnostic_exceeds_10_percent": false,
+          "independent_process_pairs": 1,
+          "dependent_calls_per_process": 5,
+          "causal_effect_established": false
+        },
+        "api": {
+          "minimal_median_ns": 2690954,
+          "detailed_median_ns": 2595020,
+          "ratio_of_process_medians_percent": -3.5650553669813734,
+          "median_index_paired_difference_percent": 1.693562952023706,
+          "diagnostic_exceeds_10_percent": false,
+          "independent_process_pairs": 1,
+          "dependent_calls_per_process": 5,
+          "causal_effect_established": false
+        }
+      }
+    ],
+    "paired_process_blocks": 2,
+    "median_ratio_percent": 9.199874153406261,
+    "range_ratio_percent": [
+      0.08747196744069985,
+      18.312276339371824
+    ],
+    "any_block_diagnostic_exceeds_10_percent": true,
+    "population_confidence_interval": null,
+    "order_effect_identified": false,
+    "api": {
+      "paired_process_blocks": 2,
+      "median_ratio_percent": 4.001432260230208,
+      "range_ratio_percent": [
+        -3.5650553669813734,
+        11.567919887441791
+      ],
+      "any_block_diagnostic_exceeds_10_percent": true,
+      "population_confidence_interval": null,
+      "order_effect_identified": false
+    }
+  },
+  {
+    "profile": "P3",
+    "operation": "observation",
+    "journal_policy": "OFF",
+    "blocks": [
+      {
+        "profile": "P3",
+        "operation": "observation",
+        "block": 1,
+        "journal_policy": "OFF",
+        "order": "AB",
+        "wrapper": {
+          "minimal_median_ns": 3177130,
+          "detailed_median_ns": 2117334,
+          "ratio_of_process_medians_percent": -33.35702347716335,
+          "median_index_paired_difference_percent": -33.35702347716335,
+          "diagnostic_exceeds_10_percent": true,
+          "independent_process_pairs": 1,
+          "dependent_calls_per_process": 5,
+          "causal_effect_established": false
+        },
+        "api": {
+          "minimal_median_ns": 3166728,
+          "detailed_median_ns": 1999576,
+          "ratio_of_process_medians_percent": -36.8567177225199,
+          "median_index_paired_difference_percent": -36.8567177225199,
+          "diagnostic_exceeds_10_percent": true,
+          "independent_process_pairs": 1,
+          "dependent_calls_per_process": 5,
+          "causal_effect_established": false
+        }
+      },
+      {
+        "profile": "P3",
+        "operation": "observation",
+        "block": 2,
+        "journal_policy": "OFF",
+        "order": "BA",
+        "wrapper": {
+          "minimal_median_ns": 1701783,
+          "detailed_median_ns": 2140968,
+          "ratio_of_process_medians_percent": 25.807344414652157,
+          "median_index_paired_difference_percent": 31.14774327866714,
+          "diagnostic_exceeds_10_percent": true,
+          "independent_process_pairs": 1,
+          "dependent_calls_per_process": 5,
+          "causal_effect_established": false
+        },
+        "api": {
+          "minimal_median_ns": 1692285,
+          "detailed_median_ns": 2044301,
+          "ratio_of_process_medians_percent": 20.801224380054183,
+          "median_index_paired_difference_percent": 26.861846556578826,
+          "diagnostic_exceeds_10_percent": true,
+          "independent_process_pairs": 1,
+          "dependent_calls_per_process": 5,
+          "causal_effect_established": false
+        }
+      }
+    ],
+    "paired_process_blocks": 2,
+    "median_ratio_percent": -3.774839531255598,
+    "range_ratio_percent": [
+      -33.35702347716335,
+      25.807344414652157
+    ],
+    "any_block_diagnostic_exceeds_10_percent": true,
+    "population_confidence_interval": null,
+    "order_effect_identified": false,
+    "api": {
+      "paired_process_blocks": 2,
+      "median_ratio_percent": -8.02774667123286,
+      "range_ratio_percent": [
+        -36.8567177225199,
+        20.801224380054183
+      ],
+      "any_block_diagnostic_exceeds_10_percent": true,
+      "population_confidence_interval": null,
+      "order_effect_identified": false
+    }
+  },
+  {
+    "profile": "P3",
+    "operation": "observation",
+    "journal_policy": "SYNC",
+    "blocks": [
+      {
+        "profile": "P3",
+        "operation": "observation",
+        "block": 1,
+        "journal_policy": "SYNC",
+        "order": "AB",
+        "wrapper": {
+          "minimal_median_ns": 1978280,
+          "detailed_median_ns": 2676024,
+          "ratio_of_process_medians_percent": 35.27023474937825,
+          "median_index_paired_difference_percent": 31.513435914026324,
+          "diagnostic_exceeds_10_percent": true,
+          "independent_process_pairs": 1,
+          "dependent_calls_per_process": 5,
+          "causal_effect_established": false
+        },
+        "api": {
+          "minimal_median_ns": 1968864,
+          "detailed_median_ns": 2576614,
+          "ratio_of_process_medians_percent": 30.868053862531887,
+          "median_index_paired_difference_percent": 27.132549531100167,
+          "diagnostic_exceeds_10_percent": true,
+          "independent_process_pairs": 1,
+          "dependent_calls_per_process": 5,
+          "causal_effect_established": false
+        }
+      },
+      {
+        "profile": "P3",
+        "operation": "observation",
+        "block": 2,
+        "journal_policy": "SYNC",
+        "order": "BA",
+        "wrapper": {
+          "minimal_median_ns": 2114254,
+          "detailed_median_ns": 2543310,
+          "ratio_of_process_medians_percent": 20.29349359159307,
+          "median_index_paired_difference_percent": 27.891350802694472,
+          "diagnostic_exceeds_10_percent": true,
+          "independent_process_pairs": 1,
+          "dependent_calls_per_process": 5,
+          "causal_effect_established": false
+        },
+        "api": {
+          "minimal_median_ns": 2104007,
+          "detailed_median_ns": 2458438,
+          "ratio_of_process_medians_percent": 16.845523802915107,
+          "median_index_paired_difference_percent": 24.481144787065823,
+          "diagnostic_exceeds_10_percent": true,
+          "independent_process_pairs": 1,
+          "dependent_calls_per_process": 5,
+          "causal_effect_established": false
+        }
+      }
+    ],
+    "paired_process_blocks": 2,
+    "median_ratio_percent": 27.781864170485658,
+    "range_ratio_percent": [
+      20.29349359159307,
+      35.27023474937825
+    ],
+    "any_block_diagnostic_exceeds_10_percent": true,
+    "population_confidence_interval": null,
+    "order_effect_identified": false,
+    "api": {
+      "paired_process_blocks": 2,
+      "median_ratio_percent": 23.856788832723495,
+      "range_ratio_percent": [
+        16.845523802915107,
+        30.868053862531887
+      ],
+      "any_block_diagnostic_exceeds_10_percent": true,
+      "population_confidence_interval": null,
+      "order_effect_identified": false
+    }
+  },
+  {
+    "profile": "P7",
+    "operation": "record_append",
+    "journal_policy": "OFF",
+    "blocks": [
+      {
+        "profile": "P7",
+        "operation": "record_append",
+        "block": 1,
+        "journal_policy": "OFF",
+        "order": "AB",
+        "wrapper": {
+          "minimal_median_ns": 14645999,
+          "detailed_median_ns": 15378385,
+          "ratio_of_process_medians_percent": 5.000587532472189,
+          "median_index_paired_difference_percent": 9.806234453518671,
+          "diagnostic_exceeds_10_percent": false,
+          "independent_process_pairs": 1,
+          "dependent_calls_per_process": 5,
+          "causal_effect_established": false
+        },
+        "api": {
+          "minimal_median_ns": 14635311,
+          "detailed_median_ns": 15249615,
+          "ratio_of_process_medians_percent": 4.197409949129205,
+          "median_index_paired_difference_percent": 8.04952487856254,
+          "diagnostic_exceeds_10_percent": false,
+          "independent_process_pairs": 1,
+          "dependent_calls_per_process": 5,
+          "causal_effect_established": false
+        }
+      },
+      {
+        "profile": "P7",
+        "operation": "record_append",
+        "block": 2,
+        "journal_policy": "OFF",
+        "order": "BA",
+        "wrapper": {
+          "minimal_median_ns": 14886235,
+          "detailed_median_ns": 13497652,
+          "ratio_of_process_medians_percent": -9.327966406549404,
+          "median_index_paired_difference_percent": -5.8880301164129145,
+          "diagnostic_exceeds_10_percent": false,
+          "independent_process_pairs": 1,
+          "dependent_calls_per_process": 5,
+          "causal_effect_established": false
+        },
+        "api": {
+          "minimal_median_ns": 14873474,
+          "detailed_median_ns": 13314085,
+          "ratio_of_process_medians_percent": -10.48436296725298,
+          "median_index_paired_difference_percent": -6.845576225164343,
+          "diagnostic_exceeds_10_percent": true,
+          "independent_process_pairs": 1,
+          "dependent_calls_per_process": 5,
+          "causal_effect_established": false
+        }
+      }
+    ],
+    "paired_process_blocks": 2,
+    "median_ratio_percent": -2.1636894370386073,
+    "range_ratio_percent": [
+      -9.327966406549404,
+      5.000587532472189
+    ],
+    "any_block_diagnostic_exceeds_10_percent": false,
+    "population_confidence_interval": null,
+    "order_effect_identified": false,
+    "api": {
+      "paired_process_blocks": 2,
+      "median_ratio_percent": -3.143476509061888,
+      "range_ratio_percent": [
+        -10.48436296725298,
+        4.197409949129205
+      ],
+      "any_block_diagnostic_exceeds_10_percent": true,
+      "population_confidence_interval": null,
+      "order_effect_identified": false
+    }
+  },
+  {
+    "profile": "P7",
+    "operation": "record_append",
+    "journal_policy": "SYNC",
+    "blocks": [
+      {
+        "profile": "P7",
+        "operation": "record_append",
+        "block": 1,
+        "journal_policy": "SYNC",
+        "order": "AB",
+        "wrapper": {
+          "minimal_median_ns": 14187633,
+          "detailed_median_ns": 15076047,
+          "ratio_of_process_medians_percent": 6.261890196905995,
+          "median_index_paired_difference_percent": 3.0194324874346554,
+          "diagnostic_exceeds_10_percent": false,
+          "independent_process_pairs": 1,
+          "dependent_calls_per_process": 5,
+          "causal_effect_established": false
+        },
+        "api": {
+          "minimal_median_ns": 14176201,
+          "detailed_median_ns": 14966591,
+          "ratio_of_process_medians_percent": 5.575471171719415,
+          "median_index_paired_difference_percent": 1.6299500832416245,
+          "diagnostic_exceeds_10_percent": false,
+          "independent_process_pairs": 1,
+          "dependent_calls_per_process": 5,
+          "causal_effect_established": false
+        }
+      },
+      {
+        "profile": "P7",
+        "operation": "record_append",
+        "block": 2,
+        "journal_policy": "SYNC",
+        "order": "BA",
+        "wrapper": {
+          "minimal_median_ns": 14983253,
+          "detailed_median_ns": 16387472,
+          "ratio_of_process_medians_percent": 9.371923440123453,
+          "median_index_paired_difference_percent": 5.105052954788923,
+          "diagnostic_exceeds_10_percent": false,
+          "independent_process_pairs": 1,
+          "dependent_calls_per_process": 5,
+          "causal_effect_established": false
+        },
+        "api": {
+          "minimal_median_ns": 14969758,
+          "detailed_median_ns": 16285828,
+          "ratio_of_process_medians_percent": 8.791524886374248,
+          "median_index_paired_difference_percent": 4.367124705689965,
+          "diagnostic_exceeds_10_percent": false,
+          "independent_process_pairs": 1,
+          "dependent_calls_per_process": 5,
+          "causal_effect_established": false
+        }
+      }
+    ],
+    "paired_process_blocks": 2,
+    "median_ratio_percent": 7.816906818514724,
+    "range_ratio_percent": [
+      6.261890196905995,
+      9.371923440123453
+    ],
+    "any_block_diagnostic_exceeds_10_percent": false,
+    "population_confidence_interval": null,
+    "order_effect_identified": false,
+    "api": {
+      "paired_process_blocks": 2,
+      "median_ratio_percent": 7.183498029046831,
+      "range_ratio_percent": [
+        5.575471171719415,
+        8.791524886374248
+      ],
+      "any_block_diagnostic_exceeds_10_percent": false,
+      "population_confidence_interval": null,
+      "order_effect_identified": false
+    }
+  }
+]

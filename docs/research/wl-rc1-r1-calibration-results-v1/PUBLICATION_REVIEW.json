@@ -1,0 +1,27 @@
+{
+  "format": "R1-CALIBRATION-PUBLICATION-REVIEW-1",
+  "checked_at": "2026-11-18T19:42:46.070874-05:00",
+  "publication_base": "c988c2bfb00bb0311ba36a9547cf14ea1dbd7e5e",
+  "unchanged_base_files": 546,
+  "different_base_files": [],
+  "source_and_restored_files_unchanged": 50,
+  "source_restore_export_verifications_identical": true,
+  "local_markdown_links": "PASS",
+  "analysis_syntax": "PASS",
+  "private_key_or_token_pattern_found": false,
+  "reexecutions": 0,
+  "no_external_receipt_claimed": true,
+  "no_global_conformity_claimed": true,
+  "deep_structural_verification": {
+    "PASS": true,
+    "fresh_decoded_samples": 216,
+    "groups": 6,
+    "full_structural_within_worker_comparisons": 192,
+    "full_structural_cross_treatment_comparisons": 162,
+    "explicit_WLS1_byte_array_comparisons": 1416,
+    "mismatches": 0,
+    "shared_object_identity_shortcuts": false,
+    "archive_deduplication": "6 payload files; every record dereferenced and freshly decoded; no independent external implementation claimed",
+    "new_WORLD_or_replay_calls": 0
+  }
+}

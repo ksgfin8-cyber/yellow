@@ -1,0 +1,35 @@
+{
+  "original_and_restored_analysis_byte_identical": true,
+  "files": [
+    {
+      "file": "balanced-journal.json",
+      "sha256": "13543a0c1725d64a49a7d557a10d644388ea2e5b20b26be9c4646e68f11eded3"
+    },
+    {
+      "file": "balanced-modality.json",
+      "sha256": "0b2135b594cf91d9faebb9ee7ceb558f998fb0e7528562f4a26d567822ee699f"
+    },
+    {
+      "file": "journal-perturbation.json",
+      "sha256": "73346fe98334b88d30509da171b8b18ec112c9ec48ccd4cab52ca310c6de6c1b"
+    },
+    {
+      "file": "modality.json",
+      "sha256": "b16dbd5ff61aeb4610f3d6c34f8694abf6ce121881e90158a4480e962cbf6ed3"
+    },
+    {
+      "file": "processes.json",
+      "sha256": "bf74f2214589e5157f0aba7211ae26cb8719d1509fee7376acf3006a7e670db9"
+    },
+    {
+      "file": "samples.json",
+      "sha256": "be38fbac78a0b720844ebde38773526e09c71eede90199272c46a5759abf903a"
+    },
+    {
+      "file": "summary.json",
+      "sha256": "1fe7e4a29e5969e08140e4d21aedbc0bb8f776c5adda24997cec3d970d70b0ea"
+    }
+  ],
+  "source_and_restore_still_unchanged": true,
+  "new_world_or_replay_invocations": 0
+}

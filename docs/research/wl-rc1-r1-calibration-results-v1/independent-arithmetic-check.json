@@ -1,0 +1,11 @@
+{
+  "implementation": "Python standard library, independent from frozen JS estimator implementation; same preregistered formulas, same archived data",
+  "workers_checked": 24,
+  "sample_rows_checked": 216,
+  "full_time_balances_checked": 24,
+  "modality_pairs_checked": 12,
+  "journal_pairs_checked": 12,
+  "all_computations_match": true,
+  "new_WORLD_or_replay_calls": 0,
+  "external_interoperability_established": false
+}
