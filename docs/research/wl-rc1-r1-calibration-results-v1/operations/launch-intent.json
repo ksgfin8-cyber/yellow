@@ -1,0 +1,19 @@
+{
+  "campaign": "WL-RC1-R1-CALIBRATION-1",
+  "issued_at": "2026-11-18T19:32:55.354403-05:00",
+  "command": [
+    "node",
+    "--max-old-space-size=512",
+    "tools/research/wl-rc1-r1-calibration/cli.cjs",
+    "run-calibration",
+    "/workspace/yellow/docs/research/wl-rc1-r1-calibration/CANDIDATE.json",
+    "/workspace/shared/world-lab/wl-rc1/authorization-r1-cal-public-zjwza7y2/authorization.json",
+    "/workspace/shared/world-lab/wl-rc1/authorization-r1-cal-public-zjwza7y2/authorization.sig",
+    "/workspace/shared/world-lab/wl-rc1/authorization-r1-cal-public-zjwza7y2/public.pem",
+    "6763348852b6b4a133a3e6326e8e774d25b6244703457282035d41601b66fa90",
+    "3e65dff25d532c34504a2ddd317f85d8f66b0ba066277ffe634463380f521b5e"
+  ],
+  "run_invocations": 1,
+  "retries_authorized": false,
+  "checkout": "b3c060ee3e404eb7c560a629e91505c1f831b8bb"
+}

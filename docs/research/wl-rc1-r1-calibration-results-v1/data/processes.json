@@ -1,0 +1,7526 @@
+[
+  {
+    "index": 0,
+    "condition": {
+      "profile": {
+        "id": "P1",
+        "width": 8,
+        "height": 8,
+        "radius": 1,
+        "ticks": 4
+      },
+      "operation": "tick",
+      "block": 1,
+      "seed": 22001,
+      "mode": "MINIMAL",
+      "journal_policy": "OFF",
+      "warmup": 3,
+      "samples": 5
+    },
+    "status": "COMPLETE",
+    "wall_ns": "1773155868",
+    "samples": 9,
+    "warm_api_ns": [
+      2522850,
+      3428343,
+      2725019,
+      2746094,
+      4645721
+    ],
+    "warm_wrapper_ns": [
+      2527455,
+      3433562,
+      2729875,
+      2750776,
+      4657533
+    ],
+    "latency": {
+      "FIRST_MEASURED": {
+        "api_ns": {
+          "n": 1,
+          "min": 6806708,
+          "median": 6806708,
+          "max": 6806708
+        },
+        "wrapper_ns": {
+          "n": 1,
+          "min": 6820946,
+          "median": 6820946,
+          "max": 6820946
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 1,
+            "min": 7766769,
+            "median": 7766769,
+            "max": 7766769
+          },
+          "INPUT_WITNESS": {
+            "n": 1,
+            "min": 3094577,
+            "median": 3094577,
+            "max": 3094577
+          },
+          "EXECUTE": {
+            "n": 1,
+            "min": 6908524,
+            "median": 6908524,
+            "max": 6908524
+          },
+          "OUTPUT_WITNESS": {
+            "n": 1,
+            "min": 1580123,
+            "median": 1580123,
+            "max": 1580123
+          },
+          "ENCODE": {
+            "n": 1,
+            "min": 888228,
+            "median": 888228,
+            "max": 888228
+          },
+          "SERIALIZE": {
+            "n": 1,
+            "min": 76647,
+            "median": 76647,
+            "max": 76647
+          },
+          "HASH": {
+            "n": 1,
+            "min": 54310,
+            "median": 54310,
+            "max": 54310
+          },
+          "COMPRESS": {
+            "n": 1,
+            "min": 948951,
+            "median": 948951,
+            "max": 948951
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 1,
+          "min": 271319,
+          "median": 271319,
+          "max": 271319
+        }
+      },
+      "WARMUP": {
+        "api_ns": {
+          "n": 3,
+          "min": 2524842,
+          "median": 3276697,
+          "max": 3473375
+        },
+        "wrapper_ns": {
+          "n": 3,
+          "min": 2529348,
+          "median": 3281941,
+          "max": 3478324
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 3,
+            "min": 2916778,
+            "median": 3339750,
+            "max": 4005151
+          },
+          "INPUT_WITNESS": {
+            "n": 3,
+            "min": 563517,
+            "median": 646854,
+            "max": 931429
+          },
+          "EXECUTE": {
+            "n": 3,
+            "min": 2533817,
+            "median": 3287047,
+            "max": 3482458
+          },
+          "OUTPUT_WITNESS": {
+            "n": 3,
+            "min": 591963,
+            "median": 728786,
+            "max": 1204931
+          },
+          "ENCODE": {
+            "n": 3,
+            "min": 165961,
+            "median": 192537,
+            "max": 456324
+          },
+          "SERIALIZE": {
+            "n": 3,
+            "min": 35702,
+            "median": 37498,
+            "max": 46284
+          },
+          "HASH": {
+            "n": 3,
+            "min": 28086,
+            "median": 29185,
+            "max": 78516
+          },
+          "COMPRESS": {
+            "n": 3,
+            "min": 245,
+            "median": 276,
+            "max": 334
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 3,
+          "min": 102321,
+          "median": 113937,
+          "max": 134657
+        }
+      },
+      "WARM": {
+        "api_ns": {
+          "n": 5,
+          "min": 2522850,
+          "median": 2746094,
+          "max": 4645721
+        },
+        "wrapper_ns": {
+          "n": 5,
+          "min": 2527455,
+          "median": 2750776,
+          "max": 4657533
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 5,
+            "min": 2268082,
+            "median": 2849011,
+            "max": 4508719
+          },
+          "INPUT_WITNESS": {
+            "n": 5,
+            "min": 534482,
+            "median": 588012,
+            "max": 1187670
+          },
+          "EXECUTE": {
+            "n": 5,
+            "min": 2531465,
+            "median": 2755339,
+            "max": 4667675
+          },
+          "OUTPUT_WITNESS": {
+            "n": 5,
+            "min": 547245,
+            "median": 694030,
+            "max": 1166307
+          },
+          "ENCODE": {
+            "n": 5,
+            "min": 103646,
+            "median": 170248,
+            "max": 515871
+          },
+          "SERIALIZE": {
+            "n": 5,
+            "min": 35632,
+            "median": 38596,
+            "max": 151460
+          },
+          "HASH": {
+            "n": 5,
+            "min": 26757,
+            "median": 32039,
+            "max": 60687
+          },
+          "COMPRESS": {
+            "n": 5,
+            "min": 220,
+            "median": 340,
+            "max": 519
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 5,
+          "min": 79544,
+          "median": 106290,
+          "max": 184174
+        }
+      }
+    },
+    "time_balance": {
+      "ns": {
+        "preparation": "33065135",
+        "api": "32149649",
+        "execution_envelope": "190337",
+        "witnesses": "21505349",
+        "ipc": "1277785",
+        "process": "1604102480",
+        "journal_io": "0",
+        "residual_unattributed": "80865133"
+      },
+      "proportions": {
+        "preparation": 0.01864761896950167,
+        "api": 0.01813131579699343,
+        "execution_envelope": 0.00010734363709079184,
+        "witnesses": 0.012128290235565461,
+        "ipc": 0.0007206275675252708,
+        "process": 0.9046596009685934,
+        "journal_io": 0,
+        "residual_unattributed": 0.0456052028247299
+      },
+      "inconsistent_negative_residual": false,
+      "causal_decomposition": false
+    },
+    "process_work_ns": {
+      "IDENTITY": "706396673",
+      "LOAD": "8852731",
+      "CALIBRATION": "401005",
+      "HEADER_SEND": "621619176",
+      "CALIBRATION_SEND": "97849",
+      "FINAL_IDENTITY": "266735046"
+    },
+    "journal": {
+      "bytes": 0,
+      "events": 0,
+      "io_ns": "0",
+      "checkpoint_persistence": "OFF"
+    },
+    "cpu_us": {
+      "user": 387993,
+      "system": 644238
+    },
+    "resources": {
+      "userCPUTime": 617842,
+      "systemCPUTime": 1225789,
+      "maxRSS": 303044,
+      "sharedMemorySize": 0,
+      "unsharedDataSize": 0,
+      "unsharedStackSize": 0,
+      "minorPageFault": 111339,
+      "majorPageFault": 0,
+      "swappedOut": 0,
+      "fsRead": 0,
+      "fsWrite": 0,
+      "ipcSent": 0,
+      "ipcReceived": 0,
+      "signalsCount": 0,
+      "voluntaryContextSwitches": 567,
+      "involuntaryContextSwitches": 36
+    },
+    "clock_median_ns": 97,
+    "resolution_flags": 0,
+    "diagnostic_omitted_bytes": {
+      "stdout": 0,
+      "stderr": 0
+    }
+  },
+  {
+    "index": 1,
+    "condition": {
+      "profile": {
+        "id": "P1",
+        "width": 8,
+        "height": 8,
+        "radius": 1,
+        "ticks": 4
+      },
+      "operation": "tick",
+      "block": 1,
+      "seed": 22001,
+      "mode": "MINIMAL",
+      "journal_policy": "SYNC",
+      "warmup": 3,
+      "samples": 5
+    },
+    "status": "COMPLETE",
+    "wall_ns": "1248670084",
+    "samples": 9,
+    "warm_api_ns": [
+      2259129,
+      2669009,
+      2501741,
+      2348296,
+      2293925
+    ],
+    "warm_wrapper_ns": [
+      2294744,
+      2674310,
+      2506886,
+      2353454,
+      2299331
+    ],
+    "latency": {
+      "FIRST_MEASURED": {
+        "api_ns": {
+          "n": 1,
+          "min": 7984217,
+          "median": 7984217,
+          "max": 7984217
+        },
+        "wrapper_ns": {
+          "n": 1,
+          "min": 7995717,
+          "median": 7995717,
+          "max": 7995717
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 1,
+            "min": 6149965,
+            "median": 6149965,
+            "max": 6149965
+          },
+          "INPUT_WITNESS": {
+            "n": 1,
+            "min": 1921615,
+            "median": 1921615,
+            "max": 1921615
+          },
+          "EXECUTE": {
+            "n": 1,
+            "min": 8082432,
+            "median": 8082432,
+            "max": 8082432
+          },
+          "OUTPUT_WITNESS": {
+            "n": 1,
+            "min": 1792143,
+            "median": 1792143,
+            "max": 1792143
+          },
+          "ENCODE": {
+            "n": 1,
+            "min": 862961,
+            "median": 862961,
+            "max": 862961
+          },
+          "SERIALIZE": {
+            "n": 1,
+            "min": 98145,
+            "median": 98145,
+            "max": 98145
+          },
+          "HASH": {
+            "n": 1,
+            "min": 69208,
+            "median": 69208,
+            "max": 69208
+          },
+          "COMPRESS": {
+            "n": 1,
+            "min": 960552,
+            "median": 960552,
+            "max": 960552
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 1,
+          "min": 200188,
+          "median": 200188,
+          "max": 200188
+        }
+      },
+      "WARMUP": {
+        "api_ns": {
+          "n": 3,
+          "min": 2904396,
+          "median": 4542556,
+          "max": 18476975
+        },
+        "wrapper_ns": {
+          "n": 3,
+          "min": 2910270,
+          "median": 4547629,
+          "max": 18482455
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 3,
+            "min": 2504971,
+            "median": 2875308,
+            "max": 3026497
+          },
+          "INPUT_WITNESS": {
+            "n": 3,
+            "min": 575911,
+            "median": 838991,
+            "max": 932291
+          },
+          "EXECUTE": {
+            "n": 3,
+            "min": 2917386,
+            "median": 4553220,
+            "max": 18490194
+          },
+          "OUTPUT_WITNESS": {
+            "n": 3,
+            "min": 705348,
+            "median": 1172629,
+            "max": 2048213
+          },
+          "ENCODE": {
+            "n": 3,
+            "min": 234811,
+            "median": 236585,
+            "max": 352802
+          },
+          "SERIALIZE": {
+            "n": 3,
+            "min": 45474,
+            "median": 54217,
+            "max": 82047
+          },
+          "HASH": {
+            "n": 3,
+            "min": 31946,
+            "median": 34220,
+            "max": 35034
+          },
+          "COMPRESS": {
+            "n": 3,
+            "min": 637,
+            "median": 697,
+            "max": 1653
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 3,
+          "min": 109148,
+          "median": 115547,
+          "max": 140388
+        }
+      },
+      "WARM": {
+        "api_ns": {
+          "n": 5,
+          "min": 2259129,
+          "median": 2348296,
+          "max": 2669009
+        },
+        "wrapper_ns": {
+          "n": 5,
+          "min": 2294744,
+          "median": 2353454,
+          "max": 2674310
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 5,
+            "min": 1962220,
+            "median": 2558546,
+            "max": 6135316
+          },
+          "INPUT_WITNESS": {
+            "n": 5,
+            "min": 549200,
+            "median": 603529,
+            "max": 1027441
+          },
+          "EXECUTE": {
+            "n": 5,
+            "min": 2302341,
+            "median": 2361465,
+            "max": 2682423
+          },
+          "OUTPUT_WITNESS": {
+            "n": 5,
+            "min": 610396,
+            "median": 711643,
+            "max": 829419
+          },
+          "ENCODE": {
+            "n": 5,
+            "min": 171865,
+            "median": 343091,
+            "max": 606362
+          },
+          "SERIALIZE": {
+            "n": 5,
+            "min": 47825,
+            "median": 50364,
+            "max": 54596
+          },
+          "HASH": {
+            "n": 5,
+            "min": 31638,
+            "median": 91995,
+            "max": 152152
+          },
+          "COMPRESS": {
+            "n": 5,
+            "min": 622,
+            "median": 763,
+            "max": 3076
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 5,
+          "min": 75913,
+          "median": 97489,
+          "max": 126311
+        }
+      }
+    },
+    "time_balance": {
+      "ns": {
+        "preparation": "30508004",
+        "api": "45980244",
+        "execution_envelope": "231856",
+        "witnesses": "22429744",
+        "ipc": "1059282",
+        "process": "955369510",
+        "journal_io": "114493265",
+        "residual_unattributed": "78598179"
+      },
+      "proportions": {
+        "preparation": 0.02443239762922037,
+        "api": 0.036823372794122296,
+        "execution_envelope": 0.00018568235354631912,
+        "witnesses": 0.017962906525435744,
+        "ipc": 0.0008483281641590125,
+        "process": 0.7651096332343941,
+        "journal_io": 0.09169216630323307,
+        "residual_unattributed": 0.06294551299588916
+      },
+      "inconsistent_negative_residual": false,
+      "causal_decomposition": false
+    },
+    "process_work_ns": {
+      "IDENTITY": "257908634",
+      "LOAD": "9286173",
+      "CALIBRATION": "742842",
+      "HEADER_SEND": "199920314",
+      "CALIBRATION_SEND": "185823",
+      "FINAL_IDENTITY": "487325724"
+    },
+    "journal": {
+      "bytes": 26171,
+      "io_ns": "114493265",
+      "events": 174
+    },
+    "cpu_us": {
+      "user": 472035,
+      "system": 421653
+    },
+    "resources": {
+      "userCPUTime": 737722,
+      "systemCPUTime": 523979,
+      "maxRSS": 303284,
+      "sharedMemorySize": 0,
+      "unsharedDataSize": 0,
+      "unsharedStackSize": 0,
+      "minorPageFault": 110973,
+      "majorPageFault": 0,
+      "swappedOut": 0,
+      "fsRead": 0,
+      "fsWrite": 1440,
+      "ipcSent": 0,
+      "ipcReceived": 0,
+      "signalsCount": 0,
+      "voluntaryContextSwitches": 965,
+      "involuntaryContextSwitches": 20
+    },
+    "clock_median_ns": 111,
+    "resolution_flags": 0,
+    "diagnostic_omitted_bytes": {
+      "stdout": 0,
+      "stderr": 0
+    }
+  },
+  {
+    "index": 2,
+    "condition": {
+      "profile": {
+        "id": "P1",
+        "width": 8,
+        "height": 8,
+        "radius": 1,
+        "ticks": 4
+      },
+      "operation": "tick",
+      "block": 1,
+      "seed": 22001,
+      "mode": "DETAILED",
+      "journal_policy": "OFF",
+      "warmup": 3,
+      "samples": 5
+    },
+    "status": "COMPLETE",
+    "wall_ns": "872619100",
+    "samples": 9,
+    "warm_api_ns": [
+      2296033,
+      3509252,
+      2384277,
+      2264142,
+      2070591
+    ],
+    "warm_wrapper_ns": [
+      2434253,
+      3589443,
+      2466338,
+      2329185,
+      2132838
+    ],
+    "latency": {
+      "FIRST_MEASURED": {
+        "api_ns": {
+          "n": 1,
+          "min": 5573926,
+          "median": 5573926,
+          "max": 5573926
+        },
+        "wrapper_ns": {
+          "n": 1,
+          "min": 5831864,
+          "median": 5831864,
+          "max": 5831864
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 1,
+            "min": 5857225,
+            "median": 5857225,
+            "max": 5857225
+          },
+          "INPUT_WITNESS": {
+            "n": 1,
+            "min": 1514180,
+            "median": 1514180,
+            "max": 1514180
+          },
+          "EXECUTE": {
+            "n": 1,
+            "min": 5898768,
+            "median": 5898768,
+            "max": 5898768
+          },
+          "OUTPUT_WITNESS": {
+            "n": 1,
+            "min": 1594180,
+            "median": 1594180,
+            "max": 1594180
+          },
+          "ENCODE": {
+            "n": 1,
+            "min": 802177,
+            "median": 802177,
+            "max": 802177
+          },
+          "SERIALIZE": {
+            "n": 1,
+            "min": 61457,
+            "median": 61457,
+            "max": 61457
+          },
+          "HASH": {
+            "n": 1,
+            "min": 46769,
+            "median": 46769,
+            "max": 46769
+          },
+          "COMPRESS": {
+            "n": 1,
+            "min": 866555,
+            "median": 866555,
+            "max": 866555
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 1,
+          "min": 238602,
+          "median": 238602,
+          "max": 238602
+        }
+      },
+      "WARMUP": {
+        "api_ns": {
+          "n": 3,
+          "min": 2475103,
+          "median": 2841987,
+          "max": 4146978
+        },
+        "wrapper_ns": {
+          "n": 3,
+          "min": 2555655,
+          "median": 2925806,
+          "max": 4234299
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 3,
+            "min": 2283500,
+            "median": 2706148,
+            "max": 3205647
+          },
+          "INPUT_WITNESS": {
+            "n": 3,
+            "min": 785544,
+            "median": 897306,
+            "max": 1516012
+          },
+          "EXECUTE": {
+            "n": 3,
+            "min": 2560737,
+            "median": 3068479,
+            "max": 4240064
+          },
+          "OUTPUT_WITNESS": {
+            "n": 3,
+            "min": 617459,
+            "median": 773079,
+            "max": 1215682
+          },
+          "ENCODE": {
+            "n": 3,
+            "min": 152015,
+            "median": 214323,
+            "max": 227529
+          },
+          "SERIALIZE": {
+            "n": 3,
+            "min": 34646,
+            "median": 37250,
+            "max": 54659
+          },
+          "HASH": {
+            "n": 3,
+            "min": 25359,
+            "median": 26533,
+            "max": 27441
+          },
+          "COMPRESS": {
+            "n": 3,
+            "min": 256,
+            "median": 260,
+            "max": 315
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 3,
+          "min": 101122,
+          "median": 104806,
+          "max": 116144
+        }
+      },
+      "WARM": {
+        "api_ns": {
+          "n": 5,
+          "min": 2070591,
+          "median": 2296033,
+          "max": 3509252
+        },
+        "wrapper_ns": {
+          "n": 5,
+          "min": 2132838,
+          "median": 2434253,
+          "max": 3589443
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 5,
+            "min": 2236208,
+            "median": 2495171,
+            "max": 2821702
+          },
+          "INPUT_WITNESS": {
+            "n": 5,
+            "min": 514673,
+            "median": 619078,
+            "max": 1430785
+          },
+          "EXECUTE": {
+            "n": 5,
+            "min": 2139587,
+            "median": 2438018,
+            "max": 3593942
+          },
+          "OUTPUT_WITNESS": {
+            "n": 5,
+            "min": 539475,
+            "median": 771090,
+            "max": 1132206
+          },
+          "ENCODE": {
+            "n": 5,
+            "min": 136927,
+            "median": 220703,
+            "max": 401112
+          },
+          "SERIALIZE": {
+            "n": 5,
+            "min": 35577,
+            "median": 36607,
+            "max": 40838
+          },
+          "HASH": {
+            "n": 5,
+            "min": 24043,
+            "median": 28497,
+            "max": 59466
+          },
+          "COMPRESS": {
+            "n": 5,
+            "min": 293,
+            "median": 313,
+            "max": 473
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 5,
+          "min": 74092,
+          "median": 114755,
+          "max": 138464
+        }
+      }
+    },
+    "time_balance": {
+      "ns": {
+        "preparation": "26487321",
+        "api": "27562289",
+        "execution_envelope": "1184301",
+        "witnesses": "21605212",
+        "ipc": "1101506",
+        "process": "718686857",
+        "journal_io": "0",
+        "residual_unattributed": "75991614"
+      },
+      "proportions": {
+        "preparation": 0.030353817604955015,
+        "api": 0.03158570446143111,
+        "execution_envelope": 0.0013571797821065343,
+        "witnesses": 0.024759040914873395,
+        "ipc": 0.00126229875096706,
+        "process": 0.8235974401660473,
+        "journal_io": 0,
+        "residual_unattributed": 0.08708451831961964
+      },
+      "inconsistent_negative_residual": false,
+      "causal_decomposition": false
+    },
+    "process_work_ns": {
+      "IDENTITY": "279264573",
+      "LOAD": "10187009",
+      "CALIBRATION": "446806",
+      "HEADER_SEND": "187647582",
+      "CALIBRATION_SEND": "78426",
+      "FINAL_IDENTITY": "241062461"
+    },
+    "journal": {
+      "bytes": 0,
+      "events": 0,
+      "io_ns": "0",
+      "checkpoint_persistence": "OFF"
+    },
+    "cpu_us": {
+      "user": 390001,
+      "system": 172470
+    },
+    "resources": {
+      "userCPUTime": 692206,
+      "systemCPUTime": 258651,
+      "maxRSS": 302928,
+      "sharedMemorySize": 0,
+      "unsharedDataSize": 0,
+      "unsharedStackSize": 0,
+      "minorPageFault": 110471,
+      "majorPageFault": 0,
+      "swappedOut": 0,
+      "fsRead": 0,
+      "fsWrite": 0,
+      "ipcSent": 0,
+      "ipcReceived": 0,
+      "signalsCount": 0,
+      "voluntaryContextSwitches": 418,
+      "involuntaryContextSwitches": 20
+    },
+    "clock_median_ns": 98,
+    "resolution_flags": 0,
+    "diagnostic_omitted_bytes": {
+      "stdout": 0,
+      "stderr": 0
+    }
+  },
+  {
+    "index": 3,
+    "condition": {
+      "profile": {
+        "id": "P1",
+        "width": 8,
+        "height": 8,
+        "radius": 1,
+        "ticks": 4
+      },
+      "operation": "tick",
+      "block": 1,
+      "seed": 22001,
+      "mode": "DETAILED",
+      "journal_policy": "SYNC",
+      "warmup": 3,
+      "samples": 5
+    },
+    "status": "COMPLETE",
+    "wall_ns": "1019644573",
+    "samples": 9,
+    "warm_api_ns": [
+      2468269,
+      3427749,
+      2836681,
+      2238374,
+      2619945
+    ],
+    "warm_wrapper_ns": [
+      2612591,
+      3516362,
+      2905966,
+      2303441,
+      2784425
+    ],
+    "latency": {
+      "FIRST_MEASURED": {
+        "api_ns": {
+          "n": 1,
+          "min": 4901781,
+          "median": 4901781,
+          "max": 4901781
+        },
+        "wrapper_ns": {
+          "n": 1,
+          "min": 5035329,
+          "median": 5035329,
+          "max": 5035329
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 1,
+            "min": 6715441,
+            "median": 6715441,
+            "max": 6715441
+          },
+          "INPUT_WITNESS": {
+            "n": 1,
+            "min": 1721153,
+            "median": 1721153,
+            "max": 1721153
+          },
+          "EXECUTE": {
+            "n": 1,
+            "min": 5182500,
+            "median": 5182500,
+            "max": 5182500
+          },
+          "OUTPUT_WITNESS": {
+            "n": 1,
+            "min": 1555080,
+            "median": 1555080,
+            "max": 1555080
+          },
+          "ENCODE": {
+            "n": 1,
+            "min": 1028323,
+            "median": 1028323,
+            "max": 1028323
+          },
+          "SERIALIZE": {
+            "n": 1,
+            "min": 105612,
+            "median": 105612,
+            "max": 105612
+          },
+          "HASH": {
+            "n": 1,
+            "min": 80001,
+            "median": 80001,
+            "max": 80001
+          },
+          "COMPRESS": {
+            "n": 1,
+            "min": 1641953,
+            "median": 1641953,
+            "max": 1641953
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 1,
+          "min": 198330,
+          "median": 198330,
+          "max": 198330
+        }
+      },
+      "WARMUP": {
+        "api_ns": {
+          "n": 3,
+          "min": 2554373,
+          "median": 3400493,
+          "max": 3512574
+        },
+        "wrapper_ns": {
+          "n": 3,
+          "min": 2639668,
+          "median": 3487776,
+          "max": 3599061
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 3,
+            "min": 2342383,
+            "median": 2586326,
+            "max": 3690558
+          },
+          "INPUT_WITNESS": {
+            "n": 3,
+            "min": 702675,
+            "median": 707734,
+            "max": 883306
+          },
+          "EXECUTE": {
+            "n": 3,
+            "min": 2647136,
+            "median": 3495418,
+            "max": 3605348
+          },
+          "OUTPUT_WITNESS": {
+            "n": 3,
+            "min": 680870,
+            "median": 708047,
+            "max": 1084957
+          },
+          "ENCODE": {
+            "n": 3,
+            "min": 225827,
+            "median": 226290,
+            "max": 241785
+          },
+          "SERIALIZE": {
+            "n": 3,
+            "min": 52431,
+            "median": 53415,
+            "max": 196538
+          },
+          "HASH": {
+            "n": 3,
+            "min": 30400,
+            "median": 31364,
+            "max": 35024
+          },
+          "COMPRESS": {
+            "n": 3,
+            "min": 835,
+            "median": 845,
+            "max": 974
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 3,
+          "min": 110941,
+          "median": 112742,
+          "max": 126789
+        }
+      },
+      "WARM": {
+        "api_ns": {
+          "n": 5,
+          "min": 2238374,
+          "median": 2619945,
+          "max": 3427749
+        },
+        "wrapper_ns": {
+          "n": 5,
+          "min": 2303441,
+          "median": 2784425,
+          "max": 3516362
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 5,
+            "min": 1890154,
+            "median": 2209397,
+            "max": 2926638
+          },
+          "INPUT_WITNESS": {
+            "n": 5,
+            "min": 551406,
+            "median": 657208,
+            "max": 1350917
+          },
+          "EXECUTE": {
+            "n": 5,
+            "min": 2381535,
+            "median": 2796948,
+            "max": 3525659
+          },
+          "OUTPUT_WITNESS": {
+            "n": 5,
+            "min": 610460,
+            "median": 751272,
+            "max": 946907
+          },
+          "ENCODE": {
+            "n": 5,
+            "min": 136296,
+            "median": 208455,
+            "max": 931985
+          },
+          "SERIALIZE": {
+            "n": 5,
+            "min": 43130,
+            "median": 47082,
+            "max": 50679
+          },
+          "HASH": {
+            "n": 5,
+            "min": 29896,
+            "median": 30969,
+            "max": 41208
+          },
+          "COMPRESS": {
+            "n": 5,
+            "min": 683,
+            "median": 1062,
+            "max": 6657
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 5,
+          "min": 75432,
+          "median": 93214,
+          "max": 110693
+        }
+      }
+    },
+    "time_balance": {
+      "ns": {
+        "preparation": "27291580",
+        "api": "27960239",
+        "execution_envelope": "1207913",
+        "witnesses": "22111913",
+        "ipc": "1021597",
+        "process": "735312098",
+        "journal_io": "123616319",
+        "residual_unattributed": "81122914"
+      },
+      "proportions": {
+        "preparation": 0.0267657777255683,
+        "api": 0.027421554275266075,
+        "execution_envelope": 0.001184641228900063,
+        "witnesses": 0.021685902701313157,
+        "ipc": 0.0010019148113486797,
+        "process": 0.7211455025318906,
+        "journal_io": 0.12123471479507399,
+        "residual_unattributed": 0.07955999193063915
+      },
+      "inconsistent_negative_residual": false,
+      "causal_decomposition": false
+    },
+    "process_work_ns": {
+      "IDENTITY": "269918811",
+      "LOAD": "8550843",
+      "CALIBRATION": "547807",
+      "HEADER_SEND": "189827803",
+      "CALIBRATION_SEND": "178583",
+      "FINAL_IDENTITY": "266288251"
+    },
+    "journal": {
+      "bytes": 26170,
+      "io_ns": "123616319",
+      "events": 174
+    },
+    "cpu_us": {
+      "user": 417429,
+      "system": 217895
+    },
+    "resources": {
+      "userCPUTime": 683598,
+      "systemCPUTime": 332693,
+      "maxRSS": 302876,
+      "sharedMemorySize": 0,
+      "unsharedDataSize": 0,
+      "unsharedStackSize": 0,
+      "minorPageFault": 111334,
+      "majorPageFault": 0,
+      "swappedOut": 0,
+      "fsRead": 0,
+      "fsWrite": 1440,
+      "ipcSent": 0,
+      "ipcReceived": 0,
+      "signalsCount": 0,
+      "voluntaryContextSwitches": 935,
+      "involuntaryContextSwitches": 12
+    },
+    "clock_median_ns": 119,
+    "resolution_flags": 0,
+    "diagnostic_omitted_bytes": {
+      "stdout": 0,
+      "stderr": 0
+    }
+  },
+  {
+    "index": 4,
+    "condition": {
+      "profile": {
+        "id": "P1",
+        "width": 8,
+        "height": 8,
+        "radius": 1,
+        "ticks": 4
+      },
+      "operation": "tick",
+      "block": 2,
+      "seed": 22002,
+      "mode": "DETAILED",
+      "journal_policy": "SYNC",
+      "warmup": 3,
+      "samples": 5
+    },
+    "status": "COMPLETE",
+    "wall_ns": "1164047132",
+    "samples": 9,
+    "warm_api_ns": [
+      3083482,
+      2595020,
+      4196935,
+      1989222,
+      2181505
+    ],
+    "warm_wrapper_ns": [
+      3212779,
+      2699223,
+      4269483,
+      2045473,
+      2242720
+    ],
+    "latency": {
+      "FIRST_MEASURED": {
+        "api_ns": {
+          "n": 1,
+          "min": 4908606,
+          "median": 4908606,
+          "max": 4908606
+        },
+        "wrapper_ns": {
+          "n": 1,
+          "min": 5043642,
+          "median": 5043642,
+          "max": 5043642
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 1,
+            "min": 7752048,
+            "median": 7752048,
+            "max": 7752048
+          },
+          "INPUT_WITNESS": {
+            "n": 1,
+            "min": 2724568,
+            "median": 2724568,
+            "max": 2724568
+          },
+          "EXECUTE": {
+            "n": 1,
+            "min": 5185257,
+            "median": 5185257,
+            "max": 5185257
+          },
+          "OUTPUT_WITNESS": {
+            "n": 1,
+            "min": 5359218,
+            "median": 5359218,
+            "max": 5359218
+          },
+          "ENCODE": {
+            "n": 1,
+            "min": 1436233,
+            "median": 1436233,
+            "max": 1436233
+          },
+          "SERIALIZE": {
+            "n": 1,
+            "min": 119781,
+            "median": 119781,
+            "max": 119781
+          },
+          "HASH": {
+            "n": 1,
+            "min": 286882,
+            "median": 286882,
+            "max": 286882
+          },
+          "COMPRESS": {
+            "n": 1,
+            "min": 1352374,
+            "median": 1352374,
+            "max": 1352374
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 1,
+          "min": 268727,
+          "median": 268727,
+          "max": 268727
+        }
+      },
+      "WARMUP": {
+        "api_ns": {
+          "n": 3,
+          "min": 4345273,
+          "median": 5035319,
+          "max": 6160048
+        },
+        "wrapper_ns": {
+          "n": 3,
+          "min": 4485474,
+          "median": 5125799,
+          "max": 6342143
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 3,
+            "min": 3087426,
+            "median": 4283209,
+            "max": 5160425
+          },
+          "INPUT_WITNESS": {
+            "n": 3,
+            "min": 960257,
+            "median": 1020893,
+            "max": 1443841
+          },
+          "EXECUTE": {
+            "n": 3,
+            "min": 4494412,
+            "median": 5136217,
+            "max": 6349993
+          },
+          "OUTPUT_WITNESS": {
+            "n": 3,
+            "min": 677550,
+            "median": 1012429,
+            "max": 1077800
+          },
+          "ENCODE": {
+            "n": 3,
+            "min": 217371,
+            "median": 334418,
+            "max": 952868
+          },
+          "SERIALIZE": {
+            "n": 3,
+            "min": 48444,
+            "median": 59007,
+            "max": 95214
+          },
+          "HASH": {
+            "n": 3,
+            "min": 38932,
+            "median": 41336,
+            "max": 44127
+          },
+          "COMPRESS": {
+            "n": 3,
+            "min": 1218,
+            "median": 1308,
+            "max": 1562
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 3,
+          "min": 124390,
+          "median": 125265,
+          "max": 420217
+        }
+      },
+      "WARM": {
+        "api_ns": {
+          "n": 5,
+          "min": 1989222,
+          "median": 2595020,
+          "max": 4196935
+        },
+        "wrapper_ns": {
+          "n": 5,
+          "min": 2045473,
+          "median": 2699223,
+          "max": 4269483
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 5,
+            "min": 2173725,
+            "median": 2507551,
+            "max": 3161866
+          },
+          "INPUT_WITNESS": {
+            "n": 5,
+            "min": 571172,
+            "median": 647407,
+            "max": 1816769
+          },
+          "EXECUTE": {
+            "n": 5,
+            "min": 2053085,
+            "median": 2707347,
+            "max": 4277977
+          },
+          "OUTPUT_WITNESS": {
+            "n": 5,
+            "min": 591359,
+            "median": 686758,
+            "max": 821784
+          },
+          "ENCODE": {
+            "n": 5,
+            "min": 138369,
+            "median": 173357,
+            "max": 529916
+          },
+          "SERIALIZE": {
+            "n": 5,
+            "min": 44032,
+            "median": 51368,
+            "max": 55672
+          },
+          "HASH": {
+            "n": 5,
+            "min": 32547,
+            "median": 33831,
+            "max": 43304
+          },
+          "COMPRESS": {
+            "n": 5,
+            "min": 1059,
+            "median": 1516,
+            "max": 3351
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 5,
+          "min": 81164,
+          "median": 105406,
+          "max": 139647
+        }
+      }
+    },
+    "time_balance": {
+      "ns": {
+        "preparation": "33234978",
+        "api": "34495410",
+        "execution_envelope": "1180990",
+        "witnesses": "29625431",
+        "ipc": "1490246",
+        "process": "821956519",
+        "journal_io": "160818038",
+        "residual_unattributed": "81245520"
+      },
+      "proportions": {
+        "preparation": 0.028551230518387635,
+        "api": 0.02963403203505337,
+        "execution_envelope": 0.0010145551391642447,
+        "witnesses": 0.025450370681382343,
+        "ipc": 0.001280228230483712,
+        "process": 0.7061196204210054,
+        "journal_io": 0.1381542324009609,
+        "residual_unattributed": 0.06979573057356238
+      },
+      "inconsistent_negative_residual": false,
+      "causal_decomposition": false
+    },
+    "process_work_ns": {
+      "IDENTITY": "270709480",
+      "LOAD": "7875617",
+      "CALIBRATION": "634984",
+      "HEADER_SEND": "206635351",
+      "CALIBRATION_SEND": "140179",
+      "FINAL_IDENTITY": "335960908"
+    },
+    "journal": {
+      "bytes": 26187,
+      "io_ns": "160818038",
+      "events": 174
+    },
+    "cpu_us": {
+      "user": 439644,
+      "system": 297252
+    },
+    "resources": {
+      "userCPUTime": 709396,
+      "systemCPUTime": 412103,
+      "maxRSS": 302852,
+      "sharedMemorySize": 0,
+      "unsharedDataSize": 0,
+      "unsharedStackSize": 0,
+      "minorPageFault": 111431,
+      "majorPageFault": 0,
+      "swappedOut": 0,
+      "fsRead": 0,
+      "fsWrite": 1440,
+      "ipcSent": 0,
+      "ipcReceived": 0,
+      "signalsCount": 0,
+      "voluntaryContextSwitches": 925,
+      "involuntaryContextSwitches": 28
+    },
+    "clock_median_ns": 86,
+    "resolution_flags": 0,
+    "diagnostic_omitted_bytes": {
+      "stdout": 0,
+      "stderr": 0
+    }
+  },
+  {
+    "index": 5,
+    "condition": {
+      "profile": {
+        "id": "P1",
+        "width": 8,
+        "height": 8,
+        "radius": 1,
+        "ticks": 4
+      },
+      "operation": "tick",
+      "block": 2,
+      "seed": 22002,
+      "mode": "DETAILED",
+      "journal_policy": "OFF",
+      "warmup": 3,
+      "samples": 5
+    },
+    "status": "COMPLETE",
+    "wall_ns": "833341262",
+    "samples": 9,
+    "warm_api_ns": [
+      2211980,
+      2669072,
+      2382013,
+      2280531,
+      4433988
+    ],
+    "warm_wrapper_ns": [
+      2958494,
+      2753531,
+      2520599,
+      2377593,
+      4511593
+    ],
+    "latency": {
+      "FIRST_MEASURED": {
+        "api_ns": {
+          "n": 1,
+          "min": 4249466,
+          "median": 4249466,
+          "max": 4249466
+        },
+        "wrapper_ns": {
+          "n": 1,
+          "min": 4449940,
+          "median": 4449940,
+          "max": 4449940
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 1,
+            "min": 6899297,
+            "median": 6899297,
+            "max": 6899297
+          },
+          "INPUT_WITNESS": {
+            "n": 1,
+            "min": 1310317,
+            "median": 1310317,
+            "max": 1310317
+          },
+          "EXECUTE": {
+            "n": 1,
+            "min": 4594856,
+            "median": 4594856,
+            "max": 4594856
+          },
+          "OUTPUT_WITNESS": {
+            "n": 1,
+            "min": 1223609,
+            "median": 1223609,
+            "max": 1223609
+          },
+          "ENCODE": {
+            "n": 1,
+            "min": 751474,
+            "median": 751474,
+            "max": 751474
+          },
+          "SERIALIZE": {
+            "n": 1,
+            "min": 64714,
+            "median": 64714,
+            "max": 64714
+          },
+          "HASH": {
+            "n": 1,
+            "min": 51940,
+            "median": 51940,
+            "max": 51940
+          },
+          "COMPRESS": {
+            "n": 1,
+            "min": 828725,
+            "median": 828725,
+            "max": 828725
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 1,
+          "min": 173300,
+          "median": 173300,
+          "max": 173300
+        }
+      },
+      "WARMUP": {
+        "api_ns": {
+          "n": 3,
+          "min": 2375124,
+          "median": 2641844,
+          "max": 3508585
+        },
+        "wrapper_ns": {
+          "n": 3,
+          "min": 2454499,
+          "median": 2749834,
+          "max": 3605000
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 3,
+            "min": 2250474,
+            "median": 2563929,
+            "max": 2845644
+          },
+          "INPUT_WITNESS": {
+            "n": 3,
+            "min": 566320,
+            "median": 576954,
+            "max": 901891
+          },
+          "EXECUTE": {
+            "n": 3,
+            "min": 2458450,
+            "median": 2754000,
+            "max": 3610340
+          },
+          "OUTPUT_WITNESS": {
+            "n": 3,
+            "min": 587897,
+            "median": 795875,
+            "max": 1012426
+          },
+          "ENCODE": {
+            "n": 3,
+            "min": 197956,
+            "median": 296440,
+            "max": 297081
+          },
+          "SERIALIZE": {
+            "n": 3,
+            "min": 37086,
+            "median": 42673,
+            "max": 53424
+          },
+          "HASH": {
+            "n": 3,
+            "min": 30398,
+            "median": 31784,
+            "max": 33158
+          },
+          "COMPRESS": {
+            "n": 3,
+            "min": 314,
+            "median": 354,
+            "max": 458
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 3,
+          "min": 104872,
+          "median": 157099,
+          "max": 185796
+        }
+      },
+      "WARM": {
+        "api_ns": {
+          "n": 5,
+          "min": 2211980,
+          "median": 2382013,
+          "max": 4433988
+        },
+        "wrapper_ns": {
+          "n": 5,
+          "min": 2377593,
+          "median": 2753531,
+          "max": 4511593
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 5,
+            "min": 2143591,
+            "median": 2601829,
+            "max": 4630470
+          },
+          "INPUT_WITNESS": {
+            "n": 5,
+            "min": 556744,
+            "median": 713826,
+            "max": 1137119
+          },
+          "EXECUTE": {
+            "n": 5,
+            "min": 2384243,
+            "median": 2814432,
+            "max": 4521034
+          },
+          "OUTPUT_WITNESS": {
+            "n": 5,
+            "min": 537583,
+            "median": 563566,
+            "max": 806729
+          },
+          "ENCODE": {
+            "n": 5,
+            "min": 106637,
+            "median": 162897,
+            "max": 678362
+          },
+          "SERIALIZE": {
+            "n": 5,
+            "min": 34185,
+            "median": 36113,
+            "max": 78517
+          },
+          "HASH": {
+            "n": 5,
+            "min": 25010,
+            "median": 30761,
+            "max": 85597
+          },
+          "COMPRESS": {
+            "n": 5,
+            "min": 230,
+            "median": 416,
+            "max": 634
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 5,
+          "min": 73543,
+          "median": 98539,
+          "max": 172973
+        }
+      }
+    },
+    "time_balance": {
+      "ns": {
+        "preparation": "28928548",
+        "api": "26752603",
+        "execution_envelope": "1874347",
+        "witnesses": "18565343",
+        "ipc": "1154848",
+        "process": "679742887",
+        "journal_io": "0",
+        "residual_unattributed": "76322686"
+      },
+      "proportions": {
+        "preparation": 0.03471392731780993,
+        "api": 0.03210281816094689,
+        "execution_envelope": 0.0022491950002590895,
+        "witnesses": 0.02227819963629738,
+        "ipc": 0.0013858044149024748,
+        "process": 0.8156837036589699,
+        "journal_io": 0,
+        "residual_unattributed": 0.09158635181081433
+      },
+      "inconsistent_negative_residual": false,
+      "causal_decomposition": false
+    },
+    "process_work_ns": {
+      "IDENTITY": "250052394",
+      "LOAD": "8857539",
+      "CALIBRATION": "666011",
+      "HEADER_SEND": "183123649",
+      "CALIBRATION_SEND": "138942",
+      "FINAL_IDENTITY": "236904352"
+    },
+    "journal": {
+      "bytes": 0,
+      "events": 0,
+      "io_ns": "0",
+      "checkpoint_persistence": "OFF"
+    },
+    "cpu_us": {
+      "user": 382670,
+      "system": 174119
+    },
+    "resources": {
+      "userCPUTime": 611663,
+      "systemCPUTime": 301439,
+      "maxRSS": 302896,
+      "sharedMemorySize": 0,
+      "unsharedDataSize": 0,
+      "unsharedStackSize": 0,
+      "minorPageFault": 110738,
+      "majorPageFault": 0,
+      "swappedOut": 0,
+      "fsRead": 0,
+      "fsWrite": 0,
+      "ipcSent": 0,
+      "ipcReceived": 0,
+      "signalsCount": 0,
+      "voluntaryContextSwitches": 422,
+      "involuntaryContextSwitches": 7
+    },
+    "clock_median_ns": 98,
+    "resolution_flags": 0,
+    "diagnostic_omitted_bytes": {
+      "stdout": 0,
+      "stderr": 0
+    }
+  },
+  {
+    "index": 6,
+    "condition": {
+      "profile": {
+        "id": "P1",
+        "width": 8,
+        "height": 8,
+        "radius": 1,
+        "ticks": 4
+      },
+      "operation": "tick",
+      "block": 2,
+      "seed": 22002,
+      "mode": "MINIMAL",
+      "journal_policy": "SYNC",
+      "warmup": 3,
+      "samples": 5
+    },
+    "status": "COMPLETE",
+    "wall_ns": "972873911",
+    "samples": 9,
+    "warm_api_ns": [
+      3000970,
+      2690954,
+      2473112,
+      3391575,
+      2135932
+    ],
+    "warm_wrapper_ns": [
+      3005964,
+      2696864,
+      2478122,
+      3396593,
+      2141918
+    ],
+    "latency": {
+      "FIRST_MEASURED": {
+        "api_ns": {
+          "n": 1,
+          "min": 4124476,
+          "median": 4124476,
+          "max": 4124476
+        },
+        "wrapper_ns": {
+          "n": 1,
+          "min": 4134722,
+          "median": 4134722,
+          "max": 4134722
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 1,
+            "min": 5904926,
+            "median": 5904926,
+            "max": 5904926
+          },
+          "INPUT_WITNESS": {
+            "n": 1,
+            "min": 1606438,
+            "median": 1606438,
+            "max": 1606438
+          },
+          "EXECUTE": {
+            "n": 1,
+            "min": 4224523,
+            "median": 4224523,
+            "max": 4224523
+          },
+          "OUTPUT_WITNESS": {
+            "n": 1,
+            "min": 1448844,
+            "median": 1448844,
+            "max": 1448844
+          },
+          "ENCODE": {
+            "n": 1,
+            "min": 732913,
+            "median": 732913,
+            "max": 732913
+          },
+          "SERIALIZE": {
+            "n": 1,
+            "min": 93570,
+            "median": 93570,
+            "max": 93570
+          },
+          "HASH": {
+            "n": 1,
+            "min": 70191,
+            "median": 70191,
+            "max": 70191
+          },
+          "COMPRESS": {
+            "n": 1,
+            "min": 920548,
+            "median": 920548,
+            "max": 920548
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 1,
+          "min": 440052,
+          "median": 440052,
+          "max": 440052
+        }
+      },
+      "WARMUP": {
+        "api_ns": {
+          "n": 3,
+          "min": 2284380,
+          "median": 3651119,
+          "max": 24200085
+        },
+        "wrapper_ns": {
+          "n": 3,
+          "min": 2289369,
+          "median": 3655953,
+          "max": 24628669
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 3,
+            "min": 2369282,
+            "median": 2435673,
+            "max": 2516988
+          },
+          "INPUT_WITNESS": {
+            "n": 3,
+            "min": 700302,
+            "median": 805563,
+            "max": 1000485
+          },
+          "EXECUTE": {
+            "n": 3,
+            "min": 2296483,
+            "median": 3660027,
+            "max": 24685844
+          },
+          "OUTPUT_WITNESS": {
+            "n": 3,
+            "min": 1141412,
+            "median": 1208437,
+            "max": 2328688
+          },
+          "ENCODE": {
+            "n": 3,
+            "min": 206787,
+            "median": 272945,
+            "max": 824311
+          },
+          "SERIALIZE": {
+            "n": 3,
+            "min": 43288,
+            "median": 46794,
+            "max": 48802
+          },
+          "HASH": {
+            "n": 3,
+            "min": 29128,
+            "median": 34217,
+            "max": 614691
+          },
+          "COMPRESS": {
+            "n": 3,
+            "min": 642,
+            "median": 924,
+            "max": 939
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 3,
+          "min": 100768,
+          "median": 232951,
+          "max": 628525
+        }
+      },
+      "WARM": {
+        "api_ns": {
+          "n": 5,
+          "min": 2135932,
+          "median": 2690954,
+          "max": 3391575
+        },
+        "wrapper_ns": {
+          "n": 5,
+          "min": 2141918,
+          "median": 2696864,
+          "max": 3396593
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 5,
+            "min": 2094631,
+            "median": 2542522,
+            "max": 3209513
+          },
+          "INPUT_WITNESS": {
+            "n": 5,
+            "min": 523512,
+            "median": 695950,
+            "max": 1048387
+          },
+          "EXECUTE": {
+            "n": 5,
+            "min": 2155945,
+            "median": 2704463,
+            "max": 3403726
+          },
+          "OUTPUT_WITNESS": {
+            "n": 5,
+            "min": 614876,
+            "median": 664122,
+            "max": 938154
+          },
+          "ENCODE": {
+            "n": 5,
+            "min": 130734,
+            "median": 383704,
+            "max": 739623
+          },
+          "SERIALIZE": {
+            "n": 5,
+            "min": 42971,
+            "median": 47725,
+            "max": 65968
+          },
+          "HASH": {
+            "n": 5,
+            "min": 30152,
+            "median": 32603,
+            "max": 37575
+          },
+          "COMPRESS": {
+            "n": 5,
+            "min": 703,
+            "median": 789,
+            "max": 4564
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 5,
+          "min": 80106,
+          "median": 92738,
+          "max": 252102
+        }
+      }
+    },
+    "time_balance": {
+      "ns": {
+        "preparation": "26023992",
+        "api": "47952603",
+        "execution_envelope": "676419",
+        "witnesses": "23781790",
+        "ipc": "2015109",
+        "process": "685538539",
+        "journal_io": "104920337",
+        "residual_unattributed": "81965122"
+      },
+      "proportions": {
+        "preparation": 0.02674960414268936,
+        "api": 0.04928963811015383,
+        "execution_envelope": 0.0006952792056112604,
+        "witnesses": 0.02444488410173844,
+        "ipc": 0.0020712951362101026,
+        "process": 0.7046530195216634,
+        "journal_io": 0.10784577098192943,
+        "residual_unattributed": 0.0842505088000042
+      },
+      "inconsistent_negative_residual": false,
+      "causal_decomposition": false
+    },
+    "process_work_ns": {
+      "IDENTITY": "255179342",
+      "LOAD": "7419475",
+      "CALIBRATION": "596760",
+      "HEADER_SEND": "177394596",
+      "CALIBRATION_SEND": "181505",
+      "FINAL_IDENTITY": "244766861"
+    },
+    "journal": {
+      "bytes": 26174,
+      "io_ns": "104920337",
+      "events": 174
+    },
+    "cpu_us": {
+      "user": 414587,
+      "system": 212748
+    },
+    "resources": {
+      "userCPUTime": 675453,
+      "systemCPUTime": 324176,
+      "maxRSS": 302152,
+      "sharedMemorySize": 0,
+      "unsharedDataSize": 0,
+      "unsharedStackSize": 0,
+      "minorPageFault": 110735,
+      "majorPageFault": 0,
+      "swappedOut": 0,
+      "fsRead": 0,
+      "fsWrite": 1440,
+      "ipcSent": 0,
+      "ipcReceived": 0,
+      "signalsCount": 0,
+      "voluntaryContextSwitches": 971,
+      "involuntaryContextSwitches": 32
+    },
+    "clock_median_ns": 122,
+    "resolution_flags": 0,
+    "diagnostic_omitted_bytes": {
+      "stdout": 0,
+      "stderr": 0
+    }
+  },
+  {
+    "index": 7,
+    "condition": {
+      "profile": {
+        "id": "P1",
+        "width": 8,
+        "height": 8,
+        "radius": 1,
+        "ticks": 4
+      },
+      "operation": "tick",
+      "block": 2,
+      "seed": 22002,
+      "mode": "MINIMAL",
+      "journal_policy": "OFF",
+      "warmup": 3,
+      "samples": 5
+    },
+    "status": "COMPLETE",
+    "wall_ns": "1052693999",
+    "samples": 9,
+    "warm_api_ns": [
+      2289658,
+      2800794,
+      2503848,
+      2115260,
+      2284842
+    ],
+    "warm_wrapper_ns": [
+      2294487,
+      2805340,
+      2508055,
+      2119821,
+      2291687
+    ],
+    "latency": {
+      "FIRST_MEASURED": {
+        "api_ns": {
+          "n": 1,
+          "min": 5479111,
+          "median": 5479111,
+          "max": 5479111
+        },
+        "wrapper_ns": {
+          "n": 1,
+          "min": 5493271,
+          "median": 5493271,
+          "max": 5493271
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 1,
+            "min": 6441995,
+            "median": 6441995,
+            "max": 6441995
+          },
+          "INPUT_WITNESS": {
+            "n": 1,
+            "min": 1563471,
+            "median": 1563471,
+            "max": 1563471
+          },
+          "EXECUTE": {
+            "n": 1,
+            "min": 5545045,
+            "median": 5545045,
+            "max": 5545045
+          },
+          "OUTPUT_WITNESS": {
+            "n": 1,
+            "min": 1824002,
+            "median": 1824002,
+            "max": 1824002
+          },
+          "ENCODE": {
+            "n": 1,
+            "min": 1294980,
+            "median": 1294980,
+            "max": 1294980
+          },
+          "SERIALIZE": {
+            "n": 1,
+            "min": 90838,
+            "median": 90838,
+            "max": 90838
+          },
+          "HASH": {
+            "n": 1,
+            "min": 55972,
+            "median": 55972,
+            "max": 55972
+          },
+          "COMPRESS": {
+            "n": 1,
+            "min": 1069653,
+            "median": 1069653,
+            "max": 1069653
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 1,
+          "min": 156621,
+          "median": 156621,
+          "max": 156621
+        }
+      },
+      "WARMUP": {
+        "api_ns": {
+          "n": 3,
+          "min": 3009432,
+          "median": 3440090,
+          "max": 4034659
+        },
+        "wrapper_ns": {
+          "n": 3,
+          "min": 3014014,
+          "median": 3445039,
+          "max": 4040747
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 3,
+            "min": 2315706,
+            "median": 2672988,
+            "max": 2877439
+          },
+          "INPUT_WITNESS": {
+            "n": 3,
+            "min": 620811,
+            "median": 673247,
+            "max": 802384
+          },
+          "EXECUTE": {
+            "n": 3,
+            "min": 3017727,
+            "median": 3449925,
+            "max": 4045460
+          },
+          "OUTPUT_WITNESS": {
+            "n": 3,
+            "min": 668971,
+            "median": 932315,
+            "max": 1138778
+          },
+          "ENCODE": {
+            "n": 3,
+            "min": 161315,
+            "median": 255580,
+            "max": 282406
+          },
+          "SERIALIZE": {
+            "n": 3,
+            "min": 36228,
+            "median": 76200,
+            "max": 100707
+          },
+          "HASH": {
+            "n": 3,
+            "min": 26534,
+            "median": 27200,
+            "max": 30739
+          },
+          "COMPRESS": {
+            "n": 3,
+            "min": 421,
+            "median": 439,
+            "max": 552
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 3,
+          "min": 104354,
+          "median": 110497,
+          "max": 130270
+        }
+      },
+      "WARM": {
+        "api_ns": {
+          "n": 5,
+          "min": 2115260,
+          "median": 2289658,
+          "max": 2800794
+        },
+        "wrapper_ns": {
+          "n": 5,
+          "min": 2119821,
+          "median": 2294487,
+          "max": 2805340
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 5,
+            "min": 2194589,
+            "median": 2385151,
+            "max": 3066136
+          },
+          "INPUT_WITNESS": {
+            "n": 5,
+            "min": 588623,
+            "median": 605838,
+            "max": 805920
+          },
+          "EXECUTE": {
+            "n": 5,
+            "min": 2124671,
+            "median": 2298424,
+            "max": 2809883
+          },
+          "OUTPUT_WITNESS": {
+            "n": 5,
+            "min": 555266,
+            "median": 752370,
+            "max": 1106505
+          },
+          "ENCODE": {
+            "n": 5,
+            "min": 128110,
+            "median": 179158,
+            "max": 562385
+          },
+          "SERIALIZE": {
+            "n": 5,
+            "min": 34149,
+            "median": 35734,
+            "max": 37017
+          },
+          "HASH": {
+            "n": 5,
+            "min": 24963,
+            "median": 27093,
+            "max": 31474
+          },
+          "COMPRESS": {
+            "n": 5,
+            "min": 360,
+            "median": 411,
+            "max": 696
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 5,
+          "min": 88081,
+          "median": 161059,
+          "max": 202804
+        }
+      }
+    },
+    "time_balance": {
+      "ns": {
+        "preparation": "26929546",
+        "api": "27957694",
+        "execution_envelope": "144036",
+        "witnesses": "20405870",
+        "ipc": "1276909",
+        "process": "893733101",
+        "journal_io": "0",
+        "residual_unattributed": "82246843"
+      },
+      "proportions": {
+        "preparation": 0.025581551738284393,
+        "api": 0.026558234421929103,
+        "execution_envelope": 0.00013682608634306464,
+        "witnesses": 0.019384427021892806,
+        "ipc": 0.0012129916207492316,
+        "process": 0.84899610128774,
+        "journal_io": 0,
+        "residual_unattributed": 0.07812986782306147
+      },
+      "inconsistent_negative_residual": false,
+      "causal_decomposition": false
+    },
+    "process_work_ns": {
+      "IDENTITY": "256898578",
+      "LOAD": "7382613",
+      "CALIBRATION": "758529",
+      "HEADER_SEND": "359315163",
+      "CALIBRATION_SEND": "264963",
+      "FINAL_IDENTITY": "269113255"
+    },
+    "journal": {
+      "bytes": 0,
+      "events": 0,
+      "io_ns": "0",
+      "checkpoint_persistence": "OFF"
+    },
+    "cpu_us": {
+      "user": 406081,
+      "system": 366344
+    },
+    "resources": {
+      "userCPUTime": 675119,
+      "systemCPUTime": 463378,
+      "maxRSS": 302684,
+      "sharedMemorySize": 0,
+      "unsharedDataSize": 0,
+      "unsharedStackSize": 0,
+      "minorPageFault": 110770,
+      "majorPageFault": 0,
+      "swappedOut": 0,
+      "fsRead": 0,
+      "fsWrite": 0,
+      "ipcSent": 0,
+      "ipcReceived": 0,
+      "signalsCount": 0,
+      "voluntaryContextSwitches": 418,
+      "involuntaryContextSwitches": 13
+    },
+    "clock_median_ns": 108,
+    "resolution_flags": 0,
+    "diagnostic_omitted_bytes": {
+      "stdout": 0,
+      "stderr": 0
+    }
+  },
+  {
+    "index": 8,
+    "condition": {
+      "profile": {
+        "id": "P3",
+        "width": 32,
+        "height": 32,
+        "radius": 1,
+        "ticks": 4
+      },
+      "operation": "observation",
+      "block": 1,
+      "seed": 22001,
+      "mode": "MINIMAL",
+      "journal_policy": "OFF",
+      "warmup": 3,
+      "samples": 5
+    },
+    "status": "COMPLETE",
+    "wall_ns": "1854778761",
+    "samples": 9,
+    "warm_api_ns": [
+      3166728,
+      3003679,
+      5271812,
+      3663064,
+      1740444
+    ],
+    "warm_wrapper_ns": [
+      3177130,
+      3013953,
+      5285552,
+      3676182,
+      1749832
+    ],
+    "latency": {
+      "FIRST_MEASURED": {
+        "api_ns": {
+          "n": 1,
+          "min": 1932531,
+          "median": 1932531,
+          "max": 1932531
+        },
+        "wrapper_ns": {
+          "n": 1,
+          "min": 1940404,
+          "median": 1940404,
+          "max": 1940404
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 1,
+            "min": 34923320,
+            "median": 34923320,
+            "max": 34923320
+          },
+          "INPUT_WITNESS": {
+            "n": 1,
+            "min": 7613142,
+            "median": 7613142,
+            "max": 7613142
+          },
+          "EXECUTE": {
+            "n": 1,
+            "min": 2022888,
+            "median": 2022888,
+            "max": 2022888
+          },
+          "OUTPUT_WITNESS": {
+            "n": 1,
+            "min": 6856514,
+            "median": 6856514,
+            "max": 6856514
+          },
+          "ENCODE": {
+            "n": 1,
+            "min": 48793733,
+            "median": 48793733,
+            "max": 48793733
+          },
+          "SERIALIZE": {
+            "n": 1,
+            "min": 605248,
+            "median": 605248,
+            "max": 605248
+          },
+          "HASH": {
+            "n": 1,
+            "min": 475991,
+            "median": 475991,
+            "max": 475991
+          },
+          "COMPRESS": {
+            "n": 1,
+            "min": 1390097,
+            "median": 1390097,
+            "max": 1390097
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 1,
+          "min": 243046,
+          "median": 243046,
+          "max": 243046
+        }
+      },
+      "WARMUP": {
+        "api_ns": {
+          "n": 3,
+          "min": 1827165,
+          "median": 1939386,
+          "max": 3106026
+        },
+        "wrapper_ns": {
+          "n": 3,
+          "min": 1837472,
+          "median": 1946977,
+          "max": 3111930
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 3,
+            "min": 32079973,
+            "median": 32769519,
+            "max": 45211217
+          },
+          "INPUT_WITNESS": {
+            "n": 3,
+            "min": 6955551,
+            "median": 7210235,
+            "max": 9484331
+          },
+          "EXECUTE": {
+            "n": 3,
+            "min": 1845152,
+            "median": 1954648,
+            "max": 3117806
+          },
+          "OUTPUT_WITNESS": {
+            "n": 3,
+            "min": 5843020,
+            "median": 6224243,
+            "max": 6614912
+          },
+          "ENCODE": {
+            "n": 3,
+            "min": 1996084,
+            "median": 3956930,
+            "max": 14092394
+          },
+          "SERIALIZE": {
+            "n": 3,
+            "min": 274176,
+            "median": 910071,
+            "max": 985139
+          },
+          "HASH": {
+            "n": 3,
+            "min": 121030,
+            "median": 137301,
+            "max": 168458
+          },
+          "COMPRESS": {
+            "n": 3,
+            "min": 322,
+            "median": 474,
+            "max": 555
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 3,
+          "min": 143265,
+          "median": 186151,
+          "max": 1017387
+        }
+      },
+      "WARM": {
+        "api_ns": {
+          "n": 5,
+          "min": 1740444,
+          "median": 3166728,
+          "max": 5271812
+        },
+        "wrapper_ns": {
+          "n": 5,
+          "min": 1749832,
+          "median": 3177130,
+          "max": 5285552
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 5,
+            "min": 24262542,
+            "median": 34297896,
+            "max": 50674891
+          },
+          "INPUT_WITNESS": {
+            "n": 5,
+            "min": 5902606,
+            "median": 10604580,
+            "max": 14524912
+          },
+          "EXECUTE": {
+            "n": 5,
+            "min": 1757768,
+            "median": 3184564,
+            "max": 5500049
+          },
+          "OUTPUT_WITNESS": {
+            "n": 5,
+            "min": 6151084,
+            "median": 8635880,
+            "max": 12710869
+          },
+          "ENCODE": {
+            "n": 5,
+            "min": 1222384,
+            "median": 1830988,
+            "max": 2078019
+          },
+          "SERIALIZE": {
+            "n": 5,
+            "min": 265258,
+            "median": 307816,
+            "max": 1031528
+          },
+          "HASH": {
+            "n": 5,
+            "min": 123789,
+            "median": 132183,
+            "max": 184042
+          },
+          "COMPRESS": {
+            "n": 5,
+            "min": 412,
+            "median": 543,
+            "max": 733
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 5,
+          "min": 105038,
+          "median": 194132,
+          "max": 343621
+        }
+      }
+    },
+    "time_balance": {
+      "ns": {
+        "preparation": "326213145",
+        "api": "25650835",
+        "execution_envelope": "439190",
+        "witnesses": "239304136",
+        "ipc": "2602181",
+        "process": "1156523622",
+        "journal_io": "0",
+        "residual_unattributed": "104045652"
+      },
+      "proportions": {
+        "preparation": 0.17587711907166917,
+        "api": 0.013829592800690908,
+        "execution_envelope": 0.00023678834868866606,
+        "witnesses": 0.1290203128436621,
+        "ipc": 0.001402960317810109,
+        "process": 0.6235372359862816,
+        "journal_io": 0,
+        "residual_unattributed": 0.05609599063119744
+      },
+      "inconsistent_negative_residual": false,
+      "causal_decomposition": false
+    },
+    "process_work_ns": {
+      "IDENTITY": "275496345",
+      "LOAD": "8400409",
+      "CALIBRATION": "433955",
+      "HEADER_SEND": "196382672",
+      "CALIBRATION_SEND": "150368",
+      "FINAL_IDENTITY": "675659873"
+    },
+    "journal": {
+      "bytes": 0,
+      "events": 0,
+      "io_ns": "0",
+      "checkpoint_persistence": "OFF"
+    },
+    "cpu_us": {
+      "user": 975394,
+      "system": 608883
+    },
+    "resources": {
+      "userCPUTime": 1236699,
+      "systemCPUTime": 743297,
+      "maxRSS": 293512,
+      "sharedMemorySize": 0,
+      "unsharedDataSize": 0,
+      "unsharedStackSize": 0,
+      "minorPageFault": 115171,
+      "majorPageFault": 0,
+      "swappedOut": 0,
+      "fsRead": 0,
+      "fsWrite": 0,
+      "ipcSent": 0,
+      "ipcReceived": 0,
+      "signalsCount": 0,
+      "voluntaryContextSwitches": 881,
+      "involuntaryContextSwitches": 128
+    },
+    "clock_median_ns": 97,
+    "resolution_flags": 0,
+    "diagnostic_omitted_bytes": {
+      "stdout": 0,
+      "stderr": 0
+    }
+  },
+  {
+    "index": 9,
+    "condition": {
+      "profile": {
+        "id": "P3",
+        "width": 32,
+        "height": 32,
+        "radius": 1,
+        "ticks": 4
+      },
+      "operation": "observation",
+      "block": 1,
+      "seed": 22001,
+      "mode": "MINIMAL",
+      "journal_policy": "SYNC",
+      "warmup": 3,
+      "samples": 5
+    },
+    "status": "COMPLETE",
+    "wall_ns": "1872610863",
+    "samples": 9,
+    "warm_api_ns": [
+      2519833,
+      2042411,
+      1968864,
+      1652108,
+      1560051
+    ],
+    "warm_wrapper_ns": [
+      2530307,
+      2052637,
+      1978280,
+      1662135,
+      1570101
+    ],
+    "latency": {
+      "FIRST_MEASURED": {
+        "api_ns": {
+          "n": 1,
+          "min": 5168082,
+          "median": 5168082,
+          "max": 5168082
+        },
+        "wrapper_ns": {
+          "n": 1,
+          "min": 5177871,
+          "median": 5177871,
+          "max": 5177871
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 1,
+            "min": 34328235,
+            "median": 34328235,
+            "max": 34328235
+          },
+          "INPUT_WITNESS": {
+            "n": 1,
+            "min": 44800224,
+            "median": 44800224,
+            "max": 44800224
+          },
+          "EXECUTE": {
+            "n": 1,
+            "min": 5798799,
+            "median": 5798799,
+            "max": 5798799
+          },
+          "OUTPUT_WITNESS": {
+            "n": 1,
+            "min": 8028304,
+            "median": 8028304,
+            "max": 8028304
+          },
+          "ENCODE": {
+            "n": 1,
+            "min": 6203417,
+            "median": 6203417,
+            "max": 6203417
+          },
+          "SERIALIZE": {
+            "n": 1,
+            "min": 470120,
+            "median": 470120,
+            "max": 470120
+          },
+          "HASH": {
+            "n": 1,
+            "min": 407305,
+            "median": 407305,
+            "max": 407305
+          },
+          "COMPRESS": {
+            "n": 1,
+            "min": 1912869,
+            "median": 1912869,
+            "max": 1912869
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 1,
+          "min": 377398,
+          "median": 377398,
+          "max": 377398
+        }
+      },
+      "WARMUP": {
+        "api_ns": {
+          "n": 3,
+          "min": 1561700,
+          "median": 2316914,
+          "max": 2432425
+        },
+        "wrapper_ns": {
+          "n": 3,
+          "min": 1571663,
+          "median": 2324355,
+          "max": 2439039
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 3,
+            "min": 29797475,
+            "median": 33744246,
+            "max": 39806240
+          },
+          "INPUT_WITNESS": {
+            "n": 3,
+            "min": 6526808,
+            "median": 6601922,
+            "max": 7105585
+          },
+          "EXECUTE": {
+            "n": 3,
+            "min": 1579415,
+            "median": 2337552,
+            "max": 2445561
+          },
+          "OUTPUT_WITNESS": {
+            "n": 3,
+            "min": 5614559,
+            "median": 5655487,
+            "max": 6858177
+          },
+          "ENCODE": {
+            "n": 3,
+            "min": 1805522,
+            "median": 2049318,
+            "max": 2522237
+          },
+          "SERIALIZE": {
+            "n": 3,
+            "min": 322501,
+            "median": 529769,
+            "max": 560375
+          },
+          "HASH": {
+            "n": 3,
+            "min": 120655,
+            "median": 123139,
+            "max": 131724
+          },
+          "COMPRESS": {
+            "n": 3,
+            "min": 865,
+            "median": 1276,
+            "max": 1672
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 3,
+          "min": 162094,
+          "median": 264381,
+          "max": 570633
+        }
+      },
+      "WARM": {
+        "api_ns": {
+          "n": 5,
+          "min": 1560051,
+          "median": 1968864,
+          "max": 2519833
+        },
+        "wrapper_ns": {
+          "n": 5,
+          "min": 1570101,
+          "median": 1978280,
+          "max": 2530307
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 5,
+            "min": 23360887,
+            "median": 25382031,
+            "max": 29273434
+          },
+          "INPUT_WITNESS": {
+            "n": 5,
+            "min": 5209832,
+            "median": 5967006,
+            "max": 9641172
+          },
+          "EXECUTE": {
+            "n": 5,
+            "min": 1578970,
+            "median": 1986703,
+            "max": 2538554
+          },
+          "OUTPUT_WITNESS": {
+            "n": 5,
+            "min": 5151309,
+            "median": 6677023,
+            "max": 9509343
+          },
+          "ENCODE": {
+            "n": 5,
+            "min": 1110001,
+            "median": 1729994,
+            "max": 2120399
+          },
+          "SERIALIZE": {
+            "n": 5,
+            "min": 269665,
+            "median": 386982,
+            "max": 698529
+          },
+          "HASH": {
+            "n": 5,
+            "min": 110074,
+            "median": 112701,
+            "max": 196688
+          },
+          "COMPRESS": {
+            "n": 5,
+            "min": 995,
+            "median": 1187,
+            "max": 5346
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 5,
+          "min": 107856,
+          "median": 124270,
+          "max": 229862
+        }
+      }
+    },
+    "time_balance": {
+      "ns": {
+        "preparation": "268384524",
+        "api": "21222388",
+        "execution_envelope": "775549",
+        "witnesses": "186225183",
+        "ipc": "2095447",
+        "process": "1137384698",
+        "journal_io": "118992001",
+        "residual_unattributed": "137531073"
+      },
+      "proportions": {
+        "preparation": 0.14332103337798485,
+        "api": 0.011333047575085011,
+        "execution_envelope": 0.0004141538508206336,
+        "witnesses": 0.09944681336605063,
+        "ipc": 0.0011189975671950377,
+        "process": 0.6073790986013307,
+        "journal_io": 0.06354336789938829,
+        "residual_unattributed": 0.07344348776214485
+      },
+      "inconsistent_negative_residual": false,
+      "causal_decomposition": false
+    },
+    "process_work_ns": {
+      "IDENTITY": "425079147",
+      "LOAD": "8367162",
+      "CALIBRATION": "1031903",
+      "HEADER_SEND": "198565473",
+      "CALIBRATION_SEND": "166211",
+      "FINAL_IDENTITY": "504174802"
+    },
+    "journal": {
+      "bytes": 26249,
+      "io_ns": "118992001",
+      "events": 174
+    },
+    "cpu_us": {
+      "user": 861802,
+      "system": 461037
+    },
+    "resources": {
+      "userCPUTime": 1210881,
+      "systemCPUTime": 721577,
+      "maxRSS": 292420,
+      "sharedMemorySize": 0,
+      "unsharedDataSize": 0,
+      "unsharedStackSize": 0,
+      "minorPageFault": 115116,
+      "majorPageFault": 0,
+      "swappedOut": 0,
+      "fsRead": 0,
+      "fsWrite": 1440,
+      "ipcSent": 0,
+      "ipcReceived": 0,
+      "signalsCount": 0,
+      "voluntaryContextSwitches": 1365,
+      "involuntaryContextSwitches": 51
+    },
+    "clock_median_ns": 87,
+    "resolution_flags": 0,
+    "diagnostic_omitted_bytes": {
+      "stdout": 0,
+      "stderr": 0
+    }
+  },
+  {
+    "index": 10,
+    "condition": {
+      "profile": {
+        "id": "P3",
+        "width": 32,
+        "height": 32,
+        "radius": 1,
+        "ticks": 4
+      },
+      "operation": "observation",
+      "block": 1,
+      "seed": 22001,
+      "mode": "DETAILED",
+      "journal_policy": "OFF",
+      "warmup": 3,
+      "samples": 5
+    },
+    "status": "COMPLETE",
+    "wall_ns": "1489662414",
+    "samples": 9,
+    "warm_api_ns": [
+      1999576,
+      2919254,
+      1464812,
+      1638574,
+      4312437
+    ],
+    "warm_wrapper_ns": [
+      2117334,
+      3023780,
+      1529115,
+      1787896,
+      5194632
+    ],
+    "latency": {
+      "FIRST_MEASURED": {
+        "api_ns": {
+          "n": 1,
+          "min": 1745702,
+          "median": 1745702,
+          "max": 1745702
+        },
+        "wrapper_ns": {
+          "n": 1,
+          "min": 1890756,
+          "median": 1890756,
+          "max": 1890756
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 1,
+            "min": 39131869,
+            "median": 39131869,
+            "max": 39131869
+          },
+          "INPUT_WITNESS": {
+            "n": 1,
+            "min": 8620716,
+            "median": 8620716,
+            "max": 8620716
+          },
+          "EXECUTE": {
+            "n": 1,
+            "min": 1984194,
+            "median": 1984194,
+            "max": 1984194
+          },
+          "OUTPUT_WITNESS": {
+            "n": 1,
+            "min": 7166102,
+            "median": 7166102,
+            "max": 7166102
+          },
+          "ENCODE": {
+            "n": 1,
+            "min": 5352531,
+            "median": 5352531,
+            "max": 5352531
+          },
+          "SERIALIZE": {
+            "n": 1,
+            "min": 322182,
+            "median": 322182,
+            "max": 322182
+          },
+          "HASH": {
+            "n": 1,
+            "min": 171819,
+            "median": 171819,
+            "max": 171819
+          },
+          "COMPRESS": {
+            "n": 1,
+            "min": 1086008,
+            "median": 1086008,
+            "max": 1086008
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 1,
+          "min": 181849,
+          "median": 181849,
+          "max": 181849
+        }
+      },
+      "WARMUP": {
+        "api_ns": {
+          "n": 3,
+          "min": 1769528,
+          "median": 1812072,
+          "max": 1818719
+        },
+        "wrapper_ns": {
+          "n": 3,
+          "min": 1851017,
+          "median": 1895939,
+          "max": 1908246
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 3,
+            "min": 26838759,
+            "median": 28420853,
+            "max": 31244063
+          },
+          "INPUT_WITNESS": {
+            "n": 3,
+            "min": 7830102,
+            "median": 9842127,
+            "max": 12111408
+          },
+          "EXECUTE": {
+            "n": 3,
+            "min": 1856818,
+            "median": 1901932,
+            "max": 1915481
+          },
+          "OUTPUT_WITNESS": {
+            "n": 3,
+            "min": 6529230,
+            "median": 6972653,
+            "max": 7133900
+          },
+          "ENCODE": {
+            "n": 3,
+            "min": 1569236,
+            "median": 1576975,
+            "max": 2081522
+          },
+          "SERIALIZE": {
+            "n": 3,
+            "min": 255940,
+            "median": 298594,
+            "max": 451320
+          },
+          "HASH": {
+            "n": 3,
+            "min": 108524,
+            "median": 108928,
+            "max": 110217
+          },
+          "COMPRESS": {
+            "n": 3,
+            "min": 299,
+            "median": 413,
+            "max": 495
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 3,
+          "min": 129987,
+          "median": 152631,
+          "max": 277158
+        }
+      },
+      "WARM": {
+        "api_ns": {
+          "n": 5,
+          "min": 1464812,
+          "median": 1999576,
+          "max": 4312437
+        },
+        "wrapper_ns": {
+          "n": 5,
+          "min": 1529115,
+          "median": 2117334,
+          "max": 5194632
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 5,
+            "min": 24561484,
+            "median": 25010363,
+            "max": 43039376
+          },
+          "INPUT_WITNESS": {
+            "n": 5,
+            "min": 5639501,
+            "median": 7035885,
+            "max": 19992829
+          },
+          "EXECUTE": {
+            "n": 5,
+            "min": 1536091,
+            "median": 2143870,
+            "max": 5456612
+          },
+          "OUTPUT_WITNESS": {
+            "n": 5,
+            "min": 5566820,
+            "median": 7705237,
+            "max": 13752839
+          },
+          "ENCODE": {
+            "n": 5,
+            "min": 876171,
+            "median": 1717452,
+            "max": 4003368
+          },
+          "SERIALIZE": {
+            "n": 5,
+            "min": 256412,
+            "median": 391339,
+            "max": 666704
+          },
+          "HASH": {
+            "n": 5,
+            "min": 116488,
+            "median": 231822,
+            "max": 324304
+          },
+          "COMPRESS": {
+            "n": 5,
+            "min": 314,
+            "median": 481,
+            "max": 859
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 5,
+          "min": 104717,
+          "median": 130177,
+          "max": 234045
+        }
+      }
+    },
+    "time_balance": {
+      "ns": {
+        "preparation": "271445655",
+        "api": "19480674",
+        "execution_envelope": "2165916",
+        "witnesses": "183203720",
+        "ipc": "1514901",
+        "process": "919016381",
+        "journal_io": "0",
+        "residual_unattributed": "92835167"
+      },
+      "proportions": {
+        "preparation": 0.18221957703230338,
+        "api": 0.013077240733819039,
+        "execution_envelope": 0.0014539643208048344,
+        "witnesses": 0.12298338085074355,
+        "ipc": 0.0010169424869438909,
+        "process": 0.6169292937533967,
+        "journal_io": 0,
+        "residual_unattributed": 0.062319600821988654
+      },
+      "inconsistent_negative_residual": false,
+      "causal_decomposition": false
+    },
+    "process_work_ns": {
+      "IDENTITY": "264518700",
+      "LOAD": "8330791",
+      "CALIBRATION": "643678",
+      "HEADER_SEND": "187593644",
+      "CALIBRATION_SEND": "159238",
+      "FINAL_IDENTITY": "457770330"
+    },
+    "journal": {
+      "bytes": 0,
+      "events": 0,
+      "io_ns": "0",
+      "checkpoint_persistence": "OFF"
+    },
+    "cpu_us": {
+      "user": 830715,
+      "system": 419713
+    },
+    "resources": {
+      "userCPUTime": 1067859,
+      "systemCPUTime": 554415,
+      "maxRSS": 294612,
+      "sharedMemorySize": 0,
+      "unsharedDataSize": 0,
+      "unsharedStackSize": 0,
+      "minorPageFault": 115977,
+      "majorPageFault": 0,
+      "swappedOut": 0,
+      "fsRead": 0,
+      "fsWrite": 0,
+      "ipcSent": 0,
+      "ipcReceived": 0,
+      "signalsCount": 0,
+      "voluntaryContextSwitches": 826,
+      "involuntaryContextSwitches": 54
+    },
+    "clock_median_ns": 100,
+    "resolution_flags": 0,
+    "diagnostic_omitted_bytes": {
+      "stdout": 0,
+      "stderr": 0
+    }
+  },
+  {
+    "index": 11,
+    "condition": {
+      "profile": {
+        "id": "P3",
+        "width": 32,
+        "height": 32,
+        "radius": 1,
+        "ticks": 4
+      },
+      "operation": "observation",
+      "block": 1,
+      "seed": 22001,
+      "mode": "DETAILED",
+      "journal_policy": "SYNC",
+      "warmup": 3,
+      "samples": 5
+    },
+    "status": "COMPLETE",
+    "wall_ns": "1486794210",
+    "samples": 9,
+    "warm_api_ns": [
+      3459515,
+      2576614,
+      2577332,
+      1890657,
+      1733294
+    ],
+    "warm_wrapper_ns": [
+      3576774,
+      2676061,
+      2676024,
+      1959541,
+      1878259
+    ],
+    "latency": {
+      "FIRST_MEASURED": {
+        "api_ns": {
+          "n": 1,
+          "min": 2050249,
+          "median": 2050249,
+          "max": 2050249
+        },
+        "wrapper_ns": {
+          "n": 1,
+          "min": 2196326,
+          "median": 2196326,
+          "max": 2196326
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 1,
+            "min": 38658614,
+            "median": 38658614,
+            "max": 38658614
+          },
+          "INPUT_WITNESS": {
+            "n": 1,
+            "min": 11494910,
+            "median": 11494910,
+            "max": 11494910
+          },
+          "EXECUTE": {
+            "n": 1,
+            "min": 2286846,
+            "median": 2286846,
+            "max": 2286846
+          },
+          "OUTPUT_WITNESS": {
+            "n": 1,
+            "min": 10569923,
+            "median": 10569923,
+            "max": 10569923
+          },
+          "ENCODE": {
+            "n": 1,
+            "min": 7064971,
+            "median": 7064971,
+            "max": 7064971
+          },
+          "SERIALIZE": {
+            "n": 1,
+            "min": 504084,
+            "median": 504084,
+            "max": 504084
+          },
+          "HASH": {
+            "n": 1,
+            "min": 151043,
+            "median": 151043,
+            "max": 151043
+          },
+          "COMPRESS": {
+            "n": 1,
+            "min": 1214830,
+            "median": 1214830,
+            "max": 1214830
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 1,
+          "min": 209245,
+          "median": 209245,
+          "max": 209245
+        }
+      },
+      "WARMUP": {
+        "api_ns": {
+          "n": 3,
+          "min": 1645929,
+          "median": 1670639,
+          "max": 2594883
+        },
+        "wrapper_ns": {
+          "n": 3,
+          "min": 1741166,
+          "median": 1769299,
+          "max": 2684339
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 3,
+            "min": 25811795,
+            "median": 41279818,
+            "max": 41975417
+          },
+          "INPUT_WITNESS": {
+            "n": 3,
+            "min": 6094490,
+            "median": 7338477,
+            "max": 9807070
+          },
+          "EXECUTE": {
+            "n": 3,
+            "min": 1749939,
+            "median": 1777000,
+            "max": 2691705
+          },
+          "OUTPUT_WITNESS": {
+            "n": 3,
+            "min": 5467810,
+            "median": 6303418,
+            "max": 16579305
+          },
+          "ENCODE": {
+            "n": 3,
+            "min": 1960649,
+            "median": 2465233,
+            "max": 15744595
+          },
+          "SERIALIZE": {
+            "n": 3,
+            "min": 365718,
+            "median": 495877,
+            "max": 2483502
+          },
+          "HASH": {
+            "n": 3,
+            "min": 116885,
+            "median": 141249,
+            "max": 143690
+          },
+          "COMPRESS": {
+            "n": 3,
+            "min": 559,
+            "median": 920,
+            "max": 1243
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 3,
+          "min": 142610,
+          "median": 178841,
+          "max": 209266
+        }
+      },
+      "WARM": {
+        "api_ns": {
+          "n": 5,
+          "min": 1733294,
+          "median": 2576614,
+          "max": 3459515
+        },
+        "wrapper_ns": {
+          "n": 5,
+          "min": 1878259,
+          "median": 2676024,
+          "max": 3576774
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 5,
+            "min": 23498044,
+            "median": 24865495,
+            "max": 31291774
+          },
+          "INPUT_WITNESS": {
+            "n": 5,
+            "min": 5606178,
+            "median": 6550098,
+            "max": 12339690
+          },
+          "EXECUTE": {
+            "n": 5,
+            "min": 1889106,
+            "median": 2684276,
+            "max": 3584586
+          },
+          "OUTPUT_WITNESS": {
+            "n": 5,
+            "min": 5441762,
+            "median": 5706745,
+            "max": 7406727
+          },
+          "ENCODE": {
+            "n": 5,
+            "min": 1003668,
+            "median": 1186444,
+            "max": 1975107
+          },
+          "SERIALIZE": {
+            "n": 5,
+            "min": 265834,
+            "median": 336266,
+            "max": 464611
+          },
+          "HASH": {
+            "n": 5,
+            "min": 106264,
+            "median": 132730,
+            "max": 184926
+          },
+          "COMPRESS": {
+            "n": 5,
+            "min": 819,
+            "median": 1202,
+            "max": 2442
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 5,
+          "min": 84467,
+          "median": 130400,
+          "max": 147751
+        }
+      }
+    },
+    "time_balance": {
+      "ns": {
+        "preparation": "282215927",
+        "api": "20199112",
+        "execution_envelope": "1117744",
+        "witnesses": "186988188",
+        "ipc": "1353841",
+        "process": "771349643",
+        "journal_io": "141226082",
+        "residual_unattributed": "82343673"
+      },
+      "proportions": {
+        "preparation": 0.18981505651679934,
+        "api": 0.013585681101085267,
+        "execution_envelope": 0.0007517812434849339,
+        "witnesses": 0.12576601841891757,
+        "ipc": 0.0009105772613951732,
+        "process": 0.5188005426790033,
+        "journal_io": 0.09498697334851741,
+        "residual_unattributed": 0.05538336943079702
+      },
+      "inconsistent_negative_residual": false,
+      "causal_decomposition": false
+    },
+    "process_work_ns": {
+      "IDENTITY": "270385391",
+      "LOAD": "8286061",
+      "CALIBRATION": "589552",
+      "HEADER_SEND": "235164292",
+      "CALIBRATION_SEND": "333005",
+      "FINAL_IDENTITY": "256591342"
+    },
+    "journal": {
+      "bytes": 26258,
+      "io_ns": "141226082",
+      "events": 174
+    },
+    "cpu_us": {
+      "user": 848305,
+      "system": 291778
+    },
+    "resources": {
+      "userCPUTime": 1109213,
+      "systemCPUTime": 411888,
+      "maxRSS": 293464,
+      "sharedMemorySize": 0,
+      "unsharedDataSize": 0,
+      "unsharedStackSize": 0,
+      "minorPageFault": 115380,
+      "majorPageFault": 0,
+      "swappedOut": 0,
+      "fsRead": 0,
+      "fsWrite": 1440,
+      "ipcSent": 0,
+      "ipcReceived": 0,
+      "signalsCount": 0,
+      "voluntaryContextSwitches": 1391,
+      "involuntaryContextSwitches": 43
+    },
+    "clock_median_ns": 99,
+    "resolution_flags": 0,
+    "diagnostic_omitted_bytes": {
+      "stdout": 0,
+      "stderr": 0
+    }
+  },
+  {
+    "index": 12,
+    "condition": {
+      "profile": {
+        "id": "P3",
+        "width": 32,
+        "height": 32,
+        "radius": 1,
+        "ticks": 4
+      },
+      "operation": "observation",
+      "block": 2,
+      "seed": 22002,
+      "mode": "DETAILED",
+      "journal_policy": "SYNC",
+      "warmup": 3,
+      "samples": 5
+    },
+    "status": "COMPLETE",
+    "wall_ns": "1408792137",
+    "samples": 9,
+    "warm_api_ns": [
+      3753762,
+      1468511,
+      3543134,
+      1529406,
+      2458438
+    ],
+    "warm_wrapper_ns": [
+      3991684,
+      1555205,
+      3628937,
+      1600906,
+      2543310
+    ],
+    "latency": {
+      "FIRST_MEASURED": {
+        "api_ns": {
+          "n": 1,
+          "min": 2395689,
+          "median": 2395689,
+          "max": 2395689
+        },
+        "wrapper_ns": {
+          "n": 1,
+          "min": 2630703,
+          "median": 2630703,
+          "max": 2630703
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 1,
+            "min": 36449637,
+            "median": 36449637,
+            "max": 36449637
+          },
+          "INPUT_WITNESS": {
+            "n": 1,
+            "min": 7692648,
+            "median": 7692648,
+            "max": 7692648
+          },
+          "EXECUTE": {
+            "n": 1,
+            "min": 2726610,
+            "median": 2726610,
+            "max": 2726610
+          },
+          "OUTPUT_WITNESS": {
+            "n": 1,
+            "min": 7653186,
+            "median": 7653186,
+            "max": 7653186
+          },
+          "ENCODE": {
+            "n": 1,
+            "min": 4563396,
+            "median": 4563396,
+            "max": 4563396
+          },
+          "SERIALIZE": {
+            "n": 1,
+            "min": 362896,
+            "median": 362896,
+            "max": 362896
+          },
+          "HASH": {
+            "n": 1,
+            "min": 241292,
+            "median": 241292,
+            "max": 241292
+          },
+          "COMPRESS": {
+            "n": 1,
+            "min": 2108804,
+            "median": 2108804,
+            "max": 2108804
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 1,
+          "min": 200855,
+          "median": 200855,
+          "max": 200855
+        }
+      },
+      "WARMUP": {
+        "api_ns": {
+          "n": 3,
+          "min": 1547457,
+          "median": 1779243,
+          "max": 2094855
+        },
+        "wrapper_ns": {
+          "n": 3,
+          "min": 1626379,
+          "median": 1999564,
+          "max": 2228102
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 3,
+            "min": 26604284,
+            "median": 27617416,
+            "max": 30223671
+          },
+          "INPUT_WITNESS": {
+            "n": 3,
+            "min": 5745433,
+            "median": 6826486,
+            "max": 7675173
+          },
+          "EXECUTE": {
+            "n": 3,
+            "min": 1634876,
+            "median": 2008298,
+            "max": 2236681
+          },
+          "OUTPUT_WITNESS": {
+            "n": 3,
+            "min": 5727380,
+            "median": 5897166,
+            "max": 6087350
+          },
+          "ENCODE": {
+            "n": 3,
+            "min": 1831515,
+            "median": 2669156,
+            "max": 3685624
+          },
+          "SERIALIZE": {
+            "n": 3,
+            "min": 283689,
+            "median": 395954,
+            "max": 413002
+          },
+          "HASH": {
+            "n": 3,
+            "min": 115655,
+            "median": 119499,
+            "max": 122143
+          },
+          "COMPRESS": {
+            "n": 3,
+            "min": 1367,
+            "median": 1485,
+            "max": 1545
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 3,
+          "min": 139733,
+          "median": 145392,
+          "max": 166611
+        }
+      },
+      "WARM": {
+        "api_ns": {
+          "n": 5,
+          "min": 1468511,
+          "median": 2458438,
+          "max": 3753762
+        },
+        "wrapper_ns": {
+          "n": 5,
+          "min": 1555205,
+          "median": 2543310,
+          "max": 3991684
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 5,
+            "min": 23512180,
+            "median": 25995858,
+            "max": 32296985
+          },
+          "INPUT_WITNESS": {
+            "n": 5,
+            "min": 5344466,
+            "median": 6338646,
+            "max": 7320560
+          },
+          "EXECUTE": {
+            "n": 5,
+            "min": 1563434,
+            "median": 2554801,
+            "max": 4000845
+          },
+          "OUTPUT_WITNESS": {
+            "n": 5,
+            "min": 5328803,
+            "median": 6455438,
+            "max": 8522514
+          },
+          "ENCODE": {
+            "n": 5,
+            "min": 990504,
+            "median": 1365567,
+            "max": 3795728
+          },
+          "SERIALIZE": {
+            "n": 5,
+            "min": 347575,
+            "median": 377558,
+            "max": 463374
+          },
+          "HASH": {
+            "n": 5,
+            "min": 120250,
+            "median": 124657,
+            "max": 179976
+          },
+          "COMPRESS": {
+            "n": 5,
+            "min": 830,
+            "median": 1237,
+            "max": 5062
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 5,
+          "min": 116987,
+          "median": 138552,
+          "max": 228819
+        }
+      }
+    },
+    "time_balance": {
+      "ns": {
+        "preparation": "256197309",
+        "api": "20570495",
+        "execution_envelope": "1401531",
+        "witnesses": "146928755",
+        "ipc": "1410700",
+        "process": "757744598",
+        "journal_io": "112318551",
+        "residual_unattributed": "112220198"
+      },
+      "proportions": {
+        "preparation": 0.18185600435389143,
+        "api": 0.014601511791373662,
+        "execution_envelope": 0.0009948458421868663,
+        "witnesses": 0.10429413335091606,
+        "ipc": 0.0010013542544353368,
+        "process": 0.5378682760209074,
+        "journal_io": 0.07972684404612063,
+        "residual_unattributed": 0.07965703034016863
+      },
+      "inconsistent_negative_residual": false,
+      "causal_decomposition": false
+    },
+    "process_work_ns": {
+      "IDENTITY": "256066150",
+      "LOAD": "8593545",
+      "CALIBRATION": "562550",
+      "HEADER_SEND": "205258120",
+      "CALIBRATION_SEND": "168734",
+      "FINAL_IDENTITY": "287095499"
+    },
+    "journal": {
+      "bytes": 26237,
+      "io_ns": "112318551",
+      "events": 174
+    },
+    "cpu_us": {
+      "user": 829289,
+      "system": 255844
+    },
+    "resources": {
+      "userCPUTime": 1093270,
+      "systemCPUTime": 375834,
+      "maxRSS": 293792,
+      "sharedMemorySize": 0,
+      "unsharedDataSize": 0,
+      "unsharedStackSize": 0,
+      "minorPageFault": 115501,
+      "majorPageFault": 0,
+      "swappedOut": 0,
+      "fsRead": 0,
+      "fsWrite": 1440,
+      "ipcSent": 0,
+      "ipcReceived": 0,
+      "signalsCount": 0,
+      "voluntaryContextSwitches": 1358,
+      "involuntaryContextSwitches": 43
+    },
+    "clock_median_ns": 89,
+    "resolution_flags": 0,
+    "diagnostic_omitted_bytes": {
+      "stdout": 0,
+      "stderr": 0
+    }
+  },
+  {
+    "index": 13,
+    "condition": {
+      "profile": {
+        "id": "P3",
+        "width": 32,
+        "height": 32,
+        "radius": 1,
+        "ticks": 4
+      },
+      "operation": "observation",
+      "block": 2,
+      "seed": 22002,
+      "mode": "DETAILED",
+      "journal_policy": "OFF",
+      "warmup": 3,
+      "samples": 5
+    },
+    "status": "COMPLETE",
+    "wall_ns": "1323008560",
+    "samples": 9,
+    "warm_api_ns": [
+      1615138,
+      2044301,
+      1680745,
+      2056071,
+      3733435
+    ],
+    "warm_wrapper_ns": [
+      1715757,
+      2145172,
+      1813566,
+      2140968,
+      3814436
+    ],
+    "latency": {
+      "FIRST_MEASURED": {
+        "api_ns": {
+          "n": 1,
+          "min": 1814205,
+          "median": 1814205,
+          "max": 1814205
+        },
+        "wrapper_ns": {
+          "n": 1,
+          "min": 2064702,
+          "median": 2064702,
+          "max": 2064702
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 1,
+            "min": 31775923,
+            "median": 31775923,
+            "max": 31775923
+          },
+          "INPUT_WITNESS": {
+            "n": 1,
+            "min": 7591677,
+            "median": 7591677,
+            "max": 7591677
+          },
+          "EXECUTE": {
+            "n": 1,
+            "min": 2148669,
+            "median": 2148669,
+            "max": 2148669
+          },
+          "OUTPUT_WITNESS": {
+            "n": 1,
+            "min": 8716304,
+            "median": 8716304,
+            "max": 8716304
+          },
+          "ENCODE": {
+            "n": 1,
+            "min": 7045479,
+            "median": 7045479,
+            "max": 7045479
+          },
+          "SERIALIZE": {
+            "n": 1,
+            "min": 359331,
+            "median": 359331,
+            "max": 359331
+          },
+          "HASH": {
+            "n": 1,
+            "min": 137745,
+            "median": 137745,
+            "max": 137745
+          },
+          "COMPRESS": {
+            "n": 1,
+            "min": 1091167,
+            "median": 1091167,
+            "max": 1091167
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 1,
+          "min": 266698,
+          "median": 266698,
+          "max": 266698
+        }
+      },
+      "WARMUP": {
+        "api_ns": {
+          "n": 3,
+          "min": 1525385,
+          "median": 1801070,
+          "max": 1898015
+        },
+        "wrapper_ns": {
+          "n": 3,
+          "min": 1609531,
+          "median": 1952070,
+          "max": 1984328
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 3,
+            "min": 26921625,
+            "median": 28280716,
+            "max": 31481662
+          },
+          "INPUT_WITNESS": {
+            "n": 3,
+            "min": 6453550,
+            "median": 6551776,
+            "max": 7016326
+          },
+          "EXECUTE": {
+            "n": 3,
+            "min": 1615876,
+            "median": 1957903,
+            "max": 1990028
+          },
+          "OUTPUT_WITNESS": {
+            "n": 3,
+            "min": 6595986,
+            "median": 7161605,
+            "max": 13387355
+          },
+          "ENCODE": {
+            "n": 3,
+            "min": 1277540,
+            "median": 1478381,
+            "max": 2390304
+          },
+          "SERIALIZE": {
+            "n": 3,
+            "min": 259440,
+            "median": 335401,
+            "max": 429687
+          },
+          "HASH": {
+            "n": 3,
+            "min": 108488,
+            "median": 108588,
+            "max": 172786
+          },
+          "COMPRESS": {
+            "n": 3,
+            "min": 287,
+            "median": 415,
+            "max": 456
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 3,
+          "min": 126293,
+          "median": 131972,
+          "max": 212892
+        }
+      },
+      "WARM": {
+        "api_ns": {
+          "n": 5,
+          "min": 1615138,
+          "median": 2044301,
+          "max": 3733435
+        },
+        "wrapper_ns": {
+          "n": 5,
+          "min": 1715757,
+          "median": 2140968,
+          "max": 3814436
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 5,
+            "min": 24006481,
+            "median": 25450049,
+            "max": 34272222
+          },
+          "INPUT_WITNESS": {
+            "n": 5,
+            "min": 5989253,
+            "median": 8735557,
+            "max": 9139159
+          },
+          "EXECUTE": {
+            "n": 5,
+            "min": 1722350,
+            "median": 2148953,
+            "max": 3823306
+          },
+          "OUTPUT_WITNESS": {
+            "n": 5,
+            "min": 6093416,
+            "median": 6272872,
+            "max": 7016573
+          },
+          "ENCODE": {
+            "n": 5,
+            "min": 969571,
+            "median": 1185041,
+            "max": 2321630
+          },
+          "SERIALIZE": {
+            "n": 5,
+            "min": 275755,
+            "median": 422988,
+            "max": 1057460
+          },
+          "HASH": {
+            "n": 5,
+            "min": 113751,
+            "median": 121056,
+            "max": 187236
+          },
+          "COMPRESS": {
+            "n": 5,
+            "min": 273,
+            "median": 385,
+            "max": 817
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 5,
+          "min": 101413,
+          "median": 120082,
+          "max": 299756
+        }
+      }
+    },
+    "time_balance": {
+      "ns": {
+        "preparation": "253723613",
+        "api": "18168365",
+        "execution_envelope": "1212165",
+        "witnesses": "160491762",
+        "ipc": "1514807",
+        "process": "772461137",
+        "journal_io": "0",
+        "residual_unattributed": "115436711"
+      },
+      "proportions": {
+        "preparation": 0.19177775614694437,
+        "api": 0.013732613340007414,
+        "execution_envelope": 0.000916218561730243,
+        "witnesses": 0.12130818110504138,
+        "ipc": 0.001144971427849265,
+        "process": 0.5838670741480312,
+        "journal_io": 0,
+        "residual_unattributed": 0.08725318527039613
+      },
+      "inconsistent_negative_residual": false,
+      "causal_decomposition": false
+    },
+    "process_work_ns": {
+      "IDENTITY": "278317952",
+      "LOAD": "7711234",
+      "CALIBRATION": "545963",
+      "HEADER_SEND": "198002541",
+      "CALIBRATION_SEND": "112728",
+      "FINAL_IDENTITY": "287770719"
+    },
+    "journal": {
+      "bytes": 0,
+      "events": 0,
+      "io_ns": "0",
+      "checkpoint_persistence": "OFF"
+    },
+    "cpu_us": {
+      "user": 788130,
+      "system": 251075
+    },
+    "resources": {
+      "userCPUTime": 1078959,
+      "systemCPUTime": 383720,
+      "maxRSS": 295356,
+      "sharedMemorySize": 0,
+      "unsharedDataSize": 0,
+      "unsharedStackSize": 0,
+      "minorPageFault": 115861,
+      "majorPageFault": 0,
+      "swappedOut": 0,
+      "fsRead": 0,
+      "fsWrite": 0,
+      "ipcSent": 0,
+      "ipcReceived": 0,
+      "signalsCount": 0,
+      "voluntaryContextSwitches": 829,
+      "involuntaryContextSwitches": 35
+    },
+    "clock_median_ns": 107,
+    "resolution_flags": 0,
+    "diagnostic_omitted_bytes": {
+      "stdout": 0,
+      "stderr": 0
+    }
+  },
+  {
+    "index": 14,
+    "condition": {
+      "profile": {
+        "id": "P3",
+        "width": 32,
+        "height": 32,
+        "radius": 1,
+        "ticks": 4
+      },
+      "operation": "observation",
+      "block": 2,
+      "seed": 22002,
+      "mode": "MINIMAL",
+      "journal_policy": "SYNC",
+      "warmup": 3,
+      "samples": 5
+    },
+    "status": "COMPLETE",
+    "wall_ns": "1343850322",
+    "samples": 9,
+    "warm_api_ns": [
+      2429753,
+      2104007,
+      1536755,
+      2285401,
+      1943353
+    ],
+    "warm_wrapper_ns": [
+      2442283,
+      2114254,
+      1545501,
+      2295786,
+      1953616
+    ],
+    "latency": {
+      "FIRST_MEASURED": {
+        "api_ns": {
+          "n": 1,
+          "min": 2433725,
+          "median": 2433725,
+          "max": 2433725
+        },
+        "wrapper_ns": {
+          "n": 1,
+          "min": 2441211,
+          "median": 2441211,
+          "max": 2441211
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 1,
+            "min": 36701436,
+            "median": 36701436,
+            "max": 36701436
+          },
+          "INPUT_WITNESS": {
+            "n": 1,
+            "min": 9415766,
+            "median": 9415766,
+            "max": 9415766
+          },
+          "EXECUTE": {
+            "n": 1,
+            "min": 2534465,
+            "median": 2534465,
+            "max": 2534465
+          },
+          "OUTPUT_WITNESS": {
+            "n": 1,
+            "min": 8197367,
+            "median": 8197367,
+            "max": 8197367
+          },
+          "ENCODE": {
+            "n": 1,
+            "min": 5782354,
+            "median": 5782354,
+            "max": 5782354
+          },
+          "SERIALIZE": {
+            "n": 1,
+            "min": 307323,
+            "median": 307323,
+            "max": 307323
+          },
+          "HASH": {
+            "n": 1,
+            "min": 171642,
+            "median": 171642,
+            "max": 171642
+          },
+          "COMPRESS": {
+            "n": 1,
+            "min": 1298379,
+            "median": 1298379,
+            "max": 1298379
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 1,
+          "min": 236633,
+          "median": 236633,
+          "max": 236633
+        }
+      },
+      "WARMUP": {
+        "api_ns": {
+          "n": 3,
+          "min": 1789219,
+          "median": 2029802,
+          "max": 2247607
+        },
+        "wrapper_ns": {
+          "n": 3,
+          "min": 1799498,
+          "median": 2037605,
+          "max": 2254289
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 3,
+            "min": 26112470,
+            "median": 26685730,
+            "max": 32755397
+          },
+          "INPUT_WITNESS": {
+            "n": 3,
+            "min": 6445730,
+            "median": 6783025,
+            "max": 8246159
+          },
+          "EXECUTE": {
+            "n": 3,
+            "min": 1807544,
+            "median": 2047405,
+            "max": 2260500
+          },
+          "OUTPUT_WITNESS": {
+            "n": 3,
+            "min": 5727836,
+            "median": 5848922,
+            "max": 6162286
+          },
+          "ENCODE": {
+            "n": 3,
+            "min": 1870872,
+            "median": 1976068,
+            "max": 3216482
+          },
+          "SERIALIZE": {
+            "n": 3,
+            "min": 273325,
+            "median": 274959,
+            "max": 576053
+          },
+          "HASH": {
+            "n": 3,
+            "min": 111822,
+            "median": 125497,
+            "max": 218113
+          },
+          "COMPRESS": {
+            "n": 3,
+            "min": 870,
+            "median": 1266,
+            "max": 1310
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 3,
+          "min": 122000,
+          "median": 161541,
+          "max": 213104
+        }
+      },
+      "WARM": {
+        "api_ns": {
+          "n": 5,
+          "min": 1536755,
+          "median": 2104007,
+          "max": 2429753
+        },
+        "wrapper_ns": {
+          "n": 5,
+          "min": 1545501,
+          "median": 2114254,
+          "max": 2442283
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 5,
+            "min": 23439419,
+            "median": 26346995,
+            "max": 29463338
+          },
+          "INPUT_WITNESS": {
+            "n": 5,
+            "min": 5466519,
+            "median": 5774518,
+            "max": 6423047
+          },
+          "EXECUTE": {
+            "n": 5,
+            "min": 1552248,
+            "median": 2122253,
+            "max": 2453097
+          },
+          "OUTPUT_WITNESS": {
+            "n": 5,
+            "min": 5344888,
+            "median": 5679455,
+            "max": 6867858
+          },
+          "ENCODE": {
+            "n": 5,
+            "min": 984744,
+            "median": 1874388,
+            "max": 2452447
+          },
+          "SERIALIZE": {
+            "n": 5,
+            "min": 290652,
+            "median": 344774,
+            "max": 366196
+          },
+          "HASH": {
+            "n": 5,
+            "min": 102982,
+            "median": 106637,
+            "max": 146715
+          },
+          "COMPRESS": {
+            "n": 5,
+            "min": 906,
+            "median": 1023,
+            "max": 3182
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 5,
+          "min": 89897,
+          "median": 110362,
+          "max": 747463
+        }
+      }
+    },
+    "time_balance": {
+      "ns": {
+        "preparation": "254762745",
+        "api": "18799622",
+        "execution_envelope": "246001",
+        "witnesses": "142226295",
+        "ipc": "1911067",
+        "process": "716504118",
+        "journal_io": "120518766",
+        "residual_unattributed": "88881708"
+      },
+      "proportions": {
+        "preparation": 0.1895767265366626,
+        "api": 0.013989371950308615,
+        "execution_envelope": 0.00018305684492740703,
+        "witnesses": 0.10583492273777198,
+        "ipc": 0.0014220832251286984,
+        "process": 0.533172561162656,
+        "journal_io": 0.089681688523642,
+        "residual_unattributed": 0.06613958901890266
+      },
+      "inconsistent_negative_residual": false,
+      "causal_decomposition": false
+    },
+    "process_work_ns": {
+      "IDENTITY": "252127061",
+      "LOAD": "6845477",
+      "CALIBRATION": "733035",
+      "HEADER_SEND": "209669572",
+      "CALIBRATION_SEND": "178573",
+      "FINAL_IDENTITY": "246950400"
+    },
+    "journal": {
+      "bytes": 26235,
+      "io_ns": "120518766",
+      "events": 174
+    },
+    "cpu_us": {
+      "user": 820110,
+      "system": 211423
+    },
+    "resources": {
+      "userCPUTime": 1068675,
+      "systemCPUTime": 331028,
+      "maxRSS": 293580,
+      "sharedMemorySize": 0,
+      "unsharedDataSize": 0,
+      "unsharedStackSize": 0,
+      "minorPageFault": 116216,
+      "majorPageFault": 0,
+      "swappedOut": 0,
+      "fsRead": 0,
+      "fsWrite": 1440,
+      "ipcSent": 0,
+      "ipcReceived": 0,
+      "signalsCount": 0,
+      "voluntaryContextSwitches": 1489,
+      "involuntaryContextSwitches": 25
+    },
+    "clock_median_ns": 122,
+    "resolution_flags": 0,
+    "diagnostic_omitted_bytes": {
+      "stdout": 0,
+      "stderr": 0
+    }
+  },
+  {
+    "index": 15,
+    "condition": {
+      "profile": {
+        "id": "P3",
+        "width": 32,
+        "height": 32,
+        "radius": 1,
+        "ticks": 4
+      },
+      "operation": "observation",
+      "block": 2,
+      "seed": 22002,
+      "mode": "MINIMAL",
+      "journal_policy": "OFF",
+      "warmup": 3,
+      "samples": 5
+    },
+    "status": "COMPLETE",
+    "wall_ns": "1406185824",
+    "samples": 9,
+    "warm_api_ns": [
+      1692285,
+      1455339,
+      7172103,
+      1601492,
+      1721077
+    ],
+    "warm_wrapper_ns": [
+      1701783,
+      1462625,
+      7182788,
+      1610901,
+      1731024
+    ],
+    "latency": {
+      "FIRST_MEASURED": {
+        "api_ns": {
+          "n": 1,
+          "min": 1738845,
+          "median": 1738845,
+          "max": 1738845
+        },
+        "wrapper_ns": {
+          "n": 1,
+          "min": 1746891,
+          "median": 1746891,
+          "max": 1746891
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 1,
+            "min": 35081380,
+            "median": 35081380,
+            "max": 35081380
+          },
+          "INPUT_WITNESS": {
+            "n": 1,
+            "min": 8367977,
+            "median": 8367977,
+            "max": 8367977
+          },
+          "EXECUTE": {
+            "n": 1,
+            "min": 1896212,
+            "median": 1896212,
+            "max": 1896212
+          },
+          "OUTPUT_WITNESS": {
+            "n": 1,
+            "min": 7002855,
+            "median": 7002855,
+            "max": 7002855
+          },
+          "ENCODE": {
+            "n": 1,
+            "min": 7998374,
+            "median": 7998374,
+            "max": 7998374
+          },
+          "SERIALIZE": {
+            "n": 1,
+            "min": 2084147,
+            "median": 2084147,
+            "max": 2084147
+          },
+          "HASH": {
+            "n": 1,
+            "min": 167934,
+            "median": 167934,
+            "max": 167934
+          },
+          "COMPRESS": {
+            "n": 1,
+            "min": 4321146,
+            "median": 4321146,
+            "max": 4321146
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 1,
+          "min": 181224,
+          "median": 181224,
+          "max": 181224
+        }
+      },
+      "WARMUP": {
+        "api_ns": {
+          "n": 3,
+          "min": 1699912,
+          "median": 1744750,
+          "max": 1748325
+        },
+        "wrapper_ns": {
+          "n": 3,
+          "min": 1706402,
+          "median": 1753127,
+          "max": 1754198
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 3,
+            "min": 25764277,
+            "median": 31665564,
+            "max": 33316399
+          },
+          "INPUT_WITNESS": {
+            "n": 3,
+            "min": 6314970,
+            "median": 6978155,
+            "max": 7046949
+          },
+          "EXECUTE": {
+            "n": 3,
+            "min": 1712149,
+            "median": 1758058,
+            "max": 1760634
+          },
+          "OUTPUT_WITNESS": {
+            "n": 3,
+            "min": 6504530,
+            "median": 8853229,
+            "max": 9629650
+          },
+          "ENCODE": {
+            "n": 3,
+            "min": 1832944,
+            "median": 2164200,
+            "max": 2447631
+          },
+          "SERIALIZE": {
+            "n": 3,
+            "min": 264175,
+            "median": 403937,
+            "max": 545840
+          },
+          "HASH": {
+            "n": 3,
+            "min": 118987,
+            "median": 122882,
+            "max": 168060
+          },
+          "COMPRESS": {
+            "n": 3,
+            "min": 281,
+            "median": 342,
+            "max": 379
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 3,
+          "min": 150277,
+          "median": 200626,
+          "max": 210619
+        }
+      },
+      "WARM": {
+        "api_ns": {
+          "n": 5,
+          "min": 1455339,
+          "median": 1692285,
+          "max": 7172103
+        },
+        "wrapper_ns": {
+          "n": 5,
+          "min": 1462625,
+          "median": 1701783,
+          "max": 7182788
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 5,
+            "min": 24327859,
+            "median": 29349860,
+            "max": 35185034
+          },
+          "INPUT_WITNESS": {
+            "n": 5,
+            "min": 5173001,
+            "median": 6393026,
+            "max": 6835857
+          },
+          "EXECUTE": {
+            "n": 5,
+            "min": 1468399,
+            "median": 1707794,
+            "max": 7190466
+          },
+          "OUTPUT_WITNESS": {
+            "n": 5,
+            "min": 5733920,
+            "median": 6081831,
+            "max": 6460577
+          },
+          "ENCODE": {
+            "n": 5,
+            "min": 902522,
+            "median": 1347250,
+            "max": 2273504
+          },
+          "SERIALIZE": {
+            "n": 5,
+            "min": 266656,
+            "median": 345576,
+            "max": 1520093
+          },
+          "HASH": {
+            "n": 5,
+            "min": 114243,
+            "median": 117674,
+            "max": 138518
+          },
+          "COMPRESS": {
+            "n": 5,
+            "min": 389,
+            "median": 472,
+            "max": 702
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 5,
+          "min": 113733,
+          "median": 131570,
+          "max": 218416
+        }
+      }
+    },
+    "time_balance": {
+      "ns": {
+        "preparation": "271026633",
+        "api": "20574128",
+        "execution_envelope": "276012",
+        "witnesses": "155659033",
+        "ipc": "1466259",
+        "process": "798879746",
+        "journal_io": "0",
+        "residual_unattributed": "158304013"
+      },
+      "proportions": {
+        "preparation": 0.1927388460147071,
+        "api": 0.014631158733683834,
+        "execution_envelope": 0.00019628415767616216,
+        "witnesses": 0.11069591965961961,
+        "ipc": 0.001042720652544425,
+        "process": 0.5681181906154673,
+        "journal_io": 0,
+        "residual_unattributed": 0.11257688016630155
+      },
+      "inconsistent_negative_residual": false,
+      "causal_decomposition": false
+    },
+    "process_work_ns": {
+      "IDENTITY": "279406375",
+      "LOAD": "7990090",
+      "CALIBRATION": "429499",
+      "HEADER_SEND": "209502582",
+      "CALIBRATION_SEND": "79181",
+      "FINAL_IDENTITY": "301472019"
+    },
+    "journal": {
+      "bytes": 0,
+      "events": 0,
+      "io_ns": "0",
+      "checkpoint_persistence": "OFF"
+    },
+    "cpu_us": {
+      "user": 791899,
+      "system": 294876
+    },
+    "resources": {
+      "userCPUTime": 1115098,
+      "systemCPUTime": 437474,
+      "maxRSS": 294992,
+      "sharedMemorySize": 0,
+      "unsharedDataSize": 0,
+      "unsharedStackSize": 0,
+      "minorPageFault": 115727,
+      "majorPageFault": 0,
+      "swappedOut": 0,
+      "fsRead": 0,
+      "fsWrite": 0,
+      "ipcSent": 0,
+      "ipcReceived": 0,
+      "signalsCount": 0,
+      "voluntaryContextSwitches": 863,
+      "involuntaryContextSwitches": 111
+    },
+    "clock_median_ns": 98,
+    "resolution_flags": 0,
+    "diagnostic_omitted_bytes": {
+      "stdout": 0,
+      "stderr": 0
+    }
+  },
+  {
+    "index": 16,
+    "condition": {
+      "profile": {
+        "id": "P7",
+        "width": 16,
+        "height": 16,
+        "radius": 1,
+        "ticks": 16
+      },
+      "operation": "record_append",
+      "block": 1,
+      "seed": 22001,
+      "mode": "MINIMAL",
+      "journal_policy": "OFF",
+      "warmup": 3,
+      "samples": 5
+    },
+    "status": "COMPLETE",
+    "wall_ns": "5068913333",
+    "samples": 9,
+    "warm_api_ns": [
+      13893752,
+      16881381,
+      14410381,
+      14635311,
+      16282959
+    ],
+    "warm_wrapper_ns": [
+      13905620,
+      16893586,
+      14459629,
+      14645999,
+      16328961
+    ],
+    "latency": {
+      "FIRST_MEASURED": {
+        "api_ns": {
+          "n": 1,
+          "min": 14455241,
+          "median": 14455241,
+          "max": 14455241
+        },
+        "wrapper_ns": {
+          "n": 1,
+          "min": 14506771,
+          "median": 14506771,
+          "max": 14506771
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 1,
+            "min": 424506486,
+            "median": 424506486,
+            "max": 424506486
+          },
+          "INPUT_WITNESS": {
+            "n": 1,
+            "min": 1932342,
+            "median": 1932342,
+            "max": 1932342
+          },
+          "EXECUTE": {
+            "n": 1,
+            "min": 14630393,
+            "median": 14630393,
+            "max": 14630393
+          },
+          "OUTPUT_WITNESS": {
+            "n": 1,
+            "min": 35408773,
+            "median": 35408773,
+            "max": 35408773
+          },
+          "ENCODE": {
+            "n": 1,
+            "min": 10528063,
+            "median": 10528063,
+            "max": 10528063
+          },
+          "SERIALIZE": {
+            "n": 1,
+            "min": 1440668,
+            "median": 1440668,
+            "max": 1440668
+          },
+          "HASH": {
+            "n": 1,
+            "min": 403194,
+            "median": 403194,
+            "max": 403194
+          },
+          "COMPRESS": {
+            "n": 1,
+            "min": 1680171,
+            "median": 1680171,
+            "max": 1680171
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 1,
+          "min": 335253,
+          "median": 335253,
+          "max": 335253
+        }
+      },
+      "WARMUP": {
+        "api_ns": {
+          "n": 3,
+          "min": 14042549,
+          "median": 14560112,
+          "max": 14851795
+        },
+        "wrapper_ns": {
+          "n": 3,
+          "min": 14052830,
+          "median": 14570887,
+          "max": 14863666
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 3,
+            "min": 340582797,
+            "median": 346719139,
+            "max": 374192159
+          },
+          "INPUT_WITNESS": {
+            "n": 3,
+            "min": 1424163,
+            "median": 1832024,
+            "max": 2220844
+          },
+          "EXECUTE": {
+            "n": 3,
+            "min": 14059290,
+            "median": 14577256,
+            "max": 14870971
+          },
+          "OUTPUT_WITNESS": {
+            "n": 3,
+            "min": 26892051,
+            "median": 27108700,
+            "max": 28667699
+          },
+          "ENCODE": {
+            "n": 3,
+            "min": 3228235,
+            "median": 4269280,
+            "max": 4537048
+          },
+          "SERIALIZE": {
+            "n": 3,
+            "min": 787523,
+            "median": 1026508,
+            "max": 1081135
+          },
+          "HASH": {
+            "n": 3,
+            "min": 208865,
+            "median": 228063,
+            "max": 308807
+          },
+          "COMPRESS": {
+            "n": 3,
+            "min": 372,
+            "median": 503,
+            "max": 699
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 3,
+          "min": 151436,
+          "median": 163471,
+          "max": 343724
+        }
+      },
+      "WARM": {
+        "api_ns": {
+          "n": 5,
+          "min": 13893752,
+          "median": 14635311,
+          "max": 16881381
+        },
+        "wrapper_ns": {
+          "n": 5,
+          "min": 13905620,
+          "median": 14645999,
+          "max": 16893586
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 5,
+            "min": 346013961,
+            "median": 352250340,
+            "max": 435585743
+          },
+          "INPUT_WITNESS": {
+            "n": 5,
+            "min": 1449016,
+            "median": 1574082,
+            "max": 1683202
+          },
+          "EXECUTE": {
+            "n": 5,
+            "min": 13912871,
+            "median": 14655154,
+            "max": 16903050
+          },
+          "OUTPUT_WITNESS": {
+            "n": 5,
+            "min": 26764518,
+            "median": 27392172,
+            "max": 28591497
+          },
+          "ENCODE": {
+            "n": 5,
+            "min": 2084017,
+            "median": 2300850,
+            "max": 4498916
+          },
+          "SERIALIZE": {
+            "n": 5,
+            "min": 674050,
+            "median": 843058,
+            "max": 1643620
+          },
+          "HASH": {
+            "n": 5,
+            "min": 209239,
+            "median": 246296,
+            "max": 421553
+          },
+          "COMPRESS": {
+            "n": 5,
+            "min": 496,
+            "median": 508,
+            "max": 14090
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 5,
+          "min": 123656,
+          "median": 140106,
+          "max": 229666
+        }
+      }
+    },
+    "time_balance": {
+      "ns": {
+        "preparation": "3328548791",
+        "api": "134013481",
+        "execution_envelope": "405175",
+        "witnesses": "322472319",
+        "ipc": "1767114",
+        "process": "1185081528",
+        "journal_io": "0",
+        "residual_unattributed": "96624925"
+      },
+      "proportions": {
+        "preparation": 0.6566592427868603,
+        "api": 0.026438305845068587,
+        "execution_envelope": 0.00007993330589461866,
+        "witnesses": 0.06361764303615487,
+        "ipc": 0.00034861791549987823,
+        "process": 0.23379400083343269,
+        "journal_io": 0,
+        "residual_unattributed": 0.019062256277089122
+      },
+      "inconsistent_negative_residual": false,
+      "causal_decomposition": false
+    },
+    "process_work_ns": {
+      "IDENTITY": "344791646",
+      "LOAD": "6378009",
+      "CALIBRATION": "764643",
+      "HEADER_SEND": "473837250",
+      "CALIBRATION_SEND": "237515",
+      "FINAL_IDENTITY": "359072465"
+    },
+    "journal": {
+      "bytes": 0,
+      "events": 0,
+      "io_ns": "0",
+      "checkpoint_persistence": "OFF"
+    },
+    "cpu_us": {
+      "user": 4362212,
+      "system": 560740
+    },
+    "resources": {
+      "userCPUTime": 4591240,
+      "systemCPUTime": 800560,
+      "maxRSS": 294152,
+      "sharedMemorySize": 0,
+      "unsharedDataSize": 0,
+      "unsharedStackSize": 0,
+      "minorPageFault": 123670,
+      "majorPageFault": 0,
+      "swappedOut": 0,
+      "fsRead": 0,
+      "fsWrite": 0,
+      "ipcSent": 0,
+      "ipcReceived": 0,
+      "signalsCount": 0,
+      "voluntaryContextSwitches": 1757,
+      "involuntaryContextSwitches": 68
+    },
+    "clock_median_ns": 154,
+    "resolution_flags": 0,
+    "diagnostic_omitted_bytes": {
+      "stdout": 0,
+      "stderr": 0
+    }
+  },
+  {
+    "index": 17,
+    "condition": {
+      "profile": {
+        "id": "P7",
+        "width": 16,
+        "height": 16,
+        "radius": 1,
+        "ticks": 16
+      },
+      "operation": "record_append",
+      "block": 1,
+      "seed": 22001,
+      "mode": "MINIMAL",
+      "journal_policy": "SYNC",
+      "warmup": 3,
+      "samples": 5
+    },
+    "status": "COMPLETE",
+    "wall_ns": "4956082901",
+    "samples": 9,
+    "warm_api_ns": [
+      14176201,
+      13450217,
+      15580942,
+      15328878,
+      14013142
+    ],
+    "warm_wrapper_ns": [
+      14187633,
+      13461775,
+      15603592,
+      15340098,
+      14024362
+    ],
+    "latency": {
+      "FIRST_MEASURED": {
+        "api_ns": {
+          "n": 1,
+          "min": 14207150,
+          "median": 14207150,
+          "max": 14207150
+        },
+        "wrapper_ns": {
+          "n": 1,
+          "min": 14226076,
+          "median": 14226076,
+          "max": 14226076
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 1,
+            "min": 402649307,
+            "median": 402649307,
+            "max": 402649307
+          },
+          "INPUT_WITNESS": {
+            "n": 1,
+            "min": 1951119,
+            "median": 1951119,
+            "max": 1951119
+          },
+          "EXECUTE": {
+            "n": 1,
+            "min": 14335158,
+            "median": 14335158,
+            "max": 14335158
+          },
+          "OUTPUT_WITNESS": {
+            "n": 1,
+            "min": 29778338,
+            "median": 29778338,
+            "max": 29778338
+          },
+          "ENCODE": {
+            "n": 1,
+            "min": 6634450,
+            "median": 6634450,
+            "max": 6634450
+          },
+          "SERIALIZE": {
+            "n": 1,
+            "min": 1219349,
+            "median": 1219349,
+            "max": 1219349
+          },
+          "HASH": {
+            "n": 1,
+            "min": 314836,
+            "median": 314836,
+            "max": 314836
+          },
+          "COMPRESS": {
+            "n": 1,
+            "min": 2423113,
+            "median": 2423113,
+            "max": 2423113
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 1,
+          "min": 403578,
+          "median": 403578,
+          "max": 403578
+        }
+      },
+      "WARMUP": {
+        "api_ns": {
+          "n": 3,
+          "min": 13657859,
+          "median": 14853848,
+          "max": 14914057
+        },
+        "wrapper_ns": {
+          "n": 3,
+          "min": 13668082,
+          "median": 14864327,
+          "max": 14925229
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 3,
+            "min": 357257524,
+            "median": 368073508,
+            "max": 372371421
+          },
+          "INPUT_WITNESS": {
+            "n": 3,
+            "min": 1521015,
+            "median": 1943012,
+            "max": 1984169
+          },
+          "EXECUTE": {
+            "n": 3,
+            "min": 13676636,
+            "median": 14873631,
+            "max": 14935743
+          },
+          "OUTPUT_WITNESS": {
+            "n": 3,
+            "min": 26171848,
+            "median": 32022193,
+            "max": 35988003
+          },
+          "ENCODE": {
+            "n": 3,
+            "min": 3092343,
+            "median": 4474094,
+            "max": 5122414
+          },
+          "SERIALIZE": {
+            "n": 3,
+            "min": 830988,
+            "median": 890801,
+            "max": 1411958
+          },
+          "HASH": {
+            "n": 3,
+            "min": 197831,
+            "median": 198311,
+            "max": 204496
+          },
+          "COMPRESS": {
+            "n": 3,
+            "min": 875,
+            "median": 1328,
+            "max": 2185
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 3,
+          "min": 153815,
+          "median": 183399,
+          "max": 594533
+        }
+      },
+      "WARM": {
+        "api_ns": {
+          "n": 5,
+          "min": 13450217,
+          "median": 14176201,
+          "max": 15580942
+        },
+        "wrapper_ns": {
+          "n": 5,
+          "min": 13461775,
+          "median": 14187633,
+          "max": 15603592
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 5,
+            "min": 350409165,
+            "median": 397574166,
+            "max": 424085749
+          },
+          "INPUT_WITNESS": {
+            "n": 5,
+            "min": 1471681,
+            "median": 1781316,
+            "max": 2168432
+          },
+          "EXECUTE": {
+            "n": 5,
+            "min": 13474189,
+            "median": 14198298,
+            "max": 15615735
+          },
+          "OUTPUT_WITNESS": {
+            "n": 5,
+            "min": 26151346,
+            "median": 28915051,
+            "max": 33038109
+          },
+          "ENCODE": {
+            "n": 5,
+            "min": 2218264,
+            "median": 2896348,
+            "max": 3277238
+          },
+          "SERIALIZE": {
+            "n": 5,
+            "min": 781711,
+            "median": 1180007,
+            "max": 1945791
+          },
+          "HASH": {
+            "n": 5,
+            "min": 198131,
+            "median": 441759,
+            "max": 688993
+          },
+          "COMPRESS": {
+            "n": 5,
+            "min": 1011,
+            "median": 1587,
+            "max": 22681
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 5,
+          "min": 117801,
+          "median": 167969,
+          "max": 260601
+        }
+      }
+    },
+    "time_balance": {
+      "ns": {
+        "preparation": "3450498583",
+        "api": "130182294",
+        "execution_envelope": "313586",
+        "witnesses": "335815215",
+        "ipc": "2247652",
+        "process": "818627619",
+        "journal_io": "127343474",
+        "residual_unattributed": "91054478"
+      },
+      "proportions": {
+        "preparation": 0.6962148640217025,
+        "api": 0.026267174419889714,
+        "execution_envelope": 0.00006327295290737107,
+        "witnesses": 0.06775819164208124,
+        "ipc": 0.0004535138021090176,
+        "process": 0.16517633690809,
+        "journal_io": 0.0256943793200686,
+        "residual_unattributed": 0.01837226693315153
+      },
+      "inconsistent_negative_residual": false,
+      "causal_decomposition": false
+    },
+    "process_work_ns": {
+      "IDENTITY": "268047239",
+      "LOAD": "6998017",
+      "CALIBRATION": "573480",
+      "HEADER_SEND": "188656166",
+      "CALIBRATION_SEND": "272336",
+      "FINAL_IDENTITY": "354080381"
+    },
+    "journal": {
+      "bytes": 26313,
+      "io_ns": "127343474",
+      "events": 174
+    },
+    "cpu_us": {
+      "user": 4346089,
+      "system": 432153
+    },
+    "resources": {
+      "userCPUTime": 4627965,
+      "systemCPUTime": 540836,
+      "maxRSS": 292776,
+      "sharedMemorySize": 0,
+      "unsharedDataSize": 0,
+      "unsharedStackSize": 0,
+      "minorPageFault": 123628,
+      "majorPageFault": 0,
+      "swappedOut": 0,
+      "fsRead": 0,
+      "fsWrite": 1440,
+      "ipcSent": 0,
+      "ipcReceived": 0,
+      "signalsCount": 0,
+      "voluntaryContextSwitches": 2357,
+      "involuntaryContextSwitches": 87
+    },
+    "clock_median_ns": 107,
+    "resolution_flags": 0,
+    "diagnostic_omitted_bytes": {
+      "stdout": 0,
+      "stderr": 0
+    }
+  },
+  {
+    "index": 18,
+    "condition": {
+      "profile": {
+        "id": "P7",
+        "width": 16,
+        "height": 16,
+        "radius": 1,
+        "ticks": 16
+      },
+      "operation": "record_append",
+      "block": 1,
+      "seed": 22001,
+      "mode": "DETAILED",
+      "journal_policy": "OFF",
+      "warmup": 3,
+      "samples": 5
+    },
+    "status": "COMPLETE",
+    "wall_ns": "5427474986",
+    "samples": 9,
+    "warm_api_ns": [
+      15071825,
+      13908731,
+      15249615,
+      16877140,
+      35162534
+    ],
+    "warm_wrapper_ns": [
+      15341841,
+      14133239,
+      15378385,
+      16989584,
+      35806466
+    ],
+    "latency": {
+      "FIRST_MEASURED": {
+        "api_ns": {
+          "n": 1,
+          "min": 15621144,
+          "median": 15621144,
+          "max": 15621144
+        },
+        "wrapper_ns": {
+          "n": 1,
+          "min": 15792502,
+          "median": 15792502,
+          "max": 15792502
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 1,
+            "min": 402853947,
+            "median": 402853947,
+            "max": 402853947
+          },
+          "INPUT_WITNESS": {
+            "n": 1,
+            "min": 2080631,
+            "median": 2080631,
+            "max": 2080631
+          },
+          "EXECUTE": {
+            "n": 1,
+            "min": 15988099,
+            "median": 15988099,
+            "max": 15988099
+          },
+          "OUTPUT_WITNESS": {
+            "n": 1,
+            "min": 26698089,
+            "median": 26698089,
+            "max": 26698089
+          },
+          "ENCODE": {
+            "n": 1,
+            "min": 6709816,
+            "median": 6709816,
+            "max": 6709816
+          },
+          "SERIALIZE": {
+            "n": 1,
+            "min": 1420141,
+            "median": 1420141,
+            "max": 1420141
+          },
+          "HASH": {
+            "n": 1,
+            "min": 269003,
+            "median": 269003,
+            "max": 269003
+          },
+          "COMPRESS": {
+            "n": 1,
+            "min": 2612594,
+            "median": 2612594,
+            "max": 2612594
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 1,
+          "min": 245245,
+          "median": 245245,
+          "max": 245245
+        }
+      },
+      "WARMUP": {
+        "api_ns": {
+          "n": 3,
+          "min": 13293824,
+          "median": 15115599,
+          "max": 15349371
+        },
+        "wrapper_ns": {
+          "n": 3,
+          "min": 13419751,
+          "median": 15382089,
+          "max": 15470347
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 3,
+            "min": 355972747,
+            "median": 360375211,
+            "max": 374770938
+          },
+          "INPUT_WITNESS": {
+            "n": 3,
+            "min": 1666563,
+            "median": 1863207,
+            "max": 1879783
+          },
+          "EXECUTE": {
+            "n": 3,
+            "min": 13427855,
+            "median": 15391414,
+            "max": 15479076
+          },
+          "OUTPUT_WITNESS": {
+            "n": 3,
+            "min": 26457245,
+            "median": 29159515,
+            "max": 33785045
+          },
+          "ENCODE": {
+            "n": 3,
+            "min": 2462481,
+            "median": 3573527,
+            "max": 5722475
+          },
+          "SERIALIZE": {
+            "n": 3,
+            "min": 676475,
+            "median": 994181,
+            "max": 1776828
+          },
+          "HASH": {
+            "n": 3,
+            "min": 224486,
+            "median": 289060,
+            "max": 3066926
+          },
+          "COMPRESS": {
+            "n": 3,
+            "min": 448,
+            "median": 578,
+            "max": 1235
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 3,
+          "min": 179826,
+          "median": 184816,
+          "max": 1037747
+        }
+      },
+      "WARM": {
+        "api_ns": {
+          "n": 5,
+          "min": 13908731,
+          "median": 15249615,
+          "max": 35162534
+        },
+        "wrapper_ns": {
+          "n": 5,
+          "min": 14133239,
+          "median": 15378385,
+          "max": 35806466
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 5,
+            "min": 350509555,
+            "median": 397084128,
+            "max": 485319059
+          },
+          "INPUT_WITNESS": {
+            "n": 5,
+            "min": 1570819,
+            "median": 1674739,
+            "max": 4121196
+          },
+          "EXECUTE": {
+            "n": 5,
+            "min": 14143035,
+            "median": 15389283,
+            "max": 35898612
+          },
+          "OUTPUT_WITNESS": {
+            "n": 5,
+            "min": 26177129,
+            "median": 29487513,
+            "max": 32763422
+          },
+          "ENCODE": {
+            "n": 5,
+            "min": 1823306,
+            "median": 2134800,
+            "max": 3058881
+          },
+          "SERIALIZE": {
+            "n": 5,
+            "min": 840266,
+            "median": 992558,
+            "max": 1178434
+          },
+          "HASH": {
+            "n": 5,
+            "min": 190130,
+            "median": 355113,
+            "max": 965858
+          },
+          "COMPRESS": {
+            "n": 5,
+            "min": 468,
+            "median": 622,
+            "max": 134661
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 5,
+          "min": 134619,
+          "median": 191930,
+          "max": 319791
+        }
+      }
+    },
+    "time_balance": {
+      "ns": {
+        "preparation": "3522690684",
+        "api": "155649783",
+        "execution_envelope": "2416647",
+        "witnesses": "330674663",
+        "ipc": "2699145",
+        "process": "1319035040",
+        "journal_io": "0",
+        "residual_unattributed": "94309024"
+      },
+      "proportions": {
+        "preparation": 0.649047797196057,
+        "api": 0.028678120747031296,
+        "execution_envelope": 0.00044526174809348074,
+        "witnesses": 0.060926059328318384,
+        "ipc": 0.0004973113661439913,
+        "process": 0.24302922508208866,
+        "journal_io": 0,
+        "residual_unattributed": 0.01737622453226724
+      },
+      "inconsistent_negative_residual": false,
+      "causal_decomposition": false
+    },
+    "process_work_ns": {
+      "IDENTITY": "494944532",
+      "LOAD": "9196802",
+      "CALIBRATION": "1406246",
+      "HEADER_SEND": "558239335",
+      "CALIBRATION_SEND": "348089",
+      "FINAL_IDENTITY": "254900036"
+    },
+    "journal": {
+      "bytes": 0,
+      "events": 0,
+      "io_ns": "0",
+      "checkpoint_persistence": "OFF"
+    },
+    "cpu_us": {
+      "user": 4519555,
+      "system": 549212
+    },
+    "resources": {
+      "userCPUTime": 4755294,
+      "systemCPUTime": 932001,
+      "maxRSS": 294124,
+      "sharedMemorySize": 0,
+      "unsharedDataSize": 0,
+      "unsharedStackSize": 0,
+      "minorPageFault": 123249,
+      "majorPageFault": 0,
+      "swappedOut": 0,
+      "fsRead": 0,
+      "fsWrite": 0,
+      "ipcSent": 0,
+      "ipcReceived": 0,
+      "signalsCount": 0,
+      "voluntaryContextSwitches": 1652,
+      "involuntaryContextSwitches": 178
+    },
+    "clock_median_ns": 135,
+    "resolution_flags": 0,
+    "diagnostic_omitted_bytes": {
+      "stdout": 0,
+      "stderr": 0
+    }
+  },
+  {
+    "index": 19,
+    "condition": {
+      "profile": {
+        "id": "P7",
+        "width": 16,
+        "height": 16,
+        "radius": 1,
+        "ticks": 16
+      },
+      "operation": "record_append",
+      "block": 1,
+      "seed": 22001,
+      "mode": "DETAILED",
+      "journal_policy": "SYNC",
+      "warmup": 3,
+      "samples": 5
+    },
+    "status": "COMPLETE",
+    "wall_ns": "5077257670",
+    "samples": 9,
+    "warm_api_ns": [
+      16365909,
+      14611057,
+      15812007,
+      14966591,
+      13804288
+    ],
+    "warm_wrapper_ns": [
+      16518401,
+      14745898,
+      16031978,
+      15076047,
+      13909620
+    ],
+    "latency": {
+      "FIRST_MEASURED": {
+        "api_ns": {
+          "n": 1,
+          "min": 15381152,
+          "median": 15381152,
+          "max": 15381152
+        },
+        "wrapper_ns": {
+          "n": 1,
+          "min": 15637042,
+          "median": 15637042,
+          "max": 15637042
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 1,
+            "min": 394063459,
+            "median": 394063459,
+            "max": 394063459
+          },
+          "INPUT_WITNESS": {
+            "n": 1,
+            "min": 1715265,
+            "median": 1715265,
+            "max": 1715265
+          },
+          "EXECUTE": {
+            "n": 1,
+            "min": 15767913,
+            "median": 15767913,
+            "max": 15767913
+          },
+          "OUTPUT_WITNESS": {
+            "n": 1,
+            "min": 29627422,
+            "median": 29627422,
+            "max": 29627422
+          },
+          "ENCODE": {
+            "n": 1,
+            "min": 6995970,
+            "median": 6995970,
+            "max": 6995970
+          },
+          "SERIALIZE": {
+            "n": 1,
+            "min": 1093324,
+            "median": 1093324,
+            "max": 1093324
+          },
+          "HASH": {
+            "n": 1,
+            "min": 398929,
+            "median": 398929,
+            "max": 398929
+          },
+          "COMPRESS": {
+            "n": 1,
+            "min": 1564587,
+            "median": 1564587,
+            "max": 1564587
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 1,
+          "min": 234161,
+          "median": 234161,
+          "max": 234161
+        }
+      },
+      "WARMUP": {
+        "api_ns": {
+          "n": 3,
+          "min": 14768395,
+          "median": 16549584,
+          "max": 18657757
+        },
+        "wrapper_ns": {
+          "n": 3,
+          "min": 14995970,
+          "median": 16714940,
+          "max": 18781763
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 3,
+            "min": 374446057,
+            "median": 381325396,
+            "max": 419908265
+          },
+          "INPUT_WITNESS": {
+            "n": 3,
+            "min": 1534223,
+            "median": 1555895,
+            "max": 1649637
+          },
+          "EXECUTE": {
+            "n": 3,
+            "min": 15005206,
+            "median": 16727733,
+            "max": 18791987
+          },
+          "OUTPUT_WITNESS": {
+            "n": 3,
+            "min": 28203232,
+            "median": 29340007,
+            "max": 29624481
+          },
+          "ENCODE": {
+            "n": 3,
+            "min": 2895119,
+            "median": 3664388,
+            "max": 6536970
+          },
+          "SERIALIZE": {
+            "n": 3,
+            "min": 839843,
+            "median": 878883,
+            "max": 1387425
+          },
+          "HASH": {
+            "n": 3,
+            "min": 232806,
+            "median": 289293,
+            "max": 379910
+          },
+          "COMPRESS": {
+            "n": 3,
+            "min": 902,
+            "median": 1100,
+            "max": 1200
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 3,
+          "min": 155016,
+          "median": 210082,
+          "max": 361151
+        }
+      },
+      "WARM": {
+        "api_ns": {
+          "n": 5,
+          "min": 13804288,
+          "median": 14966591,
+          "max": 16365909
+        },
+        "wrapper_ns": {
+          "n": 5,
+          "min": 13909620,
+          "median": 15076047,
+          "max": 16518401
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 5,
+            "min": 360703846,
+            "median": 393559680,
+            "max": 417997141
+          },
+          "INPUT_WITNESS": {
+            "n": 5,
+            "min": 1495997,
+            "median": 1507257,
+            "max": 1942704
+          },
+          "EXECUTE": {
+            "n": 5,
+            "min": 13923275,
+            "median": 15086862,
+            "max": 16526548
+          },
+          "OUTPUT_WITNESS": {
+            "n": 5,
+            "min": 26085883,
+            "median": 29838176,
+            "max": 31428868
+          },
+          "ENCODE": {
+            "n": 5,
+            "min": 3434565,
+            "median": 3857343,
+            "max": 4775794
+          },
+          "SERIALIZE": {
+            "n": 5,
+            "min": 815573,
+            "median": 1147085,
+            "max": 2287903
+          },
+          "HASH": {
+            "n": 5,
+            "min": 201313,
+            "median": 242303,
+            "max": 327012
+          },
+          "COMPRESS": {
+            "n": 5,
+            "min": 1354,
+            "median": 1486,
+            "max": 16362
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 5,
+          "min": 120133,
+          "median": 152787,
+          "max": 503967
+        }
+      }
+    },
+    "time_balance": {
+      "ns": {
+        "preparation": "3532615654",
+        "api": "140916740",
+        "execution_envelope": "1738843",
+        "witnesses": "332247796",
+        "ipc": "2241674",
+        "process": "863342761",
+        "journal_io": "113941944",
+        "residual_unattributed": "90212258"
+      },
+      "proportions": {
+        "preparation": 0.6957723802109101,
+        "api": 0.0277544984239494,
+        "execution_envelope": 0.00034247680795763117,
+        "witnesses": 0.06543843499674107,
+        "ipc": 0.00044151275072080396,
+        "process": 0.17004115550432564,
+        "journal_io": 0.022441631172916227,
+        "residual_unattributed": 0.017767910132479057
+      },
+      "inconsistent_negative_residual": false,
+      "causal_decomposition": false
+    },
+    "process_work_ns": {
+      "IDENTITY": "269189425",
+      "LOAD": "8918951",
+      "CALIBRATION": "772339",
+      "HEADER_SEND": "308805878",
+      "CALIBRATION_SEND": "148505",
+      "FINAL_IDENTITY": "275507663"
+    },
+    "journal": {
+      "bytes": 26310,
+      "io_ns": "113941944",
+      "events": 174
+    },
+    "cpu_us": {
+      "user": 4474573,
+      "system": 430121
+    },
+    "resources": {
+      "userCPUTime": 4739374,
+      "systemCPUTime": 556630,
+      "maxRSS": 293652,
+      "sharedMemorySize": 0,
+      "unsharedDataSize": 0,
+      "unsharedStackSize": 0,
+      "minorPageFault": 123198,
+      "majorPageFault": 0,
+      "swappedOut": 0,
+      "fsRead": 0,
+      "fsWrite": 1480,
+      "ipcSent": 0,
+      "ipcReceived": 0,
+      "signalsCount": 0,
+      "voluntaryContextSwitches": 2251,
+      "involuntaryContextSwitches": 74
+    },
+    "clock_median_ns": 87,
+    "resolution_flags": 0,
+    "diagnostic_omitted_bytes": {
+      "stdout": 0,
+      "stderr": 0
+    }
+  },
+  {
+    "index": 20,
+    "condition": {
+      "profile": {
+        "id": "P7",
+        "width": 16,
+        "height": 16,
+        "radius": 1,
+        "ticks": 16
+      },
+      "operation": "record_append",
+      "block": 2,
+      "seed": 22002,
+      "mode": "DETAILED",
+      "journal_policy": "SYNC",
+      "warmup": 3,
+      "samples": 5
+    },
+    "status": "COMPLETE",
+    "wall_ns": "5191563125",
+    "samples": 9,
+    "warm_api_ns": [
+      16285828,
+      14436449,
+      17314134,
+      14790656,
+      16288463
+    ],
+    "warm_wrapper_ns": [
+      16479279,
+      14550770,
+      17424801,
+      14914915,
+      16387472
+    ],
+    "latency": {
+      "FIRST_MEASURED": {
+        "api_ns": {
+          "n": 1,
+          "min": 15764181,
+          "median": 15764181,
+          "max": 15764181
+        },
+        "wrapper_ns": {
+          "n": 1,
+          "min": 15926131,
+          "median": 15926131,
+          "max": 15926131
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 1,
+            "min": 488239190,
+            "median": 488239190,
+            "max": 488239190
+          },
+          "INPUT_WITNESS": {
+            "n": 1,
+            "min": 2079422,
+            "median": 2079422,
+            "max": 2079422
+          },
+          "EXECUTE": {
+            "n": 1,
+            "min": 16092155,
+            "median": 16092155,
+            "max": 16092155
+          },
+          "OUTPUT_WITNESS": {
+            "n": 1,
+            "min": 32691104,
+            "median": 32691104,
+            "max": 32691104
+          },
+          "ENCODE": {
+            "n": 1,
+            "min": 7289036,
+            "median": 7289036,
+            "max": 7289036
+          },
+          "SERIALIZE": {
+            "n": 1,
+            "min": 1137667,
+            "median": 1137667,
+            "max": 1137667
+          },
+          "HASH": {
+            "n": 1,
+            "min": 448620,
+            "median": 448620,
+            "max": 448620
+          },
+          "COMPRESS": {
+            "n": 1,
+            "min": 1843562,
+            "median": 1843562,
+            "max": 1843562
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 1,
+          "min": 315780,
+          "median": 315780,
+          "max": 315780
+        }
+      },
+      "WARMUP": {
+        "api_ns": {
+          "n": 3,
+          "min": 13314153,
+          "median": 13750456,
+          "max": 15816943
+        },
+        "wrapper_ns": {
+          "n": 3,
+          "min": 13451283,
+          "median": 13856170,
+          "max": 15925323
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 3,
+            "min": 353745729,
+            "median": 356638428,
+            "max": 378378945
+          },
+          "INPUT_WITNESS": {
+            "n": 3,
+            "min": 1476598,
+            "median": 1512232,
+            "max": 1743776
+          },
+          "EXECUTE": {
+            "n": 3,
+            "min": 13460411,
+            "median": 13865119,
+            "max": 15933941
+          },
+          "OUTPUT_WITNESS": {
+            "n": 3,
+            "min": 27031189,
+            "median": 27073648,
+            "max": 29091111
+          },
+          "ENCODE": {
+            "n": 3,
+            "min": 2763038,
+            "median": 3432486,
+            "max": 7544862
+          },
+          "SERIALIZE": {
+            "n": 3,
+            "min": 1097539,
+            "median": 1135539,
+            "max": 1233439
+          },
+          "HASH": {
+            "n": 3,
+            "min": 211820,
+            "median": 216791,
+            "max": 286708
+          },
+          "COMPRESS": {
+            "n": 3,
+            "min": 796,
+            "median": 1502,
+            "max": 1552
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 3,
+          "min": 155156,
+          "median": 172613,
+          "max": 177835
+        }
+      },
+      "WARM": {
+        "api_ns": {
+          "n": 5,
+          "min": 14436449,
+          "median": 16285828,
+          "max": 17314134
+        },
+        "wrapper_ns": {
+          "n": 5,
+          "min": 14550770,
+          "median": 16387472,
+          "max": 17424801
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 5,
+            "min": 346117657,
+            "median": 382976574,
+            "max": 423622323
+          },
+          "INPUT_WITNESS": {
+            "n": 5,
+            "min": 1445883,
+            "median": 1652278,
+            "max": 1831591
+          },
+          "EXECUTE": {
+            "n": 5,
+            "min": 14561272,
+            "median": 16402237,
+            "max": 17438166
+          },
+          "OUTPUT_WITNESS": {
+            "n": 5,
+            "min": 25039047,
+            "median": 27234469,
+            "max": 29712668
+          },
+          "ENCODE": {
+            "n": 5,
+            "min": 2236577,
+            "median": 3406771,
+            "max": 4307024
+          },
+          "SERIALIZE": {
+            "n": 5,
+            "min": 926592,
+            "median": 1113298,
+            "max": 1386170
+          },
+          "HASH": {
+            "n": 5,
+            "min": 233635,
+            "median": 282283,
+            "max": 454424
+          },
+          "COMPRESS": {
+            "n": 5,
+            "min": 1113,
+            "median": 1525,
+            "max": 19504
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 5,
+          "min": 126815,
+          "median": 145732,
+          "max": 372884
+        }
+      }
+    },
+    "time_balance": {
+      "ns": {
+        "preparation": "3485244172",
+        "api": "137761263",
+        "execution_envelope": "1407116",
+        "witnesses": "319224958",
+        "ipc": "1793436",
+        "process": "976123188",
+        "journal_io": "174088127",
+        "residual_unattributed": "95920865"
+      },
+      "proportions": {
+        "preparation": 0.6713284781642715,
+        "api": 0.02653560395646735,
+        "execution_envelope": 0.0002710389850070445,
+        "witnesses": 0.0614891797159839,
+        "ipc": 0.0003454520260697013,
+        "process": 0.18802105733810182,
+        "journal_io": 0.03353289227317254,
+        "residual_unattributed": 0.018476297540926077
+      },
+      "inconsistent_negative_residual": false,
+      "causal_decomposition": false
+    },
+    "process_work_ns": {
+      "IDENTITY": "262943532",
+      "LOAD": "7311281",
+      "CALIBRATION": "515314",
+      "HEADER_SEND": "333653351",
+      "CALIBRATION_SEND": "418258",
+      "FINAL_IDENTITY": "371281452"
+    },
+    "journal": {
+      "bytes": 26315,
+      "io_ns": "174088127",
+      "events": 174
+    },
+    "cpu_us": {
+      "user": 4577201,
+      "system": 542507
+    },
+    "resources": {
+      "userCPUTime": 4839208,
+      "systemCPUTime": 676502,
+      "maxRSS": 294064,
+      "sharedMemorySize": 0,
+      "unsharedDataSize": 0,
+      "unsharedStackSize": 0,
+      "minorPageFault": 123468,
+      "majorPageFault": 0,
+      "swappedOut": 0,
+      "fsRead": 0,
+      "fsWrite": 1448,
+      "ipcSent": 0,
+      "ipcReceived": 0,
+      "signalsCount": 0,
+      "voluntaryContextSwitches": 2293,
+      "involuntaryContextSwitches": 165
+    },
+    "clock_median_ns": 99,
+    "resolution_flags": 0,
+    "diagnostic_omitted_bytes": {
+      "stdout": 0,
+      "stderr": 0
+    }
+  },
+  {
+    "index": 21,
+    "condition": {
+      "profile": {
+        "id": "P7",
+        "width": 16,
+        "height": 16,
+        "radius": 1,
+        "ticks": 16
+      },
+      "operation": "record_append",
+      "block": 2,
+      "seed": 22002,
+      "mode": "DETAILED",
+      "journal_policy": "OFF",
+      "warmup": 3,
+      "samples": 5
+    },
+    "status": "COMPLETE",
+    "wall_ns": "5691394229",
+    "samples": 9,
+    "warm_api_ns": [
+      13314085,
+      12544105,
+      13307781,
+      35066808,
+      16595955
+    ],
+    "warm_wrapper_ns": [
+      13467762,
+      12663280,
+      13497652,
+      36338352,
+      16704404
+    ],
+    "latency": {
+      "FIRST_MEASURED": {
+        "api_ns": {
+          "n": 1,
+          "min": 13481121,
+          "median": 13481121,
+          "max": 13481121
+        },
+        "wrapper_ns": {
+          "n": 1,
+          "min": 13656774,
+          "median": 13656774,
+          "max": 13656774
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 1,
+            "min": 426885565,
+            "median": 426885565,
+            "max": 426885565
+          },
+          "INPUT_WITNESS": {
+            "n": 1,
+            "min": 1722089,
+            "median": 1722089,
+            "max": 1722089
+          },
+          "EXECUTE": {
+            "n": 1,
+            "min": 13795336,
+            "median": 13795336,
+            "max": 13795336
+          },
+          "OUTPUT_WITNESS": {
+            "n": 1,
+            "min": 30102295,
+            "median": 30102295,
+            "max": 30102295
+          },
+          "ENCODE": {
+            "n": 1,
+            "min": 9265408,
+            "median": 9265408,
+            "max": 9265408
+          },
+          "SERIALIZE": {
+            "n": 1,
+            "min": 1318823,
+            "median": 1318823,
+            "max": 1318823
+          },
+          "HASH": {
+            "n": 1,
+            "min": 222952,
+            "median": 222952,
+            "max": 222952
+          },
+          "COMPRESS": {
+            "n": 1,
+            "min": 1466931,
+            "median": 1466931,
+            "max": 1466931
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 1,
+          "min": 169462,
+          "median": 169462,
+          "max": 169462
+        }
+      },
+      "WARMUP": {
+        "api_ns": {
+          "n": 3,
+          "min": 13212736,
+          "median": 14257446,
+          "max": 14447328
+        },
+        "wrapper_ns": {
+          "n": 3,
+          "min": 13408500,
+          "median": 14365578,
+          "max": 14808232
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 3,
+            "min": 355270448,
+            "median": 368876143,
+            "max": 448239771
+          },
+          "INPUT_WITNESS": {
+            "n": 3,
+            "min": 1400063,
+            "median": 1918625,
+            "max": 2073807
+          },
+          "EXECUTE": {
+            "n": 3,
+            "min": 13415761,
+            "median": 14371384,
+            "max": 14816826
+          },
+          "OUTPUT_WITNESS": {
+            "n": 3,
+            "min": 28104737,
+            "median": 28462769,
+            "max": 35565653
+          },
+          "ENCODE": {
+            "n": 3,
+            "min": 3638628,
+            "median": 4349426,
+            "max": 5172195
+          },
+          "SERIALIZE": {
+            "n": 3,
+            "min": 767908,
+            "median": 916457,
+            "max": 1196744
+          },
+          "HASH": {
+            "n": 3,
+            "min": 186645,
+            "median": 322710,
+            "max": 619056
+          },
+          "COMPRESS": {
+            "n": 3,
+            "min": 286,
+            "median": 462,
+            "max": 599
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 3,
+          "min": 156146,
+          "median": 169140,
+          "max": 200123
+        }
+      },
+      "WARM": {
+        "api_ns": {
+          "n": 5,
+          "min": 12544105,
+          "median": 13314085,
+          "max": 35066808
+        },
+        "wrapper_ns": {
+          "n": 5,
+          "min": 12663280,
+          "median": 13497652,
+          "max": 36338352
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 5,
+            "min": 364875097,
+            "median": 377545419,
+            "max": 817498844
+          },
+          "INPUT_WITNESS": {
+            "n": 5,
+            "min": 1434683,
+            "median": 1555251,
+            "max": 3472200
+          },
+          "EXECUTE": {
+            "n": 5,
+            "min": 12670841,
+            "median": 13507525,
+            "max": 36347494
+          },
+          "OUTPUT_WITNESS": {
+            "n": 5,
+            "min": 27147218,
+            "median": 30203538,
+            "max": 55605751
+          },
+          "ENCODE": {
+            "n": 5,
+            "min": 2352185,
+            "median": 3060827,
+            "max": 6659416
+          },
+          "SERIALIZE": {
+            "n": 5,
+            "min": 931696,
+            "median": 1070157,
+            "max": 1932656
+          },
+          "HASH": {
+            "n": 5,
+            "min": 198568,
+            "median": 331659,
+            "max": 1113078
+          },
+          "COMPRESS": {
+            "n": 5,
+            "min": 482,
+            "median": 852,
+            "max": 75742
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 5,
+          "min": 116334,
+          "median": 212830,
+          "max": 445375
+        }
+      }
+    },
+    "time_balance": {
+      "ns": {
+        "preparation": "4214749045",
+        "api": "146227365",
+        "execution_envelope": "2890247",
+        "witnesses": "369559611",
+        "ipc": "1825543",
+        "process": "842798060",
+        "journal_io": "0",
+        "residual_unattributed": "113344358"
+      },
+      "proportions": {
+        "preparation": 0.7405477244089183,
+        "api": 0.02569271414285647,
+        "execution_envelope": 0.0005078275873551335,
+        "witnesses": 0.06493305438532819,
+        "ipc": 0.0003207549726037437,
+        "process": 0.14808288199499456,
+        "journal_io": 0,
+        "residual_unattributed": 0.01991504250794362
+      },
+      "inconsistent_negative_residual": false,
+      "causal_decomposition": false
+    },
+    "process_work_ns": {
+      "IDENTITY": "287213806",
+      "LOAD": "8937192",
+      "CALIBRATION": "753950",
+      "HEADER_SEND": "270383117",
+      "CALIBRATION_SEND": "243180",
+      "FINAL_IDENTITY": "275266815"
+    },
+    "journal": {
+      "bytes": 0,
+      "events": 0,
+      "io_ns": "0",
+      "checkpoint_persistence": "OFF"
+    },
+    "cpu_us": {
+      "user": 5222518,
+      "system": 479492
+    },
+    "resources": {
+      "userCPUTime": 5511008,
+      "systemCPUTime": 634586,
+      "maxRSS": 294568,
+      "sharedMemorySize": 0,
+      "unsharedDataSize": 0,
+      "unsharedStackSize": 0,
+      "minorPageFault": 123688,
+      "majorPageFault": 0,
+      "swappedOut": 0,
+      "fsRead": 0,
+      "fsWrite": 0,
+      "ipcSent": 0,
+      "ipcReceived": 0,
+      "signalsCount": 0,
+      "voluntaryContextSwitches": 1695,
+      "involuntaryContextSwitches": 122
+    },
+    "clock_median_ns": 108,
+    "resolution_flags": 0,
+    "diagnostic_omitted_bytes": {
+      "stdout": 0,
+      "stderr": 0
+    }
+  },
+  {
+    "index": 22,
+    "condition": {
+      "profile": {
+        "id": "P7",
+        "width": 16,
+        "height": 16,
+        "radius": 1,
+        "ticks": 16
+      },
+      "operation": "record_append",
+      "block": 2,
+      "seed": 22002,
+      "mode": "MINIMAL",
+      "journal_policy": "SYNC",
+      "warmup": 3,
+      "samples": 5
+    },
+    "status": "COMPLETE",
+    "wall_ns": "5596317777",
+    "samples": 9,
+    "warm_api_ns": [
+      14969758,
+      13874281,
+      15937966,
+      14136908,
+      16543792
+    ],
+    "warm_wrapper_ns": [
+      14983253,
+      13887873,
+      15958966,
+      14150012,
+      16555596
+    ],
+    "latency": {
+      "FIRST_MEASURED": {
+        "api_ns": {
+          "n": 1,
+          "min": 17045151,
+          "median": 17045151,
+          "max": 17045151
+        },
+        "wrapper_ns": {
+          "n": 1,
+          "min": 17064323,
+          "median": 17064323,
+          "max": 17064323
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 1,
+            "min": 416428816,
+            "median": 416428816,
+            "max": 416428816
+          },
+          "INPUT_WITNESS": {
+            "n": 1,
+            "min": 1779234,
+            "median": 1779234,
+            "max": 1779234
+          },
+          "EXECUTE": {
+            "n": 1,
+            "min": 17175050,
+            "median": 17175050,
+            "max": 17175050
+          },
+          "OUTPUT_WITNESS": {
+            "n": 1,
+            "min": 32829811,
+            "median": 32829811,
+            "max": 32829811
+          },
+          "ENCODE": {
+            "n": 1,
+            "min": 10727536,
+            "median": 10727536,
+            "max": 10727536
+          },
+          "SERIALIZE": {
+            "n": 1,
+            "min": 2066113,
+            "median": 2066113,
+            "max": 2066113
+          },
+          "HASH": {
+            "n": 1,
+            "min": 262329,
+            "median": 262329,
+            "max": 262329
+          },
+          "COMPRESS": {
+            "n": 1,
+            "min": 1832210,
+            "median": 1832210,
+            "max": 1832210
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 1,
+          "min": 280270,
+          "median": 280270,
+          "max": 280270
+        }
+      },
+      "WARMUP": {
+        "api_ns": {
+          "n": 3,
+          "min": 14608008,
+          "median": 15121028,
+          "max": 17934325
+        },
+        "wrapper_ns": {
+          "n": 3,
+          "min": 14620896,
+          "median": 15134576,
+          "max": 17946690
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 3,
+            "min": 361478611,
+            "median": 379399572,
+            "max": 385047765
+          },
+          "INPUT_WITNESS": {
+            "n": 3,
+            "min": 1621686,
+            "median": 1652664,
+            "max": 1806986
+          },
+          "EXECUTE": {
+            "n": 3,
+            "min": 14630357,
+            "median": 15144744,
+            "max": 17957611
+          },
+          "OUTPUT_WITNESS": {
+            "n": 3,
+            "min": 26966059,
+            "median": 27645775,
+            "max": 28036585
+          },
+          "ENCODE": {
+            "n": 3,
+            "min": 3104321,
+            "median": 5638035,
+            "max": 6571329
+          },
+          "SERIALIZE": {
+            "n": 3,
+            "min": 1445888,
+            "median": 1543574,
+            "max": 1887919
+          },
+          "HASH": {
+            "n": 3,
+            "min": 230789,
+            "median": 254859,
+            "max": 433985
+          },
+          "COMPRESS": {
+            "n": 3,
+            "min": 768,
+            "median": 1258,
+            "max": 2202
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 3,
+          "min": 173748,
+          "median": 217640,
+          "max": 267439
+        }
+      },
+      "WARM": {
+        "api_ns": {
+          "n": 5,
+          "min": 13874281,
+          "median": 14969758,
+          "max": 16543792
+        },
+        "wrapper_ns": {
+          "n": 5,
+          "min": 13887873,
+          "median": 14983253,
+          "max": 16555596
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 5,
+            "min": 357194651,
+            "median": 412367316,
+            "max": 512972500
+          },
+          "INPUT_WITNESS": {
+            "n": 5,
+            "min": 1470836,
+            "median": 1724648,
+            "max": 2171306
+          },
+          "EXECUTE": {
+            "n": 5,
+            "min": 13900604,
+            "median": 14994902,
+            "max": 16565931
+          },
+          "OUTPUT_WITNESS": {
+            "n": 5,
+            "min": 26780672,
+            "median": 28701200,
+            "max": 36731626
+          },
+          "ENCODE": {
+            "n": 5,
+            "min": 2139503,
+            "median": 2652733,
+            "max": 6990306
+          },
+          "SERIALIZE": {
+            "n": 5,
+            "min": 943148,
+            "median": 1104700,
+            "max": 1680169
+          },
+          "HASH": {
+            "n": 5,
+            "min": 234486,
+            "median": 296626,
+            "max": 462385
+          },
+          "COMPRESS": {
+            "n": 5,
+            "min": 810,
+            "median": 1647,
+            "max": 21976
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 5,
+          "min": 123918,
+          "median": 179314,
+          "max": 439670
+        }
+      }
+    },
+    "time_balance": {
+      "ns": {
+        "preparation": "3622138819",
+        "api": "140171217",
+        "execution_envelope": "346420",
+        "witnesses": "341375879",
+        "ipc": "2140263",
+        "process": "1275210541",
+        "journal_io": "108316457",
+        "residual_unattributed": "106618181"
+      },
+      "proportions": {
+        "preparation": 0.6472360868938555,
+        "api": 0.025047043893054465,
+        "execution_envelope": 0.00006190141693235017,
+        "witnesses": 0.061000088380077706,
+        "ipc": 0.0003824412918072933,
+        "process": 0.22786599900400903,
+        "journal_io": 0.019354951115385884,
+        "residual_unattributed": 0.01905148800487782
+      },
+      "inconsistent_negative_residual": false,
+      "causal_decomposition": false
+    },
+    "process_work_ns": {
+      "IDENTITY": "434946794",
+      "LOAD": "9806212",
+      "CALIBRATION": "600757",
+      "HEADER_SEND": "534704158",
+      "CALIBRATION_SEND": "255375",
+      "FINAL_IDENTITY": "294897245"
+    },
+    "journal": {
+      "bytes": 26313,
+      "io_ns": "108316457",
+      "events": 174
+    },
+    "cpu_us": {
+      "user": 4666810,
+      "system": 772633
+    },
+    "resources": {
+      "userCPUTime": 5042203,
+      "systemCPUTime": 1019133,
+      "maxRSS": 293120,
+      "sharedMemorySize": 0,
+      "unsharedDataSize": 0,
+      "unsharedStackSize": 0,
+      "minorPageFault": 123338,
+      "majorPageFault": 0,
+      "swappedOut": 0,
+      "fsRead": 0,
+      "fsWrite": 1448,
+      "ipcSent": 0,
+      "ipcReceived": 0,
+      "signalsCount": 0,
+      "voluntaryContextSwitches": 2190,
+      "involuntaryContextSwitches": 160
+    },
+    "clock_median_ns": 86,
+    "resolution_flags": 0,
+    "diagnostic_omitted_bytes": {
+      "stdout": 0,
+      "stderr": 0
+    }
+  },
+  {
+    "index": 23,
+    "condition": {
+      "profile": {
+        "id": "P7",
+        "width": 16,
+        "height": 16,
+        "radius": 1,
+        "ticks": 16
+      },
+      "operation": "record_append",
+      "block": 2,
+      "seed": 22002,
+      "mode": "MINIMAL",
+      "journal_policy": "OFF",
+      "warmup": 3,
+      "samples": 5
+    },
+    "status": "COMPLETE",
+    "wall_ns": "4728380510",
+    "samples": 9,
+    "warm_api_ns": [
+      14332260,
+      14873474,
+      15804743,
+      14812306,
+      15427517
+    ],
+    "warm_wrapper_ns": [
+      14344268,
+      14886235,
+      15824527,
+      14825607,
+      15439869
+    ],
+    "latency": {
+      "FIRST_MEASURED": {
+        "api_ns": {
+          "n": 1,
+          "min": 12470625,
+          "median": 12470625,
+          "max": 12470625
+        },
+        "wrapper_ns": {
+          "n": 1,
+          "min": 12489447,
+          "median": 12489447,
+          "max": 12489447
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 1,
+            "min": 397377597,
+            "median": 397377597,
+            "max": 397377597
+          },
+          "INPUT_WITNESS": {
+            "n": 1,
+            "min": 1548667,
+            "median": 1548667,
+            "max": 1548667
+          },
+          "EXECUTE": {
+            "n": 1,
+            "min": 12576543,
+            "median": 12576543,
+            "max": 12576543
+          },
+          "OUTPUT_WITNESS": {
+            "n": 1,
+            "min": 28168746,
+            "median": 28168746,
+            "max": 28168746
+          },
+          "ENCODE": {
+            "n": 1,
+            "min": 6134913,
+            "median": 6134913,
+            "max": 6134913
+          },
+          "SERIALIZE": {
+            "n": 1,
+            "min": 1005007,
+            "median": 1005007,
+            "max": 1005007
+          },
+          "HASH": {
+            "n": 1,
+            "min": 421069,
+            "median": 421069,
+            "max": 421069
+          },
+          "COMPRESS": {
+            "n": 1,
+            "min": 1588967,
+            "median": 1588967,
+            "max": 1588967
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 1,
+          "min": 204003,
+          "median": 204003,
+          "max": 204003
+        }
+      },
+      "WARMUP": {
+        "api_ns": {
+          "n": 3,
+          "min": 14549388,
+          "median": 18605778,
+          "max": 19285161
+        },
+        "wrapper_ns": {
+          "n": 3,
+          "min": 14561096,
+          "median": 18616226,
+          "max": 19296796
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 3,
+            "min": 365683875,
+            "median": 368558444,
+            "max": 375594679
+          },
+          "INPUT_WITNESS": {
+            "n": 3,
+            "min": 1434682,
+            "median": 1936586,
+            "max": 3018038
+          },
+          "EXECUTE": {
+            "n": 3,
+            "min": 14568874,
+            "median": 18622197,
+            "max": 19307057
+          },
+          "OUTPUT_WITNESS": {
+            "n": 3,
+            "min": 27524652,
+            "median": 27818624,
+            "max": 27995460
+          },
+          "ENCODE": {
+            "n": 3,
+            "min": 3020868,
+            "median": 3055355,
+            "max": 6547721
+          },
+          "SERIALIZE": {
+            "n": 3,
+            "min": 720889,
+            "median": 976945,
+            "max": 1030524
+          },
+          "HASH": {
+            "n": 3,
+            "min": 245431,
+            "median": 247042,
+            "max": 253180
+          },
+          "COMPRESS": {
+            "n": 3,
+            "min": 297,
+            "median": 550,
+            "max": 692
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 3,
+          "min": 160542,
+          "median": 164928,
+          "max": 187980
+        }
+      },
+      "WARM": {
+        "api_ns": {
+          "n": 5,
+          "min": 14332260,
+          "median": 14873474,
+          "max": 15804743
+        },
+        "wrapper_ns": {
+          "n": 5,
+          "min": 14344268,
+          "median": 14886235,
+          "max": 15824527
+        },
+        "stages_ns": {
+          "PREPARE": {
+            "n": 5,
+            "min": 354824962,
+            "median": 369489626,
+            "max": 392869548
+          },
+          "INPUT_WITNESS": {
+            "n": 5,
+            "min": 1559855,
+            "median": 1753403,
+            "max": 2171573
+          },
+          "EXECUTE": {
+            "n": 5,
+            "min": 14352285,
+            "median": 14894380,
+            "max": 15834967
+          },
+          "OUTPUT_WITNESS": {
+            "n": 5,
+            "min": 25206192,
+            "median": 28621204,
+            "max": 32530208
+          },
+          "ENCODE": {
+            "n": 5,
+            "min": 2117726,
+            "median": 2874480,
+            "max": 4305910
+          },
+          "SERIALIZE": {
+            "n": 5,
+            "min": 861223,
+            "median": 962015,
+            "max": 1453238
+          },
+          "HASH": {
+            "n": 5,
+            "min": 218201,
+            "median": 255402,
+            "max": 334349
+          },
+          "COMPRESS": {
+            "n": 5,
+            "min": 437,
+            "median": 626,
+            "max": 20836
+          }
+        },
+        "ipc_callback_ns": {
+          "n": 5,
+          "min": 143642,
+          "median": 158282,
+          "max": 270856
+        }
+      }
+    },
+    "time_balance": {
+      "ns": {
+        "preparation": "3365151730",
+        "api": "140161252",
+        "execution_envelope": "281102",
+        "witnesses": "319554764",
+        "ipc": "1667756",
+        "process": "774009544",
+        "journal_io": "0",
+        "residual_unattributed": "127554362"
+      },
+      "proportions": {
+        "preparation": 0.7116922428055605,
+        "api": 0.029642549220303762,
+        "execution_envelope": 0.00005944995319338206,
+        "witnesses": 0.06758228601191828,
+        "ipc": 0.00035271188443334483,
+        "process": 0.1636944282218945,
+        "journal_io": 0,
+        "residual_unattributed": 0.026976331902696216
+      },
+      "inconsistent_negative_residual": false,
+      "causal_decomposition": false
+    },
+    "process_work_ns": {
+      "IDENTITY": "277478238",
+      "LOAD": "7692273",
+      "CALIBRATION": "539413",
+      "HEADER_SEND": "216715485",
+      "CALIBRATION_SEND": "85367",
+      "FINAL_IDENTITY": "271498768"
+    },
+    "journal": {
+      "bytes": 0,
+      "events": 0,
+      "io_ns": "0",
+      "checkpoint_persistence": "OFF"
+    },
+    "cpu_us": {
+      "user": 4330871,
+      "system": 299497
+    },
+    "resources": {
+      "userCPUTime": 4636139,
+      "systemCPUTime": 491241,
+      "maxRSS": 295016,
+      "sharedMemorySize": 0,
+      "unsharedDataSize": 0,
+      "unsharedStackSize": 0,
+      "minorPageFault": 123564,
+      "majorPageFault": 0,
+      "swappedOut": 0,
+      "fsRead": 0,
+      "fsWrite": 0,
+      "ipcSent": 0,
+      "ipcReceived": 0,
+      "signalsCount": 0,
+      "voluntaryContextSwitches": 1717,
+      "involuntaryContextSwitches": 106
+    },
+    "clock_median_ns": 97,
+    "resolution_flags": 0,
+    "diagnostic_omitted_bytes": {
+      "stdout": 0,
+      "stderr": 0
+    }
+  }
+]

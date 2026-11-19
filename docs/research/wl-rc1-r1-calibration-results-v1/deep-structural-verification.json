@@ -1,0 +1,12 @@
+{
+  "PASS": true,
+  "fresh_decoded_samples": 216,
+  "groups": 6,
+  "full_structural_within_worker_comparisons": 192,
+  "full_structural_cross_treatment_comparisons": 162,
+  "explicit_WLS1_byte_array_comparisons": 1416,
+  "mismatches": 0,
+  "shared_object_identity_shortcuts": false,
+  "archive_deduplication": "6 payload files; every record dereferenced and freshly decoded; no independent external implementation claimed",
+  "new_WORLD_or_replay_calls": 0
+}

@@ -1,0 +1,9 @@
+{
+  "PASS": true,
+  "workers": 24,
+  "samples": 216,
+  "balances": 24,
+  "modality_pairs": 12,
+  "journal_pairs": 12,
+  "new_WORLD_or_replay_calls": 0
+}

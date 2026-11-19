@@ -1,0 +1,134 @@
+[
+  {
+    "profile": "P1",
+    "operation": "tick",
+    "block": 1,
+    "mode": "MINIMAL",
+    "order": "OFF_SYNC",
+    "wall_percent": -29.579226139413485,
+    "warm_wrapper_percent": -14.44399689396737,
+    "diagnostic_exceeds_10_percent": true,
+    "isolated_fsync_causal_effect": false
+  },
+  {
+    "profile": "P1",
+    "operation": "tick",
+    "block": 1,
+    "mode": "DETAILED",
+    "order": "OFF_SYNC",
+    "wall_percent": 16.848757149597105,
+    "warm_wrapper_percent": 14.3851933221403,
+    "diagnostic_exceeds_10_percent": true,
+    "isolated_fsync_causal_effect": false
+  },
+  {
+    "profile": "P1",
+    "operation": "tick",
+    "block": 2,
+    "mode": "MINIMAL",
+    "order": "SYNC_OFF",
+    "wall_percent": -7.582458727400798,
+    "warm_wrapper_percent": 17.536686849827433,
+    "diagnostic_exceeds_10_percent": true,
+    "isolated_fsync_causal_effect": false
+  },
+  {
+    "profile": "P1",
+    "operation": "tick",
+    "block": 2,
+    "mode": "DETAILED",
+    "order": "SYNC_OFF",
+    "wall_percent": 39.68432682744083,
+    "warm_wrapper_percent": -1.9723039253961572,
+    "diagnostic_exceeds_10_percent": true,
+    "isolated_fsync_causal_effect": false
+  },
+  {
+    "profile": "P3",
+    "operation": "observation",
+    "block": 1,
+    "mode": "MINIMAL",
+    "order": "OFF_SYNC",
+    "wall_percent": 0.9614139634845698,
+    "warm_wrapper_percent": -37.73374082898717,
+    "diagnostic_exceeds_10_percent": true,
+    "isolated_fsync_causal_effect": false
+  },
+  {
+    "profile": "P3",
+    "operation": "observation",
+    "block": 1,
+    "mode": "DETAILED",
+    "order": "OFF_SYNC",
+    "wall_percent": -0.19254053623454226,
+    "warm_wrapper_percent": 26.386484135237986,
+    "diagnostic_exceeds_10_percent": true,
+    "isolated_fsync_causal_effect": false
+  },
+  {
+    "profile": "P3",
+    "operation": "observation",
+    "block": 2,
+    "mode": "MINIMAL",
+    "order": "SYNC_OFF",
+    "wall_percent": -4.432949112136686,
+    "warm_wrapper_percent": 24.237579056789272,
+    "diagnostic_exceeds_10_percent": true,
+    "isolated_fsync_causal_effect": false
+  },
+  {
+    "profile": "P3",
+    "operation": "observation",
+    "block": 2,
+    "mode": "DETAILED",
+    "order": "SYNC_OFF",
+    "wall_percent": 6.483977473282554,
+    "warm_wrapper_percent": 18.792527492237166,
+    "diagnostic_exceeds_10_percent": true,
+    "isolated_fsync_causal_effect": false
+  },
+  {
+    "profile": "P7",
+    "operation": "record_append",
+    "block": 1,
+    "mode": "MINIMAL",
+    "order": "OFF_SYNC",
+    "wall_percent": -2.2259293972426653,
+    "warm_wrapper_percent": -3.1296328778938176,
+    "diagnostic_exceeds_10_percent": false,
+    "isolated_fsync_causal_effect": false
+  },
+  {
+    "profile": "P7",
+    "operation": "record_append",
+    "block": 1,
+    "mode": "DETAILED",
+    "order": "OFF_SYNC",
+    "wall_percent": -6.452674897689525,
+    "warm_wrapper_percent": -1.9659931780872997,
+    "diagnostic_exceeds_10_percent": false,
+    "isolated_fsync_causal_effect": false
+  },
+  {
+    "profile": "P7",
+    "operation": "record_append",
+    "block": 2,
+    "mode": "MINIMAL",
+    "order": "SYNC_OFF",
+    "wall_percent": 18.355909918087377,
+    "warm_wrapper_percent": 0.6517296012054086,
+    "diagnostic_exceeds_10_percent": true,
+    "isolated_fsync_causal_effect": false
+  },
+  {
+    "profile": "P7",
+    "operation": "record_append",
+    "block": 2,
+    "mode": "DETAILED",
+    "order": "SYNC_OFF",
+    "wall_percent": -8.782226004537774,
+    "warm_wrapper_percent": 21.409797792979113,
+    "diagnostic_exceeds_10_percent": true,
+    "isolated_fsync_causal_effect": false
+  }
+]

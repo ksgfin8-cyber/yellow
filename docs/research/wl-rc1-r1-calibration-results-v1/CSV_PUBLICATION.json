@@ -1,0 +1,9 @@
+{
+  "original_archived_csv": "analysis/samples.csv inside the evidence export; unchanged CRLF bytes",
+  "original_sha256": "f3bc1cd22aaaf15aac8e8368db790fab29e40251bfa20632b08f552cee661dd3",
+  "publication_file": "samples.csv",
+  "publication_line_endings": "LF for Git whitespace checks",
+  "publication_sha256": "8ab263f4992c915428cfae2a2b4ff64f1f50a6352750615ff441b06f8cbcd2c5",
+  "parsed_headers_and_216_rows_identical": true,
+  "raw_experiment_files_modified": false
+}

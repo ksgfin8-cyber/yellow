@@ -1,0 +1,18 @@
+{
+  "status": "COMPLETE",
+  "verification": {
+    "state": "VERIFIED",
+    "package_status": "COMPLETE",
+    "samples": 216,
+    "errors": 0,
+    "journals": 12,
+    "open_stages": [],
+    "freeze_id": "6763348852b6b4a133a3e6326e8e774d25b6244703457282035d41601b66fa90",
+    "scientific_acceptance": false,
+    "calibration_protocol_valid": true,
+    "measured_samples": 216,
+    "P1_P8_executed": true,
+    "recommendation_128": "NOT_ESTABLISHED"
+  },
+  "recommendation_128": "NOT_ESTABLISHED"
+}
