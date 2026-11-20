@@ -1,0 +1,35 @@
+{
+  "base": "38bcb2116a31ecbaf4f401f41243d4adf88e98e3",
+  "original_seven_documents": {
+    "docs/research/titan-mvp-01/CODEX_HANDOFF.md": "58c32e8afde64edb687ebeb0f59d8f7dcba38a3e2e267d2b648cb731a4574234",
+    "docs/research/titan-mvp-01/DECISION_RECORD.md": "0d1e0addb26612b0d19216e95cf3f79667e736787577db292c9a0a29a2702c88",
+    "docs/research/titan-mvp-01/EXPERIMENT_PROTOCOL.md": "0f2b1a53d2187640f15207ad9b8669dabe47fc73132edf748a990d696f0282f4",
+    "docs/research/titan-mvp-01/IMPLEMENTATION_CONTRACT.md": "1c81d8991c34ac2d321fca324b8c0dfc94ba93bc605f6ed8290785ba1a165f87",
+    "docs/research/titan-mvp-01/README.md": "fd6487666149a8729e2e34c1a44ea95ec717bfa67db7525721e70206e9ba1723",
+    "docs/research/titan-mvp-01/SOURCE_V01.md": "de925ff3edc973c522110486a3d37c8a219ebb11c428e0c8305f529fac62d26a",
+    "docs/research/titan-mvp-01/SOURCE_V03.md": "d6270c7cdbdad1c14112ef8bd3ebb8a24c5f2c8c353de505376dcdf804f12bbf"
+  },
+  "new_code_and_tests": {
+    "tools/titan-mvp-01/archive.cjs": "e08149cf48add386afc4ca8adc1112eaad3c2d915ab79b3009ea8dc7d923d3e3",
+    "tools/titan-mvp-01/cli.cjs": "4ffefefc45d3d756124b333e3745ae01759daf8259c0c12275fc85f8a2e7dba8",
+    "tools/titan-mvp-01/controller.cjs": "d5f6f11301fa2b1fd19c72cadc07977088eed50e8bf0bcc999be31431cc90382",
+    "tools/titan-mvp-01/identity.cjs": "809027ce7d0e0781b3f4379802f3d88664bcf01ea7a004be3428d9818c8d61bc",
+    "tools/titan-mvp-01/metrics.cjs": "f797e418eb71cef6b48d44257c79ce6a4ff22d90c10fa816d73cb881296992e6",
+    "tools/titan-mvp-01/protocol.cjs": "3e93e967ebdc9bd05a4ba94a11de1c307ac8ed5bb328cf16db11d0f15c600bba",
+    "tools/titan-mvp-01/runtime.cjs": "fc00557ad24ccecbea7677b9bc0e8316181300d6e3610f3db10ce31ef0a9dc4a",
+    "tools/titan-mvp-01/verify.cjs": "248cefb617ca656464084ec0d2cb1b283226cfc9e2eb76d62db00dee3d4c15a9",
+    "tools/titan-mvp-01/worker.cjs": "d479c138252ef0339c6faad12a22456e0b8ad5ef5d16dd6d38fa0c50ebf119e6",
+    "js/agents/titan_mvp_01.js": "87893e2c57f5d5a55629e2a47d6db8bfa4e9c57063b8a6cabeb1475ae524483b",
+    "tests/titan-mvp-01.test.cjs": "45f096fc082b2154e375f2be6eee0af9e1eb57cd1e53c543ae9f0bbb9cb04699",
+    "tools/titan-mvp-01/fixtures/control.cjs": "60e3e1065fe07aa0733bb7e662deabf60e668e58388ced9fbb5c329719070aee",
+    "docs/research/titan-mvp-01/DEVELOPMENT_PROTOCOL.md": "02f4fdfe0e6f73f3d945e172f2f1d4b02939f532a4420b131ee1b319f837b8c1"
+  },
+  "runtime": {
+    "node": "v24.22.1",
+    "v8": "13.6.233.17-node.58",
+    "platform": "linux",
+    "arch": "x64",
+    "node_sha256": "61ab14cd750fc24d5db53490ec5fc40f756e4b6e136b78cf7004265471d9bd1d"
+  },
+  "source_literal_certification": false
+}

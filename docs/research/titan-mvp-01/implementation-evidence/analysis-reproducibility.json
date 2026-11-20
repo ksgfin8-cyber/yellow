@@ -1,0 +1,6 @@
+{
+  "original_and_restored_results_byte_identical": true,
+  "sha256": "2706ee9e68b6b1ad4fe86b0b1ef191fc60702f60af6d52f6348b9ebea0212ebe",
+  "new_agent_episodes_in_analysis": 0,
+  "note": "Analysis reads archived data only; restore verifier separately performs same-engine replay/agent decision reproduction."
+}
