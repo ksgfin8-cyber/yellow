@@ -16,7 +16,7 @@
 
 WORLD-LAB permite producir evidencia válida sobre políticas computacionales concretas dentro de un modelo experimental delimitado. Su principal fortaleza es conectar condiciones iniciales, decisiones, consecuencias, registros y comprobaciones reproducibles. Esa capacidad no convierte automáticamente las trayectorias en explicaciones del mecanismo interno ni los resultados locales en generalizaciones.
 
-El hallazgo retrospectivo más útil de este estudio es que **FrontierMemory alcanzó el techo de consumo de recursos en las 32 semillas P01**. Esto cambia qué preguntas conviene plantear después: repetir la misma comparación de consumo puede aportar menos información que investigar eficiencia temporal, mecanismos concretos o condiciones de transferencia, si esas cuestiones afectan una decisión del propietario.
+El hallazgo retrospectivo más útil de este estudio es la **saturación del consumo geométricamente alcanzable atribuida a FrontierMemory en las 32 semillas P01**, conforme a un recuento sobre archivos históricos cuyo componente geométrico aún requiere reproducción independiente (§C.2.1). Si se confirma, repetir la misma comparación de consumo puede aportar menos información que investigar otras propiedades, siempre que estas afecten una decisión del propietario.
 
 Este informe no autoriza ninguna de esas investigaciones.
 
@@ -191,7 +191,7 @@ Con mapa estático, movimientos cardinales y regeneración0:
 C_s \le R_{\text{alcanzable},s}
 \]
 
-FrontierMemory alcanzó esa cota en cada mundo examinado. **Saturó el consumo posible en esas inicializaciones dentro del horizonte registrado.** Esto no prueba rutas más cortas, menor CPU, eficiencia energética óptima ni comportamiento óptimo en otros mundos.
+Según el recuento geométrico retrospectivo declarado, FrontierMemory alcanzó esa cota en cada mundo examinado y **habría saturado el consumo posible bajo esas inicializaciones y el horizonte registrado**. La reproducción independiente de la conectividad está pendiente si esta afirmación sostiene una decisión material (§C.2.1). No prueba rutas más cortas, menor CPU, eficiencia energética óptima ni comportamiento óptimo en otros mundos.
 
 Es un **descriptor exploratorio posterior**, no una nueva hipótesis preregistrada, nueva muestra o sustitución del resultado P01. La comparación original permanece: media D=11,125 y 32 victorias.
 
@@ -317,7 +317,7 @@ No se proponen pruebas para llenar casillas, ni repetir P01 para confirmar de nu
 **Se obtuvo conocimiento adicional sin construir otra infraestructura ni ejecutar nuevas campañas:**
 
 1. **Una caracterización de qué observa cada componente y qué puede reconstruirse**, evitando confundir ocultamiento, ausencia de registro e irrecuperabilidad.
-2. **Una explicación geométrica del techo de consumo P01:** 463 recursos alcanzables, todos consumidos por FrontierMemory; siete recursos fuera de las componentes iniciales.
+2. **Una explicación geométrica propuesta del techo de consumo P01:** el análisis retrospectivo declara 463 recursos alcanzables y siete fuera de las componentes iniciales; los 463 consumos están corroborados por E4, pero la conectividad requiere reproducción independiente (§C.2.1).
 3. **Una delimitación más precisa de las métricas:** supervivencia no discriminativa en ese perfil; energía final confundida por rechazos; C saturado para FrontierMemory en esa batería.
 4. **Una advertencia verificable sobre identificación de mecanismos:** trayectorias equivalentes no identifican teoría interna, y un estado almacenado puede no influir en la decisión.
 5. **Un criterio instrumental:** preservar resultados semánticos no basta para validar medidas temporales, y completar una calibración no acredita automáticamente otra campaña.
