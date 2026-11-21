@@ -1,0 +1,14 @@
+{"evidence_directory":"/tmp/closeout-titan-equivalence-lVY4NH","source_sha256":"87893e2c57f5d5a55629e2a47d6db8bfa4e9c57063b8a6cabeb1475ae524483b","oracle_sha256":"e938b5f665b0458907257b67c166403156c30acddd2f73037876b09d11139692","analytic":"ANALYTIC_RESULT_UNDER_D4_FROM_UNCHANGED_DOCUMENT","finite":"FINITE_DIFFERENTIAL_PASS","sequential":"SEQUENTIAL_PASS","integration":{"status":"PASS","seed":1,"width":4,"height":4,"max_ticks":12,"controllers":["titan_mvp_01","direct_priority_test_oracle"],"actions_each":12,"states_each":13,"WLS1_byte_pairs":26,"config_label_difference":"Only agent_type label differs; physics/seed/horizon equal; world namespace common. Full control metadata deliberately not equated."},"cases":2401,"feedback_comparisons":7903,"divergences":[],"evaluation_2001_2012_executed":false,"finite_domain":"All7^4observation/memory classes; memory built via valid observed cardinal tours, not injected. Setup actions are forced test history, not autonomous TITAN rollouts. No claim all patterns reachable by map generator or policy.","directional_actions_covered":["MOVE_N","MOVE_E","MOVE_S","MOVE_W"],"reset":"PASS","original_source_unchanged":true}
+✔ EQ-01 independent direct priorities match2401cardinal class combinations, including physically coherent OOB geometry (1009.73755ms)
+✔ EQ-02 four directional choices/ties, resource dominance and no opportunity preserve exact action shape (2.475215ms)
+✔ EQ-03 sequential memory updates, no consumption inferred from visibility, no proposed visit, reset (1.58964ms)
+✔ EQ-04 brief closed-loop integration: distinct controllers, seed1/config equal, trajectories and WLS1 match (189.958396ms)
+✔ EQ-05 TITAN bytes and sources unchanged; no evaluation and no oracle production registration (1.608313ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1302.525285

@@ -1,0 +1,35 @@
+{
+  "source_sha256": "87893e2c57f5d5a55629e2a47d6db8bfa4e9c57063b8a6cabeb1475ae524483b",
+  "oracle_sha256": "e938b5f665b0458907257b67c166403156c30acddd2f73037876b09d11139692",
+  "analytic": "ANALYTIC_RESULT_UNDER_D4_FROM_UNCHANGED_DOCUMENT",
+  "finite": "FINITE_DIFFERENTIAL_PASS",
+  "sequential": "SEQUENTIAL_PASS",
+  "integration": {
+    "status": "PASS",
+    "seed": 1,
+    "width": 4,
+    "height": 4,
+    "max_ticks": 12,
+    "controllers": [
+      "titan_mvp_01",
+      "direct_priority_test_oracle"
+    ],
+    "actions_each": 12,
+    "states_each": 13,
+    "WLS1_byte_pairs": 26,
+    "config_label_difference": "Only agent_type label differs; physics/seed/horizon equal; world namespace common. Full control metadata deliberately not equated."
+  },
+  "cases": 2401,
+  "feedback_comparisons": 7903,
+  "divergences": [],
+  "evaluation_2001_2012_executed": false,
+  "finite_domain": "All7^4observation/memory classes; memory built via valid observed cardinal tours, not injected. Setup actions are forced test history, not autonomous TITAN rollouts. No claim all patterns reachable by map generator or policy.",
+  "directional_actions_covered": [
+    "MOVE_N",
+    "MOVE_E",
+    "MOVE_S",
+    "MOVE_W"
+  ],
+  "reset": "PASS",
+  "original_source_unchanged": true
+}

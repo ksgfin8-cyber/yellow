@@ -1,0 +1,452 @@
+{
+  "baseline": "f814c3adead596cbb01f753fe07cc1df176a827b",
+  "total_files": 630,
+  "full_manual_semantic_audit": false,
+  "families": [
+    {
+      "family": "conformance",
+      "tracked_files": 52,
+      "machine_review": "ALL_BASELINE_BLOBS_SHA256_UTF8_JSON_TAR_BASE64_AS_APPLICABLE",
+      "manual_review": "SELECTIVE; not an assertion that every line was semantically inspected",
+      "execution": "See test-command.json; campaigns excluded; prior reports remain historical"
+    },
+    {
+      "family": "docs/ACCEPTANCE_PROFILE_F5-C",
+      "tracked_files": 1,
+      "machine_review": "ALL_BASELINE_BLOBS_SHA256_UTF8_JSON_TAR_BASE64_AS_APPLICABLE",
+      "manual_review": "SELECTIVE; not an assertion that every line was semantically inspected",
+      "execution": "See test-command.json; campaigns excluded; prior reports remain historical"
+    },
+    {
+      "family": "docs/CONFORMANCE_ACCEPTANCE_PROPOSAL",
+      "tracked_files": 1,
+      "machine_review": "ALL_BASELINE_BLOBS_SHA256_UTF8_JSON_TAR_BASE64_AS_APPLICABLE",
+      "manual_review": "SELECTIVE; not an assertion that every line was semantically inspected",
+      "execution": "See test-command.json; campaigns excluded; prior reports remain historical"
+    },
+    {
+      "family": "docs/CONFORMANCE_MATRIX",
+      "tracked_files": 1,
+      "machine_review": "ALL_BASELINE_BLOBS_SHA256_UTF8_JSON_TAR_BASE64_AS_APPLICABLE",
+      "manual_review": "SELECTIVE; not an assertion that every line was semantically inspected",
+      "execution": "See test-command.json; campaigns excluded; prior reports remain historical"
+    },
+    {
+      "family": "docs/CONFORMANCE_PREACCEPTANCE_F5-B",
+      "tracked_files": 1,
+      "machine_review": "ALL_BASELINE_BLOBS_SHA256_UTF8_JSON_TAR_BASE64_AS_APPLICABLE",
+      "manual_review": "SELECTIVE; not an assertion that every line was semantically inspected",
+      "execution": "See test-command.json; campaigns excluded; prior reports remain historical"
+    },
+    {
+      "family": "docs/CONSTRUCTION_CLOSURE",
+      "tracked_files": 1,
+      "machine_review": "ALL_BASELINE_BLOBS_SHA256_UTF8_JSON_TAR_BASE64_AS_APPLICABLE",
+      "manual_review": "SELECTIVE; not an assertion that every line was semantically inspected",
+      "execution": "See test-command.json; campaigns excluded; prior reports remain historical"
+    },
+    {
+      "family": "docs/E3-operational-integration",
+      "tracked_files": 1,
+      "machine_review": "ALL_BASELINE_BLOBS_SHA256_UTF8_JSON_TAR_BASE64_AS_APPLICABLE",
+      "manual_review": "SELECTIVE; not an assertion that every line was semantically inspected",
+      "execution": "See test-command.json; campaigns excluded; prior reports remain historical"
+    },
+    {
+      "family": "docs/ENGINEERING_DECISIONS",
+      "tracked_files": 1,
+      "machine_review": "ALL_BASELINE_BLOBS_SHA256_UTF8_JSON_TAR_BASE64_AS_APPLICABLE",
+      "manual_review": "SELECTIVE; not an assertion that every line was semantically inspected",
+      "execution": "See test-command.json; campaigns excluded; prior reports remain historical"
+    },
+    {
+      "family": "docs/ENGINEERING_LEARNINGS",
+      "tracked_files": 1,
+      "machine_review": "ALL_BASELINE_BLOBS_SHA256_UTF8_JSON_TAR_BASE64_AS_APPLICABLE",
+      "manual_review": "SELECTIVE; not an assertion that every line was semantically inspected",
+      "execution": "See test-command.json; campaigns excluded; prior reports remain historical"
+    },
+    {
+      "family": "docs/F1-A-deterministic-core",
+      "tracked_files": 1,
+      "machine_review": "ALL_BASELINE_BLOBS_SHA256_UTF8_JSON_TAR_BASE64_AS_APPLICABLE",
+      "manual_review": "SELECTIVE; not an assertion that every line was semantically inspected",
+      "execution": "See test-command.json; campaigns excluded; prior reports remain historical"
+    },
+    {
+      "family": "docs/F1-B-contracts",
+      "tracked_files": 1,
+      "machine_review": "ALL_BASELINE_BLOBS_SHA256_UTF8_JSON_TAR_BASE64_AS_APPLICABLE",
+      "manual_review": "SELECTIVE; not an assertion that every line was semantically inspected",
+      "execution": "See test-command.json; campaigns excluded; prior reports remain historical"
+    },
+    {
+      "family": "docs/F6-A-pilot-protocol",
+      "tracked_files": 1,
+      "machine_review": "ALL_BASELINE_BLOBS_SHA256_UTF8_JSON_TAR_BASE64_AS_APPLICABLE",
+      "manual_review": "SELECTIVE; not an assertion that every line was semantically inspected",
+      "execution": "See test-command.json; campaigns excluded; prior reports remain historical"
+    },
+    {
+      "family": "docs/F6-A-readiness",
+      "tracked_files": 1,
+      "machine_review": "ALL_BASELINE_BLOBS_SHA256_UTF8_JSON_TAR_BASE64_AS_APPLICABLE",
+      "manual_review": "SELECTIVE; not an assertion that every line was semantically inspected",
+      "execution": "See test-command.json; campaigns excluded; prior reports remain historical"
+    },
+    {
+      "family": "docs/F6-B-report",
+      "tracked_files": 1,
+      "machine_review": "ALL_BASELINE_BLOBS_SHA256_UTF8_JSON_TAR_BASE64_AS_APPLICABLE",
+      "manual_review": "SELECTIVE; not an assertion that every line was semantically inspected",
+      "execution": "See test-command.json; campaigns excluded; prior reports remain historical"
+    },
+    {
+      "family": "docs/F6-E-preparation",
+      "tracked_files": 1,
+      "machine_review": "ALL_BASELINE_BLOBS_SHA256_UTF8_JSON_TAR_BASE64_AS_APPLICABLE",
+      "manual_review": "SELECTIVE; not an assertion that every line was semantically inspected",
+      "execution": "See test-command.json; campaigns excluded; prior reports remain historical"
+    },
+    {
+      "family": "docs/F6-F-report",
+      "tracked_files": 1,
+      "machine_review": "ALL_BASELINE_BLOBS_SHA256_UTF8_JSON_TAR_BASE64_AS_APPLICABLE",
+      "manual_review": "SELECTIVE; not an assertion that every line was semantically inspected",
+      "execution": "See test-command.json; campaigns excluded; prior reports remain historical"
+    },
+    {
+      "family": "docs/IMPLEMENTATION_STATUS",
+      "tracked_files": 1,
+      "machine_review": "ALL_BASELINE_BLOBS_SHA256_UTF8_JSON_TAR_BASE64_AS_APPLICABLE",
+      "manual_review": "SELECTIVE; not an assertion that every line was semantically inspected",
+      "execution": "See test-command.json; campaigns excluded; prior reports remain historical"
+    },
+    {
+      "family": "docs/WORLD-LAB_v0",
+      "tracked_files": 2,
+      "machine_review": "ALL_BASELINE_BLOBS_SHA256_UTF8_JSON_TAR_BASE64_AS_APPLICABLE",
+      "manual_review": "SELECTIVE; not an assertion that every line was semantically inspected",
+      "execution": "See test-command.json; campaigns excluded; prior reports remain historical"
+    },
+    {
+      "family": "docs/audits",
+      "tracked_files": 1,
+      "machine_review": "ALL_BASELINE_BLOBS_SHA256_UTF8_JSON_TAR_BASE64_AS_APPLICABLE",
+      "manual_review": "SELECTIVE; not an assertion that every line was semantically inspected",
+      "execution": "See test-command.json; campaigns excluded; prior reports remain historical"
+    },
+    {
+      "family": "docs/e3-operational-integration",
+      "tracked_files": 7,
+      "machine_review": "ALL_BASELINE_BLOBS_SHA256_UTF8_JSON_TAR_BASE64_AS_APPLICABLE",
+      "manual_review": "SELECTIVE; not an assertion that every line was semantically inspected",
+      "execution": "See test-command.json; campaigns excluded; prior reports remain historical"
+    },
+    {
+      "family": "docs/f5-d",
+      "tracked_files": 24,
+      "machine_review": "ALL_BASELINE_BLOBS_SHA256_UTF8_JSON_TAR_BASE64_AS_APPLICABLE",
+      "manual_review": "SELECTIVE; not an assertion that every line was semantically inspected",
+      "execution": "See test-command.json; campaigns excluded; prior reports remain historical"
+    },
+    {
+      "family": "docs/f6-a",
+      "tracked_files": 2,
+      "machine_review": "ALL_BASELINE_BLOBS_SHA256_UTF8_JSON_TAR_BASE64_AS_APPLICABLE",
+      "manual_review": "SELECTIVE; not an assertion that every line was semantically inspected",
+      "execution": "See test-command.json; campaigns excluded; prior reports remain historical"
+    },
+    {
+      "family": "docs/f6-b",
+      "tracked_files": 85,
+      "machine_review": "ALL_BASELINE_BLOBS_SHA256_UTF8_JSON_TAR_BASE64_AS_APPLICABLE",
+      "manual_review": "SELECTIVE; not an assertion that every line was semantically inspected",
+      "execution": "See test-command.json; campaigns excluded; prior reports remain historical"
+    },
+    {
+      "family": "docs/f6-construction-closure",
+      "tracked_files": 7,
+      "machine_review": "ALL_BASELINE_BLOBS_SHA256_UTF8_JSON_TAR_BASE64_AS_APPLICABLE",
+      "manual_review": "SELECTIVE; not an assertion that every line was semantically inspected",
+      "execution": "See test-command.json; campaigns excluded; prior reports remain historical"
+    },
+    {
+      "family": "docs/f6-e",
+      "tracked_files": 54,
+      "machine_review": "ALL_BASELINE_BLOBS_SHA256_UTF8_JSON_TAR_BASE64_AS_APPLICABLE",
+      "manual_review": "SELECTIVE; not an assertion that every line was semantically inspected",
+      "execution": "See test-command.json; campaigns excluded; prior reports remain historical"
+    },
+    {
+      "family": "docs/f6-e3-gate",
+      "tracked_files": 15,
+      "machine_review": "ALL_BASELINE_BLOBS_SHA256_UTF8_JSON_TAR_BASE64_AS_APPLICABLE",
+      "manual_review": "SELECTIVE; not an assertion that every line was semantically inspected",
+      "execution": "See test-command.json; campaigns excluded; prior reports remain historical"
+    },
+    {
+      "family": "docs/f6-f",
+      "tracked_files": 15,
+      "machine_review": "ALL_BASELINE_BLOBS_SHA256_UTF8_JSON_TAR_BASE64_AS_APPLICABLE",
+      "manual_review": "SELECTIVE; not an assertion that every line was semantically inspected",
+      "execution": "See test-command.json; campaigns excluded; prior reports remain historical"
+    },
+    {
+      "family": "docs/p01-c2-closure",
+      "tracked_files": 9,
+      "machine_review": "ALL_BASELINE_BLOBS_SHA256_UTF8_JSON_TAR_BASE64_AS_APPLICABLE",
+      "manual_review": "SELECTIVE; not an assertion that every line was semantically inspected",
+      "execution": "See test-command.json; campaigns excluded; prior reports remain historical"
+    },
+    {
+      "family": "docs/p01-cycle-closure",
+      "tracked_files": 5,
+      "machine_review": "ALL_BASELINE_BLOBS_SHA256_UTF8_JSON_TAR_BASE64_AS_APPLICABLE",
+      "manual_review": "SELECTIVE; not an assertion that every line was semantically inspected",
+      "execution": "See test-command.json; campaigns excluded; prior reports remain historical"
+    },
+    {
+      "family": "docs/p01-e3-final",
+      "tracked_files": 12,
+      "machine_review": "ALL_BASELINE_BLOBS_SHA256_UTF8_JSON_TAR_BASE64_AS_APPLICABLE",
+      "manual_review": "SELECTIVE; not an assertion that every line was semantically inspected",
+      "execution": "See test-command.json; campaigns excluded; prior reports remain historical"
+    },
+    {
+      "family": "docs/p01-e4",
+      "tracked_files": 20,
+      "machine_review": "ALL_BASELINE_BLOBS_SHA256_UTF8_JSON_TAR_BASE64_AS_APPLICABLE",
+      "manual_review": "SELECTIVE; not an assertion that every line was semantically inspected",
+      "execution": "See test-command.json; campaigns excluded; prior reports remain historical"
+    },
+    {
+      "family": "docs/p01-e5",
+      "tracked_files": 7,
+      "machine_review": "ALL_BASELINE_BLOBS_SHA256_UTF8_JSON_TAR_BASE64_AS_APPLICABLE",
+      "manual_review": "SELECTIVE; not an assertion that every line was semantically inspected",
+      "execution": "See test-command.json; campaigns excluded; prior reports remain historical"
+    },
+    {
+      "family": "docs/program",
+      "tracked_files": 1,
+      "machine_review": "ALL_BASELINE_BLOBS_SHA256_UTF8_JSON_TAR_BASE64_AS_APPLICABLE",
+      "manual_review": "SELECTIVE; not an assertion that every line was semantically inspected",
+      "execution": "See test-command.json; campaigns excluded; prior reports remain historical"
+    },
+    {
+      "family": "production/agents",
+      "tracked_files": 7,
+      "machine_review": "ALL_BASELINE_BLOBS_SHA256_UTF8_JSON_TAR_BASE64_AS_APPLICABLE",
+      "manual_review": "SELECTIVE; not an assertion that every line was semantically inspected",
+      "execution": "See test-command.json; campaigns excluded; prior reports remain historical"
+    },
+    {
+      "family": "production/contracts",
+      "tracked_files": 1,
+      "machine_review": "ALL_BASELINE_BLOBS_SHA256_UTF8_JSON_TAR_BASE64_AS_APPLICABLE",
+      "manual_review": "SELECTIVE; not an assertion that every line was semantically inspected",
+      "execution": "See test-command.json; campaigns excluded; prior reports remain historical"
+    },
+    {
+      "family": "production/core",
+      "tracked_files": 4,
+      "machine_review": "ALL_BASELINE_BLOBS_SHA256_UTF8_JSON_TAR_BASE64_AS_APPLICABLE",
+      "manual_review": "SELECTIVE; not an assertion that every line was semantically inspected",
+      "execution": "See test-command.json; campaigns excluded; prior reports remain historical"
+    },
+    {
+      "family": "production/experiment",
+      "tracked_files": 7,
+      "machine_review": "ALL_BASELINE_BLOBS_SHA256_UTF8_JSON_TAR_BASE64_AS_APPLICABLE",
+      "manual_review": "SELECTIVE; not an assertion that every line was semantically inspected",
+      "execution": "See test-command.json; campaigns excluded; prior reports remain historical"
+    },
+    {
+      "family": "production/interface",
+      "tracked_files": 4,
+      "machine_review": "ALL_BASELINE_BLOBS_SHA256_UTF8_JSON_TAR_BASE64_AS_APPLICABLE",
+      "manual_review": "SELECTIVE; not an assertion that every line was semantically inspected",
+      "execution": "See test-command.json; campaigns excluded; prior reports remain historical"
+    },
+    {
+      "family": "production/main.js",
+      "tracked_files": 1,
+      "machine_review": "ALL_BASELINE_BLOBS_SHA256_UTF8_JSON_TAR_BASE64_AS_APPLICABLE",
+      "manual_review": "SELECTIVE; not an assertion that every line was semantically inspected",
+      "execution": "See test-command.json; campaigns excluded; prior reports remain historical"
+    },
+    {
+      "family": "production/tests",
+      "tracked_files": 1,
+      "machine_review": "ALL_BASELINE_BLOBS_SHA256_UTF8_JSON_TAR_BASE64_AS_APPLICABLE",
+      "manual_review": "SELECTIVE; not an assertion that every line was semantically inspected",
+      "execution": "See test-command.json; campaigns excluded; prior reports remain historical"
+    },
+    {
+      "family": "production/visualization",
+      "tracked_files": 1,
+      "machine_review": "ALL_BASELINE_BLOBS_SHA256_UTF8_JSON_TAR_BASE64_AS_APPLICABLE",
+      "manual_review": "SELECTIVE; not an assertion that every line was semantically inspected",
+      "execution": "See test-command.json; campaigns excluded; prior reports remain historical"
+    },
+    {
+      "family": "production/world",
+      "tracked_files": 5,
+      "machine_review": "ALL_BASELINE_BLOBS_SHA256_UTF8_JSON_TAR_BASE64_AS_APPLICABLE",
+      "manual_review": "SELECTIVE; not an assertion that every line was semantically inspected",
+      "execution": "See test-command.json; campaigns excluded; prior reports remain historical"
+    },
+    {
+      "family": "research/RC1_TEMPORARY_FREEZE_2026-11-20.md",
+      "tracked_files": 1,
+      "machine_review": "ALL_BASELINE_BLOBS_SHA256_UTF8_JSON_TAR_BASE64_AS_APPLICABLE",
+      "manual_review": "SELECTIVE; not an assertion that every line was semantically inspected",
+      "execution": "See test-command.json; campaigns excluded; prior reports remain historical"
+    },
+    {
+      "family": "research/titan-mvp-01",
+      "tracked_files": 32,
+      "machine_review": "ALL_BASELINE_BLOBS_SHA256_UTF8_JSON_TAR_BASE64_AS_APPLICABLE",
+      "manual_review": "SELECTIVE; not an assertion that every line was semantically inspected",
+      "execution": "See test-command.json; campaigns excluded; prior reports remain historical"
+    },
+    {
+      "family": "research/wl-rc1-ab",
+      "tracked_files": 8,
+      "machine_review": "ALL_BASELINE_BLOBS_SHA256_UTF8_JSON_TAR_BASE64_AS_APPLICABLE",
+      "manual_review": "SELECTIVE; not an assertion that every line was semantically inspected",
+      "execution": "See test-command.json; campaigns excluded; prior reports remain historical"
+    },
+    {
+      "family": "research/wl-rc1-cd",
+      "tracked_files": 16,
+      "machine_review": "ALL_BASELINE_BLOBS_SHA256_UTF8_JSON_TAR_BASE64_AS_APPLICABLE",
+      "manual_review": "SELECTIVE; not an assertion that every line was semantically inspected",
+      "execution": "See test-command.json; campaigns excluded; prior reports remain historical"
+    },
+    {
+      "family": "research/wl-rc1-pilot-gate2",
+      "tracked_files": 7,
+      "machine_review": "ALL_BASELINE_BLOBS_SHA256_UTF8_JSON_TAR_BASE64_AS_APPLICABLE",
+      "manual_review": "SELECTIVE; not an assertion that every line was semantically inspected",
+      "execution": "See test-command.json; campaigns excluded; prior reports remain historical"
+    },
+    {
+      "family": "research/wl-rc1-pilot-v1",
+      "tracked_files": 23,
+      "machine_review": "ALL_BASELINE_BLOBS_SHA256_UTF8_JSON_TAR_BASE64_AS_APPLICABLE",
+      "manual_review": "SELECTIVE; not an assertion that every line was semantically inspected",
+      "execution": "See test-command.json; campaigns excluded; prior reports remain historical"
+    },
+    {
+      "family": "research/wl-rc1-r1",
+      "tracked_files": 15,
+      "machine_review": "ALL_BASELINE_BLOBS_SHA256_UTF8_JSON_TAR_BASE64_AS_APPLICABLE",
+      "manual_review": "SELECTIVE; not an assertion that every line was semantically inspected",
+      "execution": "See test-command.json; campaigns excluded; prior reports remain historical"
+    },
+    {
+      "family": "research/wl-rc1-r1-calibration",
+      "tracked_files": 16,
+      "machine_review": "ALL_BASELINE_BLOBS_SHA256_UTF8_JSON_TAR_BASE64_AS_APPLICABLE",
+      "manual_review": "SELECTIVE; not an assertion that every line was semantically inspected",
+      "execution": "See test-command.json; campaigns excluded; prior reports remain historical"
+    },
+    {
+      "family": "research/wl-rc1-r1-calibration-results-v1",
+      "tracked_files": 36,
+      "machine_review": "ALL_BASELINE_BLOBS_SHA256_UTF8_JSON_TAR_BASE64_AS_APPLICABLE",
+      "manual_review": "SELECTIVE; not an assertion that every line was semantically inspected",
+      "execution": "See test-command.json; campaigns excluded; prior reports remain historical"
+    },
+    {
+      "family": "root",
+      "tracked_files": 2,
+      "machine_review": "ALL_BASELINE_BLOBS_SHA256_UTF8_JSON_TAR_BASE64_AS_APPLICABLE",
+      "manual_review": "SELECTIVE; not an assertion that every line was semantically inspected",
+      "execution": "See test-command.json; campaigns excluded; prior reports remain historical"
+    },
+    {
+      "family": "tests",
+      "tracked_files": 50,
+      "machine_review": "ALL_BASELINE_BLOBS_SHA256_UTF8_JSON_TAR_BASE64_AS_APPLICABLE",
+      "manual_review": "SELECTIVE; not an assertion that every line was semantically inspected",
+      "execution": "See test-command.json; campaigns excluded; prior reports remain historical"
+    },
+    {
+      "family": "tools/evidence",
+      "tracked_files": 4,
+      "machine_review": "ALL_BASELINE_BLOBS_SHA256_UTF8_JSON_TAR_BASE64_AS_APPLICABLE",
+      "manual_review": "SELECTIVE; not an assertion that every line was semantically inspected",
+      "execution": "See test-command.json; campaigns excluded; prior reports remain historical"
+    },
+    {
+      "family": "tools/p01",
+      "tracked_files": 19,
+      "machine_review": "ALL_BASELINE_BLOBS_SHA256_UTF8_JSON_TAR_BASE64_AS_APPLICABLE",
+      "manual_review": "SELECTIVE; not an assertion that every line was semantically inspected",
+      "execution": "See test-command.json; campaigns excluded; prior reports remain historical"
+    },
+    {
+      "family": "tools/research",
+      "tracked_files": 25,
+      "machine_review": "ALL_BASELINE_BLOBS_SHA256_UTF8_JSON_TAR_BASE64_AS_APPLICABLE",
+      "manual_review": "SELECTIVE; not an assertion that every line was semantically inspected",
+      "execution": "See test-command.json; campaigns excluded; prior reports remain historical"
+    },
+    {
+      "family": "tools/titan-mvp-01",
+      "tracked_files": 11,
+      "machine_review": "ALL_BASELINE_BLOBS_SHA256_UTF8_JSON_TAR_BASE64_AS_APPLICABLE",
+      "manual_review": "SELECTIVE; not an assertion that every line was semantically inspected",
+      "execution": "See test-command.json; campaigns excluded; prior reports remain historical"
+    }
+  ],
+  "deep_review_targets": [
+    "docs/audits/WORLD_LAB_CLOSEOUT_AUDIT_SCOPE_2026-11-20.md",
+    "docs/research/titan-mvp-01/EQUIVALENCE_ANALYSIS.md",
+    "docs/program/RDL-PB-001_v0.1_original_propuesta.md",
+    "docs/CONSTRUCTION_CLOSURE.md",
+    "docs/ENGINEERING_DECISIONS.md",
+    "js/experiment/tick_transaction.js",
+    "js/experiment/hash_state.js",
+    "js/experiment/experiment.js",
+    "tests/oracles/titan-direct-priority.cjs",
+    "tests/titan-equivalence.test.cjs",
+    "tests/closeout-boundaries.test.cjs"
+  ],
+  "selected_contract_and_boundary_review": [
+    "docs/WORLD-LAB_v0.2.5_canonical_transcripcion.md §§0/6/13/16/25/26/31/34/37",
+    "docs/WORLD-LAB_v0.2.6_contractual_amendment_D-01.md",
+    "docs/IMPLEMENTATION_STATUS.md current executive and relevant historical entries",
+    "docs/f5-d/UNRESOLVED_DECISIONS.md DEC-G00 and related gaps",
+    "js/world/world.js lifecycle/dynamics/actions",
+    "js/experiment/recorder.js ownership, sequences, append, validation, finalize",
+    "js/experiment/replay.js explicit context and structural comparison",
+    "tools/titan-mvp-01/worker.cjs failure path",
+    "tools/research/wl-rc1-r1/session.cjs completeness timing",
+    "docs/research/RC1_TEMPORARY_FREEZE_2026-11-20.md",
+    "docs/p01-e3-final/ README, audit and recovery",
+    "docs/p01-e4/E4-report.md, metrics, CSV and replay rows",
+    "docs/p01-e5/FINAL_ACCEPTANCE_REPORT.md",
+    "docs/p01-c2-closure/CLOSURE_STATUS.json and receipt scope"
+  ],
+  "not_newly_executed": [
+    "P01 E3/E4 episodes or archived replay",
+    "RC1 pilot/calibration/128 processes",
+    "TITAN G2 120 episodes",
+    "Independent third-party engine interoperability",
+    "External Windows/OneDrive inspection",
+    "Real browser integration (DOM unit evidence is fresh; historical browser evidence retained)"
+  ],
+  "unavailable_authority": [
+    "Complete authenticated v0.2.4 corpus closing G00 and canonical T01–T280/V2–V10",
+    "Approved superior strategic specification establishing Playbook institutional adoption"
+  ],
+  "links": {
+    "unresolved_machine_targets": 8,
+    "material_defects": 0,
+    "reason": "Original E3 operational report historical workspace references explicitly mapped by docs/p01-e3-final/README.md; preserve original bytes"
+  }
+}
