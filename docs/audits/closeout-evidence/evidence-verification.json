@@ -1,0 +1,999 @@
+{
+  "scope": "Read-only hashes and historical arithmetic; no new E3/E4/replay executions",
+  "publication_checks": [
+    {
+      "manifest": "docs/f6-construction-closure/PUBLICATION-SHA256.json",
+      "checked": 6,
+      "matches": 6,
+      "checks": [
+        {
+          "file": "docs/f6-construction-closure/COMPONENTS_AND_FINDINGS.md",
+          "match": true
+        },
+        {
+          "file": "docs/f6-construction-closure/PHASE_RECONCILIATION.md",
+          "match": true
+        },
+        {
+          "file": "docs/f6-construction-closure/READINESS_REPORT.md",
+          "match": true
+        },
+        {
+          "file": "docs/f6-construction-closure/VERIFICATION.json",
+          "match": true
+        },
+        {
+          "file": "docs/f6-construction-closure/checks.log.b64",
+          "match": true
+        },
+        {
+          "file": "docs/f6-construction-closure/order.txt.b64",
+          "match": true
+        }
+      ]
+    },
+    {
+      "manifest": "docs/p01-c2-closure/PUBLICATION-SHA256.json",
+      "checked": 8,
+      "matches": 8,
+      "checks": [
+        {
+          "file": "docs/p01-c2-closure/C2_CLOSURE_REPORT.md",
+          "match": true
+        },
+        {
+          "file": "docs/p01-c2-closure/CLOSURE_MANIFEST.json",
+          "match": true
+        },
+        {
+          "file": "docs/p01-c2-closure/CLOSURE_STATUS.json",
+          "match": true
+        },
+        {
+          "file": "docs/p01-c2-closure/DOCUMENTARY_CHECKS.json",
+          "match": true
+        },
+        {
+          "file": "docs/p01-c2-closure/ENGINEERING_DECISIONS-before-C2-closure.md.b64",
+          "match": true
+        },
+        {
+          "file": "docs/p01-c2-closure/OWNER_CONFIRMATION.md",
+          "match": true
+        },
+        {
+          "file": "docs/p01-c2-closure/OWNER_RECEIPT.json",
+          "match": true
+        },
+        {
+          "file": "docs/p01-c2-closure/README.md",
+          "match": true
+        }
+      ]
+    },
+    {
+      "manifest": "docs/p01-e3-final/PUBLICATION-SHA256.json",
+      "checked": 11,
+      "matches": 11,
+      "checks": [
+        {
+          "file": "docs/p01-e3-final/E3-audit-report.md",
+          "match": true
+        },
+        {
+          "file": "docs/p01-e3-final/E3-closure-status.md",
+          "match": true
+        },
+        {
+          "file": "docs/p01-e3-final/E3-evidence-manifest.json",
+          "match": true
+        },
+        {
+          "file": "docs/p01-e3-final/E3-operational-report.md",
+          "match": true
+        },
+        {
+          "file": "docs/p01-e3-final/E4-plan.md",
+          "match": true
+        },
+        {
+          "file": "docs/p01-e3-final/README.md",
+          "match": true
+        },
+        {
+          "file": "docs/p01-e3-final/RECOVERY.md",
+          "match": true
+        },
+        {
+          "file": "docs/p01-e3-final/verification/C1-documentation-build.py",
+          "match": true
+        },
+        {
+          "file": "docs/p01-e3-final/verification/C1-publication-check.json",
+          "match": true
+        },
+        {
+          "file": "docs/p01-e3-final/verification/C1-read-only-check.cjs",
+          "match": true
+        },
+        {
+          "file": "docs/p01-e3-final/verification/C1-read-only-result.json",
+          "match": true
+        }
+      ]
+    },
+    {
+      "manifest": "docs/p01-e4/PUBLICATION-SHA256.json",
+      "checked": 19,
+      "matches": 19,
+      "checks": [
+        {
+          "file": "docs/p01-e4/E4-evidence-manifest.json",
+          "match": true
+        },
+        {
+          "file": "docs/p01-e4/E4-operational-result.json",
+          "match": true
+        },
+        {
+          "file": "docs/p01-e4/E4-report.md",
+          "match": true
+        },
+        {
+          "file": "docs/p01-e4/README.md",
+          "match": true
+        },
+        {
+          "file": "docs/p01-e4/controller-recount.json",
+          "match": true
+        },
+        {
+          "file": "docs/p01-e4/independent-descriptors.json",
+          "match": true
+        },
+        {
+          "file": "docs/p01-e4/independent-metrics.json",
+          "match": true
+        },
+        {
+          "file": "docs/p01-e4/initial-world-WLS1-comparison.json",
+          "match": true
+        },
+        {
+          "file": "docs/p01-e4/integrity-results.json",
+          "match": true
+        },
+        {
+          "file": "docs/p01-e4/paired-results.csv",
+          "match": true
+        },
+        {
+          "file": "docs/p01-e4/replay-results.json",
+          "match": true
+        },
+        {
+          "file": "docs/p01-e4/verification/README.md",
+          "match": true
+        },
+        {
+          "file": "docs/p01-e4/verification/commands.jsonl",
+          "match": true
+        },
+        {
+          "file": "docs/p01-e4/verification/execution-context.json",
+          "match": true
+        },
+        {
+          "file": "docs/p01-e4/verification/p01-e4-controller-recount.cjs",
+          "match": true
+        },
+        {
+          "file": "docs/p01-e4/verification/p01-e4-independent-descriptors.cjs",
+          "match": true
+        },
+        {
+          "file": "docs/p01-e4/verification/p01-e4-integrity-check.cjs",
+          "match": true
+        },
+        {
+          "file": "docs/p01-e4/verification/p01-e4-operation.py",
+          "match": true
+        },
+        {
+          "file": "docs/p01-e4/verification/p01-e4-restored-replay.cjs",
+          "match": true
+        }
+      ]
+    },
+    {
+      "manifest": "docs/p01-e5/PUBLICATION-SHA256.json",
+      "checked": 6,
+      "matches": 6,
+      "checks": [
+        {
+          "file": "docs/p01-e5/ACCEPTANCE_STATUS.json",
+          "match": true
+        },
+        {
+          "file": "docs/p01-e5/DOCUMENTARY_CHECKS.json",
+          "match": true
+        },
+        {
+          "file": "docs/p01-e5/E5-evidence-manifest.json",
+          "match": true
+        },
+        {
+          "file": "docs/p01-e5/ENGINEERING_DECISIONS-before-E5.md.b64",
+          "match": true
+        },
+        {
+          "file": "docs/p01-e5/FINAL_ACCEPTANCE_REPORT.md",
+          "match": true
+        },
+        {
+          "file": "docs/p01-e5/README.md",
+          "match": true
+        }
+      ]
+    },
+    {
+      "manifest": "docs/research/titan-mvp-01/PUBLICATION_SHA256.json",
+      "checked": 36,
+      "matches": 36,
+      "checks": [
+        {
+          "file": "docs/research/titan-mvp-01/DEVELOPMENT_CANDIDATE.json",
+          "match": true
+        },
+        {
+          "file": "docs/research/titan-mvp-01/DEVELOPMENT_PROTOCOL.md",
+          "match": true
+        },
+        {
+          "file": "docs/research/titan-mvp-01/DEVELOPMENT_RESULTS.json",
+          "match": true
+        },
+        {
+          "file": "docs/research/titan-mvp-01/EFFORT_SUMMARY.json",
+          "match": true
+        },
+        {
+          "file": "docs/research/titan-mvp-01/EVIDENCE_EXPORT.json",
+          "match": true
+        },
+        {
+          "file": "docs/research/titan-mvp-01/G2_BUDGET_PROPOSAL.json",
+          "match": true
+        },
+        {
+          "file": "docs/research/titan-mvp-01/IMPLEMENTATION_REPORT.md",
+          "match": true
+        },
+        {
+          "file": "docs/research/titan-mvp-01/PUBLICATION_REVIEW.json",
+          "match": true
+        },
+        {
+          "file": "docs/research/titan-mvp-01/RECOVERY.md",
+          "match": true
+        },
+        {
+          "file": "docs/research/titan-mvp-01/SOURCE_HASHES.json",
+          "match": true
+        },
+        {
+          "file": "docs/research/titan-mvp-01/TITAN-MVP-01-G1-development-evidence.tar.gz",
+          "match": true
+        },
+        {
+          "file": "docs/research/titan-mvp-01/TITAN-MVP-01-G1-development-evidence.tar.gz.sha256",
+          "match": true
+        },
+        {
+          "file": "docs/research/titan-mvp-01/analyze_development.cjs",
+          "match": true
+        },
+        {
+          "file": "docs/research/titan-mvp-01/implementation-evidence/analysis-reproducibility.json",
+          "match": true
+        },
+        {
+          "file": "docs/research/titan-mvp-01/implementation-evidence/check-after.json",
+          "match": true
+        },
+        {
+          "file": "docs/research/titan-mvp-01/implementation-evidence/effort.jsonl",
+          "match": true
+        },
+        {
+          "file": "docs/research/titan-mvp-01/implementation-evidence/smoke-exit.json",
+          "match": true
+        },
+        {
+          "file": "docs/research/titan-mvp-01/implementation-evidence/smoke-invocation.json",
+          "match": true
+        },
+        {
+          "file": "docs/research/titan-mvp-01/implementation-evidence/smoke.stderr.txt",
+          "match": true
+        },
+        {
+          "file": "docs/research/titan-mvp-01/implementation-evidence/smoke.stdout.json",
+          "match": true
+        },
+        {
+          "file": "docs/research/titan-mvp-01/implementation-evidence/source-integrity.json",
+          "match": true
+        },
+        {
+          "file": "docs/research/titan-mvp-01/implementation-evidence/tests-01.log",
+          "match": true
+        },
+        {
+          "file": "docs/research/titan-mvp-01/implementation-evidence/verify-restored.json",
+          "match": true
+        },
+        {
+          "file": "js/agents/titan_mvp_01.js",
+          "match": true
+        },
+        {
+          "file": "tests/titan-mvp-01.test.cjs",
+          "match": true
+        },
+        {
+          "file": "tools/titan-mvp-01/README.md",
+          "match": true
+        },
+        {
+          "file": "tools/titan-mvp-01/archive.cjs",
+          "match": true
+        },
+        {
+          "file": "tools/titan-mvp-01/cli.cjs",
+          "match": true
+        },
+        {
+          "file": "tools/titan-mvp-01/controller.cjs",
+          "match": true
+        },
+        {
+          "file": "tools/titan-mvp-01/fixtures/control.cjs",
+          "match": true
+        },
+        {
+          "file": "tools/titan-mvp-01/identity.cjs",
+          "match": true
+        },
+        {
+          "file": "tools/titan-mvp-01/metrics.cjs",
+          "match": true
+        },
+        {
+          "file": "tools/titan-mvp-01/protocol.cjs",
+          "match": true
+        },
+        {
+          "file": "tools/titan-mvp-01/runtime.cjs",
+          "match": true
+        },
+        {
+          "file": "tools/titan-mvp-01/verify.cjs",
+          "match": true
+        },
+        {
+          "file": "tools/titan-mvp-01/worker.cjs",
+          "match": true
+        }
+      ]
+    },
+    {
+      "manifest": "docs/research/wl-rc1-ab/PUBLICATION-SHA256.json",
+      "checked": 7,
+      "matches": 7,
+      "checks": [
+        {
+          "file": "docs/research/wl-rc1-ab/COMPLEXITY_MODELS.md",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-ab/QUESTIONS_AND_EVIDENCE.md",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-ab/RC1_C_PROPOSAL.md",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-ab/REPORT.md",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-ab/REVIEW_EVIDENCE.json",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-ab/function-models.json",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-ab/order.txt.b64",
+          "match": true
+        }
+      ]
+    },
+    {
+      "manifest": "docs/research/wl-rc1-cd/PUBLICATION-SHA256.json",
+      "checked": 15,
+      "matches": 15,
+      "checks": [
+        {
+          "file": "docs/research/wl-rc1-cd/PILOT-CANDIDATE.json",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-cd/PILOT_REQUEST.md",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-cd/PROTOCOL.md",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-cd/REVIEW.json",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-cd/VALIDATION_REPORT.md",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-cd/authorization.template.json",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-cd/conditions.json",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-cd/order.txt.b64",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-cd/tests-01.log.b64",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-cd/tests-02.log.b64",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-cd/tests-03.log.b64",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-cd/tests-04.log.b64",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-cd/tests-05.log.b64",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-cd/validation-fixtures.tar.gz",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-cd/validation-fixtures.tar.gz.sha256",
+          "match": true
+        }
+      ]
+    },
+    {
+      "manifest": "docs/research/wl-rc1-pilot-gate2/PUBLICATION-SHA256.json",
+      "checked": 6,
+      "matches": 6,
+      "checks": [
+        {
+          "file": "docs/research/wl-rc1-pilot-gate2/DOCUMENTARY_CHECKS.json",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-pilot-gate2/GATE2_STATUS.md",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-pilot-gate2/SIGNER_STEPS.md",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-pilot-gate2/UNSIGNED_READINESS.json",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-pilot-gate2/authorization.json",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-pilot-gate2/owner-order.txt.b64",
+          "match": true
+        }
+      ]
+    },
+    {
+      "manifest": "docs/research/wl-rc1-pilot-v1/PUBLICATION-SHA256.json",
+      "checked": 22,
+      "matches": 22,
+      "checks": [
+        {
+          "file": "docs/research/wl-rc1-pilot-v1/EVIDENCE_MANIFEST.json",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-pilot-v1/OWNER_START_APPROVAL.md",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-pilot-v1/PILOT_REPORT.md",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-pilot-v1/POSTCHECKS.json",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-pilot-v1/PUBLICATION_REVIEW.json",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-pilot-v1/RECOVERY.md",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-pilot-v1/WL-RC1-pilot-v1-evidence.tar.gz",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-pilot-v1/WL-RC1-pilot-v1-evidence.tar.gz.sha256",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-pilot-v1/analysis-summary.json",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-pilot-v1/analyze.cjs",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-pilot-v1/check-after.json",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-pilot-v1/condition-coverage.json",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-pilot-v1/exit-record.json",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-pilot-v1/operation-summaries.json",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-pilot-v1/paired-perturbation.json",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-pilot-v1/preflight-before-start.json",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-pilot-v1/processes.json",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-pilot-v1/samples.csv",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-pilot-v1/source-integrity.json",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-pilot-v1/start-record.json",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-pilot-v1/verify-original.json",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-pilot-v1/verify_results.py",
+          "match": true
+        }
+      ]
+    },
+    {
+      "manifest": "docs/research/wl-rc1-r1-calibration-results-v1/PUBLICATION_SHA256.json",
+      "checked": 35,
+      "matches": 35,
+      "checks": [
+        {
+          "file": "docs/research/wl-rc1-r1-calibration-results-v1/CALIBRATION_REPORT.md",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-r1-calibration-results-v1/CSV_PUBLICATION.json",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-r1-calibration-results-v1/PUBLICATION_REVIEW.json",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-r1-calibration-results-v1/RECOVERY.md",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-r1-calibration-results-v1/WL-RC1-R1-calibration-v1-evidence.tar.gz",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-r1-calibration-results-v1/WL-RC1-R1-calibration-v1-evidence.tar.gz.sha256",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-r1-calibration-results-v1/analysis-reproducibility.json",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-r1-calibration-results-v1/analyze.cjs",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-r1-calibration-results-v1/check-after.json",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-r1-calibration-results-v1/data/balanced-journal.json",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-r1-calibration-results-v1/data/balanced-modality.json",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-r1-calibration-results-v1/data/journal-perturbation.json",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-r1-calibration-results-v1/data/modality.json",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-r1-calibration-results-v1/data/processes.json",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-r1-calibration-results-v1/data/summary.json",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-r1-calibration-results-v1/deep-structural-verification.json",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-r1-calibration-results-v1/export.json",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-r1-calibration-results-v1/independent-arithmetic-check.json",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-r1-calibration-results-v1/independent-reproduced.json",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-r1-calibration-results-v1/operations/OWNER_START_APPROVAL.md",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-r1-calibration-results-v1/operations/controller.stderr.txt",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-r1-calibration-results-v1/operations/controller.stdout.json",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-r1-calibration-results-v1/operations/execute-once.py",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-r1-calibration-results-v1/operations/exit.json",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-r1-calibration-results-v1/operations/launch-intent.json",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-r1-calibration-results-v1/operations/preflight.stderr.txt",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-r1-calibration-results-v1/operations/preflight.stdout.json",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-r1-calibration-results-v1/operations/start.json",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-r1-calibration-results-v1/samples.csv",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-r1-calibration-results-v1/source-integrity.json",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-r1-calibration-results-v1/verify-export-restored.json",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-r1-calibration-results-v1/verify-original.json",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-r1-calibration-results-v1/verify-restored.json",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-r1-calibration-results-v1/verify_arithmetic.py",
+          "match": true
+        },
+        {
+          "file": "docs/research/wl-rc1-r1-calibration-results-v1/verify_structures.cjs",
+          "match": true
+        }
+      ]
+    }
+  ],
+  "issues": [],
+  "original_packages": [
+    {
+      "path": "/workspace/shared/world-lab/p01-final-20261113-01-exports/P01-E3-audited-evidence.tar.gz",
+      "bytes": 36085889,
+      "sha256": "8a1df2ac58fa2069afa4de52368097d79859b59e4b784e99a72966fa5690b7c7",
+      "match": true,
+      "archive_members_read": 1684
+    },
+    {
+      "path": "/workspace/shared/world-lab/p01-final-20261113-01-e4-exports/P01-E4-scientific-validation.tar.gz",
+      "bytes": 309971,
+      "sha256": "47083b27d5875126ac3086fe8887adfdc813567673dec2e904a4e91bcf29db91",
+      "match": true,
+      "archive_members_read": 47
+    }
+  ],
+  "E3": {
+    "combinations": 256,
+    "duplicates": 0,
+    "order_matches": true,
+    "archive_and_raw_hashes_checked": 512,
+    "COMPLETE_MATCH": 256,
+    "copy_verify_record": {
+      "format": "WL-EVIDENCE-COPY-1",
+      "state": "COPY_VERIFIED",
+      "preservation_state": "COPY_VERIFIED",
+      "preservation_errors": [],
+      "indexes": 256,
+      "objects_checked": 774,
+      "source_complete": true,
+      "final_manifest_present": true,
+      "errors": []
+    },
+    "note": "Replay proof statuses read from historical records; no replay invoked"
+  },
+  "E4": {
+    "archived_restored_replays": 256,
+    "MATCH": 256,
+    "states_verified": 41216,
+    "seed_pairs": 32,
+    "sum_D": 356,
+    "mean_D": 11.125,
+    "wins": 32,
+    "ties": 0,
+    "losses": 0,
+    "metric_episode_counts_reconciled": 256,
+    "repetition_pairs_equal": 128,
+    "current_replay_executions": 0
+  },
+  "syntax": {
+    "javascript": [
+      "conformance/adapter-f5-b.cjs",
+      "conformance/adapter.cjs",
+      "conformance/build-atomic-f5-b.cjs",
+      "conformance/build-corpus.cjs",
+      "conformance/build-f5-b.cjs",
+      "conformance/build-preacceptance-f5-b.cjs",
+      "conformance/build-trace.cjs",
+      "conformance/mutation-f5-b.cjs",
+      "conformance/oracles.cjs",
+      "conformance/profile/validate.cjs",
+      "conformance/runner.cjs",
+      "conformance/wire.cjs",
+      "docs/p01-e3-final/verification/C1-read-only-check.cjs",
+      "docs/p01-e4/verification/p01-e4-controller-recount.cjs",
+      "docs/p01-e4/verification/p01-e4-independent-descriptors.cjs",
+      "docs/p01-e4/verification/p01-e4-integrity-check.cjs",
+      "docs/p01-e4/verification/p01-e4-restored-replay.cjs",
+      "docs/research/titan-mvp-01/analyze_development.cjs",
+      "docs/research/wl-rc1-pilot-v1/analyze.cjs",
+      "docs/research/wl-rc1-r1-calibration-results-v1/analyze.cjs",
+      "docs/research/wl-rc1-r1-calibration-results-v1/verify_structures.cjs",
+      "js/agents/agent.js",
+      "js/agents/frontier_memory_agent.js",
+      "js/agents/random_agent.js",
+      "js/agents/registry.js",
+      "js/agents/rule_agent.js",
+      "js/agents/titan_mvp_01.js",
+      "js/agents/wait_agent.js",
+      "js/contracts/structures.js",
+      "js/core/contracts.js",
+      "js/core/hash.js",
+      "js/core/prng.js",
+      "js/core/seed.js",
+      "js/experiment/experiment.js",
+      "js/experiment/experiment_config.js",
+      "js/experiment/hash_state.js",
+      "js/experiment/recorder.js",
+      "js/experiment/replay.js",
+      "js/experiment/tick_transaction.js",
+      "js/experiment/trajectory.js",
+      "js/interface/action.js",
+      "js/interface/action_result.js",
+      "js/interface/feedback.js",
+      "js/interface/observation.js",
+      "js/main.js",
+      "js/tests/tests.js",
+      "js/visualization/renderer.js",
+      "js/world/cells.js",
+      "js/world/entity.js",
+      "js/world/world.js",
+      "js/world/world_config.js",
+      "js/world/world_state.js",
+      "tests/f1-a-legacy.cjs",
+      "tests/f1-a.test.cjs",
+      "tests/f1-b.test.cjs",
+      "tests/f2-a.test.cjs",
+      "tests/f2-b.test.cjs",
+      "tests/f2-c.test.cjs",
+      "tests/f2-d.test.cjs",
+      "tests/f2-e.test.cjs",
+      "tests/f2-f.test.cjs",
+      "tests/f2-g.test.cjs",
+      "tests/f2-h.test.cjs",
+      "tests/f2-i.test.cjs",
+      "tests/f3-a.test.cjs",
+      "tests/f3-b.test.cjs",
+      "tests/f3-c.test.cjs",
+      "tests/f3-d.test.cjs",
+      "tests/f3-d2.test.cjs",
+      "tests/f3-e.test.cjs",
+      "tests/f3-f.test.cjs",
+      "tests/f3-g.test.cjs",
+      "tests/f3-h.test.cjs",
+      "tests/f4-a.test.cjs",
+      "tests/f4-b.test.cjs",
+      "tests/f4-c.test.cjs",
+      "tests/f4-e.test.cjs",
+      "tests/f4-f.test.cjs",
+      "tests/f5-a.test.cjs",
+      "tests/f5-b.test.cjs",
+      "tests/f5-c.test.cjs",
+      "tests/f6-b-agent.test.cjs",
+      "tests/f6-b-archive.test.cjs",
+      "tests/f6-b-controller.test.cjs",
+      "tests/f6-b-execution.test.cjs",
+      "tests/f6-b-metrics.test.cjs",
+      "tests/f6-b-smoke.cjs",
+      "tests/f6-e-gate.cjs",
+      "tests/f6-e.test.cjs",
+      "tests/f6-f-metrics.test.cjs",
+      "tests/f6-f-preservation.test.cjs",
+      "tests/fixtures/p01-crash.cjs",
+      "tests/fixtures/p01-hang.cjs",
+      "tests/fixtures/wl-rc1-r1-calibration/control.cjs",
+      "tests/fixtures/wl-rc1-r1/blocked-controller.cjs",
+      "tests/fixtures/wl-rc1-r1/control.cjs",
+      "tests/fixtures/wl-rc1/blocked-controller.cjs",
+      "tests/fixtures/wl-rc1/control.cjs",
+      "tests/titan-mvp-01.test.cjs",
+      "tests/wl-rc1-cd.test.cjs",
+      "tests/wl-rc1-r1-calibration.test.cjs",
+      "tests/wl-rc1-r1.test.cjs",
+      "tools/evidence/io.cjs",
+      "tools/evidence/p01-independent-metrics.cjs",
+      "tools/evidence/preserve.cjs",
+      "tools/evidence/verify.cjs",
+      "tools/p01/archive.cjs",
+      "tools/p01/cli.cjs",
+      "tools/p01/codec.cjs",
+      "tools/p01/controller.cjs",
+      "tools/p01/evaluation/audit.cjs",
+      "tools/p01/evaluation/cli.cjs",
+      "tools/p01/evaluation/controller.cjs",
+      "tools/p01/evaluation/gate.cjs",
+      "tools/p01/evaluation/profile.cjs",
+      "tools/p01/evaluation/worker.cjs",
+      "tools/p01/freeze.cjs",
+      "tools/p01/metrics.cjs",
+      "tools/p01/protocol.cjs",
+      "tools/p01/provenance.cjs",
+      "tools/p01/runtime.cjs",
+      "tools/p01/supervisor.cjs",
+      "tools/p01/worker.cjs",
+      "tools/research/wl-rc1-r1-calibration/cli.cjs",
+      "tools/research/wl-rc1-r1-calibration/estimators.cjs",
+      "tools/research/wl-rc1-r1-calibration/identity.cjs",
+      "tools/research/wl-rc1-r1-calibration/plan.cjs",
+      "tools/research/wl-rc1-r1-calibration/session.cjs",
+      "tools/research/wl-rc1-r1-calibration/verify.cjs",
+      "tools/research/wl-rc1-r1-calibration/worker.cjs",
+      "tools/research/wl-rc1-r1/cli.cjs",
+      "tools/research/wl-rc1-r1/estimators.cjs",
+      "tools/research/wl-rc1-r1/identity.cjs",
+      "tools/research/wl-rc1-r1/journal.cjs",
+      "tools/research/wl-rc1-r1/plan.cjs",
+      "tools/research/wl-rc1-r1/session.cjs",
+      "tools/research/wl-rc1-r1/worker.cjs",
+      "tools/research/wl-rc1/cli.cjs",
+      "tools/research/wl-rc1/conditions.cjs",
+      "tools/research/wl-rc1/guardian.cjs",
+      "tools/research/wl-rc1/identity.cjs",
+      "tools/research/wl-rc1/operations.cjs",
+      "tools/research/wl-rc1/runner.cjs",
+      "tools/research/wl-rc1/storage.cjs",
+      "tools/research/wl-rc1/worker.cjs",
+      "tools/titan-mvp-01/archive.cjs",
+      "tools/titan-mvp-01/cli.cjs",
+      "tools/titan-mvp-01/controller.cjs",
+      "tools/titan-mvp-01/fixtures/control.cjs",
+      "tools/titan-mvp-01/identity.cjs",
+      "tools/titan-mvp-01/metrics.cjs",
+      "tools/titan-mvp-01/protocol.cjs",
+      "tools/titan-mvp-01/runtime.cjs",
+      "tools/titan-mvp-01/verify.cjs",
+      "tools/titan-mvp-01/worker.cjs"
+    ],
+    "python": [
+      "conformance/profile/build_candidate.py",
+      "conformance/profile/build_gaps.py",
+      "conformance/profile/build_inventory.py",
+      "conformance/profile/build_quality.py",
+      "conformance/profile/build_static_review.py",
+      "conformance/profile/build_vectors.py",
+      "docs/f5-d/build.py",
+      "docs/f5-d/build_decisions.py",
+      "docs/f5-d/contracts.py",
+      "docs/f5-d/decisions.py",
+      "docs/f5-d/freeze.py",
+      "docs/f5-d/recovery.py",
+      "docs/f5-d/validate.py",
+      "docs/p01-e3-final/verification/C1-documentation-build.py",
+      "docs/p01-e4/verification/p01-e4-operation.py",
+      "docs/research/wl-rc1-pilot-v1/verify_results.py",
+      "docs/research/wl-rc1-r1-calibration-results-v1/operations/execute-once.py",
+      "docs/research/wl-rc1-r1-calibration-results-v1/verify_arithmetic.py"
+    ],
+    "errors": [],
+    "status": "PASS"
+  },
+  "transfer_branch_tip": "72b97e29e168eb46cc6cf62d881e82d4b04335c0",
+  "status": "PASS"
+}

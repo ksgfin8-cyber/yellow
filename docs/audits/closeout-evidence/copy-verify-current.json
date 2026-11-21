@@ -1,0 +1,11 @@
+{
+  "format": "WL-EVIDENCE-COPY-1",
+  "state": "COPY_VERIFIED",
+  "preservation_state": "COPY_VERIFIED",
+  "preservation_errors": [],
+  "indexes": 256,
+  "objects_checked": 774,
+  "source_complete": true,
+  "final_manifest_present": true,
+  "errors": []
+}

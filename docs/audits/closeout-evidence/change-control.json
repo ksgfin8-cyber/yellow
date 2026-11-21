@@ -1,0 +1,34 @@
+{
+  "format": "WL-CLOSEOUT-CHANGE-CONTROL-1",
+  "checked_at_utc": "2026-11-21T03:19:49.788294+00:00",
+  "base_commit": "f814c3adead596cbb01f753fe07cc1df176a827b",
+  "existing_base_files": 630,
+  "existing_files_modified": [],
+  "new_files_syntax_pass": [
+    "tests/closeout-boundaries.test.cjs",
+    "tests/oracles/titan-direct-priority.cjs",
+    "tests/titan-equivalence.test.cjs",
+    "tools/audit-closeout/inventory.py",
+    "tools/audit-closeout/verify_evidence.py"
+  ],
+  "private_material_pattern_matches": [],
+  "scan_scope": "New proposed files only; pattern scan not a universal guarantee",
+  "sources_preserved": {
+    "js/agents/titan_mvp_01.js": "87893e2c57f5d5a55629e2a47d6db8bfa4e9c57063b8a6cabeb1475ae524483b",
+    "docs/program/RDL-PB-001_v0.1_original_propuesta.md": "84019bd0c70206d9f90ec219d4fefbc1eb58041ba1762818687ae8a983317436",
+    "docs/research/titan-mvp-01/EQUIVALENCE_ANALYSIS.md": "e27369d996c512710614b96e03b13cf1c65bc2437bd3d80015c22b58e084faac",
+    "docs/WORLD-LAB_v0.2.5_canonical_transcripcion.md": "926d3246c18469d30088a1d67b7f3ffd23cf25340fc638a941e42a94985ad912",
+    "docs/WORLD-LAB_v0.2.6_contractual_amendment_D-01.md": "4c6148028b45fee4a32d6379c84460e9829fdf98a1b79eed82853ff9eec7db03"
+  },
+  "production_source_changed": false,
+  "historical_evidence_changed": false,
+  "P01_E3_E4_campaigns_run": false,
+  "RC1_campaigns_run": false,
+  "TITAN_G2_executed": false,
+  "TITAN_development_integration": "2 controllers x12ticks, seed1 only",
+  "authorization": "GO recommendation only; owner freeze approval pending",
+  "runtime": {
+    "node": "v24.22.1",
+    "platform": "Linux x86_64"
+  }
+}
