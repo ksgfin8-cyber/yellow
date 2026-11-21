@@ -948,6 +948,7 @@ Una afirmación histórica no se considerará válida por el simple hecho de est
 ## 14.4. Gestión del conocimiento histórico
 
 La recuperación del corpus histórico se realizará de forma selectiva:
+
 1. inventariar documentos y artefactos existentes;
 2. identificar objetos, proyectos y decisiones relacionados;
 3. clasificar su procedencia y estado de validación;
