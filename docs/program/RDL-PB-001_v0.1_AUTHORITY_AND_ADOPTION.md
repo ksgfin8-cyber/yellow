@@ -32,7 +32,7 @@ La decisión fija **uso normativo del procedimiento**, no una certificación aut
 
 **En paralelo**, cada tecnología conserva sus normas y contratos técnicos particulares: el Playbook rige el **proceso de investigación y evaluación**, no cambia el comportamiento matemático o computacional definido en WORLD-LAB, TITAN u otros proyectos.
 
-El Playbook exige explícitamente seleccionar instrumentos adecuados al problema (§7), proporcionalidad (§§2.2,8.1,19.1), gestión de evidencia (§§9–11), decisiones diferenciadas (§13) y productividad demostrada (§17). **No exige un documento o un sistema independiente por cada sustantivo de su taxonomía** (§§4.2,14.2,20).
+El Playbook exige explícitamente seleccionar instrumentos adecuados al problema (§7), proporcionalidad (§§2.2,8.1,19.1), gestión de evidencia (§§9–11), decisiones diferenciadas (§13) y medición de productividad y evidencia comparativa antes de afirmar mejoras (§17). **No exige un documento o un sistema independiente por cada sustantivo de su taxonomía** (§§4.2,14.2,20).
 
 ## 4. Primer caso especializado y límites
 
