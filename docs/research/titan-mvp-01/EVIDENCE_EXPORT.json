@@ -1,0 +1,10 @@
+{
+  "file": "TITAN-MVP-01-G1-development-evidence.tar.gz",
+  "bytes": 230497,
+  "sha256": "f5e8bfd1999c1028f4ab2a95e0b5678972b5df1914c6723d1ff6b4c263326fcf",
+  "original_smoke_files": 15,
+  "original_smoke_bytes": 501882,
+  "contains_no_private_key_material": true,
+  "external_receipt_verified": false,
+  "scope": "G1 development seeds1\u20134 only; scientific evaluation not executed"
+}

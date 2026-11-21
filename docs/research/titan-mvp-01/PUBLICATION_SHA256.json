@@ -1,0 +1,150 @@
+{
+  "format": "TITAN-MVP01-G1-PUBLICATION-1",
+  "files": {
+    "docs/research/titan-mvp-01/DEVELOPMENT_CANDIDATE.json": {
+      "bytes": 71610,
+      "sha256": "dcca71f1a322f65ae1c93962a6abf7361a73c6a6043d3eb7228fe537ffbbb5ca"
+    },
+    "docs/research/titan-mvp-01/DEVELOPMENT_PROTOCOL.md": {
+      "bytes": 7314,
+      "sha256": "02f4fdfe0e6f73f3d945e172f2f1d4b02939f532a4420b131ee1b319f837b8c1"
+    },
+    "docs/research/titan-mvp-01/DEVELOPMENT_RESULTS.json": {
+      "bytes": 14471,
+      "sha256": "2706ee9e68b6b1ad4fe86b0b1ef191fc60702f60af6d52f6348b9ebea0212ebe"
+    },
+    "docs/research/titan-mvp-01/EFFORT_SUMMARY.json": {
+      "bytes": 2179,
+      "sha256": "c5e5802153c9f305c826fe01773023585d47c73bef61539795380ebb1c9ddb11"
+    },
+    "docs/research/titan-mvp-01/EVIDENCE_EXPORT.json": {
+      "bytes": 389,
+      "sha256": "83a91b6f81349a5ba338ff0c4eafd41d7b042932b9816728f808641e21771f52"
+    },
+    "docs/research/titan-mvp-01/G2_BUDGET_PROPOSAL.json": {
+      "bytes": 1455,
+      "sha256": "c465b3775ccd5a11f1c1f534b07ff7a60ff53365a63b19e4de7856fcd3e97371"
+    },
+    "docs/research/titan-mvp-01/IMPLEMENTATION_REPORT.md": {
+      "bytes": 15193,
+      "sha256": "2e341e5186bebb09e24887d32d9796c2e5960da8ecfaa79ed1760d4cbec892a6"
+    },
+    "docs/research/titan-mvp-01/PUBLICATION_REVIEW.json": {
+      "bytes": 681,
+      "sha256": "4ab9a9f66dc58013cb02d5025efbc927b46bf1260d1ed0406f685672a8b54ce3"
+    },
+    "docs/research/titan-mvp-01/RECOVERY.md": {
+      "bytes": 2906,
+      "sha256": "71ec1c7108c173a765d902f473f2443e28ed4a4581b7118d76159d7babdabb2c"
+    },
+    "docs/research/titan-mvp-01/SOURCE_HASHES.json": {
+      "bytes": 2607,
+      "sha256": "14faebe871c7962042256c3da725a4716805996498ffecb697d14615317619e4"
+    },
+    "docs/research/titan-mvp-01/TITAN-MVP-01-G1-development-evidence.tar.gz": {
+      "bytes": 230497,
+      "sha256": "f5e8bfd1999c1028f4ab2a95e0b5678972b5df1914c6723d1ff6b4c263326fcf"
+    },
+    "docs/research/titan-mvp-01/TITAN-MVP-01-G1-development-evidence.tar.gz.sha256": {
+      "bytes": 110,
+      "sha256": "0ce8738e7d7fbdf0173bf6cf680f4340f9afa04c7ad22afe076a41d6018a0290"
+    },
+    "docs/research/titan-mvp-01/analyze_development.cjs": {
+      "bytes": 3852,
+      "sha256": "ea85b2efb8371f4ba0a0f45111813024ecf30d47cd96fb5f4d4ee8cbf6a3d5f0"
+    },
+    "docs/research/titan-mvp-01/implementation-evidence/analysis-reproducibility.json": {
+      "bytes": 311,
+      "sha256": "705dc34e4f29a27d3f6c8a7b47f72800112ef363454874afd4fdd8a2142c2153"
+    },
+    "docs/research/titan-mvp-01/implementation-evidence/check-after.json": {
+      "bytes": 114,
+      "sha256": "c269375259ccf41695425789ce571165da1932541ef6d544e2f2e43631535613"
+    },
+    "docs/research/titan-mvp-01/implementation-evidence/effort.jsonl": {
+      "bytes": 1594,
+      "sha256": "aba7d5a5425e13bf6d28d838a111c1e1da3080f941441912cdcc50991590cc8b"
+    },
+    "docs/research/titan-mvp-01/implementation-evidence/smoke-exit.json": {
+      "bytes": 134,
+      "sha256": "19543b12d03e819855e47b99a1b5b8df91bac81f49f7030abbf79f37ce320a05"
+    },
+    "docs/research/titan-mvp-01/implementation-evidence/smoke-invocation.json": {
+      "bytes": 462,
+      "sha256": "4653898d1e1a21a1dcf5cd3dd3a120920e6e84f3bc7358f35b3fb868686b2794"
+    },
+    "docs/research/titan-mvp-01/implementation-evidence/smoke.stderr.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/research/titan-mvp-01/implementation-evidence/smoke.stdout.json": {
+      "bytes": 33499,
+      "sha256": "5ee6cae1174d353374b62cb351060fcd8b0f475998cd767856643168848e5f3f"
+    },
+    "docs/research/titan-mvp-01/implementation-evidence/source-integrity.json": {
+      "bytes": 2257,
+      "sha256": "5ab640e5694a095fae5a6aaf5e5b633f173220e2f731c816b6fda9f6caa6a0e8"
+    },
+    "docs/research/titan-mvp-01/implementation-evidence/tests-01.log": {
+      "bytes": 2383,
+      "sha256": "0090a84a17e0769b3ef12c8527f5ed6a41e73c15d633a3bbba661859aa5271dc"
+    },
+    "docs/research/titan-mvp-01/implementation-evidence/verify-restored.json": {
+      "bytes": 13925,
+      "sha256": "db5837218da7615d6b47a68470f9ed782637b1c9f72b5703e14f525966427fa4"
+    },
+    "js/agents/titan_mvp_01.js": {
+      "bytes": 7568,
+      "sha256": "87893e2c57f5d5a55629e2a47d6db8bfa4e9c57063b8a6cabeb1475ae524483b"
+    },
+    "tests/titan-mvp-01.test.cjs": {
+      "bytes": 13730,
+      "sha256": "45f096fc082b2154e375f2be6eee0af9e1eb57cd1e53c543ae9f0bbb9cb04699"
+    },
+    "tools/titan-mvp-01/README.md": {
+      "bytes": 2691,
+      "sha256": "715dba9ef266e03a81557bfd6d457ab3fb8a1f87f65901014d9bbd7d08bf35ce"
+    },
+    "tools/titan-mvp-01/archive.cjs": {
+      "bytes": 1035,
+      "sha256": "e08149cf48add386afc4ca8adc1112eaad3c2d915ab79b3009ea8dc7d923d3e3"
+    },
+    "tools/titan-mvp-01/cli.cjs": {
+      "bytes": 1133,
+      "sha256": "4ffefefc45d3d756124b333e3745ae01759daf8259c0c12275fc85f8a2e7dba8"
+    },
+    "tools/titan-mvp-01/controller.cjs": {
+      "bytes": 5990,
+      "sha256": "d5f6f11301fa2b1fd19c72cadc07977088eed50e8bf0bcc999be31431cc90382"
+    },
+    "tools/titan-mvp-01/fixtures/control.cjs": {
+      "bytes": 194,
+      "sha256": "60e3e1065fe07aa0733bb7e662deabf60e668e58388ced9fbb5c329719070aee"
+    },
+    "tools/titan-mvp-01/identity.cjs": {
+      "bytes": 2146,
+      "sha256": "809027ce7d0e0781b3f4379802f3d88664bcf01ea7a004be3428d9818c8d61bc"
+    },
+    "tools/titan-mvp-01/metrics.cjs": {
+      "bytes": 2041,
+      "sha256": "f797e418eb71cef6b48d44257c79ce6a4ff22d90c10fa816d73cb881296992e6"
+    },
+    "tools/titan-mvp-01/protocol.cjs": {
+      "bytes": 2548,
+      "sha256": "3e93e967ebdc9bd05a4ba94a11de1c307ac8ed5bb328cf16db11d0f15c600bba"
+    },
+    "tools/titan-mvp-01/runtime.cjs": {
+      "bytes": 2821,
+      "sha256": "fc00557ad24ccecbea7677b9bc0e8316181300d6e3610f3db10ce31ef0a9dc4a"
+    },
+    "tools/titan-mvp-01/verify.cjs": {
+      "bytes": 3069,
+      "sha256": "248cefb617ca656464084ec0d2cb1b283226cfc9e2eb76d62db00dee3d4c15a9"
+    },
+    "tools/titan-mvp-01/worker.cjs": {
+      "bytes": 1288,
+      "sha256": "d479c138252ef0339c6faad12a22456e0b8ad5ef5d16dd6d38fa0c50ebf119e6"
+    }
+  },
+  "not_a_signature_or_external_receipt": true
+}

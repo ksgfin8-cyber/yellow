@@ -1,0 +1,63 @@
+{
+  "record_start": "2026-11-20T18:32:54.882244-05:00",
+  "record_end": "2026-11-20T18:53:10.475893-05:00",
+  "wall_seconds": 1215.593649,
+  "interpretation": "Elapsed observed wall, includes reasoning/waits/tools; not human active hours; earlier reading and later packaging/publication excluded. No historical hours reconstructed.",
+  "intervals": [
+    {
+      "phase": "agent_and_selector",
+      "start": "2026-11-20T18:32:54.882244-05:00",
+      "end": "2026-11-20T18:39:07.345480-05:00",
+      "elapsed_wall_seconds": 372.463236
+    },
+    {
+      "phase": "technical_tests_and_development_plan",
+      "start": "2026-11-20T18:39:07.345480-05:00",
+      "end": "2026-11-20T18:42:54.373690-05:00",
+      "elapsed_wall_seconds": 227.02821
+    },
+    {
+      "phase": "development_smoke",
+      "start": "2026-11-20T18:42:54.373690-05:00",
+      "end": "2026-11-20T18:46:39.176666-05:00",
+      "elapsed_wall_seconds": 224.802976
+    },
+    {
+      "phase": "restoration_and_delivery_analysis",
+      "start": "2026-11-20T18:46:39.176666-05:00",
+      "end": "2026-11-20T18:51:16.153054-05:00",
+      "elapsed_wall_seconds": 276.976388
+    },
+    {
+      "phase": "documentation_and_review_delivery",
+      "start": "2026-11-20T18:51:16.153054-05:00",
+      "end": "2026-11-20T18:53:10.475893-05:00",
+      "elapsed_wall_seconds": 114.322839
+    }
+  ],
+  "new_agent_and_harness_sources": [
+    "js/agents/titan_mvp_01.js",
+    "tools/titan-mvp-01/archive.cjs",
+    "tools/titan-mvp-01/cli.cjs",
+    "tools/titan-mvp-01/controller.cjs",
+    "tools/titan-mvp-01/identity.cjs",
+    "tools/titan-mvp-01/metrics.cjs",
+    "tools/titan-mvp-01/protocol.cjs",
+    "tools/titan-mvp-01/runtime.cjs",
+    "tools/titan-mvp-01/verify.cjs",
+    "tools/titan-mvp-01/worker.cjs"
+  ],
+  "source_file_count": 10,
+  "new_test_and_fixture_files": [
+    "tests/titan-mvp-01.test.cjs",
+    "tools/titan-mvp-01/fixtures/control.cjs"
+  ],
+  "existing_files_changed": 0,
+  "blocking_policy_or_engine_incompatibilities": [],
+  "test_runs": 1,
+  "technical_tests_pass": 18,
+  "smoke_attempts": 12,
+  "smoke_retries": 0,
+  "scientific_evaluation_attempts": 0,
+  "RC1_Q4_retroactively_completed": false
+}

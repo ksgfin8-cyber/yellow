@@ -1,0 +1,57 @@
+{
+  "phase": "G2_PROPOSAL_ONLY",
+  "approval": "OWNER_GATE_REQUIRED",
+  "evaluation_executed": false,
+  "episodes": 120,
+  "seeds": [
+    2001,
+    2002,
+    2003,
+    2004,
+    2005,
+    2006,
+    2007,
+    2008,
+    2009,
+    2010,
+    2011,
+    2012
+  ],
+  "agent_order": [
+    "wait",
+    "random",
+    "rule",
+    "frontier_memory_v1",
+    "titan_mvp_01"
+  ],
+  "repetitions": [
+    1,
+    2
+  ],
+  "proposed_limits": {
+    "worker_timeout_ms": 30000,
+    "worker_heap_mib": 384,
+    "aggregate_RSS_sampled_bytes": 1073741824,
+    "archive_bytes": 67108864,
+    "campaign_including_seal_verify_ms": 4200000
+  },
+  "envelope": "120*30s + 600s = 4200s, arithmetic safeguard, not a sufficiency guarantee",
+  "observed_G1": {
+    "worker_max_ms": 12237.418353,
+    "per_worker_RSS_max_kib": 266108,
+    "max_episode_archive_bytes": 33938,
+    "smoke_attempts": 12,
+    "smoke_controller_wall_ms": 143882.516361
+  },
+  "requires_before_start": [
+    "Owner review of policy/hash/protocol and empirical limits",
+    "Separate restricted evaluation executor: current harness only seeds1\u20134",
+    "Effective agreed global/RSS supervision and archive/recovery controls",
+    "New output directory and explicit owner start order; no transferred P01/RC1 signatures"
+  ],
+  "current_harness_limitations": [
+    "global time is admission-only",
+    "RSS is per-process observed, not an enforced aggregate cap"
+  ],
+  "not_an_executable_authorization": true
+}

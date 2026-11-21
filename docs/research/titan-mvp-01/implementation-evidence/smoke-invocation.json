@@ -1,0 +1,14 @@
+{
+  "phase": "G1_DEVELOPMENT_ONLY",
+  "command": [
+    "node",
+    "tools/titan-mvp-01/cli.cjs",
+    "smoke",
+    "/workspace/yellow/docs/research/titan-mvp-01/DEVELOPMENT_CANDIDATE.json",
+    "/workspace/shared/world-lab/titan-mvp-01/development-smoke-01"
+  ],
+  "freeze_id": "a8d1e8079d322e969170261a41b2992e1c0ebbccd586fdde4dbd4fc19d2b1ec0",
+  "started_at": "2026-11-20T18:42:54.374662-05:00",
+  "automatic_retries": false,
+  "evaluation120_executed": false
+}

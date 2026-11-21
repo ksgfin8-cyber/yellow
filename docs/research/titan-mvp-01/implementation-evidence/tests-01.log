@@ -1,0 +1,27 @@
+✔ TITAN-01 pure selector: unique and tied mechanisms; explicit fixed priority independent of pair order (9.220845ms)
+✔ TITAN-02 NULL tie, unique NULL and phi0 membership do not invent a v0.1 threshold (1.329742ms)
+✔ TITAN-03 selector boundaries: nonfinite/negative/coerced/empty/reserved/duplicates and invalid overflow inputs (2.414612ms)
+✔ TITAN-04 finite-domain exhaustive invariants, gaps and minimizers across1875 inputs (42.041854ms)
+✔ TITAN-05 resource N, unvisited FREE E, N/E tie and exact closed actions (6.223149ms)
+✔ TITAN-06 no local opportunity: hazard4, blocked/OOB5, NULL maps to WAIT (3.105425ms)
+✔ TITAN-07 RESOURCE_CONSUMED memory only from exposed previous events; consumed resource costs3 (4.083921ms)
+✔ TITAN-08 visited only from observed self, failed movement does not mark proposed destination; reset clears visits (3.22691ms)
+✔ TITAN-09 malformed input fails visibly before memory changes, no hidden-stock fallback or coercion (5.470066ms)
+✔ TITAN-10 detached diagnostics and actions, BigInt tick, no host clock or Math.random in policy (3.220225ms)
+✔ TITAN-11 external factory uses fixed entity id; default registry remains unchanged (213.635793ms)
+✔ TITAN-12 repeat same seed/reset decisions/states/events/WLS1, diagnostic mode does not perturb semantics (247.62839ms)
+✔ TITAN-13 disconnect: four original controllers use their own factory; same initial world and no TITAN state (209.967362ms)
+✔ TITAN-14 incompatible feedback/radius rejected before Experiment; development seed guard blocks all evaluation seeds (7.527817ms)
+✔ TITAN-15 development plan12 and physical configuration match approved referenced protocol; no scientific mode (4.51059ms)
+✔ TITAN-16 archive roundtrip preserves Maps/BigInt/binary64; corruption rejected; no overwrite (14.875192ms)
+{"technical_evidence":"/tmp/titan-mvp01-tests-4Y5Yum","baseline_files":590,"development_candidate":"a8d1e8079d322e969170261a41b2992e1c0ebbccd586fdde4dbd4fc19d2b1ec0","scientific_evaluation_executed":false}
+✔ TITAN-17 supervisor stops synthetic blocked process and then executes another technical process (279.430603ms)
+✔ TITAN-18 provenance binds unchanged baseline/seven documents and all new code; output paths stay isolated (1097.685446ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 18
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2263.389193

@@ -1,0 +1,25 @@
+{
+  "status": "READY_FOR_TITAN_MVP_01_REVIEW",
+  "base": "38bcb2116a31ecbaf4f401f41243d4adf88e98e3",
+  "baseline_files_verified_unchanged": 590,
+  "existing_source_changes": [],
+  "original_documents_unchanged": 7,
+  "code_identity_matches_smoke": true,
+  "technical_tests": {
+    "pass": 18,
+    "fail": 0
+  },
+  "smoke": {
+    "planned": 12,
+    "complete_match": 12,
+    "retries": 0,
+    "source_files_copied_byte_identical": 15,
+    "bytes": 501882
+  },
+  "scientific_evaluation_120_executed": false,
+  "syntax": "PASS",
+  "local_links": "PASS",
+  "no_private_key_or_credential_patterns": true,
+  "external_backup_received": "NOT_ESTABLISHED",
+  "G2": "OWNER_GATE_REQUIRED"
+}

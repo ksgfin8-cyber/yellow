@@ -1,0 +1,576 @@
+{
+  "summary": {
+    "phase": "G1_DEVELOPMENT_ONLY",
+    "status": "READY_FOR_TITAN_MVP_01_REVIEW",
+    "freeze_id": "a8d1e8079d322e969170261a41b2992e1c0ebbccd586fdde4dbd4fc19d2b1ec0",
+    "planned": 12,
+    "completed": 12,
+    "failures": 0,
+    "retries": 0,
+    "seeds": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "actions": 1920,
+    "titan_diagnostic_decisions": 1280,
+    "titan_repetition_pairs_equal": 4,
+    "seed1_common_initial_world_comparisons": 5,
+    "all_replay_results": "COMPLETE_MATCH",
+    "titan_rejected_actions": 0,
+    "worker_wall_max_ms": 12237.418353,
+    "worker_peak_rss_kib": 266108,
+    "rss_scope": "per-process maximum, not an aggregate bound",
+    "smoke_controller_wall_ms": 143882.516361,
+    "episode_archive_bytes_sum": 371691,
+    "scientific_evaluation_120_executed": false,
+    "scientific_hypothesis": "NOT_EVALUATED",
+    "global_conformity": "NOT_ESTABLISHED"
+  },
+  "rows": [
+    {
+      "index": 0,
+      "agent": "titan_mvp_01",
+      "repetition": 1,
+      "seed": 1,
+      "actions": {
+        "MOVE_E": 0,
+        "MOVE_N": 8,
+        "MOVE_S": 1,
+        "MOVE_W": 2,
+        "WAIT": 149
+      },
+      "distinct_positions": 12,
+      "final_energy_descriptive_only": 88,
+      "kind": "DEVELOPMENT_EPISODE",
+      "rejected_actions": {},
+      "resources_consumed": 1,
+      "scientific_evaluation": false,
+      "status": "COMPLETED",
+      "termination_reason": "MAX_TICKS_REACHED",
+      "ticks": 160,
+      "titan_diagnostics": {
+        "abstention_fraction": 0.93125,
+        "abstentions": 149,
+        "opportunity": {
+          "0": 149,
+          "1": 11
+        },
+        "selection": {
+          "M_E": 0,
+          "M_N": 8,
+          "M_S": 1,
+          "M_W": 2,
+          "NULL": 149
+        },
+        "ties": 9
+      },
+      "operational_resources": {
+        "cpu_system_us": 395300,
+        "cpu_user_us": 11324989,
+        "max_rss_kib": 263504,
+        "rss_source": "child resourceUsage",
+        "wall_ms": 11199.168638
+      },
+      "worker_timing": {
+        "run_ns": "3004217096",
+        "verify_ns": "7487799842"
+      },
+      "archive_bytes": 30950
+    },
+    {
+      "index": 1,
+      "agent": "titan_mvp_01",
+      "repetition": 2,
+      "seed": 1,
+      "actions": {
+        "MOVE_E": 0,
+        "MOVE_N": 8,
+        "MOVE_S": 1,
+        "MOVE_W": 2,
+        "WAIT": 149
+      },
+      "distinct_positions": 12,
+      "final_energy_descriptive_only": 88,
+      "kind": "DEVELOPMENT_EPISODE",
+      "rejected_actions": {},
+      "resources_consumed": 1,
+      "scientific_evaluation": false,
+      "status": "COMPLETED",
+      "termination_reason": "MAX_TICKS_REACHED",
+      "ticks": 160,
+      "titan_diagnostics": {
+        "abstention_fraction": 0.93125,
+        "abstentions": 149,
+        "opportunity": {
+          "0": 149,
+          "1": 11
+        },
+        "selection": {
+          "M_E": 0,
+          "M_N": 8,
+          "M_S": 1,
+          "M_W": 2,
+          "NULL": 149
+        },
+        "ties": 9
+      },
+      "operational_resources": {
+        "cpu_system_us": 379489,
+        "cpu_user_us": 11401233,
+        "max_rss_kib": 263344,
+        "rss_source": "child resourceUsage",
+        "wall_ms": 11260.159517
+      },
+      "worker_timing": {
+        "run_ns": "3029900636",
+        "verify_ns": "7524150780"
+      },
+      "archive_bytes": 30953
+    },
+    {
+      "index": 2,
+      "agent": "wait",
+      "repetition": 1,
+      "seed": 1,
+      "actions": {
+        "MOVE_E": 0,
+        "MOVE_N": 0,
+        "MOVE_S": 0,
+        "MOVE_W": 0,
+        "WAIT": 160
+      },
+      "distinct_positions": 1,
+      "final_energy_descriptive_only": 80,
+      "kind": "DEVELOPMENT_EPISODE",
+      "rejected_actions": {},
+      "resources_consumed": 0,
+      "scientific_evaluation": false,
+      "status": "COMPLETED",
+      "termination_reason": "MAX_TICKS_REACHED",
+      "ticks": 160,
+      "titan_diagnostics": null,
+      "operational_resources": {
+        "cpu_system_us": 767314,
+        "cpu_user_us": 11815176,
+        "max_rss_kib": 262648,
+        "rss_source": "child resourceUsage",
+        "wall_ms": 12080.183226
+      },
+      "worker_timing": {
+        "run_ns": "3469486730",
+        "verify_ns": "7569760241"
+      },
+      "archive_bytes": 29710
+    },
+    {
+      "index": 3,
+      "agent": "random",
+      "repetition": 1,
+      "seed": 1,
+      "actions": {
+        "MOVE_E": 28,
+        "MOVE_N": 35,
+        "MOVE_S": 32,
+        "MOVE_W": 35,
+        "WAIT": 30
+      },
+      "distinct_positions": 36,
+      "final_energy_descriptive_only": 134,
+      "kind": "DEVELOPMENT_EPISODE",
+      "rejected_actions": {
+        "INVALID/BLOCKED_CELL": 27,
+        "INVALID/OUT_OF_BOUNDS": 11
+      },
+      "resources_consumed": 2,
+      "scientific_evaluation": false,
+      "status": "COMPLETED",
+      "termination_reason": "MAX_TICKS_REACHED",
+      "ticks": 160,
+      "titan_diagnostics": null,
+      "operational_resources": {
+        "cpu_system_us": 761945,
+        "cpu_user_us": 11830201,
+        "max_rss_kib": 263448,
+        "rss_source": "child resourceUsage",
+        "wall_ms": 11924.337418
+      },
+      "worker_timing": {
+        "run_ns": "2927960159",
+        "verify_ns": "7993633987"
+      },
+      "archive_bytes": 32643
+    },
+    {
+      "index": 4,
+      "agent": "rule",
+      "repetition": 1,
+      "seed": 1,
+      "actions": {
+        "MOVE_E": 0,
+        "MOVE_N": 0,
+        "MOVE_S": 0,
+        "MOVE_W": 0,
+        "WAIT": 160
+      },
+      "distinct_positions": 1,
+      "final_energy_descriptive_only": 80,
+      "kind": "DEVELOPMENT_EPISODE",
+      "rejected_actions": {},
+      "resources_consumed": 0,
+      "scientific_evaluation": false,
+      "status": "COMPLETED",
+      "termination_reason": "MAX_TICKS_REACHED",
+      "ticks": 160,
+      "titan_diagnostics": null,
+      "operational_resources": {
+        "cpu_system_us": 605723,
+        "cpu_user_us": 10370713,
+        "max_rss_kib": 263308,
+        "rss_source": "child resourceUsage",
+        "wall_ms": 10490.235204
+      },
+      "worker_timing": {
+        "run_ns": "2833633136",
+        "verify_ns": "6785119832"
+      },
+      "archive_bytes": 29715
+    },
+    {
+      "index": 5,
+      "agent": "frontier_memory_v1",
+      "repetition": 1,
+      "seed": 1,
+      "actions": {
+        "MOVE_E": 21,
+        "MOVE_N": 26,
+        "MOVE_S": 28,
+        "MOVE_W": 29,
+        "WAIT": 56
+      },
+      "distinct_positions": 84,
+      "final_energy_descriptive_only": 160,
+      "kind": "DEVELOPMENT_EPISODE",
+      "rejected_actions": {},
+      "resources_consumed": 10,
+      "scientific_evaluation": false,
+      "status": "COMPLETED",
+      "termination_reason": "MAX_TICKS_REACHED",
+      "ticks": 160,
+      "titan_diagnostics": null,
+      "operational_resources": {
+        "cpu_system_us": 719857,
+        "cpu_user_us": 11962319,
+        "max_rss_kib": 263948,
+        "rss_source": "child resourceUsage",
+        "wall_ms": 12148.586635
+      },
+      "worker_timing": {
+        "run_ns": "3143292380",
+        "verify_ns": "7915206183"
+      },
+      "archive_bytes": 33938
+    },
+    {
+      "index": 6,
+      "agent": "titan_mvp_01",
+      "repetition": 1,
+      "seed": 2,
+      "actions": {
+        "MOVE_E": 3,
+        "MOVE_N": 0,
+        "MOVE_S": 1,
+        "MOVE_W": 0,
+        "WAIT": 156
+      },
+      "distinct_positions": 5,
+      "final_energy_descriptive_only": 80,
+      "kind": "DEVELOPMENT_EPISODE",
+      "rejected_actions": {},
+      "resources_consumed": 0,
+      "scientific_evaluation": false,
+      "status": "COMPLETED",
+      "termination_reason": "MAX_TICKS_REACHED",
+      "ticks": 160,
+      "titan_diagnostics": {
+        "abstention_fraction": 0.975,
+        "abstentions": 156,
+        "opportunity": {
+          "0": 156,
+          "1": 4
+        },
+        "selection": {
+          "M_E": 3,
+          "M_N": 0,
+          "M_S": 1,
+          "M_W": 0,
+          "NULL": 156
+        },
+        "ties": 3
+      },
+      "operational_resources": {
+        "cpu_system_us": 699083,
+        "cpu_user_us": 12061088,
+        "max_rss_kib": 263652,
+        "rss_source": "child resourceUsage",
+        "wall_ms": 12237.418353
+      },
+      "worker_timing": {
+        "run_ns": "3147298475",
+        "verify_ns": "8176873105"
+      },
+      "archive_bytes": 29809
+    },
+    {
+      "index": 7,
+      "agent": "titan_mvp_01",
+      "repetition": 2,
+      "seed": 2,
+      "actions": {
+        "MOVE_E": 3,
+        "MOVE_N": 0,
+        "MOVE_S": 1,
+        "MOVE_W": 0,
+        "WAIT": 156
+      },
+      "distinct_positions": 5,
+      "final_energy_descriptive_only": 80,
+      "kind": "DEVELOPMENT_EPISODE",
+      "rejected_actions": {},
+      "resources_consumed": 0,
+      "scientific_evaluation": false,
+      "status": "COMPLETED",
+      "termination_reason": "MAX_TICKS_REACHED",
+      "ticks": 160,
+      "titan_diagnostics": {
+        "abstention_fraction": 0.975,
+        "abstentions": 156,
+        "opportunity": {
+          "0": 156,
+          "1": 4
+        },
+        "selection": {
+          "M_E": 3,
+          "M_N": 0,
+          "M_S": 1,
+          "M_W": 0,
+          "NULL": 156
+        },
+        "ties": 3
+      },
+      "operational_resources": {
+        "cpu_system_us": 642548,
+        "cpu_user_us": 10940666,
+        "max_rss_kib": 263656,
+        "rss_source": "child resourceUsage",
+        "wall_ms": 11065.241755
+      },
+      "worker_timing": {
+        "run_ns": "3125120827",
+        "verify_ns": "7015661781"
+      },
+      "archive_bytes": 29810
+    },
+    {
+      "index": 8,
+      "agent": "titan_mvp_01",
+      "repetition": 1,
+      "seed": 3,
+      "actions": {
+        "MOVE_E": 2,
+        "MOVE_N": 2,
+        "MOVE_S": 5,
+        "MOVE_W": 2,
+        "WAIT": 149
+      },
+      "distinct_positions": 12,
+      "final_energy_descriptive_only": 112,
+      "kind": "DEVELOPMENT_EPISODE",
+      "rejected_actions": {},
+      "resources_consumed": 4,
+      "scientific_evaluation": false,
+      "status": "COMPLETED",
+      "termination_reason": "MAX_TICKS_REACHED",
+      "ticks": 160,
+      "titan_diagnostics": {
+        "abstention_fraction": 0.93125,
+        "abstentions": 149,
+        "opportunity": {
+          "0": 149,
+          "1": 11
+        },
+        "selection": {
+          "M_E": 2,
+          "M_N": 2,
+          "M_S": 5,
+          "M_W": 2,
+          "NULL": 149
+        },
+        "ties": 5
+      },
+      "operational_resources": {
+        "cpu_system_us": 648876,
+        "cpu_user_us": 11245894,
+        "max_rss_kib": 263248,
+        "rss_source": "child resourceUsage",
+        "wall_ms": 11385.704895
+      },
+      "worker_timing": {
+        "run_ns": "3079561124",
+        "verify_ns": "7429236721"
+      },
+      "archive_bytes": 30515
+    },
+    {
+      "index": 9,
+      "agent": "titan_mvp_01",
+      "repetition": 2,
+      "seed": 3,
+      "actions": {
+        "MOVE_E": 2,
+        "MOVE_N": 2,
+        "MOVE_S": 5,
+        "MOVE_W": 2,
+        "WAIT": 149
+      },
+      "distinct_positions": 12,
+      "final_energy_descriptive_only": 112,
+      "kind": "DEVELOPMENT_EPISODE",
+      "rejected_actions": {},
+      "resources_consumed": 4,
+      "scientific_evaluation": false,
+      "status": "COMPLETED",
+      "termination_reason": "MAX_TICKS_REACHED",
+      "ticks": 160,
+      "titan_diagnostics": {
+        "abstention_fraction": 0.93125,
+        "abstentions": 149,
+        "opportunity": {
+          "0": 149,
+          "1": 11
+        },
+        "selection": {
+          "M_E": 2,
+          "M_N": 2,
+          "M_S": 5,
+          "M_W": 2,
+          "NULL": 149
+        },
+        "ties": 5
+      },
+      "operational_resources": {
+        "cpu_system_us": 425376,
+        "cpu_user_us": 10668918,
+        "max_rss_kib": 262748,
+        "rss_source": "child resourceUsage",
+        "wall_ms": 10578.932054
+      },
+      "worker_timing": {
+        "run_ns": "2889850500",
+        "verify_ns": "7022051473"
+      },
+      "archive_bytes": 30522
+    },
+    {
+      "index": 10,
+      "agent": "titan_mvp_01",
+      "repetition": 1,
+      "seed": 4,
+      "actions": {
+        "MOVE_E": 11,
+        "MOVE_N": 10,
+        "MOVE_S": 6,
+        "MOVE_W": 0,
+        "WAIT": 133
+      },
+      "distinct_positions": 28,
+      "final_energy_descriptive_only": 160,
+      "kind": "DEVELOPMENT_EPISODE",
+      "rejected_actions": {},
+      "resources_consumed": 10,
+      "scientific_evaluation": false,
+      "status": "COMPLETED",
+      "termination_reason": "MAX_TICKS_REACHED",
+      "ticks": 160,
+      "titan_diagnostics": {
+        "abstention_fraction": 0.83125,
+        "abstentions": 133,
+        "opportunity": {
+          "0": 133,
+          "1": 27
+        },
+        "selection": {
+          "M_E": 11,
+          "M_N": 10,
+          "M_S": 6,
+          "M_W": 0,
+          "NULL": 133
+        },
+        "ties": 14
+      },
+      "operational_resources": {
+        "cpu_system_us": 583313,
+        "cpu_user_us": 11605905,
+        "max_rss_kib": 263936,
+        "rss_source": "child resourceUsage",
+        "wall_ms": 11756.552706
+      },
+      "worker_timing": {
+        "run_ns": "3167724461",
+        "verify_ns": "7763910811"
+      },
+      "archive_bytes": 31563
+    },
+    {
+      "index": 11,
+      "agent": "titan_mvp_01",
+      "repetition": 2,
+      "seed": 4,
+      "actions": {
+        "MOVE_E": 11,
+        "MOVE_N": 10,
+        "MOVE_S": 6,
+        "MOVE_W": 0,
+        "WAIT": 133
+      },
+      "distinct_positions": 28,
+      "final_energy_descriptive_only": 160,
+      "kind": "DEVELOPMENT_EPISODE",
+      "rejected_actions": {},
+      "resources_consumed": 10,
+      "scientific_evaluation": false,
+      "status": "COMPLETED",
+      "termination_reason": "MAX_TICKS_REACHED",
+      "ticks": 160,
+      "titan_diagnostics": {
+        "abstention_fraction": 0.83125,
+        "abstentions": 133,
+        "opportunity": {
+          "0": 133,
+          "1": 27
+        },
+        "selection": {
+          "M_E": 11,
+          "M_N": 10,
+          "M_S": 6,
+          "M_W": 0,
+          "NULL": 133
+        },
+        "ties": 14
+      },
+      "operational_resources": {
+        "cpu_system_us": 621429,
+        "cpu_user_us": 10705840,
+        "max_rss_kib": 266108,
+        "rss_source": "child resourceUsage",
+        "wall_ms": 10773.37668
+      },
+      "worker_timing": {
+        "run_ns": "2866050176",
+        "verify_ns": "7016743146"
+      },
+      "archive_bytes": 31563
+    }
+  ]
+}
