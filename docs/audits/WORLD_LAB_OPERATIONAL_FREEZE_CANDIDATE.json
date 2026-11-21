@@ -1,0 +1,56 @@
+{
+  "format": "WL-OPERATIONAL-FREEZE-CANDIDATE-1",
+  "status": "PROPOSED_OWNER_REVIEW_REQUIRED",
+  "freeze_approved": false,
+  "technical_recommendation": "GO_WITHIN_APPROVED_OPERATIONAL_SCOPE",
+  "candidate_id": "8ebe62d7032c0676a0e1b66bdf9a2b4c898c1d2d64b8f48c24a8112617be2c13",
+  "identity_algorithm": "SHA256(UTF8(JSON(identity_binding,sorted_keys,compact_separators,ensure_ascii=false)))",
+  "identity_binding": {
+    "candidate_commit": "1c7929734f46a437fb6b036d71dd36f1d39f1d3b",
+    "candidate_tree": "0ebf7337553deb343c2abca4e099d6216b2c1cb8",
+    "reviewed_main": "f814c3adead596cbb01f753fe07cc1df176a827b",
+    "manifest_path": "docs/audits/closeout-evidence/candidate-files.json",
+    "manifest_sha256": "4aea60ea6990e038c24ee1557a9219f8e95d47dcebd8a11aebf88d6e4c313786",
+    "scope": [
+      "Existing approved single-entity BOUNDED operational core",
+      "P01 profile:12x12,radius1,max_ticks160,four preregistered policies",
+      "Autonomous WAIT mode and existing web demonstration within tested configurations",
+      "TITAN G1 adapter and D4 equivalence evidence only; not scientific G2 execution"
+    ],
+    "exclusions": [
+      "Global canonical conformity/HitoB/HitoC and independent interoperability",
+      "F6-N/G00 and289historical blocked cases",
+      "Full valid WorldConfig capacity domain, CC-04/CC-05 unresolved",
+      "RC1 operational/research resumption and128process executor",
+      "TITAN G2 execution and general TITAN theory validation",
+      "Hostile plugins, universal resource containment and universal performance claims",
+      "OneDrive verification and demonstrated marginal/compound productivity"
+    ],
+    "P01_identity_unchanged": "47155590f10358f6130a1f7eae261ec9ec1fc8035652c04dd23fcc9f92c63e7d",
+    "tests": {
+      "unit_pass": 616,
+      "unit_fail": 0,
+      "differential_pass": 5,
+      "differential_fail": 0,
+      "finite_patterns": 2401,
+      "legacy_current_pass": 13,
+      "legacy_current_fail": 9,
+      "conformance_blocked": 289
+    }
+  },
+  "source_preservation": "All630prior baseline blobs unchanged;25new audit/oracle/evidence files in candidate commit",
+  "authority": "Engineering audit candidate; not a WORLD normative amendment, signature, owner approval or new campaign authorization",
+  "approval_wrappers_not_in_candidate_tree": [
+    "docs/audits/WORLD_LAB_OPERATIONAL_FREEZE_CANDIDATE.json",
+    "docs/audits/closeout-evidence/candidate-files.json"
+  ],
+  "next_gate": "CL-C explicit owner approval of identity and scope; final Playbook assessment/adoption CL-D separate",
+  "protected_states": {
+    "RC1": "HOLD_TEMPORARILY_FROZEN",
+    "TITAN_G2": "HOLD_NOT_AUTHORIZED",
+    "F6_N": "PENDING_INDEPENDENT_WORKSTREAM",
+    "GLOBAL_CONFORMITY": "NOT_ESTABLISHED",
+    "INDEPENDENT_INTEROPERABILITY": "NOT_ESTABLISHED",
+    "PLAYBOOK": "PROPOSED_NOT_ADOPTED"
+  }
+}
