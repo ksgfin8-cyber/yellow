@@ -49,4 +49,109 @@ Aplicación proporcional de RDL-PB: §§5–6 (objeto/pregunta), §7.4 (reutiliz
 
 ## Resultado
 
-Pendiente de la ejecución fijada. Este apartado se completará sin alterar el protocolo previo, recuperable en su commit.
+**Dictamen:** `CONTINUITY_VERIFIED_WITHIN_FIXED_CASE`. Hay base empírica adicional para **especificar** una interfaz versionada que separe estado del agente, coordinación y registro. No se implementó ni se declaró portable una API pública.
+
+### Identidad, ejecución e integridad
+
+- Protocolo previo: commit `283353e` (resoluble en el historial de esta rama); [configuración v1](continuidad-segundo-agente-r01/protocol.json), SHA-256 `cbfc04d3de2bac2446a2d817a86edda0047b51fc0359fafc67e92287c3c7c911`.
+- Instrumento previo: `a73bcba6e8b343d39a3fee2b995e1641ac69c73b`; [harness.cjs](continuidad-segundo-agente-r01/harness.cjs), SHA-256 `b2e90c91196998b998a7b92a0646ec8e2e0a7f9c69d051c29b6163540ec7b0ba`.
+- Motor: SHA base indicado arriba; Node `v24.22.1`, Linux x64. Inicio y cierre UTC en `execution-start.json`/`execution-complete.json`, incluidos en el expediente. Fecha local de la investigación: 2026-11-25.
+- Una invocación del arnés, salida 0, sin reintentos ni cambio de diseño. Se realizaron 96 transiciones WORLD: 24 continuas, 8 de prefijo, 48 de continuaciones y 16 de replay. La reimportación del recorder y el análisis no ejecutaron física.
+- Los 662 archivos exportados coinciden con los blobs de Git del motor y permanecieron intactos. Los 666 archivos versionados existentes al inicio del ensayo conservaron sus hashes durante su ejecución; después se añadieron resultados y se corrigió el analizador en esta rama. `origin/main` seguía en el SHA base. El Playbook conserva su hash original.
+
+La captura del corte dio: WORLD.time=8; RNG del mundo `554160809`; semilla privada original del agente `1627437821`; RNG privado actual `645573146`; siguiente secuencia del recorder 7. Último ActionResult: VALID/NONE, delta −1, ENTITY_MOVED a `(5,1)`, entidad `0987898`.
+
+### Comparación observada y verificada
+
+| Brazo | Reconstrucción previa / decisiones nuevas | Resultado frente a continua |
+|---|---|---|
+| Instantánea | 0 llamadas de reconstrucción / 16 nuevas | ExperimentResult completo igual; memoria privada, feedback, eventos, secuencias y terminación iguales. |
+| Historial de feedback | 8 llamadas de reconstrucción / 16 nuevas | Ocho acciones del prefijo comprobadas y descartadas; ExperimentResult completo y estado privado iguales. |
+| Mundo restaurado y reset sin memoria | 0 / 16 nuevas | Diferente desde acción del tick 9. Control discriminativo. |
+| Replay de acciones guardadas | 0 llamadas al agente / 16 transiciones suministradas | Acciones, estados y terminación iguales; contexto registral completo diferente. |
+
+Cada brazo de continuación usó VM nueva. El prefijo interrumpido coincidió con los ocho pasos continuos y con la memoria capturada tras la octava decisión. Las continuaciones no recibieron acciones futuras; `resume(mode)` solo recibió el modo y cargó el checkpoint. La secuencia futura esperada se usó exclusivamente en análisis y en el contraste declarado de replay.
+
+**Primera divergencia del control reset:**
+
+- El estado privado ya difería al restaurar: `1627437821` frente a `645573146`.
+- Tick 9, desde observación 8: continua `MOVE_S` (INVALID/BLOCKED_CELL, delta 0), reset `WAIT` (VALID/NONE, delta −1). Ambas quedan inicialmente en `(5,1)`, pero con energía 110 frente a 109.
+- RNG privado tras esa decisión: `335782726` frente a `3183156114`.
+- WorldState y bytes divergen en tick 9. El feedback diverge en la observación 9, registrada con la acción del tick 10. Eventos y secuencias divergen en tick 11.
+- El RNG del mundo permanece igual; ambas terminan MAX_TICKS_REACHED en tick 24. Igualdad de posición inmediata, RNG del mundo y terminación no acredita continuidad.
+
+**Replay diferenciado:** status OK, 16 pasos, cero llamadas a RandomAgent. En el primer feedback del segmento (observación 8), `has_prior_action=false` y resultado anterior nulo, frente a true y el ActionResult previo de la continua. El primer evento del sufijo está en tick 10: secuencia 0 frente a 7. El primer paso (tick 9) no tiene eventos en ninguno de los dos, por lo que comparar solo su primera secuencia no detectaría la pérdida de contexto.
+
+**Verificación analítica:** [analysis.json](continuidad-segundo-agente-r01/analysis.json) conserva la primera diferencia por dimensión, incluidos los valores completos; [verification.json](continuidad-segundo-agente-r01/verification.json) registra controles de integridad y alcance. Se compararon 50 serializaciones WORLD/FULL por brazo positivo (25 estados × dos formatos), más 32 del sufijo replay: **132 comparaciones de bytes iguales**. El control reset se comparó también 50 veces, conservando su primera discrepancia. No son 132 réplicas independientes. Los ocho feedback iniciales se reconstruyeron desde observaciones y ActionResults previos y coincidieron exactamente.
+
+En cada continuación se observaron 16 extracciones del RNG del agente y cero del mundo. La reconstrucción consumió otras ocho extracciones del agente en este caso. No se reemplazó `step` por avanzar ocho enteros: el PRNG usa rechazo y ese atajo no sería una garantía general.
+
+### Estado requerido, reconstrucción, adaptación y trabajo
+
+| Estado / responsable | Instantánea | Reconstrucción | Adaptación y trabajo observado |
+|---|---|---|---|
+| Agente: RNG privado e identidad de implementación | Capturar get_state y restaurar set_state en una instancia creada con su semilla original | reset desde semilla conocida y ocho llamadas step con feedback ordenados | Adaptador específico a `agent.rng` y `_initial_seed`. No pertenece al contrato genérico Agent. Payload JSON compacto: 99 bytes con versión/semilla/estado; el uint32 actual determina la fase siguiente, la semilla conserva procedencia/reset. |
+| Supervisor: configuración, código y límite temporal | Mismos parámetros y SHA; reanudar después de registrar tick 8 | Idéntico | Se reutilizó la coordinación externa anterior. No llamar initialize ni reset después de restaurar la memoria. |
+| WORLD: mapa, entidad, tiempo y RNG | Snapshot confirmado, replay_world_from_state y estado RNG explícito | Idéntico | Helpers históricos sin cambios. Sin volver a generar mapa ni transiciones del prefijo. |
+| Contexto previo de decisión | Último ActionResult crudo | Recuperado del último paso | Necesario para feedback completo, aunque este RandomAgent ignore su contenido. El supervisor lo presenta; el recorder mantiene su copia coherente. |
+| Recorder: origen, prefijo, contexto y secuencia | Reimportar origen y ocho registros mediante operaciones nativas | Idéntico | 29.228 bytes de JSON compacto para origen/prefijo/contexto/secuencia en este caso. Su importación no es física ni una API de checkpoint portable. |
+| Historial del agente | No se necesita para restaurar su fase con el snapshot | Semilla más ocho feedback, orden y número exacto de llamadas | Lista de feedback: 5.580 bytes compactos; ocho acciones descartadas y cotejadas. RandomAgent ignora feedback: aquí basta la semilla y el historial de llamadas, deducido por lectura; no se ensayó el atajo sin feedback. |
+
+Tiempos instrumentales de una muestra (ms), no benchmark: restauración del agente 0,020 por instantánea y 0,190 por historial; importación del recorder 38,002 y 37,187; total del brazo 160,416 y 158,062. El reset de control totalizó 184,275. Las diferencias totales no permiten atribuir ventaja de rendimiento: incluyen VM, registro, serialización y ruido. La continua totalizó 208,203 y replay 111,688; no representan trabajo equivalente.
+
+**Esfuerzo conservado:** reutilización del loader/codec y estrategia de corte/importación del caso FrontierMemory; sustitución de captura/restauración de Map/Set por estado PRNG; incorporación de contadores separados y análisis explícito por dimensión. Arnés de ejecución: 156 líneas; analizador: 87. Se añadieron soporte de preparación y un verificador puro, no una infraestructura de reanudación. No existe medición fiable de horas humanas ni comparación controlada de productividad; no se infieren ahorros económicos. La instantánea añade un set_state y validación de semilla; el historial añade procesamiento proporcional al prefijo. El coste común del recorder no debe atribuirse al agente.
+
+### Fallos instrumentales y conservación de resultados
+
+El primer análisis, congelado como [analyze-v1.cjs](continuidad-segundo-agente-r01/analyze-v1.cjs), falló al leer `Trajectory.final_state.time`: ese campo no existe. Se conservan `analysis-attempt-1.json`, el analizador original y `analysis-revision.json` en el paquete. La revisión v1.1 lee `steps.at(-1).world_state.time`. No se alteraron entradas, criterios, protocolo ni arnés, y **no se repitió ninguna transición**. Es una corrección analítica posterior a resultados, explícita, no una nueva ejecución.
+
+Una comprobación pura posterior pasó las aserciones de datos pero falló al consultar la referencia local `main`, inexistente en este checkout. Se corrigió a `origin/main`; el incidente está registrado en verification.json. Tampoco cambió datos ni repitió episodios. Los resultados contrarios del control reset y las diferencias registrales de replay se conservan íntegros.
+
+### Afirmaciones y decisión
+
+| Estado epistemológico | Afirmación | Evidencia / límite |
+|---|---|---|
+| OBSERVADO y VERIFICADO en el caso | Snapshot y reconstrucción sostienen continuidad completa de RandomAgent | Resultados guardados, comparación estructural exacta y WLS1; oráculo diferencial común, no implementación independiente. |
+| OBSERVADO y VERIFICADO en el caso | Restaurar solo WORLD no basta, aunque su RNG y el motivo terminal coincidan | Primera decisión y energía divergentes en tick 9; control con poder discriminativo. |
+| OBSERVADO y VERIFICADO en el caso | Replay físico no conserva automáticamente contexto de decisión y registro | Cero llamadas al agente, feedback distinto y secuencias reiniciadas. |
+| DEDUCIDO de fuente + respaldado en el caso | Estado privado del agente incluye fuentes de aleatoriedad propias | RandomAgent guarda su PRNG fuera de WorldState; restaurarlo mantiene la fase; reset la pierde. No se generaliza a cualquier tipo de memoria. |
+| DEDUCIDO, no ensayado como alternativa | Para este agente, semilla e historial exacto de llamadas bastan aunque se omita el contenido del feedback | step ignora feedback. Este ensayo sí suministró los ocho feedback, no prueba recuperación con semilla desconocida ni llamadas omitidas. |
+| PROPUESTA, no implementada | Interfaz versionada separada para agente, supervisor y recorder | Hay dos formas de memoria examinadas sumando el antecedente, no una prueba de portabilidad universal. |
+
+**Decisión R01:** cerrar la pregunta acotada como respaldada y conservar el activo como instrumento de investigación. Especificar como candidato `export_state()/import_state(payload)` del agente con tipo/versión/identidad y sin exponer su representación al supervisor. Declarar reconstrucción por historial como capacidad opcional con precondiciones, no como sustituto universal del snapshot. El supervisor coordina checkpoint consistente, configuración e identidades; el recorder debe ofrecer su propio memento portable para contexto, secuencias e historial. No almacenar el RNG privado del agente en WorldState ni confundirlo con rng_state del mundo. No se implementan estos contratos ni se amplían esquemas cerrados.
+
+Pendientes antes de adoptar una API: definir y validar payloads/versiones incompatibles, aislamiento y errores de importación, memento del recorder independiente de instancia y responsabilidades del coordinador. Persistencia distribuida y recuperación durante escritura siguen fuera del ensayo. Otras semillas, cortes, agentes y versiones no se evaluaron. No se autoriza campaña ni se modifica la congelación operacional.
+
+Cierre conforme al propósito acotado de RDL-PB §23: decisión, evidencia favorable/contraria, límites y pendientes preservados. No se declara conformidad transversal integral por un caso exitoso. Reabrir solo ante una nueva pregunta o fallo que afecte estas condiciones, con protocolo y presupuesto identificados.
+
+### Expediente íntegro y comandos
+
+[Paquete de evidencia](continuidad-segundo-agente-r01/evidence.tar.gz): **110.265 bytes**, SHA-256 `5316babbd80548fc43e3e1710658c8c5a20848d16e2d6b8d780e8a82dff05fe9`; [checksum](continuidad-segundo-agente-r01/evidence.tar.gz.sha256). Contiene 22 miembros: 21 archivos más manifiesto interno de tamaño/hash. Incluye configuración, instrumentos y revisión original, preejecución, checkpoint, resultados completos, análisis, fallos, verificaciones y logs. No incluye fuentes duplicadas del motor ni material de autorización. El manifiesto identifica bytes; no certifica por sí solo la validez del contenido.
+
+Comandos efectivamente ejecutados (rutas externas históricas, no enlaces públicos):
+
+```bash
+# Exportación previa: git archive del SHA base a source.tar; extracción en source/.
+node --check /tmp/continuidad-r01-ukpti5wl/harness.cjs
+node --check /tmp/continuidad-r01-ukpti5wl/analyze.cjs
+timeout --signal=TERM --kill-after=5s 60s node --max-old-space-size=512 /tmp/continuidad-r01-ukpti5wl/harness.cjs > /tmp/continuidad-r01-ukpti5wl/execution.log 2>&1
+node --max-old-space-size=512 /tmp/continuidad-r01-ukpti5wl/analyze.cjs
+# El análisis inicial falló; tras la revisión v1.1 se repitió solo el análisis.
+python3 /tmp/continuidad-r01-ukpti5wl/verify.py
+```
+
+Para **verificar archivos existentes sin episodios**, descargar/extraer el paquete en un directorio nuevo, comprobar su SHA-256 y manifiesto interno, exportar allí el motor base a `source/` y ejecutar `python3 verify.py`. Este script no llama a WORLD, agentes ni replay. La comprobación WLS1 completa ya está registrada; se puede recalcular con analyze.cjs tras retirar/copiar aparte analysis.json, sin ejecutar transiciones. Conservar siempre el análisis original.
+
+Soporte para una **reproducción futura y separada**, no ejecutada durante este cierre:
+
+```bash
+# Desde un checkout limpio de esta rama. Debe usarse un destino inexistente fuera del repo.
+python3 docs/research/continuidad-segundo-agente-r01/prepare.py "$PWD" /tmp/continuidad-r01-reproduction-NEW
+# prepare solo exporta/verifica fuentes y registra identidad; no inicia episodios.
+cd /tmp/continuidad-r01-reproduction-NEW
+timeout --signal=TERM --kill-after=5s 60s node --max-old-space-size=512 harness.cjs > execution.log 2>&1
+node --max-old-space-size=512 analyze.cjs
+python3 verify.py
+```
+
+El preparador, incorporado después de los resultados para facilitar recuperación, no modifica el protocolo ni el arnés congelado. Crea una identidad de ejecución nueva y se niega a sobrescribir destinos existentes. La reproducción futura no debe mezclarse con la ejecución original ni presumirse autorizada como campaña. Las rutas locales y hashes de integridad histórica se preservan como procedencia, no como dependencias de almacenamiento permanente.

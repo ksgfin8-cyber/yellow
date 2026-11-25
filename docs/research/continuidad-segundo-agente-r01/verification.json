@@ -1,0 +1,16 @@
+{
+  "utc": "2026-11-25T22:54:13.780169+00:00",
+  "source_files_unchanged": 662,
+  "repository_files_unchanged": 666,
+  "origin_main_ref": "5d40f08fbb36c5bbe075628a5b9a9078ce9c017c",
+  "protocol_unchanged": true,
+  "execution_harness_unchanged": true,
+  "positive_results_and_private_state_verified": true,
+  "new_suffix_calls_each": 16,
+  "negative_control_first_action_divergence": 9,
+  "equal_wls1_byte_comparisons_positive_and_replay": 132,
+  "feedback_reconstructed": 8,
+  "experimental_retries": 0,
+  "physical_world_transitions": 96,
+  "verification_note": "An earlier pure verification command passed artifact assertions but could not resolve local main (not present); corrected reference to origin/main. No data altered or transitions retried."
+}

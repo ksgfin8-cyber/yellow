@@ -49,7 +49,7 @@ for (const mode of ['snapshot', 'feedback_history', 'reset_only']) {
         dimensions_first_divergence, full_result_equal: same(baseline.result, a.result),
         global_events_equal: same(baseline.result.trajectory.events, t.events),
         termination_equal: baseline.result.trajectory.termination_reason === t.termination_reason,
-        termination: t.termination_reason, final_tick: t.final_state.time,
+        termination: t.termination_reason, final_tick: t.steps.at(-1).world_state.time,
         bytes: bytes([baseline.result.trajectory.initial_state, ...steps.map(s => s.world_state)], [t.initial_state, ...t.steps.map(s => s.world_state)]),
         timing: a.timing});
 }
