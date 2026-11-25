@@ -1,0 +1,52 @@
+{
+  "source_commit": "5d40f08fbb36c5bbe075628a5b9a9078ce9c017c",
+  "experiment_seed": 1,
+  "max_ticks": 24,
+  "cut_after_committed_tick": 8,
+  "world_config": {
+    "width": 6,
+    "height": 6,
+    "topology": "BOUNDED",
+    "obstacle_density": 0.1,
+    "resource_density": 0.25,
+    "hazard_density": 0,
+    "initial_energy": 100,
+    "move_cost": 1,
+    "wait_cost": 1,
+    "resource_effect": 8,
+    "hazard_damage": 0,
+    "resource_regeneration": 0,
+    "death_threshold": 0,
+    "observation_radius": 1
+  },
+  "feedback_config": {
+    "expose_validity": true,
+    "expose_reason": true,
+    "expose_events": true,
+    "expose_energy_delta": true
+  },
+  "protocol_id": "WL-CONTINUIDAD-SEGUNDO-AGENTE-R01",
+  "version": 1,
+  "registered_utc": "2026-11-25T22:49:54.420449+00:00",
+  "agent_type": "random",
+  "agent_seed_derivation": "derive_seed(experiment_seed, agent_type)",
+  "budget": {
+    "agents": 1,
+    "cuts": 1,
+    "full_runs": 1,
+    "interrupted_prefixes": 1,
+    "continuations": 3,
+    "saved_action_replay_controls": 1,
+    "max_world_transitions": 96,
+    "wall_seconds": 60,
+    "v8_heap_mib": 512
+  },
+  "arms": [
+    "continuous",
+    "snapshot",
+    "feedback_history",
+    "reset_only",
+    "saved_action_replay"
+  ],
+  "stop_rule": "Single attempt. Preserve partial outputs and first divergence. No tuning/retry after observation; version any changed design."
+}
