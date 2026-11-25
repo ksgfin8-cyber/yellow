@@ -1,0 +1,2414 @@
+{
+  "arms": [
+    {
+      "agent_rng_draws_after_restore": 16,
+      "bytes": {
+        "comparisons": 50,
+        "first_mismatch": null
+      },
+      "dimensions_first_divergence": {
+        "action": null,
+        "action_events": null,
+        "action_result": null,
+        "event_sequence": null,
+        "feedback": null,
+        "full_record": null,
+        "lifecycle_events": null,
+        "world_rng": null,
+        "world_state": null
+      },
+      "final_tick": 24,
+      "first_agent_rng_divergence": null,
+      "full_result_equal": true,
+      "global_events_equal": true,
+      "memory_at_cut": {
+        "initial_seed": 1627437821,
+        "rng_state": 645573146,
+        "version": "RandomAgent-source-5d40f08-adapter-v1"
+      },
+      "memory_at_cut_equal": true,
+      "mode": "snapshot",
+      "new_action_calls": 16,
+      "termination": "MAX_TICKS_REACHED",
+      "termination_equal": true,
+      "timing": {
+        "agent_restore_ms": 0.0201979999999935,
+        "recorder_import_ms": 38.00179600000001,
+        "total_ms": 160.41649900000004
+      },
+      "warmup_agent_rng_draws": 0,
+      "warmup_calls": 0,
+      "world_rng_draws_after_restore": 0
+    },
+    {
+      "agent_rng_draws_after_restore": 16,
+      "bytes": {
+        "comparisons": 50,
+        "first_mismatch": null
+      },
+      "dimensions_first_divergence": {
+        "action": null,
+        "action_events": null,
+        "action_result": null,
+        "event_sequence": null,
+        "feedback": null,
+        "full_record": null,
+        "lifecycle_events": null,
+        "world_rng": null,
+        "world_state": null
+      },
+      "final_tick": 24,
+      "first_agent_rng_divergence": null,
+      "full_result_equal": true,
+      "global_events_equal": true,
+      "memory_at_cut": {
+        "initial_seed": 1627437821,
+        "rng_state": 645573146,
+        "version": "RandomAgent-source-5d40f08-adapter-v1"
+      },
+      "memory_at_cut_equal": true,
+      "mode": "feedback_history",
+      "new_action_calls": 16,
+      "termination": "MAX_TICKS_REACHED",
+      "termination_equal": true,
+      "timing": {
+        "agent_restore_ms": 0.19044099999996433,
+        "recorder_import_ms": 37.18684300000001,
+        "total_ms": 158.06152600000001
+      },
+      "warmup_agent_rng_draws": 8,
+      "warmup_calls": 8,
+      "world_rng_draws_after_restore": 0
+    },
+    {
+      "agent_rng_draws_after_restore": 16,
+      "bytes": {
+        "comparisons": 50,
+        "first_mismatch": {
+          "index": 9,
+          "kind": "canonical_world_state_bytes"
+        }
+      },
+      "dimensions_first_divergence": {
+        "action": {
+          "actual": {
+            "type": "WAIT"
+          },
+          "expected": {
+            "type": "MOVE_S"
+          },
+          "step_tick": 9
+        },
+        "action_events": {
+          "actual": [],
+          "expected": [
+            {
+              "entity_id": "0987898",
+              "position": {
+                "x": 4,
+                "y": 0
+              },
+              "sequence": 8,
+              "source": "action",
+              "tick": 11,
+              "type": "ENTITY_MOVED"
+            }
+          ],
+          "step_tick": 11
+        },
+        "action_result": {
+          "actual": {
+            "energy_delta": -1,
+            "events": [],
+            "reason": "NONE",
+            "validity": "VALID"
+          },
+          "expected": {
+            "energy_delta": 0,
+            "events": [],
+            "reason": "BLOCKED_CELL",
+            "validity": "INVALID"
+          },
+          "step_tick": 9
+        },
+        "event_sequence": {
+          "actual": [],
+          "expected": [
+            8
+          ],
+          "step_tick": 11
+        },
+        "feedback": {
+          "actual": {
+            "has_prior_action": true,
+            "last_action_result": {
+              "energy_delta": -1,
+              "events": [],
+              "reason": "NONE",
+              "validity": "VALID"
+            },
+            "observation": {
+              "local_view": [
+                [
+                  {
+                    "occupied": false,
+                    "representation": "RESOURCE"
+                  },
+                  {
+                    "occupied": false,
+                    "representation": "FREE"
+                  },
+                  {
+                    "occupied": false,
+                    "representation": "OUT_OF_BOUNDS"
+                  }
+                ],
+                [
+                  {
+                    "occupied": false,
+                    "representation": "FREE"
+                  },
+                  {
+                    "occupied": false,
+                    "representation": "RESOURCE"
+                  },
+                  {
+                    "occupied": false,
+                    "representation": "OUT_OF_BOUNDS"
+                  }
+                ],
+                [
+                  {
+                    "occupied": false,
+                    "representation": "FREE"
+                  },
+                  {
+                    "occupied": false,
+                    "representation": "BLOCKED"
+                  },
+                  {
+                    "occupied": false,
+                    "representation": "OUT_OF_BOUNDS"
+                  }
+                ]
+              ],
+              "self": {
+                "energy": 109,
+                "id": "0987898",
+                "position": {
+                  "x": 5,
+                  "y": 1
+                }
+              },
+              "tick": 9
+            }
+          },
+          "expected": {
+            "has_prior_action": true,
+            "last_action_result": {
+              "energy_delta": 0,
+              "events": [],
+              "reason": "BLOCKED_CELL",
+              "validity": "INVALID"
+            },
+            "observation": {
+              "local_view": [
+                [
+                  {
+                    "occupied": false,
+                    "representation": "RESOURCE"
+                  },
+                  {
+                    "occupied": false,
+                    "representation": "FREE"
+                  },
+                  {
+                    "occupied": false,
+                    "representation": "OUT_OF_BOUNDS"
+                  }
+                ],
+                [
+                  {
+                    "occupied": false,
+                    "representation": "FREE"
+                  },
+                  {
+                    "occupied": false,
+                    "representation": "RESOURCE"
+                  },
+                  {
+                    "occupied": false,
+                    "representation": "OUT_OF_BOUNDS"
+                  }
+                ],
+                [
+                  {
+                    "occupied": false,
+                    "representation": "FREE"
+                  },
+                  {
+                    "occupied": false,
+                    "representation": "BLOCKED"
+                  },
+                  {
+                    "occupied": false,
+                    "representation": "OUT_OF_BOUNDS"
+                  }
+                ]
+              ],
+              "self": {
+                "energy": 110,
+                "id": "0987898",
+                "position": {
+                  "x": 5,
+                  "y": 1
+                }
+              },
+              "tick": 9
+            }
+          },
+          "step_tick": 10
+        },
+        "full_record": {
+          "actual": {
+            "action": {
+              "type": "WAIT"
+            },
+            "action_events": [],
+            "action_result": {
+              "energy_delta": -1,
+              "events": [],
+              "reason": "NONE",
+              "validity": "VALID"
+            },
+            "entity_states": {
+              "$type": "map",
+              "entries": [
+                [
+                  "0987898",
+                  {
+                    "energy": 109,
+                    "id": "0987898",
+                    "lifecycle": "ACTIVE",
+                    "position": {
+                      "x": 5,
+                      "y": 1
+                    }
+                  }
+                ]
+              ]
+            },
+            "feedback": {
+              "has_prior_action": true,
+              "last_action_result": {
+                "energy_delta": -1,
+                "events": [
+                  {
+                    "entity_id": "0987898",
+                    "position": {
+                      "x": 5,
+                      "y": 1
+                    },
+                    "type": "ENTITY_MOVED"
+                  }
+                ],
+                "reason": "NONE",
+                "validity": "VALID"
+              },
+              "observation": {
+                "local_view": [
+                  [
+                    {
+                      "occupied": false,
+                      "representation": "RESOURCE"
+                    },
+                    {
+                      "occupied": false,
+                      "representation": "FREE"
+                    },
+                    {
+                      "occupied": false,
+                      "representation": "OUT_OF_BOUNDS"
+                    }
+                  ],
+                  [
+                    {
+                      "occupied": false,
+                      "representation": "FREE"
+                    },
+                    {
+                      "occupied": false,
+                      "representation": "RESOURCE"
+                    },
+                    {
+                      "occupied": false,
+                      "representation": "OUT_OF_BOUNDS"
+                    }
+                  ],
+                  [
+                    {
+                      "occupied": false,
+                      "representation": "FREE"
+                    },
+                    {
+                      "occupied": false,
+                      "representation": "BLOCKED"
+                    },
+                    {
+                      "occupied": false,
+                      "representation": "OUT_OF_BOUNDS"
+                    }
+                  ]
+                ],
+                "self": {
+                  "energy": 110,
+                  "id": "0987898",
+                  "position": {
+                    "x": 5,
+                    "y": 1
+                  }
+                },
+                "tick": 8
+              }
+            },
+            "lifecycle_events": [],
+            "observation": {
+              "local_view": [
+                [
+                  {
+                    "occupied": false,
+                    "representation": "RESOURCE"
+                  },
+                  {
+                    "occupied": false,
+                    "representation": "FREE"
+                  },
+                  {
+                    "occupied": false,
+                    "representation": "OUT_OF_BOUNDS"
+                  }
+                ],
+                [
+                  {
+                    "occupied": false,
+                    "representation": "FREE"
+                  },
+                  {
+                    "occupied": false,
+                    "representation": "RESOURCE"
+                  },
+                  {
+                    "occupied": false,
+                    "representation": "OUT_OF_BOUNDS"
+                  }
+                ],
+                [
+                  {
+                    "occupied": false,
+                    "representation": "FREE"
+                  },
+                  {
+                    "occupied": false,
+                    "representation": "BLOCKED"
+                  },
+                  {
+                    "occupied": false,
+                    "representation": "OUT_OF_BOUNDS"
+                  }
+                ]
+              ],
+              "self": {
+                "energy": 110,
+                "id": "0987898",
+                "position": {
+                  "x": 5,
+                  "y": 1
+                }
+              },
+              "tick": 8
+            },
+            "state_hash_full": 3311015292,
+            "state_hash_world": 1048685785,
+            "tick": 9,
+            "world_state": {
+              "entities": {
+                "$type": "map",
+                "entries": [
+                  [
+                    "0987898",
+                    {
+                      "energy": 109,
+                      "id": "0987898",
+                      "lifecycle": "ACTIVE",
+                      "position": {
+                        "x": 5,
+                        "y": 1
+                      }
+                    }
+                  ]
+                ]
+              },
+              "grid": [
+                [
+                  {
+                    "effect": null,
+                    "traversal": "FREE"
+                  },
+                  {
+                    "effect": null,
+                    "traversal": "FREE"
+                  },
+                  {
+                    "effect": null,
+                    "traversal": "FREE"
+                  },
+                  {
+                    "effect": {
+                      "kind": "RESOURCE",
+                      "stock": 1
+                    },
+                    "traversal": "FREE"
+                  },
+                  {
+                    "effect": {
+                      "kind": "RESOURCE",
+                      "stock": 0
+                    },
+                    "traversal": "FREE"
+                  },
+                  {
+                    "effect": null,
+                    "traversal": "FREE"
+                  }
+                ],
+                [
+                  {
+                    "effect": null,
+                    "traversal": "FREE"
+                  },
+                  {
+                    "effect": {
+                      "kind": "RESOURCE",
+                      "stock": 1
+                    },
+                    "traversal": "FREE"
+                  },
+                  {
+                    "effect": null,
+                    "traversal": "FREE"
+                  },
+                  {
+                    "effect": null,
+                    "traversal": "FREE"
+                  },
+                  {
+                    "effect": null,
+                    "traversal": "FREE"
+                  },
+                  {
+                    "effect": {
+                      "kind": "RESOURCE",
+                      "stock": 0
+                    },
+                    "traversal": "FREE"
+                  }
+                ],
+                [
+                  {
+                    "effect": null,
+                    "traversal": "FREE"
+                  },
+                  {
+                    "effect": null,
+                    "traversal": "FREE"
+                  },
+                  {
+                    "effect": null,
+                    "traversal": "FREE"
+                  },
+                  {
+                    "effect": null,
+                    "traversal": "FREE"
+                  },
+                  {
+                    "effect": null,
+                    "traversal": "FREE"
+                  },
+                  {
+                    "effect": null,
+                    "traversal": "BLOCKED"
+                  }
+                ],
+                [
+                  {
+                    "effect": null,
+                    "traversal": "FREE"
+                  },
+                  {
+                    "effect": null,
+                    "traversal": "FREE"
+                  },
+                  {
+                    "effect": null,
+                    "traversal": "FREE"
+                  },
+                  {
+                    "effect": null,
+                    "traversal": "FREE"
+                  },
+                  {
+                    "effect": null,
+                    "traversal": "FREE"
+                  },
+                  {
+                    "effect": null,
+                    "traversal": "FREE"
+                  }
+                ],
+                [
+                  {
+                    "effect": {
+                      "kind": "RESOURCE",
+                      "stock": 1
+                    },
+                    "traversal": "FREE"
+                  },
+                  {
+                    "effect": null,
+                    "traversal": "FREE"
+                  },
+                  {
+                    "effect": null,
+                    "traversal": "FREE"
+                  },
+                  {
+                    "effect": {
+                      "kind": "RESOURCE",
+                      "stock": 1
+                    },
+                    "traversal": "FREE"
+                  },
+                  {
+                    "effect": {
+                      "kind": "RESOURCE",
+                      "stock": 1
+                    },
+                    "traversal": "FREE"
+                  },
+                  {
+                    "effect": null,
+                    "traversal": "FREE"
+                  }
+                ],
+                [
+                  {
+                    "effect": null,
+                    "traversal": "FREE"
+                  },
+                  {
+                    "effect": null,
+                    "traversal": "FREE"
+                  },
+                  {
+                    "effect": null,
+                    "traversal": "FREE"
+                  },
+                  {
+                    "effect": {
+                      "kind": "RESOURCE",
+                      "stock": 1
+                    },
+                    "traversal": "FREE"
+                  },
+                  {
+                    "effect": null,
+                    "traversal": "BLOCKED"
+                  },
+                  {
+                    "effect": null,
+                    "traversal": "FREE"
+                  }
+                ]
+              ],
+              "rng_state": 554160809,
+              "time": 9
+            }
+          },
+          "expected": {
+            "action": {
+              "type": "MOVE_S"
+            },
+            "action_events": [],
+            "action_result": {
+              "energy_delta": 0,
+              "events": [],
+              "reason": "BLOCKED_CELL",
+              "validity": "INVALID"
+            },
+            "entity_states": {
+              "$type": "map",
+              "entries": [
+                [
+                  "0987898",
+                  {
+                    "energy": 110,
+                    "id": "0987898",
+                    "lifecycle": "ACTIVE",
+                    "position": {
+                      "x": 5,
+                      "y": 1
+                    }
+                  }
+                ]
+              ]
+            },
+            "feedback": {
+              "has_prior_action": true,
+              "last_action_result": {
+                "energy_delta": -1,
+                "events": [
+                  {
+                    "entity_id": "0987898",
+                    "position": {
+                      "x": 5,
+                      "y": 1
+                    },
+                    "type": "ENTITY_MOVED"
+                  }
+                ],
+                "reason": "NONE",
+                "validity": "VALID"
+              },
+              "observation": {
+                "local_view": [
+                  [
+                    {
+                      "occupied": false,
+                      "representation": "RESOURCE"
+                    },
+                    {
+                      "occupied": false,
+                      "representation": "FREE"
+                    },
+                    {
+                      "occupied": false,
+                      "representation": "OUT_OF_BOUNDS"
+                    }
+                  ],
+                  [
+                    {
+                      "occupied": false,
+                      "representation": "FREE"
+                    },
+                    {
+                      "occupied": false,
+                      "representation": "RESOURCE"
+                    },
+                    {
+                      "occupied": false,
+                      "representation": "OUT_OF_BOUNDS"
+                    }
+                  ],
+                  [
+                    {
+                      "occupied": false,
+                      "representation": "FREE"
+                    },
+                    {
+                      "occupied": false,
+                      "representation": "BLOCKED"
+                    },
+                    {
+                      "occupied": false,
+                      "representation": "OUT_OF_BOUNDS"
+                    }
+                  ]
+                ],
+                "self": {
+                  "energy": 110,
+                  "id": "0987898",
+                  "position": {
+                    "x": 5,
+                    "y": 1
+                  }
+                },
+                "tick": 8
+              }
+            },
+            "lifecycle_events": [],
+            "observation": {
+              "local_view": [
+                [
+                  {
+                    "occupied": false,
+                    "representation": "RESOURCE"
+                  },
+                  {
+                    "occupied": false,
+                    "representation": "FREE"
+                  },
+                  {
+                    "occupied": false,
+                    "representation": "OUT_OF_BOUNDS"
+                  }
+                ],
+                [
+                  {
+                    "occupied": false,
+                    "representation": "FREE"
+                  },
+                  {
+                    "occupied": false,
+                    "representation": "RESOURCE"
+                  },
+                  {
+                    "occupied": false,
+                    "representation": "OUT_OF_BOUNDS"
+                  }
+                ],
+                [
+                  {
+                    "occupied": false,
+                    "representation": "FREE"
+                  },
+                  {
+                    "occupied": false,
+                    "representation": "BLOCKED"
+                  },
+                  {
+                    "occupied": false,
+                    "representation": "OUT_OF_BOUNDS"
+                  }
+                ]
+              ],
+              "self": {
+                "energy": 110,
+                "id": "0987898",
+                "position": {
+                  "x": 5,
+                  "y": 1
+                }
+              },
+              "tick": 8
+            },
+            "state_hash_full": 3369214268,
+            "state_hash_world": 2122803481,
+            "tick": 9,
+            "world_state": {
+              "entities": {
+                "$type": "map",
+                "entries": [
+                  [
+                    "0987898",
+                    {
+                      "energy": 110,
+                      "id": "0987898",
+                      "lifecycle": "ACTIVE",
+                      "position": {
+                        "x": 5,
+                        "y": 1
+                      }
+                    }
+                  ]
+                ]
+              },
+              "grid": [
+                [
+                  {
+                    "effect": null,
+                    "traversal": "FREE"
+                  },
+                  {
+                    "effect": null,
+                    "traversal": "FREE"
+                  },
+                  {
+                    "effect": null,
+                    "traversal": "FREE"
+                  },
+                  {
+                    "effect": {
+                      "kind": "RESOURCE",
+                      "stock": 1
+                    },
+                    "traversal": "FREE"
+                  },
+                  {
+                    "effect": {
+                      "kind": "RESOURCE",
+                      "stock": 0
+                    },
+                    "traversal": "FREE"
+                  },
+                  {
+                    "effect": null,
+                    "traversal": "FREE"
+                  }
+                ],
+                [
+                  {
+                    "effect": null,
+                    "traversal": "FREE"
+                  },
+                  {
+                    "effect": {
+                      "kind": "RESOURCE",
+                      "stock": 1
+                    },
+                    "traversal": "FREE"
+                  },
+                  {
+                    "effect": null,
+                    "traversal": "FREE"
+                  },
+                  {
+                    "effect": null,
+                    "traversal": "FREE"
+                  },
+                  {
+                    "effect": null,
+                    "traversal": "FREE"
+                  },
+                  {
+                    "effect": {
+                      "kind": "RESOURCE",
+                      "stock": 0
+                    },
+                    "traversal": "FREE"
+                  }
+                ],
+                [
+                  {
+                    "effect": null,
+                    "traversal": "FREE"
+                  },
+                  {
+                    "effect": null,
+                    "traversal": "FREE"
+                  },
+                  {
+                    "effect": null,
+                    "traversal": "FREE"
+                  },
+                  {
+                    "effect": null,
+                    "traversal": "FREE"
+                  },
+                  {
+                    "effect": null,
+                    "traversal": "FREE"
+                  },
+                  {
+                    "effect": null,
+                    "traversal": "BLOCKED"
+                  }
+                ],
+                [
+                  {
+                    "effect": null,
+                    "traversal": "FREE"
+                  },
+                  {
+                    "effect": null,
+                    "traversal": "FREE"
+                  },
+                  {
+                    "effect": null,
+                    "traversal": "FREE"
+                  },
+                  {
+                    "effect": null,
+                    "traversal": "FREE"
+                  },
+                  {
+                    "effect": null,
+                    "traversal": "FREE"
+                  },
+                  {
+                    "effect": null,
+                    "traversal": "FREE"
+                  }
+                ],
+                [
+                  {
+                    "effect": {
+                      "kind": "RESOURCE",
+                      "stock": 1
+                    },
+                    "traversal": "FREE"
+                  },
+                  {
+                    "effect": null,
+                    "traversal": "FREE"
+                  },
+                  {
+                    "effect": null,
+                    "traversal": "FREE"
+                  },
+                  {
+                    "effect": {
+                      "kind": "RESOURCE",
+                      "stock": 1
+                    },
+                    "traversal": "FREE"
+                  },
+                  {
+                    "effect": {
+                      "kind": "RESOURCE",
+                      "stock": 1
+                    },
+                    "traversal": "FREE"
+                  },
+                  {
+                    "effect": null,
+                    "traversal": "FREE"
+                  }
+                ],
+                [
+                  {
+                    "effect": null,
+                    "traversal": "FREE"
+                  },
+                  {
+                    "effect": null,
+                    "traversal": "FREE"
+                  },
+                  {
+                    "effect": null,
+                    "traversal": "FREE"
+                  },
+                  {
+                    "effect": {
+                      "kind": "RESOURCE",
+                      "stock": 1
+                    },
+                    "traversal": "FREE"
+                  },
+                  {
+                    "effect": null,
+                    "traversal": "BLOCKED"
+                  },
+                  {
+                    "effect": null,
+                    "traversal": "FREE"
+                  }
+                ]
+              ],
+              "rng_state": 554160809,
+              "time": 9
+            }
+          },
+          "step_tick": 9
+        },
+        "lifecycle_events": null,
+        "world_rng": null,
+        "world_state": {
+          "actual": {
+            "entities": {
+              "$type": "map",
+              "entries": [
+                [
+                  "0987898",
+                  {
+                    "energy": 109,
+                    "id": "0987898",
+                    "lifecycle": "ACTIVE",
+                    "position": {
+                      "x": 5,
+                      "y": 1
+                    }
+                  }
+                ]
+              ]
+            },
+            "grid": [
+              [
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": {
+                    "kind": "RESOURCE",
+                    "stock": 1
+                  },
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": {
+                    "kind": "RESOURCE",
+                    "stock": 0
+                  },
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                }
+              ],
+              [
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": {
+                    "kind": "RESOURCE",
+                    "stock": 1
+                  },
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": {
+                    "kind": "RESOURCE",
+                    "stock": 0
+                  },
+                  "traversal": "FREE"
+                }
+              ],
+              [
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "BLOCKED"
+                }
+              ],
+              [
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                }
+              ],
+              [
+                {
+                  "effect": {
+                    "kind": "RESOURCE",
+                    "stock": 1
+                  },
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": {
+                    "kind": "RESOURCE",
+                    "stock": 1
+                  },
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": {
+                    "kind": "RESOURCE",
+                    "stock": 1
+                  },
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                }
+              ],
+              [
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": {
+                    "kind": "RESOURCE",
+                    "stock": 1
+                  },
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "BLOCKED"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                }
+              ]
+            ],
+            "rng_state": 554160809,
+            "time": 9
+          },
+          "expected": {
+            "entities": {
+              "$type": "map",
+              "entries": [
+                [
+                  "0987898",
+                  {
+                    "energy": 110,
+                    "id": "0987898",
+                    "lifecycle": "ACTIVE",
+                    "position": {
+                      "x": 5,
+                      "y": 1
+                    }
+                  }
+                ]
+              ]
+            },
+            "grid": [
+              [
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": {
+                    "kind": "RESOURCE",
+                    "stock": 1
+                  },
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": {
+                    "kind": "RESOURCE",
+                    "stock": 0
+                  },
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                }
+              ],
+              [
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": {
+                    "kind": "RESOURCE",
+                    "stock": 1
+                  },
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": {
+                    "kind": "RESOURCE",
+                    "stock": 0
+                  },
+                  "traversal": "FREE"
+                }
+              ],
+              [
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "BLOCKED"
+                }
+              ],
+              [
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                }
+              ],
+              [
+                {
+                  "effect": {
+                    "kind": "RESOURCE",
+                    "stock": 1
+                  },
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": {
+                    "kind": "RESOURCE",
+                    "stock": 1
+                  },
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": {
+                    "kind": "RESOURCE",
+                    "stock": 1
+                  },
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                }
+              ],
+              [
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": {
+                    "kind": "RESOURCE",
+                    "stock": 1
+                  },
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "BLOCKED"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                }
+              ]
+            ],
+            "rng_state": 554160809,
+            "time": 9
+          },
+          "step_tick": 9
+        }
+      },
+      "final_tick": 24,
+      "first_agent_rng_divergence": {
+        "actual": {
+          "initial_seed": 1627437821,
+          "rng_state": 3183156114,
+          "version": "RandomAgent-source-5d40f08-adapter-v1"
+        },
+        "expected": {
+          "initial_seed": 1627437821,
+          "rng_state": 335782726,
+          "version": "RandomAgent-source-5d40f08-adapter-v1"
+        },
+        "step_tick": 9
+      },
+      "full_result_equal": false,
+      "global_events_equal": false,
+      "memory_at_cut": {
+        "initial_seed": 1627437821,
+        "rng_state": 1627437821,
+        "version": "RandomAgent-source-5d40f08-adapter-v1"
+      },
+      "memory_at_cut_equal": false,
+      "mode": "reset_only",
+      "new_action_calls": 16,
+      "termination": "MAX_TICKS_REACHED",
+      "termination_equal": true,
+      "timing": {
+        "agent_restore_ms": 0.0057899999999335705,
+        "recorder_import_ms": 55.75009399999999,
+        "total_ms": 184.27507000000003
+      },
+      "warmup_agent_rng_draws": 0,
+      "warmup_calls": 0,
+      "world_rng_draws_after_restore": 0
+    }
+  ],
+  "baseline": {
+    "agent_calls": 24,
+    "agent_rng_draws": 24,
+    "elapsed_ms": 208.202621,
+    "termination": "MAX_TICKS_REACHED"
+  },
+  "checkpoint": {
+    "agent_state": {
+      "initial_seed": 1627437821,
+      "rng_state": 645573146,
+      "version": "RandomAgent-source-5d40f08-adapter-v1"
+    },
+    "last_action_result": {
+      "energy_delta": -1,
+      "events": [
+        {
+          "entity_id": "0987898",
+          "position": {
+            "x": 5,
+            "y": 1
+          },
+          "type": "ENTITY_MOVED"
+        }
+      ],
+      "reason": "NONE",
+      "validity": "VALID"
+    },
+    "recorder_sequence": 7,
+    "world_rng": 554160809,
+    "world_time": 8
+  },
+  "decision": "CONTINUITY_VERIFIED_WITHIN_FIXED_CASE",
+  "negative_control_discriminates_actions": true,
+  "prefix_equal": true,
+  "prefix_feedback_reconstructed": 8,
+  "protocol_commit": "283353e",
+  "replay": {
+    "agent_step_calls": 0,
+    "bytes": {
+      "comparisons": 32,
+      "first_mismatch": null
+    },
+    "dimensions_first_divergence": {
+      "action": null,
+      "action_events": {
+        "actual": [
+          {
+            "entity_id": "0987898",
+            "position": {
+              "x": 5,
+              "y": 0
+            },
+            "sequence": 0,
+            "source": "action",
+            "tick": 10,
+            "type": "ENTITY_MOVED"
+          }
+        ],
+        "expected": [
+          {
+            "entity_id": "0987898",
+            "position": {
+              "x": 5,
+              "y": 0
+            },
+            "sequence": 7,
+            "source": "action",
+            "tick": 10,
+            "type": "ENTITY_MOVED"
+          }
+        ],
+        "step_tick": 10
+      },
+      "action_result": null,
+      "event_sequence": {
+        "actual": [
+          0
+        ],
+        "expected": [
+          7
+        ],
+        "step_tick": 10
+      },
+      "feedback": {
+        "actual": {
+          "has_prior_action": false,
+          "last_action_result": null,
+          "observation": {
+            "local_view": [
+              [
+                {
+                  "occupied": false,
+                  "representation": "RESOURCE"
+                },
+                {
+                  "occupied": false,
+                  "representation": "FREE"
+                },
+                {
+                  "occupied": false,
+                  "representation": "OUT_OF_BOUNDS"
+                }
+              ],
+              [
+                {
+                  "occupied": false,
+                  "representation": "FREE"
+                },
+                {
+                  "occupied": false,
+                  "representation": "RESOURCE"
+                },
+                {
+                  "occupied": false,
+                  "representation": "OUT_OF_BOUNDS"
+                }
+              ],
+              [
+                {
+                  "occupied": false,
+                  "representation": "FREE"
+                },
+                {
+                  "occupied": false,
+                  "representation": "BLOCKED"
+                },
+                {
+                  "occupied": false,
+                  "representation": "OUT_OF_BOUNDS"
+                }
+              ]
+            ],
+            "self": {
+              "energy": 110,
+              "id": "0987898",
+              "position": {
+                "x": 5,
+                "y": 1
+              }
+            },
+            "tick": 8
+          }
+        },
+        "expected": {
+          "has_prior_action": true,
+          "last_action_result": {
+            "energy_delta": -1,
+            "events": [
+              {
+                "entity_id": "0987898",
+                "position": {
+                  "x": 5,
+                  "y": 1
+                },
+                "type": "ENTITY_MOVED"
+              }
+            ],
+            "reason": "NONE",
+            "validity": "VALID"
+          },
+          "observation": {
+            "local_view": [
+              [
+                {
+                  "occupied": false,
+                  "representation": "RESOURCE"
+                },
+                {
+                  "occupied": false,
+                  "representation": "FREE"
+                },
+                {
+                  "occupied": false,
+                  "representation": "OUT_OF_BOUNDS"
+                }
+              ],
+              [
+                {
+                  "occupied": false,
+                  "representation": "FREE"
+                },
+                {
+                  "occupied": false,
+                  "representation": "RESOURCE"
+                },
+                {
+                  "occupied": false,
+                  "representation": "OUT_OF_BOUNDS"
+                }
+              ],
+              [
+                {
+                  "occupied": false,
+                  "representation": "FREE"
+                },
+                {
+                  "occupied": false,
+                  "representation": "BLOCKED"
+                },
+                {
+                  "occupied": false,
+                  "representation": "OUT_OF_BOUNDS"
+                }
+              ]
+            ],
+            "self": {
+              "energy": 110,
+              "id": "0987898",
+              "position": {
+                "x": 5,
+                "y": 1
+              }
+            },
+            "tick": 8
+          }
+        },
+        "step_tick": 9
+      },
+      "full_record": {
+        "actual": {
+          "action": {
+            "type": "MOVE_S"
+          },
+          "action_events": [],
+          "action_result": {
+            "energy_delta": 0,
+            "events": [],
+            "reason": "BLOCKED_CELL",
+            "validity": "INVALID"
+          },
+          "entity_states": {
+            "$type": "map",
+            "entries": [
+              [
+                "0987898",
+                {
+                  "energy": 110,
+                  "id": "0987898",
+                  "lifecycle": "ACTIVE",
+                  "position": {
+                    "x": 5,
+                    "y": 1
+                  }
+                }
+              ]
+            ]
+          },
+          "feedback": {
+            "has_prior_action": false,
+            "last_action_result": null,
+            "observation": {
+              "local_view": [
+                [
+                  {
+                    "occupied": false,
+                    "representation": "RESOURCE"
+                  },
+                  {
+                    "occupied": false,
+                    "representation": "FREE"
+                  },
+                  {
+                    "occupied": false,
+                    "representation": "OUT_OF_BOUNDS"
+                  }
+                ],
+                [
+                  {
+                    "occupied": false,
+                    "representation": "FREE"
+                  },
+                  {
+                    "occupied": false,
+                    "representation": "RESOURCE"
+                  },
+                  {
+                    "occupied": false,
+                    "representation": "OUT_OF_BOUNDS"
+                  }
+                ],
+                [
+                  {
+                    "occupied": false,
+                    "representation": "FREE"
+                  },
+                  {
+                    "occupied": false,
+                    "representation": "BLOCKED"
+                  },
+                  {
+                    "occupied": false,
+                    "representation": "OUT_OF_BOUNDS"
+                  }
+                ]
+              ],
+              "self": {
+                "energy": 110,
+                "id": "0987898",
+                "position": {
+                  "x": 5,
+                  "y": 1
+                }
+              },
+              "tick": 8
+            }
+          },
+          "lifecycle_events": [],
+          "observation": {
+            "local_view": [
+              [
+                {
+                  "occupied": false,
+                  "representation": "RESOURCE"
+                },
+                {
+                  "occupied": false,
+                  "representation": "FREE"
+                },
+                {
+                  "occupied": false,
+                  "representation": "OUT_OF_BOUNDS"
+                }
+              ],
+              [
+                {
+                  "occupied": false,
+                  "representation": "FREE"
+                },
+                {
+                  "occupied": false,
+                  "representation": "RESOURCE"
+                },
+                {
+                  "occupied": false,
+                  "representation": "OUT_OF_BOUNDS"
+                }
+              ],
+              [
+                {
+                  "occupied": false,
+                  "representation": "FREE"
+                },
+                {
+                  "occupied": false,
+                  "representation": "BLOCKED"
+                },
+                {
+                  "occupied": false,
+                  "representation": "OUT_OF_BOUNDS"
+                }
+              ]
+            ],
+            "self": {
+              "energy": 110,
+              "id": "0987898",
+              "position": {
+                "x": 5,
+                "y": 1
+              }
+            },
+            "tick": 8
+          },
+          "state_hash_full": 3369214268,
+          "state_hash_world": 2122803481,
+          "tick": 9,
+          "world_state": {
+            "entities": {
+              "$type": "map",
+              "entries": [
+                [
+                  "0987898",
+                  {
+                    "energy": 110,
+                    "id": "0987898",
+                    "lifecycle": "ACTIVE",
+                    "position": {
+                      "x": 5,
+                      "y": 1
+                    }
+                  }
+                ]
+              ]
+            },
+            "grid": [
+              [
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": {
+                    "kind": "RESOURCE",
+                    "stock": 1
+                  },
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": {
+                    "kind": "RESOURCE",
+                    "stock": 0
+                  },
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                }
+              ],
+              [
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": {
+                    "kind": "RESOURCE",
+                    "stock": 1
+                  },
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": {
+                    "kind": "RESOURCE",
+                    "stock": 0
+                  },
+                  "traversal": "FREE"
+                }
+              ],
+              [
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "BLOCKED"
+                }
+              ],
+              [
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                }
+              ],
+              [
+                {
+                  "effect": {
+                    "kind": "RESOURCE",
+                    "stock": 1
+                  },
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": {
+                    "kind": "RESOURCE",
+                    "stock": 1
+                  },
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": {
+                    "kind": "RESOURCE",
+                    "stock": 1
+                  },
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                }
+              ],
+              [
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": {
+                    "kind": "RESOURCE",
+                    "stock": 1
+                  },
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "BLOCKED"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                }
+              ]
+            ],
+            "rng_state": 554160809,
+            "time": 9
+          }
+        },
+        "expected": {
+          "action": {
+            "type": "MOVE_S"
+          },
+          "action_events": [],
+          "action_result": {
+            "energy_delta": 0,
+            "events": [],
+            "reason": "BLOCKED_CELL",
+            "validity": "INVALID"
+          },
+          "entity_states": {
+            "$type": "map",
+            "entries": [
+              [
+                "0987898",
+                {
+                  "energy": 110,
+                  "id": "0987898",
+                  "lifecycle": "ACTIVE",
+                  "position": {
+                    "x": 5,
+                    "y": 1
+                  }
+                }
+              ]
+            ]
+          },
+          "feedback": {
+            "has_prior_action": true,
+            "last_action_result": {
+              "energy_delta": -1,
+              "events": [
+                {
+                  "entity_id": "0987898",
+                  "position": {
+                    "x": 5,
+                    "y": 1
+                  },
+                  "type": "ENTITY_MOVED"
+                }
+              ],
+              "reason": "NONE",
+              "validity": "VALID"
+            },
+            "observation": {
+              "local_view": [
+                [
+                  {
+                    "occupied": false,
+                    "representation": "RESOURCE"
+                  },
+                  {
+                    "occupied": false,
+                    "representation": "FREE"
+                  },
+                  {
+                    "occupied": false,
+                    "representation": "OUT_OF_BOUNDS"
+                  }
+                ],
+                [
+                  {
+                    "occupied": false,
+                    "representation": "FREE"
+                  },
+                  {
+                    "occupied": false,
+                    "representation": "RESOURCE"
+                  },
+                  {
+                    "occupied": false,
+                    "representation": "OUT_OF_BOUNDS"
+                  }
+                ],
+                [
+                  {
+                    "occupied": false,
+                    "representation": "FREE"
+                  },
+                  {
+                    "occupied": false,
+                    "representation": "BLOCKED"
+                  },
+                  {
+                    "occupied": false,
+                    "representation": "OUT_OF_BOUNDS"
+                  }
+                ]
+              ],
+              "self": {
+                "energy": 110,
+                "id": "0987898",
+                "position": {
+                  "x": 5,
+                  "y": 1
+                }
+              },
+              "tick": 8
+            }
+          },
+          "lifecycle_events": [],
+          "observation": {
+            "local_view": [
+              [
+                {
+                  "occupied": false,
+                  "representation": "RESOURCE"
+                },
+                {
+                  "occupied": false,
+                  "representation": "FREE"
+                },
+                {
+                  "occupied": false,
+                  "representation": "OUT_OF_BOUNDS"
+                }
+              ],
+              [
+                {
+                  "occupied": false,
+                  "representation": "FREE"
+                },
+                {
+                  "occupied": false,
+                  "representation": "RESOURCE"
+                },
+                {
+                  "occupied": false,
+                  "representation": "OUT_OF_BOUNDS"
+                }
+              ],
+              [
+                {
+                  "occupied": false,
+                  "representation": "FREE"
+                },
+                {
+                  "occupied": false,
+                  "representation": "BLOCKED"
+                },
+                {
+                  "occupied": false,
+                  "representation": "OUT_OF_BOUNDS"
+                }
+              ]
+            ],
+            "self": {
+              "energy": 110,
+              "id": "0987898",
+              "position": {
+                "x": 5,
+                "y": 1
+              }
+            },
+            "tick": 8
+          },
+          "state_hash_full": 3369214268,
+          "state_hash_world": 2122803481,
+          "tick": 9,
+          "world_state": {
+            "entities": {
+              "$type": "map",
+              "entries": [
+                [
+                  "0987898",
+                  {
+                    "energy": 110,
+                    "id": "0987898",
+                    "lifecycle": "ACTIVE",
+                    "position": {
+                      "x": 5,
+                      "y": 1
+                    }
+                  }
+                ]
+              ]
+            },
+            "grid": [
+              [
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": {
+                    "kind": "RESOURCE",
+                    "stock": 1
+                  },
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": {
+                    "kind": "RESOURCE",
+                    "stock": 0
+                  },
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                }
+              ],
+              [
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": {
+                    "kind": "RESOURCE",
+                    "stock": 1
+                  },
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": {
+                    "kind": "RESOURCE",
+                    "stock": 0
+                  },
+                  "traversal": "FREE"
+                }
+              ],
+              [
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "BLOCKED"
+                }
+              ],
+              [
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                }
+              ],
+              [
+                {
+                  "effect": {
+                    "kind": "RESOURCE",
+                    "stock": 1
+                  },
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": {
+                    "kind": "RESOURCE",
+                    "stock": 1
+                  },
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": {
+                    "kind": "RESOURCE",
+                    "stock": 1
+                  },
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                }
+              ],
+              [
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": {
+                    "kind": "RESOURCE",
+                    "stock": 1
+                  },
+                  "traversal": "FREE"
+                },
+                {
+                  "effect": null,
+                  "traversal": "BLOCKED"
+                },
+                {
+                  "effect": null,
+                  "traversal": "FREE"
+                }
+              ]
+            ],
+            "rng_state": 554160809,
+            "time": 9
+          }
+        },
+        "step_tick": 9
+      },
+      "lifecycle_events": null,
+      "world_rng": null,
+      "world_state": null
+    },
+    "elapsed_ms": 111.6875,
+    "executed": 16,
+    "first_event_sequences": {
+      "continuous": null,
+      "replay": null
+    },
+    "first_feedback_prior": {
+      "continuous": true,
+      "replay": false
+    },
+    "status": "OK",
+    "termination_equal": true
+  },
+  "runtime": {
+    "arch": "x64",
+    "harness_sha256": "b2e90c91196998b998a7b92a0646ec8e2e0a7f9c69d051c29b6163540ec7b0ba",
+    "node": "v24.22.1",
+    "platform": "linux",
+    "protocol_sha256": "cbfc04d3de2bac2446a2d817a86edda0047b51fc0359fafc67e92287c3c7c911",
+    "source_commit": "5d40f08fbb36c5bbe075628a5b9a9078ce9c017c",
+    "utc": "2026-11-25T22:52:41.273Z"
+  },
+  "scope": "One RandomAgent fixture and cut, common engine/differential oracle, same runtime. Portable interface proposed, not implemented.",
+  "source_commit": "5d40f08fbb36c5bbe075628a5b9a9078ce9c017c"
+}

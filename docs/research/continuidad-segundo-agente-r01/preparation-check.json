@@ -1,0 +1,17 @@
+{
+  "utc": "2026-11-25T22:57:52.035458+00:00",
+  "status": "PASS_PREPARATION_ONLY",
+  "checkout_commit": "6fe5cfed6b7ec363ec2f821c14fab768ed83be85",
+  "new_workspace_source_files_verified": 662,
+  "first_prepare_exit": 0,
+  "first_prepare_output": {
+    "status": "PREPARED_NO_EPISODES",
+    "directory": "/tmp/r01-prepare-check-iwf3vuff/workspace",
+    "source_files_verified": 662
+  },
+  "second_prepare_exit": 1,
+  "second_prepare_expected_error": "AssertionError: Refuse to overwrite an existing workspace",
+  "existing_workspace_unchanged": true,
+  "evaluation_or_development_episodes_started": 0,
+  "world_transitions": 0
+}
