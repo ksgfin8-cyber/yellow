@@ -154,4 +154,6 @@ node --max-old-space-size=512 analyze.cjs
 python3 verify.py
 ```
 
+La [prueba posterior del preparador](continuidad-segundo-agente-r01/preparation-check.json) verificó 662 fuentes en un directorio externo nuevo y el rechazo de sobrescritura de ese mismo destino, sin cambiar sus archivos. Inició cero episodios y cero transiciones; la segunda invocación fue una prueba negativa de preparación, no un reintento experimental.
+
 El preparador, incorporado después de los resultados para facilitar recuperación, no modifica el protocolo ni el arnés congelado. Crea una identidad de ejecución nueva y se niega a sobrescribir destinos existentes. La reproducción futura no debe mezclarse con la ejecución original ni presumirse autorizada como campaña. Las rutas locales y hashes de integridad histórica se preservan como procedencia, no como dependencias de almacenamiento permanente.
